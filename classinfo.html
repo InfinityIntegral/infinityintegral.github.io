@@ -207,14 +207,14 @@ function genClassInfo(input) {
 }
 
 
-document.querySelector("style").outerHTML = await getTextFile("style.sg");
-document.querySelector("#header").outerHTML = await getTextFile("header.sg");
-document.querySelector("#notice").outerHTML = await getTextFile("classinfo/classinfo.sg");
-document.querySelector("#footer").outerHTML = await getTextFile("footer.sg");
+document.querySelector("style").outerHTML = await getTextFile("style.html");
+document.querySelector("#header").outerHTML = await getTextFile("header.html");
+document.querySelector("#notice").outerHTML = await getTextFile("classinfo/classinfo.html");
+document.querySelector("#footer").outerHTML = await getTextFile("footer.html");
 
 const params = new URLSearchParams(window.location.search);
 const s = params.get("classname");
-document.querySelector("#contents").outerHTML = genClassInfo(await getTextFile("docs/" + s + ".sgdoc"));
+document.querySelector("#contents").outerHTML = genClassInfo(await getTextFile("docs/" + s + ".html"));
 
 })(); </script>
 </body>

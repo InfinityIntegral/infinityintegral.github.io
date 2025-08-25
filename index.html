@@ -55,11 +55,11 @@ function genSiteMap(input) {
     return output;
 }
 
-document.querySelector("style").outerHTML = await getTextFile("style.sg");
-document.querySelector("#header").outerHTML = await getTextFile("header.sg");
-document.querySelector("#footer").outerHTML = await getTextFile("footer.sg");
-document.querySelector("#contents").outerHTML = await getTextFile("mainpage/mainpage.sg");
-document.querySelector("#sitemap").outerHTML = genSiteMap(await getTextFile("mainpage/sitemap.sg"));
+document.querySelector("style").outerHTML = await getTextFile("style.html");
+document.querySelector("#header").outerHTML = await getTextFile("header.html");
+document.querySelector("#footer").outerHTML = await getTextFile("footer.html");
+document.querySelector("#contents").outerHTML = await getTextFile("mainpage/mainpage.html");
+document.querySelector("#sitemap").outerHTML = genSiteMap(await getTextFile("mainpage/sitemap.html"));
 
 })(); </script>
 </body>
