@@ -1,0 +1,137 @@
+#c SGWInput
+SGWidget interactive text input
+#ic SGEXTN/widgets/noninstantiable/sgwinput.h
+#if SGWWidget
+#d SGWInput is a SGWidget that provides an input field where the user can enter text. Callback functions are triggered when the text is changed, or when the input field gains or loses focus, allowing the user input to be processed. SGWInput has builtin support for SingCorrect, a SGEXTN module that allows users to enter Unicode characters, especially those used in Mathematics, using LaTeX style commands. Since SGWInput needs to intercept user input, it blocks SGWidgets below from receiving input. SGWInput is not directly instantiable and its instances can only be created using the constructors of its subclasses.
+#dt <div id="-w"></div>_w Distance
+The position and size of all SGWidgets are calculated using a <a class="link" href="#-w">_w</a> distance.$A _w distance is made of 2 coordinates, coordinate 1 and coordinate 0, and it is denoted using _w(c1, c0). This is equal to c1 * parent_size + c0 * size_unit pixels, where parent_size is the size of the parent SGWidget and size_unit is 1/24 of the screen width or screen height, whichever is longer.
+#dt <div id="-c"></div> Theme Colours
+SGWidgets follow a set of 9 chosen <a class="link" href="#-c">theme colours</a>. Each of these 9 colours have a index number between 0 and 8 which can be used to refer to them. If you want a SGWidget to have a colour that is not a theme colour, you must set it using a <a class="link" href="./classinfo.html?classname=sgxcolourrgba">SGXColourRGBA</a>. Setting a non theme colour switches the widget to non theme colour mode and ignores previously set theme colours. Setting a theme colour switches the widget to theme colour mode and ignores all previously set non theme colours.
+#f [[nodiscard]] float $getF1() const
+This function gets the 1 coordinate of the font size of text on this SGWInput. Note that the font size is a <a class="link" href="#-w">_w</a> distance.
+#f void $setF1(float f1)
+This function sets the 1 coordinate of the font size of text on this SGWInput. Note that the font size is a <a class="link" href="#-w">_w</a> distance.
+#f [[nodiscard]] float $getF0() const
+This function gets the 0 coordinate of the font size of text on this SGWInput. Note that the font size is a <a class="link" href="#-w">_w</a> distance.
+#f void $setF0(float f0)
+This function sets the 0 coordinate of the font size of text on this SGWInput. Note that the font size is a <a class="link" href="#-w">_w</a> distance.
+#f [[nodiscard]] QString $getTextAsString() const
+This function gets the text currently being displayed by this SGWInput as a string.
+#f [[nodiscard]] int $getTextAsInt(bool* isValid, int minimum, int maximum) const
+This function gets the text currently being displayed by this SGWInput, assuming it is an integer between minimum and maximum. If the text does not represent an integer in the specified range (inclusive), isValid is set to false. Otherwise isValid is set to true. If nullptr is passed to isValid, no check is performed.
+#f [[nodiscard]] float $getTextAsFloat(bool* isValid, float minimum, float maximum) const
+This function gets the text currently being displayed by this SGWInput, assuming it is a number between minimum and maximum. If the text does not represent a number in the specified range (inclusive), isValid is set to false. Otherwise isValid is set to true. If nullptr is passed to isValid, no check is performed.
+#f void $setTextFromString(const QString& s)
+This function sets this SGWInput to display the text passed into the function.
+#f void $setTextFromInt(int x)
+This function sets this SGWInput to display the integer passed into the function.
+#f void $setTextFromFloat(float x)
+This function sets this SGWInput to display the number passed into the function.
+#f [[nodiscard]] QString $getFont() const
+This function gets the font currently being used by this SGWInput. The font is a string representing the font family name.
+#f void $setFont(const QString& font)
+This function sets the font for this SGWInput to use. The font should be a string representing the font family name. You may access builtin fonts using the <a class="link" href="./classinfo.html?classname=sgwdefaultfonts">SGWDefaultFonts</a> class.
+#f [[nodiscard]] SGWHorizontalAlignment::Flag $getHorizontalAlignment() const
+This function gets the horizontal text alignment mode currently being used by this SGWInput. Note that SGWidgets do not use Qt alignment flags. Instead, they use <a class="link" href="./classinfo.html?classname=sgwhorizontalalignment">SGWHorizontalAlignment</a> flags.
+#f void $setHorizontalAlignment(SGWHorizontalAlignment::Flag alignment)
+This function sets the horizontal text alignment mode currently being used by this SGWInput. Note that SGWidgets do not use Qt alignment flags. Instead, they use <a class="link" href="./classinfo.html?classname=sgwhorizontalalignment">SGWHorizontalAlignment</a> flags.
+#f [[nodiscard]] SGWVerticalAlignment::Flag $getVerticalAlignment() const
+This function gets the vertical text alignment mode currently being used by this SGWInput. Note that SGWidgets do not use Qt alignment flags. Instead, they use <a class="link" href="./classinfo.html?classname=sgwverticalalignment">SGWVerticalAlignment</a> flags.
+#f void $setVerticalAlignment(SGWVerticalAlignment::Flag alignment)
+This function sets the vertical text alignment mode currently being used by this SGWInput. Note that SGWidgets do not use Qt alignment flags. Instead, they use <a class="link" href="./classinfo.html?classname=sgwverticalalignment">SGWVerticalAlignment</a> flags.
+#f [[nodiscard]] bool $getInvalid() const
+This function gets if the SGWInput is currently marked as invalid. An input field can be marked as invalid for its colours to look darker and attract more attention when unfocused. This can be used along with a SGWLabel with isWarning set to true in its constructor to indicate that the user input in an input field is invalid and needs attention.
+#f void $setInvalid(bool invalid)
+This function marks a SGWInput as invalid if true is passed and marks it as not invalid if false is passed. An input field can be marked as invalid for its colours to look darker and attract more attention when unfocused. This can be used along with a SGWLabel with isWarning set to true in its constructor to indicate that the user input in an input field is invalid and needs attention.
+#f [[nodiscard]] void (*$getTextChangedFunction() const)(SGWInput*)
+This function gets the callback function that is run when the text in the input field is changed in the form of  a function pointer. A callback function attached to an input field must return void and take as argument a pointer to a SGWInput, which indicates the input field that triggered the callback.
+#f void $setTextChangedFunction(void (*function)(SGWInput*))
+This function sets the callback function that is run when the text in the input field is changed in the form of  a function pointer. A callback function attached to an input field must return void and take as argument a pointer to a SGWInput, which indicates the input field that triggered the callback.
+#f [[nodiscard]] void (*$getFocusStartFunction() const)(SGWInput*)
+This function gets the callback function that is run when the input field gains focus in the form of  a function pointer. A callback function attached to an input field must return void and take as argument a pointer to a SGWInput, which indicates the input field that triggered the callback.
+#f void $setFocusStartFunction(void (*function)(SGWInput*))
+This function sets the callback function that is run when the input field gains focus in the form of  a function pointer. A callback function attached to an input field must return void and take as argument a pointer to a SGWInput, which indicates the input field that triggered the callback.
+#f [[nodiscard]] void (*$getFocusEndFunction() const)(SGWInput*)
+This function gets the callback function that is run when the input field loses focus in the form of  a function pointer. A callback function attached to an input field must return void and take as argument a pointer to a SGWInput, which indicates the input field that triggered the callback.
+#f void $setFocusEndFunction(void (*function)(SGWInput*))
+This function sets the callback function that is run when the input field loses focus in the form of  a function pointer. A callback function attached to an input field must return void and take as argument a pointer to a SGWInput, which indicates the input field that triggered the callback.
+#f [[nodiscard]] int $getBackgroundThemeColour(bool* isUsing) const
+This function gets the <a class="link" href="#-c">theme colour</a> used for the background of this SGWInput. The boolean isUsing is set to true if this SGWInput is in theme colour mode and false if this SGWInput is in non theme colour mode. If nullptr is passed to this function, no mode checking is done.
+#f void $setBackgroundThemeColour(int themeColour)
+This function sets the <a class="link" href="#-c">theme colour</a> used for the background of this SGWInput. It also sets this SGWInput to theme colour mode.
+#f [[nodiscard]] SGXColourRGBA $getBackgroundColour(bool* isUsing) const
+This function sets the colour used for the background of this SGWInput. The boolean isUsing is set to false if this SGWInput is in theme colour mode and true if this SGWInput is in non theme colour mode. If nullptr is passed to this function, no mode checking is done.
+#f void $setBackgroundColour(SGXColourRGBA colour)
+This function sets the colour used for the background of this SGWInput. It also sets this SGWInput to non theme colour mode.
+#f [[nodiscard]] int $getForegroundThemeColour(bool* isUsing) const
+This function gets the <a class="link" href="#-c">theme colour</a> used for the foreground of this SGWInput. The boolean isUsing is set to true if this SGWInput is in theme colour mode and false if this SGWInput is in non theme colour mode. If nullptr is passed to this function, no mode checking is done.
+#f void $setForegroundThemeColour(int themeColour)
+This function sets the <a class="link" href="#-c">theme colour</a> used for the foreground of this SGWInput. It also sets this SGWInput to theme colour mode.
+#f [[nodiscard]] SGXColourRGBA $getForegroundColour(bool* isUsing) const
+This function sets the colour used for the foreground of this SGWInput. The boolean isUsing is set to false if this SGWInput is in theme colour mode and true if this SGWInput is in non theme colour mode. If nullptr is passed to this function, no mode checking is done.
+#f void $setForegroundColour(SGXColourRGBA colour)
+This function sets the colour used for the foreground of this SGWInput. It also sets this SGWInput to non theme colour mode.
+#f [[nodiscard]] int $getBackgroundHoverThemeColour(bool* isUsing) const
+This function gets the <a class="link" href="#-c">theme colour</a> used for the background of this SGWInput when it is being hovered over. The boolean isUsing is set to true if this SGWInput is in theme colour mode and false if this SGWInput is in non theme colour mode. If nullptr is passed to this function, no mode checking is done.
+#f void $setBackgroundHoverThemeColour(int themeColour)
+This function sets the <a class="link" href="#-c">theme colour</a> used for the background of this SGWInput when it is being hovered over. It also sets this SGWInput to theme colour mode.
+#f [[nodiscard]] SGXColourRGBA $getBackgroundHoverColour(bool* isUsing) const
+This function sets the colour used for the background of this SGWInput when it is being hovered over. The boolean isUsing is set to false if this SGWInput is in theme colour mode and true if this SGWInput is in non theme colour mode. If nullptr is passed to this function, no mode checking is done.
+#f void $setBackgroundHoverColour(SGXColourRGBA colour)
+This function sets the colour used for the background of this SGWInput when it is being hovered over. It also sets this SGWInput to non theme colour mode.
+#f [[nodiscard]] int $getForegroundHoverThemeColour(bool* isUsing) const
+This function gets the <a class="link" href="#-c">theme colour</a> used for the foreground of this SGWInput when it is being hovered over. The boolean isUsing is set to true if this SGWInput is in theme colour mode and false if this SGWInput is in non theme colour mode. If nullptr is passed to this function, no mode checking is done.
+#f void $setForegroundHoverThemeColour(int themeColour)
+This function sets the <a class="link" href="#-c">theme colour</a> used for the foreground of this SGWInput when it is being hovered over. It also sets this SGWInput to theme colour mode.
+#f [[nodiscard]] SGXColourRGBA $getForegroundHoverColour(bool* isUsing) const
+This function sets the colour used for the foreground of this SGWInput when it is being hovered over. The boolean isUsing is set to false if this SGWInput is in theme colour mode and true if this SGWInput is in non theme colour mode. If nullptr is passed to this function, no mode checking is done.
+#f void $setForegroundHoverColour(SGXColourRGBA colour)
+This function sets the colour used for the foreground of this SGWInput when it is being hovered over. It also sets this SGWInput to non theme colour mode.
+#f [[nodiscard]] int $getBackgroundFocusThemeColour(bool* isUsing) const
+This function gets the <a class="link" href="#-c">theme colour</a> used for the background of this SGWInput when it is receiving input. The boolean isUsing is set to true if this SGWInput is in theme colour mode and false if this SGWInput is in non theme colour mode. If nullptr is passed to this function, no mode checking is done.
+#f void $setBackgroundFocusThemeColour(int themeColour)
+This function sets the <a class="link" href="#-c">theme colour</a> used for the background of this SGWInput when it is receiving input. It also sets this SGWInput to theme colour mode.
+#f [[nodiscard]] SGXColourRGBA $getBackgroundFocusColour(bool* isUsing) const
+This function sets the colour used for the background of this SGWInput when it is receiving input. The boolean isUsing is set to false if this SGWInput is in theme colour mode and true if this SGWInput is in non theme colour mode. If nullptr is passed to this function, no mode checking is done.
+#f void $setBackgroundFocusColour(SGXColourRGBA colour)
+This function sets the colour used for the background of this SGWInput when it is receiving input. It also sets this SGWInput to non theme colour mode.
+#f [[nodiscard]] int $getForegroundFocusThemeColour(bool* isUsing) const
+This function gets the <a class="link" href="#-c">theme colour</a> used for the foreground of this SGWInput when it is receiving input. The boolean isUsing is set to true if this SGWInput is in theme colour mode and false if this SGWInput is in non theme colour mode. If nullptr is passed to this function, no mode checking is done.
+#f void $setForegroundFocusThemeColour(int themeColour)
+This function sets the <a class="link" href="#-c">theme colour</a> used for the foreground of this SGWInput when it is receiving input. It also sets this SGWInput to theme colour mode.
+#f [[nodiscard]] SGXColourRGBA $getForegroundFocusColour(bool* isUsing) const
+This function sets the colour used for the foreground of this SGWInput when it is receiving input. The boolean isUsing is set to false if this SGWInput is in theme colour mode and true if this SGWInput is in non theme colour mode. If nullptr is passed to this function, no mode checking is done.
+#f void $setForegroundFocusColour(SGXColourRGBA colour)
+This function sets the colour used for the foreground of this SGWInput when it is receiving input. It also sets this SGWInput to non theme colour mode.
+#f [[nodiscard]] int $getBackgroundInvalidThemeColour(bool* isUsing) const
+This function gets the <a class="link" href="#-c">theme colour</a> used for the background of this SGWInput when it is marked as invalid. The boolean isUsing is set to true if this SGWInput is in theme colour mode and false if this SGWInput is in non theme colour mode. If nullptr is passed to this function, no mode checking is done.
+#f void $setBackgroundInvalidThemeColour(int themeColour)
+This function sets the <a class="link" href="#-c">theme colour</a> used for the background of this SGWInput when it is marked as invalid. It also sets this SGWInput to theme colour mode.
+#f [[nodiscard]] SGXColourRGBA $getBackgroundInvalidColour(bool* isUsing) const
+This function sets the colour used for the background of this SGWInput when it is marked as invalid. The boolean isUsing is set to false if this SGWInput is in theme colour mode and true if this SGWInput is in non theme colour mode. If nullptr is passed to this function, no mode checking is done.
+#f void $setBackgroundInvalidColour(SGXColourRGBA colour)
+This function sets the colour used for the background of this SGWInput when it is marked as invalid. It also sets this SGWInput to non theme colour mode.
+#f [[nodiscard]] int $getForegroundInvalidThemeColour(bool* isUsing) const
+This function gets the <a class="link" href="#-c">theme colour</a> used for the foreground of this SGWInput when it is marked as invalid. The boolean isUsing is set to true if this SGWInput is in theme colour mode and false if this SGWInput is in non theme colour mode. If nullptr is passed to this function, no mode checking is done.
+#f void $setForegroundInvalidThemeColour(int themeColour)
+This function sets the <a class="link" href="#-c">theme colour</a> used for the foreground of this SGWInput when it is marked as invalid. It also sets this SGWInput to theme colour mode.
+#f [[nodiscard]] SGXColourRGBA $getForegroundInvalidColour(bool* isUsing) const
+This function sets the colour used for the foreground of this SGWInput when it is marked as invalid. The boolean isUsing is set to false if this SGWInput is in theme colour mode and true if this SGWInput is in non theme colour mode. If nullptr is passed to this function, no mode checking is done.
+#f void $setForegroundInvalidColour(SGXColourRGBA colour)
+This function sets the colour used for the foreground of this SGWInput when it is marked as invalid. It also sets this SGWInput to non theme colour mode.
+#f [[nodiscard]] int $getBackgroundHoverInvalidThemeColour(bool* isUsing) const
+This function gets the <a class="link" href="#-c">theme colour</a> used for the background of this SGWInput when it is being hovered over and marked as invalid. The boolean isUsing is set to true if this SGWInput is in theme colour mode and false if this SGWInput is in non theme colour mode. If nullptr is passed to this function, no mode checking is done.
+#f void $setBackgroundHoverInvalidThemeColour(int themeColour)
+This function sets the <a class="link" href="#-c">theme colour</a> used for the background of this SGWInput when it is being hovered over and marked as invalid. It also sets this SGWInput to theme colour mode.
+#f [[nodiscard]] SGXColourRGBA $getBackgroundHoverInvalidColour(bool* isUsing) const
+This function sets the colour used for the background of this SGWInput when it is being hovered over and marked as invalid. The boolean isUsing is set to false if this SGWInput is in theme colour mode and true if this SGWInput is in non theme colour mode. If nullptr is passed to this function, no mode checking is done.
+#f void $setBackgroundHoverInvalidColour(SGXColourRGBA colour)
+This function sets the colour used for the background of this SGWInput when it is being hovered over and marked as invalid. It also sets this SGWInput to non theme colour mode.
+#f [[nodiscard]] int $getForegroundHoverInvalidThemeColour(bool* isUsing) const
+This function gets the <a class="link" href="#-c">theme colour</a> used for the foreground of this SGWInput when it is being hovered over and marked as invalid. The boolean isUsing is set to true if this SGWInput is in theme colour mode and false if this SGWInput is in non theme colour mode. If nullptr is passed to this function, no mode checking is done.
+#f void $setForegroundHoverInvalidThemeColour(int themeColour)
+This function sets the <a class="link" href="#-c">theme colour</a> used for the foreground of this SGWInput when it is being hovered over and marked as invalid. It also sets this SGWInput to theme colour mode.
+#f [[nodiscard]] SGXColourRGBA $getForegroundHoverInvalidColour(bool* isUsing) const
+This function sets the colour used for the foreground of this SGWInput when it is being hovered over and marked as invalid. The boolean isUsing is set to false if this SGWInput is in theme colour mode and true if this SGWInput is in non theme colour mode. If nullptr is passed to this function, no mode checking is done.
+#f void $setForegroundHoverInvalidColour(SGXColourRGBA colour)
+This function sets the colour used for the foreground of this SGWInput when it is being hovered over and marked as invalid. It also sets this SGWInput to non theme colour mode.

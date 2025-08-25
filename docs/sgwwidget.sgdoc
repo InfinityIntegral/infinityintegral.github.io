@@ -1,0 +1,60 @@
+#c SGWWidget
+base class of all SGWidgets
+#ic SGEXTN/widgets/noninstantiable/sgwwidget.h
+#d SGWWidget is the base class for all SGWidgets. The SGWidget module is builtin to SGEXTN and provides a full GUI toolkit, replacing QWidget and QQuickItem usage entirely. SGWidget uses Qt Quick for rendering, so it is GPU accelerated. SGWidget fully uses imperative UI and you will not need to write a single line of QML / JS code. Note that all SGWidgets are not copyable and should not be stored in variables by value. Instead, you should only store pointers to SGWidgets and you must manage the lifecycle of SGWidgets carefully to avoid crashes caused by dereferencing dangling pointers.
+#dt <div id="-w"></div>_w Distance
+The position and size of all SGWidgets are calculated using a <a class="link" href="#-w">_w</a> distance.$A _w distance is made of 2 coordinates, coordinate 1 and coordinate 0, and it is denoted using _w(c1, c0). This is equal to c1 * parent_size + c0 * size_unit pixels, where parent_size is the size of the parent SGWidget and size_unit is 1/24 of the screen width or screen height, whichever is longer.
+#f [[nodiscard]] SGWType::Type $getType() const
+This function returns the type of this SGWWidget which is a <a class="link" href="./classinfo.html?classname=sgwtype">SGWType</a>. This can be used to conditionally cast the SGWWidget to subclasses. However, you may achieve the same effect but with a slight performance cost if you use qobject_cast and check if the result is nullptr.
+#f [[nodiscard]] SGWWidget* $getParent() const
+This function returns the parent SGWidget of this SGWWidget. The returned SGWidget is both parent of this SGWWidget in terms of visual hierarchy and memory ownership. The parent of SGWidgets cannot be changed after creation.
+#f [[nodiscard]] QVector<SGWWidget*> $getChildren() const
+This function returns the children SGWidgets of this SGWWidget in a vector that you can iterate through. The SGWidgets in the returned vector are children of this SGWWidget both in terms of visual hierarchy and memory ownership.
+#f [[nodiscard]] float $getX1() const
+This function gets the 1 coordinate of the x coordinate of the position of the top left corner of this SGWWidget. Note that the x coordinate is a <a class="link" href="#-w">_w</a> distance.
+#f void $setX1(float x1)
+This function sets the 1 coordinate of the x coordinate of the position of the top left corner of this SGWWidget. Note that the x coordinate is a <a class="link" href="#-w">_w</a> distance.
+#f [[nodiscard]] float $getX0() const
+This function gets the 0 coordinate of the x coordinate of the position of the top left corner of this SGWWidget. Note that the x coordinate is a <a class="link" href="#-w">_w</a> distance.
+#f void $setX0(float x0)
+This function sets the 0 coordinate of the x coordinate of the position of the top left corner of this SGWWidget. Note that the x coordinate is a <a class="link" href="#-w">_w</a> distance.
+#f [[nodiscard]] float $getY1() const
+This function gets the 1 coordinate of the y coordinate of the position of the top left corner of this SGWWidget. Note that the y coordinate is a <a class="link" href="#-w">_w</a> distance.
+#f void $setY1(float y1)
+This function sets the 1 coordinate of the y coordinate of the position of the top left corner of this SGWWidget. Note that the y coordinate is a <a class="link" href="#-w">_w</a> distance.
+#f [[nodiscard]] float $getY0() const
+This function gets the 0 coordinate of the y coordinate of the position of the top left corner of this SGWWidget. Note that the y coordinate is a <a class="link" href="#-w">_w</a> distance.
+#f void $setY0(float y0)
+This function sets the 0 coordinate of the y coordinate of the position of the top left corner of this SGWWidget. Note that the y coordinate is a <a class="link" href="#-w">_w</a> distance.
+#f [[nodiscard]] float $getW1() const
+This function gets the 1 coordinate of the width of this SGWWidget. Note that the width is a <a class="link" href="#-w">_w</a> distance.
+#f void $setW1(float w1)
+This function sets the 1 coordinate of the width of this SGWWidget. Note that the width is a <a class="link" href="#-w">_w</a> distance.
+#f [[nodiscard]] float $getW0() const
+This function gets the 0 coordinate of the width of this SGWWidget. Note that the width is a <a class="link" href="#-w">_w</a> distance.
+#f void $setW0(float w0)
+This function sets the 0 coordinate of the width of this SGWWidget. Note that the width is a <a class="link" href="#-w">_w</a> distance.
+#f [[nodiscard]] float $getH1() const
+This function gets the 1 coordinate of the height of this SGWWidget. Note that the height is a <a class="link" href="#-w">_w</a> distance.
+#f void $setH1(float h1)
+This function sets the 1 coordinate of the height of this SGWWidget. Note that the height is a <a class="link" href="#-w">_w</a> distance.
+#f [[nodiscard]] float $getH0() const
+This function gets the 0 coordinate of the height of this SGWWidget. Note that the height is a <a class="link" href="#-w">_w</a> distance.
+#f void $setH0(float h0)
+This function sets the 0 coordinate of the height of this SGWWidget. Note that the height is a <a class="link" href="#-w">_w</a> distance.
+#f [[nodiscard]] float $getParentW1() const
+This function gets the 1 coordinate of the width of the parent of this SGWWidget. Note that the parent width is a <a class="link" href="#-w">_w</a> distance. The parent width cannot be set using instance methods on this SGWidget, use instance methods on the parent itself instead.
+#f [[nodiscard]] float $getParentW0() const
+This function gets the 0 coordinate of the width of the parent of this SGWWidget. Note that the parent width is a <a class="link" href="#-w">_w</a> distance. The parent width cannot be set using instance methods on this SGWidget, use instance methods on the parent itself instead.
+#f [[nodiscard]] float $getParentH1() const
+This function gets the 1 coordinate of the height of the parent of this SGWWidget. Note that the parent height is a <a class="link" href="#-w">_w</a> distance. The parent height cannot be set using instance methods on this SGWidget, use instance methods on the parent itself instead.
+#f [[nodiscard]] float $getParentH0() const
+This function gets the 0 coordinate of the height of the parent of this SGWWidget. Note that the parent height is a <a class="link" href="#-w">_w</a> distance. The parent height cannot be set using instance methods on this SGWidget, use instance methods on the parent itself instead.
+#sp SGWWidget* $rootWidget
+This static property stores a reference to the root widget, which is the widget directly attached to the application window and provides the background for regions out of the acceptable aspect ratio range.
+#sp SGWWidget* $parentWidget
+This static property stores a reference to the parent widget, which is directly attached to the root widget. All your application UI should be direct or indirect children of the parent widget.
+#f [[nodiscard]] bool $getItemVisibility() const
+This function gets the visibility of this SGWWidget. It returns true if the SGWidget is visible and false otherwise.
+#f void $setItemVisibility(bool x)
+This function sets the visibility of this SGWWidget. Use true when turning on this SGWidget and false when turning it off.

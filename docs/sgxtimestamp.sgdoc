@@ -1,0 +1,90 @@
+#c SGXTimeStamp
+timestamp accurate to 1 second
+#ic SGEXTN/primitives/sgxtimestamp.h
+#d SGXTimeStamp provides a way to represent time accurate to 1 second. Internally, it uses a 64 bit long long to keep track of time, so it will not ever run out or reset until billions of years later. While SGXTimeStamp is designed to replace QDateTime, it uses QDateTime features to perform computations and is compatible with QDateTime. SGXTimeStamp does not support time zones and all computations are done in the Singapore time zone.
+#sp const SGXTimeStamp $zero
+This property represents the start of epoch, or time zero. This corresponds to 19650809 123000, which is the time when PM Lee Kuan Yew announced Singapore's separation from Malaysia. Note that SGXTimeStamp does not follow UNIX epoch.
+#sp const QDateTime $zeroAsQDateTime
+This property represents the start of epoch, or time zero, as a QDateTime. This corresponds to 19650809 123000, which is the time when PM Lee Kuan Yew announced Singapore's separation from Malaysia. Note that SGXTimeStamp does not follow UNIX epoch.
+#f $SGXTimeStamp()
+This is the default constructor for SGXTimeStamp. It does nothing and you should not use it. The only reason why it exists is that you can write = {} to initialise SGXTimeStamp properties in class definitions so that clang-tidy does not complain.
+#f $SGXTimeStamp(int year, int month, int day, int hour, int minute, int second)
+This constructor creates a SGXTimeStamp from its year, month, day, hour, minute, and second. Note that the year is offset so that 1965 (Singapore's independence year) is year 0.
+#f $SGXTimeStamp(const QDateTime& dt)
+This constructor converts a QDateTime to SGXTimeStamp.
+#f [[nodiscard]] QDateTime $getQDateTime() const
+This function converts this SGXTimeStamp to QDateTime.
+#f [[nodiscard]] QString $getString() const
+This function generates a string representation of this SGXTimeStamp in SGyy MMdd hhmmss format. Note that the year is offset so that 1965 (Singapore's independence year) is year 0. An example of this is SG60 0809 072600.
+#f [[nodiscard]] QString $getStringNoOffset() const
+This function generates a string representation of this SGXTimeStamp in yyyyMMdd hhmmss format. Note that the year is not offset. An example of this is 20250809 072600.
+#f [[nodiscard]] QString $getStringCustomFormat(const QString& s) const
+This function generates a string representation of this SGXTimeStamp in custom format. Note that the year is offset so that 1965 (Singapore's independence year) is year 0. Also note that you must use yy instead of yyyy in the string specifying the format, and the string specifying format must start with yy.
+#f [[nodiscard]] QString $getStringNoOffsetCustomFormat(const QString& s) const
+This function generates a string representation of this SGXTimeStamp in custom format. Note that the year is not offset.
+#f [[nodiscard]] float $getSecondsFrom(SGXTimeStamp x) const
+This function computes the number of seconds between x and this SGXTimeStamp. This is positive if x is more this SGXTimeStamp and negative if x is after this SGXTimeStamp.
+#f [[nodiscard]] float $getMinutesFrom(SGXTimeStamp x) const
+This function computes the number of minutes between x and this SGXTimeStamp. This is positive if x is more this SGXTimeStamp and negative if x is after this SGXTimeStamp.
+#f [[nodiscard]] float $getHoursFrom(SGXTimeStamp x) const
+This function computes the number of hours between x and this SGXTimeStamp. This is positive if x is more this SGXTimeStamp and negative if x is after this SGXTimeStamp.
+#f [[nodiscard]] float $getDaysFrom(SGXTimeStamp x) const
+This function computes the number of days between x and this SGXTimeStamp. This is positive if x is more this SGXTimeStamp and negative if x is after this SGXTimeStamp.
+#f [[nodiscard]] float $getMonthsFrom(SGXTimeStamp x) const
+This function computes the number of months between x and this SGXTimeStamp. This is positive if x is more this SGXTimeStamp and negative if x is after this SGXTimeStamp.
+#f [[nodiscard]] float $getYearsFrom(SGXTimeStamp x) const
+This function computes the number of years between x and this SGXTimeStamp. This is positive if x is more this SGXTimeStamp and negative if x is after this SGXTimeStamp.
+#f void $addSeconds(long long x)
+This function adds x seconds to this SGXTimeStamp. This pushes this SGXTimeStamp to a later time.
+#f void $addMinutes(float x)
+This function adds x minutes to this SGXTimeStamp. This pushes this SGXTimeStamp to a later time.
+#f void $addHours(float x)
+This function adds x hours to this SGXTimeStamp. This pushes this SGXTimeStamp to a later time.
+#f void $addDays(float x)
+This function adds x days to this SGXTimeStamp. This pushes this SGXTimeStamp to a later time.
+#f void $addMonths(float x)
+This function adds x months to this SGXTimeStamp. This pushes this SGXTimeStamp to a later time.
+#f void $addYears(float x)
+This function adds x years to this SGXTimeStamp. This pushes this SGXTimeStamp to a later time.
+#f void $subtractSeconds(long long x)
+This function subtracts x seconds from this SGXTimeStamp. This pushes this SGXTimeStamp to an earlier time.
+#f void $subtractMinutes(float x)
+This function subtracts x minutes from this SGXTimeStamp. This pushes this SGXTimeStamp to an earlier time.
+#f void $subtractHours(float x)
+This function subtracts x hours from this SGXTimeStamp. This pushes this SGXTimeStamp to an earlier time.
+#f void $subtractDays(float x)
+This function subtracts x days from this SGXTimeStamp. This pushes this SGXTimeStamp to an earlier time.
+#f void $subtractMonths(float x)
+This function subtracts x months from this SGXTimeStamp. This pushes this SGXTimeStamp to an earlier time.
+#f void $subtractYears(float x)
+This function subtracts x years from this SGXTimeStamp. This pushes this SGXTimeStamp to an earlier time.
+#sf [[nodiscard]] SGXTimeStamp $now()
+This function returns the SGXTimeStamp representing the time at which the function was called. Note that it may not match the system time because SGXTimeStamp automatically converts to Singapore time zone.
+#f [[nodiscard]] int $getDayOfWeek() const
+This function computes the day of the week of this SGXTimeStamp and returns it as in integer. The integer corresponds to the Chinese name of the day (1 = Monday, 2 = Tuesday, 3 = Wednesday, 4 = Thursday, 5 = Friday, 6 = Saturday, 7 = Sunday)
+#f [[nodiscard]] int $getDayOfYear() const
+This function computes the day of the year of this SGXTimeStamp and returns it as an integer between 1 and 365 or 366 (leap years).
+#f [[nodiscard]] int $getSecond() const
+This function computes the second number of this SGXTimeStamp and returns it as an integer between 0 and 59.
+#f [[nodiscard]] int $getMinute() const
+This function computes the minute number of this SGXTimeStamp and returns it as an integer between 0 and 59.
+#f [[nodiscard]] int $getHour() const
+This function computes the hour number of this SGXTimeStamp and returns it as an integer between 0 and 23.
+#f [[nodiscard]] int $getDay() const
+This function computes the day number of this SGXTimeStamp and returns it as an integer between 1 and 28 / 29 / 30 / 31 (depending on month).
+#f [[nodiscard]] int $getMonth() const
+This function computes the month number of this SGXTimeStamp and returns it as an integer between 1 and 12. The integer corresponds to the Chinese name of the month (1 = January, 2 = February, 3 = March, 4 = April, 5 = May, 6 = June, 7 = July, 8 = August, 9 = September, 10 = October, 11 = November, 12 = December)
+#f [[nodiscard]] int $getYear() const
+This function computes the year number of this SGXTimeStamp and returns it as an integer. Note that the year is offset so that 1965 (Singapore's independence year) is year 0.
+#f [[nodiscard]] int $getYearNoOffset() const
+This function computes the year number of this SGXTimeStamp and returns it as an integer. Note that the year number is not offset.
+#f [[nodiscard]] bool $isNationalDayPeriod() const
+This function computes if this SGXTimeStamp is during the National Day period. The National Day period refers to the period defined by the Singapore Government when rules regarding the display of the flag are relaxed. This coincides the time when SGEXTN apps automatically change the theme to For Our Nation.
+#f [[nodiscard]] bool $isNationalDay() const
+This function computes if this SGXTimeStamp is on National Day.
+#f [[nodiscard]] bool $isDayBeforeNationalDay() const
+This function computes if this SGXTimeStamp is on the day before National Day.
+#f [[nodiscard]] bool $isDayAfterNationalDay() const
+This function computes if this SGXTimeStamp is on the day after National Day.
+#f [[nodiscard]] QString $getSpecialDay() const
+This function computes if this SGXTimeStamp is on any special day. A special day refers to a date that follows the standard calendar and is significant to people in Singapore. Dates related to Mathematics, Computer Science, and Science are also included.

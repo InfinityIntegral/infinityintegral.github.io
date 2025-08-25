@@ -1,0 +1,6 @@
+#c SGWSingCorrectCustomisationPage
+class providing access to SingCorrect customisation page
+#ic SGEXTN/SingCorrect/sgwsingcorrectcustomisationpage.h
+#d SGWSingCorrectCustomisationPage provides access to the SingCorrect customisation page builtin to SGEXTN. This allows users to customise SingCorrect settings such as the command prefix or defining custom SingCorrect commands. SingCorrect is a SGEXTN builtin module that replaces SingCorrect commands with Unicode characters, allowing the user to enter symbols used in Mathematics, Computer Science, and Science in general in normal input fields without copy pasting.
+#sf void $activate()
+This function displays the SingCorrect customisation page.

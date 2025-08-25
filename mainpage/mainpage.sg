@@ -1,0 +1,7 @@
+<h1 class="title">What is SGEXTN?</h1>
+<p class="label">&#x9;SGEXTN is a framework built on top of <a class="link" href="https://www.qt.io/">Qt</a> Quick. It provides essential functionality for building apps, such as a colour struct and file system access. The SGWidget module provides a full GUI toolkit to build UI without writing a single line of QML. SGEXTN also does not use signal-slot, instead callback functions are implemented using function pointers.<br>&#x9;Note that documentation is only provided for the latest version. For earlier documentation, pls host the Documentation folder of your release yourself on <a class="link" href="https://www.apachefriends.org/">XAMPP Apache</a>.<br>Below is the full list of all SGEXTN classes with links to their documentation pages.</p>
+<p class="label"><a class="link" href="./setup.html">how to set up SGEXTN</a></p>
+<p class="label"><br></p>
+<div style="width: 100%; height: 0.25em; background-color: var(--c4);"></div>
+<p class="label">list of all classes that you can use inside SGEXTN 5.0.0:</p>
+<p class="label" id="sitemap"></p>

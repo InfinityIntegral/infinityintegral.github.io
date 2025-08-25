@@ -1,0 +1,12 @@
+#c SGWHorizontalAlignment
+horizontal text alignment mode flags for SGWidgets
+#ic SGEXTN/widgets/enums/sgwhorizontalalignment.h
+#d SGWHorizontalAlignment is designed to replace Qt::Alignment and Qt::AlignmentFlag, it controls the horizontal alignment of text in SGWidgets that display text, such as buttons, labels, and input fields. For vertical alignment, see <a class="link" href="./classinfo.html?classname=sgwverticalalignment">SGWVerticalAlignment</a> instead.
+#e Flag
+This is the type of the horizontal text alignment mode flags.
+#ef Left
+This sets text in SGWidgets to align left.
+#ef Center
+This sets text in SGWidgets to align horizontal center.
+#ef Right
+This sets text in SGWidgets to align right.

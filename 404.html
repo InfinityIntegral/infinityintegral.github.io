@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en-SG">
+<head>
+<meta charset="UTF-8">
+<title>Don't have leh</title>
+<style></style>
+</head>
+<body>
+<div id="header"></div>
+<div id="contents"></div>
+<div id="footer"></div>
+<script> (async () => {
+
+// written by ChatGPT
+// std::string getTextFile(const std::string& path)
+async function getTextFile(path) {
+    try {
+        const res = await fetch(path);
+        if (!res.ok) return 'failed to load resources';
+        return await res.text();
+    } catch {
+        return 'failed to load resources';
+    }
+}
+
+document.querySelector("style").outerHTML = await getTextFile("style.sg");
+document.querySelector("#header").outerHTML = await getTextFile("header.sg");
+document.querySelector("#footer").outerHTML = await getTextFile("footer.sg");
+document.querySelector("#contents").outerHTML = await getTextFile("404/404.sg");
+
+})(); </script>
+</body>
+</html>

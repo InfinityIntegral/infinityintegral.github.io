@@ -1,0 +1,73 @@
+/SGEXTN additional primitives
+>
+SGXColourRGBA
+SGXColourHSLA
+SGXIdentifier
+SGXTimeStamp
+SGXVector2
+SGXTouchEvent
+<
+/SGWidget GUI toolkit
+>
+SGWWidget
+>
+SGWBlankWidget
+SGWBackground
+>
+SGWPageBackground
+SGWScrollView
+SGWSequentialScrollView
+<
+SGWLabel
+>
+SGWTextLabel
+SGWIconLabel
+SGWLongLabel
+SGWSequentialLongLabel
+<
+SGWButton
+>
+SGWTextButton
+SGWIconButton
+<
+SGWInput
+>
+SGWTextInput
+SGWLongInput
+<
+SGWTouchReceiver
+SGWCustomRenderer
+SGWColourPickerWidget
+<
+SGWType
+SGWHorizontalAlignment
+SGWVerticalAlignment
+SGWDefaultFonts
+<
+/file system interaction
+>
+SGXFileReader
+SGXFileWriter
+SGXFileSystem
+SGXFileBinUtilities
+SGXFileZip
+SGXFileDownloader
+SGXFileUploader
+<
+/other userful stuff
+>
+SGWNotify
+SGXTimer
+SGXSingCorrectCore
+<
+/builtin customisation pages
+>
+SGWThemeCustomisationPage
+SGWVesicleCustomisationPage
+SGWSingCorrectCustomisationPage
+<
+/implement functions in here as needed
+>
+SGUCentralManagement
+<
+/ 

@@ -1,0 +1,82 @@
+#c SGXVector2
+struct storing a 2D vector
+#ic SGEXTN/primitives/sgxvector2.h
+#d SGXVector2 stores 2 numbers representing the x and y coordinates for a 2 dimensional vector. It also has builtin functions that handle common 2D geometry computations, such as distance between points, and distance from a point to various geometric shapes such as lines and circles. Note that in different contexts, a SGXVector2 can represent both the vector itself and the endpoint of that vector.
+#p float $x
+This property stores the x coordinate of this SGXVector2. It can be read from and set directly without getter and setter functions.
+#p float $y
+This property stores the y coordinate of this SGXVector2. It can be read from and set directly without getter and setter functions.
+#f $SGXVector2()
+This is the default constructor for SGXVector2. It does nothing and you should not use it. The only reason why it exists is so that you can write = {} to initialise SGXVector2 properties in class definition header files and not have clang-tidy complain about it.
+#f $SGXVector2(float x, float y)
+This constructor creates a SGXVector2 from its x and y coordinates.
+#sp const SGXVector2 $origin
+This property stores the origin, or the SGXVector2 (0, 0).
+#f [[nodiscard]] QString $getStringForPrinting() const
+This function generates a string representing this SGXVector2 for display to the user. To write it to file, you are strongly encouraged to use a binary file and write the x and y coordinates using SGXFileWriter::writeFloat(float) instead.
+#f [[nodiscard]] float $getMagnitude() const
+This function computes the magnitude of this SGXVector2.
+#f [[nodiscard]] float $getMagnitudeSquare() const
+This function computes the square of the magnitude of this SGXVector2. This can be used instead of SGXVector2::getMagnitude() when comparing distance as it is faster due to it not involving square root calculation.
+#f void $normalise()
+This function sets the magnitude of this SGXVector2 to 1 while keeping its direction unchanged. This edits the SGXVector2 in place. To keep a copy of the original SGXVector2, copy it to another variable first.
+#f void $normaliseGivenMagnitude(float m)
+This function sets the magnitude of this SGXVector2 to m while keeping its direction unchanged. This edits the SGXVector2 in place. To keep a copy of the original SGXVector2, copy it to another variable first.
+#f [[nodiscard]] float $getDistance(SGXVector2 x) const
+This function computes the distance between this SGXVector2 and x.
+#f [[nodiscard]] float $getDistanceSquare(SGXVector2 x) const
+This function computes the square of the distance between this SGXVector2 and x. This can be used instead of SGXVector2::getDistance(SGXVector2) when comparing distance as it is faster due to it not involving square root calculation.
+#f [[nodiscard]] float $getArgument() const
+This function computes the angle between this SGXVector2 and the positive x direction in degrees.
+#f [[nodiscard]] float $getAngleBetween(SGXVector2 x) const
+This function computes the angle between this SGXVector2 and x. The resulting number is the angle in degrees which this SGXVector2 must rotate counterclockwise to match the direction of x.
+#f void $redirectUsingArgument(float a)
+This function sets the direction of this SGXVector2 to a degrees counterclockwise from the positive x direction while keeping the magnitude unchanged. This edits the SGXVector2 in place. To keep a copy of the original SGXVector2, copy it to another variable first.
+#f void $invert()
+This function inverts this SGXVector2. This is equivalent to rotating it 180 degrees in either direction or multiplying it by -1. This edits the SGXVector2 in place. To keep a copy of the original SGXVector2, copy it to another variable first.
+#f void $rotateClockwise90()
+This function rotates this SGXVector2 by 90 degrees clockwise. This edits the SGXVector2 in place. To keep a copy of the original SGXVector2, copy it to another variable first.
+#f void $rotateCounterclockwise90()
+This function rotates this SGXVector2 by 90 degrees counterclockwise. This edits the SGXVector2 in place. To keep a copy of the original SGXVector2, copy it to another variable first.
+#f void $rotate180()
+This function rotates this SGXVector2 by 180 degrees in either direction. This is equivalent to multiplying this SGXVector2 by -1. This edits the SGXVector2 in place. To keep a copy of the original SGXVector2, copy it to another variable first.
+#f void $rotateClockwise(float a)
+This function rotates this SGXVector2 by a degrees clockwise. This edits the SGXVector2 in place. To keep a copy of the original SGXVector2, copy it to another variable first.
+#f void $rotateCounterclockwise(float a)
+This function rotates this SGXVector2 by a degrees counterclockwise. This edits the SGXVector2 in place. To keep a copy of the original SGXVector2, copy it to another variable first.
+#f [[nodiscard]] bool $isCollinear(SGXVector2 a, SGXVector2 b, float limit = 1.0f) const
+This function checks if this SGXVector2, a, and b are collinear. The limit is an optional parameter with default value 1 representing the maximum permitted angle deviation in degrees.
+#f [[nodiscard]] bool $isParallel(SGXVector2 a2, SGXVector2 b1, SGXVector2 b2, float limit = 1.0f) const
+This function checks if the line formed by joining this SGXVector2 and a2 is parallel with the line formed by joining b1 and b2. The limit is an optional parameter with default value 1 representing the maximum permitted angle deviation in degrees.
+#f [[nodiscard]] bool $isPerpendicular(SGXVector2 a, SGXVector2 b, float limit = 1.0f) const
+This function checks if the line formed by joining this SGXVector2 with a is perpendicular with the line formed by joining this SGXVector2 with b. The limit is an optional parameter with default value 1 representing the maximum permitted angle deviation in degrees.
+#f [[nodiscard]] SGXVector2 $midpoint(SGXVector2 x) const
+This function computes the midpoint between this SGXVector2 and x;
+#f [[nodiscard]] SGXVector2 $linearInterpolate(SGXVector2 x, float f) const
+This function interpolates linearly between this SGXVector2 and x. f is used as the weight of this SGXVector2 and 1 - f is used as the weight of x. You may use a negative value of f or a value of f above 1 to get points not between this SGXVector2 and x.
+#f void $reflectAcrossX()
+This function reflects this SGXVector2 across the x axis. This is equivalent to multiplying its y coordinate by -1. This edits the SGXVector2 in place. To keep a copy of the original SGXVector2, copy it to another variable first.
+#f void $reflectAcrossY()
+This function reflects this SGXVector2 across the y axis. This is equivalent to multiplying its x coordinate by -1. This edits the SGXVector2 in place. To keep a copy of the original SGXVector2, copy it to another variable first.
+#f void $reflectAcrossPoint(SGXVector2 x)
+This function reflects this SGXVector2 across the point x. This edits the SGXVector2 in place. To keep a copy of the original SGXVector2, copy it to another variable first.
+#f void $reflectAcrossLine(float x1, float y1, float x2, float y2)
+This function reflects this SGXVector2 across the line formed by joining (x1, y1) and (x2, y2). This edits the SGXVector2 in place. To keep a copy of the original SGXVector2, copy it to another variable first.
+#f void $projectToX()
+This function projects this SGXVector2 onto the x axis. This is equivalent to setting its y coordinate to 0. This edits the SGXVector2 in place. To keep a copy of the original SGXVector2, copy it to another variable first.
+#f void $projectToY()
+This function projects this SGXVector2 onto the y axis. This is equivalent to setting its x coordinate to 0. This edits the SGXVector2 in place. To keep a copy of the original SGXVector2, copy it to another variable first.
+#f void $projectToLine(float x1, float y1, float x2, float y2)
+This function projects this SGXVector2 onto the line formed by joining (x1, y1) and (x2, y2) This edits the SGXVector2 in place. To keep a copy of the original SGXVector2, copy it to another variable first.
+#f [[nodiscard]] float $getDistanceToLine(float x1, float y1, float x2, float y2) const
+This function computes the distance between this SGXVector2 and the line formed by joining points (x1, y1) and (x2, y2). Note that point to line distance is defined as the distance between the point and its nearest point on the line.
+#f [[nodiscard]] float $getDistanceToSegment(float x1, float y1, float x2, float y2) const
+This function computes the distance between this SGXVector2 and the line segment formed by joining points (x1, y1) and (x2, y2). Note that point to line segment distance is defined as the distance between the point and its nearest point on the line segment.
+#f [[nodiscard]] float $getDistanceToCircle(float a, float b, float r) const
+This function computes the distance between this SGXVector2 and the circle with equation (x - a)² + (y - b)² = r². Note that point to circle distance is defined as the distance between the point and its nearest point on the circle.
+#f [[nodiscard]] SGXVector2 $getNearestPointOnLine(float x1, float y1, float x2, float y2) const
+This function computes the nearest point from this SGXVector2 on the line formed by joining points (x1, y1) and (x2, y2).
+#f [[nodiscard]] SGXVector2 $getNearestPointOnSegment(float x1, float y1, float x2, float y2) const
+This function computes the nearest point from this SGXVector2 on the line segment formed by joining points (x1, y1) and (x2, y2).
+#f [[nodiscard]] SGXVector2 $getNearestPointOnCircle(float a, float b, float r) const
+This function computes the nearest point from this SGXVector2 on the circle with equation (x - a)² + (y - b)² = r².

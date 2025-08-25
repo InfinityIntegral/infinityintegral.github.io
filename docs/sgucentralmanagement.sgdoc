@@ -1,0 +1,22 @@
+#c SGUCentralManagement
+customisation class
+#ic SGEXTN/userDefinedClasses/sgucentralmanagement.h
+#d SGUCentralManagement allows default values in applications to be customised. Editing this file does not count as making changes to SGEXTN and does not trigger the license condition that forces you to open source all your code. Customisation for theme colours and the vesicle animations are supported by changing the values in the file, but these will not be included in the documentation.
+#sf void $initialise()
+This function is run after everything SGEXTN has been initialised. It can be used to create application UI and read back settings from files to use in the application.
+#sf void $terminate()
+This function is run before everything SGEXTN is terminated. It can be used to save user data and settings to file. There is no need to destroy UI pages here if you have parented them to SGWWidget::parentWidget properly.
+#sf void $earlyInitialise()
+This function is run after the file system is created but before the SGWidget system is created. There is no use case designed for this, but maybe someone will find it useful for something.
+#sf void $initialiseExtraFonts()
+This function is run after initialising SGEXTN builtin fonts. It can be used to register other fonts with the Qt font database so that they can be used in your application. However, you should use SingScript.sg unless you have a very specific use case such as support for languages that is not Singlish, English, or Malay. To initialise fonts, use the syntax$QFontDatabase::addApplicationFont("x");$where x is the path to a font file (.ttf, .otf, etc) registered with the Qt assets system.
+#sf void $initialiseCustomRendering()
+This function is run after SGEXTN builtin renderers are initialised. It can be used to register custom renderers so that they could be recognised by QML. To register a render, use the syntax$qmlRegisterType<x>("y", 0, 0, "y");$where x is the type of the QQuickItem subclass used by the renderer and y is the name of the renderer in QML. Note that before using the renderer in QML, you need to write the QML import statement$import y 0.0$where y is the name of the renderer in QML, same one as what you wrote on the C++ side. After that, instances of your renderer can be created as if they are QML builtin elements.
+#sp QString $applicationName
+This property controls the name of the application. It must be set as a static variable before the application runs.
+#sp QString $applicationVersion
+This property controls the version of the application. It must be set as a static variable before the application runs. Note that the version does not need to be a number.
+#sp QString $organisationName
+This property controls the organisation name. It must be set as a static variable before the application runs. This should be the name of your open source organisation or software company.
+#sp QString $rootFolderName
+This property controls the name of the application folder. It must be set as a static variable before the application runs. This should resemble the name of the application but not contain any characters banned in file paths. It should only contain letters and numbers.

@@ -1,0 +1,6 @@
+#c SGXSingCorrectCore
+class providing SingCorrect functionality directly
+#ic SGEXTN/SingCorrect/sgxsingcorrectcore.h
+#d SGXSingCorrectCore provides access to SingCorrect functionality without having to use a SGWidget input field. SingCorrect is a SGEXTN module that automatically replaces SingCorrect commands that users enter in input fields with the corresponding Unicode character. Unicode characters accessible through SingCorrect are guaranteed to be displayable by the SingScript.sg font, because SingCorrect is designed with SingScript compatibility in mind. SingCorrect commands cover a significant subset of LaTeX and includes essentially everything needed in Math Olympiad. In addition to the LaTeX style commands which cover mainly Mathematics and Science, additional custom commands are included to provide all superscripts, subscripts, and OAS bubbles, in addition to control pictures, emojis, and characters used frequently in UI.
+#sf QString $correct(const QString& s)
+This function applies SingCorrect to the input string and returns the resulting string. Note that if the input string contains no SingCorrect commands, no changes will be made. Also note that this is dependent on the SingCorrect prefix chosen by the user.

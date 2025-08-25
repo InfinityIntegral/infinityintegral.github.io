@@ -1,0 +1,6 @@
+#c SGWThemeCustomisationPage
+class providing access to SGEXTN theme customisation page
+#ic SGEXTN/template/sgwthemecustomisationpage.h
+#d SGWThemeCustomisationPage provides access to the theme customisation page builtin to SGEXTN. This allows the user to customise application theme colours.
+#sf void $activate()
+This function displays the theme customisation page.

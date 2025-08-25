@@ -1,0 +1,46 @@
+#c SGWType
+enum used to indicate type of SGWidget
+#ic SGEXTN/widgets/enums/sgwtype.h
+#d SGWType contains an enum used by SGWidgets to store information about their type. The idea behind this initially is that you can cast SGWidgets to their subclasses safely when you can access the type and use static_cast on the pointer. However, clang-tidy will complain about that so you should use qobject_cast instead, which adds a tiny performance cost. You can still use the type information to tell if you can safely cast the SGWidget or not, which is slightly more readable than checking if the result of qobject_cast is nullptr. However, you should know the types of SGWidgets used in your app and should not need to dynamically check their types anyways.
+#e Type
+This is the type of the enum that gives information about the type of a SGWidget.
+#ef BlankWidget
+This type indicates that the SGWidget is of class <a class="link" href="./classinfo.html?classname=sgwblankwidget">SGWBlankWidget</a>.
+#ef PageBackground
+This type indicates that the SGWidget is of class <a class="link" href="./classinfo.html?classname=sgwpagebackground">SGWPageBackground</a>.
+#ef TextLabel
+This type indicates that the SGWidget is of class <a class="link" href="./classinfo.html?classname=sgwtextlabel">SGWTextLabel</a>.
+#ef IconLabel
+This type indicates that the SGWidget is of class <a class="link" href="./classinfo.html?classname=sgwiconlabel">SGWIconLabel</a>.
+#ef LongLabel
+This type indicates that the SGWidget is of class <a class="link" href="./classinfo.html?classname=sgwlonglabel">SGWLongLabel</a>.
+#ef SequentialLongLabel
+This type indicates that the SGWidget is of class <a class="link" href="./classinfo.html?classname=sgwsequentiallonglabel">SGWSequentialLongLabel</a>.
+#ef TextButton
+This type indicates that the SGWidget is of class <a class="link" href="./classinfo.html?classname=sgwtextbutton">SGWTextButton</a>.
+#ef IconButton
+This type indicates that the SGWidget is of class <a class="link" href="./classinfo.html?classname=sgwiconbutton">SGWIconButton</a>.
+#ef TextInput
+This type indicates that the SGWidget is of class <a class="link" href="./classinfo.html?classname=sgwtextinput">SGWTextInput</a>.
+#ef LongInput
+This type indicates that the SGWidget is of class <a class="link" href="./classinfo.html?classname=sgwlonginput">SGWLongInput</a>.
+#ef ScrollView
+This type indicates that the SGWidget is of class <a class="link" href="./classinfo.html?classname=sgwscrollview">SGWScrollView</a>.
+#ef SequentialScrollView
+This type indicates that the SGWidget is of class <a class="link" href="./classinfo.html?classname=sgwsequentialscrollview">SGWSequentialScrollView</a>.
+#ef ColourPicker
+This type indicates that the SGWidget is of class <a class="link" href="./classinfo.html?classname=sgwcolourpickerwidget">SGWColourPickerWidget</a>.
+#ef TouchReceiver
+This type indicates that the SGWidget is of class <a class="link" href="./classinfo.html?classname=sgwtouchreceiver">SGWTouchReceiver</a>.
+#ef CustomRenderer
+This type indicates that the SGWidget is of class <a class="link" href="./classinfo.html?classname=sgwcustomrenderer">SGWCustomRenderer</a>.
+#ef Undefined
+This type should never be seen on any SGWidget. If you see it, it means that there is a bug in the SGEXTN code where the type of a SGWidget is not set. If that is the case, <a class="link" href="./contact.html">contact 05524F</a> immediately to report about the bug.
+#sf bool isBackground(SGWType::Type x)
+This function checks if the SGWidget is a subclass of <a class="link" href="./classinfo.html?classname=sgwbackground">SGWBackground</a>.
+#sf bool isDisplayText(SGWType::Type x)
+This function checks if the SGWidget is a subclass of <a class="link" href="./classinfo.html?classname=sgwlabel">SGWLabel</a>.
+#sf bool isButton(SGWType::Type x)
+This function checks if the SGWidget is a subclass of <a class="link" href="./classinfo.html?classname=sgwbutton">SGWButton</a>.
+#sf bool isInputField(SGWType::Type x)
+This function checks if the SGWidget is a subclass of <a class="link" href="./classinfo.html?classname=sgwinput">SGWInput</a>.

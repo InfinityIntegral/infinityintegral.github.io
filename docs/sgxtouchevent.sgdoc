@@ -1,0 +1,44 @@
+#c SGXTouchEvent
+struct storing a touch event
+#ic SGEXTN/primitives/sgxtouchevent.h
+#d SGXTouchEvent is a class representing finger touches (for touchscreens) or mouse clicks on a surface with detailed touch enabled, such as a <a class="link" href="./classinfo.html?classname=sgwtouchreceiver">SGWTouchReceiver</a>. The SGXTouchEvent is supplied to you using the function bound on the SGWTouchReceiver and you should not be creating instances of this unless simulating user input.
+#dt Touch IDs
+Each SGXTouchEvent has an identifier attached that distinguish which touch it is during touch input processing. However, the identifier is only meaningful on the frame that the touch event was created. On subsequent frames, the same touch may have moved to somewhere else or even have been let go of entirely. Properties of SGXTouchEvent should only be read from and not written to.
+#e TouchPhase
+Each SGXTouchEvent has a phase associated with it which describes the touch event. From the phase, you can tell if the touch event just started, if it is ongoing, or if it has already ended (not pressed).
+#ef TouchStart
+When the phase of a SGXTouchEvent is in TouchStart, it means that the touch event is on its first frame. Before that, the finger associated with the SGXTouchEvent was not in contact with the screen.
+#ef TouchOngoing
+When the phase of a SGXTouchEvent is in TouchOngoing, it means that the touch event already exists on the previous frame and is being moved.
+#ef TouchEnd
+When the phase of a SGXTouchEvent is in TouchEnd, it means that the touch event has already ended. There is no finger associated with the SGXTouchEvent. It is possible that there is nothing on the SGXTouchEvent and it just exists as a placeholder, because <a class="link" href="./classinfo.html?classname=sgwtouchreceiver">SGWTouchReceiver</a> always passes 5 touch events into the handler function even if less than 5 fingers are in contact with the screen.
+#f $SGXTouchEvent()
+This is the default constructor of SGXTouchEvent. It does nothing and you should not use it. The only reason why it exists is so that you can write = {} in class definition header files to initialise SGXTouchEvent variables so clang-tidy would not complain. When storing SGXTouchEvent in variables, make sure that it is updated every frame properly.
+#p float $x
+This property stores the x coordinate in pixels of this SGXTouchEvent. You may use SGWTouchReceiver::getWidth() to retrieve the width of the <a class="link" href="./classinfo.html?classname=sgwtouchreceiver">SGWTouchReceiver</a> where this SGXTouchEvent came from. You should only read directly from this property and not write to it.
+#p float $y
+This property stores the y coordinate in pixels of this SGXTouchEvent. You may use SGWTouchReceiver::getHeight() to retrieve the height of the <a class="link" href="./classinfo.html?classname=sgwtouchreceiver">SGWTouchReceiver</a> where this SGXTouchEvent came from. You should only read directly from this property and not write to it.
+#p SGXTouchEvent::TouchPhase $phase
+This property stores the phase of this SGXTouchEvent. See <a class="link" href="#enumtouchphase">here</a> for more information about touch phases. You should only read directly from this property and not write to it.
+#p int $id
+This property stores the identifier of this SGXTouchEvent. The identifier allows you to keep track of different touch events across frames. You should only read directly from this property and not write to it.
+#p float $differenceX
+This property stores the difference in pixels between the x coordinate of this SGXTouchEvent and that of the same touch event on the previous frame. You should only read directly from this property and not write to it.
+#p float $differenceY
+This property stores the difference in pixels between the y coordinate of this SGXTouchEvent and that of the same touch event on the previous frame. You should only read directly from this property and not write to it.
+#p float $previousX
+This property stores the x coordinate in pixels of the touch event represented by this SGXTouchEvent on the previous frame. You should only read directly from this property and not write to it.
+#p float $previousY
+This property stores the y coordinate in pixels of the touch event represented by this SGXTouchEvent on the previous frame. You should only read directly from this property and not write to it.
+#p float $startX
+This property stores the x coordinate in pixels of the touch event represented by this SGXTouchEvent on the first frame it was registered (when the phase was TouchStart). You should only read directly from this property and not write to it.
+#p float $startY
+This property stores the y coordinate in pixels of the touch event represented by this SGXTouchEvent on the first frame it was registered (when the phase was TouchStart). You should only read directly from this property and not write to it.
+#p float $force
+This property stores the force of this SGXTouchEvent as a number between 0 and 1. You should only read directly from this property and not write to it.
+#p float $velocityX
+This property stores the velocity in pixels per second of this SGXTouchEvent in the x direction. This may not be supported on some hardware and operating systems. You should only read directly from this property and not write to it.
+#p float $velocityY
+This property stores the velocity in pixels per second of this SGXTouchEvent in the y direction. This may not be supported on some hardware and operating systems. You should only read directly from this property and not write to it.
+#p float $radius
+This property stores the radius in pixels of this SGXTouchEvent. You should only read directly from this property and not write to it.
