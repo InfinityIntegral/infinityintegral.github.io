@@ -172,7 +172,7 @@ async function getClassInfoList(input) {
     const reversedList = [];
     let currentClass = input;
     while (currentClass) {  // stops if currentClass is "", null, or undefined
-        const content = await getTextFile(`docs/${currentClass}.html`);
+        const content = await getTextFile(`docs/${toLowerCase(currentClass)}.html`);
         const nextClass = await genClassInfo(content);
         reversedList.push(nextClass);
         currentClass = nextClass.parentName || "";  // fallback to "" if undefined

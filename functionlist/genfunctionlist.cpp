@@ -164,7 +164,7 @@ std::vector<ClassInfo> getClassInfoList(std::string input){
     std::string currentClass = input;
     while(currentClass != ""){
         // next line of code uses getTextFile which is already implemented somewhere else, and it already uses JS async-await syntax
-        ClassInfo nextClass = genClassInfo(await getTextFile("docs/" + currentClass + ".html"));
+        ClassInfo nextClass = genClassInfo(await getTextFile("docs/" + toLowerCase(currentClass) + ".html"));
         reversedList.push_back(nextClass);
         currentClass = nextClass.parentName;
     }
