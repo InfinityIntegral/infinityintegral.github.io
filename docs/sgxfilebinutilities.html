@@ -2,8 +2,8 @@
 collection of functions related to the recycling bin
 #ic SGEXTN/filesystem/sgxfilebinutilities.h
 #d SGXFileBinUtilities is a non instantiable class containing static functions that are related to the file recycling bin builtin to SGEXTN. The recycling bin is used to store deleted user data for a fixed period of time, by default 1000 days, before the data is actually deleted. This allows users to recover deleted data easily if they change their mind and realise that they should not have deleted the file. Only user data should be placed in the recycling bin, apps settings should be deleted permanently and have files regenerated upon updates. Files in the recycling bin are referred to by their identifiers in the form of <a class="link" href="./classinfo.html?classname=sgxidentifier">SGXIdentifier</a>, not by their paths.
-#sp int $deletedFilesLifespan
-This property stores the lifespan of files in the recycling bin in days. By default, the value of this is 1000. You should not write to this directly and instead use the SGXFileBinUtilities::changeFileLifespan(int) function to write to it. It can be read from directly.
+#sp QString $binFilePath
+This property stores the path to the recycling bin. You should use functions provided in this class instead of modifying files there directly.
 #sp QHash&lt;SGXIdentifier, std::tuple&lt;QString, SGXTimeStamp&gt;&gt;* $deletedFiles
 This property stores a pointer to the list of deleted files, which can be iterated through using a const_iterator. The identifier is used to refer to deleted files, equivalent to their paths. The string stored for each file is its file path before deletion, and the timestamp is the time at which the file was deleted.
 #sf int $deleteFile(const QString& s)
@@ -16,5 +16,7 @@ This function attempts to restore the recycling bin file with the specified iden
 This function attempts to permanently delete the recycling bin file with the specified identifier. It returns$-3 if there is no actual recycling bin file with that identifier (this can be caused by the user deleting or renaming recycling bin files)$-2 if a file system error caused the operation to fail$0 if there is no recycling bin entry with the specified identifier$1 if the operation was completed successfully
 #sf void $permanentClearBin()
 This function permanently clears the recycling bin. This deletes all recycling bin files irreversibly and should only be done after repeated confirmation with the user.
-#sf void $changeFileLifespan(int x)
-This function changes the lifespan of recycling bin files in days to x. This means that x days after a file was moved to the recycling bin, it would be deleted permanently. For most applications, the lifespan is 30 days. However, for SGEXTN, the lifespan is 1000 days by default.
+#sf int $getLifespan()
+This function gets the current lifespan of recycling bin files in days. After the lifespan of a file has passed since it was moved to the recycling bin, it would be deleted permanently. For most applications, the lifespan is 30 days. However, for SGEXTN, the lifespan is 1000 days by default.
+#sf void $setLifespan(int x)
+This function sets the current lifespan of recycling bin files in days. After the lifespan of a file has passed since it was moved to the recycling bin, it would be deleted permanently. For most applications, the lifespan is 30 days. However, for SGEXTN, the lifespan is 1000 days by default.

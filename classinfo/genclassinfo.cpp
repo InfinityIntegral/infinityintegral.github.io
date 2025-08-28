@@ -23,35 +23,6 @@ std::string toLowerCase(std::string s){
     return output;
 }
 
-bool compareObj(std::string a, std::string b){
-    std::string sa = "";
-    std::string sb = "";
-    bool started = false;
-    for(int i=0; i<a.length(); i++){
-        if(a[i] == "_" || (a[i] >= 'a' && a[i] <= 'z') || (a[i] >= 'A' && a[i] <= 'Z') || (a[i] >= '0' && a[i] <= '9')){
-            if(started == true){sa += a[i];}
-        }
-        else if(a[i] == '$'){started = true;}
-        else{break;}
-    }
-    started = false;
-    for(int i=0; i<b.length(); i++){
-        if(b[i] == "_" || (b[i] >= 'a' && b[i] <= 'z') || (b[i] >= 'A' && b[i] <= 'Z') || (a[i] >= '0' && a[i] <= '9')){
-            if(started == true){sb += b[i];}
-        }
-        else if(b[i] == '$'){started = true;}
-        else{break;}
-    }
-    if(started == false){return (a < b);}
-    return sa < sb;
-}
-
-struct StringComparator{
-    bool operator()(const std::string& a, const std::string& b) const {
-        return compareObj(a, b);
-    }
-};
-
 void splitObj(std::string a, std::string& o1, std::string& o2, std::string& o3){
     int started = 0;
     o1 = "";
@@ -98,8 +69,8 @@ std::string toHtmlTag(std::string s){
     return output;
 }
 
-void addObjList(const std::map<std::string, std::string, compareObj>& x, std::string& s){
-    for(std::map<std::string, std::string, compareObj>::const_iterator i = x.begin(); i != x.end(); i++){
+void addObjList(const std::map<std::string, std::string>& x, std::string& s){
+    for(std::map<std::string, std::string>::const_iterator i = x.begin(); i != x.end(); i++){
         std::string s1;
         std::string s2;
         std::string s3;
@@ -112,8 +83,8 @@ void addObjList(const std::map<std::string, std::string, compareObj>& x, std::st
     }
 }
 
-void addObjFull(const std::map<std::string, std::string, compareObj>& x, std::string& s){
-    for(std::map<std::string, std::string, compareObj>::const_iterator i = x.begin(); i != x.end(); i++){
+void addObjFull(const std::map<std::string, std::string>& x, std::string& s){
+    for(std::map<std::string, std::string>::const_iterator i = x.begin(); i != x.end(); i++){
         std::string s1;
         std::string s2;
         std::string s3;
@@ -135,16 +106,16 @@ std::string genClassInfo(std::string input){
     std::vector<std::string> childrenClasses;
     std::pair<std::string, std::string> enumName;
     std::string enumDescription;
-    std::map<std::string, std::string, StringComparator> enumFlags;
-    std::map<std::string, std::string, StringComparator> memberProperties;
-    std::map<std::string, std::string, StringComparator> memberFunctions;
-    std::map<std::string, std::string, StringComparator> staticProperties;
-    std::map<std::string, std::string, StringComparator> staticFunctions;
-    std::map<std::string, std::string, StringComparator> memberReimplemented;
-    std::map<std::string, std::string, StringComparator> staticReimplemented;
+    std::map<std::string, std::string> enumFlags;
+    std::map<std::string, std::string> memberProperties;
+    std::map<std::string, std::string> memberFunctions;
+    std::map<std::string, std::string> staticProperties;
+    std::map<std::string, std::string> staticFunctions;
+    std::map<std::string, std::string> memberReimplemented;
+    std::map<std::string, std::string> staticReimplemented;
     std::string laterDescription;
-    std::map<std::string, std::string, StringComparator> detailedDescription;
-    
+    std::map<std::string, std::string> detailedDescription;
+
     std::stringstream stream(input);
     std::string s;
     while(std::getline(stream, s)){
@@ -165,6 +136,7 @@ std::string genClassInfo(std::string input){
             className = value;
             std::getline(stream, sd);
             classDescription = sd;
+            document.title = (value + " docs");
         }
         else if(type == "ic"){include = value;}
         else if(type == "if"){parentClass = value;}
@@ -208,7 +180,7 @@ std::string genClassInfo(std::string input){
         }
         else{return ("invalid type: " + type);}
     }
-    
+
     std::string output = "";
     output += ("<h1 class=\"title\">" + className + "</h1>\n");
     output += ("<p class=\"label\">" + formatDescription(classDescription) + "</p>\n");
@@ -222,79 +194,80 @@ std::string genClassInfo(std::string input){
         }
     }
     output += "<p class=\"label\">&#x9;<a class=\"link\" href=\"#moreinfo\">More information...</a></p>";
+    output += "<p class=\"label\">&#x9;<a class=\"link\" href=\"./functionlist.html?classname=" + toLowerCase(className) + "\">List of all including inherited members</a></p>";
     output += "<p class=\"label\">&nbsp;</p>";
-    
+
     if(enumName != ""){
         output += "<div style=\"width: 100%; height: 0.25em; background-color: var(--c4);\"></div>\n";
         output += "<h2 class=\"halftitle\">Attached Enum</h2>\n";
         output += ("<p class=\"label\">&#x9;enum <a class=\"link\" href=\"#enum" + toLowerCase(enumName) + "\">" +  enumName + "</a></p>\n");
-        for(std::map<std::string, std::string, StringComparator>::const_iterator i = enumFlags.begin(); i != enumFlags.end(); i++){
+        for(std::map<std::string, std::string>::const_iterator i = enumFlags.begin(); i != enumFlags.end(); i++){
             output += ("<p class=\"label\">&#x9;&#x9;<a class=\"link\" href=\"#flag" + toLowerCase((*i).first) + "\">" + (*i).first + "</a></p>\n");
         }
         output += "<p class=\"label\">&#x9;</p>";
     }
-    
+
     if(memberProperties.size() > 0){
         output += "<div style=\"width: 100%; height: 0.25em; background-color: var(--c4);\"></div>\n";
         output += "<h2 class=\"halftitle\">Instance Properties</h2>\n";
         addObjList(memberProperties, output);
         output += "<p class=\"label\">&nbsp;</p>";
     }
-    
+
     if(memberFunctions.size() > 0){
         output += "<div style=\"width: 100%; height: 0.25em; background-color: var(--c4);\"></div>\n";
         output += "<h2 class=\"halftitle\">Instance Methods</h2>\n";
         addObjList(memberFunctions, output);
         output += "<p class=\"label\">&nbsp;</p>";
     }
-    
+
     if(memberReimplemented.size() > 0){
         output += "<div style=\"width: 100%; height: 0.25em; background-color: var(--c4);\"></div>\n";
         output += "<h2 class=\"halftitle\">Reimplemented Instance Methods</h2>\n";
         addObjList(memberReimplemented, output);
         output += "<p class=\"label\">&nbsp;</p>";
     }
-    
+
     if(staticProperties.size() > 0){
         output += "<div style=\"width: 100%; height: 0.25em; background-color: var(--c4);\"></div>\n";
         output += "<h2 class=\"halftitle\">Static Properties</h2>\n";
         addObjList(staticProperties, output);
         output += "<p class=\"label\">&nbsp;</p>";
     }
-    
+
     if(staticFunctions.size() > 0){
         output += "<div style=\"width: 100%; height: 0.25em; background-color: var(--c4);\"></div>\n";
         output += "<h2 class=\"halftitle\">Static Methods</h2>\n";
         addObjList(staticFunctions, output);
         output += "<p class=\"label\">&nbsp;</p>";
     }
-    
+
     if(staticReimplemented.size() > 0){
         output += "<div style=\"width: 100%; height: 0.25em; background-color: var(--c4);\"></div>\n";
         output += "<h2 class=\"halftitle\">Reimplemented Static Methods</h2>\n";
         addObjList(staticReimplemented, output);
         output += "<p class=\"label\">&nbsp;</p>";
     }
-    
+
     output += "<div style=\"width: 100%; height: 0.25em; background-color: var(--c4);\"></div>\n";
     output += "<h2 class=\"halftitle\" id=\"moreinfo\">Detailed Description</h2>\n";
     output += ("<p class=\"label\">" + formatDescription(laterDescription) + "</p>\n");
-    for(std::map<std::string, std::string, compareObj>::const_iterator i = detailedDescription.begin(); i != detailedDescription.end(); i++){
+    for(std::map<std::string, std::string>::const_iterator i = detailedDescription.begin(); i != detailedDescription.end(); i++){
         output += ("<h2 class=\"halftitle\">" + (*i).first + "</h2>\n");
         output += ("<p class=\"label\">" + formatDescription((*i).second) + "</p>\n");
     }
     output += "<p class=\"label\">&nbsp;</p>";
     output += "<div style=\"width: 100%; height: 0.25em; background-color: var(--c4);\"></div>\n";
-    
+
     if(enumName != ""){
         output += ("<h2 class=\"halftitle\" id=\"enum" + toLowerCase(enumName) + "\"><a class=\"link\" href=\"#enum" + toLowerCase(enumName) + "\">" + enumName + "</a></h2>\n");
         output += ("<p class=\"label\">" + formatDescription(enumDescription) + "<br>&nbsp;</p>\n");
-        for(std::map<std::string, std::string, StringComparator>::const_iterator i = enumFlags.begin(); i != enumFlags.end(); i++){
+        for(std::map<std::string, std::string>::const_iterator i = enumFlags.begin(); i != enumFlags.end(); i++){
             output += ("<h2 class=\"halftitle\" id=\"flag" + toLowerCase((*i).first) + "\">" + enumName + " <a class=\"link\" href=\"#flag" + toLowerCase((*i).first) + "\">" + (*i).first + "</a></h2>\n");
             output += ("<p class=\"label\">" + formatDescription((*i).second) + "<br>&nbsp;</p>\n");
         }
     }
-    
+
     addObjFull(memberProperties, output);
     addObjFull(memberFunctions, output);
     addObjFull(memberReimplemented, output);

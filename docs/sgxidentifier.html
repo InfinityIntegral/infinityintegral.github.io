@@ -10,8 +10,8 @@ This property defines the null identifier, which is an identifier with all its b
 This is the default constructor of SGXIdentifier. You should not use it and it does nothing. The only reason why it exists is so that you can write = {} to initialise SGXIdentifier member properties in class definition headers and that stops clang-tidy from complaining.
 #f $SGXIdentifier(bool ifValid)
 This is the constructor to generate a new random SGXIdentifier. If ifValid is set to true, the generated constructor is guaranteed to have not been registered.
-#f $SGXIdentifier(const QString& s, bool ifValid, int& errCode)
-This constructor generates a SGXIdentifier from its string representation passed in by s. The variable errCode is passed in by reference so that it may be modified to give information about the generated identifier. If ifValid is set to true, the constructor checks if the identifier has already been registered and sets errCode to 1 if the identifier has already been registered. If the string s is not a valid representation of an identifier or if it represents the null identifier, errCode is set to 2.
+#f $SGXIdentifier(const QString& s, bool ifValid, int* errCode)
+This constructor generates a SGXIdentifier from its string representation passed in by s. The variable errCode is passed in by pointer so that it may be modified to give information about the generated identifier. If ifValid is set to true, the constructor checks if the identifier has already been registered and sets errCode to 1 if the identifier has already been registered. If the string s is not a valid representation of an identifier or if it represents the null identifier, errCode is set to 2. Otherwise, errCode is set to 0. If nullptr is passed as errCode, no error checking is done.
 #f [[nodiscard]] int $registerIdentifier() const
 This function registers this SGXIdentifier. If it is already registered, the function returns 1. Otherwise, it registers the identifier and returns 0.
 #f [[nodiscard]] int $unregisterIdentifier() const
@@ -19,4 +19,4 @@ This function unregisters (undo registration) this SGXIdentifier. If it was neve
 #f [[nodiscard]] bool $exists() const
 This function checks if this identifier has already been registered. It returns true if the identifier is already registered and false otherwise.
 #f [[nodiscard]] QString $getStringForPrinting() const
-This function generates the string representation of this SGXIdentifier. The string identifier can be used for display to the user. For writing to a file, you are strongly encouraged to use a binary file format and use SGXFileWriter::writeGUID(SGXIdentifier) to write the identifier.
+This function generates the string representation of this SGXIdentifier. The string identifier can be used for display to the user. For writing to a file, you are strongly encouraged to use a binary file format and use SGXFile::writeGUID(SGXIdentifier) to write the identifier.

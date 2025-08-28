@@ -13,7 +13,7 @@ This constructor creates a SGXVector2 from its x and y coordinates.
 #sp const SGXVector2 $origin
 This property stores the origin, or the SGXVector2 (0, 0).
 #f [[nodiscard]] QString $getStringForPrinting() const
-This function generates a string representing this SGXVector2 for display to the user. To write it to file, you are strongly encouraged to use a binary file and write the x and y coordinates using SGXFileWriter::writeFloat(float) instead.
+This function generates a string representing this SGXVector2 for display to the user. To write it to file, you are strongly encouraged to use a binary file and write the x and y coordinates using SGXFile::writeFloat(float) instead.
 #f [[nodiscard]] float $getMagnitude() const
 This function computes the magnitude of this SGXVector2.
 #f [[nodiscard]] float $getMagnitudeSquare() const
@@ -60,23 +60,27 @@ This function reflects this SGXVector2 across the x axis. This is equivalent to 
 This function reflects this SGXVector2 across the y axis. This is equivalent to multiplying its x coordinate by -1. This edits the SGXVector2 in place. To keep a copy of the original SGXVector2, copy it to another variable first.
 #f void $reflectAcrossPoint(SGXVector2 x)
 This function reflects this SGXVector2 across the point x. This edits the SGXVector2 in place. To keep a copy of the original SGXVector2, copy it to another variable first.
-#f void $reflectAcrossLine(float x1, float y1, float x2, float y2)
-This function reflects this SGXVector2 across the line formed by joining (x1, y1) and (x2, y2). This edits the SGXVector2 in place. To keep a copy of the original SGXVector2, copy it to another variable first.
+#f void $reflectAcrossLine(SGXVector2 a, SGXVector2 b)
+This function reflects this SGXVector2 across the line formed by joining a and b. This edits the SGXVector2 in place. To keep a copy of the original SGXVector2, copy it to another variable first.
 #f void $projectToX()
 This function projects this SGXVector2 onto the x axis. This is equivalent to setting its y coordinate to 0. This edits the SGXVector2 in place. To keep a copy of the original SGXVector2, copy it to another variable first.
 #f void $projectToY()
 This function projects this SGXVector2 onto the y axis. This is equivalent to setting its x coordinate to 0. This edits the SGXVector2 in place. To keep a copy of the original SGXVector2, copy it to another variable first.
-#f void $projectToLine(float x1, float y1, float x2, float y2)
-This function projects this SGXVector2 onto the line formed by joining (x1, y1) and (x2, y2) This edits the SGXVector2 in place. To keep a copy of the original SGXVector2, copy it to another variable first.
-#f [[nodiscard]] float $getDistanceToLine(float x1, float y1, float x2, float y2) const
-This function computes the distance between this SGXVector2 and the line formed by joining points (x1, y1) and (x2, y2). Note that point to line distance is defined as the distance between the point and its nearest point on the line.
-#f [[nodiscard]] float $getDistanceToSegment(float x1, float y1, float x2, float y2) const
-This function computes the distance between this SGXVector2 and the line segment formed by joining points (x1, y1) and (x2, y2). Note that point to line segment distance is defined as the distance between the point and its nearest point on the line segment.
+#f void $projectToLine(SGXVector2 a, SGXVector2 b)
+This function projects this SGXVector2 onto the line formed by joining a and b. This edits the SGXVector2 in place. To keep a copy of the original SGXVector2, copy it to another variable first.
+#f [[nodiscard]] float $getDistanceToLine(SGXVector2 a, SGXVector2 b) const
+This function computes the distance between this SGXVector2 and the line formed by joining points a and b. Note that point to line distance is defined as the distance between the point and its nearest point on the line.
+#f [[nodiscard]] float $getDistanceToSegment(SGXVector2 a, SGXVector2 b) const
+This function computes the distance between this SGXVector2 and the line segment formed by joining points a and b. Note that point to line segment distance is defined as the distance between the point and its nearest point on the line segment.
 #f [[nodiscard]] float $getDistanceToCircle(float a, float b, float r) const
 This function computes the distance between this SGXVector2 and the circle with equation (x - a)² + (y - b)² = r². Note that point to circle distance is defined as the distance between the point and its nearest point on the circle.
-#f [[nodiscard]] SGXVector2 $getNearestPointOnLine(float x1, float y1, float x2, float y2) const
-This function computes the nearest point from this SGXVector2 on the line formed by joining points (x1, y1) and (x2, y2).
-#f [[nodiscard]] SGXVector2 $getNearestPointOnSegment(float x1, float y1, float x2, float y2) const
-This function computes the nearest point from this SGXVector2 on the line segment formed by joining points (x1, y1) and (x2, y2).
+#f [[nodiscard]] SGXVector2 $getNearestPointOnLine(SGXVector2 a, SGXVector2 b) const
+This function computes the nearest point from this SGXVector2 on the line formed by joining points a and b.
+#f [[nodiscard]] SGXVector2 $getNearestPointOnSegment(SGXVector2 a, SGXVector2 b) const
+This function computes the nearest point from this SGXVector2 on the line segment formed by joining points a and b.
 #f [[nodiscard]] SGXVector2 $getNearestPointOnCircle(float a, float b, float r) const
 This function computes the nearest point from this SGXVector2 on the circle with equation (x - a)² + (y - b)² = r².
+#f [[nodiscard]] float $dotProduct(SGXVector2 x) const
+This function computes the dot product between this SGXVector2 and x. This is positive if x is in the same direction as this SGXVector2, zero if the vectors are perpendicular, and negative if x is in the opposite direction as this SGXVector2. Note that here same direction and opposite direction means that the projection of x onto this SGXVector2 is in the same or opposite direction, not that the vectors are aligned.
+#f [[nodiscard]] float $crossProduct(SGXVector2 x) const
+This function computes the cross product between this SGXVector2 and x. Consider attempting to get this SGXVector2 to align with x by rotating in the plane where they exist. The cross product is positive if you need to rotate counterclockwise, zero if the vectors are already aligned, and negative if you need to rotate clockwise. Note that for the visualisation to be correct, you must look from above the plane, not below the plane.

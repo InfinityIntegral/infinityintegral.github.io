@@ -126,7 +126,7 @@ function genClassInfo(input) {
         let type = s.substring(1, spaceIdx);
         let value = s.substring(spaceIdx + 1);
 
-        if (type === "c") { className = value; classDescription = lines[++idx]; }
+        if (type === "c") { className = value; classDescription = lines[++idx]; document.title = (value + " docs"); }
         else if (type === "ic") include = value;
         else if (type === "if") parentClass = value;
         else if (type === "it") childrenClasses.push(value);
@@ -147,7 +147,7 @@ function genClassInfo(input) {
     output.value += `<h1 class="title">${className}</h1>\n`;
     output.value += `<p class="label">${formatDescription(classDescription)}</p>\n`;
     output.value += `<p class="label">&nbsp;<br>&#x9;header: #include" ${include}"</p>\n`;
-    output.value += parentClass ? 
+    output.value += parentClass ?
         `<p class="label">&#x9;inherits: <a class="link" href="./classinfo.html?classname=${toLowerCase(parentClass)}">${parentClass}</a></p>\n` :
         `<p class="label">&#x9;inherits: none</p>\n`;
 
@@ -158,6 +158,7 @@ function genClassInfo(input) {
     }
 
     output.value += `<p class="label">&#x9;<a class="link" href="#moreinfo">More information...</a></p>`;
+    output.value += `<p class="label">&#x9;<a class="link" href="./functionlist.html?classname=${toLowerCase(className)}">List of all including inherited members</a></p>`;
     output.value += `<p class="label">&nbsp;</p>`;
 
     if (enumName) {
@@ -215,6 +216,12 @@ document.querySelector("#footer").outerHTML = await getTextFile("footer.html");
 const params = new URLSearchParams(window.location.search);
 const s = params.get("classname");
 document.querySelector("#contents").outerHTML = genClassInfo(await getTextFile("docs/" + s + ".html"));
+
+const fragment = window.location.hash;
+if (fragment) {
+    const el = document.querySelector(fragment);
+    if (el) el.scrollIntoView();
+}
 
 })(); </script>
 </body>

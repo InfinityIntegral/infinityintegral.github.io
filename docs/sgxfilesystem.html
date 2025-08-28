@@ -4,8 +4,6 @@ collection of functions to interact with the file system
 #d SGXFileSystem is a non instantiable class containing static functions that interact with the file system. The functions can be used to create, delete, rename, or list files and folders. Note that these functions are extremely limited when attempting to modify the file system outside the dedicated folders for configurations and for user data. This is intentional for cross platform support to comply with app sandboxing policy on mobile operating systems.&Files and folders are always referred to by their absolute paths. SGEXTN APIs do not support accessing files and folders using relative paths or using QFile and QDir objects. Many functions in this class return error codes depending on the status of the operation. For important operations such as saving user data, you should handle all error codes appropriately. You should also use atomic saving of user data to ensure that data is not lost in the event of file system errors or operating system instability.
 #sp QString $userDataFilePath
 This property stores the path to the folder for storing user data. Files created in the application (notes for note taking apps, project files for image editing apps, etc) should be put here. App settings should be stored in the configs folder instead.
-#sp QString $binFilePath
-This property stores the path to the recycling bin. You should use functions provided in <a class="link" href="./classinfo.html?classname=sgxfilebinutilities">SGXFileBinUtilities</a> instead of modifying files there directly.
 #sp QString $configFilePath
 This property stores the path to the configs folder. App settings should be stored here. User data should be placed in the dedicated user data folder. You are strongly encouraged to use the extension .sg for configuration files, so that your app is literally "powered by Singapore".
 #sf QString $joinFilePaths(const QString& a, const QString& b)
@@ -14,67 +12,65 @@ This function joins the file paths a and b. The string b should be the name of a
 This function encodes the passed string with base16 encoding, which only uses lowercase letters from a to p. This makes the string suitable for use in file names, even on case sensitive operating systems such as Windows.
 #sf QString $decodeBase16(const QString& str)
 This function decodes a string encoded using base16 encoding. This can be done to reverse encoding applied to make strings safe for file names.
-#sf bool $pathIsValid(const QString& s)
-This function checks if a file path is valid. A file path is only considered valid if it is$- the user data folder$- the configs folder$- a subfolder of one of these folders$Do not attempt to use invalid file paths in any way because SGEXTN file system APIs actively reject these paths. This is to comply with app sandboxing policy on mobile operating systems, and to keep user data easily accessible to the user.
 #sf bool $pathIsSubfolder(const QString& childPath, const QString& parentPath)
 This function checks if childPath is a subfolder of parentPath or a file contained in parentPath or one of its subfolders.
 #sf int $fileExists(const QString& s)
-This function checks if a file exists at the passed file path. This returns$-1 if the path is invalid$0 if there is no file at the path$1 if a file exists at the path
+This function checks if a file exists at the passed file path. This returns$0 if there is no file at the path$1 if a file exists at the path
 #sf int $folderExists(const QString& s)
-This function checks if a folder exists at the passed file path. This returns$-1 if the path is invalid$0 if there is no folder at the path$1 if a folder exists at the path
+This function checks if a folder exists at the passed file path. This returns$0 if there is no folder at the path$1 if a folder exists at the path
 #sf QString $getFreePath(const QString& prefix, const QString& unencodedName, const QString& postfix)
-This function gets the next available path for a file in the parent folder prefix, with name as unencodedName, and extension as postfix. If the path is already taken by another file, numbers are added behind the unencoded name. This should be used every time when you want to use$SGXFileSystem::joinFilePaths(prefix, SGXFileSystem::encodeBase16(unencodedName) + postfix)$An empty string is returned if the prefix is an invalid file path to prevent an infinite loop from occurring.
+This function gets the next available path for a file in the parent folder prefix, with name as unencodedName, and extension as postfix. If the path is already taken by another file, numbers are added behind the unencoded name. This should be used every time when you want to use$SGXFileSystem::joinFilePaths(prefix, SGXFileSystem::encodeBase16(unencodedName) + postfix)
 #sf int $createFile(const QString& s)
-This function attempts to create an empty binary file at the specified file path. It returns$-2 if a file system error caused file creation to fail$-1 if the file path is invalid$0 if a file already exists at that path$1 if the file was created successfully
+This function attempts to create an empty binary file at the specified file path. It returns$-2 if a file system error caused file creation to fail$0 if a file already exists at that path$1 if the file was created successfully
 #sf int $createFolder(const QString& s)
-This function attempts to create an empty folder at the specified path. It returns$-2 if a file system error caused folder creation to fail$-1 if the file path was invalid$0 if a folder already exists at that path$1 if the folder was created successfully
+This function attempts to create an empty folder at the specified path. It returns$-2 if a file system error caused folder creation to fail$0 if a folder already exists at that path$1 if the folder was created successfully
 #sf QString $getParentPath(const QString& s)
-This function gets the path to the parent folder of the specified file path. It returns an empty string if the file path is invalid.
+This function gets the path to the parent folder of the specified file path.
 #sf QString $getParentName(const QString& s)
-This function gets the name of the parent folder of the specified file path. It returns an empty string if the file path is invalid.
+This function gets the name of the parent folder of the specified file path.
 #sf QVector&lt;QString&gt; $getFilesList(const QString& s)
-This function gets the list of files directly contained in the specified folder. It returns an empty list if the folder path is invalid.
+This function gets the list of files directly contained in the specified folder. If the specified folder does not exist, an empty list is returned.
 #sf QVector&lt;QString&gt; $getFilesListRecursive(const QString& s)
-This function gets the list of files contained in the specified folder and all of its subfolders recursively. It returns an empty list if the folder path is invalid.
+This function gets the list of files contained in the specified folder and all of its subfolders recursively. If the specified folder does not exist, an empty list is returned.
 #sf QVector&lt;QString&gt; $getFoldersList(const QString& s)
-This function gets the list of folders directly contained in the specified folder. It returns an empty list if the folder path is invalid.
+This function gets the list of folders directly contained in the specified folder. If the specified folder does not exist, an empty list is returned.
 #sf int $moveFile(const QString& startPath, const QString& endPath)
-This function attempts to move the file at startPath to endPath. It returns$-2 if a file system error caused the operation to fail$-1 if either or both of the paths are invalid$0 if there is no file at startPath or if there is already a file at endPath$1 if the operation was completed successfully$This can be used to rename files.
+This function attempts to move the file at startPath to endPath. It returns$-2 if a file system error caused the operation to fail$0 if there is no file at startPath or if there is already a file at endPath$1 if the operation was completed successfully$This can be used to rename files.
 #sf int $moveFolder(const QString& startPath, const QString& endPath)
-This function attempts to move the folder at startPath to endPath, including all of its subfolders recursively and all files contained in them. It returns$-2 if a file system error caused the operation to fail$-1 if either or both of the paths are invalid$0 if there is no folder at startPath or if there is already a folder at endPath$1 if the operation was completed successfully$This can be used to rename folders.
+This function attempts to move the folder at startPath to endPath, including all of its subfolders recursively and all files contained in them. It returns$-2 if a file system error caused the operation to fail$0 if there is no folder at startPath or if there is already a folder at endPath$1 if the operation was completed successfully$This can be used to rename folders.
 #sf int $duplicateFile(const QString& startPath, const QString& endPath)
-This function attempts to copy the file at startPath to endPath. It returns$-2 if a file system error caused the operation to fail$-1 if either or both of the paths are invalid$0 if there is no file at startPath or if there is already a file at endPath$1 if the operation was completed successfully
+This function attempts to copy the file at startPath to endPath. It returns$-2 if a file system error caused the operation to fail$0 if there is no file at startPath or if there is already a file at endPath$1 if the operation was completed successfully
 #sf int $duplicateFolder(const QString& startPath, const QString& endPath)
-This function attempts to copy the folder at startPath to endPath, including all of its subfolders recursively and all files contained in them. It returns$-2 if a file system error caused the operation to fail$-1 if either or both of the paths are invalid$0 if there is no folder at startPath or if there is already a folder at endPath$1 if the operation was completed successfully
+This function attempts to copy the folder at startPath to endPath, including all of its subfolders recursively and all files contained in them. It returns$-2 if a file system error caused the operation to fail$0 if there is no folder at startPath or if there is already a folder at endPath$1 if the operation was completed successfully
 #sf int $permanentDeleteFile(const QString& s)
-This function attempts to permanently delete a file at the specified path without going through recycling bin. For the purpose of preventing loss of user data, this can only be done on settings files in the config folder and will fail on anything in the user data folder. All deletion of user data must go through the recycling bin. This returns$-3 if the file is in the user data folder$-2 if a file system error caused the operation to fail$-1 if the file path is invalid$0 if there is no file at the specified path$1 if the operation was completed successfully
+This function attempts to permanently delete a file at the specified path without going through recycling bin. For the purpose of preventing loss of user data, this can only be done on settings files in the config folder and will fail on anything in the user data folder. All deletion of user data must go through the recycling bin. This returns$-3 if the file is in the user data folder$-2 if a file system error caused the operation to fail$0 if there is no file at the specified path$1 if the operation was completed successfully
 #sf int $permanentDeleteFolder(const QString& s)
-This function attempts to permanently delete a folder at the specified path, including all of its subfolders recursively and all files contained in them, without going through recycling bin. For the purpose of preventing loss of user data, this can only be done on subfolders of the config folder and will fail on anything in the user data folder. All deletion of user data must go through the recycling bin. This returns$-3 if the folder is in the user data folder$-2 if a file system error caused the operation to fail$-1 if the folder path is invalid$0 if there is no folder at the specified path$1 if the operation was completed successfully
+This function attempts to permanently delete a folder at the specified path, including all of its subfolders recursively and all files contained in them, without going through recycling bin. For the purpose of preventing loss of user data, this can only be done on subfolders of the config folder and will fail on anything in the user data folder. All deletion of user data must go through the recycling bin. This returns$-3 if the folder is in the user data folder$-2 if a file system error caused the operation to fail$0 if there is no folder at the specified path$1 if the operation was completed successfully
 #sf long long $getFileSize(const QString& s)
-This function gets the size of the file at the specified path in number of bytes. This returns -1 if the path is invalid or if there is no file at the path.
+This function gets the size of the file at the specified path in number of bytes. This returns -1 if there is no file at the path.
 #sf long long $getFolderSize(const QString& s)
-This function gets the size of the folder at the specified path in number of bytes. This returns -1 if the path is invalid or if there is no folder at the path. Folder size is calculated by adding up the size of all files contained in itself and its subfolders recursively.
+This function gets the size of the folder at the specified path in number of bytes. This returns -1 if there is no folder at the path. Folder size is calculated by adding up the size of all files contained in itself and its subfolders recursively.
 #sf SGXTimeStamp $getFileCreationTime(const QString& s)
-This function gets the time at which the file at the specified path was created. If the path is invalid or there is no file at the path, the start of epoch (19650809 123000) is returned.
+This function gets the time at which the file at the specified path was created. If there is no file at the path, the start of epoch (19650809 123000) is returned.
 #sf SGXTimeStamp $getFolderCreationTime(const QString& s)
-This function gets the time at which the folder at the specified path was created. If the path is invalid or there is no folder at the path or the operating system does not support checking folder creation time, the start of epoch (19650809 123000) is returned.
+This function gets the time at which the folder at the specified path was created. If there is no folder at the path or the operating system does not support checking folder creation time, the start of epoch (19650809 123000) is returned.
 #sf SGXTimeStamp $getFileLastEditTime(const QString& s)
-This function gets the time at which the file at the specified path was last edited. If the path is invalid or there is no file at the path, the start of epoch (19650809 123000) is returned. A file being edited refers to it being opened in write or readwrite mode.
+This function gets the time at which the file at the specified path was last edited. If there is no file at the path, the start of epoch (19650809 123000) is returned. A file being edited refers to it being opened in write or readwrite mode.
 #sf SGXTimeStamp $getFolderLastEditTime(const QString& s)
-This function gets the time at which the folder at the specified path was last edited. If the path is invalid or there is no folder at the path, the start of epoch (19650809 123000) is returned. A folder being edited refers to any file contained in itself or its subfolders recursively being edited.
+This function gets the time at which the folder at the specified path was last edited. If there is no folder at the path, the start of epoch (19650809 123000) is returned. A folder being edited refers to any file contained in itself or its subfolders recursively being edited.
 #sf QString $getFolderName(const QString& s)
-This function gets the name of a folder from its path. It returns an empty string if the path is invalid or there is no folder at the path.
+This function gets the name of a folder from its path.
 #sf QString $getFileName(const QString& s)
-This function gets the name of a file from its path. It returns an empty string if the path is invalid or there is no file at the path.
+This function gets the name of a file from its path.
 #sf QString $getFileExtension(const QString& s)
-This function gets the extension of a file from its path. It returns an empty string if the path is invalid or there is no file at the path.
+This function gets the extension of a file from its path.
 #sf QString $getFileNameNoExtension(const QString& s)
-This function gets the name of a file from its path with the file extension removed. It returns an empty string if the path is invalid or there is no file at the path.
+This function gets the name of a file from its path with the file extension removed.
 #sf QVector&lt;QString&gt; $getFilesListWithExtension(const QString& s, const QString& ext)
-This function gets a list of all files with the extension ext contained by the folder at path s. If the path s is invalid or if there is no folder there, an empty list is returned.
+This function gets a list of all files with the extension ext contained by the folder at path s. If there is no folder at s, an empty list is returned.
 #sf QVector&lt;QString&gt; $getFilesListWithExtensionRecursive(const QString& s, const QString& ext)
-This function gets a list of all files with the extension ext contained by the folder at path s or any of its subfolders recursively. If the path s is invalid or if there is no folder there, an empty list is returned.
+This function gets a list of all files with the extension ext contained by the folder at path s or any of its subfolders recursively. If there is no folder at s, an empty list is returned.
 #sf QVector&lt;QString&gt; $getFilesListContainingName(const QString& s, const QString& name)
-This function gets a list of all files with the string name in their names contained by the folder at path s. If the path s is invalid or if there is no folder there, an empty list is returned. This logic still works if file names have been encoded in base16, but you would have to pass the parameter name after encoding it in base16 first.
+This function gets a list of all files with the string name in their names contained by the folder at path s. If there is no folder at s, an empty list is returned. This logic still works if file names have been encoded in base16, but you would have to pass the parameter name after encoding it in base16 first.
 #sf QVector&lt;QString&gt; $getFilesListContainingNameRecursive(const QString& s, const QString& name)
-This function gets a list of all files with the string name in their names contained by the folder at path s or any of its subfolders recursively. If the path s is invalid or if there is no folder there, an empty list is returned. This logic still works if file names have been encoded in base16, but you would have to pass the parameter name after encoding it in base16 first.
+This function gets a list of all files with the string name in their names contained by the folder at path s or any of its subfolders recursively. If there is no folder at s, an empty list is returned. This logic still works if file names have been encoded in base16, but you would have to pass the parameter name after encoding it in base16 first.
