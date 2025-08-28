@@ -1,0 +1,3 @@
+User-agent: *
+Disallow:
+Sitemap: https://infinityintegral.github.io/NODELETE/sitemap.xml
