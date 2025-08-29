@@ -1,0 +1,211 @@
+
+<!DOCTYPE html>
+<html lang="en-SG">
+<head>
+<meta charset="UTF-8">
+<title>SGWTouchReceiver Docs</title>
+
+<link rel="icon" href="icon.png" type="image/png">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+
+@font-face {
+	font-family: "SingScript.sg";
+	src: url("/SingScript.sg")format("truetype");
+	font-weight: normal;
+	font-style: normal;
+}
+
+:root {
+	--c0: rgb(0, 0, 0);
+	--c1: rgb(64, 0, 50);
+	--c2: rgb(128, 0, 100);
+	--c3: rgb(191, 0, 150);
+	--c4: rgb(255, 0, 200);
+	--c5: rgb(255, 64, 214);
+	--c6: rgb(255, 128, 227);
+	--c7: rgb(255, 191, 241);
+	--c8: rgb(255, 255, 255);
+}
+
+*{
+        font-family: "SingScript.sg";
+	max-width: 100%;
+	word-break: break-word;
+	-webkit-text-size-adjust: 100%;
+	-ms-text-size-adjust: 100%;
+}
+
+.title {
+	color: var(--c4);
+	background-color: var(--c8);
+	font-size: 3.5rem;
+	margin: 0;
+	font-weight: normal;
+}
+.title::selection {
+	color: var(--c8);
+	background-color: var(--c4);
+	font-size: 3.5rem;
+	margin: 0;
+	font-weight: normal;
+}
+
+.halftitle {
+	color: var(--c4);
+	background-color: var(--c8);
+	font-size: 2.5rem;
+	margin: 0;
+	font-weight: normal;
+}
+.halftitle::selection {
+	color: var(--c8);
+	background-color: var(--c4);
+	font-size: 2.625rem;
+	margin: 0;
+	font-weight: normal;
+}
+
+.label {
+	color: var(--c4);
+	background-color: var(--c8);
+	font-size: 1.75rem;
+	margin: 0;
+	white-space: pre-wrap;
+}
+.label::selection {
+	color: var(--c8);
+	background-color: var(--c4);
+	font-size: 1.75rem;
+	margin: 0;
+	white-space: pre-wrap;
+}
+
+.link {
+	color: var(--c2);
+	background-color: var(--c8);
+	text-decoration: underline;
+}
+.link:hover {
+	color: var(--c2);
+	background-color: var(--c7);
+	text-decoration: underline;
+}
+.link:active {
+	color: var(--c2);
+	background-color: var(--c6);
+	text-decoration: underline;
+}
+.link::selection {
+	color: var(--c8);
+	background-color: var(--c4);
+	text-decoration: underline;
+}
+
+.button {
+	color: var(--c8);
+	background-color: var(--c4);
+	font-size: 1.75rem;
+	border: none;
+}
+.button:hover {
+	color: var(--c7);
+	background-color: var(--c3);
+	font-size: 1.75rem;
+	border: none;
+}
+.button:active {
+	color: var(--c6);
+	background-color: var(--c2);
+	font-size: 1.75rem;
+	border: none;
+}
+.button::selection {
+	color: var(--c4);
+	background-color: var(--c8);
+	font-size: 1.75rem;
+	border: none;
+}
+
+.input {
+	color: var(--c8);
+	background-color: var(--c4);
+	font-size: 1.75rem;
+	border: none;
+	outline: none;
+	text-align: center;
+}
+.input:hover {
+	color: var(--c7);
+	background-color: var(--c3);
+	font-size: 1.75rem;
+	border: none;
+	outline: none;
+	text-align: center;
+}
+.input:focus {
+	color: var(--c6);
+	background-color: var(--c2);
+	font-size: 1.75rem;
+	border: none;
+	outline: none;
+	text-align: center;
+}
+.input::selection {
+	color: var(--c4);
+	background-color: var(--c8);
+	font-size: 1.75rem;
+	border: none;
+	outline: none;
+	text-align: center;
+}
+
+</style>
+
+</head>
+<body>
+
+<div>
+<button class="button" style="width: 100%;" onclick="location.href='/'">
+<img src="https://raw.githubusercontent.com/InfinityIntegral/InfinityIntegral/main/flagemoji.png" style="vertical-align: middle; height: 1.5rem; image-rendering: auto;"> SGEXTN Documentation <img src="https://raw.githubusercontent.com/InfinityIntegral/InfinityIntegral/main/flagemoji.png" style="vertical-align: middle; height: 1.5rem; image-rendering: auto;">
+</button>
+</div>
+<h1 class="title">SGWTouchReceiver</h1>
+<p class="label">&#x9;SGWidget for precise touch input</p>
+<p class="label">&nbsp;<br>&#x9;header: #include" SGEXTN/widgets/instantiable/sgwtouchreceiver.h"</p>
+<p class="label">&#x9;inherits: <a class="link" href="/classinfo/sgwwidget">SGWWidget</a></p>
+<p class="label">&#x9;<a class="link" href="#moreinfo">More information...</a></p><p class="label">&#x9;<a class="link" href="/functionlist/sgwtouchreceiver">List of all including inherited members</a></p><p class="label">&nbsp;</p><div style="width: 100%; height: 0.25em; background-color: var(--c4);"></div>
+<h2 class="halftitle">Instance Properties</h2>
+<p class="label">&#x9;void (*<a class="link" href="#void-function-sgwtouchreceiver-const-std-array-sgxtouchevent-5-">function</a>)(SGWTouchReceiver*, const std::array<SGXTouchEvent, 5>&)</p>
+<p class="label">&nbsp;</p><div style="width: 100%; height: 0.25em; background-color: var(--c4);"></div>
+<h2 class="halftitle">Instance Methods</h2>
+<p class="label">&#x9;<a class="link" href="#-sgwtouchreceiver-sgwwidget-parent-void-function-sgwtouchreceiver-const-std-array-sgxtouchevent-5-float-x1-float-x0-float-y1-float-y0-float-w1-float-w0-float-h1-float-h0-">SGWTouchReceiver</a>(SGWWidget* parent, void (*function)(SGWTouchReceiver*, const std::array<SGXTouchEvent, 5>&), float x1, float x0, float y1, float y0, float w1, float w0, float h1, float h0)</p>
+<p class="label">&#x9;[[nodiscard]] float <a class="link" href="#-nodiscard-float-getwidth-const">getWidth</a>() const</p>
+<p class="label">&#x9;[[nodiscard]] float <a class="link" href="#-nodiscard-float-getheight-const">getHeight</a>() const</p>
+<p class="label">&nbsp;</p><div style="width: 100%; height: 0.25em; background-color: var(--c4);"></div>
+<h2 class="halftitle" id="moreinfo">Detailed Description</h2>
+<p class="label">&#x9;SGWTouchReceiver is a SGWidget that allows user input in the form of touch events to be interpreted precisely. SGWidget buttons and input fields are interactive, so they can be clicked, but they do not provie information on where exactly the click happened. SGWTouchReceiver provides information about up to 5 touch events, each accurate to the nearest pixel (not counting hardware limitations). SGWTouchReceiver can be used for complex touch interactions or be overlaid on top of a renderer for touch interactions such as the ones used in the SGEXTN builtin colour picker. SGWTouchReceiver itself does not perform rendering, it is always fully transparent, and it is designed to be overlaid on top of a custom renderer. Since SGWTouchReceiver must intercept touch events, it blocks SGWidgets below from receiving user input. However, it being transparent makes it appears to the user that the SGWidget below (typically a custom renderer) is the one accepting the input. The callback function is triggered upon any change in the touch inputs currently being detected, and the callback is responsible for interpreting the touch event data to decide the action that should be done.</p>
+<h2 class="halftitle"><div id="-w"></div>_w Distance</h2>
+<p class="label">&#x9;The position and size of all SGWidgets are calculated using a <a class="link" href="#-w">_w</a> distance.<br>&#x9;A _w distance is made of 2 coordinates, coordinate 1 and coordinate 0, and it is denoted using _w(c1, c0). This is equal to c1 * parent_size + c0 * size_unit pixels, where parent_size is the size of the parent SGWidget and size_unit is 1/24 of the screen width or screen height, whichever is longer.</p>
+<p class="label">&nbsp;</p><div style="width: 100%; height: 0.25em; background-color: var(--c4);"></div>
+<h2 class="halftitle" id="void-function-sgwtouchreceiver-const-std-array-sgxtouchevent-5-">&#x9;void (*<a class="link" href="#void-function-sgwtouchreceiver-const-std-array-sgxtouchevent-5-">function</a>)(SGWTouchReceiver*, const std::array<SGXTouchEvent, 5>&)</h2>
+<p class="label">&#x9;This is the function pointer storing the callback function associated with this SGWTouchReceiver. The callback function is triggered whenever any change in the touch event information is detected. For example, when a finger starts or stops touching the screen, or when a finger currently in contact with the screen moves, the callback function is run. The callback function should return void and take as input a pointer to a SGWTouchReceiver and an array of 5 <a class="link" href="/classinfo/sgxtouchevent">SGXTouchEvent</a> passed by constant reference. The pointer to SGWTouchReceiver provides information about which touch receiver triggered the function, which can be helpful when there are multiple copies of the same UI element.<br>&#x9;The array of touch events provides information about the touch events being received. When less than 5 touch points are present, the unused points display their phase as having ended. When more than 5 touch points are present, the extra ones are lost, but any gesture requiring more than 5 fingers is bad UI anyways. Information about the touch points are provided using pixel as a unit of distance. For more information, see <a class="link" href="/classinfo/sgxtouchevent">SGXTouchEvent</a>. The callback function can store information about the touch event data elsewhere in memory to interpret the touch events, and call other functions to handle various gestures. Note that gestures should use as less fingers as possible, preferably 1, for compatibility with non touchscreen devices and small screens. Gestures using too many fingers can be intercepted by the system, such as 4 finger swipe on iOS.<br>&#x9;This property can be read from and written to directly. Remember that SGEXTN, including the SGWidget module, does not follow Object-Oriented Programming concepts of abstraction and encapsulation. The only reason why SGWidget appears to follow these is because properties often need to be updated on the QML side also, and using a getter and a setter removes the need for the developer to deal with QML.<br>&nbsp;</p>
+<h2 class="halftitle" id="-sgwtouchreceiver-sgwwidget-parent-void-function-sgwtouchreceiver-const-std-array-sgxtouchevent-5-float-x1-float-x0-float-y1-float-y0-float-w1-float-w0-float-h1-float-h0-">&#x9;<a class="link" href="#-sgwtouchreceiver-sgwwidget-parent-void-function-sgwtouchreceiver-const-std-array-sgxtouchevent-5-float-x1-float-x0-float-y1-float-y0-float-w1-float-w0-float-h1-float-h0-">SGWTouchReceiver</a>(SGWWidget* parent, void (*function)(SGWTouchReceiver*, const std::array<SGXTouchEvent, 5>&), float x1, float x0, float y1, float y0, float w1, float w0, float h1, float h0)</h2>
+<p class="label">&#x9;This constructor for SGWTouchReceiver creates a SGWTouchReceiver and places it onto the screen.<br>&#x9;parent: pointer to parent SGWidget<br>&#x9;function: callback function attached to the touch receiver called whenever there is any change in the touch data received in the form of a function pointer, the callback function should return void and take as input a pointer to a SGWTouchReceiver which provides information about which touch receiver triggered the callback, and an array of 5 touch events which contain the actual data<br>&#x9;x1: 1 coordinate of x coordinate (which is a <a class="link" href="#-w">_w</a> distance) of position<br>&#x9;x0: 0 coordinate of x coordinate (which is a <a class="link" href="#-w">_w</a> distance) of position<br>&#x9;y1: 1 coordinate of y coordinate (which is a <a class="link" href="#-w">_w</a> distance) of position<br>&#x9;y0: 0 coordinate of y coordinate (which is a <a class="link" href="#-w">_w</a> distance) of position<br>&#x9;w1: 1 coordinate of width (which is a <a class="link" href="#-w">_w</a> distance)<br>&#x9;w0: 0 coordinate of width (which is a <a class="link" href="#-w">_w</a> distance)<br>&#x9;h1: 1 coordinate of height (which is a <a class="link" href="#-w">_w</a> distance)<br>&#x9;h0: 0 coordinate of height (which is a <a class="link" href="#-w">_w</a> distance)<br>&nbsp;</p>
+<h2 class="halftitle" id="-nodiscard-float-getwidth-const">&#x9;[[nodiscard]] float <a class="link" href="#-nodiscard-float-getwidth-const">getWidth</a>() const</h2>
+<p class="label">&#x9;This function gets the width of this SGWTouchReceiver in pixels. This can be used in the callback function as it receives touch event information in the form of pixels.<br>&nbsp;</p>
+<h2 class="halftitle" id="-nodiscard-float-getheight-const">&#x9;[[nodiscard]] float <a class="link" href="#-nodiscard-float-getheight-const">getHeight</a>() const</h2>
+<p class="label">&#x9;This function gets the height of this SGWTouchReceiver in pixels. This can be used in the callback function as it receives touch event information in the form of pixels.<br>&nbsp;</p>
+
+<div style="width: 100%; height: 0.25em; background-color: var(--c4);"></div>
+<p class="label">&#x9;Only properties, functions, and classes intended for public use have documentation. Your code autocompletion tool may provide suggestions that are not documented. You are discouraged from using these undocumented properties, functions, and classes unless you have read the source code and understand what they do.<br>&#x9;All information on this documentation page are only valid for SGEXTN version 5.1.0, future versions may have new features added or removed. For documentation of past versions, pls see the documentation bundled with the release.<br>&nbsp;</p>
+
+<div>
+<div style="width: 100%; height: 0.25em; background-color: var(--c4);"></div>
+<p class="label">©2025 05524F.sg (Singapore)</p>
+<p class="label"><a class="link" href="/contact">report a bug in SGEXTN or contact 05524F</a></p>
+<div style="width: 100%; height: 0.25em; background-color: var(--c4);"></div>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,322 @@
+
+<!DOCTYPE html>
+<html lang="en-SG">
+<head>
+<meta charset="UTF-8">
+<title>SGXVector2 Docs</title>
+
+<link rel="icon" href="icon.png" type="image/png">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+
+@font-face {
+	font-family: "SingScript.sg";
+	src: url("/SingScript.sg")format("truetype");
+	font-weight: normal;
+	font-style: normal;
+}
+
+:root {
+	--c0: rgb(0, 0, 0);
+	--c1: rgb(64, 0, 50);
+	--c2: rgb(128, 0, 100);
+	--c3: rgb(191, 0, 150);
+	--c4: rgb(255, 0, 200);
+	--c5: rgb(255, 64, 214);
+	--c6: rgb(255, 128, 227);
+	--c7: rgb(255, 191, 241);
+	--c8: rgb(255, 255, 255);
+}
+
+*{
+        font-family: "SingScript.sg";
+	max-width: 100%;
+	word-break: break-word;
+	-webkit-text-size-adjust: 100%;
+	-ms-text-size-adjust: 100%;
+}
+
+.title {
+	color: var(--c4);
+	background-color: var(--c8);
+	font-size: 3.5rem;
+	margin: 0;
+	font-weight: normal;
+}
+.title::selection {
+	color: var(--c8);
+	background-color: var(--c4);
+	font-size: 3.5rem;
+	margin: 0;
+	font-weight: normal;
+}
+
+.halftitle {
+	color: var(--c4);
+	background-color: var(--c8);
+	font-size: 2.5rem;
+	margin: 0;
+	font-weight: normal;
+}
+.halftitle::selection {
+	color: var(--c8);
+	background-color: var(--c4);
+	font-size: 2.625rem;
+	margin: 0;
+	font-weight: normal;
+}
+
+.label {
+	color: var(--c4);
+	background-color: var(--c8);
+	font-size: 1.75rem;
+	margin: 0;
+	white-space: pre-wrap;
+}
+.label::selection {
+	color: var(--c8);
+	background-color: var(--c4);
+	font-size: 1.75rem;
+	margin: 0;
+	white-space: pre-wrap;
+}
+
+.link {
+	color: var(--c2);
+	background-color: var(--c8);
+	text-decoration: underline;
+}
+.link:hover {
+	color: var(--c2);
+	background-color: var(--c7);
+	text-decoration: underline;
+}
+.link:active {
+	color: var(--c2);
+	background-color: var(--c6);
+	text-decoration: underline;
+}
+.link::selection {
+	color: var(--c8);
+	background-color: var(--c4);
+	text-decoration: underline;
+}
+
+.button {
+	color: var(--c8);
+	background-color: var(--c4);
+	font-size: 1.75rem;
+	border: none;
+}
+.button:hover {
+	color: var(--c7);
+	background-color: var(--c3);
+	font-size: 1.75rem;
+	border: none;
+}
+.button:active {
+	color: var(--c6);
+	background-color: var(--c2);
+	font-size: 1.75rem;
+	border: none;
+}
+.button::selection {
+	color: var(--c4);
+	background-color: var(--c8);
+	font-size: 1.75rem;
+	border: none;
+}
+
+.input {
+	color: var(--c8);
+	background-color: var(--c4);
+	font-size: 1.75rem;
+	border: none;
+	outline: none;
+	text-align: center;
+}
+.input:hover {
+	color: var(--c7);
+	background-color: var(--c3);
+	font-size: 1.75rem;
+	border: none;
+	outline: none;
+	text-align: center;
+}
+.input:focus {
+	color: var(--c6);
+	background-color: var(--c2);
+	font-size: 1.75rem;
+	border: none;
+	outline: none;
+	text-align: center;
+}
+.input::selection {
+	color: var(--c4);
+	background-color: var(--c8);
+	font-size: 1.75rem;
+	border: none;
+	outline: none;
+	text-align: center;
+}
+
+</style>
+
+</head>
+<body>
+
+<div>
+<button class="button" style="width: 100%;" onclick="location.href='/'">
+<img src="https://raw.githubusercontent.com/InfinityIntegral/InfinityIntegral/main/flagemoji.png" style="vertical-align: middle; height: 1.5rem; image-rendering: auto;"> SGEXTN Documentation <img src="https://raw.githubusercontent.com/InfinityIntegral/InfinityIntegral/main/flagemoji.png" style="vertical-align: middle; height: 1.5rem; image-rendering: auto;">
+</button>
+</div>
+<h1 class="title">SGXVector2</h1>
+<p class="label">&#x9;struct storing a 2D vector</p>
+<p class="label">&nbsp;<br>&#x9;header: #include" SGEXTN/primitives/sgxvector2.h"</p>
+<p class="label">&#x9;inherits: none</p>
+<p class="label">&#x9;<a class="link" href="#moreinfo">More information...</a></p><p class="label">&#x9;<a class="link" href="/functionlist/sgxvector2">List of all including inherited members</a></p><p class="label">&nbsp;</p><div style="width: 100%; height: 0.25em; background-color: var(--c4);"></div>
+<h2 class="halftitle">Instance Properties</h2>
+<p class="label">&#x9;float <a class="link" href="#float-x">x</a></p>
+<p class="label">&#x9;float <a class="link" href="#float-y">y</a></p>
+<p class="label">&nbsp;</p><div style="width: 100%; height: 0.25em; background-color: var(--c4);"></div>
+<h2 class="halftitle">Instance Methods</h2>
+<p class="label">&#x9;<a class="link" href="#-sgxvector2-">SGXVector2</a>()</p>
+<p class="label">&#x9;<a class="link" href="#-sgxvector2-float-x-float-y-">SGXVector2</a>(float x, float y)</p>
+<p class="label">&#x9;[[nodiscard]] QString <a class="link" href="#-nodiscard-qstring-getstringforprinting-const">getStringForPrinting</a>() const</p>
+<p class="label">&#x9;[[nodiscard]] float <a class="link" href="#-nodiscard-float-getmagnitude-const">getMagnitude</a>() const</p>
+<p class="label">&#x9;[[nodiscard]] float <a class="link" href="#-nodiscard-float-getmagnitudesquare-const">getMagnitudeSquare</a>() const</p>
+<p class="label">&#x9;void <a class="link" href="#void-normalise-">normalise</a>()</p>
+<p class="label">&#x9;void <a class="link" href="#void-normalisegivenmagnitude-float-m-">normaliseGivenMagnitude</a>(float m)</p>
+<p class="label">&#x9;[[nodiscard]] float <a class="link" href="#-nodiscard-float-getdistance-sgxvector2-x-const">getDistance</a>(SGXVector2 x) const</p>
+<p class="label">&#x9;[[nodiscard]] float <a class="link" href="#-nodiscard-float-getdistancesquare-sgxvector2-x-const">getDistanceSquare</a>(SGXVector2 x) const</p>
+<p class="label">&#x9;[[nodiscard]] float <a class="link" href="#-nodiscard-float-getargument-const">getArgument</a>() const</p>
+<p class="label">&#x9;[[nodiscard]] float <a class="link" href="#-nodiscard-float-getanglebetween-sgxvector2-x-const">getAngleBetween</a>(SGXVector2 x) const</p>
+<p class="label">&#x9;void <a class="link" href="#void-redirectusingargument-float-a-">redirectUsingArgument</a>(float a)</p>
+<p class="label">&#x9;void <a class="link" href="#void-invert-">invert</a>()</p>
+<p class="label">&#x9;void <a class="link" href="#void-rotateclockwise90-">rotateClockwise90</a>()</p>
+<p class="label">&#x9;void <a class="link" href="#void-rotatecounterclockwise90-">rotateCounterclockwise90</a>()</p>
+<p class="label">&#x9;void <a class="link" href="#void-rotate180-">rotate180</a>()</p>
+<p class="label">&#x9;void <a class="link" href="#void-rotateclockwise-float-a-">rotateClockwise</a>(float a)</p>
+<p class="label">&#x9;void <a class="link" href="#void-rotatecounterclockwise-float-a-">rotateCounterclockwise</a>(float a)</p>
+<p class="label">&#x9;[[nodiscard]] bool <a class="link" href="#-nodiscard-bool-iscollinear-sgxvector2-a-sgxvector2-b-float-limit-1-0f-const">isCollinear</a>(SGXVector2 a, SGXVector2 b, float limit = 1.0f) const</p>
+<p class="label">&#x9;[[nodiscard]] bool <a class="link" href="#-nodiscard-bool-isparallel-sgxvector2-a2-sgxvector2-b1-sgxvector2-b2-float-limit-1-0f-const">isParallel</a>(SGXVector2 a2, SGXVector2 b1, SGXVector2 b2, float limit = 1.0f) const</p>
+<p class="label">&#x9;[[nodiscard]] bool <a class="link" href="#-nodiscard-bool-isperpendicular-sgxvector2-a-sgxvector2-b-float-limit-1-0f-const">isPerpendicular</a>(SGXVector2 a, SGXVector2 b, float limit = 1.0f) const</p>
+<p class="label">&#x9;[[nodiscard]] SGXVector2 <a class="link" href="#-nodiscard-sgxvector2-midpoint-sgxvector2-x-const">midpoint</a>(SGXVector2 x) const</p>
+<p class="label">&#x9;[[nodiscard]] SGXVector2 <a class="link" href="#-nodiscard-sgxvector2-linearinterpolate-sgxvector2-x-float-f-const">linearInterpolate</a>(SGXVector2 x, float f) const</p>
+<p class="label">&#x9;void <a class="link" href="#void-reflectacrossx-">reflectAcrossX</a>()</p>
+<p class="label">&#x9;void <a class="link" href="#void-reflectacrossy-">reflectAcrossY</a>()</p>
+<p class="label">&#x9;void <a class="link" href="#void-reflectacrosspoint-sgxvector2-x-">reflectAcrossPoint</a>(SGXVector2 x)</p>
+<p class="label">&#x9;void <a class="link" href="#void-reflectacrossline-sgxvector2-a-sgxvector2-b-">reflectAcrossLine</a>(SGXVector2 a, SGXVector2 b)</p>
+<p class="label">&#x9;void <a class="link" href="#void-projecttox-">projectToX</a>()</p>
+<p class="label">&#x9;void <a class="link" href="#void-projecttoy-">projectToY</a>()</p>
+<p class="label">&#x9;void <a class="link" href="#void-projecttoline-sgxvector2-a-sgxvector2-b-">projectToLine</a>(SGXVector2 a, SGXVector2 b)</p>
+<p class="label">&#x9;[[nodiscard]] float <a class="link" href="#-nodiscard-float-getdistancetoline-sgxvector2-a-sgxvector2-b-const">getDistanceToLine</a>(SGXVector2 a, SGXVector2 b) const</p>
+<p class="label">&#x9;[[nodiscard]] float <a class="link" href="#-nodiscard-float-getdistancetosegment-sgxvector2-a-sgxvector2-b-const">getDistanceToSegment</a>(SGXVector2 a, SGXVector2 b) const</p>
+<p class="label">&#x9;[[nodiscard]] float <a class="link" href="#-nodiscard-float-getdistancetocircle-float-a-float-b-float-r-const">getDistanceToCircle</a>(float a, float b, float r) const</p>
+<p class="label">&#x9;[[nodiscard]] SGXVector2 <a class="link" href="#-nodiscard-sgxvector2-getnearestpointonline-sgxvector2-a-sgxvector2-b-const">getNearestPointOnLine</a>(SGXVector2 a, SGXVector2 b) const</p>
+<p class="label">&#x9;[[nodiscard]] SGXVector2 <a class="link" href="#-nodiscard-sgxvector2-getnearestpointonsegment-sgxvector2-a-sgxvector2-b-const">getNearestPointOnSegment</a>(SGXVector2 a, SGXVector2 b) const</p>
+<p class="label">&#x9;[[nodiscard]] SGXVector2 <a class="link" href="#-nodiscard-sgxvector2-getnearestpointoncircle-float-a-float-b-float-r-const">getNearestPointOnCircle</a>(float a, float b, float r) const</p>
+<p class="label">&#x9;[[nodiscard]] float <a class="link" href="#-nodiscard-float-dotproduct-sgxvector2-x-const">dotProduct</a>(SGXVector2 x) const</p>
+<p class="label">&#x9;[[nodiscard]] float <a class="link" href="#-nodiscard-float-crossproduct-sgxvector2-x-const">crossProduct</a>(SGXVector2 x) const</p>
+<p class="label">&nbsp;</p><div style="width: 100%; height: 0.25em; background-color: var(--c4);"></div>
+<h2 class="halftitle">Static Properties</h2>
+<p class="label">&#x9;const SGXVector2 <a class="link" href="#const-sgxvector2-origin">origin</a></p>
+<p class="label">&nbsp;</p><div style="width: 100%; height: 0.25em; background-color: var(--c4);"></div>
+<h2 class="halftitle" id="moreinfo">Detailed Description</h2>
+<p class="label">&#x9;SGXVector2 stores 2 numbers representing the x and y coordinates for a 2 dimensional vector. It also has builtin functions that handle common 2D geometry computations, such as distance between points, and distance from a point to various geometric shapes such as lines and circles. Note that in different contexts, a SGXVector2 can represent both the vector itself and the endpoint of that vector.</p>
+<p class="label">&nbsp;</p><div style="width: 100%; height: 0.25em; background-color: var(--c4);"></div>
+<h2 class="halftitle" id="float-x">&#x9;float <a class="link" href="#float-x">x</a></h2>
+<p class="label">&#x9;This property stores the x coordinate of this SGXVector2. It can be read from and set directly without getter and setter functions.<br>&nbsp;</p>
+<h2 class="halftitle" id="float-y">&#x9;float <a class="link" href="#float-y">y</a></h2>
+<p class="label">&#x9;This property stores the y coordinate of this SGXVector2. It can be read from and set directly without getter and setter functions.<br>&nbsp;</p>
+<h2 class="halftitle" id="-sgxvector2-">&#x9;<a class="link" href="#-sgxvector2-">SGXVector2</a>()</h2>
+<p class="label">&#x9;This is the default constructor for SGXVector2. It does nothing and you should not use it. The only reason why it exists is so that you can write = {} to initialise SGXVector2 properties in class definition header files and not have clang-tidy complain about it.<br>&nbsp;</p>
+<h2 class="halftitle" id="-sgxvector2-float-x-float-y-">&#x9;<a class="link" href="#-sgxvector2-float-x-float-y-">SGXVector2</a>(float x, float y)</h2>
+<p class="label">&#x9;This constructor creates a SGXVector2 from its x and y coordinates.<br>&nbsp;</p>
+<h2 class="halftitle" id="-nodiscard-qstring-getstringforprinting-const">&#x9;[[nodiscard]] QString <a class="link" href="#-nodiscard-qstring-getstringforprinting-const">getStringForPrinting</a>() const</h2>
+<p class="label">&#x9;This function generates a string representing this SGXVector2 for display to the user. To write it to file, you are strongly encouraged to use a binary file and write the x and y coordinates using SGXFile::writeFloat(float) instead.<br>&nbsp;</p>
+<h2 class="halftitle" id="-nodiscard-float-getmagnitude-const">&#x9;[[nodiscard]] float <a class="link" href="#-nodiscard-float-getmagnitude-const">getMagnitude</a>() const</h2>
+<p class="label">&#x9;This function computes the magnitude of this SGXVector2.<br>&nbsp;</p>
+<h2 class="halftitle" id="-nodiscard-float-getmagnitudesquare-const">&#x9;[[nodiscard]] float <a class="link" href="#-nodiscard-float-getmagnitudesquare-const">getMagnitudeSquare</a>() const</h2>
+<p class="label">&#x9;This function computes the square of the magnitude of this SGXVector2. This can be used instead of SGXVector2::getMagnitude() when comparing distance as it is faster due to it not involving square root calculation.<br>&nbsp;</p>
+<h2 class="halftitle" id="void-normalise-">&#x9;void <a class="link" href="#void-normalise-">normalise</a>()</h2>
+<p class="label">&#x9;This function sets the magnitude of this SGXVector2 to 1 while keeping its direction unchanged. This edits the SGXVector2 in place. To keep a copy of the original SGXVector2, copy it to another variable first.<br>&nbsp;</p>
+<h2 class="halftitle" id="void-normalisegivenmagnitude-float-m-">&#x9;void <a class="link" href="#void-normalisegivenmagnitude-float-m-">normaliseGivenMagnitude</a>(float m)</h2>
+<p class="label">&#x9;This function sets the magnitude of this SGXVector2 to m while keeping its direction unchanged. This edits the SGXVector2 in place. To keep a copy of the original SGXVector2, copy it to another variable first.<br>&nbsp;</p>
+<h2 class="halftitle" id="-nodiscard-float-getdistance-sgxvector2-x-const">&#x9;[[nodiscard]] float <a class="link" href="#-nodiscard-float-getdistance-sgxvector2-x-const">getDistance</a>(SGXVector2 x) const</h2>
+<p class="label">&#x9;This function computes the distance between this SGXVector2 and x.<br>&nbsp;</p>
+<h2 class="halftitle" id="-nodiscard-float-getdistancesquare-sgxvector2-x-const">&#x9;[[nodiscard]] float <a class="link" href="#-nodiscard-float-getdistancesquare-sgxvector2-x-const">getDistanceSquare</a>(SGXVector2 x) const</h2>
+<p class="label">&#x9;This function computes the square of the distance between this SGXVector2 and x. This can be used instead of SGXVector2::getDistance(SGXVector2) when comparing distance as it is faster due to it not involving square root calculation.<br>&nbsp;</p>
+<h2 class="halftitle" id="-nodiscard-float-getargument-const">&#x9;[[nodiscard]] float <a class="link" href="#-nodiscard-float-getargument-const">getArgument</a>() const</h2>
+<p class="label">&#x9;This function computes the angle between this SGXVector2 and the positive x direction in degrees.<br>&nbsp;</p>
+<h2 class="halftitle" id="-nodiscard-float-getanglebetween-sgxvector2-x-const">&#x9;[[nodiscard]] float <a class="link" href="#-nodiscard-float-getanglebetween-sgxvector2-x-const">getAngleBetween</a>(SGXVector2 x) const</h2>
+<p class="label">&#x9;This function computes the angle between this SGXVector2 and x. The resulting number is the angle in degrees which this SGXVector2 must rotate counterclockwise to match the direction of x.<br>&nbsp;</p>
+<h2 class="halftitle" id="void-redirectusingargument-float-a-">&#x9;void <a class="link" href="#void-redirectusingargument-float-a-">redirectUsingArgument</a>(float a)</h2>
+<p class="label">&#x9;This function sets the direction of this SGXVector2 to a degrees counterclockwise from the positive x direction while keeping the magnitude unchanged. This edits the SGXVector2 in place. To keep a copy of the original SGXVector2, copy it to another variable first.<br>&nbsp;</p>
+<h2 class="halftitle" id="void-invert-">&#x9;void <a class="link" href="#void-invert-">invert</a>()</h2>
+<p class="label">&#x9;This function inverts this SGXVector2. This is equivalent to rotating it 180 degrees in either direction or multiplying it by -1. This edits the SGXVector2 in place. To keep a copy of the original SGXVector2, copy it to another variable first.<br>&nbsp;</p>
+<h2 class="halftitle" id="void-rotateclockwise90-">&#x9;void <a class="link" href="#void-rotateclockwise90-">rotateClockwise90</a>()</h2>
+<p class="label">&#x9;This function rotates this SGXVector2 by 90 degrees clockwise. This edits the SGXVector2 in place. To keep a copy of the original SGXVector2, copy it to another variable first.<br>&nbsp;</p>
+<h2 class="halftitle" id="void-rotatecounterclockwise90-">&#x9;void <a class="link" href="#void-rotatecounterclockwise90-">rotateCounterclockwise90</a>()</h2>
+<p class="label">&#x9;This function rotates this SGXVector2 by 90 degrees counterclockwise. This edits the SGXVector2 in place. To keep a copy of the original SGXVector2, copy it to another variable first.<br>&nbsp;</p>
+<h2 class="halftitle" id="void-rotate180-">&#x9;void <a class="link" href="#void-rotate180-">rotate180</a>()</h2>
+<p class="label">&#x9;This function rotates this SGXVector2 by 180 degrees in either direction. This is equivalent to multiplying this SGXVector2 by -1. This edits the SGXVector2 in place. To keep a copy of the original SGXVector2, copy it to another variable first.<br>&nbsp;</p>
+<h2 class="halftitle" id="void-rotateclockwise-float-a-">&#x9;void <a class="link" href="#void-rotateclockwise-float-a-">rotateClockwise</a>(float a)</h2>
+<p class="label">&#x9;This function rotates this SGXVector2 by a degrees clockwise. This edits the SGXVector2 in place. To keep a copy of the original SGXVector2, copy it to another variable first.<br>&nbsp;</p>
+<h2 class="halftitle" id="void-rotatecounterclockwise-float-a-">&#x9;void <a class="link" href="#void-rotatecounterclockwise-float-a-">rotateCounterclockwise</a>(float a)</h2>
+<p class="label">&#x9;This function rotates this SGXVector2 by a degrees counterclockwise. This edits the SGXVector2 in place. To keep a copy of the original SGXVector2, copy it to another variable first.<br>&nbsp;</p>
+<h2 class="halftitle" id="-nodiscard-bool-iscollinear-sgxvector2-a-sgxvector2-b-float-limit-1-0f-const">&#x9;[[nodiscard]] bool <a class="link" href="#-nodiscard-bool-iscollinear-sgxvector2-a-sgxvector2-b-float-limit-1-0f-const">isCollinear</a>(SGXVector2 a, SGXVector2 b, float limit = 1.0f) const</h2>
+<p class="label">&#x9;This function checks if this SGXVector2, a, and b are collinear. The limit is an optional parameter with default value 1 representing the maximum permitted angle deviation in degrees.<br>&nbsp;</p>
+<h2 class="halftitle" id="-nodiscard-bool-isparallel-sgxvector2-a2-sgxvector2-b1-sgxvector2-b2-float-limit-1-0f-const">&#x9;[[nodiscard]] bool <a class="link" href="#-nodiscard-bool-isparallel-sgxvector2-a2-sgxvector2-b1-sgxvector2-b2-float-limit-1-0f-const">isParallel</a>(SGXVector2 a2, SGXVector2 b1, SGXVector2 b2, float limit = 1.0f) const</h2>
+<p class="label">&#x9;This function checks if the line formed by joining this SGXVector2 and a2 is parallel with the line formed by joining b1 and b2. The limit is an optional parameter with default value 1 representing the maximum permitted angle deviation in degrees.<br>&nbsp;</p>
+<h2 class="halftitle" id="-nodiscard-bool-isperpendicular-sgxvector2-a-sgxvector2-b-float-limit-1-0f-const">&#x9;[[nodiscard]] bool <a class="link" href="#-nodiscard-bool-isperpendicular-sgxvector2-a-sgxvector2-b-float-limit-1-0f-const">isPerpendicular</a>(SGXVector2 a, SGXVector2 b, float limit = 1.0f) const</h2>
+<p class="label">&#x9;This function checks if the line formed by joining this SGXVector2 with a is perpendicular with the line formed by joining this SGXVector2 with b. The limit is an optional parameter with default value 1 representing the maximum permitted angle deviation in degrees.<br>&nbsp;</p>
+<h2 class="halftitle" id="-nodiscard-sgxvector2-midpoint-sgxvector2-x-const">&#x9;[[nodiscard]] SGXVector2 <a class="link" href="#-nodiscard-sgxvector2-midpoint-sgxvector2-x-const">midpoint</a>(SGXVector2 x) const</h2>
+<p class="label">&#x9;This function computes the midpoint between this SGXVector2 and x;<br>&nbsp;</p>
+<h2 class="halftitle" id="-nodiscard-sgxvector2-linearinterpolate-sgxvector2-x-float-f-const">&#x9;[[nodiscard]] SGXVector2 <a class="link" href="#-nodiscard-sgxvector2-linearinterpolate-sgxvector2-x-float-f-const">linearInterpolate</a>(SGXVector2 x, float f) const</h2>
+<p class="label">&#x9;This function interpolates linearly between this SGXVector2 and x. f is used as the weight of this SGXVector2 and 1 - f is used as the weight of x. You may use a negative value of f or a value of f above 1 to get points not between this SGXVector2 and x.<br>&nbsp;</p>
+<h2 class="halftitle" id="void-reflectacrossx-">&#x9;void <a class="link" href="#void-reflectacrossx-">reflectAcrossX</a>()</h2>
+<p class="label">&#x9;This function reflects this SGXVector2 across the x axis. This is equivalent to multiplying its y coordinate by -1. This edits the SGXVector2 in place. To keep a copy of the original SGXVector2, copy it to another variable first.<br>&nbsp;</p>
+<h2 class="halftitle" id="void-reflectacrossy-">&#x9;void <a class="link" href="#void-reflectacrossy-">reflectAcrossY</a>()</h2>
+<p class="label">&#x9;This function reflects this SGXVector2 across the y axis. This is equivalent to multiplying its x coordinate by -1. This edits the SGXVector2 in place. To keep a copy of the original SGXVector2, copy it to another variable first.<br>&nbsp;</p>
+<h2 class="halftitle" id="void-reflectacrosspoint-sgxvector2-x-">&#x9;void <a class="link" href="#void-reflectacrosspoint-sgxvector2-x-">reflectAcrossPoint</a>(SGXVector2 x)</h2>
+<p class="label">&#x9;This function reflects this SGXVector2 across the point x. This edits the SGXVector2 in place. To keep a copy of the original SGXVector2, copy it to another variable first.<br>&nbsp;</p>
+<h2 class="halftitle" id="void-reflectacrossline-sgxvector2-a-sgxvector2-b-">&#x9;void <a class="link" href="#void-reflectacrossline-sgxvector2-a-sgxvector2-b-">reflectAcrossLine</a>(SGXVector2 a, SGXVector2 b)</h2>
+<p class="label">&#x9;This function reflects this SGXVector2 across the line formed by joining a and b. This edits the SGXVector2 in place. To keep a copy of the original SGXVector2, copy it to another variable first.<br>&nbsp;</p>
+<h2 class="halftitle" id="void-projecttox-">&#x9;void <a class="link" href="#void-projecttox-">projectToX</a>()</h2>
+<p class="label">&#x9;This function projects this SGXVector2 onto the x axis. This is equivalent to setting its y coordinate to 0. This edits the SGXVector2 in place. To keep a copy of the original SGXVector2, copy it to another variable first.<br>&nbsp;</p>
+<h2 class="halftitle" id="void-projecttoy-">&#x9;void <a class="link" href="#void-projecttoy-">projectToY</a>()</h2>
+<p class="label">&#x9;This function projects this SGXVector2 onto the y axis. This is equivalent to setting its x coordinate to 0. This edits the SGXVector2 in place. To keep a copy of the original SGXVector2, copy it to another variable first.<br>&nbsp;</p>
+<h2 class="halftitle" id="void-projecttoline-sgxvector2-a-sgxvector2-b-">&#x9;void <a class="link" href="#void-projecttoline-sgxvector2-a-sgxvector2-b-">projectToLine</a>(SGXVector2 a, SGXVector2 b)</h2>
+<p class="label">&#x9;This function projects this SGXVector2 onto the line formed by joining a and b. This edits the SGXVector2 in place. To keep a copy of the original SGXVector2, copy it to another variable first.<br>&nbsp;</p>
+<h2 class="halftitle" id="-nodiscard-float-getdistancetoline-sgxvector2-a-sgxvector2-b-const">&#x9;[[nodiscard]] float <a class="link" href="#-nodiscard-float-getdistancetoline-sgxvector2-a-sgxvector2-b-const">getDistanceToLine</a>(SGXVector2 a, SGXVector2 b) const</h2>
+<p class="label">&#x9;This function computes the distance between this SGXVector2 and the line formed by joining points a and b. Note that point to line distance is defined as the distance between the point and its nearest point on the line.<br>&nbsp;</p>
+<h2 class="halftitle" id="-nodiscard-float-getdistancetosegment-sgxvector2-a-sgxvector2-b-const">&#x9;[[nodiscard]] float <a class="link" href="#-nodiscard-float-getdistancetosegment-sgxvector2-a-sgxvector2-b-const">getDistanceToSegment</a>(SGXVector2 a, SGXVector2 b) const</h2>
+<p class="label">&#x9;This function computes the distance between this SGXVector2 and the line segment formed by joining points a and b. Note that point to line segment distance is defined as the distance between the point and its nearest point on the line segment.<br>&nbsp;</p>
+<h2 class="halftitle" id="-nodiscard-float-getdistancetocircle-float-a-float-b-float-r-const">&#x9;[[nodiscard]] float <a class="link" href="#-nodiscard-float-getdistancetocircle-float-a-float-b-float-r-const">getDistanceToCircle</a>(float a, float b, float r) const</h2>
+<p class="label">&#x9;This function computes the distance between this SGXVector2 and the circle with equation (x - a)² + (y - b)² = r². Note that point to circle distance is defined as the distance between the point and its nearest point on the circle.<br>&nbsp;</p>
+<h2 class="halftitle" id="-nodiscard-sgxvector2-getnearestpointonline-sgxvector2-a-sgxvector2-b-const">&#x9;[[nodiscard]] SGXVector2 <a class="link" href="#-nodiscard-sgxvector2-getnearestpointonline-sgxvector2-a-sgxvector2-b-const">getNearestPointOnLine</a>(SGXVector2 a, SGXVector2 b) const</h2>
+<p class="label">&#x9;This function computes the nearest point from this SGXVector2 on the line formed by joining points a and b.<br>&nbsp;</p>
+<h2 class="halftitle" id="-nodiscard-sgxvector2-getnearestpointonsegment-sgxvector2-a-sgxvector2-b-const">&#x9;[[nodiscard]] SGXVector2 <a class="link" href="#-nodiscard-sgxvector2-getnearestpointonsegment-sgxvector2-a-sgxvector2-b-const">getNearestPointOnSegment</a>(SGXVector2 a, SGXVector2 b) const</h2>
+<p class="label">&#x9;This function computes the nearest point from this SGXVector2 on the line segment formed by joining points a and b.<br>&nbsp;</p>
+<h2 class="halftitle" id="-nodiscard-sgxvector2-getnearestpointoncircle-float-a-float-b-float-r-const">&#x9;[[nodiscard]] SGXVector2 <a class="link" href="#-nodiscard-sgxvector2-getnearestpointoncircle-float-a-float-b-float-r-const">getNearestPointOnCircle</a>(float a, float b, float r) const</h2>
+<p class="label">&#x9;This function computes the nearest point from this SGXVector2 on the circle with equation (x - a)² + (y - b)² = r².<br>&nbsp;</p>
+<h2 class="halftitle" id="-nodiscard-float-dotproduct-sgxvector2-x-const">&#x9;[[nodiscard]] float <a class="link" href="#-nodiscard-float-dotproduct-sgxvector2-x-const">dotProduct</a>(SGXVector2 x) const</h2>
+<p class="label">&#x9;This function computes the dot product between this SGXVector2 and x. This is positive if x is in the same direction as this SGXVector2, zero if the vectors are perpendicular, and negative if x is in the opposite direction as this SGXVector2. Note that here same direction and opposite direction means that the projection of x onto this SGXVector2 is in the same or opposite direction, not that the vectors are aligned.<br>&nbsp;</p>
+<h2 class="halftitle" id="-nodiscard-float-crossproduct-sgxvector2-x-const">&#x9;[[nodiscard]] float <a class="link" href="#-nodiscard-float-crossproduct-sgxvector2-x-const">crossProduct</a>(SGXVector2 x) const</h2>
+<p class="label">&#x9;This function computes the cross product between this SGXVector2 and x. Consider attempting to get this SGXVector2 to align with x by rotating in the plane where they exist. The cross product is positive if you need to rotate counterclockwise, zero if the vectors are already aligned, and negative if you need to rotate clockwise. Note that for the visualisation to be correct, you must look from above the plane, not below the plane.<br>&nbsp;</p>
+<h2 class="halftitle" id="const-sgxvector2-origin">&#x9;const SGXVector2 <a class="link" href="#const-sgxvector2-origin">origin</a></h2>
+<p class="label">&#x9;This property stores the origin, or the SGXVector2 (0, 0).<br>&nbsp;</p>
+
+<div style="width: 100%; height: 0.25em; background-color: var(--c4);"></div>
+<p class="label">&#x9;Only properties, functions, and classes intended for public use have documentation. Your code autocompletion tool may provide suggestions that are not documented. You are discouraged from using these undocumented properties, functions, and classes unless you have read the source code and understand what they do.<br>&#x9;All information on this documentation page are only valid for SGEXTN version 5.1.0, future versions may have new features added or removed. For documentation of past versions, pls see the documentation bundled with the release.<br>&nbsp;</p>
+
+<div>
+<div style="width: 100%; height: 0.25em; background-color: var(--c4);"></div>
+<p class="label">©2025 05524F.sg (Singapore)</p>
+<p class="label"><a class="link" href="/contact">report a bug in SGEXTN or contact 05524F</a></p>
+<div style="width: 100%; height: 0.25em; background-color: var(--c4);"></div>
+</div>
+
+</body>
+</html>

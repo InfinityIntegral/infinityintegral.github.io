@@ -1,0 +1,19 @@
+#c SGWBlankWidget
+SGWidget for displaying a coloured rectangle
+#ic SGEXTN/widgets/instantiable/sgwblankwidget.h
+#if SGWWidget
+#d SGWBlankWidget displays a coloured rectangle on the screen. This can be used to make borders in UI to split various options into different sections. It can also be placed behind other UI elements to create border effects and fake backgrounds. SGWBlankWidget does not block user input from reaching widgets below.
+#dt <div id="-w"></div>_w Distance
+The position and size of all SGWidgets are calculated using a <a class="link" href="#-w">_w</a> distance.$A _w distance is made of 2 coordinates, coordinate 1 and coordinate 0, and it is denoted using _w(c1, c0). This is equal to c1 * parent_size + c0 * size_unit pixels, where parent_size is the size of the parent SGWidget and size_unit is 1/24 of the screen width or screen height, whichever is longer.
+#dt <div id="-c"></div> Theme Colours
+SGWidgets follow a set of 9 chosen <a class="link" href="#-c">theme colours</a>. Each of these 9 colours have a index number between 0 and 8 which can be used to refer to them. If you want a SGWidget to have a colour that is not a theme colour, you must set it using a <a class="link" href="/classinfo/sgxcolourrgba">SGXColourRGBA</a>. Setting a non theme colour switches the widget to non theme colour mode and ignores previously set theme colours. Setting a theme colour switches the widget to theme colour mode and ignores all previously set non theme colours.
+#f $SGWBlankWidget(SGWWidget* parent, float x1, float x0, float y1, float y0, float w1, float w0, float h1, float h0, int themeColour)
+This constructor for SGWBlankWidget creates a SGWBlankWidget and places it onto the screen.$parent: pointer to parent SGWidget$x1: 1 coordinate of x coordinate (which is a <a class="link" href="#-w">_w</a> distance) of position$x0: 0 coordinate of x coordinate (which is a <a class="link" href="#-w">_w</a> distance) of position$y1: 1 coordinate of y coordinate (which is a <a class="link" href="#-w">_w</a> distance) of position$y0: 0 coordinate of y coordinate (which is a <a class="link" href="#-w">_w</a> distance) of position$w1: 1 coordinate of width (which is a <a class="link" href="#-w">_w</a> distance)$w0: 0 coordinate of width (which is a <a class="link" href="#-w">_w</a> distance)$h1: 1 coordinate of height (which is a <a class="link" href="#-w">_w</a> distance)$h0: 0 coordinate of height (which is a <a class="link" href="#-w">_w</a> distance)$themeColour: index of <a class="link" href="#-c">theme colour</a> to use for the widget background
+#f [[nodiscard]] int $getThemeColour(bool* isUsing) const
+This function gets the <a class="link" href="#-c">theme colour</a> used for the background of this SGWBlankWidget. The boolean isUsing is set to true if this SGWBlankWidget is in theme colour mode and false if this SGWBlankWidget is in non theme colour mode. If nullptr is passed to this function, no mode checking is done.
+#f void $setThemeColour(int themeColour)
+This function sets the <a class="link" href="#-c">theme colour</a> used for the background of this SGWBlankWidget. It also sets this SGWBlankWidget to theme colour mode.
+#f [[nodiscard]] SGXColourRGBA $getColour(bool* isUsing) const
+This function sets the colour used for the background of this SGWBlankWidget. The boolean isUsing is set to false if this SGWBlankWidget is in theme colour mode and true if this SGWBlankWidget is in non theme colour mode. If nullptr is passed to this function, no mode checking is done.
+#f void $setColour(SGXColourRGBA colour)
+This function sets the colour used for the background of this SGWBlankWidget. It also sets this SGWBlankWidget to non theme colour mode.

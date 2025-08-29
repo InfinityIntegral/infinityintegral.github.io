@@ -1,0 +1,336 @@
+
+<!DOCTYPE html>
+<html lang="en-SG">
+<head>
+<meta charset="UTF-8">
+<title>SGXColourRGBA Docs</title>
+
+<link rel="icon" href="icon.png" type="image/png">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+
+@font-face {
+	font-family: "SingScript.sg";
+	src: url("/SingScript.sg")format("truetype");
+	font-weight: normal;
+	font-style: normal;
+}
+
+:root {
+	--c0: rgb(0, 0, 0);
+	--c1: rgb(64, 0, 50);
+	--c2: rgb(128, 0, 100);
+	--c3: rgb(191, 0, 150);
+	--c4: rgb(255, 0, 200);
+	--c5: rgb(255, 64, 214);
+	--c6: rgb(255, 128, 227);
+	--c7: rgb(255, 191, 241);
+	--c8: rgb(255, 255, 255);
+}
+
+*{
+        font-family: "SingScript.sg";
+	max-width: 100%;
+	word-break: break-word;
+	-webkit-text-size-adjust: 100%;
+	-ms-text-size-adjust: 100%;
+}
+
+.title {
+	color: var(--c4);
+	background-color: var(--c8);
+	font-size: 3.5rem;
+	margin: 0;
+	font-weight: normal;
+}
+.title::selection {
+	color: var(--c8);
+	background-color: var(--c4);
+	font-size: 3.5rem;
+	margin: 0;
+	font-weight: normal;
+}
+
+.halftitle {
+	color: var(--c4);
+	background-color: var(--c8);
+	font-size: 2.5rem;
+	margin: 0;
+	font-weight: normal;
+}
+.halftitle::selection {
+	color: var(--c8);
+	background-color: var(--c4);
+	font-size: 2.625rem;
+	margin: 0;
+	font-weight: normal;
+}
+
+.label {
+	color: var(--c4);
+	background-color: var(--c8);
+	font-size: 1.75rem;
+	margin: 0;
+	white-space: pre-wrap;
+}
+.label::selection {
+	color: var(--c8);
+	background-color: var(--c4);
+	font-size: 1.75rem;
+	margin: 0;
+	white-space: pre-wrap;
+}
+
+.link {
+	color: var(--c2);
+	background-color: var(--c8);
+	text-decoration: underline;
+}
+.link:hover {
+	color: var(--c2);
+	background-color: var(--c7);
+	text-decoration: underline;
+}
+.link:active {
+	color: var(--c2);
+	background-color: var(--c6);
+	text-decoration: underline;
+}
+.link::selection {
+	color: var(--c8);
+	background-color: var(--c4);
+	text-decoration: underline;
+}
+
+.button {
+	color: var(--c8);
+	background-color: var(--c4);
+	font-size: 1.75rem;
+	border: none;
+}
+.button:hover {
+	color: var(--c7);
+	background-color: var(--c3);
+	font-size: 1.75rem;
+	border: none;
+}
+.button:active {
+	color: var(--c6);
+	background-color: var(--c2);
+	font-size: 1.75rem;
+	border: none;
+}
+.button::selection {
+	color: var(--c4);
+	background-color: var(--c8);
+	font-size: 1.75rem;
+	border: none;
+}
+
+.input {
+	color: var(--c8);
+	background-color: var(--c4);
+	font-size: 1.75rem;
+	border: none;
+	outline: none;
+	text-align: center;
+}
+.input:hover {
+	color: var(--c7);
+	background-color: var(--c3);
+	font-size: 1.75rem;
+	border: none;
+	outline: none;
+	text-align: center;
+}
+.input:focus {
+	color: var(--c6);
+	background-color: var(--c2);
+	font-size: 1.75rem;
+	border: none;
+	outline: none;
+	text-align: center;
+}
+.input::selection {
+	color: var(--c4);
+	background-color: var(--c8);
+	font-size: 1.75rem;
+	border: none;
+	outline: none;
+	text-align: center;
+}
+
+</style>
+
+</head>
+<body>
+
+<div>
+<button class="button" style="width: 100%;" onclick="location.href='/'">
+<img src="https://raw.githubusercontent.com/InfinityIntegral/InfinityIntegral/main/flagemoji.png" style="vertical-align: middle; height: 1.5rem; image-rendering: auto;"> SGEXTN Documentation <img src="https://raw.githubusercontent.com/InfinityIntegral/InfinityIntegral/main/flagemoji.png" style="vertical-align: middle; height: 1.5rem; image-rendering: auto;">
+</button>
+</div>
+<h1 class="title">SGXColourRGBA</h1>
+<p class="label">&#x9;struct storing 8 bit RGBA colour</p>
+<p class="label">&nbsp;<br>&#x9;header: #include" SGEXTN/primitives/sgxcolourrgba.h"</p>
+<p class="label">&#x9;inherits: none</p>
+<p class="label">&#x9;<a class="link" href="#moreinfo">More information...</a></p><p class="label">&#x9;<a class="link" href="/functionlist/sgxcolourrgba">List of all including inherited members</a></p><p class="label">&nbsp;</p><div style="width: 100%; height: 0.25em; background-color: var(--c4);"></div>
+<h2 class="halftitle">Instance Methods</h2>
+<p class="label">&#x9;<a class="link" href="#-sgxcolourrgba-">SGXColourRGBA</a>()</p>
+<p class="label">&#x9;<a class="link" href="#-sgxcolourrgba-int-r-int-g-int-b-int-a-">SGXColourRGBA</a>(int r, int g, int b, int a)</p>
+<p class="label">&#x9;<a class="link" href="#-sgxcolourrgba-int-r-int-g-int-b-">SGXColourRGBA</a>(int r, int g, int b)</p>
+<p class="label">&#x9;<a class="link" href="#-sgxcolourrgba-float-r-float-g-float-b-float-a-">SGXColourRGBA</a>(float r, float g, float b, float a)</p>
+<p class="label">&#x9;<a class="link" href="#-sgxcolourrgba-float-r-float-g-float-b-">SGXColourRGBA</a>(float r, float g, float b)</p>
+<p class="label">&#x9;<a class="link" href="#-sgxcolourrgba-qcolor-x-">SGXColourRGBA</a>(QColor x)</p>
+<p class="label">&#x9;[[nodiscard]] int <a class="link" href="#-nodiscard-int-getred-const">getRed</a>() const</p>
+<p class="label">&#x9;[[nodiscard]] int <a class="link" href="#-nodiscard-int-getgreen-const">getGreen</a>() const</p>
+<p class="label">&#x9;[[nodiscard]] int <a class="link" href="#-nodiscard-int-getblue-const">getBlue</a>() const</p>
+<p class="label">&#x9;[[nodiscard]] int <a class="link" href="#-nodiscard-int-gettransparency-const">getTransparency</a>() const</p>
+<p class="label">&#x9;[[nodiscard]] QColor <a class="link" href="#-nodiscard-qcolor-getqcolour-const">getQColour</a>() const</p>
+<p class="label">&#x9;[[nodiscard]] float <a class="link" href="#-nodiscard-float-getredasfloat-const">getRedAsFloat</a>() const</p>
+<p class="label">&#x9;[[nodiscard]] float <a class="link" href="#-nodiscard-float-getgreenasfloat-const">getGreenAsFloat</a>() const</p>
+<p class="label">&#x9;[[nodiscard]] float <a class="link" href="#-nodiscard-float-getblueasfloat-const">getBlueAsFloat</a>() const</p>
+<p class="label">&#x9;[[nodiscard]] float <a class="link" href="#-nodiscard-float-gettransparencyasfloat-const">getTransparencyAsFloat</a>() const</p>
+<p class="label">&#x9;void <a class="link" href="#void-setred-int-r-">setRed</a>(int r)</p>
+<p class="label">&#x9;void <a class="link" href="#void-setgreen-int-g-">setGreen</a>(int g)</p>
+<p class="label">&#x9;void <a class="link" href="#void-setblue-int-b-">setBlue</a>(int b)</p>
+<p class="label">&#x9;void <a class="link" href="#void-settransparency-int-a-">setTransparency</a>(int a)</p>
+<p class="label">&#x9;void <a class="link" href="#void-setredusingfloat-float-r-">setRedUsingFloat</a>(float r)</p>
+<p class="label">&#x9;void <a class="link" href="#void-setgreenusingfloat-float-g-">setGreenUsingFloat</a>(float g)</p>
+<p class="label">&#x9;void <a class="link" href="#void-setblueusingfloat-float-b-">setBlueUsingFloat</a>(float b)</p>
+<p class="label">&#x9;void <a class="link" href="#void-settransparencyusingfloat-float-a-">setTransparencyUsingFloat</a>(float a)</p>
+<p class="label">&#x9;[[nodiscard]] QString <a class="link" href="#-nodiscard-qstring-getstringforprintingrgbhtml-const">getStringForPrintingRGBHTML</a>() const</p>
+<p class="label">&#x9;[[nodiscard]] QString <a class="link" href="#-nodiscard-qstring-getstringforprintingrgbahtml-const">getStringForPrintingRGBAHTML</a>() const</p>
+<p class="label">&#x9;[[nodiscard]] QString <a class="link" href="#-nodiscard-qstring-getstringforprintingrgbhex-const">getStringForPrintingRGBHex</a>() const</p>
+<p class="label">&#x9;[[nodiscard]] QString <a class="link" href="#-nodiscard-qstring-getstringforprintingrgbahex-const">getStringForPrintingRGBAHex</a>() const</p>
+<p class="label">&#x9;[[nodiscard]] QString <a class="link" href="#-nodiscard-qstring-getstringforprintingrgbfloathtml-const">getStringForPrintingRGBFloatHTML</a>() const</p>
+<p class="label">&#x9;[[nodiscard]] QString <a class="link" href="#-nodiscard-qstring-getstringforprintingrgbafloathtml-const">getStringForPrintingRGBAFloatHTML</a>() const</p>
+<p class="label">&#x9;void <a class="link" href="#void-lineartransformred-float-m-float-c-">linearTransformRed</a>(float m, float c)</p>
+<p class="label">&#x9;void <a class="link" href="#void-lineartransformgreen-float-m-float-c-">linearTransformGreen</a>(float m, float c)</p>
+<p class="label">&#x9;void <a class="link" href="#void-lineartransformblue-float-m-float-c-">linearTransformBlue</a>(float m, float c)</p>
+<p class="label">&#x9;void <a class="link" href="#void-lineartransformtransparency-float-m-float-c-">linearTransformTransparency</a>(float m, float c)</p>
+<p class="label">&#x9;void <a class="link" href="#void-gammacorrectbegin-float-r-float-g-float-b-const">gammaCorrectBegin</a>(float& r, float& g, float& b) const</p>
+<p class="label">&#x9;void <a class="link" href="#void-gammacorrectend-float-r-float-g-float-b-">gammaCorrectEnd</a>(float r, float g, float b)</p>
+<p class="label">&#x9;void <a class="link" href="#void-lineartransformredwithgamma-float-m-float-c-">linearTransformRedWithGamma</a>(float m, float c)</p>
+<p class="label">&#x9;void <a class="link" href="#void-lineartransformgreenwithgamma-float-m-float-c-">linearTransformGreenWithGamma</a>(float m, float c)</p>
+<p class="label">&#x9;void <a class="link" href="#void-lineartransformbluewithgamma-float-m-float-c-">linearTransformBlueWithGamma</a>(float m, float c)</p>
+<p class="label">&#x9;void <a class="link" href="#void-applytint-sgxcolourrgba-x-">applyTint</a>(SGXColourRGBA x)</p>
+<p class="label">&#x9;void <a class="link" href="#void-applytintseparatetransparency-sgxcolourrgba-x-int-a-">applyTintSeparateTransparency</a>(SGXColourRGBA x, int a)</p>
+<p class="label">&#x9;void <a class="link" href="#void-applytintseparatetransparencyusingfloat-sgxcolourrgba-x-float-a-">applyTintSeparateTransparencyUsingFloat</a>(SGXColourRGBA x, float a)</p>
+<p class="label">&#x9;void <a class="link" href="#void-applytintnogammacorrection-sgxcolourrgba-x-">applyTintNoGammaCorrection</a>(SGXColourRGBA x)</p>
+<p class="label">&#x9;void <a class="link" href="#void-applytintnogammacorrectionseparatetransparency-sgxcolourrgba-x-int-a-">applyTintNoGammaCorrectionSeparateTransparency</a>(SGXColourRGBA x, int a)</p>
+<p class="label">&#x9;void <a class="link" href="#void-applytintnogammacorrectionseparatetransparencyusingfloat-sgxcolourrgba-x-float-a-">applyTintNoGammaCorrectionSeparateTransparencyUsingFloat</a>(SGXColourRGBA x, float a)</p>
+<p class="label">&#x9;[[nodiscard]] SGXColourRGBA <a class="link" href="#-nodiscard-sgxcolourrgba-linearinterpolate-sgxcolourrgba-x-float-f-const">linearInterpolate</a>(SGXColourRGBA x, float f) const</p>
+<p class="label">&#x9;[[nodiscard]] SGXColourRGBA <a class="link" href="#-nodiscard-sgxcolourrgba-linearinterpolategammacorrection-sgxcolourrgba-x-float-f-const">linearInterpolateGammaCorrection</a>(SGXColourRGBA x, float f) const</p>
+<p class="label">&#x9;void <a class="link" href="#void-tocomplementcolour-">toComplementColour</a>()</p>
+<p class="label">&nbsp;</p><div style="width: 100%; height: 0.25em; background-color: var(--c4);"></div>
+<h2 class="halftitle" id="moreinfo">Detailed Description</h2>
+<p class="label">&#x9;The SGXColourRGBA class stores a RGBA colour with 8 bits of precision for each channel. This means that each channel can have a value of between 0 and 255. SGXColourRGBA replaces QColor in SGEXTN APIs. SGXColourRGBA contains functions to mix, gamma correct, and do other computations related to colours.</p>
+<p class="label">&nbsp;</p><div style="width: 100%; height: 0.25em; background-color: var(--c4);"></div>
+<h2 class="halftitle" id="-sgxcolourrgba-">&#x9;<a class="link" href="#-sgxcolourrgba-">SGXColourRGBA</a>()</h2>
+<p class="label">&#x9;This is the default constructor for SGXColourRGBA. You are not supposed to normally use it and it does nothing anyways. The only reason why it exists is so that people can use = {} to initialise SGXColourRGBA variables in class definition header files. That is not really needed, but doing it stops clang-tidy from complaining.<br>&nbsp;</p>
+<h2 class="halftitle" id="-sgxcolourrgba-int-r-int-g-int-b-int-a-">&#x9;<a class="link" href="#-sgxcolourrgba-int-r-int-g-int-b-int-a-">SGXColourRGBA</a>(int r, int g, int b, int a)</h2>
+<p class="label">&#x9;This constructor creates a SGXColourRGBA from 4 integers, 1 each for red (r), green (g), blue (b), and transparency (a). Each integer including transparency (a) must be between 0 and 255 inclusive. If any integer is outside that range, it is bound to the correct range automatically. It is not possible for SGXColourRGBA to represent any invalid colour.<br>&nbsp;</p>
+<h2 class="halftitle" id="-sgxcolourrgba-int-r-int-g-int-b-">&#x9;<a class="link" href="#-sgxcolourrgba-int-r-int-g-int-b-">SGXColourRGBA</a>(int r, int g, int b)</h2>
+<p class="label">&#x9;This constructor creates a SGXColourRGBA from 3 integers, 1 each for red (r), green (g), and blue (b). Each integer must be between 0 and 255 inclusive. If any integer is outside that range, it is bound to the correct range automatically. It is not possible for SGXColourRGBA to represent any invalid colour. When using this constructor, the transparency is set to maximum (fully opaque) automatically.<br>&nbsp;</p>
+<h2 class="halftitle" id="-sgxcolourrgba-float-r-float-g-float-b-float-a-">&#x9;<a class="link" href="#-sgxcolourrgba-float-r-float-g-float-b-float-a-">SGXColourRGBA</a>(float r, float g, float b, float a)</h2>
+<p class="label">&#x9;This constructor creates a SGXColourRGBA from 4 floats, 1 each for red (r), green (g), blue (b), and transparency (a). Each number including transparency (a) must be between 0 and 1 inclusive. If any number is outside that range, it is bound to the correct range automatically. It is not possible for SGXColourRGBA to represent any invalid colour.<br>&nbsp;</p>
+<h2 class="halftitle" id="-sgxcolourrgba-float-r-float-g-float-b-">&#x9;<a class="link" href="#-sgxcolourrgba-float-r-float-g-float-b-">SGXColourRGBA</a>(float r, float g, float b)</h2>
+<p class="label">&#x9;This constructor creates a SGXColourRGBA from 3 floats, 1 each for red (r), green (g), and blue (b). Each number must be between 0 and 1 inclusive. If any number is outside that range, it is bound to the correct range automatically. It is not possible for SGXColourRGBA to represent any invalid colour.<br>&nbsp;</p>
+<h2 class="halftitle" id="-sgxcolourrgba-qcolor-x-">&#x9;<a class="link" href="#-sgxcolourrgba-qcolor-x-">SGXColourRGBA</a>(QColor x)</h2>
+<p class="label">&#x9;This constructor converts a QColor to a SGXColourRGBA. This is useful for interfacing with Qt APIs.<br>&nbsp;</p>
+<h2 class="halftitle" id="-nodiscard-int-getred-const">&#x9;[[nodiscard]] int <a class="link" href="#-nodiscard-int-getred-const">getRed</a>() const</h2>
+<p class="label">&#x9;This function retrieves the red value stored in a SGXColourRGBA in the form of an integer between 0 and 255 inclusive.<br>&nbsp;</p>
+<h2 class="halftitle" id="-nodiscard-int-getgreen-const">&#x9;[[nodiscard]] int <a class="link" href="#-nodiscard-int-getgreen-const">getGreen</a>() const</h2>
+<p class="label">&#x9;This function retrieves the green value stored in a SGXColourRGBA in the form of an integer between 0 and 255 inclusive.<br>&nbsp;</p>
+<h2 class="halftitle" id="-nodiscard-int-getblue-const">&#x9;[[nodiscard]] int <a class="link" href="#-nodiscard-int-getblue-const">getBlue</a>() const</h2>
+<p class="label">&#x9;This function retrieves the blue value stored in a SGXColourRGBA in the form of an integer between 0 and 255 inclusive.<br>&nbsp;</p>
+<h2 class="halftitle" id="-nodiscard-int-gettransparency-const">&#x9;[[nodiscard]] int <a class="link" href="#-nodiscard-int-gettransparency-const">getTransparency</a>() const</h2>
+<p class="label">&#x9;This function retrieves the transparency value stored in a SGXColourRGBA in the form of an integer between 0 and 255 inclusive.<br>&nbsp;</p>
+<h2 class="halftitle" id="-nodiscard-qcolor-getqcolour-const">&#x9;[[nodiscard]] QColor <a class="link" href="#-nodiscard-qcolor-getqcolour-const">getQColour</a>() const</h2>
+<p class="label">&#x9;This function converts a SGXColourRGBA to a QColor. This is useful for interfacing with Qt APIs.<br>&nbsp;</p>
+<h2 class="halftitle" id="-nodiscard-float-getredasfloat-const">&#x9;[[nodiscard]] float <a class="link" href="#-nodiscard-float-getredasfloat-const">getRedAsFloat</a>() const</h2>
+<p class="label">&#x9;This function retrieves the red value stored in a SGXColourRGBA in the form of a number between 0 and 1 inclusive.<br>&nbsp;</p>
+<h2 class="halftitle" id="-nodiscard-float-getgreenasfloat-const">&#x9;[[nodiscard]] float <a class="link" href="#-nodiscard-float-getgreenasfloat-const">getGreenAsFloat</a>() const</h2>
+<p class="label">&#x9;This function retrieves the green value stored in a SGXColourRGBA in the form of a number between 0 and 1 inclusive.<br>&nbsp;</p>
+<h2 class="halftitle" id="-nodiscard-float-getblueasfloat-const">&#x9;[[nodiscard]] float <a class="link" href="#-nodiscard-float-getblueasfloat-const">getBlueAsFloat</a>() const</h2>
+<p class="label">&#x9;This function retrieves the blue value stored in a SGXColourRGBA in the form of a number between 0 and 1 inclusive.<br>&nbsp;</p>
+<h2 class="halftitle" id="-nodiscard-float-gettransparencyasfloat-const">&#x9;[[nodiscard]] float <a class="link" href="#-nodiscard-float-gettransparencyasfloat-const">getTransparencyAsFloat</a>() const</h2>
+<p class="label">&#x9;This function retrieves the transparency value stored in a SGXColourRGBA in the form of a number between 0 and 1 inclusive.<br>&nbsp;</p>
+<h2 class="halftitle" id="void-setred-int-r-">&#x9;void <a class="link" href="#void-setred-int-r-">setRed</a>(int r)</h2>
+<p class="label">&#x9;This function sets the red value stored in a SGXColourRGBA. The input must be an integer between 0 and 255 inclusive. If the input is outside that range, it will be bound to the correct range automatically. It is not possible for a SGXColourRGBA to store any invalid colour.<br>&nbsp;</p>
+<h2 class="halftitle" id="void-setgreen-int-g-">&#x9;void <a class="link" href="#void-setgreen-int-g-">setGreen</a>(int g)</h2>
+<p class="label">&#x9;This function sets the green value stored in a SGXColourRGBA. The input must be an integer between 0 and 255 inclusive. If the input is outside that range, it will be bound to the correct range automatically. It is not possible for a SGXColourRGBA to store any invalid colour.<br>&nbsp;</p>
+<h2 class="halftitle" id="void-setblue-int-b-">&#x9;void <a class="link" href="#void-setblue-int-b-">setBlue</a>(int b)</h2>
+<p class="label">&#x9;This function sets the blue value stored in a SGXColourRGBA. The input must be an integer between 0 and 255 inclusive. If the input is outside that range, it will be bound to the correct range automatically. It is not possible for a SGXColourRGBA to store any invalid colour.<br>&nbsp;</p>
+<h2 class="halftitle" id="void-settransparency-int-a-">&#x9;void <a class="link" href="#void-settransparency-int-a-">setTransparency</a>(int a)</h2>
+<p class="label">&#x9;This function sets the transparency value stored in a SGXColourRGBA. The input must be an integer between 0 and 255 inclusive. If the input is outside that range, it will be bound to the correct range automatically. It is not possible for a SGXColourRGBA to store any invalid colour.<br>&nbsp;</p>
+<h2 class="halftitle" id="void-setredusingfloat-float-r-">&#x9;void <a class="link" href="#void-setredusingfloat-float-r-">setRedUsingFloat</a>(float r)</h2>
+<p class="label">&#x9;This function sets the red value stored in a SGXColourRGBA. The input must be a number between 0 and 1 inclusive. If the input is outside that range, it will be bound to the correct range automatically. It is not possible for a SGXColourRGBA to store any invalid colour.<br>&nbsp;</p>
+<h2 class="halftitle" id="void-setgreenusingfloat-float-g-">&#x9;void <a class="link" href="#void-setgreenusingfloat-float-g-">setGreenUsingFloat</a>(float g)</h2>
+<p class="label">&#x9;This function sets the green value stored in a SGXColourRGBA. The input must be a number between 0 and 1 inclusive. If the input is outside that range, it will be bound to the correct range automatically. It is not possible for a SGXColourRGBA to store any invalid colour.<br>&nbsp;</p>
+<h2 class="halftitle" id="void-setblueusingfloat-float-b-">&#x9;void <a class="link" href="#void-setblueusingfloat-float-b-">setBlueUsingFloat</a>(float b)</h2>
+<p class="label">&#x9;This function sets the blue value stored in a SGXColourRGBA. The input must be a number between 0 and 1 inclusive. If the input is outside that range, it will be bound to the correct range automatically. It is not possible for a SGXColourRGBA to store any invalid colour.<br>&nbsp;</p>
+<h2 class="halftitle" id="void-settransparencyusingfloat-float-a-">&#x9;void <a class="link" href="#void-settransparencyusingfloat-float-a-">setTransparencyUsingFloat</a>(float a)</h2>
+<p class="label">&#x9;This function sets the transparency value stored in a SGXColourRGBA. The input must be a number between 0 and 1 inclusive. If the input is outside that range, it will be bound to the correct range automatically. It is not possible for a SGXColourRGBA to store any invalid colour.<br>&nbsp;</p>
+<h2 class="halftitle" id="-nodiscard-qstring-getstringforprintingrgbhtml-const">&#x9;[[nodiscard]] QString <a class="link" href="#-nodiscard-qstring-getstringforprintingrgbhtml-const">getStringForPrintingRGBHTML</a>() const</h2>
+<p class="label">&#x9;This function generates a string representation of the SGXColourRGBA in HTML format. Only RGB channels are included and the value stored in each channel is represented by an integer between 0 and 255. An example of this is rgb(255, 0, 200).<br>&nbsp;</p>
+<h2 class="halftitle" id="-nodiscard-qstring-getstringforprintingrgbahtml-const">&#x9;[[nodiscard]] QString <a class="link" href="#-nodiscard-qstring-getstringforprintingrgbahtml-const">getStringForPrintingRGBAHTML</a>() const</h2>
+<p class="label">&#x9;This function generates a string representation of the SGXColourRGBA in HTML format. All channels are included and the value stored in each channel is represented by an integer between 0 and 255. An example of this is rgba(255, 0, 200, 255).<br>&nbsp;</p>
+<h2 class="halftitle" id="-nodiscard-qstring-getstringforprintingrgbhex-const">&#x9;[[nodiscard]] QString <a class="link" href="#-nodiscard-qstring-getstringforprintingrgbhex-const">getStringForPrintingRGBHex</a>() const</h2>
+<p class="label">&#x9;This function generates a string representation of the SGXColourRGBA in hex code format with the # prefixed. Only RGB channels are included. An example of this is #FF00C8.<br>&nbsp;</p>
+<h2 class="halftitle" id="-nodiscard-qstring-getstringforprintingrgbahex-const">&#x9;[[nodiscard]] QString <a class="link" href="#-nodiscard-qstring-getstringforprintingrgbahex-const">getStringForPrintingRGBAHex</a>() const</h2>
+<p class="label">&#x9;This function generates a string representation of the SGXColourRGBA in hex code format with the # prefixed. All channels are included. The transparency channel causes the hex code to have 8 digits instead of 6, with the last 2 digits being transparency. An example of this is #FF00C8FF.<br>&nbsp;</p>
+<h2 class="halftitle" id="-nodiscard-qstring-getstringforprintingrgbfloathtml-const">&#x9;[[nodiscard]] QString <a class="link" href="#-nodiscard-qstring-getstringforprintingrgbfloathtml-const">getStringForPrintingRGBFloatHTML</a>() const</h2>
+<p class="label">&#x9;This function generates a string representation of the SGXColourRGBA in HTML format. Only RGB channels are included and the value stored in each channel is represented by a number between 0 and 1. An example of this is rgb(1, 0, 0.75).<br>&nbsp;</p>
+<h2 class="halftitle" id="-nodiscard-qstring-getstringforprintingrgbafloathtml-const">&#x9;[[nodiscard]] QString <a class="link" href="#-nodiscard-qstring-getstringforprintingrgbafloathtml-const">getStringForPrintingRGBAFloatHTML</a>() const</h2>
+<p class="label">&#x9;This function generates a string representation of the SGXColourRGBA in HTML format. All channels are included and the value stored in each channel is represented by a number between 0 and 1. An example of this is rgba(1, 0, 0.75, 1).<br>&nbsp;</p>
+<h2 class="halftitle" id="void-lineartransformred-float-m-float-c-">&#x9;void <a class="link" href="#void-lineartransformred-float-m-float-c-">linearTransformRed</a>(float m, float c)</h2>
+<p class="label">&#x9;This function replaces the current red value stored in the SGXColourRGBA, which we will refer to as x, with mx + c. This edits the SGXColourRGBA in place. To get a copy of the old SGXColourRGBA, copy it to another variable first.<br>&nbsp;</p>
+<h2 class="halftitle" id="void-lineartransformgreen-float-m-float-c-">&#x9;void <a class="link" href="#void-lineartransformgreen-float-m-float-c-">linearTransformGreen</a>(float m, float c)</h2>
+<p class="label">&#x9;This function replaces the current green value stored in the SGXColourRGBA, which we will refer to as x, with mx + c. This edits the SGXColourRGBA in place. To get a copy of the old SGXColourRGBA, copy it to another variable first.<br>&nbsp;</p>
+<h2 class="halftitle" id="void-lineartransformblue-float-m-float-c-">&#x9;void <a class="link" href="#void-lineartransformblue-float-m-float-c-">linearTransformBlue</a>(float m, float c)</h2>
+<p class="label">&#x9;This function replaces the current blue value stored in the SGXColourRGBA, which we will refer to as x, with mx + c. This edits the SGXColourRGBA in place. To get a copy of the old SGXColourRGBA, copy it to another variable first.<br>&nbsp;</p>
+<h2 class="halftitle" id="void-lineartransformtransparency-float-m-float-c-">&#x9;void <a class="link" href="#void-lineartransformtransparency-float-m-float-c-">linearTransformTransparency</a>(float m, float c)</h2>
+<p class="label">&#x9;This function replaces the current transparency value stored in the SGXColourRGBA, which we will refer to as x, with mx + c. This edits the SGXColourRGBA in place. To get a copy of the old SGXColourRGBA, copy it to another variable first. Note that there is no gamma corrected version of this function because transparency is already linear.<br>&nbsp;</p>
+<h2 class="halftitle" id="void-gammacorrectbegin-float-r-float-g-float-b-const">&#x9;void <a class="link" href="#void-gammacorrectbegin-float-r-float-g-float-b-const">gammaCorrectBegin</a>(float& r, float& g, float& b) const</h2>
+<p class="label">&#x9;This function outputs the red (r), green (g), and blue (b) values stored in the SGXColourRGBA after converting them to linear colour space. Passing reference is used for multiple function outputs. The outputs will be numbers between 0 and 1 inclusive. This function is typically run at the start of gamma correction to get gamma corrected (linear colour space) values to compute with.<br>&nbsp;</p>
+<h2 class="halftitle" id="void-gammacorrectend-float-r-float-g-float-b-">&#x9;void <a class="link" href="#void-gammacorrectend-float-r-float-g-float-b-">gammaCorrectEnd</a>(float r, float g, float b)</h2>
+<p class="label">&#x9;This function sets the red (r), green (g), and blue (b) channels of the SGXColourRGBA using the numbers passed. The numbers passed are in linear colour space and between 0 and 1 inclusive. If numbers are out of range, they are bound to the valid range automatically. It is impossible for a SGXColourRGBA to store invalid colours. This function is typically run at the end of gamma correction to apply the new values from linear colour space.<br>&nbsp;</p>
+<h2 class="halftitle" id="void-lineartransformredwithgamma-float-m-float-c-">&#x9;void <a class="link" href="#void-lineartransformredwithgamma-float-m-float-c-">linearTransformRedWithGamma</a>(float m, float c)</h2>
+<p class="label">&#x9;This function replaces the current red value stored in the SGXColourRGBA, which we will refer to as x, with mx + c. The SGXColourRGBA is converted to linear colour space (gamma correction) first before the computation and converted back after, giving more realistic results. This edits the SGXColourRGBA in place. To get a copy of the old SGXColourRGBA, copy it to another variable first.<br>&nbsp;</p>
+<h2 class="halftitle" id="void-lineartransformgreenwithgamma-float-m-float-c-">&#x9;void <a class="link" href="#void-lineartransformgreenwithgamma-float-m-float-c-">linearTransformGreenWithGamma</a>(float m, float c)</h2>
+<p class="label">&#x9;This function replaces the current green value stored in the SGXColourRGBA, which we will refer to as x, with mx + c. The SGXColourRGBA is converted to linear colour space (gamma correction) first before the computation and converted back after, giving more realistic results. This edits the SGXColourRGBA in place. To get a copy of the old SGXColourRGBA, copy it to another variable first.<br>&nbsp;</p>
+<h2 class="halftitle" id="void-lineartransformbluewithgamma-float-m-float-c-">&#x9;void <a class="link" href="#void-lineartransformbluewithgamma-float-m-float-c-">linearTransformBlueWithGamma</a>(float m, float c)</h2>
+<p class="label">&#x9;This function replaces the current blue value stored in the SGXColourRGBA, which we will refer to as x, with mx + c. The SGXColourRGBA is converted to linear colour space (gamma correction) first before the computation and converted back after, giving more realistic results. This edits the SGXColourRGBA in place. To get a copy of the old SGXColourRGBA, copy it to another variable first.<br>&nbsp;</p>
+<h2 class="halftitle" id="void-applytint-sgxcolourrgba-x-">&#x9;void <a class="link" href="#void-applytint-sgxcolourrgba-x-">applyTint</a>(SGXColourRGBA x)</h2>
+<p class="label">&#x9;This function places colour x in front of a background using the colour represented by this SGXColourRGBA and computes the resulting colour that will be seen. Transparency of both colours are taken into account. The resulting colour is set to this SGXColourRGBA. This edits this SGXColourRGBA in place. To get a copy of the old SGXColourRGBA, copy it to another variable first. Gamma correction is used in the computation process for visual accuracy.<br>&nbsp;</p>
+<h2 class="halftitle" id="void-applytintseparatetransparency-sgxcolourrgba-x-int-a-">&#x9;void <a class="link" href="#void-applytintseparatetransparency-sgxcolourrgba-x-int-a-">applyTintSeparateTransparency</a>(SGXColourRGBA x, int a)</h2>
+<p class="label">&#x9;This function places colour x in front of a background using the colour represented by this SGXColourRGBA and computes the resulting colour that will be seen. The transparency of x is assumed to be a, a integer between 0 and 255. The resulting colour is set to this SGXColourRGBA. This edits this SGXColourRGBA in place. To get a copy of the old SGXColourRGBA, copy it to another variable first. This function does not correct out of range values of a and setting a to something out of range may produce interesting colours. Gamma correction is used in the computation process for visual accuracy.<br>&nbsp;</p>
+<h2 class="halftitle" id="void-applytintseparatetransparencyusingfloat-sgxcolourrgba-x-float-a-">&#x9;void <a class="link" href="#void-applytintseparatetransparencyusingfloat-sgxcolourrgba-x-float-a-">applyTintSeparateTransparencyUsingFloat</a>(SGXColourRGBA x, float a)</h2>
+<p class="label">&#x9;This function places colour x in front of a background using the colour represented by this SGXColourRGBA and computes the resulting colour that will be seen. The transparency of x is assumed to be a, a number between 0 and 1. The resulting colour is set to this SGXColourRGBA. This edits this SGXColourRGBA in place. To get a copy of the old SGXColourRGBA, copy it to another variable first. This function does not correct out of range values of a and setting a to something out of range may produce interesting colours. Gamma correction is used in the computation process for visual accuracy.<br>&nbsp;</p>
+<h2 class="halftitle" id="void-applytintnogammacorrection-sgxcolourrgba-x-">&#x9;void <a class="link" href="#void-applytintnogammacorrection-sgxcolourrgba-x-">applyTintNoGammaCorrection</a>(SGXColourRGBA x)</h2>
+<p class="label">&#x9;This function places colour x in front of a background using the colour represented by this SGXColourRGBA and computes the resulting colour that will be seen. Transparency of both colours are taken into account. The resulting colour is set to this SGXColourRGBA. This edits this SGXColourRGBA in place. To get a copy of the old SGXColourRGBA, copy it to another variable first.<br>&nbsp;</p>
+<h2 class="halftitle" id="void-applytintnogammacorrectionseparatetransparency-sgxcolourrgba-x-int-a-">&#x9;void <a class="link" href="#void-applytintnogammacorrectionseparatetransparency-sgxcolourrgba-x-int-a-">applyTintNoGammaCorrectionSeparateTransparency</a>(SGXColourRGBA x, int a)</h2>
+<p class="label">&#x9;This function places colour x in front of a background using the colour represented by this SGXColourRGBA and computes the resulting colour that will be seen. The transparency of x is assumed to be a, a integer between 0 and 255. The resulting colour is set to this SGXColourRGBA. This edits this SGXColourRGBA in place. To get a copy of the old SGXColourRGBA, copy it to another variable first. This function does not correct out of range values of a and setting a to something out of range may produce interesting colours.<br>&nbsp;</p>
+<h2 class="halftitle" id="void-applytintnogammacorrectionseparatetransparencyusingfloat-sgxcolourrgba-x-float-a-">&#x9;void <a class="link" href="#void-applytintnogammacorrectionseparatetransparencyusingfloat-sgxcolourrgba-x-float-a-">applyTintNoGammaCorrectionSeparateTransparencyUsingFloat</a>(SGXColourRGBA x, float a)</h2>
+<p class="label">&#x9;This function places colour x in front of a background using the colour represented by this SGXColourRGBA and computes the resulting colour that will be seen. The transparency of x is assumed to be a, a number between 0 and 1. The resulting colour is set to this SGXColourRGBA. This edits this SGXColourRGBA in place. To get a copy of the old SGXColourRGBA, copy it to another variable first. This function does not correct out of range values of a and setting a to something out of range may produce interesting colours.<br>&nbsp;</p>
+<h2 class="halftitle" id="-nodiscard-sgxcolourrgba-linearinterpolate-sgxcolourrgba-x-float-f-const">&#x9;[[nodiscard]] SGXColourRGBA <a class="link" href="#-nodiscard-sgxcolourrgba-linearinterpolate-sgxcolourrgba-x-float-f-const">linearInterpolate</a>(SGXColourRGBA x, float f) const</h2>
+<p class="label">&#x9;This function interpolates linearly between this SGXColourRGBA and the colour represented by x, visually equivalent to mixing the colours. This does not change transparency. f should be a number between 0 and 1 inclusive, and when mixing the colours, f portions of this colour is mixed with 1 - f portions of x. Using f = 0.5 gives the colour halfway between the 2 colours.<br>&nbsp;</p>
+<h2 class="halftitle" id="-nodiscard-sgxcolourrgba-linearinterpolategammacorrection-sgxcolourrgba-x-float-f-const">&#x9;[[nodiscard]] SGXColourRGBA <a class="link" href="#-nodiscard-sgxcolourrgba-linearinterpolategammacorrection-sgxcolourrgba-x-float-f-const">linearInterpolateGammaCorrection</a>(SGXColourRGBA x, float f) const</h2>
+<p class="label">&#x9;This function interpolates linearly between this SGXColourRGBA and the colour represented by x, visually equivalent to mixing the colours. This does not change transparency. f should be a number between 0 and 1 inclusive, and when mixing the colours, f portions of this colour is mixed with 1 - f portions of x. Using f = 0.5 gives the colour halfway between the 2 colours. Gamma correction is used in the computation process for visual accuracy.<br>&nbsp;</p>
+<h2 class="halftitle" id="void-tocomplementcolour-">&#x9;void <a class="link" href="#void-tocomplementcolour-">toComplementColour</a>()</h2>
+<p class="label">&#x9;This function changes this SGXColourRGBA to its complementary colour and sets that colour to this SGXColourRGBA. The transparency is not changed during this computation. This edits this SGXColourRGBA in place. To get a copy of the old SGXColourRGBA, copy it to another variable first.<br>&nbsp;</p>
+
+<div style="width: 100%; height: 0.25em; background-color: var(--c4);"></div>
+<p class="label">&#x9;Only properties, functions, and classes intended for public use have documentation. Your code autocompletion tool may provide suggestions that are not documented. You are discouraged from using these undocumented properties, functions, and classes unless you have read the source code and understand what they do.<br>&#x9;All information on this documentation page are only valid for SGEXTN version 5.1.0, future versions may have new features added or removed. For documentation of past versions, pls see the documentation bundled with the release.<br>&nbsp;</p>
+
+<div>
+<div style="width: 100%; height: 0.25em; background-color: var(--c4);"></div>
+<p class="label">©2025 05524F.sg (Singapore)</p>
+<p class="label"><a class="link" href="/contact">report a bug in SGEXTN or contact 05524F</a></p>
+<div style="width: 100%; height: 0.25em; background-color: var(--c4);"></div>
+</div>
+
+</body>
+</html>

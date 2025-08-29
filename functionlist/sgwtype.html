@@ -1,0 +1,212 @@
+
+<!DOCTYPE html>
+<html lang="en-SG">
+<head>
+<meta charset="UTF-8">
+<title>SGWType Functions</title>
+
+<link rel="icon" href="icon.png" type="image/png">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+
+@font-face {
+	font-family: "SingScript.sg";
+	src: url("/SingScript.sg")format("truetype");
+	font-weight: normal;
+	font-style: normal;
+}
+
+:root {
+	--c0: rgb(0, 0, 0);
+	--c1: rgb(64, 0, 50);
+	--c2: rgb(128, 0, 100);
+	--c3: rgb(191, 0, 150);
+	--c4: rgb(255, 0, 200);
+	--c5: rgb(255, 64, 214);
+	--c6: rgb(255, 128, 227);
+	--c7: rgb(255, 191, 241);
+	--c8: rgb(255, 255, 255);
+}
+
+*{
+        font-family: "SingScript.sg";
+	max-width: 100%;
+	word-break: break-word;
+	-webkit-text-size-adjust: 100%;
+	-ms-text-size-adjust: 100%;
+}
+
+.title {
+	color: var(--c4);
+	background-color: var(--c8);
+	font-size: 3.5rem;
+	margin: 0;
+	font-weight: normal;
+}
+.title::selection {
+	color: var(--c8);
+	background-color: var(--c4);
+	font-size: 3.5rem;
+	margin: 0;
+	font-weight: normal;
+}
+
+.halftitle {
+	color: var(--c4);
+	background-color: var(--c8);
+	font-size: 2.5rem;
+	margin: 0;
+	font-weight: normal;
+}
+.halftitle::selection {
+	color: var(--c8);
+	background-color: var(--c4);
+	font-size: 2.625rem;
+	margin: 0;
+	font-weight: normal;
+}
+
+.label {
+	color: var(--c4);
+	background-color: var(--c8);
+	font-size: 1.75rem;
+	margin: 0;
+	white-space: pre-wrap;
+}
+.label::selection {
+	color: var(--c8);
+	background-color: var(--c4);
+	font-size: 1.75rem;
+	margin: 0;
+	white-space: pre-wrap;
+}
+
+.link {
+	color: var(--c2);
+	background-color: var(--c8);
+	text-decoration: underline;
+}
+.link:hover {
+	color: var(--c2);
+	background-color: var(--c7);
+	text-decoration: underline;
+}
+.link:active {
+	color: var(--c2);
+	background-color: var(--c6);
+	text-decoration: underline;
+}
+.link::selection {
+	color: var(--c8);
+	background-color: var(--c4);
+	text-decoration: underline;
+}
+
+.button {
+	color: var(--c8);
+	background-color: var(--c4);
+	font-size: 1.75rem;
+	border: none;
+}
+.button:hover {
+	color: var(--c7);
+	background-color: var(--c3);
+	font-size: 1.75rem;
+	border: none;
+}
+.button:active {
+	color: var(--c6);
+	background-color: var(--c2);
+	font-size: 1.75rem;
+	border: none;
+}
+.button::selection {
+	color: var(--c4);
+	background-color: var(--c8);
+	font-size: 1.75rem;
+	border: none;
+}
+
+.input {
+	color: var(--c8);
+	background-color: var(--c4);
+	font-size: 1.75rem;
+	border: none;
+	outline: none;
+	text-align: center;
+}
+.input:hover {
+	color: var(--c7);
+	background-color: var(--c3);
+	font-size: 1.75rem;
+	border: none;
+	outline: none;
+	text-align: center;
+}
+.input:focus {
+	color: var(--c6);
+	background-color: var(--c2);
+	font-size: 1.75rem;
+	border: none;
+	outline: none;
+	text-align: center;
+}
+.input::selection {
+	color: var(--c4);
+	background-color: var(--c8);
+	font-size: 1.75rem;
+	border: none;
+	outline: none;
+	text-align: center;
+}
+
+</style>
+
+</head>
+<body>
+
+<div>
+<button class="button" style="width: 100%;" onclick="location.href='/'">
+<img src="https://raw.githubusercontent.com/InfinityIntegral/InfinityIntegral/main/flagemoji.png" style="vertical-align: middle; height: 1.5rem; image-rendering: auto;"> SGEXTN Documentation <img src="https://raw.githubusercontent.com/InfinityIntegral/InfinityIntegral/main/flagemoji.png" style="vertical-align: middle; height: 1.5rem; image-rendering: auto;">
+</button>
+</div>
+<h1 class="title">SGWType</h1>
+<p class="label">&#x9;This page contains a list of all properties and methods found in SGWType, including inherited ones. By clicking the link on each property or method, you can access its documentation page.</p>
+<p class="label">&nbsp;</p><div style="width: 100%; height: 0.25em; background-color: var(--c4);"></div>
+<h2 class="halftitle">Attached Enum</h2>
+<p class="label">&#x9;enum <a class="link" href="/classinfo/sgwtype#enumtype">SGWType::Type</a></p>
+<p class="label">&#x9;&#x9;<a class="link" href="/classinfo/sgwtype#flagblankwidget">SGWType::BlankWidget</a></p>
+<p class="label">&#x9;&#x9;<a class="link" href="/classinfo/sgwtype#flagpagebackground">SGWType::PageBackground</a></p>
+<p class="label">&#x9;&#x9;<a class="link" href="/classinfo/sgwtype#flagtextlabel">SGWType::TextLabel</a></p>
+<p class="label">&#x9;&#x9;<a class="link" href="/classinfo/sgwtype#flagiconlabel">SGWType::IconLabel</a></p>
+<p class="label">&#x9;&#x9;<a class="link" href="/classinfo/sgwtype#flaglonglabel">SGWType::LongLabel</a></p>
+<p class="label">&#x9;&#x9;<a class="link" href="/classinfo/sgwtype#flagsequentiallonglabel">SGWType::SequentialLongLabel</a></p>
+<p class="label">&#x9;&#x9;<a class="link" href="/classinfo/sgwtype#flagtextbutton">SGWType::TextButton</a></p>
+<p class="label">&#x9;&#x9;<a class="link" href="/classinfo/sgwtype#flagiconbutton">SGWType::IconButton</a></p>
+<p class="label">&#x9;&#x9;<a class="link" href="/classinfo/sgwtype#flagtextinput">SGWType::TextInput</a></p>
+<p class="label">&#x9;&#x9;<a class="link" href="/classinfo/sgwtype#flaglonginput">SGWType::LongInput</a></p>
+<p class="label">&#x9;&#x9;<a class="link" href="/classinfo/sgwtype#flagscrollview">SGWType::ScrollView</a></p>
+<p class="label">&#x9;&#x9;<a class="link" href="/classinfo/sgwtype#flagsequentialscrollview">SGWType::SequentialScrollView</a></p>
+<p class="label">&#x9;&#x9;<a class="link" href="/classinfo/sgwtype#flagcolourpicker">SGWType::ColourPicker</a></p>
+<p class="label">&#x9;&#x9;<a class="link" href="/classinfo/sgwtype#flagtouchreceiver">SGWType::TouchReceiver</a></p>
+<p class="label">&#x9;&#x9;<a class="link" href="/classinfo/sgwtype#flagcustomrenderer">SGWType::CustomRenderer</a></p>
+<p class="label">&#x9;&#x9;<a class="link" href="/classinfo/sgwtype#flagundefined">SGWType::Undefined</a></p>
+<p class="label">&nbsp;</p><div style="width: 100%; height: 0.25em; background-color: var(--c4);"></div>
+<h2 class="halftitle">Static Methods</h2>
+<p class="label">&#x9;bool isBackground(SGWType::Type x)<a class="link" href="/classinfo/sgwtype#bool-isbackground-sgwtype-type-x-">SGWType::</a></p>
+<p class="label">&#x9;bool isDisplayText(SGWType::Type x)<a class="link" href="/classinfo/sgwtype#bool-isdisplaytext-sgwtype-type-x-">SGWType::</a></p>
+<p class="label">&#x9;bool isButton(SGWType::Type x)<a class="link" href="/classinfo/sgwtype#bool-isbutton-sgwtype-type-x-">SGWType::</a></p>
+<p class="label">&#x9;bool isInputField(SGWType::Type x)<a class="link" href="/classinfo/sgwtype#bool-isinputfield-sgwtype-type-x-">SGWType::</a></p>
+<p class="label">&nbsp;</p>
+<div style="width: 100%; height: 0.25em; background-color: var(--c4);"></div>
+<p class="label">&#x9;Only properties, functions, and classes intended for public use have documentation. Your code autocompletion tool may provide suggestions that are not documented. You are discouraged from using these undocumented properties, functions, and classes unless you have read the source code and understand what they do.<br>&#x9;All information on this documentation page are only valid for SGEXTN version 5.1.0, future versions may have new features added or removed. For documentation of past versions, pls see the documentation bundled with the release.<br>&nbsp;</p>
+
+<div>
+<div style="width: 100%; height: 0.25em; background-color: var(--c4);"></div>
+<p class="label">©2025 05524F.sg (Singapore)</p>
+<p class="label"><a class="link" href="/contact">report a bug in SGEXTN or contact 05524F</a></p>
+<div style="width: 100%; height: 0.25em; background-color: var(--c4);"></div>
+</div>
+
+</body>
+</html>

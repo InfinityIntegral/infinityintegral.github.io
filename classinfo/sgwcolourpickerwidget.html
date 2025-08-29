@@ -1,0 +1,262 @@
+
+<!DOCTYPE html>
+<html lang="en-SG">
+<head>
+<meta charset="UTF-8">
+<title>SGWColourPickerWidget Docs</title>
+
+<link rel="icon" href="icon.png" type="image/png">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+
+@font-face {
+	font-family: "SingScript.sg";
+	src: url("/SingScript.sg")format("truetype");
+	font-weight: normal;
+	font-style: normal;
+}
+
+:root {
+	--c0: rgb(0, 0, 0);
+	--c1: rgb(64, 0, 50);
+	--c2: rgb(128, 0, 100);
+	--c3: rgb(191, 0, 150);
+	--c4: rgb(255, 0, 200);
+	--c5: rgb(255, 64, 214);
+	--c6: rgb(255, 128, 227);
+	--c7: rgb(255, 191, 241);
+	--c8: rgb(255, 255, 255);
+}
+
+*{
+        font-family: "SingScript.sg";
+	max-width: 100%;
+	word-break: break-word;
+	-webkit-text-size-adjust: 100%;
+	-ms-text-size-adjust: 100%;
+}
+
+.title {
+	color: var(--c4);
+	background-color: var(--c8);
+	font-size: 3.5rem;
+	margin: 0;
+	font-weight: normal;
+}
+.title::selection {
+	color: var(--c8);
+	background-color: var(--c4);
+	font-size: 3.5rem;
+	margin: 0;
+	font-weight: normal;
+}
+
+.halftitle {
+	color: var(--c4);
+	background-color: var(--c8);
+	font-size: 2.5rem;
+	margin: 0;
+	font-weight: normal;
+}
+.halftitle::selection {
+	color: var(--c8);
+	background-color: var(--c4);
+	font-size: 2.625rem;
+	margin: 0;
+	font-weight: normal;
+}
+
+.label {
+	color: var(--c4);
+	background-color: var(--c8);
+	font-size: 1.75rem;
+	margin: 0;
+	white-space: pre-wrap;
+}
+.label::selection {
+	color: var(--c8);
+	background-color: var(--c4);
+	font-size: 1.75rem;
+	margin: 0;
+	white-space: pre-wrap;
+}
+
+.link {
+	color: var(--c2);
+	background-color: var(--c8);
+	text-decoration: underline;
+}
+.link:hover {
+	color: var(--c2);
+	background-color: var(--c7);
+	text-decoration: underline;
+}
+.link:active {
+	color: var(--c2);
+	background-color: var(--c6);
+	text-decoration: underline;
+}
+.link::selection {
+	color: var(--c8);
+	background-color: var(--c4);
+	text-decoration: underline;
+}
+
+.button {
+	color: var(--c8);
+	background-color: var(--c4);
+	font-size: 1.75rem;
+	border: none;
+}
+.button:hover {
+	color: var(--c7);
+	background-color: var(--c3);
+	font-size: 1.75rem;
+	border: none;
+}
+.button:active {
+	color: var(--c6);
+	background-color: var(--c2);
+	font-size: 1.75rem;
+	border: none;
+}
+.button::selection {
+	color: var(--c4);
+	background-color: var(--c8);
+	font-size: 1.75rem;
+	border: none;
+}
+
+.input {
+	color: var(--c8);
+	background-color: var(--c4);
+	font-size: 1.75rem;
+	border: none;
+	outline: none;
+	text-align: center;
+}
+.input:hover {
+	color: var(--c7);
+	background-color: var(--c3);
+	font-size: 1.75rem;
+	border: none;
+	outline: none;
+	text-align: center;
+}
+.input:focus {
+	color: var(--c6);
+	background-color: var(--c2);
+	font-size: 1.75rem;
+	border: none;
+	outline: none;
+	text-align: center;
+}
+.input::selection {
+	color: var(--c4);
+	background-color: var(--c8);
+	font-size: 1.75rem;
+	border: none;
+	outline: none;
+	text-align: center;
+}
+
+</style>
+
+</head>
+<body>
+
+<div>
+<button class="button" style="width: 100%;" onclick="location.href='/'">
+<img src="https://raw.githubusercontent.com/InfinityIntegral/InfinityIntegral/main/flagemoji.png" style="vertical-align: middle; height: 1.5rem; image-rendering: auto;"> SGEXTN Documentation <img src="https://raw.githubusercontent.com/InfinityIntegral/InfinityIntegral/main/flagemoji.png" style="vertical-align: middle; height: 1.5rem; image-rendering: auto;">
+</button>
+</div>
+<h1 class="title">SGWColourPickerWidget</h1>
+<p class="label">&#x9;SGWidget allowing user to choose a colour</p>
+<p class="label">&nbsp;<br>&#x9;header: #include" SGEXTN/widgets/instantiable/sgwcolourpickerwidget.h"</p>
+<p class="label">&#x9;inherits: <a class="link" href="/classinfo/sgwwidget">SGWWidget</a></p>
+<p class="label">&#x9;<a class="link" href="#moreinfo">More information...</a></p><p class="label">&#x9;<a class="link" href="/functionlist/sgwcolourpickerwidget">List of all including inherited members</a></p><p class="label">&nbsp;</p><div style="width: 100%; height: 0.25em; background-color: var(--c4);"></div>
+<h2 class="halftitle">Instance Methods</h2>
+<p class="label">&#x9;<a class="link" href="#-sgwcolourpickerwidget-sgwwidget-parent-float-x1-float-x0-float-y1-float-y0-float-w1-float-w0-float-h1-float-h0-sgxcolourrgba-defaultcolour-">SGWColourPickerWidget</a>(SGWWidget* parent, float x1, float x0, float y1, float y0, float w1, float w0, float h1, float h0, SGXColourRGBA defaultColour)</p>
+<p class="label">&#x9;[[nodiscard]] SGXColourRGBA <a class="link" href="#-nodiscard-sgxcolourrgba-getcolour-const">getColour</a>() const</p>
+<p class="label">&#x9;void <a class="link" href="#void-setcolour-sgxcolourrgba-colour-">setColour</a>(SGXColourRGBA colour)</p>
+<p class="label">&#x9;[[nodiscard]] float <a class="link" href="#-nodiscard-float-gete1-const">getE1</a>() const</p>
+<p class="label">&#x9;void <a class="link" href="#void-sete1-float-e1-">setE1</a>(float e1)</p>
+<p class="label">&#x9;[[nodiscard]] float <a class="link" href="#-nodiscard-float-gete0-const">getE0</a>() const</p>
+<p class="label">&#x9;void <a class="link" href="#void-sete0-float-e0-">setE0</a>(float e0)</p>
+<p class="label">&#x9;[[nodiscard]] void (*<a class="link" href="#-nodiscard-void-getattachedfunction-const-sgwcolourpickerwidget-">getAttachedFunction</a>() const)(SGWColourPickerWidget*)</p>
+<p class="label">&#x9;void <a class="link" href="#void-setattachedfunction-void-function-sgwcolourpickerwidget-">setAttachedFunction</a>(void (*function)(SGWColourPickerWidget*))</p>
+<p class="label">&#x9;[[nodiscard]] int <a class="link" href="#-nodiscard-int-getbackgroundthemecolour-bool-isusing-const">getBackgroundThemeColour</a>(bool* isUsing) const</p>
+<p class="label">&#x9;void <a class="link" href="#void-setbackgroundthemecolour-int-themecolour-">setBackgroundThemeColour</a>(int themeColour)</p>
+<p class="label">&#x9;[[nodiscard]] SGXColourRGBA <a class="link" href="#-nodiscard-sgxcolourrgba-getbackgroundcolour-bool-isusing-const">getBackgroundColour</a>(bool* isUsing) const</p>
+<p class="label">&#x9;void <a class="link" href="#void-setbackgroundcolour-sgxcolourrgba-colour-">setBackgroundColour</a>(SGXColourRGBA colour)</p>
+<p class="label">&#x9;[[nodiscard]] int <a class="link" href="#-nodiscard-int-getbackgroundhoverthemecolour-bool-isusing-const">getBackgroundHoverThemeColour</a>(bool* isUsing) const</p>
+<p class="label">&#x9;void <a class="link" href="#void-setbackgroundhoverthemecolour-int-themecolour-">setBackgroundHoverThemeColour</a>(int themeColour)</p>
+<p class="label">&#x9;[[nodiscard]] SGXColourRGBA <a class="link" href="#-nodiscard-sgxcolourrgba-getbackgroundhovercolour-bool-isusing-const">getBackgroundHoverColour</a>(bool* isUsing) const</p>
+<p class="label">&#x9;void <a class="link" href="#void-setbackgroundhovercolour-sgxcolourrgba-colour-">setBackgroundHoverColour</a>(SGXColourRGBA colour)</p>
+<p class="label">&#x9;[[nodiscard]] int <a class="link" href="#-nodiscard-int-getbackgroundfocusthemecolour-bool-isusing-const">getBackgroundFocusThemeColour</a>(bool* isUsing) const</p>
+<p class="label">&#x9;void <a class="link" href="#void-setbackgroundfocusthemecolour-int-themecolour-">setBackgroundFocusThemeColour</a>(int themeColour)</p>
+<p class="label">&#x9;[[nodiscard]] SGXColourRGBA <a class="link" href="#-nodiscard-sgxcolourrgba-getbackgroundfocuscolour-bool-isusing-const">getBackgroundFocusColour</a>(bool* isUsing) const</p>
+<p class="label">&#x9;void <a class="link" href="#void-setbackgroundfocuscolour-sgxcolourrgba-colour-">setBackgroundFocusColour</a>(SGXColourRGBA colour)</p>
+<p class="label">&nbsp;</p><div style="width: 100%; height: 0.25em; background-color: var(--c4);"></div>
+<h2 class="halftitle" id="moreinfo">Detailed Description</h2>
+<p class="label">&#x9;SGWColourPickerWidget is a SGWidget that allows the user to pick a colour using the SGEXTN builtin colour picker. A callback function can be attached to the colour picker to run when a colour is chosen. Since user input has to be intercepted for interactivity, SGWidgets under the colour picker cannot receive user input.</p>
+<h2 class="halftitle"><div id="-w"></div>_w Distance</h2>
+<p class="label">&#x9;The position and size of all SGWidgets are calculated using a <a class="link" href="#-w">_w</a> distance.<br>&#x9;A _w distance is made of 2 coordinates, coordinate 1 and coordinate 0, and it is denoted using _w(c1, c0). This is equal to c1 * parent_size + c0 * size_unit pixels, where parent_size is the size of the parent SGWidget and size_unit is 1/24 of the screen width or screen height, whichever is longer.</p>
+<h2 class="halftitle"><div id="-c"></div> Theme Colours</h2>
+<p class="label">&#x9;SGWidgets follow a set of 9 chosen <a class="link" href="#-c">theme colours</a>. Each of these 9 colours have a index number between 0 and 8 which can be used to refer to them. If you want a SGWidget to have a colour that is not a theme colour, you must set it using a <a class="link" href="/classinfo/sgxcolourrgba">SGXColourRGBA</a>. Setting a non theme colour switches the widget to non theme colour mode and ignores previously set theme colours. Setting a theme colour switches the widget to theme colour mode and ignores all previously set non theme colours.</p>
+<p class="label">&nbsp;</p><div style="width: 100%; height: 0.25em; background-color: var(--c4);"></div>
+<h2 class="halftitle" id="-sgwcolourpickerwidget-sgwwidget-parent-float-x1-float-x0-float-y1-float-y0-float-w1-float-w0-float-h1-float-h0-sgxcolourrgba-defaultcolour-">&#x9;<a class="link" href="#-sgwcolourpickerwidget-sgwwidget-parent-float-x1-float-x0-float-y1-float-y0-float-w1-float-w0-float-h1-float-h0-sgxcolourrgba-defaultcolour-">SGWColourPickerWidget</a>(SGWWidget* parent, float x1, float x0, float y1, float y0, float w1, float w0, float h1, float h0, SGXColourRGBA defaultColour)</h2>
+<p class="label">&#x9;This constructor for SGWCustomRenderer creates a SGWCustomRenderer and places it onto the screen.<br>&#x9;parent: pointer to parent SGWidget<br>&#x9;x1: 1 coordinate of x coordinate (which is a <a class="link" href="#-w">_w</a> distance) of position<br>&#x9;x0: 0 coordinate of x coordinate (which is a <a class="link" href="#-w">_w</a> distance) of position<br>&#x9;y1: 1 coordinate of y coordinate (which is a <a class="link" href="#-w">_w</a> distance) of position<br>&#x9;y0: 0 coordinate of y coordinate (which is a <a class="link" href="#-w">_w</a> distance) of position<br>&#x9;w1: 1 coordinate of width (which is a <a class="link" href="#-w">_w</a> distance)<br>&#x9;w0: 0 coordinate of width (which is a <a class="link" href="#-w">_w</a> distance)<br>&#x9;h1: 1 coordinate of height (which is a <a class="link" href="#-w">_w</a> distance)<br>&#x9;h0: 0 coordinate of height (which is a <a class="link" href="#-w">_w</a> distance)<br>&#x9;defaultColour: colour used by the colour picker initially<br>&nbsp;</p>
+<h2 class="halftitle" id="-nodiscard-sgxcolourrgba-getcolour-const">&#x9;[[nodiscard]] SGXColourRGBA <a class="link" href="#-nodiscard-sgxcolourrgba-getcolour-const">getColour</a>() const</h2>
+<p class="label">&#x9;This function gets the colour currently selected in this SGWColourPickerWidget. This is provided as a <a class="link" href="/classinfo/sgxcolourrgba">SGXColourRGBA</a>.<br>&nbsp;</p>
+<h2 class="halftitle" id="void-setcolour-sgxcolourrgba-colour-">&#x9;void <a class="link" href="#void-setcolour-sgxcolourrgba-colour-">setColour</a>(SGXColourRGBA colour)</h2>
+<p class="label">&#x9;This function sets the colour currently selected in this SGWColourPickerWidget. This is provided as a <a class="link" href="/classinfo/sgxcolourrgba">SGXColourRGBA</a>.<br>&nbsp;</p>
+<h2 class="halftitle" id="-nodiscard-float-gete1-const">&#x9;[[nodiscard]] float <a class="link" href="#-nodiscard-float-gete1-const">getE1</a>() const</h2>
+<p class="label">&#x9;This function gets the 1 coordinate of the border radius, which is a <a class="link" href="#-w">_w</a> distance. A border is placed around the colour picker so that it can be seen even when the colour selected is identical to the background colour.<br>&nbsp;</p>
+<h2 class="halftitle" id="void-sete1-float-e1-">&#x9;void <a class="link" href="#void-sete1-float-e1-">setE1</a>(float e1)</h2>
+<p class="label">&#x9;This function sets the 1 coordinate of the border radius, which is a <a class="link" href="#-w">_w</a> distance. A border is placed around the colour picker so that it can be seen even when the colour selected is identical to the background colour.<br>&nbsp;</p>
+<h2 class="halftitle" id="-nodiscard-float-gete0-const">&#x9;[[nodiscard]] float <a class="link" href="#-nodiscard-float-gete0-const">getE0</a>() const</h2>
+<p class="label">&#x9;This function gets the 0 coordinate of the border radius, which is a <a class="link" href="#-w">_w</a> distance. A border is placed around the colour picker so that it can be seen even when the colour selected is identical to the background colour.<br>&nbsp;</p>
+<h2 class="halftitle" id="void-sete0-float-e0-">&#x9;void <a class="link" href="#void-sete0-float-e0-">setE0</a>(float e0)</h2>
+<p class="label">&#x9;This function sets the 0 coordinate of the border radius, which is a <a class="link" href="#-w">_w</a> distance. A border is placed around the colour picker so that it can be seen even when the colour selected is identical to the background colour.<br>&nbsp;</p>
+<h2 class="halftitle" id="-nodiscard-void-getattachedfunction-const-sgwcolourpickerwidget-">&#x9;[[nodiscard]] void (*<a class="link" href="#-nodiscard-void-getattachedfunction-const-sgwcolourpickerwidget-">getAttachedFunction</a>() const)(SGWColourPickerWidget*)</h2>
+<p class="label">&#x9;This function gets the callback function attached to this SGWColourPickerWidget which is triggered when a colour is selected in the form of a function pointer. The callback function should return void and take as argument a pointer to a SGWColourPickerWidget which gives information about which colour picker triggered it.<br>&nbsp;</p>
+<h2 class="halftitle" id="void-setattachedfunction-void-function-sgwcolourpickerwidget-">&#x9;void <a class="link" href="#void-setattachedfunction-void-function-sgwcolourpickerwidget-">setAttachedFunction</a>(void (*function)(SGWColourPickerWidget*))</h2>
+<p class="label">&#x9;This function sets the callback function attached to this SGWColourPickerWidget which is triggered when a colour is selected in the form of a function pointer. The callback function should return void and take as argument a pointer to a SGWColourPickerWidget which gives information about which colour picker triggered it.<br>&nbsp;</p>
+<h2 class="halftitle" id="-nodiscard-int-getbackgroundthemecolour-bool-isusing-const">&#x9;[[nodiscard]] int <a class="link" href="#-nodiscard-int-getbackgroundthemecolour-bool-isusing-const">getBackgroundThemeColour</a>(bool* isUsing) const</h2>
+<p class="label">&#x9;This function gets the <a class="link" href="#-c">theme colour</a> used for the border of this SGWColourPickerWidget. The boolean isUsing is set to true if this SGWColourPickerWidget is in theme colour mode and false if this SGWColourPickerWidget is in non theme colour mode. If nullptr is passed to this function, no mode checking is done.<br>&nbsp;</p>
+<h2 class="halftitle" id="void-setbackgroundthemecolour-int-themecolour-">&#x9;void <a class="link" href="#void-setbackgroundthemecolour-int-themecolour-">setBackgroundThemeColour</a>(int themeColour)</h2>
+<p class="label">&#x9;This function sets the <a class="link" href="#-c">theme colour</a> used for the border of this SGWColourPickerWidget. It also sets this SGWColourPickerWidget to theme colour mode.<br>&nbsp;</p>
+<h2 class="halftitle" id="-nodiscard-sgxcolourrgba-getbackgroundcolour-bool-isusing-const">&#x9;[[nodiscard]] SGXColourRGBA <a class="link" href="#-nodiscard-sgxcolourrgba-getbackgroundcolour-bool-isusing-const">getBackgroundColour</a>(bool* isUsing) const</h2>
+<p class="label">&#x9;This function sets the colour used for the border of this SGWColourPickerWidget. The boolean isUsing is set to false if this SGWColourPickerWidget is in theme colour mode and true if this SGWColourPickerWidget is in non theme colour mode. If nullptr is passed to this function, no mode checking is done.<br>&nbsp;</p>
+<h2 class="halftitle" id="void-setbackgroundcolour-sgxcolourrgba-colour-">&#x9;void <a class="link" href="#void-setbackgroundcolour-sgxcolourrgba-colour-">setBackgroundColour</a>(SGXColourRGBA colour)</h2>
+<p class="label">&#x9;This function sets the colour used for the border of this SGWColourPickerWidget. It also sets this SGWColourPickerWidget to non theme colour mode.<br>&nbsp;</p>
+<h2 class="halftitle" id="-nodiscard-int-getbackgroundhoverthemecolour-bool-isusing-const">&#x9;[[nodiscard]] int <a class="link" href="#-nodiscard-int-getbackgroundhoverthemecolour-bool-isusing-const">getBackgroundHoverThemeColour</a>(bool* isUsing) const</h2>
+<p class="label">&#x9;This function gets the <a class="link" href="#-c">theme colour</a> used for the border of this SGWColourPickerWidget when it is being hovered over. The boolean isUsing is set to true if this SGWColourPickerWidget is in theme colour mode and false if this SGWColourPickerWidget is in non theme colour mode. If nullptr is passed to this function, no mode checking is done.<br>&nbsp;</p>
+<h2 class="halftitle" id="void-setbackgroundhoverthemecolour-int-themecolour-">&#x9;void <a class="link" href="#void-setbackgroundhoverthemecolour-int-themecolour-">setBackgroundHoverThemeColour</a>(int themeColour)</h2>
+<p class="label">&#x9;This function sets the <a class="link" href="#-c">theme colour</a> used for the border of this SGWColourPickerWidget when it is being hovered over. It also sets this SGWColourPickerWidget to theme colour mode.<br>&nbsp;</p>
+<h2 class="halftitle" id="-nodiscard-sgxcolourrgba-getbackgroundhovercolour-bool-isusing-const">&#x9;[[nodiscard]] SGXColourRGBA <a class="link" href="#-nodiscard-sgxcolourrgba-getbackgroundhovercolour-bool-isusing-const">getBackgroundHoverColour</a>(bool* isUsing) const</h2>
+<p class="label">&#x9;This function sets the colour used for the border of this SGWColourPickerWidget when it is being hovered over. The boolean isUsing is set to false if this SGWColourPickerWidget is in theme colour mode and true if this SGWColourPickerWidget is in non theme colour mode. If nullptr is passed to this function, no mode checking is done.<br>&nbsp;</p>
+<h2 class="halftitle" id="void-setbackgroundhovercolour-sgxcolourrgba-colour-">&#x9;void <a class="link" href="#void-setbackgroundhovercolour-sgxcolourrgba-colour-">setBackgroundHoverColour</a>(SGXColourRGBA colour)</h2>
+<p class="label">&#x9;This function sets the colour used for the border of this SGWColourPickerWidget when it is being hovered over. It also sets this SGWColourPickerWidget to non theme colour mode.<br>&nbsp;</p>
+<h2 class="halftitle" id="-nodiscard-int-getbackgroundfocusthemecolour-bool-isusing-const">&#x9;[[nodiscard]] int <a class="link" href="#-nodiscard-int-getbackgroundfocusthemecolour-bool-isusing-const">getBackgroundFocusThemeColour</a>(bool* isUsing) const</h2>
+<p class="label">&#x9;This function gets the <a class="link" href="#-c">theme colour</a> used for the border of this SGWColourPickerWidget when it is being pressed. The boolean isUsing is set to true if this SGWColourPickerWidget is in theme colour mode and false if this SGWColourPickerWidget is in non theme colour mode. If nullptr is passed to this function, no mode checking is done.<br>&nbsp;</p>
+<h2 class="halftitle" id="void-setbackgroundfocusthemecolour-int-themecolour-">&#x9;void <a class="link" href="#void-setbackgroundfocusthemecolour-int-themecolour-">setBackgroundFocusThemeColour</a>(int themeColour)</h2>
+<p class="label">&#x9;This function sets the <a class="link" href="#-c">theme colour</a> used for the border of this SGWColourPickerWidget when it is being pressed. It also sets this SGWColourPickerWidget to theme colour mode.<br>&nbsp;</p>
+<h2 class="halftitle" id="-nodiscard-sgxcolourrgba-getbackgroundfocuscolour-bool-isusing-const">&#x9;[[nodiscard]] SGXColourRGBA <a class="link" href="#-nodiscard-sgxcolourrgba-getbackgroundfocuscolour-bool-isusing-const">getBackgroundFocusColour</a>(bool* isUsing) const</h2>
+<p class="label">&#x9;This function sets the colour used for the border of this SGWColourPickerWidget when it is being pressed. The boolean isUsing is set to false if this SGWColourPickerWidget is in theme colour mode and true if this SGWColourPickerWidget is in non theme colour mode. If nullptr is passed to this function, no mode checking is done.<br>&nbsp;</p>
+<h2 class="halftitle" id="void-setbackgroundfocuscolour-sgxcolourrgba-colour-">&#x9;void <a class="link" href="#void-setbackgroundfocuscolour-sgxcolourrgba-colour-">setBackgroundFocusColour</a>(SGXColourRGBA colour)</h2>
+<p class="label">&#x9;This function sets the colour used for the border of this SGWColourPickerWidget when it is being pressed. It also sets this SGWColourPickerWidget to non theme colour mode.<br>&nbsp;</p>
+
+<div style="width: 100%; height: 0.25em; background-color: var(--c4);"></div>
+<p class="label">&#x9;Only properties, functions, and classes intended for public use have documentation. Your code autocompletion tool may provide suggestions that are not documented. You are discouraged from using these undocumented properties, functions, and classes unless you have read the source code and understand what they do.<br>&#x9;All information on this documentation page are only valid for SGEXTN version 5.1.0, future versions may have new features added or removed. For documentation of past versions, pls see the documentation bundled with the release.<br>&nbsp;</p>
+
+<div>
+<div style="width: 100%; height: 0.25em; background-color: var(--c4);"></div>
+<p class="label">©2025 05524F.sg (Singapore)</p>
+<p class="label"><a class="link" href="/contact">report a bug in SGEXTN or contact 05524F</a></p>
+<div style="width: 100%; height: 0.25em; background-color: var(--c4);"></div>
+</div>
+
+</body>
+</html>

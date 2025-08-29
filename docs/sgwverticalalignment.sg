@@ -1,0 +1,12 @@
+#c SGWVerticalAlignment
+vertical text alignment mode flags for SGWidgets
+#ic SGEXTN/widgets/enums/sgwverticalalignment.h
+#d SGWVerticalAlignment is designed to replace Qt::Alignment and Qt::AlignmentFlag, it controls the vertical alignment of text in SGWidgets that display text, such as buttons, labels, and input fields. For horizontal alignment, see <a class="link" href="/classinfo/sgwhorizontalalignment">SGWHorizontalAlignment</a> instead.
+#e Flag
+This is the type of the vertical text alignment mode flags.
+#ef Top
+This sets text in SGWidgets to align top.
+#ef Center
+This sets text in SGWidgets to align vertical center.
+#ef Bottom
+This sets text in SGWidgets to align bottom.

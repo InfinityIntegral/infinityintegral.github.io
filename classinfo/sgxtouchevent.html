@@ -1,0 +1,258 @@
+
+<!DOCTYPE html>
+<html lang="en-SG">
+<head>
+<meta charset="UTF-8">
+<title>SGXTouchEvent Docs</title>
+
+<link rel="icon" href="icon.png" type="image/png">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+
+@font-face {
+	font-family: "SingScript.sg";
+	src: url("/SingScript.sg")format("truetype");
+	font-weight: normal;
+	font-style: normal;
+}
+
+:root {
+	--c0: rgb(0, 0, 0);
+	--c1: rgb(64, 0, 50);
+	--c2: rgb(128, 0, 100);
+	--c3: rgb(191, 0, 150);
+	--c4: rgb(255, 0, 200);
+	--c5: rgb(255, 64, 214);
+	--c6: rgb(255, 128, 227);
+	--c7: rgb(255, 191, 241);
+	--c8: rgb(255, 255, 255);
+}
+
+*{
+        font-family: "SingScript.sg";
+	max-width: 100%;
+	word-break: break-word;
+	-webkit-text-size-adjust: 100%;
+	-ms-text-size-adjust: 100%;
+}
+
+.title {
+	color: var(--c4);
+	background-color: var(--c8);
+	font-size: 3.5rem;
+	margin: 0;
+	font-weight: normal;
+}
+.title::selection {
+	color: var(--c8);
+	background-color: var(--c4);
+	font-size: 3.5rem;
+	margin: 0;
+	font-weight: normal;
+}
+
+.halftitle {
+	color: var(--c4);
+	background-color: var(--c8);
+	font-size: 2.5rem;
+	margin: 0;
+	font-weight: normal;
+}
+.halftitle::selection {
+	color: var(--c8);
+	background-color: var(--c4);
+	font-size: 2.625rem;
+	margin: 0;
+	font-weight: normal;
+}
+
+.label {
+	color: var(--c4);
+	background-color: var(--c8);
+	font-size: 1.75rem;
+	margin: 0;
+	white-space: pre-wrap;
+}
+.label::selection {
+	color: var(--c8);
+	background-color: var(--c4);
+	font-size: 1.75rem;
+	margin: 0;
+	white-space: pre-wrap;
+}
+
+.link {
+	color: var(--c2);
+	background-color: var(--c8);
+	text-decoration: underline;
+}
+.link:hover {
+	color: var(--c2);
+	background-color: var(--c7);
+	text-decoration: underline;
+}
+.link:active {
+	color: var(--c2);
+	background-color: var(--c6);
+	text-decoration: underline;
+}
+.link::selection {
+	color: var(--c8);
+	background-color: var(--c4);
+	text-decoration: underline;
+}
+
+.button {
+	color: var(--c8);
+	background-color: var(--c4);
+	font-size: 1.75rem;
+	border: none;
+}
+.button:hover {
+	color: var(--c7);
+	background-color: var(--c3);
+	font-size: 1.75rem;
+	border: none;
+}
+.button:active {
+	color: var(--c6);
+	background-color: var(--c2);
+	font-size: 1.75rem;
+	border: none;
+}
+.button::selection {
+	color: var(--c4);
+	background-color: var(--c8);
+	font-size: 1.75rem;
+	border: none;
+}
+
+.input {
+	color: var(--c8);
+	background-color: var(--c4);
+	font-size: 1.75rem;
+	border: none;
+	outline: none;
+	text-align: center;
+}
+.input:hover {
+	color: var(--c7);
+	background-color: var(--c3);
+	font-size: 1.75rem;
+	border: none;
+	outline: none;
+	text-align: center;
+}
+.input:focus {
+	color: var(--c6);
+	background-color: var(--c2);
+	font-size: 1.75rem;
+	border: none;
+	outline: none;
+	text-align: center;
+}
+.input::selection {
+	color: var(--c4);
+	background-color: var(--c8);
+	font-size: 1.75rem;
+	border: none;
+	outline: none;
+	text-align: center;
+}
+
+</style>
+
+</head>
+<body>
+
+<div>
+<button class="button" style="width: 100%;" onclick="location.href='/'">
+<img src="https://raw.githubusercontent.com/InfinityIntegral/InfinityIntegral/main/flagemoji.png" style="vertical-align: middle; height: 1.5rem; image-rendering: auto;"> SGEXTN Documentation <img src="https://raw.githubusercontent.com/InfinityIntegral/InfinityIntegral/main/flagemoji.png" style="vertical-align: middle; height: 1.5rem; image-rendering: auto;">
+</button>
+</div>
+<h1 class="title">SGXTouchEvent</h1>
+<p class="label">&#x9;struct storing a touch event</p>
+<p class="label">&nbsp;<br>&#x9;header: #include" SGEXTN/primitives/sgxtouchevent.h"</p>
+<p class="label">&#x9;inherits: none</p>
+<p class="label">&#x9;<a class="link" href="#moreinfo">More information...</a></p><p class="label">&#x9;<a class="link" href="/functionlist/sgxtouchevent">List of all including inherited members</a></p><p class="label">&nbsp;</p><div style="width: 100%; height: 0.25em; background-color: var(--c4);"></div>
+<h2 class="halftitle">Attached Enum</h2>
+<p class="label">&#x9;enum <a class="link" href="#enumtouchphase">TouchPhase</a></p>
+<p class="label">&#x9;&#x9;<a class="link" href="#flagtouchstart">TouchStart</a></p>
+<p class="label">&#x9;&#x9;<a class="link" href="#flagtouchongoing">TouchOngoing</a></p>
+<p class="label">&#x9;&#x9;<a class="link" href="#flagtouchend">TouchEnd</a></p>
+<p class="label">&#x9;</p><div style="width: 100%; height: 0.25em; background-color: var(--c4);"></div>
+<h2 class="halftitle">Instance Properties</h2>
+<p class="label">&#x9;float <a class="link" href="#float-x">x</a></p>
+<p class="label">&#x9;float <a class="link" href="#float-y">y</a></p>
+<p class="label">&#x9;SGXTouchEvent::TouchPhase <a class="link" href="#sgxtouchevent-touchphase-phase">phase</a></p>
+<p class="label">&#x9;int <a class="link" href="#int-id">id</a></p>
+<p class="label">&#x9;float <a class="link" href="#float-differencex">differenceX</a></p>
+<p class="label">&#x9;float <a class="link" href="#float-differencey">differenceY</a></p>
+<p class="label">&#x9;float <a class="link" href="#float-previousx">previousX</a></p>
+<p class="label">&#x9;float <a class="link" href="#float-previousy">previousY</a></p>
+<p class="label">&#x9;float <a class="link" href="#float-startx">startX</a></p>
+<p class="label">&#x9;float <a class="link" href="#float-starty">startY</a></p>
+<p class="label">&#x9;float <a class="link" href="#float-force">force</a></p>
+<p class="label">&#x9;float <a class="link" href="#float-velocityx">velocityX</a></p>
+<p class="label">&#x9;float <a class="link" href="#float-velocityy">velocityY</a></p>
+<p class="label">&#x9;float <a class="link" href="#float-radius">radius</a></p>
+<p class="label">&nbsp;</p><div style="width: 100%; height: 0.25em; background-color: var(--c4);"></div>
+<h2 class="halftitle">Instance Methods</h2>
+<p class="label">&#x9;<a class="link" href="#-sgxtouchevent-">SGXTouchEvent</a>()</p>
+<p class="label">&nbsp;</p><div style="width: 100%; height: 0.25em; background-color: var(--c4);"></div>
+<h2 class="halftitle" id="moreinfo">Detailed Description</h2>
+<p class="label">&#x9;SGXTouchEvent is a class representing finger touches (for touchscreens) or mouse clicks on a surface with detailed touch enabled, such as a <a class="link" href="/classinfo/sgwtouchreceiver">SGWTouchReceiver</a>. The SGXTouchEvent is supplied to you using the function bound on the SGWTouchReceiver and you should not be creating instances of this unless simulating user input.</p>
+<h2 class="halftitle">Touch IDs</h2>
+<p class="label">&#x9;Each SGXTouchEvent has an identifier attached that distinguish which touch it is during touch input processing. However, the identifier is only meaningful on the frame that the touch event was created. On subsequent frames, the same touch may have moved to somewhere else or even have been let go of entirely. Properties of SGXTouchEvent should only be read from and not written to.</p>
+<p class="label">&nbsp;</p><div style="width: 100%; height: 0.25em; background-color: var(--c4);"></div>
+<h2 class="halftitle" id="enumtouchphase"><a class="link" href="#enumtouchphase">TouchPhase</a></h2>
+<p class="label">&#x9;Each SGXTouchEvent has a phase associated with it which describes the touch event. From the phase, you can tell if the touch event just started, if it is ongoing, or if it has already ended (not pressed).<br>&nbsp;</p>
+<h2 class="halftitle" id="flagtouchstart">TouchPhase <a class="link" href="#flagtouchstart">TouchStart</a></h2>
+<p class="label">&#x9;When the phase of a SGXTouchEvent is in TouchStart, it means that the touch event is on its first frame. Before that, the finger associated with the SGXTouchEvent was not in contact with the screen.<br>&nbsp;</p>
+<h2 class="halftitle" id="flagtouchongoing">TouchPhase <a class="link" href="#flagtouchongoing">TouchOngoing</a></h2>
+<p class="label">&#x9;When the phase of a SGXTouchEvent is in TouchOngoing, it means that the touch event already exists on the previous frame and is being moved.<br>&nbsp;</p>
+<h2 class="halftitle" id="flagtouchend">TouchPhase <a class="link" href="#flagtouchend">TouchEnd</a></h2>
+<p class="label">&#x9;When the phase of a SGXTouchEvent is in TouchEnd, it means that the touch event has already ended. There is no finger associated with the SGXTouchEvent. It is possible that there is nothing on the SGXTouchEvent and it just exists as a placeholder, because <a class="link" href="/classinfo/sgwtouchreceiver">SGWTouchReceiver</a> always passes 5 touch events into the handler function even if less than 5 fingers are in contact with the screen.<br>&nbsp;</p>
+<h2 class="halftitle" id="float-x">&#x9;float <a class="link" href="#float-x">x</a></h2>
+<p class="label">&#x9;This property stores the x coordinate in pixels of this SGXTouchEvent. You may use SGWTouchReceiver::getWidth() to retrieve the width of the <a class="link" href="/classinfo/sgwtouchreceiver">SGWTouchReceiver</a> where this SGXTouchEvent came from. You should only read directly from this property and not write to it.<br>&nbsp;</p>
+<h2 class="halftitle" id="float-y">&#x9;float <a class="link" href="#float-y">y</a></h2>
+<p class="label">&#x9;This property stores the y coordinate in pixels of this SGXTouchEvent. You may use SGWTouchReceiver::getHeight() to retrieve the height of the <a class="link" href="/classinfo/sgwtouchreceiver">SGWTouchReceiver</a> where this SGXTouchEvent came from. You should only read directly from this property and not write to it.<br>&nbsp;</p>
+<h2 class="halftitle" id="sgxtouchevent-touchphase-phase">&#x9;SGXTouchEvent::TouchPhase <a class="link" href="#sgxtouchevent-touchphase-phase">phase</a></h2>
+<p class="label">&#x9;This property stores the phase of this SGXTouchEvent. See <a class="link" href="#enumtouchphase">here</a> for more information about touch phases. You should only read directly from this property and not write to it.<br>&nbsp;</p>
+<h2 class="halftitle" id="int-id">&#x9;int <a class="link" href="#int-id">id</a></h2>
+<p class="label">&#x9;This property stores the identifier of this SGXTouchEvent. The identifier allows you to keep track of different touch events across frames. You should only read directly from this property and not write to it.<br>&nbsp;</p>
+<h2 class="halftitle" id="float-differencex">&#x9;float <a class="link" href="#float-differencex">differenceX</a></h2>
+<p class="label">&#x9;This property stores the difference in pixels between the x coordinate of this SGXTouchEvent and that of the same touch event on the previous frame. You should only read directly from this property and not write to it.<br>&nbsp;</p>
+<h2 class="halftitle" id="float-differencey">&#x9;float <a class="link" href="#float-differencey">differenceY</a></h2>
+<p class="label">&#x9;This property stores the difference in pixels between the y coordinate of this SGXTouchEvent and that of the same touch event on the previous frame. You should only read directly from this property and not write to it.<br>&nbsp;</p>
+<h2 class="halftitle" id="float-previousx">&#x9;float <a class="link" href="#float-previousx">previousX</a></h2>
+<p class="label">&#x9;This property stores the x coordinate in pixels of the touch event represented by this SGXTouchEvent on the previous frame. You should only read directly from this property and not write to it.<br>&nbsp;</p>
+<h2 class="halftitle" id="float-previousy">&#x9;float <a class="link" href="#float-previousy">previousY</a></h2>
+<p class="label">&#x9;This property stores the y coordinate in pixels of the touch event represented by this SGXTouchEvent on the previous frame. You should only read directly from this property and not write to it.<br>&nbsp;</p>
+<h2 class="halftitle" id="float-startx">&#x9;float <a class="link" href="#float-startx">startX</a></h2>
+<p class="label">&#x9;This property stores the x coordinate in pixels of the touch event represented by this SGXTouchEvent on the first frame it was registered (when the phase was TouchStart). You should only read directly from this property and not write to it.<br>&nbsp;</p>
+<h2 class="halftitle" id="float-starty">&#x9;float <a class="link" href="#float-starty">startY</a></h2>
+<p class="label">&#x9;This property stores the y coordinate in pixels of the touch event represented by this SGXTouchEvent on the first frame it was registered (when the phase was TouchStart). You should only read directly from this property and not write to it.<br>&nbsp;</p>
+<h2 class="halftitle" id="float-force">&#x9;float <a class="link" href="#float-force">force</a></h2>
+<p class="label">&#x9;This property stores the force of this SGXTouchEvent as a number between 0 and 1. You should only read directly from this property and not write to it.<br>&nbsp;</p>
+<h2 class="halftitle" id="float-velocityx">&#x9;float <a class="link" href="#float-velocityx">velocityX</a></h2>
+<p class="label">&#x9;This property stores the velocity in pixels per second of this SGXTouchEvent in the x direction. This may not be supported on some hardware and operating systems. You should only read directly from this property and not write to it.<br>&nbsp;</p>
+<h2 class="halftitle" id="float-velocityy">&#x9;float <a class="link" href="#float-velocityy">velocityY</a></h2>
+<p class="label">&#x9;This property stores the velocity in pixels per second of this SGXTouchEvent in the y direction. This may not be supported on some hardware and operating systems. You should only read directly from this property and not write to it.<br>&nbsp;</p>
+<h2 class="halftitle" id="float-radius">&#x9;float <a class="link" href="#float-radius">radius</a></h2>
+<p class="label">&#x9;This property stores the radius in pixels of this SGXTouchEvent. You should only read directly from this property and not write to it.<br>&nbsp;</p>
+<h2 class="halftitle" id="-sgxtouchevent-">&#x9;<a class="link" href="#-sgxtouchevent-">SGXTouchEvent</a>()</h2>
+<p class="label">&#x9;This is the default constructor of SGXTouchEvent. It does nothing and you should not use it. The only reason why it exists is so that you can write = {} in class definition header files to initialise SGXTouchEvent variables so clang-tidy would not complain. When storing SGXTouchEvent in variables, make sure that it is updated every frame properly.<br>&nbsp;</p>
+
+<div style="width: 100%; height: 0.25em; background-color: var(--c4);"></div>
+<p class="label">&#x9;Only properties, functions, and classes intended for public use have documentation. Your code autocompletion tool may provide suggestions that are not documented. You are discouraged from using these undocumented properties, functions, and classes unless you have read the source code and understand what they do.<br>&#x9;All information on this documentation page are only valid for SGEXTN version 5.1.0, future versions may have new features added or removed. For documentation of past versions, pls see the documentation bundled with the release.<br>&nbsp;</p>
+
+<div>
+<div style="width: 100%; height: 0.25em; background-color: var(--c4);"></div>
+<p class="label">©2025 05524F.sg (Singapore)</p>
+<p class="label"><a class="link" href="/contact">report a bug in SGEXTN or contact 05524F</a></p>
+<div style="width: 100%; height: 0.25em; background-color: var(--c4);"></div>
+</div>
+
+</body>
+</html>

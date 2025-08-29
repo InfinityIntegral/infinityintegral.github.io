@@ -1,0 +1,236 @@
+
+<!DOCTYPE html>
+<html lang="en-SG">
+<head>
+<meta charset="UTF-8">
+<title>SGXColourRGBA Functions</title>
+
+<link rel="icon" href="icon.png" type="image/png">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+
+@font-face {
+	font-family: "SingScript.sg";
+	src: url("/SingScript.sg")format("truetype");
+	font-weight: normal;
+	font-style: normal;
+}
+
+:root {
+	--c0: rgb(0, 0, 0);
+	--c1: rgb(64, 0, 50);
+	--c2: rgb(128, 0, 100);
+	--c3: rgb(191, 0, 150);
+	--c4: rgb(255, 0, 200);
+	--c5: rgb(255, 64, 214);
+	--c6: rgb(255, 128, 227);
+	--c7: rgb(255, 191, 241);
+	--c8: rgb(255, 255, 255);
+}
+
+*{
+        font-family: "SingScript.sg";
+	max-width: 100%;
+	word-break: break-word;
+	-webkit-text-size-adjust: 100%;
+	-ms-text-size-adjust: 100%;
+}
+
+.title {
+	color: var(--c4);
+	background-color: var(--c8);
+	font-size: 3.5rem;
+	margin: 0;
+	font-weight: normal;
+}
+.title::selection {
+	color: var(--c8);
+	background-color: var(--c4);
+	font-size: 3.5rem;
+	margin: 0;
+	font-weight: normal;
+}
+
+.halftitle {
+	color: var(--c4);
+	background-color: var(--c8);
+	font-size: 2.5rem;
+	margin: 0;
+	font-weight: normal;
+}
+.halftitle::selection {
+	color: var(--c8);
+	background-color: var(--c4);
+	font-size: 2.625rem;
+	margin: 0;
+	font-weight: normal;
+}
+
+.label {
+	color: var(--c4);
+	background-color: var(--c8);
+	font-size: 1.75rem;
+	margin: 0;
+	white-space: pre-wrap;
+}
+.label::selection {
+	color: var(--c8);
+	background-color: var(--c4);
+	font-size: 1.75rem;
+	margin: 0;
+	white-space: pre-wrap;
+}
+
+.link {
+	color: var(--c2);
+	background-color: var(--c8);
+	text-decoration: underline;
+}
+.link:hover {
+	color: var(--c2);
+	background-color: var(--c7);
+	text-decoration: underline;
+}
+.link:active {
+	color: var(--c2);
+	background-color: var(--c6);
+	text-decoration: underline;
+}
+.link::selection {
+	color: var(--c8);
+	background-color: var(--c4);
+	text-decoration: underline;
+}
+
+.button {
+	color: var(--c8);
+	background-color: var(--c4);
+	font-size: 1.75rem;
+	border: none;
+}
+.button:hover {
+	color: var(--c7);
+	background-color: var(--c3);
+	font-size: 1.75rem;
+	border: none;
+}
+.button:active {
+	color: var(--c6);
+	background-color: var(--c2);
+	font-size: 1.75rem;
+	border: none;
+}
+.button::selection {
+	color: var(--c4);
+	background-color: var(--c8);
+	font-size: 1.75rem;
+	border: none;
+}
+
+.input {
+	color: var(--c8);
+	background-color: var(--c4);
+	font-size: 1.75rem;
+	border: none;
+	outline: none;
+	text-align: center;
+}
+.input:hover {
+	color: var(--c7);
+	background-color: var(--c3);
+	font-size: 1.75rem;
+	border: none;
+	outline: none;
+	text-align: center;
+}
+.input:focus {
+	color: var(--c6);
+	background-color: var(--c2);
+	font-size: 1.75rem;
+	border: none;
+	outline: none;
+	text-align: center;
+}
+.input::selection {
+	color: var(--c4);
+	background-color: var(--c8);
+	font-size: 1.75rem;
+	border: none;
+	outline: none;
+	text-align: center;
+}
+
+</style>
+
+</head>
+<body>
+
+<div>
+<button class="button" style="width: 100%;" onclick="location.href='/'">
+<img src="https://raw.githubusercontent.com/InfinityIntegral/InfinityIntegral/main/flagemoji.png" style="vertical-align: middle; height: 1.5rem; image-rendering: auto;"> SGEXTN Documentation <img src="https://raw.githubusercontent.com/InfinityIntegral/InfinityIntegral/main/flagemoji.png" style="vertical-align: middle; height: 1.5rem; image-rendering: auto;">
+</button>
+</div>
+<h1 class="title">SGXColourRGBA</h1>
+<p class="label">&#x9;This page contains a list of all properties and methods found in SGXColourRGBA, including inherited ones. By clicking the link on each property or method, you can access its documentation page.</p>
+<p class="label">&nbsp;</p><div style="width: 100%; height: 0.25em; background-color: var(--c4);"></div>
+<h2 class="halftitle">Instance Methods</h2>
+<p class="label">&#x9;<a class="link" href="/classinfo/sgxcolourrgba#-sgxcolourrgba-">SGXColourRGBA::SGXColourRGBA</a>()</p>
+<p class="label">&#x9;<a class="link" href="/classinfo/sgxcolourrgba#-sgxcolourrgba-int-r-int-g-int-b-int-a-">SGXColourRGBA::SGXColourRGBA</a>(int r, int g, int b, int a)</p>
+<p class="label">&#x9;<a class="link" href="/classinfo/sgxcolourrgba#-sgxcolourrgba-int-r-int-g-int-b-">SGXColourRGBA::SGXColourRGBA</a>(int r, int g, int b)</p>
+<p class="label">&#x9;<a class="link" href="/classinfo/sgxcolourrgba#-sgxcolourrgba-float-r-float-g-float-b-float-a-">SGXColourRGBA::SGXColourRGBA</a>(float r, float g, float b, float a)</p>
+<p class="label">&#x9;<a class="link" href="/classinfo/sgxcolourrgba#-sgxcolourrgba-float-r-float-g-float-b-">SGXColourRGBA::SGXColourRGBA</a>(float r, float g, float b)</p>
+<p class="label">&#x9;<a class="link" href="/classinfo/sgxcolourrgba#-sgxcolourrgba-qcolor-x-">SGXColourRGBA::SGXColourRGBA</a>(QColor x)</p>
+<p class="label">&#x9;[[nodiscard]] int <a class="link" href="/classinfo/sgxcolourrgba#-nodiscard-int-getred-const">SGXColourRGBA::getRed</a>() const</p>
+<p class="label">&#x9;[[nodiscard]] int <a class="link" href="/classinfo/sgxcolourrgba#-nodiscard-int-getgreen-const">SGXColourRGBA::getGreen</a>() const</p>
+<p class="label">&#x9;[[nodiscard]] int <a class="link" href="/classinfo/sgxcolourrgba#-nodiscard-int-getblue-const">SGXColourRGBA::getBlue</a>() const</p>
+<p class="label">&#x9;[[nodiscard]] int <a class="link" href="/classinfo/sgxcolourrgba#-nodiscard-int-gettransparency-const">SGXColourRGBA::getTransparency</a>() const</p>
+<p class="label">&#x9;[[nodiscard]] QColor <a class="link" href="/classinfo/sgxcolourrgba#-nodiscard-qcolor-getqcolour-const">SGXColourRGBA::getQColour</a>() const</p>
+<p class="label">&#x9;[[nodiscard]] float <a class="link" href="/classinfo/sgxcolourrgba#-nodiscard-float-getredasfloat-const">SGXColourRGBA::getRedAsFloat</a>() const</p>
+<p class="label">&#x9;[[nodiscard]] float <a class="link" href="/classinfo/sgxcolourrgba#-nodiscard-float-getgreenasfloat-const">SGXColourRGBA::getGreenAsFloat</a>() const</p>
+<p class="label">&#x9;[[nodiscard]] float <a class="link" href="/classinfo/sgxcolourrgba#-nodiscard-float-getblueasfloat-const">SGXColourRGBA::getBlueAsFloat</a>() const</p>
+<p class="label">&#x9;[[nodiscard]] float <a class="link" href="/classinfo/sgxcolourrgba#-nodiscard-float-gettransparencyasfloat-const">SGXColourRGBA::getTransparencyAsFloat</a>() const</p>
+<p class="label">&#x9;void <a class="link" href="/classinfo/sgxcolourrgba#void-setred-int-r-">SGXColourRGBA::setRed</a>(int r)</p>
+<p class="label">&#x9;void <a class="link" href="/classinfo/sgxcolourrgba#void-setgreen-int-g-">SGXColourRGBA::setGreen</a>(int g)</p>
+<p class="label">&#x9;void <a class="link" href="/classinfo/sgxcolourrgba#void-setblue-int-b-">SGXColourRGBA::setBlue</a>(int b)</p>
+<p class="label">&#x9;void <a class="link" href="/classinfo/sgxcolourrgba#void-settransparency-int-a-">SGXColourRGBA::setTransparency</a>(int a)</p>
+<p class="label">&#x9;void <a class="link" href="/classinfo/sgxcolourrgba#void-setredusingfloat-float-r-">SGXColourRGBA::setRedUsingFloat</a>(float r)</p>
+<p class="label">&#x9;void <a class="link" href="/classinfo/sgxcolourrgba#void-setgreenusingfloat-float-g-">SGXColourRGBA::setGreenUsingFloat</a>(float g)</p>
+<p class="label">&#x9;void <a class="link" href="/classinfo/sgxcolourrgba#void-setblueusingfloat-float-b-">SGXColourRGBA::setBlueUsingFloat</a>(float b)</p>
+<p class="label">&#x9;void <a class="link" href="/classinfo/sgxcolourrgba#void-settransparencyusingfloat-float-a-">SGXColourRGBA::setTransparencyUsingFloat</a>(float a)</p>
+<p class="label">&#x9;[[nodiscard]] QString <a class="link" href="/classinfo/sgxcolourrgba#-nodiscard-qstring-getstringforprintingrgbhtml-const">SGXColourRGBA::getStringForPrintingRGBHTML</a>() const</p>
+<p class="label">&#x9;[[nodiscard]] QString <a class="link" href="/classinfo/sgxcolourrgba#-nodiscard-qstring-getstringforprintingrgbahtml-const">SGXColourRGBA::getStringForPrintingRGBAHTML</a>() const</p>
+<p class="label">&#x9;[[nodiscard]] QString <a class="link" href="/classinfo/sgxcolourrgba#-nodiscard-qstring-getstringforprintingrgbhex-const">SGXColourRGBA::getStringForPrintingRGBHex</a>() const</p>
+<p class="label">&#x9;[[nodiscard]] QString <a class="link" href="/classinfo/sgxcolourrgba#-nodiscard-qstring-getstringforprintingrgbahex-const">SGXColourRGBA::getStringForPrintingRGBAHex</a>() const</p>
+<p class="label">&#x9;[[nodiscard]] QString <a class="link" href="/classinfo/sgxcolourrgba#-nodiscard-qstring-getstringforprintingrgbfloathtml-const">SGXColourRGBA::getStringForPrintingRGBFloatHTML</a>() const</p>
+<p class="label">&#x9;[[nodiscard]] QString <a class="link" href="/classinfo/sgxcolourrgba#-nodiscard-qstring-getstringforprintingrgbafloathtml-const">SGXColourRGBA::getStringForPrintingRGBAFloatHTML</a>() const</p>
+<p class="label">&#x9;void <a class="link" href="/classinfo/sgxcolourrgba#void-lineartransformred-float-m-float-c-">SGXColourRGBA::linearTransformRed</a>(float m, float c)</p>
+<p class="label">&#x9;void <a class="link" href="/classinfo/sgxcolourrgba#void-lineartransformgreen-float-m-float-c-">SGXColourRGBA::linearTransformGreen</a>(float m, float c)</p>
+<p class="label">&#x9;void <a class="link" href="/classinfo/sgxcolourrgba#void-lineartransformblue-float-m-float-c-">SGXColourRGBA::linearTransformBlue</a>(float m, float c)</p>
+<p class="label">&#x9;void <a class="link" href="/classinfo/sgxcolourrgba#void-lineartransformtransparency-float-m-float-c-">SGXColourRGBA::linearTransformTransparency</a>(float m, float c)</p>
+<p class="label">&#x9;void <a class="link" href="/classinfo/sgxcolourrgba#void-gammacorrectbegin-float-r-float-g-float-b-const">SGXColourRGBA::gammaCorrectBegin</a>(float& r, float& g, float& b) const</p>
+<p class="label">&#x9;void <a class="link" href="/classinfo/sgxcolourrgba#void-gammacorrectend-float-r-float-g-float-b-">SGXColourRGBA::gammaCorrectEnd</a>(float r, float g, float b)</p>
+<p class="label">&#x9;void <a class="link" href="/classinfo/sgxcolourrgba#void-lineartransformredwithgamma-float-m-float-c-">SGXColourRGBA::linearTransformRedWithGamma</a>(float m, float c)</p>
+<p class="label">&#x9;void <a class="link" href="/classinfo/sgxcolourrgba#void-lineartransformgreenwithgamma-float-m-float-c-">SGXColourRGBA::linearTransformGreenWithGamma</a>(float m, float c)</p>
+<p class="label">&#x9;void <a class="link" href="/classinfo/sgxcolourrgba#void-lineartransformbluewithgamma-float-m-float-c-">SGXColourRGBA::linearTransformBlueWithGamma</a>(float m, float c)</p>
+<p class="label">&#x9;void <a class="link" href="/classinfo/sgxcolourrgba#void-applytint-sgxcolourrgba-x-">SGXColourRGBA::applyTint</a>(SGXColourRGBA x)</p>
+<p class="label">&#x9;void <a class="link" href="/classinfo/sgxcolourrgba#void-applytintseparatetransparency-sgxcolourrgba-x-int-a-">SGXColourRGBA::applyTintSeparateTransparency</a>(SGXColourRGBA x, int a)</p>
+<p class="label">&#x9;void <a class="link" href="/classinfo/sgxcolourrgba#void-applytintseparatetransparencyusingfloat-sgxcolourrgba-x-float-a-">SGXColourRGBA::applyTintSeparateTransparencyUsingFloat</a>(SGXColourRGBA x, float a)</p>
+<p class="label">&#x9;void <a class="link" href="/classinfo/sgxcolourrgba#void-applytintnogammacorrection-sgxcolourrgba-x-">SGXColourRGBA::applyTintNoGammaCorrection</a>(SGXColourRGBA x)</p>
+<p class="label">&#x9;void <a class="link" href="/classinfo/sgxcolourrgba#void-applytintnogammacorrectionseparatetransparency-sgxcolourrgba-x-int-a-">SGXColourRGBA::applyTintNoGammaCorrectionSeparateTransparency</a>(SGXColourRGBA x, int a)</p>
+<p class="label">&#x9;void <a class="link" href="/classinfo/sgxcolourrgba#void-applytintnogammacorrectionseparatetransparencyusingfloat-sgxcolourrgba-x-float-a-">SGXColourRGBA::applyTintNoGammaCorrectionSeparateTransparencyUsingFloat</a>(SGXColourRGBA x, float a)</p>
+<p class="label">&#x9;[[nodiscard]] SGXColourRGBA <a class="link" href="/classinfo/sgxcolourrgba#-nodiscard-sgxcolourrgba-linearinterpolate-sgxcolourrgba-x-float-f-const">SGXColourRGBA::linearInterpolate</a>(SGXColourRGBA x, float f) const</p>
+<p class="label">&#x9;[[nodiscard]] SGXColourRGBA <a class="link" href="/classinfo/sgxcolourrgba#-nodiscard-sgxcolourrgba-linearinterpolategammacorrection-sgxcolourrgba-x-float-f-const">SGXColourRGBA::linearInterpolateGammaCorrection</a>(SGXColourRGBA x, float f) const</p>
+<p class="label">&#x9;void <a class="link" href="/classinfo/sgxcolourrgba#void-tocomplementcolour-">SGXColourRGBA::toComplementColour</a>()</p>
+<p class="label">&nbsp;</p>
+<div style="width: 100%; height: 0.25em; background-color: var(--c4);"></div>
+<p class="label">&#x9;Only properties, functions, and classes intended for public use have documentation. Your code autocompletion tool may provide suggestions that are not documented. You are discouraged from using these undocumented properties, functions, and classes unless you have read the source code and understand what they do.<br>&#x9;All information on this documentation page are only valid for SGEXTN version 5.1.0, future versions may have new features added or removed. For documentation of past versions, pls see the documentation bundled with the release.<br>&nbsp;</p>
+
+<div>
+<div style="width: 100%; height: 0.25em; background-color: var(--c4);"></div>
+<p class="label">©2025 05524F.sg (Singapore)</p>
+<p class="label"><a class="link" href="/contact">report a bug in SGEXTN or contact 05524F</a></p>
+<div style="width: 100%; height: 0.25em; background-color: var(--c4);"></div>
+</div>
+
+</body>
+</html>

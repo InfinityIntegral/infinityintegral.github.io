@@ -1,0 +1,314 @@
+
+<!DOCTYPE html>
+<html lang="en-SG">
+<head>
+<meta charset="UTF-8">
+<title>SGXFile Docs</title>
+
+<link rel="icon" href="icon.png" type="image/png">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+
+@font-face {
+	font-family: "SingScript.sg";
+	src: url("/SingScript.sg")format("truetype");
+	font-weight: normal;
+	font-style: normal;
+}
+
+:root {
+	--c0: rgb(0, 0, 0);
+	--c1: rgb(64, 0, 50);
+	--c2: rgb(128, 0, 100);
+	--c3: rgb(191, 0, 150);
+	--c4: rgb(255, 0, 200);
+	--c5: rgb(255, 64, 214);
+	--c6: rgb(255, 128, 227);
+	--c7: rgb(255, 191, 241);
+	--c8: rgb(255, 255, 255);
+}
+
+*{
+        font-family: "SingScript.sg";
+	max-width: 100%;
+	word-break: break-word;
+	-webkit-text-size-adjust: 100%;
+	-ms-text-size-adjust: 100%;
+}
+
+.title {
+	color: var(--c4);
+	background-color: var(--c8);
+	font-size: 3.5rem;
+	margin: 0;
+	font-weight: normal;
+}
+.title::selection {
+	color: var(--c8);
+	background-color: var(--c4);
+	font-size: 3.5rem;
+	margin: 0;
+	font-weight: normal;
+}
+
+.halftitle {
+	color: var(--c4);
+	background-color: var(--c8);
+	font-size: 2.5rem;
+	margin: 0;
+	font-weight: normal;
+}
+.halftitle::selection {
+	color: var(--c8);
+	background-color: var(--c4);
+	font-size: 2.625rem;
+	margin: 0;
+	font-weight: normal;
+}
+
+.label {
+	color: var(--c4);
+	background-color: var(--c8);
+	font-size: 1.75rem;
+	margin: 0;
+	white-space: pre-wrap;
+}
+.label::selection {
+	color: var(--c8);
+	background-color: var(--c4);
+	font-size: 1.75rem;
+	margin: 0;
+	white-space: pre-wrap;
+}
+
+.link {
+	color: var(--c2);
+	background-color: var(--c8);
+	text-decoration: underline;
+}
+.link:hover {
+	color: var(--c2);
+	background-color: var(--c7);
+	text-decoration: underline;
+}
+.link:active {
+	color: var(--c2);
+	background-color: var(--c6);
+	text-decoration: underline;
+}
+.link::selection {
+	color: var(--c8);
+	background-color: var(--c4);
+	text-decoration: underline;
+}
+
+.button {
+	color: var(--c8);
+	background-color: var(--c4);
+	font-size: 1.75rem;
+	border: none;
+}
+.button:hover {
+	color: var(--c7);
+	background-color: var(--c3);
+	font-size: 1.75rem;
+	border: none;
+}
+.button:active {
+	color: var(--c6);
+	background-color: var(--c2);
+	font-size: 1.75rem;
+	border: none;
+}
+.button::selection {
+	color: var(--c4);
+	background-color: var(--c8);
+	font-size: 1.75rem;
+	border: none;
+}
+
+.input {
+	color: var(--c8);
+	background-color: var(--c4);
+	font-size: 1.75rem;
+	border: none;
+	outline: none;
+	text-align: center;
+}
+.input:hover {
+	color: var(--c7);
+	background-color: var(--c3);
+	font-size: 1.75rem;
+	border: none;
+	outline: none;
+	text-align: center;
+}
+.input:focus {
+	color: var(--c6);
+	background-color: var(--c2);
+	font-size: 1.75rem;
+	border: none;
+	outline: none;
+	text-align: center;
+}
+.input::selection {
+	color: var(--c4);
+	background-color: var(--c8);
+	font-size: 1.75rem;
+	border: none;
+	outline: none;
+	text-align: center;
+}
+
+</style>
+
+</head>
+<body>
+
+<div>
+<button class="button" style="width: 100%;" onclick="location.href='/'">
+<img src="https://raw.githubusercontent.com/InfinityIntegral/InfinityIntegral/main/flagemoji.png" style="vertical-align: middle; height: 1.5rem; image-rendering: auto;"> SGEXTN Documentation <img src="https://raw.githubusercontent.com/InfinityIntegral/InfinityIntegral/main/flagemoji.png" style="vertical-align: middle; height: 1.5rem; image-rendering: auto;">
+</button>
+</div>
+<h1 class="title">SGXFile</h1>
+<p class="label">&#x9;class allowing reading from and writing to files</p>
+<p class="label">&nbsp;<br>&#x9;header: #include" SGEXTN/filesystem/sgxfile.h"</p>
+<p class="label">&#x9;inherits: none</p>
+<p class="label">&#x9;<a class="link" href="#moreinfo">More information...</a></p><p class="label">&#x9;<a class="link" href="/functionlist/sgxfile">List of all including inherited members</a></p><p class="label">&nbsp;</p><div style="width: 100%; height: 0.25em; background-color: var(--c4);"></div>
+<h2 class="halftitle">Instance Properties</h2>
+<p class="label">&#x9;bool <a class="link" href="#bool-isvalid">isValid</a></p>
+<p class="label">&nbsp;</p><div style="width: 100%; height: 0.25em; background-color: var(--c4);"></div>
+<h2 class="halftitle">Instance Methods</h2>
+<p class="label">&#x9;<a class="link" href="#-sgxfile-const-qstring-s-">SGXFile</a>(const QString& s)</p>
+<p class="label">&#x9;[[nodiscard]] bool <a class="link" href="#-nodiscard-bool-readbool-const">readBool</a>() const</p>
+<p class="label">&#x9;[[nodiscard]] char <a class="link" href="#-nodiscard-char-readchar-const">readChar</a>() const</p>
+<p class="label">&#x9;[[nodiscard]] QChar <a class="link" href="#-nodiscard-qchar-readqchar-const">readQChar</a>() const</p>
+<p class="label">&#x9;[[nodiscard]] int <a class="link" href="#-nodiscard-int-readint-const">readInt</a>() const</p>
+<p class="label">&#x9;[[nodiscard]] unsigned int <a class="link" href="#-nodiscard-unsigned-int-readunsignedint-const">readUnsignedInt</a>() const</p>
+<p class="label">&#x9;[[nodiscard]] long long <a class="link" href="#-nodiscard-long-long-readlonglong-const">readLongLong</a>() const</p>
+<p class="label">&#x9;[[nodiscard]] unsigned long long <a class="link" href="#-nodiscard-unsigned-long-long-readunsignedlonglong-const">readUnsignedLongLong</a>() const</p>
+<p class="label">&#x9;[[nodiscard]] float <a class="link" href="#-nodiscard-float-readfloat-const">readFloat</a>() const</p>
+<p class="label">&#x9;[[nodiscard]] double <a class="link" href="#-nodiscard-double-readdouble-const">readDouble</a>() const</p>
+<p class="label">&#x9;[[nodiscard]] std::string <a class="link" href="#-nodiscard-std-string-readcppstring-const">readCppString</a>() const</p>
+<p class="label">&#x9;[[nodiscard]] QString <a class="link" href="#-nodiscard-qstring-readstring-const">readString</a>() const</p>
+<p class="label">&#x9;[[nodiscard]] SGXColourRGBA <a class="link" href="#-nodiscard-sgxcolourrgba-readcolourrgba-const">readColourRGBA</a>() const</p>
+<p class="label">&#x9;[[nodiscard]] SGXColourHSLA <a class="link" href="#-nodiscard-sgxcolourhsla-readcolourhsla-const">readColourHSLA</a>() const</p>
+<p class="label">&#x9;[[nodiscard]] SGXTimeStamp <a class="link" href="#-nodiscard-sgxtimestamp-readtimestamp-const">readTimeStamp</a>() const</p>
+<p class="label">&#x9;[[nodiscard]] SGXIdentifier <a class="link" href="#-nodiscard-sgxidentifier-readidentifier-const">readIdentifier</a>() const</p>
+<p class="label">&#x9;[[nodiscard]] SGXVector2 <a class="link" href="#-nodiscard-sgxvector2-readvector2-const">readVector2</a>() const</p>
+<p class="label">&#x9;void <a class="link" href="#void-writebool-bool-x-const">writeBool</a>(bool x) const</p>
+<p class="label">&#x9;void <a class="link" href="#void-writechar-char-x-const">writeChar</a>(char x) const</p>
+<p class="label">&#x9;void <a class="link" href="#void-writeqchar-qchar-x-const">writeQChar</a>(QChar x) const</p>
+<p class="label">&#x9;void <a class="link" href="#void-writeint-int-x-const">writeInt</a>(int x) const</p>
+<p class="label">&#x9;void <a class="link" href="#void-writeunsignedint-unsigned-int-x-const">writeUnsignedInt</a>(unsigned int x) const</p>
+<p class="label">&#x9;void <a class="link" href="#void-writelonglong-long-long-x-const">writeLongLong</a>(long long x) const</p>
+<p class="label">&#x9;void <a class="link" href="#void-writeunsignedlonglong-unsigned-long-long-x-const">writeUnsignedLongLong</a>(unsigned long long x) const</p>
+<p class="label">&#x9;void <a class="link" href="#void-writefloat-float-x-const">writeFloat</a>(float x) const</p>
+<p class="label">&#x9;void <a class="link" href="#void-writedouble-double-x-const">writeDouble</a>(double x) const</p>
+<p class="label">&#x9;void <a class="link" href="#void-writecppstring-const-std-string-x-const">writeCppString</a>(const std::string& x) const</p>
+<p class="label">&#x9;void <a class="link" href="#void-writestring-const-qstring-x-const">writeString</a>(const QString& x) const</p>
+<p class="label">&#x9;void <a class="link" href="#void-writecolourrgba-sgxcolourrgba-x-const">writeColourRGBA</a>(SGXColourRGBA x) const</p>
+<p class="label">&#x9;void <a class="link" href="#void-writecolourhsla-sgxcolourhsla-x-const">writeColourHSLA</a>(SGXColourHSLA x) const</p>
+<p class="label">&#x9;void <a class="link" href="#void-writetimestamp-sgxtimestamp-x-const">writeTimeStamp</a>(SGXTimeStamp x) const</p>
+<p class="label">&#x9;void <a class="link" href="#void-writeidentifier-sgxidentifier-x-const">writeIdentifier</a>(SGXIdentifier x) const</p>
+<p class="label">&#x9;void <a class="link" href="#void-writevector2-sgxvector2-x-const">writeVector2</a>(SGXVector2 x) const</p>
+<p class="label">&#x9;[[nodiscard]] long long <a class="link" href="#-nodiscard-long-long-getpointerlocation-const">getPointerLocation</a>() const</p>
+<p class="label">&#x9;void <a class="link" href="#void-setpointerlocation-long-long-x-const">setPointerLocation</a>(long long x) const</p>
+<p class="label">&#x9;[[nodiscard]] QByteArray <a class="link" href="#-nodiscard-qbytearray-readallbytes-const">readAllBytes</a>() const</p>
+<p class="label">&#x9;[[nodiscard]] QByteArray <a class="link" href="#-nodiscard-qbytearray-readbytes-long-long-n-const">readBytes</a>(long long n) const</p>
+<p class="label">&#x9;void <a class="link" href="#void-writebytes-const-qbytearray-x-const">writeBytes</a>(const QByteArray& x) const</p>
+<p class="label">&nbsp;</p><div style="width: 100%; height: 0.25em; background-color: var(--c4);"></div>
+<h2 class="halftitle" id="moreinfo">Detailed Description</h2>
+<p class="label">&#x9;SGXFile is used to read data from and write data to binary files. Note that SGXFile can only read data previously written using SGXFile or another SGEXTN file access class. Binary files can be used to store user data and settings in your application. You are strongly encouraged to use the extension .sg for configuration files, so that your app is literally "powered by Singapore".<br>&#x9;SGXFile, similar to the rest of SGEXTN, does not maintain backward compatible APIs. However, the contents written by an earlier version of SGXFile is guaranteed to be readable by a later version, unless otherwise specified.</p>
+<p class="label">&nbsp;</p><div style="width: 100%; height: 0.25em; background-color: var(--c4);"></div>
+<h2 class="halftitle" id="bool-isvalid">&#x9;bool <a class="link" href="#bool-isvalid">isValid</a></h2>
+<p class="label">&#x9;This property indicates if this SGXFile has been set up successfully. If it is true, you can use the SGXFile normally. If it is false, the SGXFile failed to set up correctly because there is no file at the path.<br>&nbsp;</p>
+<h2 class="halftitle" id="-sgxfile-const-qstring-s-">&#x9;<a class="link" href="#-sgxfile-const-qstring-s-">SGXFile</a>(const QString& s)</h2>
+<p class="label">&#x9;This constructor of SGXFile creates a SGXFile linked to the file at path s, which can be used to access the file that exists at path s. No error checking is done, so you must ensure that the file exists and is in your app's folder before attempting to write to it. Technically in Qt you can write to a nonexistent file (Qt creates it for you), but in SGEXTN you should explicitly create the file first before writing to it.<br>&nbsp;</p>
+<h2 class="halftitle" id="-nodiscard-bool-readbool-const">&#x9;[[nodiscard]] bool <a class="link" href="#-nodiscard-bool-readbool-const">readBool</a>() const</h2>
+<p class="label">&#x9;This function reads a boolean from the current location of the file pointer and returns it. This moves the file pointer forwards.<br>&nbsp;</p>
+<h2 class="halftitle" id="-nodiscard-char-readchar-const">&#x9;[[nodiscard]] char <a class="link" href="#-nodiscard-char-readchar-const">readChar</a>() const</h2>
+<p class="label">&#x9;This function reads a C++ char from the current location of the file pointer and returns it. This moves the file pointer forwards.<br>&nbsp;</p>
+<h2 class="halftitle" id="-nodiscard-qchar-readqchar-const">&#x9;[[nodiscard]] QChar <a class="link" href="#-nodiscard-qchar-readqchar-const">readQChar</a>() const</h2>
+<p class="label">&#x9;This function reads a QChar from the current location of the file pointer and returns it. This moves the file pointer forwards.<br>&nbsp;</p>
+<h2 class="halftitle" id="-nodiscard-int-readint-const">&#x9;[[nodiscard]] int <a class="link" href="#-nodiscard-int-readint-const">readInt</a>() const</h2>
+<p class="label">&#x9;This function reads an integer from the current location of the file pointer and returns it. This moves the file pointer forwards.<br>&nbsp;</p>
+<h2 class="halftitle" id="-nodiscard-unsigned-int-readunsignedint-const">&#x9;[[nodiscard]] unsigned int <a class="link" href="#-nodiscard-unsigned-int-readunsignedint-const">readUnsignedInt</a>() const</h2>
+<p class="label">&#x9;This function reads an unsigned integer from the current location of the file pointer and returns it. This moves the file pointer forwards.<br>&nbsp;</p>
+<h2 class="halftitle" id="-nodiscard-long-long-readlonglong-const">&#x9;[[nodiscard]] long long <a class="link" href="#-nodiscard-long-long-readlonglong-const">readLongLong</a>() const</h2>
+<p class="label">&#x9;This function reads a long long from the current location of the file pointer and returns it. This moves the file pointer forwards.<br>&nbsp;</p>
+<h2 class="halftitle" id="-nodiscard-unsigned-long-long-readunsignedlonglong-const">&#x9;[[nodiscard]] unsigned long long <a class="link" href="#-nodiscard-unsigned-long-long-readunsignedlonglong-const">readUnsignedLongLong</a>() const</h2>
+<p class="label">&#x9;This function reads an unsigned long long from the current location of the file pointer and returns it. This moves the file pointer forwards.<br>&nbsp;</p>
+<h2 class="halftitle" id="-nodiscard-float-readfloat-const">&#x9;[[nodiscard]] float <a class="link" href="#-nodiscard-float-readfloat-const">readFloat</a>() const</h2>
+<p class="label">&#x9;This function reads a floating point number from the current location of the file pointer and returns it. This moves the file pointer forwards.<br>&nbsp;</p>
+<h2 class="halftitle" id="-nodiscard-double-readdouble-const">&#x9;[[nodiscard]] double <a class="link" href="#-nodiscard-double-readdouble-const">readDouble</a>() const</h2>
+<p class="label">&#x9;This function reads a double precision floating point number from the current location of the file pointer and returns it. This moves the file pointer forwards.<br>&nbsp;</p>
+<h2 class="halftitle" id="-nodiscard-std-string-readcppstring-const">&#x9;[[nodiscard]] std::string <a class="link" href="#-nodiscard-std-string-readcppstring-const">readCppString</a>() const</h2>
+<p class="label">&#x9;This function reads a C++ string from the current location of the file pointer and returns it. This moves the file pointer forwards.<br>&nbsp;</p>
+<h2 class="halftitle" id="-nodiscard-qstring-readstring-const">&#x9;[[nodiscard]] QString <a class="link" href="#-nodiscard-qstring-readstring-const">readString</a>() const</h2>
+<p class="label">&#x9;This function reads a QString from the current location of the file pointer and returns it. This moves the file pointer forwards.<br>&nbsp;</p>
+<h2 class="halftitle" id="-nodiscard-sgxcolourrgba-readcolourrgba-const">&#x9;[[nodiscard]] SGXColourRGBA <a class="link" href="#-nodiscard-sgxcolourrgba-readcolourrgba-const">readColourRGBA</a>() const</h2>
+<p class="label">&#x9;This function reads a <a class="link" href="/classinfo/sgxcolourrgba">SGXColourRGBA</a> representing a 8 bit RGBA colour from the current location of the file pointer and returns it. This moves the file pointer forwards.<br>&nbsp;</p>
+<h2 class="halftitle" id="-nodiscard-sgxcolourhsla-readcolourhsla-const">&#x9;[[nodiscard]] SGXColourHSLA <a class="link" href="#-nodiscard-sgxcolourhsla-readcolourhsla-const">readColourHSLA</a>() const</h2>
+<p class="label">&#x9;This function reads a <a class="link" href="/classinfo/sgxcolourhsla">SGXColourHSLA</a> representing a colour in HSLA format from the current location of the file pointer and returns it. This moves the file pointer forwards.<br>&nbsp;</p>
+<h2 class="halftitle" id="-nodiscard-sgxtimestamp-readtimestamp-const">&#x9;[[nodiscard]] SGXTimeStamp <a class="link" href="#-nodiscard-sgxtimestamp-readtimestamp-const">readTimeStamp</a>() const</h2>
+<p class="label">&#x9;This function reads a <a class="link" href="/classinfo/sgxtimestamp">SGXTimeStamp</a> representing a time accurate to the nearest second from the current location of the file pointer and returns it. This moves the file pointer forwards.<br>&nbsp;</p>
+<h2 class="halftitle" id="-nodiscard-sgxidentifier-readidentifier-const">&#x9;[[nodiscard]] SGXIdentifier <a class="link" href="#-nodiscard-sgxidentifier-readidentifier-const">readIdentifier</a>() const</h2>
+<p class="label">&#x9;This function reads a <a class="link" href="/classinfo/sgxidentifier">SGXIdentifier</a> representing a global unique identifier (GUID) from the current location of the file pointer and returns it. This moves the file pointer forwards.<br>&nbsp;</p>
+<h2 class="halftitle" id="-nodiscard-sgxvector2-readvector2-const">&#x9;[[nodiscard]] SGXVector2 <a class="link" href="#-nodiscard-sgxvector2-readvector2-const">readVector2</a>() const</h2>
+<p class="label">&#x9;This function reads a <a class="link" href="/classinfo/sgxvector2">SGXVector2</a> representing a 2 dimensional vector from the current location of the file pointer and returns it. This moves the file pointer forwards.<br>&nbsp;</p>
+<h2 class="halftitle" id="void-writebool-bool-x-const">&#x9;void <a class="link" href="#void-writebool-bool-x-const">writeBool</a>(bool x) const</h2>
+<p class="label">&#x9;This function writes a boolean to the current location of the file pointer. This moves the file pointer forwards.<br>&nbsp;</p>
+<h2 class="halftitle" id="void-writechar-char-x-const">&#x9;void <a class="link" href="#void-writechar-char-x-const">writeChar</a>(char x) const</h2>
+<p class="label">&#x9;This function writes a C++ char to the current location of the file pointer. This moves the file pointer forwards.<br>&nbsp;</p>
+<h2 class="halftitle" id="void-writeqchar-qchar-x-const">&#x9;void <a class="link" href="#void-writeqchar-qchar-x-const">writeQChar</a>(QChar x) const</h2>
+<p class="label">&#x9;This function writes a QChar to the current location of the file pointer. This moves the file pointer forwards.<br>&nbsp;</p>
+<h2 class="halftitle" id="void-writeint-int-x-const">&#x9;void <a class="link" href="#void-writeint-int-x-const">writeInt</a>(int x) const</h2>
+<p class="label">&#x9;This function writes an integer to the current location of the file pointer. This moves the file pointer forwards.<br>&nbsp;</p>
+<h2 class="halftitle" id="void-writeunsignedint-unsigned-int-x-const">&#x9;void <a class="link" href="#void-writeunsignedint-unsigned-int-x-const">writeUnsignedInt</a>(unsigned int x) const</h2>
+<p class="label">&#x9;This function writes an unsigned integer to the current location of the file pointer. This moves the file pointer forwards.<br>&nbsp;</p>
+<h2 class="halftitle" id="void-writelonglong-long-long-x-const">&#x9;void <a class="link" href="#void-writelonglong-long-long-x-const">writeLongLong</a>(long long x) const</h2>
+<p class="label">&#x9;This function writes a long long to the current location of the file pointer. This moves the file pointer forwards.<br>&nbsp;</p>
+<h2 class="halftitle" id="void-writeunsignedlonglong-unsigned-long-long-x-const">&#x9;void <a class="link" href="#void-writeunsignedlonglong-unsigned-long-long-x-const">writeUnsignedLongLong</a>(unsigned long long x) const</h2>
+<p class="label">&#x9;This function writes an unsigned long long to the current location of the file pointer. This moves the file pointer forwards.<br>&nbsp;</p>
+<h2 class="halftitle" id="void-writefloat-float-x-const">&#x9;void <a class="link" href="#void-writefloat-float-x-const">writeFloat</a>(float x) const</h2>
+<p class="label">&#x9;This function writes a floating point number to the current location of the file pointer. This moves the file pointer forwards.<br>&nbsp;</p>
+<h2 class="halftitle" id="void-writedouble-double-x-const">&#x9;void <a class="link" href="#void-writedouble-double-x-const">writeDouble</a>(double x) const</h2>
+<p class="label">&#x9;This function writes a double precision floating point number to the current location of the file pointer. This moves the file pointer forwards.<br>&nbsp;</p>
+<h2 class="halftitle" id="void-writecppstring-const-std-string-x-const">&#x9;void <a class="link" href="#void-writecppstring-const-std-string-x-const">writeCppString</a>(const std::string& x) const</h2>
+<p class="label">&#x9;This function writes a C++ string to the current location of the file pointer. This moves the file pointer forwards.<br>&nbsp;</p>
+<h2 class="halftitle" id="void-writestring-const-qstring-x-const">&#x9;void <a class="link" href="#void-writestring-const-qstring-x-const">writeString</a>(const QString& x) const</h2>
+<p class="label">&#x9;This function writes a QString to the current location of the file pointer. This moves the file pointer forwards.<br>&nbsp;</p>
+<h2 class="halftitle" id="void-writecolourrgba-sgxcolourrgba-x-const">&#x9;void <a class="link" href="#void-writecolourrgba-sgxcolourrgba-x-const">writeColourRGBA</a>(SGXColourRGBA x) const</h2>
+<p class="label">&#x9;This function writes a <a class="link" href="/classinfo/sgxcolourrgba">SGXColourRGBA</a> representing a 8 bit RGBA colour to the current location of the file pointer. This moves the file pointer forwards.<br>&nbsp;</p>
+<h2 class="halftitle" id="void-writecolourhsla-sgxcolourhsla-x-const">&#x9;void <a class="link" href="#void-writecolourhsla-sgxcolourhsla-x-const">writeColourHSLA</a>(SGXColourHSLA x) const</h2>
+<p class="label">&#x9;This function writes a <a class="link" href="/classinfo/sgxcolourhsla">SGXColourHSLA</a> representing a colour in HSLA format to the current location of the file pointer. This moves the file pointer forwards.<br>&nbsp;</p>
+<h2 class="halftitle" id="void-writetimestamp-sgxtimestamp-x-const">&#x9;void <a class="link" href="#void-writetimestamp-sgxtimestamp-x-const">writeTimeStamp</a>(SGXTimeStamp x) const</h2>
+<p class="label">&#x9;This function writes a <a class="link" href="/classinfo/sgxtimestamp">SGXTimeStamp</a> representing a time accurate to the nearest second to the current location of the file pointer. This moves the file pointer forwards.<br>&nbsp;</p>
+<h2 class="halftitle" id="void-writeidentifier-sgxidentifier-x-const">&#x9;void <a class="link" href="#void-writeidentifier-sgxidentifier-x-const">writeIdentifier</a>(SGXIdentifier x) const</h2>
+<p class="label">&#x9;This function writes a <a class="link" href="/classinfo/sgxidentifier">SGXIdentifier</a> representing a global unique identifier (GUID) to the current location of the file pointer. This moves the file pointer forwards.<br>&nbsp;</p>
+<h2 class="halftitle" id="void-writevector2-sgxvector2-x-const">&#x9;void <a class="link" href="#void-writevector2-sgxvector2-x-const">writeVector2</a>(SGXVector2 x) const</h2>
+<p class="label">&#x9;This function writes a <a class="link" href="/classinfo/sgxvector2">SGXVector2</a> representing a 2 dimensional vector to the current location of the file pointer. This moves the file pointer forwards.<br>&nbsp;</p>
+<h2 class="halftitle" id="-nodiscard-long-long-getpointerlocation-const">&#x9;[[nodiscard]] long long <a class="link" href="#-nodiscard-long-long-getpointerlocation-const">getPointerLocation</a>() const</h2>
+<p class="label">&#x9;This function gets the current location of the file pointer as a number of bytes from the start of the file.<br>&nbsp;</p>
+<h2 class="halftitle" id="void-setpointerlocation-long-long-x-const">&#x9;void <a class="link" href="#void-setpointerlocation-long-long-x-const">setPointerLocation</a>(long long x) const</h2>
+<p class="label">&#x9;This function sets the current location of the file pointer as a number of bytes from the start of the file. When you write past the end of the file, the space in between is filled with 0 to prevent file fragmentation. This costs a bit of performance but is justified if you plan to fill in that hole later. You should not leave holes in files intentionally unless reserving space for data blocks.<br>&nbsp;</p>
+<h2 class="halftitle" id="-nodiscard-qbytearray-readallbytes-const">&#x9;[[nodiscard]] QByteArray <a class="link" href="#-nodiscard-qbytearray-readallbytes-const">readAllBytes</a>() const</h2>
+<p class="label">&#x9;This function reads all the data contained in the file and returns it in the form of a QByteArray. This ignores the current location of the file pointer.<br>&nbsp;</p>
+<h2 class="halftitle" id="-nodiscard-qbytearray-readbytes-long-long-n-const">&#x9;[[nodiscard]] QByteArray <a class="link" href="#-nodiscard-qbytearray-readbytes-long-long-n-const">readBytes</a>(long long n) const</h2>
+<p class="label">&#x9;This function reads n bytes from the current location of the file pointer and returns it in the form of a QByteArray. This moves the file pointer forwards.<br>&nbsp;</p>
+<h2 class="halftitle" id="void-writebytes-const-qbytearray-x-const">&#x9;void <a class="link" href="#void-writebytes-const-qbytearray-x-const">writeBytes</a>(const QByteArray& x) const</h2>
+<p class="label">&#x9;This function writes raw byte data in the form of a QByteArray to the current location of the file pointer. This moves the file pointer forwards.<br>&nbsp;</p>
+
+<div style="width: 100%; height: 0.25em; background-color: var(--c4);"></div>
+<p class="label">&#x9;Only properties, functions, and classes intended for public use have documentation. Your code autocompletion tool may provide suggestions that are not documented. You are discouraged from using these undocumented properties, functions, and classes unless you have read the source code and understand what they do.<br>&#x9;All information on this documentation page are only valid for SGEXTN version 5.1.0, future versions may have new features added or removed. For documentation of past versions, pls see the documentation bundled with the release.<br>&nbsp;</p>
+
+<div>
+<div style="width: 100%; height: 0.25em; background-color: var(--c4);"></div>
+<p class="label">©2025 05524F.sg (Singapore)</p>
+<p class="label"><a class="link" href="/contact">report a bug in SGEXTN or contact 05524F</a></p>
+<div style="width: 100%; height: 0.25em; background-color: var(--c4);"></div>
+</div>
+
+</body>
+</html>
