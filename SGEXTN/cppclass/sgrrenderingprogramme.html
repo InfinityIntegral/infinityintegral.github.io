@@ -1,0 +1,374 @@
+
+<!DOCTYPE html>
+<html lang="en-SG">
+<head>
+<meta charset="UTF-8">
+<title>SGRRenderingProgramme Documentation</title>
+<link rel="icon" href="/icon.png" type="image/png">
+<meta property="og:image" content="/icon.png">
+<meta name="twitter:image" content="/icon.png">
+<link rel="apple-touch-icon" href="/icon.png">
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "url": "https://infinityintegral.github.io",
+    "image": "/icon.png"
+}
+</script>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+@font-face {
+	font-family: "SingScript.sg";
+	src: url("/SingScript.sg")format("truetype");
+	font-weight: normal;
+	font-style: normal;
+}
+
+:root {
+	--c0: rgb(0, 0, 0);
+	--c1: rgb(64, 0, 50);
+	--c2: rgb(128, 0, 100);
+	--c3: rgb(191, 0, 150);
+	--c4: rgb(255, 0, 200);
+	--c5: rgb(255, 64, 214);
+	--c6: rgb(255, 128, 227);
+	--c7: rgb(255, 191, 241);
+	--c8: rgb(255, 255, 255);
+}
+
+*{
+    font-family: "SingScript.sg";
+	max-width: 100%;
+	word-break: break-word;
+	-webkit-text-size-adjust: 100%;
+	-ms-text-size-adjust: 100%;
+}
+
+.title {
+	color: var(--c4);
+	font-size: 3.5rem;
+	margin: 0;
+	font-weight: normal;
+}
+.title::selection {
+	color: var(--c8);
+	background-color: var(--c4);
+	font-size: 3.5rem;
+	margin: 0;
+	font-weight: normal;
+}
+
+.header {
+	color: var(--c4);
+	font-size: 2.5rem;
+	margin: 0;
+	font-weight: normal;
+}
+.header::selection {
+	color: var(--c8);
+	background-color: var(--c4);
+	font-size: 2.625rem;
+	margin: 0;
+	font-weight: normal;
+}
+
+.description {
+	color: var(--c4);
+	font-size: 1.75rem;
+	margin: 0;
+	white-space: pre-wrap;
+}
+.description::selection {
+	color: var(--c8);
+	background-color: var(--c4);
+	font-size: 1.75rem;
+	margin: 0;
+	white-space: pre-wrap;
+}
+
+.note {
+	color: var(--c4);
+	font-size: 1.75rem;
+	margin: 0.25rem;
+	white-space: pre-wrap;
+    border: 0.25rem solid var(--c7);
+    padding: 0.25rem;
+}
+.note::selection {
+	color: var(--c8);
+	background-color: var(--c4);
+	font-size: 1.75rem;
+	margin: 0.25rem;
+	white-space: pre-wrap;
+    border: 0.25rem solid var(--c7);
+    padding: 0.25rem;
+}
+
+.warning {
+	color: var(--c4);
+	font-size: 1.75rem;
+	margin: 0.25rem;
+	white-space: pre-wrap;
+    border: 0.25rem solid var(--c4);
+    padding: 0.25rem;
+}
+.warning::selection {
+	color: var(--c8);
+	background-color: var(--c4);
+	font-size: 1.75rem;
+	margin: 0.25rem;
+	white-space: pre-wrap;
+    border: 0.25rem solid var(--c4);
+    padding: 0.25rem;
+}
+
+.link {
+	color: var(--c2);
+	text-decoration: underline;
+}
+.link:hover {
+	color: var(--c2);
+	background-color: var(--c7);
+	text-decoration: underline;
+}
+.link:active {
+	color: var(--c2);
+	background-color: var(--c6);
+	text-decoration: underline;
+}
+.link::selection {
+	color: var(--c8);
+	background-color: var(--c4);
+	text-decoration: underline;
+}
+
+.button {
+	color: var(--c8);
+	background-color: var(--c4);
+	font-size: 1.75rem;
+	border: none;
+}
+.button:hover {
+	color: var(--c7);
+	background-color: var(--c3);
+	font-size: 1.75rem;
+	border: none;
+}
+.button:active {
+	color: var(--c6);
+	background-color: var(--c2);
+	font-size: 1.75rem;
+	border: none;
+}
+.button::selection {
+	color: var(--c4);
+	background-color: var(--c8);
+	font-size: 1.75rem;
+	border: none;
+}
+
+.input {
+	color: var(--c8);
+	background-color: var(--c4);
+	font-size: 1.75rem;
+	border: none;
+	outline: none;
+	text-align: center;
+}
+.input:hover {
+	color: var(--c7);
+	background-color: var(--c3);
+	font-size: 1.75rem;
+	border: none;
+	outline: none;
+	text-align: center;
+}
+.input:focus {
+	color: var(--c6);
+	background-color: var(--c2);
+	font-size: 1.75rem;
+	border: none;
+	outline: none;
+	text-align: center;
+}
+.input::selection {
+	color: var(--c4);
+	background-color: var(--c8);
+	font-size: 1.75rem;
+	border: none;
+	outline: none;
+	text-align: center;
+}
+
+.highlight {
+    animation: highlightFlash 2s ease-out;
+}
+
+@keyframes highlightFlash {
+    0% {background-color: var(--c6);}
+    100% {background-color: var(--c8);}
+}
+</style>
+<script>
+let m = (new Date()).getMonth() + 1;
+if(m >= 7 && m <= 9){
+    document.documentElement.style.setProperty("--c0", "rgb(0, 0, 0)");
+    document.documentElement.style.setProperty("--c1", "rgb(60, 9, 14)");
+    document.documentElement.style.setProperty("--c2", "rgb(119, 19, 27)");
+    document.documentElement.style.setProperty("--c3", "rgb(179, 28, 41)");
+    document.documentElement.style.setProperty("--c4", "rgb(238, 37, 54)");
+    document.documentElement.style.setProperty("--c5", "rgb(242, 92, 104)");
+    document.documentElement.style.setProperty("--c6", "rgb(247, 146, 155)");
+    document.documentElement.style.setProperty("--c7", "rgb(251, 201, 205)");
+    document.documentElement.style.setProperty("--c8", "rgb(255, 255, 255)");
+}
+function highlightSection(){
+    let tag = window.location.hash.substring(1);
+    if(tag == ""){return;}
+    let element = document.getElementById(tag);
+    if(element == null){return;}
+    element.classList.add("highlight");
+    element.addEventListener("animationend", () => {element.classList.remove("highlight");}, {once: true});
+}
+window.addEventListener("DOMContentLoaded", highlightSection);
+window.addEventListener("hashchange", highlightSection);
+</script>
+</head>
+<body style="margin-left: 1em;">
+<p class="description" style="color: rgb(238, 37, 54); text-align: center; font-size: 2.5rem">sincerely <img src="/flag.png" style="vertical-align: middle; height: 2.5rem; image-rendering: auto;"> Singaporean</p>
+<div style="width: 100%; height: 0.25rem; background-color: var(--c8);"></div>
+<div><button class="button" style="width: 100%;" onclick="location.href='/'">Project 05524F.sg</button></div>
+<div style="width: 100%; height: 0.25rem; background-color: var(--c8);"></div>
+<div><button class="button" style="width: 100%;" onclick="location.href='../readme/readme'">SGEXTN Documentation</button></div><div style="width: 100%; height: 0.25rem; background-color: var(--c8);"></div><p class="warning">If you have not done so, read this full <a class="link" href="../tutorials/full">tutorial</a> on how to use SGEXTN to build an application.</p><div style="width: 100%; height: 0.75rem; background-color: var(--c8);"></div><h1 class="title">SGRRenderingProgramme</h1>
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<p class="description"><a class="link" href="https://github.com/InfinityIntegral/SGEXTN/tree/main/SG_RI/include/SGRRenderingProgramme.h">see header file</a></p>
+<p class="description"><a class="link" href="https://github.com/InfinityIntegral/SGEXTN/tree/main/SG_RI/src/SGRRenderingProgramme.cpp">see source file</a></p>
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<p class="description">class SGRRenderingProgramme;</p>
+<p class="description">part of SGEXTN module <a class="link" href="../modules/sg_ri">SG_RI</a></p>
+<p class="description">provides interface for custom renderers to interact with the rendering pipeline</p>
+<p class="description"><a class="link" href="#sg_detaileddescription">detailed description</a></p>
+<p class="description"><a class="link" href="../funclist/sgrrenderingprogramme">list of all including inherited members</a></p>
+<p class="description"><a class="link" href="#sg_implementationdetails">implementation details</a></p>
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<p class="description">preprocessor file inclusion directive: #include ‹SGRRenderingProgramme.h›</p>
+<p class="description">CMake commands:</p>
+<p class="description">&#9;find_package(<a class="link" href="../readme/readme">SGEXTN</a> REQUIRED COMPONENTS <a class="link" href="../modules/sg_ri">SG_RI</a>)</p>
+<p class="description">&#9;target_link_libraries(yourCMakeTarget PRIVATE <a class="link" href="../modules/sg_ri">SGEXTN::SG_RI</a>)</p>
+<p class="description">parent class: (none)</p>
+<p class="description">children classes: (none)</p>
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<h2 class="header" id="">instance member functions</h2>
+<p class="description">&#9;<a class="link" href="#SGRRenderingProgramme_SGRBaseRenderer_ptr_">SGRRenderingProgramme</a>(<a class="link" href="sgrbaserenderer">SGRBaseRenderer</a>* renderControl);</p>
+<p class="description">&#9;void <a class="link" href="#void_addTexture_int_const_">addTexture</a>(int shaderDeclaredBinding) const;</p>
+<p class="description">&#9;void <a class="link" href="#void_addUniformBufferObject_int_int_const_">addUniformBufferObject</a>(int std140AlignedSize, int shaderDeclaredBinding) const;</p>
+<p class="description">&#9;void <a class="link" href="#void_addVertexBufferObject_int_const_">addVertexBufferObject</a>(int vertexSize) const;</p>
+<p class="description">&#9;void <a class="link" href="#void_addVertexProperty_int_int_int_SGRGraphicsLanguageType_mc_Type_int_const_">addVertexProperty</a>(int vertexBufferObjectIndex, int offsetFromVertexStart, int shaderDeclaredLocation, SGRGraphicsLanguageType::Type propertyType, int vectorLength) const;</p>
+<p class="description">&#9;void <a class="link" href="#void_finaliseRenderingProgramme_func_">finaliseRenderingProgramme</a>();</p>
+<p class="description">&#9;void <a class="link" href="#void_finaliseShaderResource_func_">finaliseShaderResource</a>();</p>
+<p class="description">&#9;void <a class="link" href="#void_finaliseVertices_func_">finaliseVertices</a>();</p>
+<p class="description">&#9;void <a class="link" href="#void_setShaderQSBFiles_const_SGXString_ref_const_SGXString_ref_">setShaderQSBFiles</a>(const <a class="link" href="sgxstring">SGXString</a>& vertexShaderPath, const <a class="link" href="sgxstring">SGXString</a>& fragmentShaderPath);</p>
+<p class="description">&#9;void <a class="link" href="#void_updateDataBuffer_SGRDataBuffer_ptr_int_int_void_ptr_const_">updateDataBuffer</a>(<a class="link" href="sgrdatabuffer">SGRDataBuffer</a>* buffer, int startLocation, int dataSize, void* pointerToData) const;</p>
+<p class="description">&#9;void <a class="link" href="#void_updateShaderUniforms_int_int_int_void_ptr_const_">updateShaderUniforms</a>(int shaderDeclaredBinding, int startLocation, int dataSize, void* pointerToData) const;</p>
+<p class="description">&#9;void <a class="link" href="#void_updateTexture_int_SGRImage_ptr_const_">updateTexture</a>(int shaderDeclaredBinding, <a class="link" href="sgrimage">SGRImage</a>* sourceImage) const;</p>
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<h2 class="header" id="sg_detaileddescription">Detailed Description</h2>
+<p class="description"><a class="link" href="../cppclass/sgrrenderingprogramme">SGRRenderingProgramme</a> manages the shaders and rendering pipeline of <a class="link" href="../tutorials/renderer">SG - RI ⁽㈳㈴㈳㈮㈱㈨㈠㈫ ㈧㈤㈱㈤⁾</a> renderers, and provides access to functions setting up the rendering pipeline and uploading shader data. Unlike any other GPU framework, this is not tedious at all and is accessible to even beginners.</p>
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<h2 class="header" id="sg_implementationdetails">Implementation Details</h2>
+<p class="description"><a class="link" href="../tutorials/renderer">SG - RI ⁽㈳㈴㈳㈮㈱㈨㈠㈫ ㈧㈤㈱㈤⁾</a> internally uses QRhi.</p>
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<h2 class="header" id="SGRRenderingProgramme_SGRBaseRenderer_ptr_"><a class="link" href="#SGRRenderingProgramme_SGRBaseRenderer_ptr_">SGRRenderingProgramme</a>(<a class="link" href="sgrbaserenderer">SGRBaseRenderer</a>* renderControl);</h2>
+<p class="description">Creates a <a class="link" href="../cppclass/sgrrenderingprogramme">SGRRenderingProgramme</a> associated with the <a class="link" href="../tutorials/renderer">SG - RI ⁽㈳㈴㈳㈮㈱㈨㈠㈫ ㈧㈤㈱㈤⁾</a> renderer <b>renderControl</b>.</p>
+<p class="note"><b>renderControl</b> owns this <a class="link" href="../cppclass/sgrrenderingprogramme">SGRRenderingProgramme</a> and will delete it when no longer needed.</p>
+<p class="warning">Passing nullptr to <b>renderControl</b> is <a class="link" href="../tutorials/undefinedbehaviour">undefined behaviour</a>.</p>
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<h2 class="header" id="void_addTexture_int_const_">void <a class="link" href="#void_addTexture_int_const_">addTexture</a>(int shaderDeclaredBinding) const;</h2>
+<p class="description">Adds a texture attached to the binding point <b>shaderDeclaredBinding</b>.</p>
+<p class="note">The actual texture is internally managed by <a class="link" href="../tutorials/renderer">SG - RI ⁽㈳㈴㈳㈮㈱㈨㈠㈫ ㈧㈤㈱㈤⁾</a>, images can be uploaded using <a class="link" href="../cppclass/sgrimage">SGRImage</a>.</p>
+<p class="note">Efficiently swapping textures frequently would need access to private API. This is likely to be changed in a future SGEXTN version.</p>
+<p class="warning"><b>shaderDeclaredBinding</b> not being in the shaders or wrong binding point being passed is <a class="link" href="../tutorials/undefinedbehaviour">undefined behaviour</a>.</p>
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<h2 class="header" id="void_addUniformBufferObject_int_int_const_">void <a class="link" href="#void_addUniformBufferObject_int_int_const_">addUniformBufferObject</a>(int std140AlignedSize, int shaderDeclaredBinding) const;</h2>
+<p class="description">Adds a uniform buffer object with a size of <b>std140AlignedSize</b> bytes attached to the binding point <b>shaderDeclaredBinding</b>.</p>
+<p class="note">The actual buffer is internally managed by <a class="link" href="../tutorials/renderer">SG - RI ⁽㈳㈴㈳㈮㈱㈨㈠㈫ ㈧㈤㈱㈤⁾</a>.</p>
+<p class="warning">Binding point 0 is reserved for <a class="link" href="../tutorials/renderer">SG - RI ⁽㈳㈴㈳㈮㈱㈨㈠㈫ ㈧㈤㈱㈤⁾</a> internal uniform buffer object, <b>shaderDeclaredBinding</b> being 0 will crash.</p>
+<p class="warning"><b>std140AlignedSize</b> being wrong or not following std140 is <a class="link" href="../tutorials/undefinedbehaviour">undefined behaviour</a>.</p>
+<p class="warning"><b>shaderDeclaredBinding</b> not being in the shaders or wrong binding point being passed is <a class="link" href="../tutorials/undefinedbehaviour">undefined behaviour</a>.</p>
+<p class="warning">Adding a texture as a uniform buffer object is <a class="link" href="../tutorials/undefinedbehaviour">undefined behaviour</a>.</p>
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<h2 class="header" id="void_addVertexBufferObject_int_const_">void <a class="link" href="#void_addVertexBufferObject_int_const_">addVertexBufferObject</a>(int vertexSize) const;</h2>
+<p class="description">Registers a vertex buffer object with each vertex having a size of <b>vertexSize</b> bytes.</p>
+<p class="note">This does not create anything, it only tells the <a class="link" href="../cppclass/sgrrenderingprogramme">SGRRenderingProgramme</a> that such a vertex buffer object will be used later.</p>
+<p class="note">The index of vertex buffer objects corresponds to the order in which they are declared using <a class="link" href="../cppclass/sgrrenderingprogramme#void_addVertexBufferObject_int_const_">SGRRenderingProgramme::addVertexBufferObject</a>, with the first one having index 0.</p>
+<p class="warning">Zero or negative <b>vertexSize</b> is <a class="link" href="../tutorials/undefinedbehaviour">undefined behaviour</a>.</p>
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<h2 class="header" id="void_addVertexProperty_int_int_int_SGRGraphicsLanguageType_mc_Type_int_const_">void <a class="link" href="#void_addVertexProperty_int_int_int_SGRGraphicsLanguageType_mc_Type_int_const_">addVertexProperty</a>(int vertexBufferObjectIndex, int offsetFromVertexStart, int shaderDeclaredLocation, SGRGraphicsLanguageType::Type propertyType, int vectorLength) const;</h2>
+<p class="description">Registers a vertex property corresponding to the in variable at location <b>shaderDeclaredLocation</b> in the input shader, which is sourced from vertex buffer object number <b>vertexBufferObjectIndex</b> at a offset of <b>offsetFromVertexStart</b> bytes. This vertex shader in variable contains <b>vectorLength</b> of the GLSL data type <b>propertyType</b>.</p>
+<p class="note">This does not create anything, it just tells the <a class="link" href="../cppclass/sgrrenderingprogramme">SGRRenderingProgramme</a> how to interpret vertex buffer objects.</p>
+<p class="warning">Forgetting to register any vertex shader in variable is <a class="link" href="../tutorials/undefinedbehaviour">undefined behaviour</a>.</p>
+<p class="warning">Forgetting to bind the vertex buffer object before drawing is <a class="link" href="../tutorials/undefinedbehaviour">undefined behaviour</a>.</p>
+<p class="warning">Passing a vertex buffer object that does not match the layout is <a class="link" href="../tutorials/undefinedbehaviour">undefined behaviour</a>.</p>
+<p class="warning">Registering a vertex property that does not exist in the vertex shader is <a class="link" href="../tutorials/undefinedbehaviour">undefined behaviour</a>.</p>
+<p class="warning">Negative <b>offsetFromVertexStart</b> is <a class="link" href="../tutorials/undefinedbehaviour">undefined behaviour</a>.</p>
+<p class="warning">Negative <b>vertexBufferObjectIndex</b> is <a class="link" href="../tutorials/undefinedbehaviour">undefined behaviour</a>.</p>
+<p class="warning"><b>vectorLength</b> below 1 or above 4 is <a class="link" href="../tutorials/undefinedbehaviour">undefined behaviour</a>.</p>
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<h2 class="header" id="void_finaliseRenderingProgramme_func_">void <a class="link" href="#void_finaliseRenderingProgramme_func_">finaliseRenderingProgramme</a>();</h2>
+<p class="description">Prepares the <a class="link" href="../cppclass/sgrrenderingprogramme">SGRRenderingProgramme</a> for usage.</p>
+<p class="warning">If any component of the <a class="link" href="../cppclass/sgrrenderingprogramme">SGRRenderingProgramme</a> is not prepared yet, this will crash, but it will print a clear message telling you what need to be fixed.</p>
+<p class="warning">Modifying the <a class="link" href="../cppclass/sgrrenderingprogramme">SGRRenderingProgramme</a> after this has been called is <a class="link" href="../tutorials/undefinedbehaviour">undefined behaviour</a>.</p>
+<p class="warning">Using a <a class="link" href="../cppclass/sgrrenderingprogramme">SGRRenderingProgramme</a> that has not been prepared yet will crash.</p>
+<p class="warning">Calling this outside of <a class="link" href="../cppclass/sgrbaserenderer#virtual_void_initialise_func_assign_">SGRBaseRenderer::initialise</a> is <a class="link" href="../tutorials/undefinedbehaviour">undefined behaviour</a>.</p>
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<h2 class="header" id="void_finaliseShaderResource_func_">void <a class="link" href="#void_finaliseShaderResource_func_">finaliseShaderResource</a>();</h2>
+<p class="description">Prepares textures and uniform buffer objects.</p>
+<p class="warning">Adding more textures and uniform buffer objects after this has been called is <a class="link" href="../tutorials/undefinedbehaviour">undefined behaviour</a>.</p>
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<h2 class="header" id="void_finaliseVertices_func_">void <a class="link" href="#void_finaliseVertices_func_">finaliseVertices</a>();</h2>
+<p class="description">Completes registering vertex related properties.</p>
+<p class="warning">Registering more vertex buffer objects or vertex properties after this has been called is <a class="link" href="../tutorials/undefinedbehaviour">undefined behaviour</a>.</p>
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<h2 class="header" id="void_setShaderQSBFiles_const_SGXString_ref_const_SGXString_ref_">void <a class="link" href="#void_setShaderQSBFiles_const_SGXString_ref_const_SGXString_ref_">setShaderQSBFiles</a>(const <a class="link" href="sgxstring">SGXString</a>& vertexShaderPath, const <a class="link" href="sgxstring">SGXString</a>& fragmentShaderPath);</h2>
+<p class="description">Sets this <a class="link" href="../cppclass/sgrrenderingprogramme">SGRRenderingProgramme</a> to use the vertex shader at <b>vertexShaderPath</b> and the fragment shader at <b>fragmentShaderPath</b>.</p>
+<p class="warning">The shaders must be pre compiled using the Qt shader binary compiler. To ensure that, use relevant CMake commands. For more information about compiling and using shaders, see this <a class="link" href="../tutorials/shaders">tutorial</a>.</p>
+<p class="warning">The matching file must exist in the resource system. To ensure that, use relevant CMake commands. For more information about the resource system, see this <a class="link" href="../tutorials/resources">tutorial</a>.</p>
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<h2 class="header" id="void_updateDataBuffer_SGRDataBuffer_ptr_int_int_void_ptr_const_">void <a class="link" href="#void_updateDataBuffer_SGRDataBuffer_ptr_int_int_void_ptr_const_">updateDataBuffer</a>(<a class="link" href="sgrdatabuffer">SGRDataBuffer</a>* buffer, int startLocation, int dataSize, void* pointerToData) const;</h2>
+<p class="description">Uploads <b>dataSize</b> bytes of data from <b>pointerToData</b> to an offset of <b>startLocation</b> bytes into the buffer <b>buffer</b>.</p>
+<p class="warning">Using this outside of <a class="link" href="../cppclass/sgrbaserenderer#virtual_void_uploadShaderData_func_assign_">SGRBaseRenderer::uploadShaderData</a> is <a class="link" href="../tutorials/undefinedbehaviour">undefined behaviour</a>.</p>
+<p class="warning"><b>buffer</b> being nullptr is <a class="link" href="../tutorials/undefinedbehaviour">undefined behaviour</a>.</p>
+<p class="warning">Negative <b>startLocation</b> or <b>startLocation</b> + <b>dataSize</b> being more than or equal to length of <b>buffer</b> is <a class="link" href="../tutorials/undefinedbehaviour">undefined behaviour</a>.</p>
+<p class="warning"><a class="link" href="../cppclass/sglarray">SGLArray</a> or <a class="link" href="../cppclass/sglvector">SGLVector</a> where <b>pointerToData</b> came from having a byte length below <b>dataSize</b> is <a class="link" href="../tutorials/undefinedbehaviour">undefined behaviour</a>.</p>
+<p class="warning"><b>pointerToData</b> being nullptr is <a class="link" href="../tutorials/undefinedbehaviour">undefined behaviour</a>.</p>
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<h2 class="header" id="void_updateShaderUniforms_int_int_int_void_ptr_const_">void <a class="link" href="#void_updateShaderUniforms_int_int_int_void_ptr_const_">updateShaderUniforms</a>(int shaderDeclaredBinding, int startLocation, int dataSize, void* pointerToData) const;</h2>
+<p class="description">Uploads <b>dataSize</b> bytes of data from <b>pointerToData</b> to an offset of <b>startLocation</b> bytes into the uniform buffer object at binding point <b>shaderDeclaredBinding</b>.</p>
+<p class="warning">Using this outside of <a class="link" href="../cppclass/sgrbaserenderer#virtual_void_uploadShaderData_func_assign_">SGRBaseRenderer::uploadShaderData</a> is <a class="link" href="../tutorials/undefinedbehaviour">undefined behaviour</a>.</p>
+<p class="warning">Nonexistent <b>shaderDeclaredBinding</b> is <a class="link" href="../tutorials/undefinedbehaviour">undefined behaviour</a>.</p>
+<p class="warning">Negative <b>startLocation</b> or <b>startLocation</b> + <b>dataSize</b> being more than or equal to length of the uniform buffer object at <b>shaderDeclaredBinding</b> is <a class="link" href="../tutorials/undefinedbehaviour">undefined behaviour</a>.</p>
+<p class="warning"><a class="link" href="../cppclass/sglarray">SGLArray</a> or <a class="link" href="../cppclass/sglvector">SGLVector</a> where <b>pointerToData</b> came from having a byte length below <b>dataSize</b> is <a class="link" href="../tutorials/undefinedbehaviour">undefined behaviour</a>.</p>
+<p class="warning"><b>pointerToData</b> being nullptr is <a class="link" href="../tutorials/undefinedbehaviour">undefined behaviour</a>.</p>
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<h2 class="header" id="void_updateTexture_int_SGRImage_ptr_const_">void <a class="link" href="#void_updateTexture_int_SGRImage_ptr_const_">updateTexture</a>(int shaderDeclaredBinding, <a class="link" href="sgrimage">SGRImage</a>* sourceImage) const;</h2>
+<p class="description">Uploads <b>sourceImage</b> to the texture at <b>shaderDeclaredBinding</b>.</p>
+<p class="note"><b>sourceImage</b> does not need to have the same size as the previously bound texture.</p>
+<p class="warning">Using this outside of <a class="link" href="../cppclass/sgrbaserenderer#virtual_void_uploadShaderData_func_assign_">SGRBaseRenderer::uploadShaderData</a> is <a class="link" href="../tutorials/undefinedbehaviour">undefined behaviour</a>.</p>
+<p class="warning">Nonexistent <b>shaderDeclaredBinding</b> is <a class="link" href="../tutorials/undefinedbehaviour">undefined behaviour</a>.</p>
+<p class="warning"><b>sourceImage</b> being nullptr is <a class="link" href="../tutorials/undefinedbehaviour">undefined behaviour</a>.</p>
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<p class="description"></p>
+
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<div style="width: 100%; height: 0.25rem; background-color: var(--c4);"></div>
+<div style="width: 100%; height: 0.25rem; background-color: var(--c8);"></div>
+<p class="description">©2025 05524F.sg (Singapore)</p>
+<p class="description"><a class="link" href="/contact">contact 05524F / report a bug / make a suggestion</a></p>
+<p class="description"><a class="link" href="/values">about 05524F SINGAPORE values</a></p>
+<p class="description"><a class="link" href="/projects">list of 05524F projects</a></p>
+<div style="width: 100%; height: 0.25rem; background-color: var(--c8);"></div>
+<div style="width: 100%; height: 0.25rem; background-color: var(--c4);"></div>
+<div style="width: 100%; height: 0.25rem; background-color: var(--c8);"></div>
+</body>
+</html>

@@ -1,8 +1,0 @@
-#c SGWDefaultFonts
-class to access builtin SGEXTN fonts
-#ic SGEXTN/widgets/enums/sgwdefaultfonts.h
-#d SGWDefaultFonts provides access to default fonts provided in SGEXTN. There are 2 default fonts, SingScript.sg and AppIcons.sg, which are used in UI. SingScript is a builtin font which can display most symbols used in Mathematics, Computer Science, and Science in general. It supports all symbols available in SingCorrect. You are supposed to use FontForge to create the AppIcons.sg font yourself to provide a set of icons for the application. The glyphs should map to Unicode Basic Multilingual Plane private use ranges and be at most 1 em in length.
-#sp QString $textFont
-This stores the string "SingScript.sg" which is used to access the SGEXTN builtin font to display text.
-#sp QString $iconsFont
-This stores the string "AppIcons.sg" which is used to access the SGEXTN builtin font to display icons specific to the application.

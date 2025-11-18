@@ -1,0 +1,327 @@
+
+<!DOCTYPE html>
+<html lang="en-SG">
+<head>
+<meta charset="UTF-8">
+<title>SGRImage Documentation</title>
+<link rel="icon" href="/icon.png" type="image/png">
+<meta property="og:image" content="/icon.png">
+<meta name="twitter:image" content="/icon.png">
+<link rel="apple-touch-icon" href="/icon.png">
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "url": "https://infinityintegral.github.io",
+    "image": "/icon.png"
+}
+</script>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+@font-face {
+	font-family: "SingScript.sg";
+	src: url("/SingScript.sg")format("truetype");
+	font-weight: normal;
+	font-style: normal;
+}
+
+:root {
+	--c0: rgb(0, 0, 0);
+	--c1: rgb(64, 0, 50);
+	--c2: rgb(128, 0, 100);
+	--c3: rgb(191, 0, 150);
+	--c4: rgb(255, 0, 200);
+	--c5: rgb(255, 64, 214);
+	--c6: rgb(255, 128, 227);
+	--c7: rgb(255, 191, 241);
+	--c8: rgb(255, 255, 255);
+}
+
+*{
+    font-family: "SingScript.sg";
+	max-width: 100%;
+	word-break: break-word;
+	-webkit-text-size-adjust: 100%;
+	-ms-text-size-adjust: 100%;
+}
+
+.title {
+	color: var(--c4);
+	font-size: 3.5rem;
+	margin: 0;
+	font-weight: normal;
+}
+.title::selection {
+	color: var(--c8);
+	background-color: var(--c4);
+	font-size: 3.5rem;
+	margin: 0;
+	font-weight: normal;
+}
+
+.header {
+	color: var(--c4);
+	font-size: 2.5rem;
+	margin: 0;
+	font-weight: normal;
+}
+.header::selection {
+	color: var(--c8);
+	background-color: var(--c4);
+	font-size: 2.625rem;
+	margin: 0;
+	font-weight: normal;
+}
+
+.description {
+	color: var(--c4);
+	font-size: 1.75rem;
+	margin: 0;
+	white-space: pre-wrap;
+}
+.description::selection {
+	color: var(--c8);
+	background-color: var(--c4);
+	font-size: 1.75rem;
+	margin: 0;
+	white-space: pre-wrap;
+}
+
+.note {
+	color: var(--c4);
+	font-size: 1.75rem;
+	margin: 0.25rem;
+	white-space: pre-wrap;
+    border: 0.25rem solid var(--c7);
+    padding: 0.25rem;
+}
+.note::selection {
+	color: var(--c8);
+	background-color: var(--c4);
+	font-size: 1.75rem;
+	margin: 0.25rem;
+	white-space: pre-wrap;
+    border: 0.25rem solid var(--c7);
+    padding: 0.25rem;
+}
+
+.warning {
+	color: var(--c4);
+	font-size: 1.75rem;
+	margin: 0.25rem;
+	white-space: pre-wrap;
+    border: 0.25rem solid var(--c4);
+    padding: 0.25rem;
+}
+.warning::selection {
+	color: var(--c8);
+	background-color: var(--c4);
+	font-size: 1.75rem;
+	margin: 0.25rem;
+	white-space: pre-wrap;
+    border: 0.25rem solid var(--c4);
+    padding: 0.25rem;
+}
+
+.link {
+	color: var(--c2);
+	text-decoration: underline;
+}
+.link:hover {
+	color: var(--c2);
+	background-color: var(--c7);
+	text-decoration: underline;
+}
+.link:active {
+	color: var(--c2);
+	background-color: var(--c6);
+	text-decoration: underline;
+}
+.link::selection {
+	color: var(--c8);
+	background-color: var(--c4);
+	text-decoration: underline;
+}
+
+.button {
+	color: var(--c8);
+	background-color: var(--c4);
+	font-size: 1.75rem;
+	border: none;
+}
+.button:hover {
+	color: var(--c7);
+	background-color: var(--c3);
+	font-size: 1.75rem;
+	border: none;
+}
+.button:active {
+	color: var(--c6);
+	background-color: var(--c2);
+	font-size: 1.75rem;
+	border: none;
+}
+.button::selection {
+	color: var(--c4);
+	background-color: var(--c8);
+	font-size: 1.75rem;
+	border: none;
+}
+
+.input {
+	color: var(--c8);
+	background-color: var(--c4);
+	font-size: 1.75rem;
+	border: none;
+	outline: none;
+	text-align: center;
+}
+.input:hover {
+	color: var(--c7);
+	background-color: var(--c3);
+	font-size: 1.75rem;
+	border: none;
+	outline: none;
+	text-align: center;
+}
+.input:focus {
+	color: var(--c6);
+	background-color: var(--c2);
+	font-size: 1.75rem;
+	border: none;
+	outline: none;
+	text-align: center;
+}
+.input::selection {
+	color: var(--c4);
+	background-color: var(--c8);
+	font-size: 1.75rem;
+	border: none;
+	outline: none;
+	text-align: center;
+}
+
+.highlight {
+    animation: highlightFlash 2s ease-out;
+}
+
+@keyframes highlightFlash {
+    0% {background-color: var(--c6);}
+    100% {background-color: var(--c8);}
+}
+</style>
+<script>
+let m = (new Date()).getMonth() + 1;
+if(m >= 7 && m <= 9){
+    document.documentElement.style.setProperty("--c0", "rgb(0, 0, 0)");
+    document.documentElement.style.setProperty("--c1", "rgb(60, 9, 14)");
+    document.documentElement.style.setProperty("--c2", "rgb(119, 19, 27)");
+    document.documentElement.style.setProperty("--c3", "rgb(179, 28, 41)");
+    document.documentElement.style.setProperty("--c4", "rgb(238, 37, 54)");
+    document.documentElement.style.setProperty("--c5", "rgb(242, 92, 104)");
+    document.documentElement.style.setProperty("--c6", "rgb(247, 146, 155)");
+    document.documentElement.style.setProperty("--c7", "rgb(251, 201, 205)");
+    document.documentElement.style.setProperty("--c8", "rgb(255, 255, 255)");
+}
+function highlightSection(){
+    let tag = window.location.hash.substring(1);
+    if(tag == ""){return;}
+    let element = document.getElementById(tag);
+    if(element == null){return;}
+    element.classList.add("highlight");
+    element.addEventListener("animationend", () => {element.classList.remove("highlight");}, {once: true});
+}
+window.addEventListener("DOMContentLoaded", highlightSection);
+window.addEventListener("hashchange", highlightSection);
+</script>
+</head>
+<body style="margin-left: 1em;">
+<p class="description" style="color: rgb(238, 37, 54); text-align: center; font-size: 2.5rem">sincerely <img src="/flag.png" style="vertical-align: middle; height: 2.5rem; image-rendering: auto;"> Singaporean</p>
+<div style="width: 100%; height: 0.25rem; background-color: var(--c8);"></div>
+<div><button class="button" style="width: 100%;" onclick="location.href='/'">Project 05524F.sg</button></div>
+<div style="width: 100%; height: 0.25rem; background-color: var(--c8);"></div>
+<div><button class="button" style="width: 100%;" onclick="location.href='../readme/readme'">SGEXTN Documentation</button></div><div style="width: 100%; height: 0.25rem; background-color: var(--c8);"></div><p class="warning">If you have not done so, read this full <a class="link" href="../tutorials/full">tutorial</a> on how to use SGEXTN to build an application.</p><div style="width: 100%; height: 0.75rem; background-color: var(--c8);"></div><h1 class="title">SGRImage</h1>
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<p class="description"><a class="link" href="https://github.com/InfinityIntegral/SGEXTN/tree/main/SG_Widgets/include/SGRImage.h">see header file</a></p>
+<p class="description"><a class="link" href="https://github.com/InfinityIntegral/SGEXTN/tree/main/SG_Widgets/src/SGRImage.cpp">see source file</a></p>
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<p class="description">class SGRImage;</p>
+<p class="description">part of SGEXTN module <a class="link" href="../modules/sg_widgets">SG_Widgets</a></p>
+<p class="description">represents an image</p>
+<p class="description"><a class="link" href="#sg_detaileddescription">detailed description</a></p>
+<p class="description"><a class="link" href="../funclist/sgrimage">list of all including inherited members</a></p>
+<p class="description"><a class="link" href="#sg_implementationdetails">implementation details</a></p>
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<p class="description">preprocessor file inclusion directive: #include ‹SGRImage.h›</p>
+<p class="description">CMake commands:</p>
+<p class="description">&#9;find_package(<a class="link" href="../readme/readme">SGEXTN</a> REQUIRED COMPONENTS <a class="link" href="../modules/sg_widgets">SG_Widgets</a>)</p>
+<p class="description">&#9;target_link_libraries(yourCMakeTarget PRIVATE <a class="link" href="../modules/sg_widgets">SGEXTN::SG_Widgets</a>)</p>
+<p class="description">parent class: (none)</p>
+<p class="description">children classes: (none)</p>
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<h2 class="header" id="">instance member functions</h2>
+<p class="description">&#9;<a class="link" href="#SGRImage_int_int_SGXColourRGBA_">SGRImage</a>(int w, int h, <a class="link" href="sgxcolourrgba">SGXColourRGBA</a> c);</p>
+<p class="description">&#9;<a class="link" href="#SGRImage_const_SGXString_ref_">SGRImage</a>(const <a class="link" href="sgxstring">SGXString</a>& filePath);</p>
+<p class="description">&#9;<a class="link" href="#SGRImage_int_int_">SGRImage</a>(int w, int h);</p>
+<p class="description">&#9;[[nodiscard]] <a class="link" href="sgxcolourrgba">SGXColourRGBA</a> <a class="link" href="#nodiscard_SGXColourRGBA_colourAt_int_int_const_">colourAt</a>(int x, int y) const;</p>
+<p class="description">&#9;[[nodiscard]] int <a class="link" href="#nodiscard_int_height_func_const_">height</a>() const;</p>
+<p class="description">&#9;[[nodiscard]] <a class="link" href="sgxcolourrgba">SGXColourRGBA</a> <a class="link" href="#nodiscard_SGXColourRGBA_interpolatedColourAt_float_float_const_">interpolatedColourAt</a>(float x, float y) const;</p>
+<p class="description">&#9;void <a class="link" href="#void_saveToFile_const_SGXString_ref_const_">saveToFile</a>(const <a class="link" href="sgxstring">SGXString</a>& filePath) const;</p>
+<p class="description">&#9;void <a class="link" href="#void_setColourAt_int_int_SGXColourRGBA_const_">setColourAt</a>(int x, int y, <a class="link" href="sgxcolourrgba">SGXColourRGBA</a> c) const;</p>
+<p class="description">&#9;[[nodiscard]] int <a class="link" href="#nodiscard_int_width_func_const_">width</a>() const;</p>
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<h2 class="header" id="sg_detaileddescription">Detailed Description</h2>
+<p class="description"><a class="link" href="../cppclass/sgrimage">SGRImage</a> stores and allows modification to any image. The image uses 8bit RGBA, consistent with <a class="link" href="../cppclass/sgxcolourrgba">SGXColourRGBA</a>.</p>
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<h2 class="header" id="sg_implementationdetails">Implementation Details</h2>
+<p class="description">wraps QImage</p>
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<h2 class="header" id="SGRImage_int_int_SGXColourRGBA_"><a class="link" href="#SGRImage_int_int_SGXColourRGBA_">SGRImage</a>(int w, int h, <a class="link" href="sgxcolourrgba">SGXColourRGBA</a> c);</h2>
+<p class="description">Creates a <a class="link" href="../cppclass/sgrimage">SGRImage</a> with width <b>w</b> pixels, height <b>h</b> pixels, and with every pixel initialised to <b>c</b>.</p>
+<p class="warning">Negative or 0 <b>w</b> or <b>h</b> is <a class="link" href="../tutorials/undefinedbehaviour">undefined behaviour</a>.</p>
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<h2 class="header" id="SGRImage_const_SGXString_ref_"><a class="link" href="#SGRImage_const_SGXString_ref_">SGRImage</a>(const <a class="link" href="sgxstring">SGXString</a>& filePath);</h2>
+<p class="description">Creates a <a class="link" href="../cppclass/sgrimage">SGRImage</a> using the image found at <b>filePath</b>.</p>
+<p class="warning">Nonexistent <b>filePath</b> is <a class="link" href="../tutorials/undefinedbehaviour">undefined behaviour</a>.</p>
+<p class="warning">The matching file must exist in the resource system. To ensure that, use relevant CMake commands. For more information about the resource system, see this <a class="link" href="../tutorials/resources">tutorial</a>.</p>
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<h2 class="header" id="SGRImage_int_int_"><a class="link" href="#SGRImage_int_int_">SGRImage</a>(int w, int h);</h2>
+<p class="description">Creates a <a class="link" href="../cppclass/sgrimage">SGRImage</a> with width <b>w</b> pixels, height <b>h</b> pixels, containing uninitialised nonsense.</p>
+<p class="warning">Accessing the colours of this <a class="link" href="../cppclass/sgrimage">SGRImage</a> before setting them is <a class="link" href="../tutorials/undefinedbehaviour">undefined behaviour</a>.</p>
+<p class="warning">Negative or 0 <b>w</b> or <b>h</b> is <a class="link" href="../tutorials/undefinedbehaviour">undefined behaviour</a>.</p>
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<h2 class="header" id="nodiscard_SGXColourRGBA_colourAt_int_int_const_">[[nodiscard]] <a class="link" href="sgxcolourrgba">SGXColourRGBA</a> <a class="link" href="#nodiscard_SGXColourRGBA_colourAt_int_int_const_">colourAt</a>(int x, int y) const;</h2>
+<p class="description">Returns the <a class="link" href="../cppclass/sgxcolourrgba">SGXColourRGBA</a> of the pixel at (<b>x</b>, <b>y</b>).</p>
+<p class="warning"><b>x</b> below zero, <b>x</b> more than or equal to the width, <b>y</b> below zero, <b>y</b> more than or equal to the height is <a class="link" href="../tutorials/undefinedbehaviour">undefined behaviour</a>. If you want image sampling, use <a class="link" href="../cppclass/sgrimage#nodiscard_SGXColourRGBA_interpolatedColourAt_float_float_const_">SGRImage::interpolatedColourAt</a> instead.</p>
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<h2 class="header" id="nodiscard_int_height_func_const_">[[nodiscard]] int <a class="link" href="#nodiscard_int_height_func_const_">height</a>() const;</h2>
+<p class="description">Returns the height of this <a class="link" href="../cppclass/sgrimage">SGRImage</a>.</p>
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<h2 class="header" id="nodiscard_SGXColourRGBA_interpolatedColourAt_float_float_const_">[[nodiscard]] <a class="link" href="sgxcolourrgba">SGXColourRGBA</a> <a class="link" href="#nodiscard_SGXColourRGBA_interpolatedColourAt_float_float_const_">interpolatedColourAt</a>(float x, float y) const;</h2>
+<p class="description">Returns the <a class="link" href="../cppclass/sgxcolourrgba">SGXColourRGBA</a> of the pixel at (<b>x</b>, <b>y</b>). If either coordinate is not integer, linear sampling is used. If either coordinate is out of bounds, wrap around is used.</p>
+<p class="note">This matches the sampling mode used by <a class="link" href="../tutorials/renderer">SG - RI ⁽㈳㈴㈳㈮㈱㈨㈠㈫ ㈧㈤㈱㈤⁾</a>.</p>
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<h2 class="header" id="void_saveToFile_const_SGXString_ref_const_">void <a class="link" href="#void_saveToFile_const_SGXString_ref_const_">saveToFile</a>(const <a class="link" href="sgxstring">SGXString</a>& filePath) const;</h2>
+<p class="description">Saves this <a class="link" href="../cppclass/sgrimage">SGRImage</a> to file at <b>filePath</b> in PNG format.</p>
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<h2 class="header" id="void_setColourAt_int_int_SGXColourRGBA_const_">void <a class="link" href="#void_setColourAt_int_int_SGXColourRGBA_const_">setColourAt</a>(int x, int y, <a class="link" href="sgxcolourrgba">SGXColourRGBA</a> c) const;</h2>
+<p class="description">Sets the <a class="link" href="../cppclass/sgxcolourrgba">SGXColourRGBA</a> of the pixel at (<b>x</b>, <b>y</b>) to <b>c</b>.</p>
+<p class="warning"><b>x</b> below zero, <b>x</b> more than or equal to the width, <b>y</b> below zero, <b>y</b> more than or equal to the height is <a class="link" href="../tutorials/undefinedbehaviour">undefined behaviour</a>.</p>
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<h2 class="header" id="nodiscard_int_width_func_const_">[[nodiscard]] int <a class="link" href="#nodiscard_int_width_func_const_">width</a>() const;</h2>
+<p class="description">Returns the width of this <a class="link" href="../cppclass/sgrimage">SGRImage</a>.</p>
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<p class="description"></p>
+
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<div style="width: 100%; height: 0.25rem; background-color: var(--c4);"></div>
+<div style="width: 100%; height: 0.25rem; background-color: var(--c8);"></div>
+<p class="description">©2025 05524F.sg (Singapore)</p>
+<p class="description"><a class="link" href="/contact">contact 05524F / report a bug / make a suggestion</a></p>
+<p class="description"><a class="link" href="/values">about 05524F SINGAPORE values</a></p>
+<p class="description"><a class="link" href="/projects">list of 05524F projects</a></p>
+<div style="width: 100%; height: 0.25rem; background-color: var(--c8);"></div>
+<div style="width: 100%; height: 0.25rem; background-color: var(--c4);"></div>
+<div style="width: 100%; height: 0.25rem; background-color: var(--c8);"></div>
+</body>
+</html>

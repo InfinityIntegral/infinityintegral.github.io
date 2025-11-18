@@ -1,0 +1,517 @@
+
+<!DOCTYPE html>
+<html lang="en-SG">
+<head>
+<meta charset="UTF-8">
+<title>SGXColourRGBA Documentation</title>
+<link rel="icon" href="/icon.png" type="image/png">
+<meta property="og:image" content="/icon.png">
+<meta name="twitter:image" content="/icon.png">
+<link rel="apple-touch-icon" href="/icon.png">
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "url": "https://infinityintegral.github.io",
+    "image": "/icon.png"
+}
+</script>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+@font-face {
+	font-family: "SingScript.sg";
+	src: url("/SingScript.sg")format("truetype");
+	font-weight: normal;
+	font-style: normal;
+}
+
+:root {
+	--c0: rgb(0, 0, 0);
+	--c1: rgb(64, 0, 50);
+	--c2: rgb(128, 0, 100);
+	--c3: rgb(191, 0, 150);
+	--c4: rgb(255, 0, 200);
+	--c5: rgb(255, 64, 214);
+	--c6: rgb(255, 128, 227);
+	--c7: rgb(255, 191, 241);
+	--c8: rgb(255, 255, 255);
+}
+
+*{
+    font-family: "SingScript.sg";
+	max-width: 100%;
+	word-break: break-word;
+	-webkit-text-size-adjust: 100%;
+	-ms-text-size-adjust: 100%;
+}
+
+.title {
+	color: var(--c4);
+	font-size: 3.5rem;
+	margin: 0;
+	font-weight: normal;
+}
+.title::selection {
+	color: var(--c8);
+	background-color: var(--c4);
+	font-size: 3.5rem;
+	margin: 0;
+	font-weight: normal;
+}
+
+.header {
+	color: var(--c4);
+	font-size: 2.5rem;
+	margin: 0;
+	font-weight: normal;
+}
+.header::selection {
+	color: var(--c8);
+	background-color: var(--c4);
+	font-size: 2.625rem;
+	margin: 0;
+	font-weight: normal;
+}
+
+.description {
+	color: var(--c4);
+	font-size: 1.75rem;
+	margin: 0;
+	white-space: pre-wrap;
+}
+.description::selection {
+	color: var(--c8);
+	background-color: var(--c4);
+	font-size: 1.75rem;
+	margin: 0;
+	white-space: pre-wrap;
+}
+
+.note {
+	color: var(--c4);
+	font-size: 1.75rem;
+	margin: 0.25rem;
+	white-space: pre-wrap;
+    border: 0.25rem solid var(--c7);
+    padding: 0.25rem;
+}
+.note::selection {
+	color: var(--c8);
+	background-color: var(--c4);
+	font-size: 1.75rem;
+	margin: 0.25rem;
+	white-space: pre-wrap;
+    border: 0.25rem solid var(--c7);
+    padding: 0.25rem;
+}
+
+.warning {
+	color: var(--c4);
+	font-size: 1.75rem;
+	margin: 0.25rem;
+	white-space: pre-wrap;
+    border: 0.25rem solid var(--c4);
+    padding: 0.25rem;
+}
+.warning::selection {
+	color: var(--c8);
+	background-color: var(--c4);
+	font-size: 1.75rem;
+	margin: 0.25rem;
+	white-space: pre-wrap;
+    border: 0.25rem solid var(--c4);
+    padding: 0.25rem;
+}
+
+.link {
+	color: var(--c2);
+	text-decoration: underline;
+}
+.link:hover {
+	color: var(--c2);
+	background-color: var(--c7);
+	text-decoration: underline;
+}
+.link:active {
+	color: var(--c2);
+	background-color: var(--c6);
+	text-decoration: underline;
+}
+.link::selection {
+	color: var(--c8);
+	background-color: var(--c4);
+	text-decoration: underline;
+}
+
+.button {
+	color: var(--c8);
+	background-color: var(--c4);
+	font-size: 1.75rem;
+	border: none;
+}
+.button:hover {
+	color: var(--c7);
+	background-color: var(--c3);
+	font-size: 1.75rem;
+	border: none;
+}
+.button:active {
+	color: var(--c6);
+	background-color: var(--c2);
+	font-size: 1.75rem;
+	border: none;
+}
+.button::selection {
+	color: var(--c4);
+	background-color: var(--c8);
+	font-size: 1.75rem;
+	border: none;
+}
+
+.input {
+	color: var(--c8);
+	background-color: var(--c4);
+	font-size: 1.75rem;
+	border: none;
+	outline: none;
+	text-align: center;
+}
+.input:hover {
+	color: var(--c7);
+	background-color: var(--c3);
+	font-size: 1.75rem;
+	border: none;
+	outline: none;
+	text-align: center;
+}
+.input:focus {
+	color: var(--c6);
+	background-color: var(--c2);
+	font-size: 1.75rem;
+	border: none;
+	outline: none;
+	text-align: center;
+}
+.input::selection {
+	color: var(--c4);
+	background-color: var(--c8);
+	font-size: 1.75rem;
+	border: none;
+	outline: none;
+	text-align: center;
+}
+
+.highlight {
+    animation: highlightFlash 2s ease-out;
+}
+
+@keyframes highlightFlash {
+    0% {background-color: var(--c6);}
+    100% {background-color: var(--c8);}
+}
+</style>
+<script>
+let m = (new Date()).getMonth() + 1;
+if(m >= 7 && m <= 9){
+    document.documentElement.style.setProperty("--c0", "rgb(0, 0, 0)");
+    document.documentElement.style.setProperty("--c1", "rgb(60, 9, 14)");
+    document.documentElement.style.setProperty("--c2", "rgb(119, 19, 27)");
+    document.documentElement.style.setProperty("--c3", "rgb(179, 28, 41)");
+    document.documentElement.style.setProperty("--c4", "rgb(238, 37, 54)");
+    document.documentElement.style.setProperty("--c5", "rgb(242, 92, 104)");
+    document.documentElement.style.setProperty("--c6", "rgb(247, 146, 155)");
+    document.documentElement.style.setProperty("--c7", "rgb(251, 201, 205)");
+    document.documentElement.style.setProperty("--c8", "rgb(255, 255, 255)");
+}
+function highlightSection(){
+    let tag = window.location.hash.substring(1);
+    if(tag == ""){return;}
+    let element = document.getElementById(tag);
+    if(element == null){return;}
+    element.classList.add("highlight");
+    element.addEventListener("animationend", () => {element.classList.remove("highlight");}, {once: true});
+}
+window.addEventListener("DOMContentLoaded", highlightSection);
+window.addEventListener("hashchange", highlightSection);
+</script>
+</head>
+<body style="margin-left: 1em;">
+<p class="description" style="color: rgb(238, 37, 54); text-align: center; font-size: 2.5rem">sincerely <img src="/flag.png" style="vertical-align: middle; height: 2.5rem; image-rendering: auto;"> Singaporean</p>
+<div style="width: 100%; height: 0.25rem; background-color: var(--c8);"></div>
+<div><button class="button" style="width: 100%;" onclick="location.href='/'">Project 05524F.sg</button></div>
+<div style="width: 100%; height: 0.25rem; background-color: var(--c8);"></div>
+<div><button class="button" style="width: 100%;" onclick="location.href='../readme/readme'">SGEXTN Documentation</button></div><div style="width: 100%; height: 0.25rem; background-color: var(--c8);"></div><p class="warning">If you have not done so, read this full <a class="link" href="../tutorials/full">tutorial</a> on how to use SGEXTN to build an application.</p><div style="width: 100%; height: 0.75rem; background-color: var(--c8);"></div><h1 class="title">SGXColourRGBA</h1>
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<p class="description"><a class="link" href="https://github.com/InfinityIntegral/SGEXTN/tree/main/SG_Core/include/SGXColourRGBA.h">see header file</a></p>
+<p class="description"><a class="link" href="https://github.com/InfinityIntegral/SGEXTN/tree/main/SG_Core/src/SGXColourRGBA.cpp">see source file</a></p>
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<p class="description">class SGXColourRGBA;</p>
+<p class="description">part of SGEXTN module <a class="link" href="../modules/sg_core">SG_Core</a></p>
+<p class="description">8bit RGBA colour</p>
+<p class="description"><a class="link" href="#sg_detaileddescription">detailed description</a></p>
+<p class="description"><a class="link" href="../funclist/sgxcolourrgba">list of all including inherited members</a></p>
+<p class="description"><a class="link" href="#sg_implementationdetails">implementation details</a></p>
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<p class="description">preprocessor file inclusion directive: #include ‹SGXColourRGBA.h›</p>
+<p class="description">CMake commands:</p>
+<p class="description">&#9;find_package(<a class="link" href="../readme/readme">SGEXTN</a> REQUIRED COMPONENTS <a class="link" href="../modules/sg_core">SG_Core</a>)</p>
+<p class="description">&#9;target_link_libraries(yourCMakeTarget PRIVATE <a class="link" href="../modules/sg_core">SGEXTN::SG_Core</a>)</p>
+<p class="description">parent class: (none)</p>
+<p class="description">children classes: (none)</p>
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<h2 class="header" id="">instance member functions</h2>
+<p class="description">&#9;<a class="link" href="#SGXColourRGBA_int_int_int_int_">SGXColourRGBA</a>(int r, int g, int b, int a);</p>
+<p class="description">&#9;<a class="link" href="#SGXColourRGBA_int_int_int_">SGXColourRGBA</a>(int r, int g, int b);</p>
+<p class="description">&#9;<a class="link" href="#SGXColourRGBA_float_float_float_">SGXColourRGBA</a>(float r, float g, float b);</p>
+<p class="description">&#9;<a class="link" href="#SGXColourRGBA_float_float_float_float_">SGXColourRGBA</a>(float r, float g, float b, float a);</p>
+<p class="description">&#9;void <a class="link" href="#void_applyTint_SGXColourRGBA_">applyTint</a>(<a class="link" href="sgxcolourrgba">SGXColourRGBA</a> x);</p>
+<p class="description">&#9;void <a class="link" href="#void_applyTintNoGammaCorrection_SGXColourRGBA_">applyTintNoGammaCorrection</a>(<a class="link" href="sgxcolourrgba">SGXColourRGBA</a> x);</p>
+<p class="description">&#9;void <a class="link" href="#void_applyTintNoGammaCorrectionSeparateTransparency_SGXColourRGBA_int_">applyTintNoGammaCorrectionSeparateTransparency</a>(<a class="link" href="sgxcolourrgba">SGXColourRGBA</a> x, int a);</p>
+<p class="description">&#9;void <a class="link" href="#void_applyTintNoGammaCorrectionSeparateTransparencyUsingFloat_SGXColourRGBA_float_">applyTintNoGammaCorrectionSeparateTransparencyUsingFloat</a>(<a class="link" href="sgxcolourrgba">SGXColourRGBA</a> x, float a);</p>
+<p class="description">&#9;void <a class="link" href="#void_applyTintSeparateTransparency_SGXColourRGBA_int_">applyTintSeparateTransparency</a>(<a class="link" href="sgxcolourrgba">SGXColourRGBA</a> x, int a);</p>
+<p class="description">&#9;void <a class="link" href="#void_applyTintSeparateTransparencyUsingFloat_SGXColourRGBA_float_">applyTintSeparateTransparencyUsingFloat</a>(<a class="link" href="sgxcolourrgba">SGXColourRGBA</a> x, float a);</p>
+<p class="description">&#9;void <a class="link" href="#void_gammaCorrectBegin_float_ref_float_ref_float_ref_const_">gammaCorrectBegin</a>(float& r, float& g, float& b) const;</p>
+<p class="description">&#9;void <a class="link" href="#void_gammaCorrectEnd_float_float_float_">gammaCorrectEnd</a>(float r, float g, float b);</p>
+<p class="description">&#9;[[nodiscard]] int <a class="link" href="#nodiscard_int_getBlue_func_const_">getBlue</a>() const;</p>
+<p class="description">&#9;[[nodiscard]] float <a class="link" href="#nodiscard_float_getBlueAsFloat_func_const_">getBlueAsFloat</a>() const;</p>
+<p class="description">&#9;[[nodiscard]] int <a class="link" href="#nodiscard_int_getGreen_func_const_">getGreen</a>() const;</p>
+<p class="description">&#9;[[nodiscard]] float <a class="link" href="#nodiscard_float_getGreenAsFloat_func_const_">getGreenAsFloat</a>() const;</p>
+<p class="description">&#9;[[nodiscard]] int <a class="link" href="#nodiscard_int_getRed_func_const_">getRed</a>() const;</p>
+<p class="description">&#9;[[nodiscard]] float <a class="link" href="#nodiscard_float_getRedAsFloat_func_const_">getRedAsFloat</a>() const;</p>
+<p class="description">&#9;[[nodiscard]] <a class="link" href="sgxstring">SGXString</a> <a class="link" href="#nodiscard_SGXString_getStringForPrintingRGBAFloatHTML_func_const_">getStringForPrintingRGBAFloatHTML</a>() const;</p>
+<p class="description">&#9;[[nodiscard]] <a class="link" href="sgxstring">SGXString</a> <a class="link" href="#nodiscard_SGXString_getStringForPrintingRGBAHTML_func_const_">getStringForPrintingRGBAHTML</a>() const;</p>
+<p class="description">&#9;[[nodiscard]] <a class="link" href="sgxstring">SGXString</a> <a class="link" href="#nodiscard_SGXString_getStringForPrintingRGBAHex_func_const_">getStringForPrintingRGBAHex</a>() const;</p>
+<p class="description">&#9;[[nodiscard]] <a class="link" href="sgxstring">SGXString</a> <a class="link" href="#nodiscard_SGXString_getStringForPrintingRGBFloatHTML_func_const_">getStringForPrintingRGBFloatHTML</a>() const;</p>
+<p class="description">&#9;[[nodiscard]] <a class="link" href="sgxstring">SGXString</a> <a class="link" href="#nodiscard_SGXString_getStringForPrintingRGBHTML_func_const_">getStringForPrintingRGBHTML</a>() const;</p>
+<p class="description">&#9;[[nodiscard]] <a class="link" href="sgxstring">SGXString</a> <a class="link" href="#nodiscard_SGXString_getStringForPrintingRGBHex_func_const_">getStringForPrintingRGBHex</a>() const;</p>
+<p class="description">&#9;[[nodiscard]] int <a class="link" href="#nodiscard_int_getTransparency_func_const_">getTransparency</a>() const;</p>
+<p class="description">&#9;[[nodiscard]] float <a class="link" href="#nodiscard_float_getTransparencyAsFloat_func_const_">getTransparencyAsFloat</a>() const;</p>
+<p class="description">&#9;[[nodiscard]] int <a class="link" href="#nodiscard_int_hash_func_const_">hash</a>() const;</p>
+<p class="description">&#9;[[nodiscard]] <a class="link" href="sgxcolourrgba">SGXColourRGBA</a> <a class="link" href="#nodiscard_SGXColourRGBA_linearInterpolate_SGXColourRGBA_float_const_">linearInterpolate</a>(<a class="link" href="sgxcolourrgba">SGXColourRGBA</a> x, float f) const;</p>
+<p class="description">&#9;[[nodiscard]] <a class="link" href="sgxcolourrgba">SGXColourRGBA</a> <a class="link" href="#nodiscard_SGXColourRGBA_linearInterpolateGammaCorrection_SGXColourRGBA_float_const_">linearInterpolateGammaCorrection</a>(<a class="link" href="sgxcolourrgba">SGXColourRGBA</a> x, float f) const;</p>
+<p class="description">&#9;void <a class="link" href="#void_linearTransformBlue_float_float_">linearTransformBlue</a>(float m, float c);</p>
+<p class="description">&#9;void <a class="link" href="#void_linearTransformBlueWithGamma_float_float_">linearTransformBlueWithGamma</a>(float m, float c);</p>
+<p class="description">&#9;void <a class="link" href="#void_linearTransformGreen_float_float_">linearTransformGreen</a>(float m, float c);</p>
+<p class="description">&#9;void <a class="link" href="#void_linearTransformGreenWithGamma_float_float_">linearTransformGreenWithGamma</a>(float m, float c);</p>
+<p class="description">&#9;void <a class="link" href="#void_linearTransformRed_float_float_">linearTransformRed</a>(float m, float c);</p>
+<p class="description">&#9;void <a class="link" href="#void_linearTransformRedWithGamma_float_float_">linearTransformRedWithGamma</a>(float m, float c);</p>
+<p class="description">&#9;void <a class="link" href="#void_linearTransformTransparency_float_float_">linearTransformTransparency</a>(float m, float c);</p>
+<p class="description">&#9;[[nodiscard]] bool <a class="link" href="#nodiscard_bool_operator_neq_SGXColourRGBA_const_">operator!=</a>(<a class="link" href="sgxcolourrgba">SGXColourRGBA</a> x) const;</p>
+<p class="description">&#9;[[nodiscard]] bool <a class="link" href="#nodiscard_bool_operator_lt_SGXColourRGBA_const_">operator‹</a>(<a class="link" href="sgxcolourrgba">SGXColourRGBA</a> x) const;</p>
+<p class="description">&#9;[[nodiscard]] bool <a class="link" href="#nodiscard_bool_operator_eq_SGXColourRGBA_const_">operator==</a>(<a class="link" href="sgxcolourrgba">SGXColourRGBA</a> x) const;</p>
+<p class="description">&#9;[[nodiscard]] bool <a class="link" href="#nodiscard_bool_operator_gt_SGXColourRGBA_const_">operator›</a>(<a class="link" href="sgxcolourrgba">SGXColourRGBA</a> x) const;</p>
+<p class="description">&#9;void <a class="link" href="#void_setBlue_int_">setBlue</a>(int b);</p>
+<p class="description">&#9;void <a class="link" href="#void_setBlueUsingFloat_float_">setBlueUsingFloat</a>(float b);</p>
+<p class="description">&#9;void <a class="link" href="#void_setGreen_int_">setGreen</a>(int g);</p>
+<p class="description">&#9;void <a class="link" href="#void_setGreenUsingFloat_float_">setGreenUsingFloat</a>(float g);</p>
+<p class="description">&#9;void <a class="link" href="#void_setRed_int_">setRed</a>(int r);</p>
+<p class="description">&#9;void <a class="link" href="#void_setRedUsingFloat_float_">setRedUsingFloat</a>(float r);</p>
+<p class="description">&#9;void <a class="link" href="#void_setTransparency_int_">setTransparency</a>(int a);</p>
+<p class="description">&#9;void <a class="link" href="#void_setTransparencyUsingFloat_float_">setTransparencyUsingFloat</a>(float a);</p>
+<p class="description">&#9;void <a class="link" href="#void_toComplementColour_func_">toComplementColour</a>();</p>
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<h2 class="header" id="sg_detaileddescription">Detailed Description</h2>
+<p class="description"><a class="link" href="../cppclass/sgxcolourrgba">SGXColourRGBA</a> represents a colour in RGBA format with 8 bits per channel. Each of the red, green, blue, and transparency channels can range between 0 to 255 inclusive. Features such as colour transformation and gamma correction are included also.</p>
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<h2 class="header" id="sg_implementationdetails">Implementation Details</h2>
+<p class="description"><a class="link" href="../cppclass/sgxcolourrgba">SGXColourRGBA</a> packs all 4 channels into 1 unsigned int.</p>
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<h2 class="header" id="SGXColourRGBA_int_int_int_int_"><a class="link" href="#SGXColourRGBA_int_int_int_int_">SGXColourRGBA</a>(int r, int g, int b, int a);</h2>
+<p class="description">Creates a <a class="link" href="../cppclass/sgxcolourrgba">SGXColourRGBA</a> from its components (red <b>r</b>, green <b>g</b>, blue <b>b</b>, transparency <b>a</b>).</p>
+<p class="note">Each channel should range from 0 to 255 inclusive. Out of bounds channels are corrected automatically.</p>
+<p class="warning">Ensure that all arguments passed have a type of int, otherwise it may trigger the wrong constructor.</p>
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<h2 class="header" id="SGXColourRGBA_int_int_int_"><a class="link" href="#SGXColourRGBA_int_int_int_">SGXColourRGBA</a>(int r, int g, int b);</h2>
+<p class="description">Creates a <a class="link" href="../cppclass/sgxcolourrgba">SGXColourRGBA</a> from its components (red <b>r</b>, green <b>g</b>, blue <b>b</b>) with transparency assumed to be 255.</p>
+<p class="note">Each channel should range from 0 to 255 inclusive. Out of bounds channels are corrected automatically.</p>
+<p class="warning">Ensure that all arguments passed have a type of int, otherwise it may trigger the wrong constructor.</p>
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<h2 class="header" id="SGXColourRGBA_float_float_float_"><a class="link" href="#SGXColourRGBA_float_float_float_">SGXColourRGBA</a>(float r, float g, float b);</h2>
+<p class="description">Creates a <a class="link" href="../cppclass/sgxcolourrgba">SGXColourRGBA</a> from its components (red <b>r</b>, green <b>g</b>, blue <b>b</b>) with transparency assumed to be 1.</p>
+<p class="note">Each channel should range from 0 to 1 inclusive. Out of bounds channels are corrected automatically.</p>
+<p class="warning">Ensure that all arguments passed have a type of float, otherwise it may trigger the wrong constructor.</p>
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<h2 class="header" id="SGXColourRGBA_float_float_float_float_"><a class="link" href="#SGXColourRGBA_float_float_float_float_">SGXColourRGBA</a>(float r, float g, float b, float a);</h2>
+<p class="description">Creates a <a class="link" href="../cppclass/sgxcolourrgba">SGXColourRGBA</a> from its components (red <b>r</b>, green <b>g</b>, blue <b>b</b>, transparency <b>a</b>).</p>
+<p class="note">Each channel should range from 0 to 1 inclusive. Out of bounds channels are corrected automatically.</p>
+<p class="warning">Ensure that all arguments passed have a type of float, otherwise it may trigger the wrong constructor.</p>
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<h2 class="header" id="void_applyTint_SGXColourRGBA_">void <a class="link" href="#void_applyTint_SGXColourRGBA_">applyTint</a>(<a class="link" href="sgxcolourrgba">SGXColourRGBA</a> x);</h2>
+<p class="description">Sets this <a class="link" href="../cppclass/sgxcolourrgba">SGXColourRGBA</a> to the resulting colour if this <a class="link" href="../cppclass/sgxcolourrgba">SGXColourRGBA</a> is viewed behind a screen with colour <b>x</b>, with computation done in linear colour space.</p>
+<p class="note">This does not change the transparency of this <a class="link" href="../cppclass/sgxcolourrgba">SGXColourRGBA</a>.</p>
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<h2 class="header" id="void_applyTintNoGammaCorrection_SGXColourRGBA_">void <a class="link" href="#void_applyTintNoGammaCorrection_SGXColourRGBA_">applyTintNoGammaCorrection</a>(<a class="link" href="sgxcolourrgba">SGXColourRGBA</a> x);</h2>
+<p class="description">Sets this <a class="link" href="../cppclass/sgxcolourrgba">SGXColourRGBA</a> to the resulting colour if this <a class="link" href="../cppclass/sgxcolourrgba">SGXColourRGBA</a> is viewed behind a screen with colour <b>x</b>.</p>
+<p class="note">This does not change the transparency of this <a class="link" href="../cppclass/sgxcolourrgba">SGXColourRGBA</a>.</p>
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<h2 class="header" id="void_applyTintNoGammaCorrectionSeparateTransparency_SGXColourRGBA_int_">void <a class="link" href="#void_applyTintNoGammaCorrectionSeparateTransparency_SGXColourRGBA_int_">applyTintNoGammaCorrectionSeparateTransparency</a>(<a class="link" href="sgxcolourrgba">SGXColourRGBA</a> x, int a);</h2>
+<p class="description">Sets this <a class="link" href="../cppclass/sgxcolourrgba">SGXColourRGBA</a> to the resulting colour if this <a class="link" href="../cppclass/sgxcolourrgba">SGXColourRGBA</a> is viewed behind a screen with colour c, where c has equal RGB channels as <b>x</b> but a transparency of <b>a</b> between 0 and 255 inclusive.</p>
+<p class="note">The computation proceeds anyways if <b>a</b> is out of bounds, this is NOT <a class="link" href="../tutorials/undefinedbehaviour">undefined behaviour</a>. This can be useful for effects that remove a certain colour.</p>
+<p class="note">This does not change the transparency of this <a class="link" href="../cppclass/sgxcolourrgba">SGXColourRGBA</a>.</p>
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<h2 class="header" id="void_applyTintNoGammaCorrectionSeparateTransparencyUsingFloat_SGXColourRGBA_float_">void <a class="link" href="#void_applyTintNoGammaCorrectionSeparateTransparencyUsingFloat_SGXColourRGBA_float_">applyTintNoGammaCorrectionSeparateTransparencyUsingFloat</a>(<a class="link" href="sgxcolourrgba">SGXColourRGBA</a> x, float a);</h2>
+<p class="description">Sets this <a class="link" href="../cppclass/sgxcolourrgba">SGXColourRGBA</a> to the resulting colour if this <a class="link" href="../cppclass/sgxcolourrgba">SGXColourRGBA</a> is viewed behind a screen with colour c, where c has equal RGB channels as <b>x</b> but a transparency of <b>a</b> between 0 and 1 inclusive.</p>
+<p class="note">The computation proceeds anyways if <b>a</b> is out of bounds, this is NOT <a class="link" href="../tutorials/undefinedbehaviour">undefined behaviour</a>. This can be useful for effects that remove a certain colour.</p>
+<p class="note">This does not change the transparency of this <a class="link" href="../cppclass/sgxcolourrgba">SGXColourRGBA</a>.</p>
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<h2 class="header" id="void_applyTintSeparateTransparency_SGXColourRGBA_int_">void <a class="link" href="#void_applyTintSeparateTransparency_SGXColourRGBA_int_">applyTintSeparateTransparency</a>(<a class="link" href="sgxcolourrgba">SGXColourRGBA</a> x, int a);</h2>
+<p class="description">Sets this <a class="link" href="../cppclass/sgxcolourrgba">SGXColourRGBA</a> to the resulting colour if this <a class="link" href="../cppclass/sgxcolourrgba">SGXColourRGBA</a> is viewed behind a screen with colour c, where c has equal RGB channels as <b>x</b> but a transparency of <b>a</b> between 0 and 255 inclusive, with computation done in linear colour space.</p>
+<p class="note">The computation proceeds anyways if <b>a</b> is out of bounds, this is NOT <a class="link" href="../tutorials/undefinedbehaviour">undefined behaviour</a>. This can be useful for effects that remove a certain colour.</p>
+<p class="note">This does not change the transparency of this <a class="link" href="../cppclass/sgxcolourrgba">SGXColourRGBA</a>.</p>
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<h2 class="header" id="void_applyTintSeparateTransparencyUsingFloat_SGXColourRGBA_float_">void <a class="link" href="#void_applyTintSeparateTransparencyUsingFloat_SGXColourRGBA_float_">applyTintSeparateTransparencyUsingFloat</a>(<a class="link" href="sgxcolourrgba">SGXColourRGBA</a> x, float a);</h2>
+<p class="description">Sets this <a class="link" href="../cppclass/sgxcolourrgba">SGXColourRGBA</a> to the resulting colour if this <a class="link" href="../cppclass/sgxcolourrgba">SGXColourRGBA</a> is viewed behind a screen with colour c, where c has equal RGB channels as <b>x</b> but a transparency of <b>a</b> between 0 and 1 inclusive, with computation done in linear colour space.</p>
+<p class="note">The computation proceeds anyways if <b>a</b> is out of bounds, this is NOT <a class="link" href="../tutorials/undefinedbehaviour">undefined behaviour</a>. This can be useful for effects that remove a certain colour.</p>
+<p class="note">This does not change the transparency of this <a class="link" href="../cppclass/sgxcolourrgba">SGXColourRGBA</a>.</p>
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<h2 class="header" id="void_gammaCorrectBegin_float_ref_float_ref_float_ref_const_">void <a class="link" href="#void_gammaCorrectBegin_float_ref_float_ref_float_ref_const_">gammaCorrectBegin</a>(float& r, float& g, float& b) const;</h2>
+<p class="description">Converts the <a class="link" href="../cppclass/sgxcolourrgba">SGXColourRGBA</a> to linear colour space for physically accurate colour mixing. The linear colour space RGB values are output in <b>r</b>, <b>g</b>, and <b>b</b> as floating point numbers between 0 and 1 inclusive.</p>
+<p class="warning">Putting linear colour space values into a <a class="link" href="../cppclass/sgxcolourrgba">SGXColourRGBA</a> is not recommended, instead use <a class="link" href="../cppclass/sgxcolourrgba#void_gammaCorrectEnd_float_float_float_">SGXColourRGBA::gammaCorrectEnd</a> to convert it back.</p>
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<h2 class="header" id="void_gammaCorrectEnd_float_float_float_">void <a class="link" href="#void_gammaCorrectEnd_float_float_float_">gammaCorrectEnd</a>(float r, float g, float b);</h2>
+<p class="description">Converts the RGB values <b>r</b>, <b>g</b>, <b>b</b> in linear colour space back into the <a class="link" href="../cppclass/sgxcolourrgba">SGXColourRGBA</a> colour space and apply them to this <a class="link" href="../cppclass/sgxcolourrgba">SGXColourRGBA</a>.</p>
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<h2 class="header" id="nodiscard_int_getBlue_func_const_">[[nodiscard]] int <a class="link" href="#nodiscard_int_getBlue_func_const_">getBlue</a>() const;</h2>
+<p class="description">Returns the blue component of this <a class="link" href="../cppclass/sgxcolourrgba">SGXColourRGBA</a> as a int between 0 and 255 inclusive.</p>
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<h2 class="header" id="nodiscard_float_getBlueAsFloat_func_const_">[[nodiscard]] float <a class="link" href="#nodiscard_float_getBlueAsFloat_func_const_">getBlueAsFloat</a>() const;</h2>
+<p class="description">Returns the blue component of this <a class="link" href="../cppclass/sgxcolourrgba">SGXColourRGBA</a> as a float between 0 and 1 inclusive.</p>
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<h2 class="header" id="nodiscard_int_getGreen_func_const_">[[nodiscard]] int <a class="link" href="#nodiscard_int_getGreen_func_const_">getGreen</a>() const;</h2>
+<p class="description">Returns the green component of this <a class="link" href="../cppclass/sgxcolourrgba">SGXColourRGBA</a> as a int between 0 and 255 inclusive.</p>
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<h2 class="header" id="nodiscard_float_getGreenAsFloat_func_const_">[[nodiscard]] float <a class="link" href="#nodiscard_float_getGreenAsFloat_func_const_">getGreenAsFloat</a>() const;</h2>
+<p class="description">Returns the green component of this <a class="link" href="../cppclass/sgxcolourrgba">SGXColourRGBA</a> as a float between 0 and 1 inclusive.</p>
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<h2 class="header" id="nodiscard_int_getRed_func_const_">[[nodiscard]] int <a class="link" href="#nodiscard_int_getRed_func_const_">getRed</a>() const;</h2>
+<p class="description">Returns the red component of this <a class="link" href="../cppclass/sgxcolourrgba">SGXColourRGBA</a> as a int between 0 and 255 inclusive.</p>
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<h2 class="header" id="nodiscard_float_getRedAsFloat_func_const_">[[nodiscard]] float <a class="link" href="#nodiscard_float_getRedAsFloat_func_const_">getRedAsFloat</a>() const;</h2>
+<p class="description">Returns the red component of this <a class="link" href="../cppclass/sgxcolourrgba">SGXColourRGBA</a> as a float between 0 and 1 inclusive.</p>
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<h2 class="header" id="nodiscard_SGXString_getStringForPrintingRGBAFloatHTML_func_const_">[[nodiscard]] <a class="link" href="sgxstring">SGXString</a> <a class="link" href="#nodiscard_SGXString_getStringForPrintingRGBAFloatHTML_func_const_">getStringForPrintingRGBAFloatHTML</a>() const;</h2>
+<p class="description">Returns the HTML style string representation of this <a class="link" href="../cppclass/sgxcolourrgba">SGXColourRGBA</a> with colour between 0 and 1 inclusive, this is something like rgb(1.0, 0.0, 0.8, 1.0).</p>
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<h2 class="header" id="nodiscard_SGXString_getStringForPrintingRGBAHTML_func_const_">[[nodiscard]] <a class="link" href="sgxstring">SGXString</a> <a class="link" href="#nodiscard_SGXString_getStringForPrintingRGBAHTML_func_const_">getStringForPrintingRGBAHTML</a>() const;</h2>
+<p class="description">Returns the HTML style string representation of this <a class="link" href="../cppclass/sgxcolourrgba">SGXColourRGBA</a> with colour between 0 and 255 inclusive, this is something like rgb(255, 0, 200, 255).</p>
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<h2 class="header" id="nodiscard_SGXString_getStringForPrintingRGBAHex_func_const_">[[nodiscard]] <a class="link" href="sgxstring">SGXString</a> <a class="link" href="#nodiscard_SGXString_getStringForPrintingRGBAHex_func_const_">getStringForPrintingRGBAHex</a>() const;</h2>
+<p class="description">Returns the hex code string representation of this <a class="link" href="../cppclass/sgxcolourrgba">SGXColourRGBA</a>, this is something like #FF00C8FF.</p>
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<h2 class="header" id="nodiscard_SGXString_getStringForPrintingRGBFloatHTML_func_const_">[[nodiscard]] <a class="link" href="sgxstring">SGXString</a> <a class="link" href="#nodiscard_SGXString_getStringForPrintingRGBFloatHTML_func_const_">getStringForPrintingRGBFloatHTML</a>() const;</h2>
+<p class="description">Returns the HTML style string representation of this <a class="link" href="../cppclass/sgxcolourrgba">SGXColourRGBA</a> with colour between 0 and 1 inclusive, this is something like rgb(1.0, 0.0, 0.8).</p>
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<h2 class="header" id="nodiscard_SGXString_getStringForPrintingRGBHTML_func_const_">[[nodiscard]] <a class="link" href="sgxstring">SGXString</a> <a class="link" href="#nodiscard_SGXString_getStringForPrintingRGBHTML_func_const_">getStringForPrintingRGBHTML</a>() const;</h2>
+<p class="description">Returns the HTML style string representation of this <a class="link" href="../cppclass/sgxcolourrgba">SGXColourRGBA</a> with colour between 0 and 255 inclusive, this is something like rgb(255, 0, 200).</p>
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<h2 class="header" id="nodiscard_SGXString_getStringForPrintingRGBHex_func_const_">[[nodiscard]] <a class="link" href="sgxstring">SGXString</a> <a class="link" href="#nodiscard_SGXString_getStringForPrintingRGBHex_func_const_">getStringForPrintingRGBHex</a>() const;</h2>
+<p class="description">Returns the hex code string representation of this <a class="link" href="../cppclass/sgxcolourrgba">SGXColourRGBA</a>, this is something like #FF00C8.</p>
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<h2 class="header" id="nodiscard_int_getTransparency_func_const_">[[nodiscard]] int <a class="link" href="#nodiscard_int_getTransparency_func_const_">getTransparency</a>() const;</h2>
+<p class="description">Returns the transparency component of this <a class="link" href="../cppclass/sgxcolourrgba">SGXColourRGBA</a> as a int between 0 and 255 inclusive.</p>
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<h2 class="header" id="nodiscard_float_getTransparencyAsFloat_func_const_">[[nodiscard]] float <a class="link" href="#nodiscard_float_getTransparencyAsFloat_func_const_">getTransparencyAsFloat</a>() const;</h2>
+<p class="description">Returns the transparency component of this <a class="link" href="../cppclass/sgxcolourrgba">SGXColourRGBA</a> as a float between 0 and 1 inclusive.</p>
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<h2 class="header" id="nodiscard_int_hash_func_const_">[[nodiscard]] int <a class="link" href="#nodiscard_int_hash_func_const_">hash</a>() const;</h2>
+<p class="description">Hash function defined for <a class="link" href="../cppclass/sglhash">SGLHash</a>.</p>
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<h2 class="header" id="nodiscard_SGXColourRGBA_linearInterpolate_SGXColourRGBA_float_const_">[[nodiscard]] <a class="link" href="sgxcolourrgba">SGXColourRGBA</a> <a class="link" href="#nodiscard_SGXColourRGBA_linearInterpolate_SGXColourRGBA_float_const_">linearInterpolate</a>(<a class="link" href="sgxcolourrgba">SGXColourRGBA</a> x, float f) const;</h2>
+<p class="description">Returns the resulting colour if <b>f</b> of this <a class="link" href="../cppclass/sgxcolourrgba">SGXColourRGBA</a> is mixed with (1 - <b>f</b>) of <b>x</b>, where <b>f</b> is between 0 and 1 inclusive.</p>
+<p class="note">The computation proceeds anyways if <b>f</b> is out of bounds, this is NOT <a class="link" href="../tutorials/undefinedbehaviour">undefined behaviour</a>. This can be useful for effects that remove a certain colour.</p>
+<p class="note">The returned colour has the same transparency as this <a class="link" href="../cppclass/sgxcolourrgba">SGXColourRGBA</a>.</p>
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<h2 class="header" id="nodiscard_SGXColourRGBA_linearInterpolateGammaCorrection_SGXColourRGBA_float_const_">[[nodiscard]] <a class="link" href="sgxcolourrgba">SGXColourRGBA</a> <a class="link" href="#nodiscard_SGXColourRGBA_linearInterpolateGammaCorrection_SGXColourRGBA_float_const_">linearInterpolateGammaCorrection</a>(<a class="link" href="sgxcolourrgba">SGXColourRGBA</a> x, float f) const;</h2>
+<p class="description">Returns the resulting colour if <b>f</b> of this <a class="link" href="../cppclass/sgxcolourrgba">SGXColourRGBA</a> is mixed with (1 - <b>f</b>) of <b>x</b>, where <b>f</b> is between 0 and 1 inclusive, computation done in linear colour space.</p>
+<p class="note">The computation proceeds anyways if <b>f</b> is out of bounds, this is NOT <a class="link" href="../tutorials/undefinedbehaviour">undefined behaviour</a>. This can be useful for effects that remove a certain colour.</p>
+<p class="note">The returned colour has the same transparency as this <a class="link" href="../cppclass/sgxcolourrgba">SGXColourRGBA</a>.</p>
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<h2 class="header" id="void_linearTransformBlue_float_float_">void <a class="link" href="#void_linearTransformBlue_float_float_">linearTransformBlue</a>(float m, float c);</h2>
+<p class="description">Replaces the blue component of this <a class="link" href="../cppclass/sgxcolourrgba">SGXColourRGBA</a> with <b>m</b> * blue + <b>c</b>.</p>
+<p class="note">If the new blue component is out of bounds, it is corrected automatically.</p>
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<h2 class="header" id="void_linearTransformBlueWithGamma_float_float_">void <a class="link" href="#void_linearTransformBlueWithGamma_float_float_">linearTransformBlueWithGamma</a>(float m, float c);</h2>
+<p class="description">Replaces the blue component of this <a class="link" href="../cppclass/sgxcolourrgba">SGXColourRGBA</a> with <b>m</b> * blue + <b>c</b>, with computation done in linear colour space.</p>
+<p class="note">If the new blue component is out of bounds, it is corrected automatically.</p>
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<h2 class="header" id="void_linearTransformGreen_float_float_">void <a class="link" href="#void_linearTransformGreen_float_float_">linearTransformGreen</a>(float m, float c);</h2>
+<p class="description">Replaces the green component of this <a class="link" href="../cppclass/sgxcolourrgba">SGXColourRGBA</a> with <b>m</b> * green + <b>c</b>.</p>
+<p class="note">If the new green component is out of bounds, it is corrected automatically.</p>
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<h2 class="header" id="void_linearTransformGreenWithGamma_float_float_">void <a class="link" href="#void_linearTransformGreenWithGamma_float_float_">linearTransformGreenWithGamma</a>(float m, float c);</h2>
+<p class="description">Replaces the green component of this <a class="link" href="../cppclass/sgxcolourrgba">SGXColourRGBA</a> with <b>m</b> * green + <b>c</b>, with computation done in linear colour space.</p>
+<p class="note">If the new green component is out of bounds, it is corrected automatically.</p>
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<h2 class="header" id="void_linearTransformRed_float_float_">void <a class="link" href="#void_linearTransformRed_float_float_">linearTransformRed</a>(float m, float c);</h2>
+<p class="description">Replaces the red component of this <a class="link" href="../cppclass/sgxcolourrgba">SGXColourRGBA</a> with <b>m</b> * red + <b>c</b>.</p>
+<p class="note">If the new red component is out of bounds, it is corrected automatically.</p>
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<h2 class="header" id="void_linearTransformRedWithGamma_float_float_">void <a class="link" href="#void_linearTransformRedWithGamma_float_float_">linearTransformRedWithGamma</a>(float m, float c);</h2>
+<p class="description">Replaces the red component of this <a class="link" href="../cppclass/sgxcolourrgba">SGXColourRGBA</a> with <b>m</b> * red + <b>c</b>, with computation done in linear colour space.</p>
+<p class="note">If the new red component is out of bounds, it is corrected automatically.</p>
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<h2 class="header" id="void_linearTransformTransparency_float_float_">void <a class="link" href="#void_linearTransformTransparency_float_float_">linearTransformTransparency</a>(float m, float c);</h2>
+<p class="description">Replaces the transparency component of this <a class="link" href="../cppclass/sgxcolourrgba">SGXColourRGBA</a> with <b>m</b> * transparency + <b>c</b>.</p>
+<p class="note">If the new transparency component is out of bounds, it is corrected automatically.</p>
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<h2 class="header" id="nodiscard_bool_operator_neq_SGXColourRGBA_const_">[[nodiscard]] bool <a class="link" href="#nodiscard_bool_operator_neq_SGXColourRGBA_const_">operator!=</a>(<a class="link" href="sgxcolourrgba">SGXColourRGBA</a> x) const;</h2>
+<p class="description">Inequality check with <b>x</b> defined for <a class="link" href="../cppclass/sglequalsto">SGLEqualsTo</a>.</p>
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<h2 class="header" id="nodiscard_bool_operator_lt_SGXColourRGBA_const_">[[nodiscard]] bool <a class="link" href="#nodiscard_bool_operator_lt_SGXColourRGBA_const_">operator‹</a>(<a class="link" href="sgxcolourrgba">SGXColourRGBA</a> x) const;</h2>
+<p class="description">Lesser than operator with <b>x</b> defined for <a class="link" href="../cppclass/sgllesserthan">SGLLesserThan</a> and <a class="link" href="../cppclass/sglmorethan">SGLMoreThan</a>.</p>
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<h2 class="header" id="nodiscard_bool_operator_eq_SGXColourRGBA_const_">[[nodiscard]] bool <a class="link" href="#nodiscard_bool_operator_eq_SGXColourRGBA_const_">operator==</a>(<a class="link" href="sgxcolourrgba">SGXColourRGBA</a> x) const;</h2>
+<p class="description">Equality check with <b>x</b> defined for <a class="link" href="../cppclass/sglequalsto">SGLEqualsTo</a>.</p>
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<h2 class="header" id="nodiscard_bool_operator_gt_SGXColourRGBA_const_">[[nodiscard]] bool <a class="link" href="#nodiscard_bool_operator_gt_SGXColourRGBA_const_">operator›</a>(<a class="link" href="sgxcolourrgba">SGXColourRGBA</a> x) const;</h2>
+<p class="description">More than operator with <b>x</b> defined for <a class="link" href="../cppclass/sgllesserthan">SGLLesserThan</a> and <a class="link" href="../cppclass/sglmorethan">SGLMoreThan</a>.</p>
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<h2 class="header" id="void_setBlue_int_">void <a class="link" href="#void_setBlue_int_">setBlue</a>(int b);</h2>
+<p class="description">Sets the blue component of this <a class="link" href="../cppclass/sgxcolourrgba">SGXColourRGBA</a> to <b>b</b>.</p>
+<p class="note"><b>b</b> should be between 0 and 255 inclusive. If it is out of bounds, it is corrected automatically.</p>
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<h2 class="header" id="void_setBlueUsingFloat_float_">void <a class="link" href="#void_setBlueUsingFloat_float_">setBlueUsingFloat</a>(float b);</h2>
+<p class="description">Sets the blue component of this <a class="link" href="../cppclass/sgxcolourrgba">SGXColourRGBA</a> to <b>b</b>.</p>
+<p class="note"><b>b</b> should be between 0 and 1 inclusive. If it is out of bounds, it is corrected automatically.</p>
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<h2 class="header" id="void_setGreen_int_">void <a class="link" href="#void_setGreen_int_">setGreen</a>(int g);</h2>
+<p class="description">Sets the green component of this <a class="link" href="../cppclass/sgxcolourrgba">SGXColourRGBA</a> to <b>g</b>.</p>
+<p class="note"><b>g</b> should be between 0 and 255 inclusive. If it is out of bounds, it is corrected automatically.</p>
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<h2 class="header" id="void_setGreenUsingFloat_float_">void <a class="link" href="#void_setGreenUsingFloat_float_">setGreenUsingFloat</a>(float g);</h2>
+<p class="description">Sets the green component of this <a class="link" href="../cppclass/sgxcolourrgba">SGXColourRGBA</a> to <b>g</b>.</p>
+<p class="note"><b>g</b> should be between 0 and 1 inclusive. If it is out of bounds, it is corrected automatically.</p>
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<h2 class="header" id="void_setRed_int_">void <a class="link" href="#void_setRed_int_">setRed</a>(int r);</h2>
+<p class="description">Sets the red component of this <a class="link" href="../cppclass/sgxcolourrgba">SGXColourRGBA</a> to <b>r</b>.</p>
+<p class="note"><b>r</b> should be between 0 and 255 inclusive. If it is out of bounds, it is corrected automatically.</p>
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<h2 class="header" id="void_setRedUsingFloat_float_">void <a class="link" href="#void_setRedUsingFloat_float_">setRedUsingFloat</a>(float r);</h2>
+<p class="description">Sets the red component of this <a class="link" href="../cppclass/sgxcolourrgba">SGXColourRGBA</a> to <b>r</b>.</p>
+<p class="note"><b>r</b> should be between 0 and 1 inclusive. If it is out of bounds, it is corrected automatically.</p>
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<h2 class="header" id="void_setTransparency_int_">void <a class="link" href="#void_setTransparency_int_">setTransparency</a>(int a);</h2>
+<p class="description">Sets the transparency component of this <a class="link" href="../cppclass/sgxcolourrgba">SGXColourRGBA</a> to <b>a</b>.</p>
+<p class="note"><b>a</b> should be between 0 and 255 inclusive. If it is out of bounds, it is corrected automatically.</p>
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<h2 class="header" id="void_setTransparencyUsingFloat_float_">void <a class="link" href="#void_setTransparencyUsingFloat_float_">setTransparencyUsingFloat</a>(float a);</h2>
+<p class="description">Sets the transparency component of this <a class="link" href="../cppclass/sgxcolourrgba">SGXColourRGBA</a> to <b>a</b>.</p>
+<p class="note"><b>a</b> should be between 0 and 1 inclusive. If it is out of bounds, it is corrected automatically.</p>
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<h2 class="header" id="void_toComplementColour_func_">void <a class="link" href="#void_toComplementColour_func_">toComplementColour</a>();</h2>
+<p class="description">Sets this <a class="link" href="../cppclass/sgxcolourrgba">SGXColourRGBA</a> to its complementary colour, with RGB channels inverted.</p>
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<p class="description"></p>
+
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<div style="width: 100%; height: 0.25rem; background-color: var(--c4);"></div>
+<div style="width: 100%; height: 0.25rem; background-color: var(--c8);"></div>
+<p class="description">©2025 05524F.sg (Singapore)</p>
+<p class="description"><a class="link" href="/contact">contact 05524F / report a bug / make a suggestion</a></p>
+<p class="description"><a class="link" href="/values">about 05524F SINGAPORE values</a></p>
+<p class="description"><a class="link" href="/projects">list of 05524F projects</a></p>
+<div style="width: 100%; height: 0.25rem; background-color: var(--c8);"></div>
+<div style="width: 100%; height: 0.25rem; background-color: var(--c4);"></div>
+<div style="width: 100%; height: 0.25rem; background-color: var(--c8);"></div>
+</body>
+</html>

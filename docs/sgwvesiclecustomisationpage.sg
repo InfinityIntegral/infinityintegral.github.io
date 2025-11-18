@@ -1,6 +1,0 @@
-#c SGWVesicleCustomisationPage
-class providing access to SGEXTN vesicle customisation page
-#ic SGEXTN/template/sgwvesiclecustomisationpage.h
-#d SGWVesicleCustomisationPage provides access to the vesicle customisation page builtin to SGEXTN. This allows the user to customise the vesicles animation overlaid on top of the screen when the status bar is clicked. Vesicles are bubbles used to transport substances in cells.
-#sf void $activate()
-This function displays the vesicle customisation page.

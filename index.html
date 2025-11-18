@@ -3,13 +3,11 @@
 <html lang="en-SG">
 <head>
 <meta charset="UTF-8">
-<title>SGEXTN Docs</title>
-
+<title>Project 05524F</title>
 <link rel="icon" href="/icon.png" type="image/png">
 <meta property="og:image" content="/icon.png">
 <meta name="twitter:image" content="/icon.png">
 <link rel="apple-touch-icon" href="/icon.png">
-
 <script type="application/ld+json">
 {
     "@context": "https://schema.org",
@@ -18,10 +16,8 @@
     "image": "/icon.png"
 }
 </script>
-
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <style>
-
 @font-face {
 	font-family: "SingScript.sg";
 	src: url("/SingScript.sg")format("truetype");
@@ -42,7 +38,7 @@
 }
 
 *{
-        font-family: "SingScript.sg";
+    font-family: "SingScript.sg";
 	max-width: 100%;
 	word-break: break-word;
 	-webkit-text-size-adjust: 100%;
@@ -51,7 +47,6 @@
 
 .title {
 	color: var(--c4);
-	background-color: var(--c8);
 	font-size: 3.5rem;
 	margin: 0;
 	font-weight: normal;
@@ -64,14 +59,13 @@
 	font-weight: normal;
 }
 
-.halftitle {
+.header {
 	color: var(--c4);
-	background-color: var(--c8);
 	font-size: 2.5rem;
 	margin: 0;
 	font-weight: normal;
 }
-.halftitle::selection {
+.header::selection {
 	color: var(--c8);
 	background-color: var(--c4);
 	font-size: 2.625rem;
@@ -79,14 +73,13 @@
 	font-weight: normal;
 }
 
-.label {
+.description {
 	color: var(--c4);
-	background-color: var(--c8);
 	font-size: 1.75rem;
 	margin: 0;
 	white-space: pre-wrap;
 }
-.label::selection {
+.description::selection {
 	color: var(--c8);
 	background-color: var(--c4);
 	font-size: 1.75rem;
@@ -94,9 +87,44 @@
 	white-space: pre-wrap;
 }
 
+.note {
+	color: var(--c4);
+	font-size: 1.75rem;
+	margin: 0.25rem;
+	white-space: pre-wrap;
+    border: 0.25rem solid var(--c7);
+    padding: 0.25rem;
+}
+.note::selection {
+	color: var(--c8);
+	background-color: var(--c4);
+	font-size: 1.75rem;
+	margin: 0.25rem;
+	white-space: pre-wrap;
+    border: 0.25rem solid var(--c7);
+    padding: 0.25rem;
+}
+
+.warning {
+	color: var(--c4);
+	font-size: 1.75rem;
+	margin: 0.25rem;
+	white-space: pre-wrap;
+    border: 0.25rem solid var(--c4);
+    padding: 0.25rem;
+}
+.warning::selection {
+	color: var(--c8);
+	background-color: var(--c4);
+	font-size: 1.75rem;
+	margin: 0.25rem;
+	white-space: pre-wrap;
+    border: 0.25rem solid var(--c4);
+    padding: 0.25rem;
+}
+
 .link {
 	color: var(--c2);
-	background-color: var(--c8);
 	text-decoration: underline;
 }
 .link:hover {
@@ -173,84 +201,118 @@
 	text-align: center;
 }
 
+.highlight {
+    animation: highlightFlash 2s ease-out;
+}
+
+@keyframes highlightFlash {
+    0% {background-color: var(--c6);}
+    100% {background-color: var(--c8);}
+}
 </style>
-
+<script>
+let m = (new Date()).getMonth() + 1;
+if(m >= 7 && m <= 9){
+    document.documentElement.style.setProperty("--c0", "rgb(0, 0, 0)");
+    document.documentElement.style.setProperty("--c1", "rgb(60, 9, 14)");
+    document.documentElement.style.setProperty("--c2", "rgb(119, 19, 27)");
+    document.documentElement.style.setProperty("--c3", "rgb(179, 28, 41)");
+    document.documentElement.style.setProperty("--c4", "rgb(238, 37, 54)");
+    document.documentElement.style.setProperty("--c5", "rgb(242, 92, 104)");
+    document.documentElement.style.setProperty("--c6", "rgb(247, 146, 155)");
+    document.documentElement.style.setProperty("--c7", "rgb(251, 201, 205)");
+    document.documentElement.style.setProperty("--c8", "rgb(255, 255, 255)");
+}
+function highlightSection(){
+    let tag = window.location.hash.substring(1);
+    if(tag == ""){return;}
+    let element = document.getElementById(tag);
+    if(element == null){return;}
+    element.classList.add("highlight");
+    element.addEventListener("animationend", () => {element.classList.remove("highlight");}, {once: true});
+}
+window.addEventListener("DOMContentLoaded", highlightSection);
+window.addEventListener("hashchange", highlightSection);
+</script>
 </head>
-<body>
-
-<div>
-<button class="button" style="width: 100%;" onclick="location.href='/'">
-<img src="flag.png" style="vertical-align: middle; height: 1.5rem; image-rendering: auto;"> SGEXTN Documentation <img src="flag.png" style="vertical-align: middle; height: 1.5rem; image-rendering: auto;">
-</button>
+<body style="margin-left: 1em;">
+<div id="parentdiv">
+<img src="/bannerbg.png" style="vertical-align: middle; image-rendering: auto;" id="bg">
+<canvas id="canvas" class="emscripten" oncontextmenu="event.preventDefault()" tabindex="-1" style="position: absolute;"></canvas>
 </div>
+<script async type="text/javascript" src="index.js"></script>
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<p class="warning">"We raised our flag upon the shore&#10;and sang out We Are Singapore&#10;we've learnt that home is really more than just a word&#10;today, tomorrow this will always be my...&#10;HOME"&#10;(These Are the Days, NDP 2015)</p>
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<h1 class="title">Project 05524F</h1>
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<p class="description">&#9;05524F (the open source software initiative) is a Singaporean open source software initiative led by 05524F (the person). See <a class="link" href="projects">projects</a> for a list of 05524F projects, see <a class="link" href="values">05524F SINGAPORE values</a> for more information about the values that 05524F believes in, and see <a class="link" href="contact">contact</a> for instructions on how to contact 05524F.</p>
+<p class="description">&#9;If you came to this page looking for documentation, the documentation for available 05524F projects are listed below.</p>
+<p class="description">&#9;<a class="link" href="SGEXTN/readme/readme">SGEXTN</a></p>
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<p class="description">&#9;Fun fact: the animation of the Singapore flag above is actually a realtime cloth simulation implemented using WebASM and WebGL 1, not a video. If you only see a static image, it means your browser cannot access either technology likely due to organisation policies from your school or workplace.</p>
+<p class="description">&#9;To find out who exactly 05524F is, see <a class="link" href="aboutme">about me</a>.</p>
+<p class="description">&#9;</p>
+<p class="description"></p>
 
-<h1 class="title">What is SGEXTN?</h1>
-<p class="label">&#x9;SGEXTN is a framework built on top of <a class="link" href="https://www.qt.io/">Qt</a> Quick. It provides essential functionality for building apps, such as a colour struct and file system access. The SGWidget module provides a full GUI toolkit to build UI without writing a single line of QML. SGEXTN also does not use signal-slot, instead callback functions are implemented using function pointers.<br>&#x9;Note that documentation is only provided for the latest version. For earlier documentation, pls host the Documentation folder of your release yourself on <a class="link" href="https://www.apachefriends.org/">XAMPP Apache</a>.<br>Below is the full list of all SGEXTN classes with links to their documentation pages.</p>
-<p class="label"><a class="link" href="/setup">how to set up SGEXTN</a></p>
-<p class="label"><br></p>
-<div style="width: 100%; height: 0.25em; background-color: var(--c4);"></div>
-<p class="label">list of all classes that you can use inside SGEXTN 5.1.0:</p>
-<p class="label" id="sitemap"></p>
-<p class="label">
-additional primitives
-&#x9;<a class="link" href="/classinfo/sgxcolourrgba">SGXColourRGBA</a>
-&#x9;<a class="link" href="/classinfo/sgxcolourhsla">SGXColourHSLA</a>
-&#x9;<a class="link" href="/classinfo/sgxidentifier">SGXIdentifier</a>
-&#x9;<a class="link" href="/classinfo/sgxtimestamp">SGXTimeStamp</a>
-&#x9;<a class="link" href="/classinfo/sgxvector2">SGXVector2</a>
-&#x9;<a class="link" href="/classinfo/sgxtouchevent">SGXTouchEvent</a>
-SGWidget GUI toolkit
-&#x9;<a class="link" href="/classinfo/sgwwidget">SGWWidget</a>
-&#x9;&#x9;<a class="link" href="/classinfo/sgwblankwidget">SGWBlankWidget</a>
-&#x9;&#x9;<a class="link" href="/classinfo/sgwbackground">SGWBackground</a>
-&#x9;&#x9;&#x9;<a class="link" href="/classinfo/sgwpagebackground">SGWPageBackground</a>
-&#x9;&#x9;&#x9;<a class="link" href="/classinfo/sgwscrollview">SGWScrollView</a>
-&#x9;&#x9;&#x9;<a class="link" href="/classinfo/sgwsequentialscrollview">SGWSequentialScrollView</a>
-&#x9;&#x9;<a class="link" href="/classinfo/sgwlabel">SGWLabel</a>
-&#x9;&#x9;&#x9;<a class="link" href="/classinfo/sgwtextlabel">SGWTextLabel</a>
-&#x9;&#x9;&#x9;<a class="link" href="/classinfo/sgwiconlabel">SGWIconLabel</a>
-&#x9;&#x9;&#x9;<a class="link" href="/classinfo/sgwlonglabel">SGWLongLabel</a>
-&#x9;&#x9;&#x9;<a class="link" href="/classinfo/sgwsequentiallonglabel">SGWSequentialLongLabel</a>
-&#x9;&#x9;<a class="link" href="/classinfo/sgwbutton">SGWButton</a>
-&#x9;&#x9;&#x9;<a class="link" href="/classinfo/sgwtextbutton">SGWTextButton</a>
-&#x9;&#x9;&#x9;<a class="link" href="/classinfo/sgwiconbutton">SGWIconButton</a>
-&#x9;&#x9;<a class="link" href="/classinfo/sgwinput">SGWInput</a>
-&#x9;&#x9;&#x9;<a class="link" href="/classinfo/sgwtextinput">SGWTextInput</a>
-&#x9;&#x9;&#x9;<a class="link" href="/classinfo/sgwlonginput">SGWLongInput</a>
-&#x9;&#x9;<a class="link" href="/classinfo/sgwtouchreceiver">SGWTouchReceiver</a>
-&#x9;&#x9;<a class="link" href="/classinfo/sgwcustomrenderer">SGWCustomRenderer</a>
-&#x9;&#x9;<a class="link" href="/classinfo/sgwcolourpickerwidget">SGWColourPickerWidget</a>
-&#x9;<a class="link" href="/classinfo/sgwtype">SGWType</a>
-&#x9;<a class="link" href="/classinfo/sgwhorizontalalignment">SGWHorizontalAlignment</a>
-&#x9;<a class="link" href="/classinfo/sgwverticalalignment">SGWVerticalAlignment</a>
-&#x9;<a class="link" href="/classinfo/sgwdefaultfonts">SGWDefaultFonts</a>
-file system interaction
-&#x9;<a class="link" href="/classinfo/sgxfile">SGXFile</a>
-&#x9;<a class="link" href="/classinfo/sgxfilesystem">SGXFileSystem</a>
-&#x9;<a class="link" href="/classinfo/sgxfilebinutilities">SGXFileBinUtilities</a>
-&#x9;<a class="link" href="/classinfo/sgxfilezip">SGXFileZip</a>
-&#x9;<a class="link" href="/classinfo/sgxfiledownloader">SGXFileDownloader</a>
-&#x9;<a class="link" href="/classinfo/sgxfileuploader">SGXFileUploader</a>
-other userful stuff
-&#x9;<a class="link" href="/classinfo/sgwnotify">SGWNotify</a>
-&#x9;<a class="link" href="/classinfo/sgxtimer">SGXTimer</a>
-&#x9;<a class="link" href="/classinfo/sgxsingcorrectcore">SGXSingCorrectCore</a>
-&#x9;<a class="link" href="/classinfo/sgxresizer">SGXResizer</a>
-&#x9;<a class="link" href="/classinfo/sgxthemecolours">SGXThemeColours</a>
-builtin customisation pages
-&#x9;<a class="link" href="/classinfo/sgwthemecustomisationpage">SGWThemeCustomisationPage</a>
-&#x9;<a class="link" href="/classinfo/sgwvesiclecustomisationpage">SGWVesicleCustomisationPage</a>
-&#x9;<a class="link" href="/classinfo/sgwsingcorrectcustomisationpage">SGWSingCorrectCustomisationPage</a>
-implement functions in here as needed
-&#x9;<a class="link" href="/classinfo/sgucentralmanagement">SGUCentralManagement</a>
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<div style="width: 100%; height: 0.25rem; background-color: var(--c4);"></div>
+<div style="width: 100%; height: 0.25rem; background-color: var(--c8);"></div>
+<p class="description">©2025 05524F.sg (Singapore)</p>
+<p class="description"><a class="link" href="/contact">contact 05524F / report a bug / make a suggestion</a></p>
+<p class="description"><a class="link" href="/values">about 05524F SINGAPORE values</a></p>
+<p class="description"><a class="link" href="/projects">list of 05524F projects</a></p>
+<div style="width: 100%; height: 0.25rem; background-color: var(--c8);"></div>
+<div style="width: 100%; height: 0.25rem; background-color: var(--c4);"></div>
+<div style="width: 100%; height: 0.25rem; background-color: var(--c8);"></div>
 
-</p>
-<div>
-<div style="width: 100%; height: 0.25em; background-color: var(--c4);"></div>
-<p class="label">©2025 05524F.sg (Singapore)</p>
-<p class="label"><a class="link" href="/contact">report a bug in SGEXTN or contact 05524F</a></p>
-<div style="width: 100%; height: 0.25em; background-color: var(--c4);"></div>
-</div>
-
+<script>
+let usingFallback = false;
+function resize(){
+	let w = document.documentElement.clientWidth;
+	let bg = document.getElementById("bg");
+	bg.style.width = w.toString() + "px";
+	bg.style.height = (9.0 / 16.0 * w).toString() + "px";
+	let parentdiv = document.getElementById("parentdiv");
+	let parentX = parentdiv.getBoundingClientRect().left + window.scrollX;
+	let parentY = parentdiv.getBoundingClientRect().top + window.scrollY;
+	if(usingFallback == false){
+		let canvas = document.getElementById("canvas");
+		canvas.width = Math.floor(w);
+		canvas.height = Math.floor(2.0 / 3.0 * w);
+		canvas.style.left = (parentX + w / 4.0 - 10.0).toString() + "px";
+		canvas.style.top = (parentY + w / 24.0 - 2.0).toString() + "px";
+		canvas.style.width = (w / 2.0).toString() + "px";
+		canvas.style.height = (w / 3.0).toString() + "px";
+	}
+	else{
+		let canvas = document.getElementById("img");
+		canvas.style.left = (parentX + w * 0.355 - 10.0).toString() + "px";
+		canvas.style.top = (parentY + w * 0.05).toString() + "px";
+		canvas.style.width = (w * 0.3).toString() + "px";
+		canvas.style.height = (w * 0.3).toString() + "px";
+	}
+}
+window.addEventListener("resize", resize);
+resize();
+</script>
+<script>
+function debug(){
+	if(usingFallback == true){return;}
+	if((typeof Module) == "undefined" || (!Module) || (!Module["ctx"])){
+		usingFallback = true;
+		let canvas = document.getElementById("canvas");
+		canvas.style.display = "none";
+		let parent = document.getElementById("parentdiv");
+		canvas = document.createElement("img");
+		canvas.id = "img";
+		canvas.src = "/flag.png";
+		canvas.style.position = "absolute";
+		parent.appendChild(canvas);
+		resize();
+	}
+}
+setInterval(() => {debug();}, 100);
+</script>
 </body>
 </html>

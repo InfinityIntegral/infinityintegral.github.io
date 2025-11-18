@@ -3,7 +3,7 @@
 <html lang="en-SG">
 <head>
 <meta charset="UTF-8">
-<title>Contact 05524F</title>
+<title>SGLSort Documentation</title>
 <link rel="icon" href="/icon.png" type="image/png">
 <meta property="og:image" content="/icon.png">
 <meta name="twitter:image" content="/icon.png">
@@ -240,12 +240,40 @@ window.addEventListener("hashchange", highlightSection);
 <div style="width: 100%; height: 0.25rem; background-color: var(--c8);"></div>
 <div><button class="button" style="width: 100%;" onclick="location.href='/'">Project 05524F.sg</button></div>
 <div style="width: 100%; height: 0.25rem; background-color: var(--c8);"></div>
-<h1 class="title">Contact 05524F</h1>
+<div><button class="button" style="width: 100%;" onclick="location.href='../readme/readme'">SGEXTN Documentation</button></div><div style="width: 100%; height: 0.25rem; background-color: var(--c8);"></div><p class="warning">If you have not done so, read this full <a class="link" href="../tutorials/full">tutorial</a> on how to use SGEXTN to build an application.</p><div style="width: 100%; height: 0.75rem; background-color: var(--c8);"></div><h1 class="title">SGLSort</h1>
 <div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
-<p class="description">&#9;To contact 05524F, email to <a class="link" href="mailto:infinityintegral333@gmail.com">infinityintegral333@gmail.com</a> or message <a class="link" href="https://www.instagram.com/infinityintegral.sg/">@infinityintegral.sg</a> on Instagram. Messages sent by mutual Instagram followers (05524F's friends) via Instagram will have priority.</p>
-<p class="description">&#9;Almost all the time, your reason for contacting 05524F is either a complaint or a suggestion. A complaint refers to a request to fix a bug, inaccurate information, or unexpected behaviour in a 05524F product or its associated documentation. A suggestion is a request for 05524F to add a new feature to a existing product or to build a new product.</p>
-<p class="description">&#9;05524F is very likely to accept complaints but less likely to accept suggestions. Since all 05524F software is open source, you can build your own feature on top of 05524F software as long as you use the correct license (General Public License version 3 is always safe).</p>
-<p class="description">&#9;</p>
+<p class="description"><a class="link" href="https://github.com/InfinityIntegral/SGEXTN/tree/main/SG_Containers/include/SGLSort.h">see header file</a></p>
+<p class="description">(no source file, everything inside header)</p>
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<p class="description">template ‹typename T, typename Comparator› class SGLSort;</p>
+<p class="description">part of SGEXTN module <a class="link" href="../modules/sg_containers">SG_Containers</a></p>
+<p class="description">static functions class for sorting array-like data</p>
+<p class="description"><a class="link" href="#sg_detaileddescription">detailed description</a></p>
+<p class="description"><a class="link" href="../funclist/sglsort">list of all including inherited members</a></p>
+<p class="description"><a class="link" href="#sg_implementationdetails">implementation details</a></p>
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<p class="description">preprocessor file inclusion directive: #include ‹SGLSort.h›</p>
+<p class="description">CMake commands:</p>
+<p class="description">&#9;find_package(<a class="link" href="../readme/readme">SGEXTN</a> REQUIRED COMPONENTS <a class="link" href="../modules/sg_containers">SG_Containers</a>)</p>
+<p class="description">&#9;target_link_libraries(yourCMakeTarget PRIVATE <a class="link" href="../modules/sg_containers">SGEXTN::SG_Containers</a>)</p>
+<p class="description">parent class: (none)</p>
+<p class="description">children classes: (none)</p>
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<h2 class="header" id="">static member functions</h2>
+<p class="description">&#9;static void <a class="link" href="#static_void_sort_T_ptr_T_ptr_">sort</a>(T* start, T* end);</p>
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<h2 class="header" id="sg_detaileddescription">Detailed Description</h2>
+<p class="description"><a class="link" href="../cppclass/sglsort">SGLSort</a> provides a template based static functions class to sort array-like data structures. It works with any SGEXTN container data structure that provides pointerToData(). Specify the type of data to sort and the comparator to use as template arguments. This is a template based class with no separate source file.</p>
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<h2 class="header" id="sg_implementationdetails">Implementation Details</h2>
+<p class="description"><a class="link" href="../cppclass/sglsort">SGLSort</a> uses IntroSort, the same algorithm that the C++ Standard Template Library uses.</p>
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<h2 class="header" id="static_void_sort_T_ptr_T_ptr_">static void <a class="link" href="#static_void_sort_T_ptr_T_ptr_">sort</a>(T* start, T* end);</h2>
+<p class="description">Sorts the data structure from <b>start</b> (inclusive) to <b>end</b> (exclusive), the comparator is provided using template arguments for <a class="link" href="../cppclass/sglsort">SGLSort</a>.</p>
+<p class="warning"><a class="link" href="../cppclass/sglsort#static_void_sort_T_ptr_T_ptr_">SGLSort::sort</a> has a time complexity of O(n ln(n))</p>
+<p class="warning"><b>end</b> being before <b>start</b> results in <a class="link" href="../tutorials/undefinedbehaviour">undefined behaviour</a>.</p>
+<p class="warning">If <b>start</b> and <b>end</b> are from different data structures, this function will cause <a class="link" href="../tutorials/undefinedbehaviour">undefined behaviour</a>.</p>
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
 <p class="description"></p>
 
 <div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>

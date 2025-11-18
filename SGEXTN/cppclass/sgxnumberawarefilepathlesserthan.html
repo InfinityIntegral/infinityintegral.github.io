@@ -3,7 +3,7 @@
 <html lang="en-SG">
 <head>
 <meta charset="UTF-8">
-<title>Contact 05524F</title>
+<title>SGXNumberAwareFilePathLesserThan Documentation</title>
 <link rel="icon" href="/icon.png" type="image/png">
 <meta property="og:image" content="/icon.png">
 <meta name="twitter:image" content="/icon.png">
@@ -240,12 +240,38 @@ window.addEventListener("hashchange", highlightSection);
 <div style="width: 100%; height: 0.25rem; background-color: var(--c8);"></div>
 <div><button class="button" style="width: 100%;" onclick="location.href='/'">Project 05524F.sg</button></div>
 <div style="width: 100%; height: 0.25rem; background-color: var(--c8);"></div>
-<h1 class="title">Contact 05524F</h1>
+<div><button class="button" style="width: 100%;" onclick="location.href='../readme/readme'">SGEXTN Documentation</button></div><div style="width: 100%; height: 0.25rem; background-color: var(--c8);"></div><p class="warning">If you have not done so, read this full <a class="link" href="../tutorials/full">tutorial</a> on how to use SGEXTN to build an application.</p><div style="width: 100%; height: 0.75rem; background-color: var(--c8);"></div><h1 class="title">SGXNumberAwareFilePathLesserThan</h1>
 <div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
-<p class="description">&#9;To contact 05524F, email to <a class="link" href="mailto:infinityintegral333@gmail.com">infinityintegral333@gmail.com</a> or message <a class="link" href="https://www.instagram.com/infinityintegral.sg/">@infinityintegral.sg</a> on Instagram. Messages sent by mutual Instagram followers (05524F's friends) via Instagram will have priority.</p>
-<p class="description">&#9;Almost all the time, your reason for contacting 05524F is either a complaint or a suggestion. A complaint refers to a request to fix a bug, inaccurate information, or unexpected behaviour in a 05524F product or its associated documentation. A suggestion is a request for 05524F to add a new feature to a existing product or to build a new product.</p>
-<p class="description">&#9;05524F is very likely to accept complaints but less likely to accept suggestions. Since all 05524F software is open source, you can build your own feature on top of 05524F software as long as you use the correct license (General Public License version 3 is always safe).</p>
-<p class="description">&#9;</p>
+<p class="description"><a class="link" href="https://github.com/InfinityIntegral/SGEXTN/tree/main/SG_FileSystem/include/SGXFileSystem.h">see header file</a></p>
+<p class="description"><a class="link" href="https://github.com/InfinityIntegral/SGEXTN/tree/main/SG_FileSystem/src/SGXFileSystem.cpp">see source file</a></p>
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<p class="description">class SGXNumberAwareFilePathLesserThan;</p>
+<p class="description">part of SGEXTN module <a class="link" href="../modules/sg_filesystem">SG_FileSystem</a></p>
+<p class="description">sorts file paths in alphabetical order taking into account numbers in file names</p>
+<p class="description"><a class="link" href="#sg_detaileddescription">detailed description</a></p>
+<p class="description"><a class="link" href="../funclist/sgxnumberawarefilepathlesserthan">list of all including inherited members</a></p>
+<p class="description"><a class="link" href="#sg_implementationdetails">implementation details</a></p>
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<p class="description">preprocessor file inclusion directive: #include ‹SGXFileSystem.h›</p>
+<p class="description">CMake commands:</p>
+<p class="description">&#9;find_package(<a class="link" href="../readme/readme">SGEXTN</a> REQUIRED COMPONENTS <a class="link" href="../modules/sg_filesystem">SG_FileSystem</a>)</p>
+<p class="description">&#9;target_link_libraries(yourCMakeTarget PRIVATE <a class="link" href="../modules/sg_filesystem">SGEXTN::SG_FileSystem</a>)</p>
+<p class="description">parent class: (none)</p>
+<p class="description">children classes: (none)</p>
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<h2 class="header" id="">instance member functions</h2>
+<p class="description">&#9;[[nodiscard]] bool <a class="link" href="#nodiscard_bool_operator_func_const_SGXString_ref_const_SGXString_ref_">operator()</a>(const <a class="link" href="sgxstring">SGXString</a>& a, const <a class="link" href="sgxstring">SGXString</a>& b);</p>
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<h2 class="header" id="sg_detaileddescription">Detailed Description</h2>
+<p class="description"><a class="link" href="../cppclass/sgxnumberawarefilepathlesserthan">SGXNumberAwareFilePathLesserThan</a> provides a comparator struct for sorting file paths in ascending alphabetical order for display to the user. This takes into account numbers in file names, so file9 would be before file10.</p>
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<h2 class="header" id="sg_implementationdetails">Implementation Details</h2>
+<p class="description">Uses <a class="link" href="../cppclass/sgxfilesystem#static_bool_numberAwareLesserThan_const_SGXString_ref_const_SGXString_ref_">SGXFileSystem::numberAwareLesserThan</a></p>
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<h2 class="header" id="nodiscard_bool_operator_func_const_SGXString_ref_const_SGXString_ref_">[[nodiscard]] bool <a class="link" href="#nodiscard_bool_operator_func_const_SGXString_ref_const_SGXString_ref_">operator()</a>(const <a class="link" href="sgxstring">SGXString</a>& a, const <a class="link" href="sgxstring">SGXString</a>& b);</h2>
+<p class="description">Returns if <b>a</b> should be in front of <b>b</b>.</p>
+<p class="note">The presence of operator() makes <a class="link" href="../cppclass/sgxnumberawarefilepathlesserthan">SGXNumberAwareFilePathLesserThan</a> a functor.</p>
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
 <p class="description"></p>
 
 <div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>

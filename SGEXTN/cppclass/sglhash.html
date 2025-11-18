@@ -3,7 +3,7 @@
 <html lang="en-SG">
 <head>
 <meta charset="UTF-8">
-<title>Contact 05524F</title>
+<title>SGLHash Documentation</title>
 <link rel="icon" href="/icon.png" type="image/png">
 <meta property="og:image" content="/icon.png">
 <meta name="twitter:image" content="/icon.png">
@@ -240,12 +240,43 @@ window.addEventListener("hashchange", highlightSection);
 <div style="width: 100%; height: 0.25rem; background-color: var(--c8);"></div>
 <div><button class="button" style="width: 100%;" onclick="location.href='/'">Project 05524F.sg</button></div>
 <div style="width: 100%; height: 0.25rem; background-color: var(--c8);"></div>
-<h1 class="title">Contact 05524F</h1>
+<div><button class="button" style="width: 100%;" onclick="location.href='../readme/readme'">SGEXTN Documentation</button></div><div style="width: 100%; height: 0.25rem; background-color: var(--c8);"></div><p class="warning">If you have not done so, read this full <a class="link" href="../tutorials/full">tutorial</a> on how to use SGEXTN to build an application.</p><div style="width: 100%; height: 0.75rem; background-color: var(--c8);"></div><h1 class="title">SGLHash</h1>
 <div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
-<p class="description">&#9;To contact 05524F, email to <a class="link" href="mailto:infinityintegral333@gmail.com">infinityintegral333@gmail.com</a> or message <a class="link" href="https://www.instagram.com/infinityintegral.sg/">@infinityintegral.sg</a> on Instagram. Messages sent by mutual Instagram followers (05524F's friends) via Instagram will have priority.</p>
-<p class="description">&#9;Almost all the time, your reason for contacting 05524F is either a complaint or a suggestion. A complaint refers to a request to fix a bug, inaccurate information, or unexpected behaviour in a 05524F product or its associated documentation. A suggestion is a request for 05524F to add a new feature to a existing product or to build a new product.</p>
-<p class="description">&#9;05524F is very likely to accept complaints but less likely to accept suggestions. Since all 05524F software is open source, you can build your own feature on top of 05524F software as long as you use the correct license (General Public License version 3 is always safe).</p>
-<p class="description">&#9;</p>
+<p class="description"><a class="link" href="https://github.com/InfinityIntegral/SGEXTN/tree/main/SG_Containers/include/SGLHash.h">see header file</a></p>
+<p class="description">(no source file, everything inside header)</p>
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<p class="description">template ‹typename T› class SGLHash;</p>
+<p class="description">part of SGEXTN module <a class="link" href="../modules/sg_containers">SG_Containers</a></p>
+<p class="description">Hash function struct for use with SGEXTN Containers</p>
+<p class="description"><a class="link" href="#sg_detaileddescription">detailed description</a></p>
+<p class="description"><a class="link" href="../funclist/sglhash">list of all including inherited members</a></p>
+<p class="description"><a class="link" href="#sg_implementationdetails">implementation details</a></p>
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<p class="description">preprocessor file inclusion directive: #include ‹SGLHash.h›</p>
+<p class="description">CMake commands:</p>
+<p class="description">&#9;find_package(<a class="link" href="../readme/readme">SGEXTN</a> REQUIRED COMPONENTS <a class="link" href="../modules/sg_containers">SG_Containers</a>)</p>
+<p class="description">&#9;target_link_libraries(yourCMakeTarget PRIVATE <a class="link" href="../modules/sg_containers">SGEXTN::SG_Containers</a>)</p>
+<p class="description">parent class: (none)</p>
+<p class="description">children classes: (none)</p>
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<h2 class="header" id="">instance member functions</h2>
+<p class="description">&#9;[[nodiscard]] int <a class="link" href="#nodiscard_int_operator_func_const_T_ref_const_">operator()</a>(const T& x) const;</p>
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<h2 class="header" id="sg_detaileddescription">Detailed Description</h2>
+<p class="description"><a class="link" href="../cppclass/sglhash">SGLHash</a> provides a hash function struct for use with SGEXTN Containers, this should be used most of the time when using <a class="link" href="../cppclass/sglunorderedset">SGLUnorderedSet</a>, <a class="link" href="../cppclass/sglunorderedmultiset">SGLUnorderedMultiSet</a>, or <a class="link" href="../cppclass/sglunorderedmap">SGLUnorderedMap</a>. You need hash() defined to use <a class="link" href="../cppclass/sglequalsto">SGLEqualsTo</a> with custom structs. <a class="link" href="../cppclass/sglhash">SGLHash</a> works with all object pointers and C++ builtin types although they do not define hash(). This is a template based class with no separate source file.</p>
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<h2 class="header" id="sg_implementationdetails">Implementation Details</h2>
+<p class="description"><a class="link" href="../cppclass/sglhash">SGLHash</a> calls hash() on the corresponding data type if it is a custom struct. If it is a C++ builtin type or a object pointer, <a class="link" href="../cppclass/sglhash">SGLHash</a> is implemented separately but still works. Implementations of hash() use <a class="link" href="../cppclass/sglhashalgorithm">SGLHashAlgorithm</a>.</p>
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<h2 class="header" id="nodiscard_int_operator_func_const_T_ref_const_">[[nodiscard]] int <a class="link" href="#nodiscard_int_operator_func_const_T_ref_const_">operator()</a>(const T& x) const;</h2>
+<p class="description">Returns the hash of <b>x</b>.</p>
+<p class="note">This is internally used by <a class="link" href="../cppclass/sglunorderedset">SGLUnorderedSet</a>, <a class="link" href="../cppclass/sglunorderedmultiset">SGLUnorderedMultiSet</a>, and <a class="link" href="../cppclass/sglunorderedmap">SGLUnorderedMap</a> when <a class="link" href="../cppclass/sglhash">SGLHash</a> is selected as the hash function struct.</p>
+<p class="note">The presense of operator() makes <a class="link" href="../cppclass/sglhash">SGLHash</a> a functor.</p>
+<p class="note">Correct implementations of hash() must return a int, not a unsigned int.</p>
+<p class="note">For good hash function quality, implementations of hash() for custom structs should use <a class="link" href="../cppclass/sglhashalgorithm">SGLHashAlgorithm</a>.</p>
+<p class="warning">Due to padding, attempting to hash the entire memory of custom structs is <a class="link" href="../tutorials/undefinedbehaviour">undefined behaviour</a>. Instead hash only the defined fields.</p>
+<p class="warning">This will not compile if hash() is not defined for T. Check the source code of any SGEXTN struct (<a class="link" href="../cppclass/sgxchar">SGXChar</a>, <a class="link" href="../cppclass/sgxstring">SGXString</a>, <a class="link" href="../cppclass/sgxcolourrgba">SGXColourRGBA</a>, <a class="link" href="../cppclass/sgxcolourhsla">SGXColourHSLA</a>, <a class="link" href="../cppclass/sgxidentifier">SGXIdentifier</a>, <a class="link" href="../cppclass/sgxtimestamp">SGXTimeStamp</a>, <a class="link" href="../cppclass/sgxvector2">SGXVector2</a>) to see how to define hash().</p>
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
 <p class="description"></p>
 
 <div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>

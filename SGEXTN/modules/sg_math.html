@@ -3,7 +3,7 @@
 <html lang="en-SG">
 <head>
 <meta charset="UTF-8">
-<title>Contact 05524F</title>
+<title>SG_Math Module Documentation</title>
 <link rel="icon" href="/icon.png" type="image/png">
 <meta property="og:image" content="/icon.png">
 <meta name="twitter:image" content="/icon.png">
@@ -240,12 +240,24 @@ window.addEventListener("hashchange", highlightSection);
 <div style="width: 100%; height: 0.25rem; background-color: var(--c8);"></div>
 <div><button class="button" style="width: 100%;" onclick="location.href='/'">Project 05524F.sg</button></div>
 <div style="width: 100%; height: 0.25rem; background-color: var(--c8);"></div>
-<h1 class="title">Contact 05524F</h1>
+<div><button class="button" style="width: 100%;" onclick="location.href='../readme/readme'">SGEXTN Documentation</button></div><div style="width: 100%; height: 0.25rem; background-color: var(--c8);"></div><p class="warning">If you have not done so, read this full <a class="link" href="../tutorials/full">tutorial</a> on how to use SGEXTN to build an application.</p><div style="width: 100%; height: 0.75rem; background-color: var(--c8);"></div><h1 class="title">SG_Math</h1>
+<p class="description"><a class="link" href="#sg_classlist">list of classes in this module</a></p>
+<p class="description">CMake commands:</p>
+<p class="description">&#9;find_package(<a class="link" href="../readme/readme">SGEXTN</a> REQUIRED COMPONENTS SG_Math)</p>
+<p class="description">&#9;target_link_libraries(yourCMakeTarget PRIVATE <a class="link" href="../readme/readme">SGEXTN</a>::SG_Math)</p>
 <div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
-<p class="description">&#9;To contact 05524F, email to <a class="link" href="mailto:infinityintegral333@gmail.com">infinityintegral333@gmail.com</a> or message <a class="link" href="https://www.instagram.com/infinityintegral.sg/">@infinityintegral.sg</a> on Instagram. Messages sent by mutual Instagram followers (05524F's friends) via Instagram will have priority.</p>
-<p class="description">&#9;Almost all the time, your reason for contacting 05524F is either a complaint or a suggestion. A complaint refers to a request to fix a bug, inaccurate information, or unexpected behaviour in a 05524F product or its associated documentation. A suggestion is a request for 05524F to add a new feature to a existing product or to build a new product.</p>
-<p class="description">&#9;05524F is very likely to accept complaints but less likely to accept suggestions. Since all 05524F software is open source, you can build your own feature on top of 05524F software as long as you use the correct license (General Public License version 3 is always safe).</p>
-<p class="description">&#9;</p>
+<p class="description">&#9;The SGEXTN Math module provides mathematical operations, mathematical constants, and data type specific limits for int, float, and long long. This replaces the ‹cmath›, ‹numbers›, and ‹numeric_limits› Standard Template Library headers.</p>
+<p class="description">&#9;Internally, the SGEXTN Math module uses these Standard Template Library headers, so the behaviour is identical. However, using the same functions through the SGEXTN Math module gives much cleaner header files and allow for significant speedup in clang-tidy passes.</p>
+<p class="description">&#9;You will need to use the Standard Template Library directly for any other data types.</p>
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<h2 class="header" id="sg_classlist">List of classes in this module</h2>
+<p class="description">&#9;<a class="link" href="../cppclass/sglfloatconstants">SGLFloatConstants</a></p>
+<p class="description">&#9;<a class="link" href="../cppclass/sglfloatlimits">SGLFloatLimits</a></p>
+<p class="description">&#9;<a class="link" href="../cppclass/sglfloatmath">SGLFloatMath</a></p>
+<p class="description">&#9;<a class="link" href="../cppclass/sglintlimits">SGLIntLimits</a></p>
+<p class="description">&#9;<a class="link" href="../cppclass/sglintmath">SGLIntMath</a></p>
+<p class="description">&#9;<a class="link" href="../cppclass/sgllonglonglimits">SGLLongLongLimits</a></p>
+<p class="description">&#9;<a class="link" href="../cppclass/sgllonglongmath">SGLLongLongMath</a></p>
 <p class="description"></p>
 
 <div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>

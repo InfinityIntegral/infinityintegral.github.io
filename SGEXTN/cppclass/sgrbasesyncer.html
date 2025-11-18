@@ -3,7 +3,7 @@
 <html lang="en-SG">
 <head>
 <meta charset="UTF-8">
-<title>Contact 05524F</title>
+<title>SGRBaseSyncer Documentation</title>
 <link rel="icon" href="/icon.png" type="image/png">
 <meta property="og:image" content="/icon.png">
 <meta name="twitter:image" content="/icon.png">
@@ -240,12 +240,38 @@ window.addEventListener("hashchange", highlightSection);
 <div style="width: 100%; height: 0.25rem; background-color: var(--c8);"></div>
 <div><button class="button" style="width: 100%;" onclick="location.href='/'">Project 05524F.sg</button></div>
 <div style="width: 100%; height: 0.25rem; background-color: var(--c8);"></div>
-<h1 class="title">Contact 05524F</h1>
+<div><button class="button" style="width: 100%;" onclick="location.href='../readme/readme'">SGEXTN Documentation</button></div><div style="width: 100%; height: 0.25rem; background-color: var(--c8);"></div><p class="warning">If you have not done so, read this full <a class="link" href="../tutorials/full">tutorial</a> on how to use SGEXTN to build an application.</p><div style="width: 100%; height: 0.75rem; background-color: var(--c8);"></div><h1 class="title">SGRBaseSyncer</h1>
 <div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
-<p class="description">&#9;To contact 05524F, email to <a class="link" href="mailto:infinityintegral333@gmail.com">infinityintegral333@gmail.com</a> or message <a class="link" href="https://www.instagram.com/infinityintegral.sg/">@infinityintegral.sg</a> on Instagram. Messages sent by mutual Instagram followers (05524F's friends) via Instagram will have priority.</p>
-<p class="description">&#9;Almost all the time, your reason for contacting 05524F is either a complaint or a suggestion. A complaint refers to a request to fix a bug, inaccurate information, or unexpected behaviour in a 05524F product or its associated documentation. A suggestion is a request for 05524F to add a new feature to a existing product or to build a new product.</p>
-<p class="description">&#9;05524F is very likely to accept complaints but less likely to accept suggestions. Since all 05524F software is open source, you can build your own feature on top of 05524F software as long as you use the correct license (General Public License version 3 is always safe).</p>
-<p class="description">&#9;</p>
+<p class="description"><a class="link" href="https://github.com/InfinityIntegral/SGEXTN/tree/main/SG_RI/include/SGRBaseSyncer.h">see header file</a></p>
+<p class="description">(no source file, everything inside header)</p>
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<p class="description">class SGRBaseSyncer;</p>
+<p class="description">part of SGEXTN module <a class="link" href="../modules/sg_ri">SG_RI</a></p>
+<p class="description">base class of syncers for custom renderers</p>
+<p class="description"><a class="link" href="#sg_detaileddescription">detailed description</a></p>
+<p class="description"><a class="link" href="../funclist/sgrbasesyncer">list of all including inherited members</a></p>
+<p class="description"><a class="link" href="#sg_implementationdetails">implementation details</a></p>
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<p class="description">preprocessor file inclusion directive: #include ‹SGRBaseSyncer.h›</p>
+<p class="description">CMake commands:</p>
+<p class="description">&#9;find_package(<a class="link" href="../readme/readme">SGEXTN</a> REQUIRED COMPONENTS <a class="link" href="../modules/sg_ri">SG_RI</a>)</p>
+<p class="description">&#9;target_link_libraries(yourCMakeTarget PRIVATE <a class="link" href="../modules/sg_ri">SGEXTN::SG_RI</a>)</p>
+<p class="description">parent class: (none)</p>
+<p class="description">children classes: (none)</p>
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<h2 class="header" id="">pure virtual functions</h2>
+<p class="description">&#9;virtual void <a class="link" href="#virtual_void_sync_SGRBaseRenderer_ptr_assign_">sync</a>(<a class="link" href="sgrbaserenderer">SGRBaseRenderer</a>* renderControl) = 0;</p>
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<h2 class="header" id="sg_detaileddescription">Detailed Description</h2>
+<p class="description"><a class="link" href="../cppclass/sgrbasesyncer">SGRBaseSyncer</a> provides a base class to build syncers for <a class="link" href="../tutorials/renderer">SG - RI ⁽㈳㈴㈳㈮㈱㈨㈠㈫ ㈧㈤㈱㈤⁾</a> renderers on top of. All syncers must inherit this class and implement all pure virtual functions provided in this class. Creating <a class="link" href="../tutorials/renderer">SG - RI ⁽㈳㈴㈳㈮㈱㈨㈠㈫ ㈧㈤㈱㈤⁾</a> renderers is the only way in SGEXTN to use custom shaders. Since most of the logic in custom renderers run on a separate thread, it is not allowed to access objects not owned by the renderer from inside the renderer, or to access objects owned by the renderer from outside. Syncers provide a function where it is safe to exchange data between 2 threads.</p>
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<h2 class="header" id="sg_implementationdetails">Implementation Details</h2>
+<p class="description"><a class="link" href="../tutorials/renderer">SG - RI ⁽㈳㈴㈳㈮㈱㈨㈠㈫ ㈧㈤㈱㈤⁾</a> internally uses QRhi.</p>
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<h2 class="header" id="virtual_void_sync_SGRBaseRenderer_ptr_assign_">virtual void <a class="link" href="#virtual_void_sync_SGRBaseRenderer_ptr_assign_">sync</a>(<a class="link" href="sgrbaserenderer">SGRBaseRenderer</a>* renderControl) = 0;</h2>
+<p class="description">Use this function to transfer data from the main thread to the custom renderer <b>renderControl</b>. Typically this involves copying data from static or main thread variables into variables owned by the renderer.</p>
+<p class="warning">Transferring data across the main thread and the custom renderer thread anywhere else is <a class="link" href="../tutorials/undefinedbehaviour">undefined behaviour</a>. Even reading the data elsewhere causes <a class="link" href="../tutorials/undefinedbehaviour">undefined behaviour</a>.</p>
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
 <p class="description"></p>
 
 <div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>

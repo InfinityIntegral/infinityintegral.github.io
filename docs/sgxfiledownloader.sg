@@ -1,6 +1,0 @@
-#c SGXFileDownloader
-class allowing user to save file outside application folder
-#ic SGEXTN/filesystem/sgxfiledownloader.h
-#d SGXFileDownloader allows user to save a file originally in the application folder to somewhere outside the application folder of the user's choice while obeying app sandboxing rules on mobile operating systems. Note that here "download" does not refer to downloading from a network, it refers to moving a file from the application folder to somewhere the user can more easily access or share it.
-#sf void $downloadFile(const QString& s)
-This function allows the user to download the file found at the specified path. If no file is found there, nothing is done.

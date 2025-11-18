@@ -1,0 +1,357 @@
+
+<!DOCTYPE html>
+<html lang="en-SG">
+<head>
+<meta charset="UTF-8">
+<title>SGLUnorderedMultiSet Documentation</title>
+<link rel="icon" href="/icon.png" type="image/png">
+<meta property="og:image" content="/icon.png">
+<meta name="twitter:image" content="/icon.png">
+<link rel="apple-touch-icon" href="/icon.png">
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "url": "https://infinityintegral.github.io",
+    "image": "/icon.png"
+}
+</script>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+@font-face {
+	font-family: "SingScript.sg";
+	src: url("/SingScript.sg")format("truetype");
+	font-weight: normal;
+	font-style: normal;
+}
+
+:root {
+	--c0: rgb(0, 0, 0);
+	--c1: rgb(64, 0, 50);
+	--c2: rgb(128, 0, 100);
+	--c3: rgb(191, 0, 150);
+	--c4: rgb(255, 0, 200);
+	--c5: rgb(255, 64, 214);
+	--c6: rgb(255, 128, 227);
+	--c7: rgb(255, 191, 241);
+	--c8: rgb(255, 255, 255);
+}
+
+*{
+    font-family: "SingScript.sg";
+	max-width: 100%;
+	word-break: break-word;
+	-webkit-text-size-adjust: 100%;
+	-ms-text-size-adjust: 100%;
+}
+
+.title {
+	color: var(--c4);
+	font-size: 3.5rem;
+	margin: 0;
+	font-weight: normal;
+}
+.title::selection {
+	color: var(--c8);
+	background-color: var(--c4);
+	font-size: 3.5rem;
+	margin: 0;
+	font-weight: normal;
+}
+
+.header {
+	color: var(--c4);
+	font-size: 2.5rem;
+	margin: 0;
+	font-weight: normal;
+}
+.header::selection {
+	color: var(--c8);
+	background-color: var(--c4);
+	font-size: 2.625rem;
+	margin: 0;
+	font-weight: normal;
+}
+
+.description {
+	color: var(--c4);
+	font-size: 1.75rem;
+	margin: 0;
+	white-space: pre-wrap;
+}
+.description::selection {
+	color: var(--c8);
+	background-color: var(--c4);
+	font-size: 1.75rem;
+	margin: 0;
+	white-space: pre-wrap;
+}
+
+.note {
+	color: var(--c4);
+	font-size: 1.75rem;
+	margin: 0.25rem;
+	white-space: pre-wrap;
+    border: 0.25rem solid var(--c7);
+    padding: 0.25rem;
+}
+.note::selection {
+	color: var(--c8);
+	background-color: var(--c4);
+	font-size: 1.75rem;
+	margin: 0.25rem;
+	white-space: pre-wrap;
+    border: 0.25rem solid var(--c7);
+    padding: 0.25rem;
+}
+
+.warning {
+	color: var(--c4);
+	font-size: 1.75rem;
+	margin: 0.25rem;
+	white-space: pre-wrap;
+    border: 0.25rem solid var(--c4);
+    padding: 0.25rem;
+}
+.warning::selection {
+	color: var(--c8);
+	background-color: var(--c4);
+	font-size: 1.75rem;
+	margin: 0.25rem;
+	white-space: pre-wrap;
+    border: 0.25rem solid var(--c4);
+    padding: 0.25rem;
+}
+
+.link {
+	color: var(--c2);
+	text-decoration: underline;
+}
+.link:hover {
+	color: var(--c2);
+	background-color: var(--c7);
+	text-decoration: underline;
+}
+.link:active {
+	color: var(--c2);
+	background-color: var(--c6);
+	text-decoration: underline;
+}
+.link::selection {
+	color: var(--c8);
+	background-color: var(--c4);
+	text-decoration: underline;
+}
+
+.button {
+	color: var(--c8);
+	background-color: var(--c4);
+	font-size: 1.75rem;
+	border: none;
+}
+.button:hover {
+	color: var(--c7);
+	background-color: var(--c3);
+	font-size: 1.75rem;
+	border: none;
+}
+.button:active {
+	color: var(--c6);
+	background-color: var(--c2);
+	font-size: 1.75rem;
+	border: none;
+}
+.button::selection {
+	color: var(--c4);
+	background-color: var(--c8);
+	font-size: 1.75rem;
+	border: none;
+}
+
+.input {
+	color: var(--c8);
+	background-color: var(--c4);
+	font-size: 1.75rem;
+	border: none;
+	outline: none;
+	text-align: center;
+}
+.input:hover {
+	color: var(--c7);
+	background-color: var(--c3);
+	font-size: 1.75rem;
+	border: none;
+	outline: none;
+	text-align: center;
+}
+.input:focus {
+	color: var(--c6);
+	background-color: var(--c2);
+	font-size: 1.75rem;
+	border: none;
+	outline: none;
+	text-align: center;
+}
+.input::selection {
+	color: var(--c4);
+	background-color: var(--c8);
+	font-size: 1.75rem;
+	border: none;
+	outline: none;
+	text-align: center;
+}
+
+.highlight {
+    animation: highlightFlash 2s ease-out;
+}
+
+@keyframes highlightFlash {
+    0% {background-color: var(--c6);}
+    100% {background-color: var(--c8);}
+}
+</style>
+<script>
+let m = (new Date()).getMonth() + 1;
+if(m >= 7 && m <= 9){
+    document.documentElement.style.setProperty("--c0", "rgb(0, 0, 0)");
+    document.documentElement.style.setProperty("--c1", "rgb(60, 9, 14)");
+    document.documentElement.style.setProperty("--c2", "rgb(119, 19, 27)");
+    document.documentElement.style.setProperty("--c3", "rgb(179, 28, 41)");
+    document.documentElement.style.setProperty("--c4", "rgb(238, 37, 54)");
+    document.documentElement.style.setProperty("--c5", "rgb(242, 92, 104)");
+    document.documentElement.style.setProperty("--c6", "rgb(247, 146, 155)");
+    document.documentElement.style.setProperty("--c7", "rgb(251, 201, 205)");
+    document.documentElement.style.setProperty("--c8", "rgb(255, 255, 255)");
+}
+function highlightSection(){
+    let tag = window.location.hash.substring(1);
+    if(tag == ""){return;}
+    let element = document.getElementById(tag);
+    if(element == null){return;}
+    element.classList.add("highlight");
+    element.addEventListener("animationend", () => {element.classList.remove("highlight");}, {once: true});
+}
+window.addEventListener("DOMContentLoaded", highlightSection);
+window.addEventListener("hashchange", highlightSection);
+</script>
+</head>
+<body style="margin-left: 1em;">
+<p class="description" style="color: rgb(238, 37, 54); text-align: center; font-size: 2.5rem">sincerely <img src="/flag.png" style="vertical-align: middle; height: 2.5rem; image-rendering: auto;"> Singaporean</p>
+<div style="width: 100%; height: 0.25rem; background-color: var(--c8);"></div>
+<div><button class="button" style="width: 100%;" onclick="location.href='/'">Project 05524F.sg</button></div>
+<div style="width: 100%; height: 0.25rem; background-color: var(--c8);"></div>
+<div><button class="button" style="width: 100%;" onclick="location.href='../readme/readme'">SGEXTN Documentation</button></div><div style="width: 100%; height: 0.25rem; background-color: var(--c8);"></div><p class="warning">If you have not done so, read this full <a class="link" href="../tutorials/full">tutorial</a> on how to use SGEXTN to build an application.</p><div style="width: 100%; height: 0.75rem; background-color: var(--c8);"></div><h1 class="title">SGLUnorderedMultiSet</h1>
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<p class="description"><a class="link" href="https://github.com/InfinityIntegral/SGEXTN/tree/main/SG_Containers/include/SGLUnorderedMultiSet.h">see header file</a></p>
+<p class="description">(no source file, everything inside header)</p>
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<p class="description">template ‹typename T, typename EqualityCheck, typename HashFunction› class SGLUnorderedMultiSet;</p>
+<p class="description">part of SGEXTN module <a class="link" href="../modules/sg_containers">SG_Containers</a></p>
+<p class="description">unordered multiset for any type of data</p>
+<p class="description"><a class="link" href="#sg_detaileddescription">detailed description</a></p>
+<p class="description"><a class="link" href="../funclist/sglunorderedmultiset">list of all including inherited members</a></p>
+<p class="description"><a class="link" href="#sg_implementationdetails">implementation details</a></p>
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<p class="description">preprocessor file inclusion directive: #include ‹SGLUnorderedMultiSet.h›</p>
+<p class="description">CMake commands:</p>
+<p class="description">&#9;find_package(<a class="link" href="../readme/readme">SGEXTN</a> REQUIRED COMPONENTS <a class="link" href="../modules/sg_containers">SG_Containers</a>)</p>
+<p class="description">&#9;target_link_libraries(yourCMakeTarget PRIVATE <a class="link" href="../modules/sg_containers">SGEXTN::SG_Containers</a>)</p>
+<p class="description">parent class: (none)</p>
+<p class="description">children classes: (none)</p>
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<h2 class="header" id="">instance member functions</h2>
+<p class="description">&#9;<a class="link" href="#SGLUnorderedMultiSet_func_">SGLUnorderedMultiSet</a>();</p>
+<p class="description">&#9;[[nodiscard]] <a class="link" href="sglunorderedmultiset__iterator">SGLUnorderedMultiSet::Iterator</a> <a class="link" href="#nodiscard_SGLUnorderedMultiSet_mc_Iterator_begin_func_">begin</a>();</p>
+<p class="description">&#9;[[nodiscard]] <a class="link" href="sglunorderedmultiset__constiterator">SGLUnorderedMultiSet::ConstIterator</a> <a class="link" href="#nodiscard_SGLUnorderedMultiSet_mc_ConstIterator_constBegin_func_const_">constBegin</a>() const;</p>
+<p class="description">&#9;[[nodiscard]] <a class="link" href="sglunorderedmultiset__constiterator">SGLUnorderedMultiSet::ConstIterator</a> <a class="link" href="#nodiscard_SGLUnorderedMultiSet_mc_ConstIterator_constEnd_func_const_">constEnd</a>() const;</p>
+<p class="description">&#9;[[nodiscard]] bool <a class="link" href="#nodiscard_bool_contains_const_T_ref_const_">contains</a>(const T& x) const;</p>
+<p class="description">&#9;[[nodiscard]] int <a class="link" href="#nodiscard_int_count_const_T_ref_const_">count</a>(const T& x) const;</p>
+<p class="description">&#9;[[nodiscard]] <a class="link" href="sglunorderedmultiset__iterator">SGLUnorderedMultiSet::Iterator</a> <a class="link" href="#nodiscard_SGLUnorderedMultiSet_mc_Iterator_end_func_">end</a>();</p>
+<p class="description">&#9;void <a class="link" href="#void_erase_const_T_ref_">erase</a>(const T& x);</p>
+<p class="description">&#9;void <a class="link" href="#void_erase_SGLUnorderedMultiSet_mc_Iterator_ref_">erase</a>(<a class="link" href="sglunorderedmultiset__iterator">SGLUnorderedMultiSet::Iterator</a>& x);</p>
+<p class="description">&#9;[[nodiscard]] <a class="link" href="sglunorderedmultiset__constiterator">SGLUnorderedMultiSet::ConstIterator</a> <a class="link" href="#nodiscard_SGLUnorderedMultiSet_mc_ConstIterator_find_const_T_ref_const_">find</a>(const T& x) const;</p>
+<p class="description">&#9;[[nodiscard]] <a class="link" href="sglunorderedmultiset__iterator">SGLUnorderedMultiSet::Iterator</a> <a class="link" href="#nodiscard_SGLUnorderedMultiSet_mc_Iterator_find_const_T_ref_">find</a>(const T& x);</p>
+<p class="description">&#9;void <a class="link" href="#void_insert_const_T_ref_">insert</a>(const T& x);</p>
+<p class="description">&#9;[[nodiscard]] int <a class="link" href="#nodiscard_int_length_func_const_">length</a>() const;</p>
+<p class="description">&#9;void <a class="link" href="#void_reserve_int_">reserve</a>(int newMemoryLength);</p>
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<h2 class="header" id="sg_detaileddescription">Detailed Description</h2>
+<p class="description"><a class="link" href="../cppclass/sglunorderedmultiset">SGLUnorderedMultiSet</a> provides a template based unordered multiset that can be used with any data type. Use <a class="link" href="../cppclass/sglmultiset">SGLMultiSet</a> instead if ordering matters. This is a template based class with no separate source file. This class is a SGEXTN container. Copy constructor, copy assignment, move constructor, move assignment, and destructor work as expected. A deep copy is performed whenever this class is copied, and the new instance will not be linked to the old instance in any way. It is assumed that the contents placed into this SGEXTN container can be copied and moved. This means that their copy constructor copy assignment, move constructor, move assignment, and destructor work as expected. If this is not the case or if you want the container to store references or constant references, store pointers instead.</p>
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<h2 class="header" id="sg_implementationdetails">Implementation Details</h2>
+<p class="description"><a class="link" href="../cppclass/sglunorderedmultiset">SGLUnorderedMultiSet</a> maintains an open addressed linear probing hash table with a load factor of 0.33 Due to the extremely low load factor, <a class="link" href="../cppclass/sglunorderedmultiset">SGLUnorderedMultiSet</a> is much faster than most implementations of unordered map (especially the Standard Template Library one, which is not even open addressed) at the cost of higher memory usage. The hash table is stored in a C array memory buffer that triples in size when the load factor is reached. <a class="link" href="../cppclass/sglunorderedmultiset">SGLUnorderedMultiSet</a> does not store duplicate elements, instead it keeps track of the number of copies of each element using a int, so its internal structure resembles a <a class="link" href="../cppclass/sglunorderedmap">SGLUnorderedMap</a>‹T, int, EqualityCheck, HashFunction›</p>
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<h2 class="header" id="SGLUnorderedMultiSet_func_"><a class="link" href="#SGLUnorderedMultiSet_func_">SGLUnorderedMultiSet</a>();</h2>
+<p class="description">Creates an empty <a class="link" href="../cppclass/sglunorderedmultiset">SGLUnorderedMultiSet</a>.</p>
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<h2 class="header" id="nodiscard_SGLUnorderedMultiSet_mc_Iterator_begin_func_">[[nodiscard]] <a class="link" href="sglunorderedmultiset__iterator">SGLUnorderedMultiSet::Iterator</a> <a class="link" href="#nodiscard_SGLUnorderedMultiSet_mc_Iterator_begin_func_">begin</a>();</h2>
+<p class="description">Returns a iterator to the first element in the <a class="link" href="../cppclass/sglunorderedmultiset">SGLUnorderedMultiSet</a>.</p>
+<p class="note"><a class="link" href="../cppclass/sglunorderedmultiset">SGLUnorderedMultiSet</a> iterators behave circularly. This is equivalent to running operator++ on <a class="link" href="../cppclass/sglunorderedmultiset#nodiscard_SGLUnorderedMultiSet_mc_Iterator_end_func_">SGLUnorderedMultiSet::end</a>.</p>
+<p class="note"><a class="link" href="../cppclass/sglunorderedmultiset__iterator">SGLUnorderedMultiSet::Iterator</a> allows modifying the <a class="link" href="../cppclass/sglunorderedmultiset">SGLUnorderedMultiSet</a> through it. If modification is not needed, use <a class="link" href="../cppclass/sglunorderedmultiset__constiterator">SGLUnorderedMultiSet::ConstIterator</a> instead. The <a class="link" href="../cppclass/sglunorderedmultiset__constiterator">SGLUnorderedMultiSet::ConstIterator</a> equivalent to this function is <a class="link" href="../cppclass/sglunorderedmultiset#nodiscard_SGLUnorderedMultiSet_mc_ConstIterator_constBegin_func_const_">SGLUnorderedMultiSet::constBegin</a>.</p>
+<p class="warning">If the <a class="link" href="../cppclass/sglunorderedmultiset">SGLUnorderedMultiSet</a> is empty, this is the same as <a class="link" href="../cppclass/sglunorderedmultiset#nodiscard_SGLUnorderedMultiSet_mc_Iterator_end_func_">SGLUnorderedMultiSet::end</a>.</p>
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<h2 class="header" id="nodiscard_SGLUnorderedMultiSet_mc_ConstIterator_constBegin_func_const_">[[nodiscard]] <a class="link" href="sglunorderedmultiset__constiterator">SGLUnorderedMultiSet::ConstIterator</a> <a class="link" href="#nodiscard_SGLUnorderedMultiSet_mc_ConstIterator_constBegin_func_const_">constBegin</a>() const;</h2>
+<p class="description">Returns a constant iterator to the first element in the <a class="link" href="../cppclass/sglunorderedmultiset">SGLUnorderedMultiSet</a>.</p>
+<p class="note"><a class="link" href="../cppclass/sglunorderedmultiset">SGLUnorderedMultiSet</a> iterators behave circularly. This is equivalent to running operator++ on <a class="link" href="../cppclass/sglunorderedmultiset#nodiscard_SGLUnorderedMultiSet_mc_ConstIterator_constEnd_func_const_">SGLUnorderedMultiSet::constEnd</a>.</p>
+<p class="warning">If the <a class="link" href="../cppclass/sglunorderedmultiset">SGLUnorderedMultiSet</a> is empty, this is the same as <a class="link" href="../cppclass/sglunorderedmultiset#nodiscard_SGLUnorderedMultiSet_mc_ConstIterator_constEnd_func_const_">SGLUnorderedMultiSet::constEnd</a>.</p>
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<h2 class="header" id="nodiscard_SGLUnorderedMultiSet_mc_ConstIterator_constEnd_func_const_">[[nodiscard]] <a class="link" href="sglunorderedmultiset__constiterator">SGLUnorderedMultiSet::ConstIterator</a> <a class="link" href="#nodiscard_SGLUnorderedMultiSet_mc_ConstIterator_constEnd_func_const_">constEnd</a>() const;</h2>
+<p class="description">Returns a null constant iterator associated to this <a class="link" href="../cppclass/sglunorderedmultiset">SGLUnorderedMultiSet</a>.</p>
+<p class="note"><a class="link" href="../cppclass/sglunorderedmultiset">SGLUnorderedMultiSet</a> iterators behave circularly. This is equivalent to running operator-- on <a class="link" href="../cppclass/sglunorderedmultiset#nodiscard_SGLUnorderedMultiSet_mc_ConstIterator_constBegin_func_const_">SGLUnorderedMultiSet::constBegin</a>.</p>
+<p class="warning">Attempting to access the element that this iterator points to is <a class="link" href="../tutorials/undefinedbehaviour">undefined behaviour</a>.</p>
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<h2 class="header" id="nodiscard_bool_contains_const_T_ref_const_">[[nodiscard]] bool <a class="link" href="#nodiscard_bool_contains_const_T_ref_const_">contains</a>(const T& x) const;</h2>
+<p class="description">Returns if the <a class="link" href="../cppclass/sglunorderedmultiset">SGLUnorderedMultiSet</a> contains any copy of <b>x</b>.</p>
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<h2 class="header" id="nodiscard_int_count_const_T_ref_const_">[[nodiscard]] int <a class="link" href="#nodiscard_int_count_const_T_ref_const_">count</a>(const T& x) const;</h2>
+<p class="description">Returns the number of copies of <b>x</b> found in the <a class="link" href="../cppclass/sglunorderedmultiset">SGLUnorderedMultiSet</a>.</p>
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<h2 class="header" id="nodiscard_SGLUnorderedMultiSet_mc_Iterator_end_func_">[[nodiscard]] <a class="link" href="sglunorderedmultiset__iterator">SGLUnorderedMultiSet::Iterator</a> <a class="link" href="#nodiscard_SGLUnorderedMultiSet_mc_Iterator_end_func_">end</a>();</h2>
+<p class="description">Returns a null iterator associated to this <a class="link" href="../cppclass/sglunorderedmultiset">SGLUnorderedMultiSet</a>.</p>
+<p class="note"><a class="link" href="../cppclass/sglunorderedmultiset">SGLUnorderedMultiSet</a> iterators behave circularly. This is equivalent to running operator-- on <a class="link" href="../cppclass/sglunorderedmultiset#nodiscard_SGLUnorderedMultiSet_mc_Iterator_begin_func_">SGLUnorderedMultiSet::begin</a>.</p>
+<p class="note"><a class="link" href="../cppclass/sglunorderedmultiset__iterator">SGLUnorderedMultiSet::Iterator</a> allows modifying the <a class="link" href="../cppclass/sglunorderedmultiset">SGLUnorderedMultiSet</a> through it. If modification is not needed, use <a class="link" href="../cppclass/sglunorderedmultiset__constiterator">SGLUnorderedMultiSet::ConstIterator</a> instead. The <a class="link" href="../cppclass/sglunorderedmultiset__constiterator">SGLUnorderedMultiSet::ConstIterator</a> equivalent to this function is <a class="link" href="../cppclass/sglunorderedmultiset#nodiscard_SGLUnorderedMultiSet_mc_ConstIterator_constEnd_func_const_">SGLUnorderedMultiSet::constEnd</a>.</p>
+<p class="warning">Attempting to access the element that this iterator points to is <a class="link" href="../tutorials/undefinedbehaviour">undefined behaviour</a>.</p>
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<h2 class="header" id="void_erase_const_T_ref_">void <a class="link" href="#void_erase_const_T_ref_">erase</a>(const T& x);</h2>
+<p class="description">Removes <b>x</b> from the <a class="link" href="../cppclass/sglunorderedmultiset">SGLUnorderedMultiSet</a>.</p>
+<p class="note">If there is more than 1 copies of <b>x</b>, the last added copy is removed and other copies remain in the set.</p>
+<p class="warning">If the <a class="link" href="../cppclass/sglunorderedmultiset">SGLUnorderedMultiSet</a> does not contain any copy of <b>x</b>, this will cause a crash. If you cannot guarantee that <a class="link" href="../cppclass/sglunorderedmultiset">SGLUnorderedMultiSet</a> contains <b>x</b>, use <a class="link" href="../cppclass/sglunorderedmultiset#nodiscard_bool_contains_const_T_ref_const_">SGLUnorderedMultiSet::contains</a> to check before removal. This is a intentional design choice to avoid silent bugs.</p>
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<h2 class="header" id="void_erase_SGLUnorderedMultiSet_mc_Iterator_ref_">void <a class="link" href="#void_erase_SGLUnorderedMultiSet_mc_Iterator_ref_">erase</a>(<a class="link" href="sglunorderedmultiset__iterator">SGLUnorderedMultiSet::Iterator</a>& x);</h2>
+<p class="description">Removes the element associated with <b>x</b> from the <a class="link" href="../cppclass/sglunorderedmultiset">SGLUnorderedMultiSet</a>.</p>
+<p class="description">After the removal, <b>x</b> which is passed as a reference, is decremented. This means that you do not have to do any special handling for removed elements when iterating over a <a class="link" href="../cppclass/sglunorderedmultiset">SGLUnorderedMultiSet</a>.</p>
+<p class="warning">Do not write any special logic to modify iterators while removing elements from a <a class="link" href="../cppclass/sglunorderedmultiset">SGLUnorderedMultiSet</a> in a loop, <a class="link" href="../cppclass/sglunorderedmultiset#void_erase_const_T_ref_">SGLUnorderedMultiSet::erase</a><a class="link" href="../cppclass/sglunorderedmultiset#void_erase_SGLUnorderedMultiSet_mc_Iterator_ref_">SGLUnorderedMultiSet::erase</a> handles this for you automatically.</p>
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<h2 class="header" id="nodiscard_SGLUnorderedMultiSet_mc_ConstIterator_find_const_T_ref_const_">[[nodiscard]] <a class="link" href="sglunorderedmultiset__constiterator">SGLUnorderedMultiSet::ConstIterator</a> <a class="link" href="#nodiscard_SGLUnorderedMultiSet_mc_ConstIterator_find_const_T_ref_const_">find</a>(const T& x) const;</h2>
+<p class="description">Returns the constant iterator pointing to element <b>x</b>.</p>
+<p class="note"><a class="link" href="../cppclass/sglunorderedmultiset#nodiscard_SGLUnorderedMultiSet_mc_ConstIterator_constEnd_func_const_">SGLUnorderedMultiSet::constEnd</a> is returned if <b>x</b> is not in the <a class="link" href="../cppclass/sglunorderedmultiset">SGLUnorderedMultiSet</a>.</p>
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<h2 class="header" id="nodiscard_SGLUnorderedMultiSet_mc_Iterator_find_const_T_ref_">[[nodiscard]] <a class="link" href="sglunorderedmultiset__iterator">SGLUnorderedMultiSet::Iterator</a> <a class="link" href="#nodiscard_SGLUnorderedMultiSet_mc_Iterator_find_const_T_ref_">find</a>(const T& x);</h2>
+<p class="description">Returns the iterator pointing to element <b>x</b>.</p>
+<p class="note"><a class="link" href="../cppclass/sglunorderedmultiset#nodiscard_SGLUnorderedMultiSet_mc_Iterator_end_func_">SGLUnorderedMultiSet::end</a> is returned if <b>x</b> is not in the <a class="link" href="../cppclass/sglunorderedmultiset">SGLUnorderedMultiSet</a>.</p>
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<h2 class="header" id="void_insert_const_T_ref_">void <a class="link" href="#void_insert_const_T_ref_">insert</a>(const T& x);</h2>
+<p class="description">Inserts <b>x</b> into the <a class="link" href="../cppclass/sglunorderedmultiset">SGLUnorderedMultiSet</a>.</p>
+<p class="note">Inserting multiple elements is allowed. If there is already a copy of <b>x</b>, a new copy is added.</p>
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<h2 class="header" id="nodiscard_int_length_func_const_">[[nodiscard]] int <a class="link" href="#nodiscard_int_length_func_const_">length</a>() const;</h2>
+<p class="description">Returns the length of the <a class="link" href="../cppclass/sglunorderedmultiset">SGLUnorderedMultiSet</a>, which is the number of elements that it contains.</p>
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<h2 class="header" id="void_reserve_int_">void <a class="link" href="#void_reserve_int_">reserve</a>(int newMemoryLength);</h2>
+<p class="description">Pre allocates sufficient memory to store (<b>newMemoryLength</b> / 3) - 1 elements without exceeding the load factor.</p>
+<p class="note">If sufficient memory is already allocated, this does nothing.</p>
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<p class="description"></p>
+
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<div style="width: 100%; height: 0.25rem; background-color: var(--c4);"></div>
+<div style="width: 100%; height: 0.25rem; background-color: var(--c8);"></div>
+<p class="description">©2025 05524F.sg (Singapore)</p>
+<p class="description"><a class="link" href="/contact">contact 05524F / report a bug / make a suggestion</a></p>
+<p class="description"><a class="link" href="/values">about 05524F SINGAPORE values</a></p>
+<p class="description"><a class="link" href="/projects">list of 05524F projects</a></p>
+<div style="width: 100%; height: 0.25rem; background-color: var(--c8);"></div>
+<div style="width: 100%; height: 0.25rem; background-color: var(--c4);"></div>
+<div style="width: 100%; height: 0.25rem; background-color: var(--c8);"></div>
+</body>
+</html>

@@ -3,7 +3,7 @@
 <html lang="en-SG">
 <head>
 <meta charset="UTF-8">
-<title>Contact 05524F</title>
+<title>SG_Core Module Documentation</title>
 <link rel="icon" href="/icon.png" type="image/png">
 <meta property="og:image" content="/icon.png">
 <meta name="twitter:image" content="/icon.png">
@@ -240,12 +240,29 @@ window.addEventListener("hashchange", highlightSection);
 <div style="width: 100%; height: 0.25rem; background-color: var(--c8);"></div>
 <div><button class="button" style="width: 100%;" onclick="location.href='/'">Project 05524F.sg</button></div>
 <div style="width: 100%; height: 0.25rem; background-color: var(--c8);"></div>
-<h1 class="title">Contact 05524F</h1>
+<div><button class="button" style="width: 100%;" onclick="location.href='../readme/readme'">SGEXTN Documentation</button></div><div style="width: 100%; height: 0.25rem; background-color: var(--c8);"></div><p class="warning">If you have not done so, read this full <a class="link" href="../tutorials/full">tutorial</a> on how to use SGEXTN to build an application.</p><div style="width: 100%; height: 0.75rem; background-color: var(--c8);"></div><h1 class="title">SG_Core</h1>
+<p class="description"><a class="link" href="#sg_classlist">list of classes in this module</a></p>
+<p class="description">CMake commands:</p>
+<p class="description">&#9;find_package(<a class="link" href="../readme/readme">SGEXTN</a> REQUIRED COMPONENTS SG_Core)</p>
+<p class="description">&#9;target_link_libraries(yourCMakeTarget PRIVATE <a class="link" href="../readme/readme">SGEXTN</a>::SG_Core)</p>
 <div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
-<p class="description">&#9;To contact 05524F, email to <a class="link" href="mailto:infinityintegral333@gmail.com">infinityintegral333@gmail.com</a> or message <a class="link" href="https://www.instagram.com/infinityintegral.sg/">@infinityintegral.sg</a> on Instagram. Messages sent by mutual Instagram followers (05524F's friends) via Instagram will have priority.</p>
-<p class="description">&#9;Almost all the time, your reason for contacting 05524F is either a complaint or a suggestion. A complaint refers to a request to fix a bug, inaccurate information, or unexpected behaviour in a 05524F product or its associated documentation. A suggestion is a request for 05524F to add a new feature to a existing product or to build a new product.</p>
-<p class="description">&#9;05524F is very likely to accept complaints but less likely to accept suggestions. Since all 05524F software is open source, you can build your own feature on top of 05524F software as long as you use the correct license (General Public License version 3 is always safe).</p>
-<p class="description">&#9;</p>
+<p class="description">&#9;This is the core SGEXTN module providing access to structs, the application entry point, and debugging.</p>
+<p class="description">&#9;The module contains structs for colours in both RGBA and HSLA format, timestamps for date and time, 2 dimensional vectors, and identifiers with a registration system builtin. There is also a random number generator and a timer system that operates using <a class="link" href="../tutorials/callback">callback function ⁽㈳㈴㈳㈮㈱㈨㈠㈫ ㈧㈤㈱㈤⁾</a>.</p>
+<p class="description">&#9;<a class="link" href="../cppclass/sgxchar">SGXChar</a> and <a class="link" href="../cppclass/sgxstring">SGXString</a>, both very helpful for text processing, are found here. These are recommended over ‹string› from the Standard Template Library or QString for more readable code and faster clang-tidy passes.</p>
+<p class="description">&#9;Read this <a class="link" href="../tutorials/entrypoint">tutorial</a> to learn how to use the entry point to set up a SGEXTN application, and this <a class="link" href="../tutorials/debug">tutorial</a> for debugging SGEXTN applications using the builtin debugging tool.</p>
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<h2 class="header" id="sg_classlist">List of classes in this module</h2>
+<p class="description">&#9;<a class="link" href="../cppclass/sgxcentral">SGXCentral</a></p>
+<p class="description">&#9;<a class="link" href="../cppclass/sgxchar">SGXChar</a></p>
+<p class="description">&#9;<a class="link" href="../cppclass/sgxcolourhsla">SGXColourHSLA</a></p>
+<p class="description">&#9;<a class="link" href="../cppclass/sgxcolourrgba">SGXColourRGBA</a></p>
+<p class="description">&#9;<a class="link" href="../cppclass/sgxdebug">SGXDebug</a></p>
+<p class="description">&#9;<a class="link" href="../cppclass/sgxidentifier">SGXIdentifier</a></p>
+<p class="description">&#9;<a class="link" href="../cppclass/sgxrandomnumbergenerator">SGXRandomNumberGenerator</a></p>
+<p class="description">&#9;<a class="link" href="../cppclass/sgxstring">SGXString</a></p>
+<p class="description">&#9;<a class="link" href="../cppclass/sgxtimestamp">SGXTimeStamp</a></p>
+<p class="description">&#9;<a class="link" href="../cppclass/sgxtimer">SGXTimer</a></p>
+<p class="description">&#9;<a class="link" href="../cppclass/sgxvector2">SGXVector2</a></p>
 <p class="description"></p>
 
 <div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>

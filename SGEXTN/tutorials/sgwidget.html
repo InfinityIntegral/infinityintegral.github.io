@@ -3,7 +3,7 @@
 <html lang="en-SG">
 <head>
 <meta charset="UTF-8">
-<title>Contact 05524F</title>
+<title>SGWidget Tutorial</title>
 <link rel="icon" href="/icon.png" type="image/png">
 <meta property="og:image" content="/icon.png">
 <meta name="twitter:image" content="/icon.png">
@@ -240,11 +240,29 @@ window.addEventListener("hashchange", highlightSection);
 <div style="width: 100%; height: 0.25rem; background-color: var(--c8);"></div>
 <div><button class="button" style="width: 100%;" onclick="location.href='/'">Project 05524F.sg</button></div>
 <div style="width: 100%; height: 0.25rem; background-color: var(--c8);"></div>
-<h1 class="title">Contact 05524F</h1>
+<div><button class="button" style="width: 100%;" onclick="location.href='../readme/readme'">SGEXTN Documentation</button></div><div style="width: 100%; height: 0.25rem; background-color: var(--c8);"></div><p class="warning">If you have not done so, read this full <a class="link" href="../tutorials/full">tutorial</a> on how to use SGEXTN to build an application.</p><div style="width: 100%; height: 0.75rem; background-color: var(--c8);"></div><h1 class="title">SGWidget Tutorial</h1>
 <div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
-<p class="description">&#9;To contact 05524F, email to <a class="link" href="mailto:infinityintegral333@gmail.com">infinityintegral333@gmail.com</a> or message <a class="link" href="https://www.instagram.com/infinityintegral.sg/">@infinityintegral.sg</a> on Instagram. Messages sent by mutual Instagram followers (05524F's friends) via Instagram will have priority.</p>
-<p class="description">&#9;Almost all the time, your reason for contacting 05524F is either a complaint or a suggestion. A complaint refers to a request to fix a bug, inaccurate information, or unexpected behaviour in a 05524F product or its associated documentation. A suggestion is a request for 05524F to add a new feature to a existing product or to build a new product.</p>
-<p class="description">&#9;05524F is very likely to accept complaints but less likely to accept suggestions. Since all 05524F software is open source, you can build your own feature on top of 05524F software as long as you use the correct license (General Public License version 3 is always safe).</p>
+<p class="description">&#9;SGWidget is SGEXTN's highly customisable imperative GUI system. You can customise the layout of UI using <a class="link" href="../tutorials/wdistance">w-distance ⁽㈳㈴㈳㈮㈱㈨㈠㈫ ㈧㈤㈱㈤⁾</a> and colours using <a class="link" href="../tutorials/themecolour">theme colour ⁽㈳㈴㈳㈮㈱㈨㈠㈫ ㈧㈤㈱㈤⁾</a>.</p>
+<p class="description">&#9;To make user interactions such as typing in a <a class="link" href="../cppclass/sgwinput">SGWInput</a> or clicking a <a class="link" href="../cppclass/sgwbutton">SGWButton</a> trigger events, you need to use <a class="link" href="../tutorials/callback">callback function ⁽㈳㈴㈳㈮㈱㈨㈠㈫ ㈧㈤㈱㈤⁾</a>. Additionally, the <a class="link" href="../tutorials/singcorrect">SingCorrect ⁽㈳㈴㈳㈮㈱㈨㈠㈫ ㈧㈤㈱㈤⁾</a> builtin functionality enhances user experience when interacting with input fields.</p>
+<p class="description">&#9;The base class for all UI elements is <a class="link" href="../cppclass/sgwwidget">SGWWidget</a>, you can look through its subclasses to see what UI elements are available.</p>
+<p class="description">&#9;SGWidget uses Qt Quick, so it is cross platform and GPU accelerated. However, you will not need to write a single line of QML or JS to use SGWidget. SGWidget is fully imperative.</p>
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<p class="description">&#9;When designing UI using SGWidget, you should think in terms of UI pages. A UI page is everything that the user sees at a specific moment when using the application. All UI pages should cover the whole screen.</p>
+<p class="description">&#9;In code, a UI page corresponds to a subclass of <a class="link" href="../cppclass/sgwbackground">SGWBackground</a> that is shown and hidden using <a class="link" href="../cppclass/sgwbackground#static_void_enable_SGWBackground_ptr_ref_SGWBackground_ptr_ptr_func_void_ptr_func_">SGWBackground::enable</a> and <a class="link" href="../cppclass/sgwbackground#static_void_disable_SGWBackground_ptr_ref_">SGWBackground::disable</a> respectively. The internal logic ensures that at any time, only the most recently shown UI page is actually being displayed.</p>
+<p class="description">&#9;Always use <a class="link" href="../cppclass/sgwbackground#static_void_enable_SGWBackground_ptr_ref_SGWBackground_ptr_ptr_func_void_ptr_func_">SGWBackground::enable</a> and <a class="link" href="../cppclass/sgwbackground#static_void_disable_SGWBackground_ptr_ref_">SGWBackground::disable</a> when showing and hiding UI pages. To show and hide UI elements on a UI page, even if it is a <a class="link" href="../cppclass/sgwbackground">SGWBackground</a>, you still can only use <a class="link" href="../cppclass/sgwwidget#void_setItemVisibility_bool_">SGWWidget::setItemVisibility</a>.</p>
+<p class="description">&#9;The background of UI pages should be direct children of <a class="link" href="../cppclass/sgwwidget#static_SGWWidget_ptr_parentWidget_">SGWWidget::parentWidget</a>. The UI elements on a UI page should be children of the page background.</p>
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<p class="description">&#9;The following UI layout recommendations will use <a class="link" href="../tutorials/wdistance">w-distance ⁽㈳㈴㈳㈮㈱㈨㈠㈫ ㈧㈤㈱㈤⁾</a>.</p>
+<p class="description">&#9;As much as possible, keep the height of the average text at (0.0, 1.0). Remember to provide a way to open the font size customisation page (<a class="link" href="../cppclass/sgwcustomisationpagecontrol#static_void_enableFontSizeCustomisationPage_func_">SGWCustomisationPageControl::enableFontSizeCustomisationPage</a>) so that the user can adjust the font size if they want to.</p>
+<p class="description">&#9;Try not to put anything within (0.0, 0.5) of the edge of the screen.</p>
+<p class="description">&#9;Leave a gap of at least (0.0, 0.2) between any 2 UI elements.</p>
+<p class="description">&#9;Warning text for when the user enters invalid input should have a height of (0.0, 0.75).</p>
+<p class="description">&#9;Use a vertical spacing of (0.0, 0.5) between elements. If you need to fit a warning for invalid input, use (0.0, 1.0).</p>
+<p class="description">&#9;The title of a UI page can have a height of (0.0, 1.5), or even (0.0, 2.0) if you want to.</p>
+<p class="description">&#9;<a class="link" href="../tutorials/appicon">application icon ⁽㈳㈴㈳㈮㈱㈨㈠㈫ ㈧㈤㈱㈤⁾</a> should be at least (0.0, 1.5) tall for users to see it clearly, unless they are really simple.</p>
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<p class="description">&#9;For custom rendering, you will need <a class="link" href="../tutorials/renderer">SG - RI ⁽㈳㈴㈳㈮㈱㈨㈠㈫ ㈧㈤㈱㈤⁾</a>. You can write custom shaders and send stuff to the GPU in a very simple way. The <a class="link" href="../cppclass/sgrrendererwidget">SGRRendererWidget</a> is not interactive, so you need a transparent UI element on top of it for interactivity.</p>
+<p class="description">&#9;For custom interactions, use <a class="link" href="../cppclass/sgwsingletouchreceiver">SGWSingleTouchReceiver</a> or <a class="link" href="../cppclass/sgwmultitouchreceiver">SGWMultiTouchReceiver</a>, these will pass the exact position of the touch event to the corresponding <a class="link" href="../tutorials/callback">callback function ⁽㈳㈴㈳㈮㈱㈨㈠㈫ ㈧㈤㈱㈤⁾</a>.</p>
 <p class="description">&#9;</p>
 <p class="description"></p>
 

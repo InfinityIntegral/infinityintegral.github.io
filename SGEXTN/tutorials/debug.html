@@ -3,7 +3,7 @@
 <html lang="en-SG">
 <head>
 <meta charset="UTF-8">
-<title>Contact 05524F</title>
+<title>Debugging Tutorial</title>
 <link rel="icon" href="/icon.png" type="image/png">
 <meta property="og:image" content="/icon.png">
 <meta name="twitter:image" content="/icon.png">
@@ -240,11 +240,33 @@ window.addEventListener("hashchange", highlightSection);
 <div style="width: 100%; height: 0.25rem; background-color: var(--c8);"></div>
 <div><button class="button" style="width: 100%;" onclick="location.href='/'">Project 05524F.sg</button></div>
 <div style="width: 100%; height: 0.25rem; background-color: var(--c8);"></div>
-<h1 class="title">Contact 05524F</h1>
+<div><button class="button" style="width: 100%;" onclick="location.href='../readme/readme'">SGEXTN Documentation</button></div><div style="width: 100%; height: 0.25rem; background-color: var(--c8);"></div><p class="warning">If you have not done so, read this full <a class="link" href="../tutorials/full">tutorial</a> on how to use SGEXTN to build an application.</p><div style="width: 100%; height: 0.75rem; background-color: var(--c8);"></div><h1 class="title">Debugging Tutorial</h1>
 <div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
-<p class="description">&#9;To contact 05524F, email to <a class="link" href="mailto:infinityintegral333@gmail.com">infinityintegral333@gmail.com</a> or message <a class="link" href="https://www.instagram.com/infinityintegral.sg/">@infinityintegral.sg</a> on Instagram. Messages sent by mutual Instagram followers (05524F's friends) via Instagram will have priority.</p>
-<p class="description">&#9;Almost all the time, your reason for contacting 05524F is either a complaint or a suggestion. A complaint refers to a request to fix a bug, inaccurate information, or unexpected behaviour in a 05524F product or its associated documentation. A suggestion is a request for 05524F to add a new feature to a existing product or to build a new product.</p>
-<p class="description">&#9;05524F is very likely to accept complaints but less likely to accept suggestions. Since all 05524F software is open source, you can build your own feature on top of 05524F software as long as you use the correct license (General Public License version 3 is always safe).</p>
+<p class="description">&#9;Regardless if you just wrote your "Hello, Singapore" (or "hello world") programme today or if you just represented Singapore in the International Olympiad for Informatics, everyone unintentionally writes bugs into our code. The process of catching and fixing these bugs is known as debugging.</p>
+<p class="description">&#9;Bugs can be incorrect behaviour (function returning 2 when it is supposed to return 1) or crash. To debug incorrect behaviour, you can print out the values of variables to see what went wrong. To debug crashes, you can use a debugger.</p>
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<p class="description">&#9;SGEXTN has a builtin way of debugging incorrect behaviour using the SG macro. To use it, you must link to the SGEXTN Core module, so have these lines or something equivalent in your CMake file,</p>
+<p class="warning">find_package(SGEXTN REQUIRED COMPONENTS SG_Core)&#10;target_link_libraries(yourCMakeTarget PRIVATE SGEXTN::SG_Core)</p>
+<p class="description">&#9;and in the specific C++ file that you are working on, include the header for <a class="link" href="../cppclass/sgxdebug">SGXDebug</a> which defines the macro.</p>
+<p class="warning">#include &lt;SGXDebug.h&gt;</p>
+<p class="description">&#9;Now you can use the SG macro.</p>
+<p class="description">&#9;Note that whenever the SG macro prints out anything, it will be shown in the Application Output section in your Qt Creator. By default, this is on the bottom bar, the same place where you can access the Qt Creator terminal and perform search operations. Also, if something is being printed, it shows automatically.</p>
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<p class="description">&#9;Directly writing</p>
+<p class="warning">SG;</p>
+<p class="description">&#9;in your code is very helpful for seeing if something run at all. Maybe you forgot to call the function or you had a typo in a conditional's condition, so your code is not being run at all.</p>
+<p class="description">&#9;When the code execution reaches the point of the SG macro, it will show the file name and line number of the SG macro. By looking at these logs, you can know what actually run.</p>
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<p class="description">&#9;You can also get the SG macro to print the value of a specific variable. It prints all the SGEXTN builtin structs, most C++ builtin data types, and pointers to void. Note that when printing pointers, you may have to cast them to void* before printing.</p>
+<p class="description">&#9;To print something, simply put it in brackets behind the SG macro. You can put multiple sets of brackets and the SG macro will print all the stuff sequentially.</p>
+<p class="description">&#9;Sample debugging code:</p>
+<p class="warning">int i = 26;&#10;float f = 3.14f;&#10;SGXString s = "hi";&#10;SG;&#10;SG(i);&#10;SG(s);&#10;SG(i)(f)(s);</p>
+<p class="description">&#9;Expected output format:</p>
+<p class="warning">SG - somefile.cpp, line 70&#10;SG - 26&#10;SG - hi&#10;SG - 26 - 3.14 - hi</p>
+<p class="description">&#9;The SG macro is essentially equivalent to std::cout or qDebug, but it is builtin to SGEXTN and can print SGEXTN custom structs. Also, chaining brackets look nicer than chaining ‹‹ operators.</p>
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<p class="description">&#9;To debug crashes, click the run with debug button in Qt Creator below the run button that looks like the run button with a bug attached to it. This will run the app with debugger enabled, but it may take really long to load.</p>
+<p class="description">&#9;Once you have found the point where the crash occurs, you can use the SG macro to find which variable is not having a correct value.</p>
 <p class="description">&#9;</p>
 <p class="description"></p>
 

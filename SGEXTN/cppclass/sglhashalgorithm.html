@@ -3,7 +3,7 @@
 <html lang="en-SG">
 <head>
 <meta charset="UTF-8">
-<title>Contact 05524F</title>
+<title>SGLHashAlgorithm Documentation</title>
 <link rel="icon" href="/icon.png" type="image/png">
 <meta property="og:image" content="/icon.png">
 <meta name="twitter:image" content="/icon.png">
@@ -240,12 +240,40 @@ window.addEventListener("hashchange", highlightSection);
 <div style="width: 100%; height: 0.25rem; background-color: var(--c8);"></div>
 <div><button class="button" style="width: 100%;" onclick="location.href='/'">Project 05524F.sg</button></div>
 <div style="width: 100%; height: 0.25rem; background-color: var(--c8);"></div>
-<h1 class="title">Contact 05524F</h1>
+<div><button class="button" style="width: 100%;" onclick="location.href='../readme/readme'">SGEXTN Documentation</button></div><div style="width: 100%; height: 0.25rem; background-color: var(--c8);"></div><p class="warning">If you have not done so, read this full <a class="link" href="../tutorials/full">tutorial</a> on how to use SGEXTN to build an application.</p><div style="width: 100%; height: 0.75rem; background-color: var(--c8);"></div><h1 class="title">SGLHashAlgorithm</h1>
 <div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
-<p class="description">&#9;To contact 05524F, email to <a class="link" href="mailto:infinityintegral333@gmail.com">infinityintegral333@gmail.com</a> or message <a class="link" href="https://www.instagram.com/infinityintegral.sg/">@infinityintegral.sg</a> on Instagram. Messages sent by mutual Instagram followers (05524F's friends) via Instagram will have priority.</p>
-<p class="description">&#9;Almost all the time, your reason for contacting 05524F is either a complaint or a suggestion. A complaint refers to a request to fix a bug, inaccurate information, or unexpected behaviour in a 05524F product or its associated documentation. A suggestion is a request for 05524F to add a new feature to a existing product or to build a new product.</p>
-<p class="description">&#9;05524F is very likely to accept complaints but less likely to accept suggestions. Since all 05524F software is open source, you can build your own feature on top of 05524F software as long as you use the correct license (General Public License version 3 is always safe).</p>
-<p class="description">&#9;</p>
+<p class="description"><a class="link" href="https://github.com/InfinityIntegral/SGEXTN/tree/main/SG_Containers/include/SGLHashAlgorithm.h">see header file</a></p>
+<p class="description">(no source file, everything inside header)</p>
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<p class="description">class SGLHashAlgorithm;</p>
+<p class="description">part of SGEXTN module <a class="link" href="../modules/sg_containers">SG_Containers</a></p>
+<p class="description">Implementation of 32bit WyHash for hash tables</p>
+<p class="description"><a class="link" href="#sg_detaileddescription">detailed description</a></p>
+<p class="description"><a class="link" href="../funclist/sglhashalgorithm">list of all including inherited members</a></p>
+<p class="description"><a class="link" href="#sg_implementationdetails">implementation details</a></p>
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<p class="description">preprocessor file inclusion directive: #include ‹SGLHashAlgorithm.h›</p>
+<p class="description">CMake commands:</p>
+<p class="description">&#9;find_package(<a class="link" href="../readme/readme">SGEXTN</a> REQUIRED COMPONENTS <a class="link" href="../modules/sg_containers">SG_Containers</a>)</p>
+<p class="description">&#9;target_link_libraries(yourCMakeTarget PRIVATE <a class="link" href="../modules/sg_containers">SGEXTN::SG_Containers</a>)</p>
+<p class="description">parent class: (none)</p>
+<p class="description">children classes: (none)</p>
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<h2 class="header" id="">static member functions</h2>
+<p class="description">&#9;static int <a class="link" href="#static_int_wyHash32_const_SGLSpan_lt_const_unsigned_char_gt_ref_">wyHash32</a>(const <a class="link" href="sglspan">SGLSpan</a>‹const unsigned char›& span);</p>
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<h2 class="header" id="sg_detaileddescription">Detailed Description</h2>
+<p class="description"><a class="link" href="../cppclass/sglhashalgorithm">SGLHashAlgorithm</a> implements 32bit WyHash for a <a class="link" href="../cppclass/sglspan">SGLSpan</a> of const unsigned char. WyHash is a high quality hashing algorithm for producing hash tables with minimal hash collision. <a class="link" href="../cppclass/sglhashalgorithm">SGLHashAlgorithm</a> allows you to implement WyHash for your custom structs so that they can be used with <a class="link" href="../cppclass/sglhash">SGLHash</a>. This is a template based class with no separate source file.</p>
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<h2 class="header" id="sg_implementationdetails">Implementation Details</h2>
+<p class="description"><a class="link" href="../cppclass/sglhashalgorithm">SGLHashAlgorithm</a> implements 32bit WyHash as a static function. The implementation is placed in the header file to allow easier access to the WyHash source code.</p>
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<h2 class="header" id="static_int_wyHash32_const_SGLSpan_lt_const_unsigned_char_gt_ref_">static int <a class="link" href="#static_int_wyHash32_const_SGLSpan_lt_const_unsigned_char_gt_ref_">wyHash32</a>(const <a class="link" href="sglspan">SGLSpan</a>‹const unsigned char›& span);</h2>
+<p class="description">Returns a int corresponding to the WyHash output from <b>span</b>.</p>
+<p class="note">For convenience, the functions returns a int not a unsigned int. These are effectively the same.</p>
+<p class="note">Check the source code of any SGEXTN struct (<a class="link" href="../cppclass/sgxchar">SGXChar</a>, <a class="link" href="../cppclass/sgxstring">SGXString</a>, <a class="link" href="../cppclass/sgxcolourrgba">SGXColourRGBA</a>, <a class="link" href="../cppclass/sgxcolourhsla">SGXColourHSLA</a>, <a class="link" href="../cppclass/sgxidentifier">SGXIdentifier</a>, <a class="link" href="../cppclass/sgxtimestamp">SGXTimeStamp</a>, <a class="link" href="../cppclass/sgxvector2">SGXVector2</a>) to see how to implement hash() using this function.</p>
+<p class="warning">Due to padding, attempting to hash the entire memory of custom structs is <a class="link" href="../tutorials/undefinedbehaviour">undefined behaviour</a>. Instead hash only the defined fields.</p>
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
 <p class="description"></p>
 
 <div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>

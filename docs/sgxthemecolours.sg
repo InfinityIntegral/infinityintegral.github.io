@@ -1,6 +1,0 @@
-#c SGXThemeColours
-class to access theme colours
-#ic SGEXTN/bypassquickui/sgxthemecolours.h
-#d This class provides functions to get the values of theme colours currently being used.
-#sf SGXColourRGBA $getThemeColour(int themeColour)
-This function gets the theme colour with index themeColour. Only indices between 0 and 8 inclusive are valid. If the index is invalid, a fully transparent colour is returned. Note that this is the same behaviour allowing you to pass -1 to the theme colour parameter in SGWidget functions to make invisible SGWidgets.

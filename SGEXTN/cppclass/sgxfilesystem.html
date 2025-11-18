@@ -1,0 +1,458 @@
+
+<!DOCTYPE html>
+<html lang="en-SG">
+<head>
+<meta charset="UTF-8">
+<title>SGXFileSystem Documentation</title>
+<link rel="icon" href="/icon.png" type="image/png">
+<meta property="og:image" content="/icon.png">
+<meta name="twitter:image" content="/icon.png">
+<link rel="apple-touch-icon" href="/icon.png">
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "url": "https://infinityintegral.github.io",
+    "image": "/icon.png"
+}
+</script>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+@font-face {
+	font-family: "SingScript.sg";
+	src: url("/SingScript.sg")format("truetype");
+	font-weight: normal;
+	font-style: normal;
+}
+
+:root {
+	--c0: rgb(0, 0, 0);
+	--c1: rgb(64, 0, 50);
+	--c2: rgb(128, 0, 100);
+	--c3: rgb(191, 0, 150);
+	--c4: rgb(255, 0, 200);
+	--c5: rgb(255, 64, 214);
+	--c6: rgb(255, 128, 227);
+	--c7: rgb(255, 191, 241);
+	--c8: rgb(255, 255, 255);
+}
+
+*{
+    font-family: "SingScript.sg";
+	max-width: 100%;
+	word-break: break-word;
+	-webkit-text-size-adjust: 100%;
+	-ms-text-size-adjust: 100%;
+}
+
+.title {
+	color: var(--c4);
+	font-size: 3.5rem;
+	margin: 0;
+	font-weight: normal;
+}
+.title::selection {
+	color: var(--c8);
+	background-color: var(--c4);
+	font-size: 3.5rem;
+	margin: 0;
+	font-weight: normal;
+}
+
+.header {
+	color: var(--c4);
+	font-size: 2.5rem;
+	margin: 0;
+	font-weight: normal;
+}
+.header::selection {
+	color: var(--c8);
+	background-color: var(--c4);
+	font-size: 2.625rem;
+	margin: 0;
+	font-weight: normal;
+}
+
+.description {
+	color: var(--c4);
+	font-size: 1.75rem;
+	margin: 0;
+	white-space: pre-wrap;
+}
+.description::selection {
+	color: var(--c8);
+	background-color: var(--c4);
+	font-size: 1.75rem;
+	margin: 0;
+	white-space: pre-wrap;
+}
+
+.note {
+	color: var(--c4);
+	font-size: 1.75rem;
+	margin: 0.25rem;
+	white-space: pre-wrap;
+    border: 0.25rem solid var(--c7);
+    padding: 0.25rem;
+}
+.note::selection {
+	color: var(--c8);
+	background-color: var(--c4);
+	font-size: 1.75rem;
+	margin: 0.25rem;
+	white-space: pre-wrap;
+    border: 0.25rem solid var(--c7);
+    padding: 0.25rem;
+}
+
+.warning {
+	color: var(--c4);
+	font-size: 1.75rem;
+	margin: 0.25rem;
+	white-space: pre-wrap;
+    border: 0.25rem solid var(--c4);
+    padding: 0.25rem;
+}
+.warning::selection {
+	color: var(--c8);
+	background-color: var(--c4);
+	font-size: 1.75rem;
+	margin: 0.25rem;
+	white-space: pre-wrap;
+    border: 0.25rem solid var(--c4);
+    padding: 0.25rem;
+}
+
+.link {
+	color: var(--c2);
+	text-decoration: underline;
+}
+.link:hover {
+	color: var(--c2);
+	background-color: var(--c7);
+	text-decoration: underline;
+}
+.link:active {
+	color: var(--c2);
+	background-color: var(--c6);
+	text-decoration: underline;
+}
+.link::selection {
+	color: var(--c8);
+	background-color: var(--c4);
+	text-decoration: underline;
+}
+
+.button {
+	color: var(--c8);
+	background-color: var(--c4);
+	font-size: 1.75rem;
+	border: none;
+}
+.button:hover {
+	color: var(--c7);
+	background-color: var(--c3);
+	font-size: 1.75rem;
+	border: none;
+}
+.button:active {
+	color: var(--c6);
+	background-color: var(--c2);
+	font-size: 1.75rem;
+	border: none;
+}
+.button::selection {
+	color: var(--c4);
+	background-color: var(--c8);
+	font-size: 1.75rem;
+	border: none;
+}
+
+.input {
+	color: var(--c8);
+	background-color: var(--c4);
+	font-size: 1.75rem;
+	border: none;
+	outline: none;
+	text-align: center;
+}
+.input:hover {
+	color: var(--c7);
+	background-color: var(--c3);
+	font-size: 1.75rem;
+	border: none;
+	outline: none;
+	text-align: center;
+}
+.input:focus {
+	color: var(--c6);
+	background-color: var(--c2);
+	font-size: 1.75rem;
+	border: none;
+	outline: none;
+	text-align: center;
+}
+.input::selection {
+	color: var(--c4);
+	background-color: var(--c8);
+	font-size: 1.75rem;
+	border: none;
+	outline: none;
+	text-align: center;
+}
+
+.highlight {
+    animation: highlightFlash 2s ease-out;
+}
+
+@keyframes highlightFlash {
+    0% {background-color: var(--c6);}
+    100% {background-color: var(--c8);}
+}
+</style>
+<script>
+let m = (new Date()).getMonth() + 1;
+if(m >= 7 && m <= 9){
+    document.documentElement.style.setProperty("--c0", "rgb(0, 0, 0)");
+    document.documentElement.style.setProperty("--c1", "rgb(60, 9, 14)");
+    document.documentElement.style.setProperty("--c2", "rgb(119, 19, 27)");
+    document.documentElement.style.setProperty("--c3", "rgb(179, 28, 41)");
+    document.documentElement.style.setProperty("--c4", "rgb(238, 37, 54)");
+    document.documentElement.style.setProperty("--c5", "rgb(242, 92, 104)");
+    document.documentElement.style.setProperty("--c6", "rgb(247, 146, 155)");
+    document.documentElement.style.setProperty("--c7", "rgb(251, 201, 205)");
+    document.documentElement.style.setProperty("--c8", "rgb(255, 255, 255)");
+}
+function highlightSection(){
+    let tag = window.location.hash.substring(1);
+    if(tag == ""){return;}
+    let element = document.getElementById(tag);
+    if(element == null){return;}
+    element.classList.add("highlight");
+    element.addEventListener("animationend", () => {element.classList.remove("highlight");}, {once: true});
+}
+window.addEventListener("DOMContentLoaded", highlightSection);
+window.addEventListener("hashchange", highlightSection);
+</script>
+</head>
+<body style="margin-left: 1em;">
+<p class="description" style="color: rgb(238, 37, 54); text-align: center; font-size: 2.5rem">sincerely <img src="/flag.png" style="vertical-align: middle; height: 2.5rem; image-rendering: auto;"> Singaporean</p>
+<div style="width: 100%; height: 0.25rem; background-color: var(--c8);"></div>
+<div><button class="button" style="width: 100%;" onclick="location.href='/'">Project 05524F.sg</button></div>
+<div style="width: 100%; height: 0.25rem; background-color: var(--c8);"></div>
+<div><button class="button" style="width: 100%;" onclick="location.href='../readme/readme'">SGEXTN Documentation</button></div><div style="width: 100%; height: 0.25rem; background-color: var(--c8);"></div><p class="warning">If you have not done so, read this full <a class="link" href="../tutorials/full">tutorial</a> on how to use SGEXTN to build an application.</p><div style="width: 100%; height: 0.75rem; background-color: var(--c8);"></div><h1 class="title">SGXFileSystem</h1>
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<p class="description"><a class="link" href="https://github.com/InfinityIntegral/SGEXTN/tree/main/SG_FileSystem/include/SGXFileSystem.h">see header file</a></p>
+<p class="description"><a class="link" href="https://github.com/InfinityIntegral/SGEXTN/tree/main/SG_FileSystem/src/SGXFileSystem.cpp">see source file</a></p>
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<p class="description">class SGXFileSystem;</p>
+<p class="description">part of SGEXTN module <a class="link" href="../modules/sg_filesystem">SG_FileSystem</a></p>
+<p class="description">provides access to the file system</p>
+<p class="description"><a class="link" href="#sg_detaileddescription">detailed description</a></p>
+<p class="description"><a class="link" href="../funclist/sgxfilesystem">list of all including inherited members</a></p>
+<p class="description"><a class="link" href="#sg_implementationdetails">implementation details</a></p>
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<p class="description">preprocessor file inclusion directive: #include ‹SGXFileSystem.h›</p>
+<p class="description">CMake commands:</p>
+<p class="description">&#9;find_package(<a class="link" href="../readme/readme">SGEXTN</a> REQUIRED COMPONENTS <a class="link" href="../modules/sg_filesystem">SG_FileSystem</a>)</p>
+<p class="description">&#9;target_link_libraries(yourCMakeTarget PRIVATE <a class="link" href="../modules/sg_filesystem">SGEXTN::SG_FileSystem</a>)</p>
+<p class="description">parent class: (none)</p>
+<p class="description">children classes: (none)</p>
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<h2 class="header" id="">static member variables</h2>
+<p class="description">&#9;static <a class="link" href="sgxstring">SGXString</a> <a class="link" href="#static_SGXString_configFilePath_">configFilePath</a>;</p>
+<p class="description">&#9;static <a class="link" href="sgxstring">SGXString</a> <a class="link" href="#static_SGXString_userDataFilePath_">userDataFilePath</a>;</p>
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<h2 class="header" id="">static member functions</h2>
+<p class="description">&#9;static int <a class="link" href="#static_int_createFile_const_SGXString_ref_">createFile</a>(const <a class="link" href="sgxstring">SGXString</a>& s);</p>
+<p class="description">&#9;static int <a class="link" href="#static_int_createFolder_const_SGXString_ref_">createFolder</a>(const <a class="link" href="sgxstring">SGXString</a>& s);</p>
+<p class="description">&#9;static <a class="link" href="sgxstring">SGXString</a> <a class="link" href="#static_SGXString_decodeBase16_const_SGXString_ref_">decodeBase16</a>(const <a class="link" href="sgxstring">SGXString</a>& str);</p>
+<p class="description">&#9;static int <a class="link" href="#static_int_duplicateFile_const_SGXString_ref_const_SGXString_ref_">duplicateFile</a>(const <a class="link" href="sgxstring">SGXString</a>& startPath, const <a class="link" href="sgxstring">SGXString</a>& endPath);</p>
+<p class="description">&#9;static int <a class="link" href="#static_int_duplicateFolder_const_SGXString_ref_const_SGXString_ref_">duplicateFolder</a>(const <a class="link" href="sgxstring">SGXString</a>& startPath, const <a class="link" href="sgxstring">SGXString</a>& endPath);</p>
+<p class="description">&#9;static <a class="link" href="sgxstring">SGXString</a> <a class="link" href="#static_SGXString_encodeBase16_const_SGXString_ref_">encodeBase16</a>(const <a class="link" href="sgxstring">SGXString</a>& s);</p>
+<p class="description">&#9;static bool <a class="link" href="#static_bool_fileExists_const_SGXString_ref_">fileExists</a>(const <a class="link" href="sgxstring">SGXString</a>& s);</p>
+<p class="description">&#9;static bool <a class="link" href="#static_bool_folderExists_const_SGXString_ref_">folderExists</a>(const <a class="link" href="sgxstring">SGXString</a>& s);</p>
+<p class="description">&#9;static <a class="link" href="sgxtimestamp">SGXTimeStamp</a> <a class="link" href="#static_SGXTimeStamp_getFileCreationTime_const_SGXString_ref_">getFileCreationTime</a>(const <a class="link" href="sgxstring">SGXString</a>& s);</p>
+<p class="description">&#9;static <a class="link" href="sgxstring">SGXString</a> <a class="link" href="#static_SGXString_getFileExtension_const_SGXString_ref_">getFileExtension</a>(const <a class="link" href="sgxstring">SGXString</a>& s);</p>
+<p class="description">&#9;static <a class="link" href="sgxtimestamp">SGXTimeStamp</a> <a class="link" href="#static_SGXTimeStamp_getFileLastEditTime_const_SGXString_ref_">getFileLastEditTime</a>(const <a class="link" href="sgxstring">SGXString</a>& s);</p>
+<p class="description">&#9;static <a class="link" href="sgxstring">SGXString</a> <a class="link" href="#static_SGXString_getFileName_const_SGXString_ref_">getFileName</a>(const <a class="link" href="sgxstring">SGXString</a>& s);</p>
+<p class="description">&#9;static <a class="link" href="sgxstring">SGXString</a> <a class="link" href="#static_SGXString_getFileNameNoExtension_const_SGXString_ref_">getFileNameNoExtension</a>(const <a class="link" href="sgxstring">SGXString</a>& s);</p>
+<p class="description">&#9;static long long <a class="link" href="#static_long_long_getFileSize_const_SGXString_ref_">getFileSize</a>(const <a class="link" href="sgxstring">SGXString</a>& s);</p>
+<p class="description">&#9;static <a class="link" href="sglarray">SGLArray</a>‹<a class="link" href="sgxstring">SGXString</a>› <a class="link" href="#static_SGLArray_lt_SGXString_gt_getFilesList_const_SGXString_ref_">getFilesList</a>(const <a class="link" href="sgxstring">SGXString</a>& s);</p>
+<p class="description">&#9;static <a class="link" href="sglarray">SGLArray</a>‹<a class="link" href="sgxstring">SGXString</a>› <a class="link" href="#static_SGLArray_lt_SGXString_gt_getFilesListContainingName_const_SGXString_ref_const_SGXString_ref_">getFilesListContainingName</a>(const <a class="link" href="sgxstring">SGXString</a>& s, const <a class="link" href="sgxstring">SGXString</a>& name);</p>
+<p class="description">&#9;static <a class="link" href="sglarray">SGLArray</a>‹<a class="link" href="sgxstring">SGXString</a>› <a class="link" href="#static_SGLArray_lt_SGXString_gt_getFilesListContainingNameRecursive_const_SGXString_ref_const_SGXString_ref_">getFilesListContainingNameRecursive</a>(const <a class="link" href="sgxstring">SGXString</a>& s, const <a class="link" href="sgxstring">SGXString</a>& name);</p>
+<p class="description">&#9;static <a class="link" href="sglarray">SGLArray</a>‹<a class="link" href="sgxstring">SGXString</a>› <a class="link" href="#static_SGLArray_lt_SGXString_gt_getFilesListRecursive_const_SGXString_ref_">getFilesListRecursive</a>(const <a class="link" href="sgxstring">SGXString</a>& s);</p>
+<p class="description">&#9;static <a class="link" href="sglarray">SGLArray</a>‹<a class="link" href="sgxstring">SGXString</a>› <a class="link" href="#static_SGLArray_lt_SGXString_gt_getFilesListWithExtension_const_SGXString_ref_const_SGXString_ref_">getFilesListWithExtension</a>(const <a class="link" href="sgxstring">SGXString</a>& s, const <a class="link" href="sgxstring">SGXString</a>& ext);</p>
+<p class="description">&#9;static <a class="link" href="sglarray">SGLArray</a>‹<a class="link" href="sgxstring">SGXString</a>› <a class="link" href="#static_SGLArray_lt_SGXString_gt_getFilesListWithExtensionRecursive_const_SGXString_ref_const_SGXString_ref_">getFilesListWithExtensionRecursive</a>(const <a class="link" href="sgxstring">SGXString</a>& s, const <a class="link" href="sgxstring">SGXString</a>& ext);</p>
+<p class="description">&#9;static <a class="link" href="sgxtimestamp">SGXTimeStamp</a> <a class="link" href="#static_SGXTimeStamp_getFolderCreationTime_const_SGXString_ref_">getFolderCreationTime</a>(const <a class="link" href="sgxstring">SGXString</a>& s);</p>
+<p class="description">&#9;static <a class="link" href="sgxtimestamp">SGXTimeStamp</a> <a class="link" href="#static_SGXTimeStamp_getFolderLastEditTime_const_SGXString_ref_">getFolderLastEditTime</a>(const <a class="link" href="sgxstring">SGXString</a>& s);</p>
+<p class="description">&#9;static <a class="link" href="sgxstring">SGXString</a> <a class="link" href="#static_SGXString_getFolderName_const_SGXString_ref_">getFolderName</a>(const <a class="link" href="sgxstring">SGXString</a>& s);</p>
+<p class="description">&#9;static long long <a class="link" href="#static_long_long_getFolderSize_const_SGXString_ref_">getFolderSize</a>(const <a class="link" href="sgxstring">SGXString</a>& s);</p>
+<p class="description">&#9;static <a class="link" href="sglarray">SGLArray</a>‹<a class="link" href="sgxstring">SGXString</a>› <a class="link" href="#static_SGLArray_lt_SGXString_gt_getFoldersList_const_SGXString_ref_">getFoldersList</a>(const <a class="link" href="sgxstring">SGXString</a>& s);</p>
+<p class="description">&#9;static <a class="link" href="sgxstring">SGXString</a> <a class="link" href="#static_SGXString_getFreePath_const_SGXString_ref_const_SGXString_ref_const_SGXString_ref_">getFreePath</a>(const <a class="link" href="sgxstring">SGXString</a>& prefix, const <a class="link" href="sgxstring">SGXString</a>& unencodedName, const <a class="link" href="sgxstring">SGXString</a>& postfix);</p>
+<p class="description">&#9;static <a class="link" href="sgxstring">SGXString</a> <a class="link" href="#static_SGXString_getParentName_const_SGXString_ref_">getParentName</a>(const <a class="link" href="sgxstring">SGXString</a>& s);</p>
+<p class="description">&#9;static <a class="link" href="sgxstring">SGXString</a> <a class="link" href="#static_SGXString_getParentPath_const_SGXString_ref_">getParentPath</a>(const <a class="link" href="sgxstring">SGXString</a>& s);</p>
+<p class="description">&#9;static <a class="link" href="sgxstring">SGXString</a> <a class="link" href="#static_SGXString_joinFilePaths_const_SGXString_ref_const_SGXString_ref_">joinFilePaths</a>(const <a class="link" href="sgxstring">SGXString</a>& a, const <a class="link" href="sgxstring">SGXString</a>& b);</p>
+<p class="description">&#9;static int <a class="link" href="#static_int_moveFile_const_SGXString_ref_const_SGXString_ref_">moveFile</a>(const <a class="link" href="sgxstring">SGXString</a>& startPath, const <a class="link" href="sgxstring">SGXString</a>& endPath);</p>
+<p class="description">&#9;static int <a class="link" href="#static_int_moveFolder_const_SGXString_ref_const_SGXString_ref_">moveFolder</a>(const <a class="link" href="sgxstring">SGXString</a>& startPath, const <a class="link" href="sgxstring">SGXString</a>& endPath);</p>
+<p class="description">&#9;static bool <a class="link" href="#static_bool_numberAwareLesserThan_const_SGXString_ref_const_SGXString_ref_">numberAwareLesserThan</a>(const <a class="link" href="sgxstring">SGXString</a>& s1, const <a class="link" href="sgxstring">SGXString</a>& s2);</p>
+<p class="description">&#9;static bool <a class="link" href="#static_bool_numberAwareLesserThanBase16_const_SGXString_ref_const_SGXString_ref_">numberAwareLesserThanBase16</a>(const <a class="link" href="sgxstring">SGXString</a>& s1, const <a class="link" href="sgxstring">SGXString</a>& s2);</p>
+<p class="description">&#9;static bool <a class="link" href="#static_bool_pathIsSubfolder_const_SGXString_ref_const_SGXString_ref_">pathIsSubfolder</a>(const <a class="link" href="sgxstring">SGXString</a>& childPath, const <a class="link" href="sgxstring">SGXString</a>& parentPath);</p>
+<p class="description">&#9;static int <a class="link" href="#static_int_permanentDeleteFile_const_SGXString_ref_">permanentDeleteFile</a>(const <a class="link" href="sgxstring">SGXString</a>& s);</p>
+<p class="description">&#9;static int <a class="link" href="#static_int_permanentDeleteFolder_const_SGXString_ref_">permanentDeleteFolder</a>(const <a class="link" href="sgxstring">SGXString</a>& s);</p>
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<h2 class="header" id="sg_detaileddescription">Detailed Description</h2>
+<p class="description"><a class="link" href="../cppclass/sgxfilesystem">SGXFileSystem</a> allows access to the file system. This includes iterating through files and folders, and querying for properties of files and folders. Use <a class="link" href="../cppclass/sgxfile">SGXFile</a> instead to read and write files, and use <a class="link" href="../cppclass/sgxfilebinutilities">SGXFileBinUtilities</a> instead to manage the SGEXTN builtin file bin.</p>
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<h2 class="header" id="sg_implementationdetails">Implementation Details</h2>
+<p class="description">Internally uses QDir, QFileInfo, and QFile</p>
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<h2 class="header" id="static_SGXString_configFilePath_">static <a class="link" href="sgxstring">SGXString</a> <a class="link" href="#static_SGXString_configFilePath_">configFilePath</a>;</h2>
+<p class="description">The folder that you should keep application settings files in.</p>
+<p class="warning">Setting this manually is <a class="link" href="../tutorials/undefinedbehaviour">undefined behaviour</a>.</p>
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<h2 class="header" id="static_SGXString_userDataFilePath_">static <a class="link" href="sgxstring">SGXString</a> <a class="link" href="#static_SGXString_userDataFilePath_">userDataFilePath</a>;</h2>
+<p class="description">The folder that you should keep user data in.</p>
+<p class="warning">Setting this manually is <a class="link" href="../tutorials/undefinedbehaviour">undefined behaviour</a>.</p>
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<h2 class="header" id="static_int_createFile_const_SGXString_ref_">static int <a class="link" href="#static_int_createFile_const_SGXString_ref_">createFile</a>(const <a class="link" href="sgxstring">SGXString</a>& s);</h2>
+<p class="description">Creates a file at <b>s</b>. This returns -2 if a file system error caused the operation to fail, 0 if the file already exists, and 1 if the operation was successful.</p>
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<h2 class="header" id="static_int_createFolder_const_SGXString_ref_">static int <a class="link" href="#static_int_createFolder_const_SGXString_ref_">createFolder</a>(const <a class="link" href="sgxstring">SGXString</a>& s);</h2>
+<p class="description">Creates a folder at <b>s</b>. This returns -2 if a file system error caused the operation to fail, 0 if the file already exists, and 1 if the operation was successful.</p>
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<h2 class="header" id="static_SGXString_decodeBase16_const_SGXString_ref_">static <a class="link" href="sgxstring">SGXString</a> <a class="link" href="#static_SGXString_decodeBase16_const_SGXString_ref_">decodeBase16</a>(const <a class="link" href="sgxstring">SGXString</a>& str);</h2>
+<p class="description">Decodes <b>str</b> which is currently in base16, the SGEXTN provided encoding that is guaranteed to be safe on all file systems, including case insensitive ones.</p>
+<p class="note">As of this SGEXTN version, base16 is not human readable. This likely will be changed in a future version.</p>
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<h2 class="header" id="static_int_duplicateFile_const_SGXString_ref_const_SGXString_ref_">static int <a class="link" href="#static_int_duplicateFile_const_SGXString_ref_const_SGXString_ref_">duplicateFile</a>(const <a class="link" href="sgxstring">SGXString</a>& startPath, const <a class="link" href="sgxstring">SGXString</a>& endPath);</h2>
+<p class="description">Copies the file at <b>startPath</b> to <b>endPath</b>. This returns -2 if a file system error caused the operation to fail, 0 if there is already a file at <b>endPath</b> or if there is no file at <b>startPath</b>, and 1 if the operation was successful.</p>
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<h2 class="header" id="static_int_duplicateFolder_const_SGXString_ref_const_SGXString_ref_">static int <a class="link" href="#static_int_duplicateFolder_const_SGXString_ref_const_SGXString_ref_">duplicateFolder</a>(const <a class="link" href="sgxstring">SGXString</a>& startPath, const <a class="link" href="sgxstring">SGXString</a>& endPath);</h2>
+<p class="description">Copies the folder at <b>startPath</b> to <b>endPath</b>. This returns -2 if a file system error caused the operation to fail, 0 if there is already a folder at <b>endPath</b> or if there is no folder at <b>startPath</b>, and 1 if the operation was successful.</p>
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<h2 class="header" id="static_SGXString_encodeBase16_const_SGXString_ref_">static <a class="link" href="sgxstring">SGXString</a> <a class="link" href="#static_SGXString_encodeBase16_const_SGXString_ref_">encodeBase16</a>(const <a class="link" href="sgxstring">SGXString</a>& s);</h2>
+<p class="description">Encodes <b>s</b> to base16, the SGEXTN provided encoding that is guaranteed to be safe on all file systems, including case insensitive ones.</p>
+<p class="note">As of this SGEXTN version, base16 is not human readable. This likely will be changed in a future version.</p>
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<h2 class="header" id="static_bool_fileExists_const_SGXString_ref_">static bool <a class="link" href="#static_bool_fileExists_const_SGXString_ref_">fileExists</a>(const <a class="link" href="sgxstring">SGXString</a>& s);</h2>
+<p class="description">Returns if any file exists at <b>s</b>.</p>
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<h2 class="header" id="static_bool_folderExists_const_SGXString_ref_">static bool <a class="link" href="#static_bool_folderExists_const_SGXString_ref_">folderExists</a>(const <a class="link" href="sgxstring">SGXString</a>& s);</h2>
+<p class="description">Returns if any folder exists at <b>s</b>.</p>
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<h2 class="header" id="static_SGXTimeStamp_getFileCreationTime_const_SGXString_ref_">static <a class="link" href="sgxtimestamp">SGXTimeStamp</a> <a class="link" href="#static_SGXTimeStamp_getFileCreationTime_const_SGXString_ref_">getFileCreationTime</a>(const <a class="link" href="sgxstring">SGXString</a>& s);</h2>
+<p class="description">Returns the time at which the file at <b>s</b> was created in the form of a <a class="link" href="../cppclass/sgxtimestamp">SGXTimeStamp</a>.</p>
+<p class="note">If there is no file at <b>s</b> or if file creation time is not supported by the file system, this returns <a class="link" href="../cppclass/sgxtimestamp#static_const_SGXTimeStamp_zero_">SGXTimeStamp::zero</a>.</p>
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<h2 class="header" id="static_SGXString_getFileExtension_const_SGXString_ref_">static <a class="link" href="sgxstring">SGXString</a> <a class="link" href="#static_SGXString_getFileExtension_const_SGXString_ref_">getFileExtension</a>(const <a class="link" href="sgxstring">SGXString</a>& s);</h2>
+<p class="description">Returns the extension of the file at path <b>s</b>. This does not include the dot.</p>
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<h2 class="header" id="static_SGXTimeStamp_getFileLastEditTime_const_SGXString_ref_">static <a class="link" href="sgxtimestamp">SGXTimeStamp</a> <a class="link" href="#static_SGXTimeStamp_getFileLastEditTime_const_SGXString_ref_">getFileLastEditTime</a>(const <a class="link" href="sgxstring">SGXString</a>& s);</h2>
+<p class="description">Returns the time at which the file at <b>s</b> was last opened in a write capable mode.</p>
+<p class="note">If there is no file at <b>s</b>, this returns <a class="link" href="../cppclass/sgxtimestamp#static_const_SGXTimeStamp_zero_">SGXTimeStamp::zero</a>.</p>
+<p class="note">Using <a class="link" href="../cppclass/sgxfile">SGXFile</a> for reading a file also causes this to change as <a class="link" href="../cppclass/sgxfile">SGXFile</a> always opens files in read-write mode.</p>
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<h2 class="header" id="static_SGXString_getFileName_const_SGXString_ref_">static <a class="link" href="sgxstring">SGXString</a> <a class="link" href="#static_SGXString_getFileName_const_SGXString_ref_">getFileName</a>(const <a class="link" href="sgxstring">SGXString</a>& s);</h2>
+<p class="description">Returns the name of the file at path <b>s</b>.</p>
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<h2 class="header" id="static_SGXString_getFileNameNoExtension_const_SGXString_ref_">static <a class="link" href="sgxstring">SGXString</a> <a class="link" href="#static_SGXString_getFileNameNoExtension_const_SGXString_ref_">getFileNameNoExtension</a>(const <a class="link" href="sgxstring">SGXString</a>& s);</h2>
+<p class="description">Returns the file name of the file at path <b>s</b> with the extension removed.</p>
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<h2 class="header" id="static_long_long_getFileSize_const_SGXString_ref_">static long long <a class="link" href="#static_long_long_getFileSize_const_SGXString_ref_">getFileSize</a>(const <a class="link" href="sgxstring">SGXString</a>& s);</h2>
+<p class="description">Returns the size of the file at <b>s</b> in bytes.</p>
+<p class="note">If there is no file at <b>s</b>, this returns 0.</p>
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<h2 class="header" id="static_SGLArray_lt_SGXString_gt_getFilesList_const_SGXString_ref_">static <a class="link" href="sglarray">SGLArray</a>‹<a class="link" href="sgxstring">SGXString</a>› <a class="link" href="#static_SGLArray_lt_SGXString_gt_getFilesList_const_SGXString_ref_">getFilesList</a>(const <a class="link" href="sgxstring">SGXString</a>& s);</h2>
+<p class="description">Returns a list of files inside folder <b>s</b> by their paths.</p>
+<p class="note">If <b>s</b> does not exist, an empty list is returned.</p>
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<h2 class="header" id="static_SGLArray_lt_SGXString_gt_getFilesListContainingName_const_SGXString_ref_const_SGXString_ref_">static <a class="link" href="sglarray">SGLArray</a>‹<a class="link" href="sgxstring">SGXString</a>› <a class="link" href="#static_SGLArray_lt_SGXString_gt_getFilesListContainingName_const_SGXString_ref_const_SGXString_ref_">getFilesListContainingName</a>(const <a class="link" href="sgxstring">SGXString</a>& s, const <a class="link" href="sgxstring">SGXString</a>& name);</h2>
+<p class="description">Returns a list of paths to files in folder <b>s</b> containing a substring of <b>name</b> in their names.</p>
+<p class="note">An empty list is returned if there is no folder at <b>s</b>.</p>
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<h2 class="header" id="static_SGLArray_lt_SGXString_gt_getFilesListContainingNameRecursive_const_SGXString_ref_const_SGXString_ref_">static <a class="link" href="sglarray">SGLArray</a>‹<a class="link" href="sgxstring">SGXString</a>› <a class="link" href="#static_SGLArray_lt_SGXString_gt_getFilesListContainingNameRecursive_const_SGXString_ref_const_SGXString_ref_">getFilesListContainingNameRecursive</a>(const <a class="link" href="sgxstring">SGXString</a>& s, const <a class="link" href="sgxstring">SGXString</a>& name);</h2>
+<p class="description">Returns a list of paths to files in folder <b>s</b> including recursive subfolders containing a substring of <b>name</b> in their names.</p>
+<p class="note">An empty list is returned if there is no folder at <b>s</b>.</p>
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<h2 class="header" id="static_SGLArray_lt_SGXString_gt_getFilesListRecursive_const_SGXString_ref_">static <a class="link" href="sglarray">SGLArray</a>‹<a class="link" href="sgxstring">SGXString</a>› <a class="link" href="#static_SGLArray_lt_SGXString_gt_getFilesListRecursive_const_SGXString_ref_">getFilesListRecursive</a>(const <a class="link" href="sgxstring">SGXString</a>& s);</h2>
+<p class="description">Returns a list of files inside folder <b>s</b> and its recursive subfolders by their paths.</p>
+<p class="note">If <b>s</b> does not exist, an empty list is returned.</p>
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<h2 class="header" id="static_SGLArray_lt_SGXString_gt_getFilesListWithExtension_const_SGXString_ref_const_SGXString_ref_">static <a class="link" href="sglarray">SGLArray</a>‹<a class="link" href="sgxstring">SGXString</a>› <a class="link" href="#static_SGLArray_lt_SGXString_gt_getFilesListWithExtension_const_SGXString_ref_const_SGXString_ref_">getFilesListWithExtension</a>(const <a class="link" href="sgxstring">SGXString</a>& s, const <a class="link" href="sgxstring">SGXString</a>& ext);</h2>
+<p class="description">Returns a list of paths to files in folder <b>s</b> with extension matching <b>ext</b>.</p>
+<p class="note">An empty list is returned if there is no folder at <b>s</b>.</p>
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<h2 class="header" id="static_SGLArray_lt_SGXString_gt_getFilesListWithExtensionRecursive_const_SGXString_ref_const_SGXString_ref_">static <a class="link" href="sglarray">SGLArray</a>‹<a class="link" href="sgxstring">SGXString</a>› <a class="link" href="#static_SGLArray_lt_SGXString_gt_getFilesListWithExtensionRecursive_const_SGXString_ref_const_SGXString_ref_">getFilesListWithExtensionRecursive</a>(const <a class="link" href="sgxstring">SGXString</a>& s, const <a class="link" href="sgxstring">SGXString</a>& ext);</h2>
+<p class="description">Returns a list of paths to files in folder <b>s</b> including recursive subfolders, with extension matching <b>ext</b>.</p>
+<p class="note">An empty list is returned if there is no folder at <b>s</b>.</p>
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<h2 class="header" id="static_SGXTimeStamp_getFolderCreationTime_const_SGXString_ref_">static <a class="link" href="sgxtimestamp">SGXTimeStamp</a> <a class="link" href="#static_SGXTimeStamp_getFolderCreationTime_const_SGXString_ref_">getFolderCreationTime</a>(const <a class="link" href="sgxstring">SGXString</a>& s);</h2>
+<p class="description">Returns the time at which the folder at <b>s</b> was created in the form of a <a class="link" href="../cppclass/sgxtimestamp">SGXTimeStamp</a>.</p>
+<p class="note">If there is no folder at <b>s</b> or if folder creation time is not supported by the file system, this returns <a class="link" href="../cppclass/sgxtimestamp#static_const_SGXTimeStamp_zero_">SGXTimeStamp::zero</a>.</p>
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<h2 class="header" id="static_SGXTimeStamp_getFolderLastEditTime_const_SGXString_ref_">static <a class="link" href="sgxtimestamp">SGXTimeStamp</a> <a class="link" href="#static_SGXTimeStamp_getFolderLastEditTime_const_SGXString_ref_">getFolderLastEditTime</a>(const <a class="link" href="sgxstring">SGXString</a>& s);</h2>
+<p class="description">Returns the time at which the folder at <b>s</b> was last opened in a write capable mode.</p>
+<p class="note">If there is no folder at <b>s</b>, this returns <a class="link" href="../cppclass/sgxtimestamp#static_const_SGXTimeStamp_zero_">SGXTimeStamp::zero</a>.</p>
+<p class="note">Using <a class="link" href="../cppclass/sgxfile">SGXFile</a> for reading a file in the folder also causes this to change as <a class="link" href="../cppclass/sgxfile">SGXFile</a> always opens files in read-write mode.</p>
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<h2 class="header" id="static_SGXString_getFolderName_const_SGXString_ref_">static <a class="link" href="sgxstring">SGXString</a> <a class="link" href="#static_SGXString_getFolderName_const_SGXString_ref_">getFolderName</a>(const <a class="link" href="sgxstring">SGXString</a>& s);</h2>
+<p class="description">Returns the name of the folder at path <b>s</b>.</p>
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<h2 class="header" id="static_long_long_getFolderSize_const_SGXString_ref_">static long long <a class="link" href="#static_long_long_getFolderSize_const_SGXString_ref_">getFolderSize</a>(const <a class="link" href="sgxstring">SGXString</a>& s);</h2>
+<p class="description">Returns the size of the folder at <b>s</b>, which is the sum of sizes of all its subfolders, in bytes.</p>
+<p class="note">If there is no folder at <b>s</b>, this returns 0.</p>
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<h2 class="header" id="static_SGLArray_lt_SGXString_gt_getFoldersList_const_SGXString_ref_">static <a class="link" href="sglarray">SGLArray</a>‹<a class="link" href="sgxstring">SGXString</a>› <a class="link" href="#static_SGLArray_lt_SGXString_gt_getFoldersList_const_SGXString_ref_">getFoldersList</a>(const <a class="link" href="sgxstring">SGXString</a>& s);</h2>
+<p class="description">Returns a list of subfolders inside folder <b>s</b> by their paths.</p>
+<p class="note">If <b>s</b> does not exist, an empty list is returned.</p>
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<h2 class="header" id="static_SGXString_getFreePath_const_SGXString_ref_const_SGXString_ref_const_SGXString_ref_">static <a class="link" href="sgxstring">SGXString</a> <a class="link" href="#static_SGXString_getFreePath_const_SGXString_ref_const_SGXString_ref_const_SGXString_ref_">getFreePath</a>(const <a class="link" href="sgxstring">SGXString</a>& prefix, const <a class="link" href="sgxstring">SGXString</a>& unencodedName, const <a class="link" href="sgxstring">SGXString</a>& postfix);</h2>
+<p class="description">This should be used to replace directly setting the path as <b>prefix</b>/<a class="link" href="../cppclass/sgxfilesystem#static_SGXString_encodeBase16_const_SGXString_ref_">SGXFileSystem::encodeBase16</a>(<b>unencodedName</b>)<b>postfix</b> to avoid file name collisions causing accidental overwrite.</p>
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<h2 class="header" id="static_SGXString_getParentName_const_SGXString_ref_">static <a class="link" href="sgxstring">SGXString</a> <a class="link" href="#static_SGXString_getParentName_const_SGXString_ref_">getParentName</a>(const <a class="link" href="sgxstring">SGXString</a>& s);</h2>
+<p class="description">Returns the name of the parent folder of <b>s</b>.</p>
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<h2 class="header" id="static_SGXString_getParentPath_const_SGXString_ref_">static <a class="link" href="sgxstring">SGXString</a> <a class="link" href="#static_SGXString_getParentPath_const_SGXString_ref_">getParentPath</a>(const <a class="link" href="sgxstring">SGXString</a>& s);</h2>
+<p class="description">Returns the path to the parent folder of <b>s</b>.</p>
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<h2 class="header" id="static_SGXString_joinFilePaths_const_SGXString_ref_const_SGXString_ref_">static <a class="link" href="sgxstring">SGXString</a> <a class="link" href="#static_SGXString_joinFilePaths_const_SGXString_ref_const_SGXString_ref_">joinFilePaths</a>(const <a class="link" href="sgxstring">SGXString</a>& a, const <a class="link" href="sgxstring">SGXString</a>& b);</h2>
+<p class="description">Returns the file path <b>a</b>/<b>b</b></p>
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<h2 class="header" id="static_int_moveFile_const_SGXString_ref_const_SGXString_ref_">static int <a class="link" href="#static_int_moveFile_const_SGXString_ref_const_SGXString_ref_">moveFile</a>(const <a class="link" href="sgxstring">SGXString</a>& startPath, const <a class="link" href="sgxstring">SGXString</a>& endPath);</h2>
+<p class="description">Moves the file at <b>startPath</b> to <b>endPath</b>. This returns -2 if a file system error caused the operation to fail, 0 if there is already a file at <b>endPath</b> or if there is no file at <b>startPath</b>, and 1 if the operation was successful.</p>
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<h2 class="header" id="static_int_moveFolder_const_SGXString_ref_const_SGXString_ref_">static int <a class="link" href="#static_int_moveFolder_const_SGXString_ref_const_SGXString_ref_">moveFolder</a>(const <a class="link" href="sgxstring">SGXString</a>& startPath, const <a class="link" href="sgxstring">SGXString</a>& endPath);</h2>
+<p class="description">Moves the folder at <b>startPath</b> to <b>endPath</b>. This returns -2 if a file system error caused the operation to fail, 0 if there is already a folder at <b>endPath</b> or if there is no folder at <b>startPath</b>, and 1 if the operation was successful.</p>
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<h2 class="header" id="static_bool_numberAwareLesserThan_const_SGXString_ref_const_SGXString_ref_">static bool <a class="link" href="#static_bool_numberAwareLesserThan_const_SGXString_ref_const_SGXString_ref_">numberAwareLesserThan</a>(const <a class="link" href="sgxstring">SGXString</a>& s1, const <a class="link" href="sgxstring">SGXString</a>& s2);</h2>
+<p class="description">Comparator used by <a class="link" href="../cppclass/sgxnumberawarefilepathlesserthan">SGXNumberAwareFilePathLesserThan</a> and <a class="link" href="../cppclass/sgxnumberawarefilepathmorethan">SGXNumberAwareFilePathMoreThan</a>, returns if a file with name <b>s1</b> should be displayed in front of a file with name <b>s2</b> when number aware lesser than sorting is used.</p>
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<h2 class="header" id="static_bool_numberAwareLesserThanBase16_const_SGXString_ref_const_SGXString_ref_">static bool <a class="link" href="#static_bool_numberAwareLesserThanBase16_const_SGXString_ref_const_SGXString_ref_">numberAwareLesserThanBase16</a>(const <a class="link" href="sgxstring">SGXString</a>& s1, const <a class="link" href="sgxstring">SGXString</a>& s2);</h2>
+<p class="description">Comparator used by <a class="link" href="../cppclass/sgxnumberawarefilepathlesserthanbase16">SGXNumberAwareFilePathLesserThanBase16</a> and <a class="link" href="../cppclass/sgxnumberawarefilepathmorethanbase16">SGXNumberAwareFilePathMoreThanBase16</a>, returns if a file with name <b>s1</b> should be displayed in front of a file with name <b>s2</b> when base16 number aware lesser than sorting is used.</p>
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<h2 class="header" id="static_bool_pathIsSubfolder_const_SGXString_ref_const_SGXString_ref_">static bool <a class="link" href="#static_bool_pathIsSubfolder_const_SGXString_ref_const_SGXString_ref_">pathIsSubfolder</a>(const <a class="link" href="sgxstring">SGXString</a>& childPath, const <a class="link" href="sgxstring">SGXString</a>& parentPath);</h2>
+<p class="description">Returns if <b>childPath</b> is a possibly recursive subfolder of <b>parentPath</b>.</p>
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<h2 class="header" id="static_int_permanentDeleteFile_const_SGXString_ref_">static int <a class="link" href="#static_int_permanentDeleteFile_const_SGXString_ref_">permanentDeleteFile</a>(const <a class="link" href="sgxstring">SGXString</a>& s);</h2>
+<p class="description">Permanently deletes the file at <b>s</b>. This returns -2 if a file system error caused the operation to fail, 0 if there is no file at <b>s</b>, and 1 if the operation was successful.</p>
+<p class="warning">This can cause irreversible loss of user data if used on user files. Use this only on application generated settings files. For deleting user files, use <a class="link" href="../cppclass/sgxfilebinutilities#static_int_deleteFile_const_SGXString_ref_">SGXFileBinUtilities::deleteFile</a> instead to allow recovery.</p>
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<h2 class="header" id="static_int_permanentDeleteFolder_const_SGXString_ref_">static int <a class="link" href="#static_int_permanentDeleteFolder_const_SGXString_ref_">permanentDeleteFolder</a>(const <a class="link" href="sgxstring">SGXString</a>& s);</h2>
+<p class="description">Permanently deletes the folder at <b>s</b>. This returns -2 if a file system error caused the operation to fail, 0 if there is no folder at <b>s</b>, and 1 if the operation was successful.</p>
+<p class="warning">This can cause irreversible loss of user data if used on user files. Use this only on application generated settings files. For deleting user files, use <a class="link" href="../cppclass/sgxfilebinutilities#static_int_deleteFolder_const_SGXString_ref_">SGXFileBinUtilities::deleteFolder</a> instead to allow recovery.</p>
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<p class="description"></p>
+
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<div style="width: 100%; height: 0.25rem; background-color: var(--c4);"></div>
+<div style="width: 100%; height: 0.25rem; background-color: var(--c8);"></div>
+<p class="description">©2025 05524F.sg (Singapore)</p>
+<p class="description"><a class="link" href="/contact">contact 05524F / report a bug / make a suggestion</a></p>
+<p class="description"><a class="link" href="/values">about 05524F SINGAPORE values</a></p>
+<p class="description"><a class="link" href="/projects">list of 05524F projects</a></p>
+<div style="width: 100%; height: 0.25rem; background-color: var(--c8);"></div>
+<div style="width: 100%; height: 0.25rem; background-color: var(--c4);"></div>
+<div style="width: 100%; height: 0.25rem; background-color: var(--c8);"></div>
+</body>
+</html>

@@ -3,7 +3,7 @@
 <html lang="en-SG">
 <head>
 <meta charset="UTF-8">
-<title>Contact 05524F</title>
+<title>Undefined Behaviour</title>
 <link rel="icon" href="/icon.png" type="image/png">
 <meta property="og:image" content="/icon.png">
 <meta name="twitter:image" content="/icon.png">
@@ -240,11 +240,19 @@ window.addEventListener("hashchange", highlightSection);
 <div style="width: 100%; height: 0.25rem; background-color: var(--c8);"></div>
 <div><button class="button" style="width: 100%;" onclick="location.href='/'">Project 05524F.sg</button></div>
 <div style="width: 100%; height: 0.25rem; background-color: var(--c8);"></div>
-<h1 class="title">Contact 05524F</h1>
+<div><button class="button" style="width: 100%;" onclick="location.href='../readme/readme'">SGEXTN Documentation</button></div><div style="width: 100%; height: 0.25rem; background-color: var(--c8);"></div><p class="warning">If you have not done so, read this full <a class="link" href="../tutorials/full">tutorial</a> on how to use SGEXTN to build an application.</p><div style="width: 100%; height: 0.75rem; background-color: var(--c8);"></div><h1 class="title">Undefined Behaviour</h1>
 <div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
-<p class="description">&#9;To contact 05524F, email to <a class="link" href="mailto:infinityintegral333@gmail.com">infinityintegral333@gmail.com</a> or message <a class="link" href="https://www.instagram.com/infinityintegral.sg/">@infinityintegral.sg</a> on Instagram. Messages sent by mutual Instagram followers (05524F's friends) via Instagram will have priority.</p>
-<p class="description">&#9;Almost all the time, your reason for contacting 05524F is either a complaint or a suggestion. A complaint refers to a request to fix a bug, inaccurate information, or unexpected behaviour in a 05524F product or its associated documentation. A suggestion is a request for 05524F to add a new feature to a existing product or to build a new product.</p>
-<p class="description">&#9;05524F is very likely to accept complaints but less likely to accept suggestions. Since all 05524F software is open source, you can build your own feature on top of 05524F software as long as you use the correct license (General Public License version 3 is always safe).</p>
+<p class="description">&#9;Undefined behaviour in SGEXTN refers to when you pass something nonsensical into a SGEXTN function and the function does not check if the thing passed is nonsensical. Typically, this triggers a C++ <a class="link" href="../tutorials/undefinedbehaviour">undefined behaviour</a>.</p>
+<p class="description">&#9;As the words "<a class="link" href="../tutorials/undefinedbehaviour">undefined behaviour</a>" suggest, there is no guarantee on the behaviour of <a class="link" href="../tutorials/undefinedbehaviour">undefined behaviour</a>. Maybe it will appear to work, maybe it will crash, maybe it will open a cmd window and print "Why so blur leh" 100000000 times. There is no guarantee on what it will do.</p>
+<p class="description">&#9;In practise, most of the time, <a class="link" href="../tutorials/undefinedbehaviour">undefined behaviour</a> crashes or appears to work. The compiler does not like doing crazy stuff such as scolding you in Singlish repeatedly.</p>
+<p class="description">&#9;To avoid <a class="link" href="../tutorials/undefinedbehaviour">undefined behaviour</a>, always run clang-tidy on your code. SGEXTN header files are already optimised for clang-tidy usage, so running clang-tidy will not take too long.</p>
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<p class="description">&#9;Here are some common causes of <a class="link" href="../tutorials/undefinedbehaviour">undefined behaviour</a></p>
+<p class="description">&#9;- nullptr dereference</p>
+<p class="description">&#9;- use after delete and double delete</p>
+<p class="description">&#9;- out of bounds access</p>
+<p class="description">&#9;- signed integer overflow</p>
+<p class="description">&#9;- incorrect deletion of C array (use <a class="link" href="../cppclass/sglarray">SGLArray</a> to avoid this)</p>
 <p class="description">&#9;</p>
 <p class="description"></p>
 

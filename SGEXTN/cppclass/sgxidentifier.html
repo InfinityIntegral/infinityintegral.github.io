@@ -1,0 +1,346 @@
+
+<!DOCTYPE html>
+<html lang="en-SG">
+<head>
+<meta charset="UTF-8">
+<title>SGXIdentifier Documentation</title>
+<link rel="icon" href="/icon.png" type="image/png">
+<meta property="og:image" content="/icon.png">
+<meta name="twitter:image" content="/icon.png">
+<link rel="apple-touch-icon" href="/icon.png">
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "url": "https://infinityintegral.github.io",
+    "image": "/icon.png"
+}
+</script>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+@font-face {
+	font-family: "SingScript.sg";
+	src: url("/SingScript.sg")format("truetype");
+	font-weight: normal;
+	font-style: normal;
+}
+
+:root {
+	--c0: rgb(0, 0, 0);
+	--c1: rgb(64, 0, 50);
+	--c2: rgb(128, 0, 100);
+	--c3: rgb(191, 0, 150);
+	--c4: rgb(255, 0, 200);
+	--c5: rgb(255, 64, 214);
+	--c6: rgb(255, 128, 227);
+	--c7: rgb(255, 191, 241);
+	--c8: rgb(255, 255, 255);
+}
+
+*{
+    font-family: "SingScript.sg";
+	max-width: 100%;
+	word-break: break-word;
+	-webkit-text-size-adjust: 100%;
+	-ms-text-size-adjust: 100%;
+}
+
+.title {
+	color: var(--c4);
+	font-size: 3.5rem;
+	margin: 0;
+	font-weight: normal;
+}
+.title::selection {
+	color: var(--c8);
+	background-color: var(--c4);
+	font-size: 3.5rem;
+	margin: 0;
+	font-weight: normal;
+}
+
+.header {
+	color: var(--c4);
+	font-size: 2.5rem;
+	margin: 0;
+	font-weight: normal;
+}
+.header::selection {
+	color: var(--c8);
+	background-color: var(--c4);
+	font-size: 2.625rem;
+	margin: 0;
+	font-weight: normal;
+}
+
+.description {
+	color: var(--c4);
+	font-size: 1.75rem;
+	margin: 0;
+	white-space: pre-wrap;
+}
+.description::selection {
+	color: var(--c8);
+	background-color: var(--c4);
+	font-size: 1.75rem;
+	margin: 0;
+	white-space: pre-wrap;
+}
+
+.note {
+	color: var(--c4);
+	font-size: 1.75rem;
+	margin: 0.25rem;
+	white-space: pre-wrap;
+    border: 0.25rem solid var(--c7);
+    padding: 0.25rem;
+}
+.note::selection {
+	color: var(--c8);
+	background-color: var(--c4);
+	font-size: 1.75rem;
+	margin: 0.25rem;
+	white-space: pre-wrap;
+    border: 0.25rem solid var(--c7);
+    padding: 0.25rem;
+}
+
+.warning {
+	color: var(--c4);
+	font-size: 1.75rem;
+	margin: 0.25rem;
+	white-space: pre-wrap;
+    border: 0.25rem solid var(--c4);
+    padding: 0.25rem;
+}
+.warning::selection {
+	color: var(--c8);
+	background-color: var(--c4);
+	font-size: 1.75rem;
+	margin: 0.25rem;
+	white-space: pre-wrap;
+    border: 0.25rem solid var(--c4);
+    padding: 0.25rem;
+}
+
+.link {
+	color: var(--c2);
+	text-decoration: underline;
+}
+.link:hover {
+	color: var(--c2);
+	background-color: var(--c7);
+	text-decoration: underline;
+}
+.link:active {
+	color: var(--c2);
+	background-color: var(--c6);
+	text-decoration: underline;
+}
+.link::selection {
+	color: var(--c8);
+	background-color: var(--c4);
+	text-decoration: underline;
+}
+
+.button {
+	color: var(--c8);
+	background-color: var(--c4);
+	font-size: 1.75rem;
+	border: none;
+}
+.button:hover {
+	color: var(--c7);
+	background-color: var(--c3);
+	font-size: 1.75rem;
+	border: none;
+}
+.button:active {
+	color: var(--c6);
+	background-color: var(--c2);
+	font-size: 1.75rem;
+	border: none;
+}
+.button::selection {
+	color: var(--c4);
+	background-color: var(--c8);
+	font-size: 1.75rem;
+	border: none;
+}
+
+.input {
+	color: var(--c8);
+	background-color: var(--c4);
+	font-size: 1.75rem;
+	border: none;
+	outline: none;
+	text-align: center;
+}
+.input:hover {
+	color: var(--c7);
+	background-color: var(--c3);
+	font-size: 1.75rem;
+	border: none;
+	outline: none;
+	text-align: center;
+}
+.input:focus {
+	color: var(--c6);
+	background-color: var(--c2);
+	font-size: 1.75rem;
+	border: none;
+	outline: none;
+	text-align: center;
+}
+.input::selection {
+	color: var(--c4);
+	background-color: var(--c8);
+	font-size: 1.75rem;
+	border: none;
+	outline: none;
+	text-align: center;
+}
+
+.highlight {
+    animation: highlightFlash 2s ease-out;
+}
+
+@keyframes highlightFlash {
+    0% {background-color: var(--c6);}
+    100% {background-color: var(--c8);}
+}
+</style>
+<script>
+let m = (new Date()).getMonth() + 1;
+if(m >= 7 && m <= 9){
+    document.documentElement.style.setProperty("--c0", "rgb(0, 0, 0)");
+    document.documentElement.style.setProperty("--c1", "rgb(60, 9, 14)");
+    document.documentElement.style.setProperty("--c2", "rgb(119, 19, 27)");
+    document.documentElement.style.setProperty("--c3", "rgb(179, 28, 41)");
+    document.documentElement.style.setProperty("--c4", "rgb(238, 37, 54)");
+    document.documentElement.style.setProperty("--c5", "rgb(242, 92, 104)");
+    document.documentElement.style.setProperty("--c6", "rgb(247, 146, 155)");
+    document.documentElement.style.setProperty("--c7", "rgb(251, 201, 205)");
+    document.documentElement.style.setProperty("--c8", "rgb(255, 255, 255)");
+}
+function highlightSection(){
+    let tag = window.location.hash.substring(1);
+    if(tag == ""){return;}
+    let element = document.getElementById(tag);
+    if(element == null){return;}
+    element.classList.add("highlight");
+    element.addEventListener("animationend", () => {element.classList.remove("highlight");}, {once: true});
+}
+window.addEventListener("DOMContentLoaded", highlightSection);
+window.addEventListener("hashchange", highlightSection);
+</script>
+</head>
+<body style="margin-left: 1em;">
+<p class="description" style="color: rgb(238, 37, 54); text-align: center; font-size: 2.5rem">sincerely <img src="/flag.png" style="vertical-align: middle; height: 2.5rem; image-rendering: auto;"> Singaporean</p>
+<div style="width: 100%; height: 0.25rem; background-color: var(--c8);"></div>
+<div><button class="button" style="width: 100%;" onclick="location.href='/'">Project 05524F.sg</button></div>
+<div style="width: 100%; height: 0.25rem; background-color: var(--c8);"></div>
+<div><button class="button" style="width: 100%;" onclick="location.href='../readme/readme'">SGEXTN Documentation</button></div><div style="width: 100%; height: 0.25rem; background-color: var(--c8);"></div><p class="warning">If you have not done so, read this full <a class="link" href="../tutorials/full">tutorial</a> on how to use SGEXTN to build an application.</p><div style="width: 100%; height: 0.75rem; background-color: var(--c8);"></div><h1 class="title">SGXIdentifier</h1>
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<p class="description"><a class="link" href="https://github.com/InfinityIntegral/SGEXTN/tree/main/SG_Core/include/SGXIdentifier.h">see header file</a></p>
+<p class="description"><a class="link" href="https://github.com/InfinityIntegral/SGEXTN/tree/main/SG_Core/src/SGXIdentifier.cpp">see source file</a></p>
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<p class="description">class SGXIdentifier;</p>
+<p class="description">part of SGEXTN module <a class="link" href="../modules/sg_core">SG_Core</a></p>
+<p class="description">pseudo-GUID identifier</p>
+<p class="description"><a class="link" href="#sg_detaileddescription">detailed description</a></p>
+<p class="description"><a class="link" href="../funclist/sgxidentifier">list of all including inherited members</a></p>
+<p class="description"><a class="link" href="#sg_implementationdetails">implementation details</a></p>
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<p class="description">preprocessor file inclusion directive: #include ‹SGXIdentifier.h›</p>
+<p class="description">CMake commands:</p>
+<p class="description">&#9;find_package(<a class="link" href="../readme/readme">SGEXTN</a> REQUIRED COMPONENTS <a class="link" href="../modules/sg_core">SG_Core</a>)</p>
+<p class="description">&#9;target_link_libraries(yourCMakeTarget PRIVATE <a class="link" href="../modules/sg_core">SGEXTN::SG_Core</a>)</p>
+<p class="description">parent class: (none)</p>
+<p class="description">children classes: (none)</p>
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<h2 class="header" id="">instance member functions</h2>
+<p class="description">&#9;<a class="link" href="#SGXIdentifier_const_SGXString_ref_bool_int_ptr_">SGXIdentifier</a>(const <a class="link" href="sgxstring">SGXString</a>& s, bool ifValid, int* errCode);</p>
+<p class="description">&#9;<a class="link" href="#SGXIdentifier_bool_">SGXIdentifier</a>(bool ifValid);</p>
+<p class="description">&#9;<a class="link" href="#SGXIdentifier_unsigned_int_unsigned_int_unsigned_int_unsigned_int_bool_int_ptr_">SGXIdentifier</a>(unsigned int a, unsigned int b, unsigned int c, unsigned int d, bool ifValid, int* errCode);</p>
+<p class="description">&#9;[[nodiscard]] bool <a class="link" href="#nodiscard_bool_exists_func_const_">exists</a>() const;</p>
+<p class="description">&#9;[[nodiscard]] <a class="link" href="sgxstring">SGXString</a> <a class="link" href="#nodiscard_SGXString_getStringForPrinting_func_const_">getStringForPrinting</a>() const;</p>
+<p class="description">&#9;[[nodiscard]] int <a class="link" href="#nodiscard_int_hash_func_const_">hash</a>() const;</p>
+<p class="description">&#9;[[nodiscard]] bool <a class="link" href="#nodiscard_bool_operator_neq_SGXIdentifier_const_">operator!=</a>(<a class="link" href="sgxidentifier">SGXIdentifier</a> x) const;</p>
+<p class="description">&#9;[[nodiscard]] bool <a class="link" href="#nodiscard_bool_operator_lt_SGXIdentifier_const_">operator‹</a>(<a class="link" href="sgxidentifier">SGXIdentifier</a> x) const;</p>
+<p class="description">&#9;[[nodiscard]] bool <a class="link" href="#nodiscard_bool_operator_eq_SGXIdentifier_const_">operator==</a>(<a class="link" href="sgxidentifier">SGXIdentifier</a> x) const;</p>
+<p class="description">&#9;[[nodiscard]] bool <a class="link" href="#nodiscard_bool_operator_gt_SGXIdentifier_const_">operator›</a>(<a class="link" href="sgxidentifier">SGXIdentifier</a> x) const;</p>
+<p class="description">&#9;[[nodiscard]] int <a class="link" href="#nodiscard_int_registerIdentifier_func_const_">registerIdentifier</a>() const;</p>
+<p class="description">&#9;[[nodiscard]] int <a class="link" href="#nodiscard_int_unregisterIdentifier_func_const_">unregisterIdentifier</a>() const;</p>
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<h2 class="header" id="">static member variables</h2>
+<p class="description">&#9;static const <a class="link" href="sgxidentifier">SGXIdentifier</a> <a class="link" href="#static_const_SGXIdentifier_nullIdentifier_">nullIdentifier</a>;</p>
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<h2 class="header" id="sg_detaileddescription">Detailed Description</h2>
+<p class="description"><a class="link" href="../cppclass/sgxidentifier">SGXIdentifier</a> looks like a GUID and can function like a GUID in most scenarios. However, it technically is not a GUID because it does not comply with any GUID standard, and SGEXTN does not guarantee non collision when <a class="link" href="../cppclass/sgxidentifier">SGXIdentifier</a> from different databases are merged. <a class="link" href="../cppclass/sgxidentifier">SGXIdentifier</a> provides an internal registration system to make accidental collision impossible.</p>
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<h2 class="header" id="sg_implementationdetails">Implementation Details</h2>
+<p class="description">a sequence of 4 unsigned ints, randomly generated or read from file on initialisation.</p>
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<h2 class="header" id="SGXIdentifier_const_SGXString_ref_bool_int_ptr_"><a class="link" href="#SGXIdentifier_const_SGXString_ref_bool_int_ptr_">SGXIdentifier</a>(const <a class="link" href="sgxstring">SGXString</a>& s, bool ifValid, int* errCode);</h2>
+<p class="description">Generates a <a class="link" href="../cppclass/sgxidentifier">SGXIdentifier</a> from the string representation <b>s</b>, this can be used for generating <a class="link" href="../cppclass/sgxidentifier">SGXIdentifier</a> objects consistently from a set of data. If <b>ifValid</b> is true, it is checked if the <a class="link" href="../cppclass/sgxidentifier">SGXIdentifier</a> is already registered. In that case, if the constructed <a class="link" href="../cppclass/sgxidentifier">SGXIdentifier</a> is the null identifier, the int pointed to by <b>errCode</b> is set to 2. If the constructed <a class="link" href="../cppclass/sgxidentifier">SGXIdentifier</a> overlaps with an existing registered <a class="link" href="../cppclass/sgxidentifier">SGXIdentifier</a>, the int pointed to by <b>errCode</b> is set to 1. Otherwise the int pointed to by <b>errCode</b> is set to 0. Pass <b>errCode</b> as nullptr if you do not need existence checking.</p>
+<p class="note">Setting <b>ifValid</b> to true does not register the generated <a class="link" href="../cppclass/sgxidentifier">SGXIdentifier</a>, it has to be registered using <a class="link" href="../cppclass/sgxidentifier#nodiscard_int_registerIdentifier_func_const_">SGXIdentifier::registerIdentifier</a> separately.</p>
+<p class="warning">This only works if <b>s</b> was generated using <a class="link" href="../cppclass/sgxidentifier#nodiscard_SGXString_getStringForPrinting_func_const_">SGXIdentifier::getStringForPrinting</a>. If <b>s</b> does not represent a valid <a class="link" href="../cppclass/sgxidentifier">SGXIdentifier</a> in the defined format, a null identifier is constructed.</p>
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<h2 class="header" id="SGXIdentifier_bool_"><a class="link" href="#SGXIdentifier_bool_">SGXIdentifier</a>(bool ifValid);</h2>
+<p class="description">Generates a new random <a class="link" href="../cppclass/sgxidentifier">SGXIdentifier</a>. If <b>ifValid</b> is true, it is guaranteed that the generated <a class="link" href="../cppclass/sgxidentifier">SGXIdentifier</a> does not collide with any existing registered <a class="link" href="../cppclass/sgxidentifier">SGXIdentifier</a>.</p>
+<p class="note">Setting <b>ifValid</b> to true does not register the generated <a class="link" href="../cppclass/sgxidentifier">SGXIdentifier</a>, it has to be registered using <a class="link" href="../cppclass/sgxidentifier#nodiscard_int_registerIdentifier_func_const_">SGXIdentifier::registerIdentifier</a> separately.</p>
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<h2 class="header" id="SGXIdentifier_unsigned_int_unsigned_int_unsigned_int_unsigned_int_bool_int_ptr_"><a class="link" href="#SGXIdentifier_unsigned_int_unsigned_int_unsigned_int_unsigned_int_bool_int_ptr_">SGXIdentifier</a>(unsigned int a, unsigned int b, unsigned int c, unsigned int d, bool ifValid, int* errCode);</h2>
+<p class="description">Generates a <a class="link" href="../cppclass/sgxidentifier">SGXIdentifier</a> storing information from <b>a</b>, <b>b</b>, <b>c</b>, <b>d</b>, this can be used for generating <a class="link" href="../cppclass/sgxidentifier">SGXIdentifier</a> objects consistently from a set of data. If <b>ifValid</b> is true, it is checked if the <a class="link" href="../cppclass/sgxidentifier">SGXIdentifier</a> is already registered. In that case, if the constructed <a class="link" href="../cppclass/sgxidentifier">SGXIdentifier</a> is the null identifier, the int pointed to by <b>errCode</b> is set to 2. If the constructed <a class="link" href="../cppclass/sgxidentifier">SGXIdentifier</a> overlaps with an existing registered <a class="link" href="../cppclass/sgxidentifier">SGXIdentifier</a>, the int pointed to by <b>errCode</b> is set to 1. Otherwise the int pointed to by <b>errCode</b> is set to 0. Pass <b>errCode</b> as nullptr if you do not need existence checking.</p>
+<p class="note">Setting <b>ifValid</b> to true does not register the generated <a class="link" href="../cppclass/sgxidentifier">SGXIdentifier</a>, it has to be registered using <a class="link" href="../cppclass/sgxidentifier#nodiscard_int_registerIdentifier_func_const_">SGXIdentifier::registerIdentifier</a> separately.</p>
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<h2 class="header" id="nodiscard_bool_exists_func_const_">[[nodiscard]] bool <a class="link" href="#nodiscard_bool_exists_func_const_">exists</a>() const;</h2>
+<p class="description">Returns if the <a class="link" href="../cppclass/sgxidentifier">SGXIdentifier</a> has already been registered.</p>
+<p class="note">There is no need to use <a class="link" href="../cppclass/sgxidentifier#nodiscard_bool_exists_func_const_">SGXIdentifier::exists</a> before <a class="link" href="../cppclass/sgxidentifier#nodiscard_int_registerIdentifier_func_const_">SGXIdentifier::registerIdentifier</a> or <a class="link" href="../cppclass/sgxidentifier#nodiscard_int_unregisterIdentifier_func_const_">SGXIdentifier::unregisterIdentifier</a> as the check is done internally.</p>
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<h2 class="header" id="nodiscard_SGXString_getStringForPrinting_func_const_">[[nodiscard]] <a class="link" href="sgxstring">SGXString</a> <a class="link" href="#nodiscard_SGXString_getStringForPrinting_func_const_">getStringForPrinting</a>() const;</h2>
+<p class="description">Converts the <a class="link" href="../cppclass/sgxidentifier">SGXIdentifier</a> to text.</p>
+<p class="note">This can be used for file names</p>
+<p class="note">This is not really human readable. Do not make the user read <a class="link" href="../cppclass/sgxidentifier">SGXIdentifier</a> values, instead get them to name whatever their data is.</p>
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<h2 class="header" id="nodiscard_int_hash_func_const_">[[nodiscard]] int <a class="link" href="#nodiscard_int_hash_func_const_">hash</a>() const;</h2>
+<p class="description">Hash function defined for <a class="link" href="../cppclass/sglhash">SGLHash</a>.</p>
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<h2 class="header" id="nodiscard_bool_operator_neq_SGXIdentifier_const_">[[nodiscard]] bool <a class="link" href="#nodiscard_bool_operator_neq_SGXIdentifier_const_">operator!=</a>(<a class="link" href="sgxidentifier">SGXIdentifier</a> x) const;</h2>
+<p class="description">Returns if this <a class="link" href="../cppclass/sgxidentifier">SGXIdentifier</a> is not the same as <b>x</b>.</p>
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<h2 class="header" id="nodiscard_bool_operator_lt_SGXIdentifier_const_">[[nodiscard]] bool <a class="link" href="#nodiscard_bool_operator_lt_SGXIdentifier_const_">operator‹</a>(<a class="link" href="sgxidentifier">SGXIdentifier</a> x) const;</h2>
+<p class="description">Lesser than operator with <b>x</b> defined for <a class="link" href="../cppclass/sgllesserthan">SGLLesserThan</a> and <a class="link" href="../cppclass/sglmorethan">SGLMoreThan</a>.</p>
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<h2 class="header" id="nodiscard_bool_operator_eq_SGXIdentifier_const_">[[nodiscard]] bool <a class="link" href="#nodiscard_bool_operator_eq_SGXIdentifier_const_">operator==</a>(<a class="link" href="sgxidentifier">SGXIdentifier</a> x) const;</h2>
+<p class="description">Returns if this <a class="link" href="../cppclass/sgxidentifier">SGXIdentifier</a> is the same as <b>x</b>.</p>
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<h2 class="header" id="nodiscard_bool_operator_gt_SGXIdentifier_const_">[[nodiscard]] bool <a class="link" href="#nodiscard_bool_operator_gt_SGXIdentifier_const_">operator›</a>(<a class="link" href="sgxidentifier">SGXIdentifier</a> x) const;</h2>
+<p class="description">More than operator with <b>x</b> defined for <a class="link" href="../cppclass/sgllesserthan">SGLLesserThan</a> and <a class="link" href="../cppclass/sglmorethan">SGLMoreThan</a>.</p>
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<h2 class="header" id="nodiscard_int_registerIdentifier_func_const_">[[nodiscard]] int <a class="link" href="#nodiscard_int_registerIdentifier_func_const_">registerIdentifier</a>() const;</h2>
+<p class="description">Registers this <a class="link" href="../cppclass/sgxidentifier">SGXIdentifier</a>. The function returns 1 if the <a class="link" href="../cppclass/sgxidentifier">SGXIdentifier</a> is already registered and 0 otherwise.</p>
+<p class="note">Attempting to register a <a class="link" href="../cppclass/sgxidentifier">SGXIdentifier</a> that is already registered does NOT cause a crash or <a class="link" href="../tutorials/undefinedbehaviour">undefined behaviour</a>, it just gives a return value of 1.</p>
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<h2 class="header" id="nodiscard_int_unregisterIdentifier_func_const_">[[nodiscard]] int <a class="link" href="#nodiscard_int_unregisterIdentifier_func_const_">unregisterIdentifier</a>() const;</h2>
+<p class="description">Unregisters this <a class="link" href="../cppclass/sgxidentifier">SGXIdentifier</a>. The function returns 1 if the <a class="link" href="../cppclass/sgxidentifier">SGXIdentifier</a> was never registered and 0 otherwise.</p>
+<p class="note">Attempting to deregister a <a class="link" href="../cppclass/sgxidentifier">SGXIdentifier</a> that has never been registered does NOT cause a crash or <a class="link" href="../tutorials/undefinedbehaviour">undefined behaviour</a>, it just gives a return value of 1.</p>
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<h2 class="header" id="static_const_SGXIdentifier_nullIdentifier_">static const <a class="link" href="sgxidentifier">SGXIdentifier</a> <a class="link" href="#static_const_SGXIdentifier_nullIdentifier_">nullIdentifier</a>;</h2>
+<p class="description">Null identifier, or <a class="link" href="../cppclass/sgxidentifier">SGXIdentifier</a> with all bits at zero.</p>
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<p class="description"></p>
+
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<div style="width: 100%; height: 0.25rem; background-color: var(--c4);"></div>
+<div style="width: 100%; height: 0.25rem; background-color: var(--c8);"></div>
+<p class="description">©2025 05524F.sg (Singapore)</p>
+<p class="description"><a class="link" href="/contact">contact 05524F / report a bug / make a suggestion</a></p>
+<p class="description"><a class="link" href="/values">about 05524F SINGAPORE values</a></p>
+<p class="description"><a class="link" href="/projects">list of 05524F projects</a></p>
+<div style="width: 100%; height: 0.25rem; background-color: var(--c8);"></div>
+<div style="width: 100%; height: 0.25rem; background-color: var(--c4);"></div>
+<div style="width: 100%; height: 0.25rem; background-color: var(--c8);"></div>
+</body>
+</html>

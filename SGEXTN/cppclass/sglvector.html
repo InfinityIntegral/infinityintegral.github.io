@@ -1,0 +1,363 @@
+
+<!DOCTYPE html>
+<html lang="en-SG">
+<head>
+<meta charset="UTF-8">
+<title>SGLVector Documentation</title>
+<link rel="icon" href="/icon.png" type="image/png">
+<meta property="og:image" content="/icon.png">
+<meta name="twitter:image" content="/icon.png">
+<link rel="apple-touch-icon" href="/icon.png">
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "url": "https://infinityintegral.github.io",
+    "image": "/icon.png"
+}
+</script>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+@font-face {
+	font-family: "SingScript.sg";
+	src: url("/SingScript.sg")format("truetype");
+	font-weight: normal;
+	font-style: normal;
+}
+
+:root {
+	--c0: rgb(0, 0, 0);
+	--c1: rgb(64, 0, 50);
+	--c2: rgb(128, 0, 100);
+	--c3: rgb(191, 0, 150);
+	--c4: rgb(255, 0, 200);
+	--c5: rgb(255, 64, 214);
+	--c6: rgb(255, 128, 227);
+	--c7: rgb(255, 191, 241);
+	--c8: rgb(255, 255, 255);
+}
+
+*{
+    font-family: "SingScript.sg";
+	max-width: 100%;
+	word-break: break-word;
+	-webkit-text-size-adjust: 100%;
+	-ms-text-size-adjust: 100%;
+}
+
+.title {
+	color: var(--c4);
+	font-size: 3.5rem;
+	margin: 0;
+	font-weight: normal;
+}
+.title::selection {
+	color: var(--c8);
+	background-color: var(--c4);
+	font-size: 3.5rem;
+	margin: 0;
+	font-weight: normal;
+}
+
+.header {
+	color: var(--c4);
+	font-size: 2.5rem;
+	margin: 0;
+	font-weight: normal;
+}
+.header::selection {
+	color: var(--c8);
+	background-color: var(--c4);
+	font-size: 2.625rem;
+	margin: 0;
+	font-weight: normal;
+}
+
+.description {
+	color: var(--c4);
+	font-size: 1.75rem;
+	margin: 0;
+	white-space: pre-wrap;
+}
+.description::selection {
+	color: var(--c8);
+	background-color: var(--c4);
+	font-size: 1.75rem;
+	margin: 0;
+	white-space: pre-wrap;
+}
+
+.note {
+	color: var(--c4);
+	font-size: 1.75rem;
+	margin: 0.25rem;
+	white-space: pre-wrap;
+    border: 0.25rem solid var(--c7);
+    padding: 0.25rem;
+}
+.note::selection {
+	color: var(--c8);
+	background-color: var(--c4);
+	font-size: 1.75rem;
+	margin: 0.25rem;
+	white-space: pre-wrap;
+    border: 0.25rem solid var(--c7);
+    padding: 0.25rem;
+}
+
+.warning {
+	color: var(--c4);
+	font-size: 1.75rem;
+	margin: 0.25rem;
+	white-space: pre-wrap;
+    border: 0.25rem solid var(--c4);
+    padding: 0.25rem;
+}
+.warning::selection {
+	color: var(--c8);
+	background-color: var(--c4);
+	font-size: 1.75rem;
+	margin: 0.25rem;
+	white-space: pre-wrap;
+    border: 0.25rem solid var(--c4);
+    padding: 0.25rem;
+}
+
+.link {
+	color: var(--c2);
+	text-decoration: underline;
+}
+.link:hover {
+	color: var(--c2);
+	background-color: var(--c7);
+	text-decoration: underline;
+}
+.link:active {
+	color: var(--c2);
+	background-color: var(--c6);
+	text-decoration: underline;
+}
+.link::selection {
+	color: var(--c8);
+	background-color: var(--c4);
+	text-decoration: underline;
+}
+
+.button {
+	color: var(--c8);
+	background-color: var(--c4);
+	font-size: 1.75rem;
+	border: none;
+}
+.button:hover {
+	color: var(--c7);
+	background-color: var(--c3);
+	font-size: 1.75rem;
+	border: none;
+}
+.button:active {
+	color: var(--c6);
+	background-color: var(--c2);
+	font-size: 1.75rem;
+	border: none;
+}
+.button::selection {
+	color: var(--c4);
+	background-color: var(--c8);
+	font-size: 1.75rem;
+	border: none;
+}
+
+.input {
+	color: var(--c8);
+	background-color: var(--c4);
+	font-size: 1.75rem;
+	border: none;
+	outline: none;
+	text-align: center;
+}
+.input:hover {
+	color: var(--c7);
+	background-color: var(--c3);
+	font-size: 1.75rem;
+	border: none;
+	outline: none;
+	text-align: center;
+}
+.input:focus {
+	color: var(--c6);
+	background-color: var(--c2);
+	font-size: 1.75rem;
+	border: none;
+	outline: none;
+	text-align: center;
+}
+.input::selection {
+	color: var(--c4);
+	background-color: var(--c8);
+	font-size: 1.75rem;
+	border: none;
+	outline: none;
+	text-align: center;
+}
+
+.highlight {
+    animation: highlightFlash 2s ease-out;
+}
+
+@keyframes highlightFlash {
+    0% {background-color: var(--c6);}
+    100% {background-color: var(--c8);}
+}
+</style>
+<script>
+let m = (new Date()).getMonth() + 1;
+if(m >= 7 && m <= 9){
+    document.documentElement.style.setProperty("--c0", "rgb(0, 0, 0)");
+    document.documentElement.style.setProperty("--c1", "rgb(60, 9, 14)");
+    document.documentElement.style.setProperty("--c2", "rgb(119, 19, 27)");
+    document.documentElement.style.setProperty("--c3", "rgb(179, 28, 41)");
+    document.documentElement.style.setProperty("--c4", "rgb(238, 37, 54)");
+    document.documentElement.style.setProperty("--c5", "rgb(242, 92, 104)");
+    document.documentElement.style.setProperty("--c6", "rgb(247, 146, 155)");
+    document.documentElement.style.setProperty("--c7", "rgb(251, 201, 205)");
+    document.documentElement.style.setProperty("--c8", "rgb(255, 255, 255)");
+}
+function highlightSection(){
+    let tag = window.location.hash.substring(1);
+    if(tag == ""){return;}
+    let element = document.getElementById(tag);
+    if(element == null){return;}
+    element.classList.add("highlight");
+    element.addEventListener("animationend", () => {element.classList.remove("highlight");}, {once: true});
+}
+window.addEventListener("DOMContentLoaded", highlightSection);
+window.addEventListener("hashchange", highlightSection);
+</script>
+</head>
+<body style="margin-left: 1em;">
+<p class="description" style="color: rgb(238, 37, 54); text-align: center; font-size: 2.5rem">sincerely <img src="/flag.png" style="vertical-align: middle; height: 2.5rem; image-rendering: auto;"> Singaporean</p>
+<div style="width: 100%; height: 0.25rem; background-color: var(--c8);"></div>
+<div><button class="button" style="width: 100%;" onclick="location.href='/'">Project 05524F.sg</button></div>
+<div style="width: 100%; height: 0.25rem; background-color: var(--c8);"></div>
+<div><button class="button" style="width: 100%;" onclick="location.href='../readme/readme'">SGEXTN Documentation</button></div><div style="width: 100%; height: 0.25rem; background-color: var(--c8);"></div><p class="warning">If you have not done so, read this full <a class="link" href="../tutorials/full">tutorial</a> on how to use SGEXTN to build an application.</p><div style="width: 100%; height: 0.75rem; background-color: var(--c8);"></div><h1 class="title">SGLVector</h1>
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<p class="description"><a class="link" href="https://github.com/InfinityIntegral/SGEXTN/tree/main/SG_Containers/include/SGLVector.h">see header file</a></p>
+<p class="description">(no source file, everything inside header)</p>
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<p class="description">template ‹typename T› class SGLVector;</p>
+<p class="description">part of SGEXTN module <a class="link" href="../modules/sg_containers">SG_Containers</a></p>
+<p class="description">resizable array for any type of data</p>
+<p class="description"><a class="link" href="#sg_detaileddescription">detailed description</a></p>
+<p class="description"><a class="link" href="../funclist/sglvector">list of all including inherited members</a></p>
+<p class="description"><a class="link" href="#sg_implementationdetails">implementation details</a></p>
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<p class="description">preprocessor file inclusion directive: #include ‹SGLVector.h›</p>
+<p class="description">CMake commands:</p>
+<p class="description">&#9;find_package(<a class="link" href="../readme/readme">SGEXTN</a> REQUIRED COMPONENTS <a class="link" href="../modules/sg_containers">SG_Containers</a>)</p>
+<p class="description">&#9;target_link_libraries(yourCMakeTarget PRIVATE <a class="link" href="../modules/sg_containers">SGEXTN::SG_Containers</a>)</p>
+<p class="description">parent class: (none)</p>
+<p class="description">children classes: (none)</p>
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<h2 class="header" id="">instance member functions</h2>
+<p class="description">&#9;<a class="link" href="#SGLVector_int_const_T_ref_">SGLVector</a>(int count, const T& defaultValue);</p>
+<p class="description">&#9;<a class="link" href="#SGLVector_int_">SGLVector</a>(int count);</p>
+<p class="description">&#9;<a class="link" href="#SGLVector_func_">SGLVector</a>();</p>
+<p class="description">&#9;void <a class="link" href="#void_assign_int_const_T_ref_">assign</a>(int count, const T& defaultValue);</p>
+<p class="description">&#9;[[nodiscard]] const T& <a class="link" href="#nodiscard_const_T_ref_at_int_const_">at</a>(int i) const;</p>
+<p class="description">&#9;[[nodiscard]] T& <a class="link" href="#nodiscard_T_ref_at_int_">at</a>(int i);</p>
+<p class="description">&#9;[[nodiscard]] const T& <a class="link" href="#nodiscard_const_T_ref_back_func_const_">back</a>() const;</p>
+<p class="description">&#9;void <a class="link" href="#void_fill_const_T_ref_">fill</a>(const T& defaultValue);</p>
+<p class="description">&#9;[[nodiscard]] int <a class="link" href="#nodiscard_int_length_func_const_">length</a>() const;</p>
+<p class="description">&#9;[[nodiscard]] const T* <a class="link" href="#nodiscard_const_T_ptr_pointerToData_int_const_">pointerToData</a>(int n) const;</p>
+<p class="description">&#9;[[nodiscard]] T* <a class="link" href="#nodiscard_T_ptr_pointerToData_int_">pointerToData</a>(int n);</p>
+<p class="description">&#9;void <a class="link" href="#void_popBack_func_">popBack</a>();</p>
+<p class="description">&#9;void <a class="link" href="#void_pushBack_const_T_ref_">pushBack</a>(const T& x);</p>
+<p class="description">&#9;void <a class="link" href="#void_reserve_int_">reserve</a>(int newMemoryLength);</p>
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<h2 class="header" id="sg_detaileddescription">Detailed Description</h2>
+<p class="description"><a class="link" href="../cppclass/sglvector">SGLVector</a> provides a template based vector (resizable array) that works with any data type. This is a template based class with no separate source file. This class is a SGEXTN container. Copy constructor, copy assignment, move constructor, move assignment, and destructor work as expected. A deep copy is performed whenever this class is copied, and the new instance will not be linked to the old instance in any way. It is assumed that the contents placed into this SGEXTN container can be copied and moved. This means that their copy constructor copy assignment, move constructor, move assignment, and destructor work as expected. If this is not the case or if you want the container to store references or constant references, store pointers instead.</p>
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<h2 class="header" id="sg_implementationdetails">Implementation Details</h2>
+<p class="description"><a class="link" href="../cppclass/sgldeque">SGLDeque</a> internally stores a buffer in the form of a C array. When the buffer is full and more elements need to be appended, the buffer doubles in size.</p>
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<h2 class="header" id="SGLVector_int_const_T_ref_"><a class="link" href="#SGLVector_int_const_T_ref_">SGLVector</a>(int count, const T& defaultValue);</h2>
+<p class="description">Creates a <a class="link" href="../cppclass/sglvector">SGLVector</a> of size <b>count</b> with every element set to <b>defaultValue</b>.</p>
+<p class="warning">Negative <b>count</b> is <a class="link" href="../tutorials/undefinedbehaviour">undefined behaviour</a>.</p>
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<h2 class="header" id="SGLVector_int_"><a class="link" href="#SGLVector_int_">SGLVector</a>(int count);</h2>
+<p class="description">Creates a <a class="link" href="../cppclass/sglvector">SGLVector</a> of size <b>count</b> with every element default initialised.</p>
+<p class="warning">This will not compile if the data in the <a class="link" href="../cppclass/sglvector">SGLVector</a> do not have a default constructor (the one taking no arguments).</p>
+<p class="warning">Negative <b>count</b> is <a class="link" href="../tutorials/undefinedbehaviour">undefined behaviour</a>.</p>
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<h2 class="header" id="SGLVector_func_"><a class="link" href="#SGLVector_func_">SGLVector</a>();</h2>
+<p class="description">Creates an empty <a class="link" href="../cppclass/sglvector">SGLVector</a>.</p>
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<h2 class="header" id="void_assign_int_const_T_ref_">void <a class="link" href="#void_assign_int_const_T_ref_">assign</a>(int count, const T& defaultValue);</h2>
+<p class="description">Assigns a <a class="link" href="../cppclass/sglvector">SGLVector</a>(<b>count</b>, <b>defaultValue</b>) to this <a class="link" href="../cppclass/sglvector">SGLVector</a>.</p>
+<p class="note">v.assign(<b>count</b>, <b>defaultValue</b>); is identical in functionality to v = <a class="link" href="../cppclass/sglvector">SGLVector</a>‹T›(<b>count</b>, <b>defaultValue</b>); Choosing one over the other is purely coding style.</p>
+<p class="warning">Negative <b>count</b> is <a class="link" href="../tutorials/undefinedbehaviour">undefined behaviour</a>.</p>
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<h2 class="header" id="nodiscard_const_T_ref_at_int_const_">[[nodiscard]] const T& <a class="link" href="#nodiscard_const_T_ref_at_int_const_">at</a>(int i) const;</h2>
+<p class="description">Returns a constant reference to element <b>i</b> of the <a class="link" href="../cppclass/sglvector">SGLVector</a>.</p>
+<p class="warning">This crashes for out of bounds <b>i</b>.</p>
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<h2 class="header" id="nodiscard_T_ref_at_int_">[[nodiscard]] T& <a class="link" href="#nodiscard_T_ref_at_int_">at</a>(int i);</h2>
+<p class="description">Returns a reference to element <b>i</b> of the <a class="link" href="../cppclass/sglvector">SGLVector</a>.</p>
+<p class="note">Since this returns a reference and not a copy, assigning to it directly (using it as a lvalue) would modify the <a class="link" href="../cppclass/sglvector">SGLVector</a>.</p>
+<p class="warning">This crashes for out of bounds <b>i</b>.</p>
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<h2 class="header" id="nodiscard_const_T_ref_back_func_const_">[[nodiscard]] const T& <a class="link" href="#nodiscard_const_T_ref_back_func_const_">back</a>() const;</h2>
+<p class="description">Returns a constant reference to the last element of the <a class="link" href="../cppclass/sglvector">SGLVector</a>.</p>
+<p class="note">v.back() has the same effect as v.at(v.length() - 1)</p>
+<p class="note">Use <a class="link" href="../cppclass/sglvector#nodiscard_const_T_ref_at_int_const_">SGLVector::at</a><a class="link" href="../cppclass/sglvector#nodiscard_T_ref_at_int_">SGLVector::at</a> if the element needs to be modified.</p>
+<p class="warning">This crashes if the <a class="link" href="../cppclass/sglvector">SGLVector</a> is empty.</p>
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<h2 class="header" id="void_fill_const_T_ref_">void <a class="link" href="#void_fill_const_T_ref_">fill</a>(const T& defaultValue);</h2>
+<p class="description">Sets every element in the existing <a class="link" href="../cppclass/sglvector">SGLVector</a> to <b>defaultValue</b> without resizing the <a class="link" href="../cppclass/sglvector">SGLVector</a>.</p>
+<p class="note">If the <a class="link" href="../cppclass/sglvector">SGLVector</a> may need to be resized, use <a class="link" href="../cppclass/sglvector#void_assign_int_const_T_ref_">SGLVector::assign</a> instead.</p>
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<h2 class="header" id="nodiscard_int_length_func_const_">[[nodiscard]] int <a class="link" href="#nodiscard_int_length_func_const_">length</a>() const;</h2>
+<p class="description">Returns the length of the <a class="link" href="../cppclass/sglvector">SGLVector</a>, which is the number of elements currently stored in it.</p>
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<h2 class="header" id="nodiscard_const_T_ptr_pointerToData_int_const_">[[nodiscard]] const T* <a class="link" href="#nodiscard_const_T_ptr_pointerToData_int_const_">pointerToData</a>(int n) const;</h2>
+<p class="description">Returns a read only pointer to element <b>n</b> of the <a class="link" href="../cppclass/sglvector">SGLVector</a>. This does not dereference the returned pointer.</p>
+<p class="note">Using an out of bounds value for <b>n</b> is ok for this function as long as the returned pointer is not dereferenced. Out of bounds values for <b>n</b> may be used intentionally to specify parts of the <a class="link" href="../cppclass/sglvector">SGLVector</a> to run <a class="link" href="../cppclass/sglsort">SGLSort</a> on.</p>
+<p class="note">The returned value may function as an iterator.</p>
+<p class="warning">Dereferencing the returned pointer when <b>n</b> is out of bounds results in <a class="link" href="../tutorials/undefinedbehaviour">undefined behaviour</a>.</p>
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<h2 class="header" id="nodiscard_T_ptr_pointerToData_int_">[[nodiscard]] T* <a class="link" href="#nodiscard_T_ptr_pointerToData_int_">pointerToData</a>(int n);</h2>
+<p class="description">Returns a pointer to element <b>n</b> of the <a class="link" href="../cppclass/sglvector">SGLVector</a>. This does not dereference the returned pointer.</p>
+<p class="note">Using an out of bounds value for <b>n</b> is ok for this function as long as the returned pointer is not dereferenced. Out of bounds values for <b>n</b> may be used intentionally to specify parts of the <a class="link" href="../cppclass/sglvector">SGLVector</a> to run <a class="link" href="../cppclass/sglsort">SGLSort</a> on.</p>
+<p class="note">The returned value may function as an iterator.</p>
+<p class="note">Assigning to the dereferenced value from the returned pointer would modify the <a class="link" href="../cppclass/sglarray">SGLArray</a></p>
+<p class="warning">Dereferencing the returned pointer when <b>n</b> is out of bounds results in <a class="link" href="../tutorials/undefinedbehaviour">undefined behaviour</a>.</p>
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<h2 class="header" id="void_popBack_func_">void <a class="link" href="#void_popBack_func_">popBack</a>();</h2>
+<p class="description">Removes the last element of the <a class="link" href="../cppclass/sglvector">SGLVector</a>.</p>
+<p class="note">This does not return the removed element. Use <a class="link" href="../cppclass/sglvector#nodiscard_const_T_ref_back_func_const_">SGLVector::back</a> before removal to access the element.</p>
+<p class="note">This runs at true constant time complexity.</p>
+<p class="warning">Removing from empty <a class="link" href="../cppclass/sglvector">SGLVector</a> is <a class="link" href="../tutorials/undefinedbehaviour">undefined behaviour</a>.</p>
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<h2 class="header" id="void_pushBack_const_T_ref_">void <a class="link" href="#void_pushBack_const_T_ref_">pushBack</a>(const T& x);</h2>
+<p class="description">Appends <b>x</b> to the <a class="link" href="../cppclass/sglvector">SGLVector</a>.</p>
+<p class="note">This runs at amortised constant time complexity. To make it truly constant time, pre allocate the memory needed using <a class="link" href="../cppclass/sglvector#void_reserve_int_">SGLVector::reserve</a>.</p>
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<h2 class="header" id="void_reserve_int_">void <a class="link" href="#void_reserve_int_">reserve</a>(int newMemoryLength);</h2>
+<p class="description">Pre allocates enough memory in the buffer to store <b>newMemoryLength</b> elements in the <a class="link" href="../cppclass/sglvector">SGLVector</a>.</p>
+<p class="note">If there is already sufficient memory to store <b>newMemoryLength</b> elements, this is ignored.</p>
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<p class="description"></p>
+
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<div style="width: 100%; height: 0.25rem; background-color: var(--c4);"></div>
+<div style="width: 100%; height: 0.25rem; background-color: var(--c8);"></div>
+<p class="description">©2025 05524F.sg (Singapore)</p>
+<p class="description"><a class="link" href="/contact">contact 05524F / report a bug / make a suggestion</a></p>
+<p class="description"><a class="link" href="/values">about 05524F SINGAPORE values</a></p>
+<p class="description"><a class="link" href="/projects">list of 05524F projects</a></p>
+<div style="width: 100%; height: 0.25rem; background-color: var(--c8);"></div>
+<div style="width: 100%; height: 0.25rem; background-color: var(--c4);"></div>
+<div style="width: 100%; height: 0.25rem; background-color: var(--c8);"></div>
+</body>
+</html>

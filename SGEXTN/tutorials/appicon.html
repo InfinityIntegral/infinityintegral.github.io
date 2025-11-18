@@ -3,7 +3,7 @@
 <html lang="en-SG">
 <head>
 <meta charset="UTF-8">
-<title>Contact 05524F</title>
+<title>Application Icons Tutorial</title>
 <link rel="icon" href="/icon.png" type="image/png">
 <meta property="og:image" content="/icon.png">
 <meta name="twitter:image" content="/icon.png">
@@ -240,11 +240,15 @@ window.addEventListener("hashchange", highlightSection);
 <div style="width: 100%; height: 0.25rem; background-color: var(--c8);"></div>
 <div><button class="button" style="width: 100%;" onclick="location.href='/'">Project 05524F.sg</button></div>
 <div style="width: 100%; height: 0.25rem; background-color: var(--c8);"></div>
-<h1 class="title">Contact 05524F</h1>
+<div><button class="button" style="width: 100%;" onclick="location.href='../readme/readme'">SGEXTN Documentation</button></div><div style="width: 100%; height: 0.25rem; background-color: var(--c8);"></div><p class="warning">If you have not done so, read this full <a class="link" href="../tutorials/full">tutorial</a> on how to use SGEXTN to build an application.</p><div style="width: 100%; height: 0.75rem; background-color: var(--c8);"></div><h1 class="title">Application Icons Tutorial</h1>
 <div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
-<p class="description">&#9;To contact 05524F, email to <a class="link" href="mailto:infinityintegral333@gmail.com">infinityintegral333@gmail.com</a> or message <a class="link" href="https://www.instagram.com/infinityintegral.sg/">@infinityintegral.sg</a> on Instagram. Messages sent by mutual Instagram followers (05524F's friends) via Instagram will have priority.</p>
-<p class="description">&#9;Almost all the time, your reason for contacting 05524F is either a complaint or a suggestion. A complaint refers to a request to fix a bug, inaccurate information, or unexpected behaviour in a 05524F product or its associated documentation. A suggestion is a request for 05524F to add a new feature to a existing product or to build a new product.</p>
-<p class="description">&#9;05524F is very likely to accept complaints but less likely to accept suggestions. Since all 05524F software is open source, you can build your own feature on top of 05524F software as long as you use the correct license (General Public License version 3 is always safe).</p>
+<p class="description">&#9;SGEXTN does not use SVGs or images to display icons. Instead, the best way to do this is through a font. The name of the font must be AppIcons.sg and it must be added in <a class="link" href="../cppclass/sgxcentral#static_void_ptr_importCustomFonts_func_">SGXCentral::importCustomFonts</a>.</p>
+<p class="description">&#9;To make a font, you can use FontForge. However, 05524F is also planning an application that allows you to make fonts for SGEXTN icon easily without dealing with the complexity of building fonts.</p>
+<p class="description">&#9;Your font for application icons should only include characters in the Unicode private use range. You can specify which icon to use by passing the matching character to the constructors of <a class="link" href="../cppclass/sgwiconlabel">SGWIconLabel</a> or <a class="link" href="../cppclass/sgwiconbutton">SGWIconButton</a>.</p>
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<p class="description">&#9;SGEXTN assumes that you will be using application icons, so if the font is not properly added or is not added at all at the end of <a class="link" href="../cppclass/sgxcentral#static_void_ptr_importCustomFonts_func_">SGXCentral::importCustomFonts</a>, a warning will be sent. You can ignore the warning if you are not using application icons.</p>
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<p class="description">&#9;If you really want to use image based icons, write a custom shader for them using <a class="link" href="../tutorials/renderer">SG - RI ⁽㈳㈴㈳㈮㈱㈨㈠㈫ ㈧㈤㈱㈤⁾</a>.</p>
 <p class="description">&#9;</p>
 <p class="description"></p>
 

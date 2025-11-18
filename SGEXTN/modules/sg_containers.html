@@ -3,7 +3,7 @@
 <html lang="en-SG">
 <head>
 <meta charset="UTF-8">
-<title>Contact 05524F</title>
+<title>SG_Containers Module Documentation</title>
 <link rel="icon" href="/icon.png" type="image/png">
 <meta property="og:image" content="/icon.png">
 <meta name="twitter:image" content="/icon.png">
@@ -240,12 +240,55 @@ window.addEventListener("hashchange", highlightSection);
 <div style="width: 100%; height: 0.25rem; background-color: var(--c8);"></div>
 <div><button class="button" style="width: 100%;" onclick="location.href='/'">Project 05524F.sg</button></div>
 <div style="width: 100%; height: 0.25rem; background-color: var(--c8);"></div>
-<h1 class="title">Contact 05524F</h1>
+<div><button class="button" style="width: 100%;" onclick="location.href='../readme/readme'">SGEXTN Documentation</button></div><div style="width: 100%; height: 0.25rem; background-color: var(--c8);"></div><p class="warning">If you have not done so, read this full <a class="link" href="../tutorials/full">tutorial</a> on how to use SGEXTN to build an application.</p><div style="width: 100%; height: 0.75rem; background-color: var(--c8);"></div><h1 class="title">SG_Containers</h1>
+<p class="description"><a class="link" href="#sg_classlist">list of classes in this module</a></p>
+<p class="description">CMake commands:</p>
+<p class="description">&#9;find_package(<a class="link" href="../readme/readme">SGEXTN</a> REQUIRED COMPONENTS SG_Containers)</p>
+<p class="description">&#9;target_link_libraries(yourCMakeTarget PRIVATE <a class="link" href="../readme/readme">SGEXTN</a>::SG_Containers)</p>
 <div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
-<p class="description">&#9;To contact 05524F, email to <a class="link" href="mailto:infinityintegral333@gmail.com">infinityintegral333@gmail.com</a> or message <a class="link" href="https://www.instagram.com/infinityintegral.sg/">@infinityintegral.sg</a> on Instagram. Messages sent by mutual Instagram followers (05524F's friends) via Instagram will have priority.</p>
-<p class="description">&#9;Almost all the time, your reason for contacting 05524F is either a complaint or a suggestion. A complaint refers to a request to fix a bug, inaccurate information, or unexpected behaviour in a 05524F product or its associated documentation. A suggestion is a request for 05524F to add a new feature to a existing product or to build a new product.</p>
-<p class="description">&#9;05524F is very likely to accept complaints but less likely to accept suggestions. Since all 05524F software is open source, you can build your own feature on top of 05524F software as long as you use the correct license (General Public License version 3 is always safe).</p>
-<p class="description">&#9;</p>
+<p class="description">&#9;The SGEXTN Containers module provides header only template based containers for common data structures, mostly mirroring the structure of the C++ Standard Template Library's containers module.</p>
+<p class="description">&#9;Apart from providing things like spans, arrays, vectors, queues, sets, and maps, this module also gives <a class="link" href="../cppclass/sgllesserthan">SGLLesserThan</a> and <a class="link" href="../cppclass/sglmorethan">SGLMoreThan</a>, comparators builtin to SGEXTN. There is also <a class="link" href="../cppclass/sglhash">SGLHash</a>, a hash function for hash table based containers, and <a class="link" href="../cppclass/sglsort">SGLSort</a>, used for array sorting</p>
+<p class="description">&#9;Pairs and tuples are also provided in this module. For simplicity, only tuples of up to 5 elements are given, since having a tuple with more elements is very rarely needed and is bad for readability. If you ever need a tuple of more than 5 elements, just create a custom struct.</p>
+<p class="description">&#9;The time complexity of all operations on SGEXTN containers is guaranteed to match Standard Template Library equivalents. However, internal implementation differences and micro optimisations can still cause a difference in runtime speed. If your use case is truly performance critical, consider using a dedicated high performance container library instead.</p>
+<p class="description">&#9;For most use cases, SGEXTN containers are sufficient. You are recommended to choose these over Qt containers and Standard Template Library containers to speed up clang-tidy passes.</p>
+<p class="description">&#9;Although the header files for SGEXTN Containers are already as clean as possible, you should still forward declare the containers when only using pointers and references to them in header files.</p>
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<h2 class="header" id="sg_classlist">List of classes in this module</h2>
+<p class="description">&#9;<a class="link" href="../cppclass/sglarray">SGLArray</a></p>
+<p class="description">&#9;<a class="link" href="../cppclass/sgldeque">SGLDeque</a></p>
+<p class="description">&#9;<a class="link" href="../cppclass/sglequalsto">SGLEqualsTo</a></p>
+<p class="description">&#9;<a class="link" href="../cppclass/sglhash">SGLHash</a></p>
+<p class="description">&#9;<a class="link" href="../cppclass/sglhashalgorithm">SGLHashAlgorithm</a></p>
+<p class="description">&#9;<a class="link" href="../cppclass/sgllesserthan">SGLLesserThan</a></p>
+<p class="description">&#9;<a class="link" href="../cppclass/sglmap">SGLMap</a></p>
+<p class="description">&#9;<a class="link" href="../cppclass/sglmap__constiterator">SGLMap::ConstIterator</a></p>
+<p class="description">&#9;<a class="link" href="../cppclass/sglmap__iterator">SGLMap::Iterator</a></p>
+<p class="description">&#9;<a class="link" href="../cppclass/sglmorethan">SGLMoreThan</a></p>
+<p class="description">&#9;<a class="link" href="../cppclass/sglmultiset">SGLMultiSet</a></p>
+<p class="description">&#9;<a class="link" href="../cppclass/sglmultiset__constiterator">SGLMultiSet::ConstIterator</a></p>
+<p class="description">&#9;<a class="link" href="../cppclass/sglmultiset__iterator">SGLMultiSet::Iterator</a></p>
+<p class="description">&#9;<a class="link" href="../cppclass/sglpair">SGLPair</a></p>
+<p class="description">&#9;<a class="link" href="../cppclass/sglpriorityqueue">SGLPriorityQueue</a></p>
+<p class="description">&#9;<a class="link" href="../cppclass/sglqueue">SGLQueue</a></p>
+<p class="description">&#9;<a class="link" href="../cppclass/sglset">SGLSet</a></p>
+<p class="description">&#9;<a class="link" href="../cppclass/sglset__constiterator">SGLSet::ConstIterator</a></p>
+<p class="description">&#9;<a class="link" href="../cppclass/sglset__iterator">SGLSet::Iterator</a></p>
+<p class="description">&#9;<a class="link" href="../cppclass/sglsort">SGLSort</a></p>
+<p class="description">&#9;<a class="link" href="../cppclass/sglspan">SGLSpan</a></p>
+<p class="description">&#9;<a class="link" href="../cppclass/sglstack">SGLStack</a></p>
+<p class="description">&#9;<a class="link" href="../cppclass/sgltuple3">SGLTuple3</a></p>
+<p class="description">&#9;<a class="link" href="../cppclass/sgltuple4">SGLTuple4</a></p>
+<p class="description">&#9;<a class="link" href="../cppclass/sgltuple5">SGLTuple5</a></p>
+<p class="description">&#9;<a class="link" href="../cppclass/sglunorderedmap">SGLUnorderedMap</a></p>
+<p class="description">&#9;<a class="link" href="../cppclass/sglunorderedmap__constiterator">SGLUnorderedMap::ConstIterator</a></p>
+<p class="description">&#9;<a class="link" href="../cppclass/sglunorderedmap__iterator">SGLUnorderedMap::Iterator</a></p>
+<p class="description">&#9;<a class="link" href="../cppclass/sglunorderedmultiset">SGLUnorderedMultiSet</a></p>
+<p class="description">&#9;<a class="link" href="../cppclass/sglunorderedmultiset__constiterator">SGLUnorderedMultiSet::ConstIterator</a></p>
+<p class="description">&#9;<a class="link" href="../cppclass/sglunorderedmultiset__iterator">SGLUnorderedMultiSet::Iterator</a></p>
+<p class="description">&#9;<a class="link" href="../cppclass/sglunorderedset">SGLUnorderedSet</a></p>
+<p class="description">&#9;<a class="link" href="../cppclass/sglunorderedset__constiterator">SGLUnorderedSet::ConstIterator</a></p>
+<p class="description">&#9;<a class="link" href="../cppclass/sglunorderedset__iterator">SGLUnorderedSet::Iterator</a></p>
+<p class="description">&#9;<a class="link" href="../cppclass/sglvector">SGLVector</a></p>
 <p class="description"></p>
 
 <div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>

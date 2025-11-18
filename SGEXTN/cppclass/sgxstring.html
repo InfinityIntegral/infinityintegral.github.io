@@ -1,0 +1,725 @@
+
+<!DOCTYPE html>
+<html lang="en-SG">
+<head>
+<meta charset="UTF-8">
+<title>SGXString Documentation</title>
+<link rel="icon" href="/icon.png" type="image/png">
+<meta property="og:image" content="/icon.png">
+<meta name="twitter:image" content="/icon.png">
+<link rel="apple-touch-icon" href="/icon.png">
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "url": "https://infinityintegral.github.io",
+    "image": "/icon.png"
+}
+</script>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+@font-face {
+	font-family: "SingScript.sg";
+	src: url("/SingScript.sg")format("truetype");
+	font-weight: normal;
+	font-style: normal;
+}
+
+:root {
+	--c0: rgb(0, 0, 0);
+	--c1: rgb(64, 0, 50);
+	--c2: rgb(128, 0, 100);
+	--c3: rgb(191, 0, 150);
+	--c4: rgb(255, 0, 200);
+	--c5: rgb(255, 64, 214);
+	--c6: rgb(255, 128, 227);
+	--c7: rgb(255, 191, 241);
+	--c8: rgb(255, 255, 255);
+}
+
+*{
+    font-family: "SingScript.sg";
+	max-width: 100%;
+	word-break: break-word;
+	-webkit-text-size-adjust: 100%;
+	-ms-text-size-adjust: 100%;
+}
+
+.title {
+	color: var(--c4);
+	font-size: 3.5rem;
+	margin: 0;
+	font-weight: normal;
+}
+.title::selection {
+	color: var(--c8);
+	background-color: var(--c4);
+	font-size: 3.5rem;
+	margin: 0;
+	font-weight: normal;
+}
+
+.header {
+	color: var(--c4);
+	font-size: 2.5rem;
+	margin: 0;
+	font-weight: normal;
+}
+.header::selection {
+	color: var(--c8);
+	background-color: var(--c4);
+	font-size: 2.625rem;
+	margin: 0;
+	font-weight: normal;
+}
+
+.description {
+	color: var(--c4);
+	font-size: 1.75rem;
+	margin: 0;
+	white-space: pre-wrap;
+}
+.description::selection {
+	color: var(--c8);
+	background-color: var(--c4);
+	font-size: 1.75rem;
+	margin: 0;
+	white-space: pre-wrap;
+}
+
+.note {
+	color: var(--c4);
+	font-size: 1.75rem;
+	margin: 0.25rem;
+	white-space: pre-wrap;
+    border: 0.25rem solid var(--c7);
+    padding: 0.25rem;
+}
+.note::selection {
+	color: var(--c8);
+	background-color: var(--c4);
+	font-size: 1.75rem;
+	margin: 0.25rem;
+	white-space: pre-wrap;
+    border: 0.25rem solid var(--c7);
+    padding: 0.25rem;
+}
+
+.warning {
+	color: var(--c4);
+	font-size: 1.75rem;
+	margin: 0.25rem;
+	white-space: pre-wrap;
+    border: 0.25rem solid var(--c4);
+    padding: 0.25rem;
+}
+.warning::selection {
+	color: var(--c8);
+	background-color: var(--c4);
+	font-size: 1.75rem;
+	margin: 0.25rem;
+	white-space: pre-wrap;
+    border: 0.25rem solid var(--c4);
+    padding: 0.25rem;
+}
+
+.link {
+	color: var(--c2);
+	text-decoration: underline;
+}
+.link:hover {
+	color: var(--c2);
+	background-color: var(--c7);
+	text-decoration: underline;
+}
+.link:active {
+	color: var(--c2);
+	background-color: var(--c6);
+	text-decoration: underline;
+}
+.link::selection {
+	color: var(--c8);
+	background-color: var(--c4);
+	text-decoration: underline;
+}
+
+.button {
+	color: var(--c8);
+	background-color: var(--c4);
+	font-size: 1.75rem;
+	border: none;
+}
+.button:hover {
+	color: var(--c7);
+	background-color: var(--c3);
+	font-size: 1.75rem;
+	border: none;
+}
+.button:active {
+	color: var(--c6);
+	background-color: var(--c2);
+	font-size: 1.75rem;
+	border: none;
+}
+.button::selection {
+	color: var(--c4);
+	background-color: var(--c8);
+	font-size: 1.75rem;
+	border: none;
+}
+
+.input {
+	color: var(--c8);
+	background-color: var(--c4);
+	font-size: 1.75rem;
+	border: none;
+	outline: none;
+	text-align: center;
+}
+.input:hover {
+	color: var(--c7);
+	background-color: var(--c3);
+	font-size: 1.75rem;
+	border: none;
+	outline: none;
+	text-align: center;
+}
+.input:focus {
+	color: var(--c6);
+	background-color: var(--c2);
+	font-size: 1.75rem;
+	border: none;
+	outline: none;
+	text-align: center;
+}
+.input::selection {
+	color: var(--c4);
+	background-color: var(--c8);
+	font-size: 1.75rem;
+	border: none;
+	outline: none;
+	text-align: center;
+}
+
+.highlight {
+    animation: highlightFlash 2s ease-out;
+}
+
+@keyframes highlightFlash {
+    0% {background-color: var(--c6);}
+    100% {background-color: var(--c8);}
+}
+</style>
+<script>
+let m = (new Date()).getMonth() + 1;
+if(m >= 7 && m <= 9){
+    document.documentElement.style.setProperty("--c0", "rgb(0, 0, 0)");
+    document.documentElement.style.setProperty("--c1", "rgb(60, 9, 14)");
+    document.documentElement.style.setProperty("--c2", "rgb(119, 19, 27)");
+    document.documentElement.style.setProperty("--c3", "rgb(179, 28, 41)");
+    document.documentElement.style.setProperty("--c4", "rgb(238, 37, 54)");
+    document.documentElement.style.setProperty("--c5", "rgb(242, 92, 104)");
+    document.documentElement.style.setProperty("--c6", "rgb(247, 146, 155)");
+    document.documentElement.style.setProperty("--c7", "rgb(251, 201, 205)");
+    document.documentElement.style.setProperty("--c8", "rgb(255, 255, 255)");
+}
+function highlightSection(){
+    let tag = window.location.hash.substring(1);
+    if(tag == ""){return;}
+    let element = document.getElementById(tag);
+    if(element == null){return;}
+    element.classList.add("highlight");
+    element.addEventListener("animationend", () => {element.classList.remove("highlight");}, {once: true});
+}
+window.addEventListener("DOMContentLoaded", highlightSection);
+window.addEventListener("hashchange", highlightSection);
+</script>
+</head>
+<body style="margin-left: 1em;">
+<p class="description" style="color: rgb(238, 37, 54); text-align: center; font-size: 2.5rem">sincerely <img src="/flag.png" style="vertical-align: middle; height: 2.5rem; image-rendering: auto;"> Singaporean</p>
+<div style="width: 100%; height: 0.25rem; background-color: var(--c8);"></div>
+<div><button class="button" style="width: 100%;" onclick="location.href='/'">Project 05524F.sg</button></div>
+<div style="width: 100%; height: 0.25rem; background-color: var(--c8);"></div>
+<div><button class="button" style="width: 100%;" onclick="location.href='../readme/readme'">SGEXTN Documentation</button></div><div style="width: 100%; height: 0.25rem; background-color: var(--c8);"></div><p class="warning">If you have not done so, read this full <a class="link" href="../tutorials/full">tutorial</a> on how to use SGEXTN to build an application.</p><div style="width: 100%; height: 0.75rem; background-color: var(--c8);"></div><h1 class="title">SGXString</h1>
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<p class="description"><a class="link" href="https://github.com/InfinityIntegral/SGEXTN/tree/main/SG_Core/include/SGXString.h">see header file</a></p>
+<p class="description"><a class="link" href="https://github.com/InfinityIntegral/SGEXTN/tree/main/SG_Core/src/SGXString.cpp">see source file</a></p>
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<p class="description">class SGXString;</p>
+<p class="description">part of SGEXTN module <a class="link" href="../modules/sg_core">SG_Core</a></p>
+<p class="description">Unicode compatible string with language aware features</p>
+<p class="description"><a class="link" href="#sg_detaileddescription">detailed description</a></p>
+<p class="description"><a class="link" href="../funclist/sgxstring">list of all including inherited members</a></p>
+<p class="description"><a class="link" href="#sg_implementationdetails">implementation details</a></p>
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<p class="description">preprocessor file inclusion directive: #include ‹SGXString.h›</p>
+<p class="description">CMake commands:</p>
+<p class="description">&#9;find_package(<a class="link" href="../readme/readme">SGEXTN</a> REQUIRED COMPONENTS <a class="link" href="../modules/sg_core">SG_Core</a>)</p>
+<p class="description">&#9;target_link_libraries(yourCMakeTarget PRIVATE <a class="link" href="../modules/sg_core">SGEXTN::SG_Core</a>)</p>
+<p class="description">parent class: (none)</p>
+<p class="description">children classes: (none)</p>
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<h2 class="header" id="">instance member functions</h2>
+<p class="description">&#9;<a class="link" href="#SGXString_const_char_ptr_">SGXString</a>(const char* cString);</p>
+<p class="description">&#9;<a class="link" href="#SGXString_func_">SGXString</a>();</p>
+<p class="description">&#9;<a class="link" href="#SGXString_char_">SGXString</a>(char c);</p>
+<p class="description">&#9;<a class="link" href="#SGXString_SGXChar_">SGXString</a>(<a class="link" href="sgxchar">SGXChar</a> c);</p>
+<p class="description">&#9;[[nodiscard]] <a class="link" href="sgxchar">SGXChar</a> <a class="link" href="#nodiscard_SGXChar_at_int_const_">at</a>(int i) const;</p>
+<p class="description">&#9;void <a class="link" href="#void_cleanWhitespace_func_const_">cleanWhitespace</a>() const;</p>
+<p class="description">&#9;[[nodiscard]] bool <a class="link" href="#nodiscard_bool_contains_SGXChar_const_">contains</a>(<a class="link" href="sgxchar">SGXChar</a> c) const;</p>
+<p class="description">&#9;[[nodiscard]] bool <a class="link" href="#nodiscard_bool_contains_const_SGXString_ref_const_">contains</a>(const <a class="link" href="sgxstring">SGXString</a>& s) const;</p>
+<p class="description">&#9;[[nodiscard]] int <a class="link" href="#nodiscard_int_count_SGXChar_const_">count</a>(<a class="link" href="sgxchar">SGXChar</a> c) const;</p>
+<p class="description">&#9;[[nodiscard]] int <a class="link" href="#nodiscard_int_count_const_SGXString_ref_const_">count</a>(const <a class="link" href="sgxstring">SGXString</a>& s) const;</p>
+<p class="description">&#9;[[nodiscard]] <a class="link" href="sgxstring">SGXString</a> <a class="link" href="#nodiscard_SGXString_fillLeftToLength_int_SGXChar_const_">fillLeftToLength</a>(int length, <a class="link" href="sgxchar">SGXChar</a> fillChar) const;</p>
+<p class="description">&#9;[[nodiscard]] <a class="link" href="sgxstring">SGXString</a> <a class="link" href="#nodiscard_SGXString_fillRightToLength_int_SGXChar_const_">fillRightToLength</a>(int length, <a class="link" href="sgxchar">SGXChar</a> fillChar) const;</p>
+<p class="description">&#9;[[nodiscard]] int <a class="link" href="#nodiscard_int_findFirstFromLeft_const_SGXString_ref_const_">findFirstFromLeft</a>(const <a class="link" href="sgxstring">SGXString</a>& s) const;</p>
+<p class="description">&#9;[[nodiscard]] int <a class="link" href="#nodiscard_int_findFirstFromLeft_SGXChar_const_">findFirstFromLeft</a>(<a class="link" href="sgxchar">SGXChar</a> c) const;</p>
+<p class="description">&#9;[[nodiscard]] int <a class="link" href="#nodiscard_int_findFirstFromLeftCustomStart_const_SGXString_ref_int_const_">findFirstFromLeftCustomStart</a>(const <a class="link" href="sgxstring">SGXString</a>& s, int start) const;</p>
+<p class="description">&#9;[[nodiscard]] int <a class="link" href="#nodiscard_int_findFirstFromLeftCustomStart_SGXChar_int_const_">findFirstFromLeftCustomStart</a>(<a class="link" href="sgxchar">SGXChar</a> c, int start) const;</p>
+<p class="description">&#9;[[nodiscard]] int <a class="link" href="#nodiscard_int_findFirstFromRight_SGXChar_const_">findFirstFromRight</a>(<a class="link" href="sgxchar">SGXChar</a> c) const;</p>
+<p class="description">&#9;[[nodiscard]] int <a class="link" href="#nodiscard_int_findFirstFromRight_const_SGXString_ref_const_">findFirstFromRight</a>(const <a class="link" href="sgxstring">SGXString</a>& s) const;</p>
+<p class="description">&#9;[[nodiscard]] int <a class="link" href="#nodiscard_int_findFirstFromRightCustomStart_const_SGXString_ref_int_const_">findFirstFromRightCustomStart</a>(const <a class="link" href="sgxstring">SGXString</a>& s, int start) const;</p>
+<p class="description">&#9;[[nodiscard]] int <a class="link" href="#nodiscard_int_findFirstFromRightCustomStart_SGXChar_int_const_">findFirstFromRightCustomStart</a>(<a class="link" href="sgxchar">SGXChar</a> c, int start) const;</p>
+<p class="description">&#9;[[nodiscard]] <a class="link" href="sgxstring">SGXString</a> <a class="link" href="#nodiscard_SGXString_getLowerLanguageAware_func_const_">getLowerLanguageAware</a>() const;</p>
+<p class="description">&#9;[[nodiscard]] <a class="link" href="sgxstring">SGXString</a> <a class="link" href="#nodiscard_SGXString_getUpperLanguageAware_func_const_">getUpperLanguageAware</a>() const;</p>
+<p class="description">&#9;[[nodiscard]] int <a class="link" href="#nodiscard_int_hash_func_const_">hash</a>() const;</p>
+<p class="description">&#9;<a class="link" href="sgxstring">SGXString</a>& <a class="link" href="#SGXString_ref_insert_int_SGXChar_">insert</a>(int pos, <a class="link" href="sgxchar">SGXChar</a> c);</p>
+<p class="description">&#9;<a class="link" href="sgxstring">SGXString</a>& <a class="link" href="#SGXString_ref_insert_int_const_SGXString_ref_">insert</a>(int pos, const <a class="link" href="sgxstring">SGXString</a>& s);</p>
+<p class="description">&#9;[[nodiscard]] bool <a class="link" href="#nodiscard_bool_isASCII_func_const_">isASCII</a>() const;</p>
+<p class="description">&#9;[[nodiscard]] bool <a class="link" href="#nodiscard_bool_isDigit_func_const_">isDigit</a>() const;</p>
+<p class="description">&#9;[[nodiscard]] bool <a class="link" href="#nodiscard_bool_isDigitBase16_func_const_">isDigitBase16</a>() const;</p>
+<p class="description">&#9;[[nodiscard]] bool <a class="link" href="#nodiscard_bool_isEnglishAlphanumeric_func_const_">isEnglishAlphanumeric</a>() const;</p>
+<p class="description">&#9;[[nodiscard]] bool <a class="link" href="#nodiscard_bool_isEnglishLetter_func_const_">isEnglishLetter</a>() const;</p>
+<p class="description">&#9;[[nodiscard]] bool <a class="link" href="#nodiscard_bool_isEnglishLowercase_func_const_">isEnglishLowercase</a>() const;</p>
+<p class="description">&#9;[[nodiscard]] bool <a class="link" href="#nodiscard_bool_isEnglishUppercase_func_const_">isEnglishUppercase</a>() const;</p>
+<p class="description">&#9;[[nodiscard]] bool <a class="link" href="#nodiscard_bool_isWhitespace_func_const_">isWhitespace</a>() const;</p>
+<p class="description">&#9;[[nodiscard]] int <a class="link" href="#nodiscard_int_length_func_const_">length</a>() const;</p>
+<p class="description">&#9;[[nodiscard]] bool <a class="link" href="#nodiscard_bool_operator_neq_const_SGXString_ref_const_">operator!=</a>(const <a class="link" href="sgxstring">SGXString</a>& x) const;</p>
+<p class="description">&#9;<a class="link" href="sgxstring">SGXString</a>& <a class="link" href="#SGXString_ref_operator_plus_assign_SGXChar_">operator+</a>=(<a class="link" href="sgxchar">SGXChar</a> x);</p>
+<p class="description">&#9;[[nodiscard]] <a class="link" href="sgxstring">SGXString</a> <a class="link" href="#nodiscard_SGXString_operator_plus_const_SGXString_ref_const_">operator+</a>(const <a class="link" href="sgxstring">SGXString</a>& x) const;</p>
+<p class="description">&#9;<a class="link" href="sgxstring">SGXString</a>& <a class="link" href="#SGXString_ref_operator_plus_assign_const_SGXString_ref_">operator+</a>=(const <a class="link" href="sgxstring">SGXString</a>& x);</p>
+<p class="description">&#9;[[nodiscard]] <a class="link" href="sgxstring">SGXString</a> <a class="link" href="#nodiscard_SGXString_operator_plus_SGXChar_const_">operator+</a>(<a class="link" href="sgxchar">SGXChar</a> x) const;</p>
+<p class="description">&#9;[[nodiscard]] bool <a class="link" href="#nodiscard_bool_operator_lt_const_SGXString_ref_const_">operator‹</a>(const <a class="link" href="sgxstring">SGXString</a>& x) const;</p>
+<p class="description">&#9;[[nodiscard]] bool <a class="link" href="#nodiscard_bool_operator_leq_const_SGXString_ref_const_">operator‹=</a>(const <a class="link" href="sgxstring">SGXString</a>& x) const;</p>
+<p class="description">&#9;[[nodiscard]] bool <a class="link" href="#nodiscard_bool_operator_eq_const_SGXString_ref_const_">operator==</a>(const <a class="link" href="sgxstring">SGXString</a>& x) const;</p>
+<p class="description">&#9;[[nodiscard]] bool <a class="link" href="#nodiscard_bool_operator_gt_const_SGXString_ref_const_">operator›</a>(const <a class="link" href="sgxstring">SGXString</a>& x) const;</p>
+<p class="description">&#9;[[nodiscard]] bool <a class="link" href="#nodiscard_bool_operator_geq_const_SGXString_ref_const_">operator›=</a>(const <a class="link" href="sgxstring">SGXString</a>& x) const;</p>
+<p class="description">&#9;[[nodiscard]] double <a class="link" href="#nodiscard_double_parseToDouble_bool_ptr_const_">parseToDouble</a>(bool* isValid) const;</p>
+<p class="description">&#9;[[nodiscard]] float <a class="link" href="#nodiscard_float_parseToFloat_bool_ptr_const_">parseToFloat</a>(bool* isValid) const;</p>
+<p class="description">&#9;[[nodiscard]] int <a class="link" href="#nodiscard_int_parseToInt_bool_ptr_const_">parseToInt</a>(bool* isValid) const;</p>
+<p class="description">&#9;[[nodiscard]] int <a class="link" href="#nodiscard_int_parseToIntBase16_bool_ptr_const_">parseToIntBase16</a>(bool* isValid) const;</p>
+<p class="description">&#9;[[nodiscard]] int <a class="link" href="#nodiscard_int_parseToIntCustomBase_bool_ptr_int_const_">parseToIntCustomBase</a>(bool* isValid, int base) const;</p>
+<p class="description">&#9;[[nodiscard]] long long <a class="link" href="#nodiscard_long_long_parseToLongLong_bool_ptr_const_">parseToLongLong</a>(bool* isValid) const;</p>
+<p class="description">&#9;[[nodiscard]] long long <a class="link" href="#nodiscard_long_long_parseToLongLongBase16_bool_ptr_const_">parseToLongLongBase16</a>(bool* isValid) const;</p>
+<p class="description">&#9;[[nodiscard]] long long <a class="link" href="#nodiscard_long_long_parseToLongLongCustomBase_bool_ptr_int_const_">parseToLongLongCustomBase</a>(bool* isValid, int base) const;</p>
+<p class="description">&#9;[[nodiscard]] unsigned int <a class="link" href="#nodiscard_unsigned_int_parseToUnsignedInt_bool_ptr_const_">parseToUnsignedInt</a>(bool* isValid) const;</p>
+<p class="description">&#9;[[nodiscard]] unsigned int <a class="link" href="#nodiscard_unsigned_int_parseToUnsignedIntBase16_bool_ptr_const_">parseToUnsignedIntBase16</a>(bool* isValid) const;</p>
+<p class="description">&#9;[[nodiscard]] unsigned int <a class="link" href="#nodiscard_unsigned_int_parseToUnsignedIntCustomBase_bool_ptr_int_const_">parseToUnsignedIntCustomBase</a>(bool* isValid, int base) const;</p>
+<p class="description">&#9;[[nodiscard]] unsigned long long <a class="link" href="#nodiscard_unsigned_long_long_parseToUnsignedLongLong_bool_ptr_const_">parseToUnsignedLongLong</a>(bool* isValid) const;</p>
+<p class="description">&#9;[[nodiscard]] unsigned long long <a class="link" href="#nodiscard_unsigned_long_long_parseToUnsignedLongLongBase16_bool_ptr_const_">parseToUnsignedLongLongBase16</a>(bool* isValid) const;</p>
+<p class="description">&#9;[[nodiscard]] unsigned long long <a class="link" href="#nodiscard_unsigned_long_long_parseToUnsignedLongLongCustomBase_bool_ptr_int_const_">parseToUnsignedLongLongCustomBase</a>(bool* isValid, int base) const;</p>
+<p class="description">&#9;void <a class="link" href="#void_removeLeadingTrailingWhitespace_func_const_">removeLeadingTrailingWhitespace</a>() const;</p>
+<p class="description">&#9;<a class="link" href="sgxstring">SGXString</a>& <a class="link" href="#SGXString_ref_replace_SGXChar_SGXChar_">replace</a>(<a class="link" href="sgxchar">SGXChar</a> oldChar, <a class="link" href="sgxchar">SGXChar</a> newChar);</p>
+<p class="description">&#9;<a class="link" href="sgxstring">SGXString</a>& <a class="link" href="#SGXString_ref_replace_const_SGXString_ref_const_SGXString_ref_">replace</a>(const <a class="link" href="sgxstring">SGXString</a>& oldText, const <a class="link" href="sgxstring">SGXString</a>& newText);</p>
+<p class="description">&#9;[[nodiscard]] <a class="link" href="sglarray">SGLArray</a>‹<a class="link" href="sgxstring">SGXString</a>› <a class="link" href="#nodiscard_SGLArray_lt_SGXString_gt_split_func_const_">split</a>() const;</p>
+<p class="description">&#9;[[nodiscard]] <a class="link" href="sglarray">SGLArray</a>‹<a class="link" href="sgxstring">SGXString</a>› <a class="link" href="#nodiscard_SGLArray_lt_SGXString_gt_splitCustomSeparator_SGXChar_const_">splitCustomSeparator</a>(<a class="link" href="sgxchar">SGXChar</a> separator) const;</p>
+<p class="description">&#9;[[nodiscard]] <a class="link" href="sglarray">SGLArray</a>‹<a class="link" href="sgxstring">SGXString</a>› <a class="link" href="#nodiscard_SGLArray_lt_SGXString_gt_splitCustomSeparator_const_SGXString_ref_const_">splitCustomSeparator</a>(const <a class="link" href="sgxstring">SGXString</a>& separator) const;</p>
+<p class="description">&#9;[[nodiscard]] <a class="link" href="sgxstring">SGXString</a> <a class="link" href="#nodiscard_SGXString_substring_int_int_const_">substring</a>(int start, int length) const;</p>
+<p class="description">&#9;[[nodiscard]] <a class="link" href="sgxstring">SGXString</a> <a class="link" href="#nodiscard_SGXString_substringLeft_int_const_">substringLeft</a>(int length) const;</p>
+<p class="description">&#9;[[nodiscard]] <a class="link" href="sgxstring">SGXString</a> <a class="link" href="#nodiscard_SGXString_substringRight_int_const_">substringRight</a>(int length) const;</p>
+<p class="description">&#9;void <a class="link" href="#void_toLowerLanguageAware_func_const_">toLowerLanguageAware</a>() const;</p>
+<p class="description">&#9;void <a class="link" href="#void_toUpperLanguageAware_func_const_">toUpperLanguageAware</a>() const;</p>
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<h2 class="header" id="">static member functions</h2>
+<p class="description">&#9;static <a class="link" href="sgxstring">SGXString</a> <a class="link" href="#static_SGXString_doubleToString_double_">doubleToString</a>(double x);</p>
+<p class="description">&#9;static <a class="link" href="sgxstring">SGXString</a> <a class="link" href="#static_SGXString_doubleToStringDecimalPlaces_double_int_">doubleToStringDecimalPlaces</a>(double x, int dp);</p>
+<p class="description">&#9;static <a class="link" href="sgxstring">SGXString</a> <a class="link" href="#static_SGXString_doubleToStringScientificNotation_double_int_">doubleToStringScientificNotation</a>(double x, int sf);</p>
+<p class="description">&#9;static <a class="link" href="sgxstring">SGXString</a> <a class="link" href="#static_SGXString_doubleToStringSignificantFigures_double_int_">doubleToStringSignificantFigures</a>(double x, int sf);</p>
+<p class="description">&#9;static <a class="link" href="sgxstring">SGXString</a> <a class="link" href="#static_SGXString_floatToString_float_">floatToString</a>(float x);</p>
+<p class="description">&#9;static <a class="link" href="sgxstring">SGXString</a> <a class="link" href="#static_SGXString_floatToStringDecimalPlaces_float_int_">floatToStringDecimalPlaces</a>(float x, int dp);</p>
+<p class="description">&#9;static <a class="link" href="sgxstring">SGXString</a> <a class="link" href="#static_SGXString_floatToStringScientificNotation_float_int_">floatToStringScientificNotation</a>(float x, int sf);</p>
+<p class="description">&#9;static <a class="link" href="sgxstring">SGXString</a> <a class="link" href="#static_SGXString_floatToStringSignificantFigures_float_int_">floatToStringSignificantFigures</a>(float x, int sf);</p>
+<p class="description">&#9;static <a class="link" href="sgxstring">SGXString</a> <a class="link" href="#static_SGXString_intToString_int_">intToString</a>(int x);</p>
+<p class="description">&#9;static <a class="link" href="sgxstring">SGXString</a> <a class="link" href="#static_SGXString_intToStringBase16_int_">intToStringBase16</a>(int x);</p>
+<p class="description">&#9;static <a class="link" href="sgxstring">SGXString</a> <a class="link" href="#static_SGXString_intToStringCustomBase_int_int_">intToStringCustomBase</a>(int x, int base);</p>
+<p class="description">&#9;static <a class="link" href="sgxstring">SGXString</a> <a class="link" href="#static_SGXString_longLongToString_long_long_">longLongToString</a>(long long x);</p>
+<p class="description">&#9;static <a class="link" href="sgxstring">SGXString</a> <a class="link" href="#static_SGXString_longLongToStringBase16_long_long_">longLongToStringBase16</a>(long long x);</p>
+<p class="description">&#9;static <a class="link" href="sgxstring">SGXString</a> <a class="link" href="#static_SGXString_longLongToStringCustomBase_long_long_int_">longLongToStringCustomBase</a>(long long x, int base);</p>
+<p class="description">&#9;static <a class="link" href="sgxstring">SGXString</a> <a class="link" href="#static_SGXString_repeatChar_SGXChar_int_">repeatChar</a>(<a class="link" href="sgxchar">SGXChar</a> c, int count);</p>
+<p class="description">&#9;static <a class="link" href="sgxstring">SGXString</a> <a class="link" href="#static_SGXString_unsignedIntToString_unsigned_int_">unsignedIntToString</a>(unsigned int x);</p>
+<p class="description">&#9;static <a class="link" href="sgxstring">SGXString</a> <a class="link" href="#static_SGXString_unsignedIntToStringBase16_unsigned_int_">unsignedIntToStringBase16</a>(unsigned int x);</p>
+<p class="description">&#9;static <a class="link" href="sgxstring">SGXString</a> <a class="link" href="#static_SGXString_unsignedIntToStringCustomBase_unsigned_int_int_">unsignedIntToStringCustomBase</a>(unsigned int x, int base);</p>
+<p class="description">&#9;static <a class="link" href="sgxstring">SGXString</a> <a class="link" href="#static_SGXString_unsignedLongLongToString_unsigned_long_long_">unsignedLongLongToString</a>(unsigned long long x);</p>
+<p class="description">&#9;static <a class="link" href="sgxstring">SGXString</a> <a class="link" href="#static_SGXString_unsignedLongLongToStringBase16_unsigned_long_long_">unsignedLongLongToStringBase16</a>(unsigned long long x);</p>
+<p class="description">&#9;static <a class="link" href="sgxstring">SGXString</a> <a class="link" href="#static_SGXString_unsignedLongLongToStringCustomBase_unsigned_long_long_int_">unsignedLongLongToStringCustomBase</a>(unsigned long long x, int base);</p>
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<h2 class="header" id="sg_detaileddescription">Detailed Description</h2>
+<p class="description"><a class="link" href="../cppclass/sgxstring">SGXString</a> is a string that can store anything in the Unicode Basic Multilingual Plane (essentially all characters you will ever need except for emojis) in a single <a class="link" href="../cppclass/sgxchar">SGXChar</a>. It provides both string operations such as substring, string addition, and find-replace, in addition to language aware features including case conversion.</p>
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<h2 class="header" id="sg_implementationdetails">Implementation Details</h2>
+<p class="description">wrapper of QString, with usage of <a class="link" href="../cppclass/sgxchar">SGXChar</a></p>
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<h2 class="header" id="SGXString_const_char_ptr_"><a class="link" href="#SGXString_const_char_ptr_">SGXString</a>(const char* cString);</h2>
+<p class="description">Creates a <a class="link" href="../cppclass/sgxstring">SGXString</a> from C string <b>cString</b>.</p>
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<h2 class="header" id="SGXString_func_"><a class="link" href="#SGXString_func_">SGXString</a>();</h2>
+<p class="description">Creates an empty <a class="link" href="../cppclass/sgxstring">SGXString</a>, or a "".</p>
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<h2 class="header" id="SGXString_char_"><a class="link" href="#SGXString_char_">SGXString</a>(char c);</h2>
+<p class="description">Creates a <a class="link" href="../cppclass/sgxstring">SGXString</a> containing a single character, <b>c</b>.</p>
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<h2 class="header" id="SGXString_SGXChar_"><a class="link" href="#SGXString_SGXChar_">SGXString</a>(<a class="link" href="sgxchar">SGXChar</a> c);</h2>
+<p class="description">Creates a <a class="link" href="../cppclass/sgxstring">SGXString</a> containing a single character, <b>c</b>.</p>
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<h2 class="header" id="nodiscard_SGXChar_at_int_const_">[[nodiscard]] <a class="link" href="sgxchar">SGXChar</a> <a class="link" href="#nodiscard_SGXChar_at_int_const_">at</a>(int i) const;</h2>
+<p class="description">Returns the <a class="link" href="../cppclass/sgxchar">SGXChar</a> at index <b>i</b> of this <a class="link" href="../cppclass/sgxstring">SGXString</a>.</p>
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<h2 class="header" id="void_cleanWhitespace_func_const_">void <a class="link" href="#void_cleanWhitespace_func_const_">cleanWhitespace</a>() const;</h2>
+<p class="description">Removes leading and trailing whitespace from this <a class="link" href="../cppclass/sgxstring">SGXString</a> and replaces all consecutive groups of whitespace characters with a single space.</p>
+<p class="note">Whitespace is defined by <a class="link" href="../cppclass/sgxchar#nodiscard_bool_isWhitespace_func_const_">SGXChar::isWhitespace</a>.</p>
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<h2 class="header" id="nodiscard_bool_contains_SGXChar_const_">[[nodiscard]] bool <a class="link" href="#nodiscard_bool_contains_SGXChar_const_">contains</a>(<a class="link" href="sgxchar">SGXChar</a> c) const;</h2>
+<p class="description">Returns if this <a class="link" href="../cppclass/sgxstring">SGXString</a> contains the character <b>c</b>.</p>
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<h2 class="header" id="nodiscard_bool_contains_const_SGXString_ref_const_">[[nodiscard]] bool <a class="link" href="#nodiscard_bool_contains_const_SGXString_ref_const_">contains</a>(const <a class="link" href="sgxstring">SGXString</a>& s) const;</h2>
+<p class="description">Returns if this <a class="link" href="../cppclass/sgxstring">SGXString</a> contains the substring <b>s</b>.</p>
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<h2 class="header" id="nodiscard_int_count_SGXChar_const_">[[nodiscard]] int <a class="link" href="#nodiscard_int_count_SGXChar_const_">count</a>(<a class="link" href="sgxchar">SGXChar</a> c) const;</h2>
+<p class="description">Returns the number of characters <b>c</b> in this <a class="link" href="../cppclass/sgxstring">SGXString</a>.</p>
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<h2 class="header" id="nodiscard_int_count_const_SGXString_ref_const_">[[nodiscard]] int <a class="link" href="#nodiscard_int_count_const_SGXString_ref_const_">count</a>(const <a class="link" href="sgxstring">SGXString</a>& s) const;</h2>
+<p class="description">Returns the number of substrings <b>s</b> in this <a class="link" href="../cppclass/sgxstring">SGXString</a>.</p>
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<h2 class="header" id="nodiscard_SGXString_fillLeftToLength_int_SGXChar_const_">[[nodiscard]] <a class="link" href="sgxstring">SGXString</a> <a class="link" href="#nodiscard_SGXString_fillLeftToLength_int_SGXChar_const_">fillLeftToLength</a>(int length, <a class="link" href="sgxchar">SGXChar</a> fillChar) const;</h2>
+<p class="description">Returns the string formed when this <a class="link" href="../cppclass/sgxstring">SGXString</a> is prefixed with <b>fillChar</b> until its length is at least <b>length</b>.</p>
+<p class="note">This <a class="link" href="../cppclass/sgxstring">SGXString</a> is returned if its length is already more than or equal to <b>length</b>.</p>
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<h2 class="header" id="nodiscard_SGXString_fillRightToLength_int_SGXChar_const_">[[nodiscard]] <a class="link" href="sgxstring">SGXString</a> <a class="link" href="#nodiscard_SGXString_fillRightToLength_int_SGXChar_const_">fillRightToLength</a>(int length, <a class="link" href="sgxchar">SGXChar</a> fillChar) const;</h2>
+<p class="description">Returns the string formed when this <a class="link" href="../cppclass/sgxstring">SGXString</a> is postfixed with <b>fillChar</b> until its length is at least <b>length</b>.</p>
+<p class="note">This <a class="link" href="../cppclass/sgxstring">SGXString</a> is returned if its length is already more than or equal to <b>length</b>.</p>
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<h2 class="header" id="nodiscard_int_findFirstFromLeft_const_SGXString_ref_const_">[[nodiscard]] int <a class="link" href="#nodiscard_int_findFirstFromLeft_const_SGXString_ref_const_">findFirstFromLeft</a>(const <a class="link" href="sgxstring">SGXString</a>& s) const;</h2>
+<p class="description">Returns the index of the first index of substring <b>s</b> found in this <a class="link" href="../cppclass/sgxstring">SGXString</a> when searching from the left.</p>
+<p class="note">This returns -1 if the substring <b>s</b> is not in this <a class="link" href="../cppclass/sgxstring">SGXString</a>.</p>
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<h2 class="header" id="nodiscard_int_findFirstFromLeft_SGXChar_const_">[[nodiscard]] int <a class="link" href="#nodiscard_int_findFirstFromLeft_SGXChar_const_">findFirstFromLeft</a>(<a class="link" href="sgxchar">SGXChar</a> c) const;</h2>
+<p class="description">Returns the index of the first index of character <b>c</b> found in this <a class="link" href="../cppclass/sgxstring">SGXString</a> when searching from the left.</p>
+<p class="note">This returns -1 if the character <b>c</b> is not in this <a class="link" href="../cppclass/sgxstring">SGXString</a>.</p>
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<h2 class="header" id="nodiscard_int_findFirstFromLeftCustomStart_const_SGXString_ref_int_const_">[[nodiscard]] int <a class="link" href="#nodiscard_int_findFirstFromLeftCustomStart_const_SGXString_ref_int_const_">findFirstFromLeftCustomStart</a>(const <a class="link" href="sgxstring">SGXString</a>& s, int start) const;</h2>
+<p class="description">Returns the index of the first index of substring <b>s</b> found in this <a class="link" href="../cppclass/sgxstring">SGXString</a> when searching from the left starting at <b>start</b>.</p>
+<p class="note">This returns -1 if the substring <b>s</b> is not in this <a class="link" href="../cppclass/sgxstring">SGXString</a>.</p>
+<p class="warning">This is <a class="link" href="../tutorials/undefinedbehaviour">undefined behaviour</a> if <b>start</b> is out of bounds.</p>
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<h2 class="header" id="nodiscard_int_findFirstFromLeftCustomStart_SGXChar_int_const_">[[nodiscard]] int <a class="link" href="#nodiscard_int_findFirstFromLeftCustomStart_SGXChar_int_const_">findFirstFromLeftCustomStart</a>(<a class="link" href="sgxchar">SGXChar</a> c, int start) const;</h2>
+<p class="description">Returns the index of the first index of character <b>c</b> found in this <a class="link" href="../cppclass/sgxstring">SGXString</a> when searching from the left starting at <b>start</b>.</p>
+<p class="note">This returns -1 if the character <b>c</b> is not in this <a class="link" href="../cppclass/sgxstring">SGXString</a>.</p>
+<p class="warning">This is <a class="link" href="../tutorials/undefinedbehaviour">undefined behaviour</a> if <b>start</b> is out of bounds.</p>
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<h2 class="header" id="nodiscard_int_findFirstFromRight_SGXChar_const_">[[nodiscard]] int <a class="link" href="#nodiscard_int_findFirstFromRight_SGXChar_const_">findFirstFromRight</a>(<a class="link" href="sgxchar">SGXChar</a> c) const;</h2>
+<p class="description">Returns the index of the first index of character <b>c</b> found in this <a class="link" href="../cppclass/sgxstring">SGXString</a> when searching from the right.</p>
+<p class="note">This returns -1 if the character <b>c</b> is not in this <a class="link" href="../cppclass/sgxstring">SGXString</a>.</p>
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<h2 class="header" id="nodiscard_int_findFirstFromRight_const_SGXString_ref_const_">[[nodiscard]] int <a class="link" href="#nodiscard_int_findFirstFromRight_const_SGXString_ref_const_">findFirstFromRight</a>(const <a class="link" href="sgxstring">SGXString</a>& s) const;</h2>
+<p class="description">Returns the index of the first index of substring <b>s</b> found in this <a class="link" href="../cppclass/sgxstring">SGXString</a> when searching from the right.</p>
+<p class="note">This returns -1 if the substring <b>s</b> is not in this <a class="link" href="../cppclass/sgxstring">SGXString</a>.</p>
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<h2 class="header" id="nodiscard_int_findFirstFromRightCustomStart_const_SGXString_ref_int_const_">[[nodiscard]] int <a class="link" href="#nodiscard_int_findFirstFromRightCustomStart_const_SGXString_ref_int_const_">findFirstFromRightCustomStart</a>(const <a class="link" href="sgxstring">SGXString</a>& s, int start) const;</h2>
+<p class="description">Returns the index of the first index of substring <b>s</b> found in this <a class="link" href="../cppclass/sgxstring">SGXString</a> when searching from the right starting at <b>start</b>.</p>
+<p class="note">This returns -1 if the substring <b>s</b> is not in this <a class="link" href="../cppclass/sgxstring">SGXString</a>.</p>
+<p class="warning">This is <a class="link" href="../tutorials/undefinedbehaviour">undefined behaviour</a> if <b>start</b> is out of bounds.</p>
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<h2 class="header" id="nodiscard_int_findFirstFromRightCustomStart_SGXChar_int_const_">[[nodiscard]] int <a class="link" href="#nodiscard_int_findFirstFromRightCustomStart_SGXChar_int_const_">findFirstFromRightCustomStart</a>(<a class="link" href="sgxchar">SGXChar</a> c, int start) const;</h2>
+<p class="description">Returns the index of the first index of character <b>c</b> found in this <a class="link" href="../cppclass/sgxstring">SGXString</a> when searching from the right starting at <b>start</b>.</p>
+<p class="note">This returns -1 if the character <b>c</b> is not in this <a class="link" href="../cppclass/sgxstring">SGXString</a>.</p>
+<p class="warning">This is <a class="link" href="../tutorials/undefinedbehaviour">undefined behaviour</a> if <b>start</b> is out of bounds.</p>
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<h2 class="header" id="nodiscard_SGXString_getLowerLanguageAware_func_const_">[[nodiscard]] <a class="link" href="sgxstring">SGXString</a> <a class="link" href="#nodiscard_SGXString_getLowerLanguageAware_func_const_">getLowerLanguageAware</a>() const;</h2>
+<p class="description">Returns the language aware lowercase version of this <a class="link" href="../cppclass/sgxstring">SGXString</a>.</p>
+<p class="note">For a single <a class="link" href="../cppclass/sgxchar">SGXChar</a>, use <a class="link" href="../cppclass/sgxchar#nodiscard_SGXChar_getLowerLanguageAware_func_const_">SGXChar::getLowerLanguageAware</a> instead.</p>
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<h2 class="header" id="nodiscard_SGXString_getUpperLanguageAware_func_const_">[[nodiscard]] <a class="link" href="sgxstring">SGXString</a> <a class="link" href="#nodiscard_SGXString_getUpperLanguageAware_func_const_">getUpperLanguageAware</a>() const;</h2>
+<p class="description">Returns the language aware uppercase version of this <a class="link" href="../cppclass/sgxstring">SGXString</a>.</p>
+<p class="note">For a single <a class="link" href="../cppclass/sgxchar">SGXChar</a>, use <a class="link" href="../cppclass/sgxchar#nodiscard_SGXChar_getUpperLanguageAware_func_const_">SGXChar::getUpperLanguageAware</a> instead.</p>
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<h2 class="header" id="nodiscard_int_hash_func_const_">[[nodiscard]] int <a class="link" href="#nodiscard_int_hash_func_const_">hash</a>() const;</h2>
+<p class="description">Hash function for <a class="link" href="../cppclass/sglhash">SGLHash</a>.</p>
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<h2 class="header" id="SGXString_ref_insert_int_SGXChar_"><a class="link" href="sgxstring">SGXString</a>& <a class="link" href="#SGXString_ref_insert_int_SGXChar_">insert</a>(int pos, <a class="link" href="sgxchar">SGXChar</a> c);</h2>
+<p class="description">Inserts <b>c</b> into this <a class="link" href="../cppclass/sgxstring">SGXString</a> such that <b>c</b> will start at index <b>pos</b> of this <a class="link" href="../cppclass/sgxstring">SGXString</a> after insertion, then returns a reference to this <a class="link" href="../cppclass/sgxstring">SGXString</a> to enable expression chaining.</p>
+<p class="warning">Out of bounds <b>pos</b> causes <a class="link" href="../tutorials/undefinedbehaviour">undefined behaviour</a>.</p>
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<h2 class="header" id="SGXString_ref_insert_int_const_SGXString_ref_"><a class="link" href="sgxstring">SGXString</a>& <a class="link" href="#SGXString_ref_insert_int_const_SGXString_ref_">insert</a>(int pos, const <a class="link" href="sgxstring">SGXString</a>& s);</h2>
+<p class="description">Inserts <b>s</b> into this <a class="link" href="../cppclass/sgxstring">SGXString</a> such that <b>s</b> will start at index <b>pos</b> of this <a class="link" href="../cppclass/sgxstring">SGXString</a> after insertion, then returns a reference to this <a class="link" href="../cppclass/sgxstring">SGXString</a> to enable expression chaining.</p>
+<p class="warning">Out of bounds <b>pos</b> causes <a class="link" href="../tutorials/undefinedbehaviour">undefined behaviour</a>.</p>
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<h2 class="header" id="nodiscard_bool_isASCII_func_const_">[[nodiscard]] bool <a class="link" href="#nodiscard_bool_isASCII_func_const_">isASCII</a>() const;</h2>
+<p class="description">Returns if all characters in this <a class="link" href="../cppclass/sgxstring">SGXString</a> are ASCII characters.</p>
+<p class="note">For a single <a class="link" href="../cppclass/sgxchar">SGXChar</a>, use <a class="link" href="../cppclass/sgxchar#nodiscard_bool_isASCII_func_const_">SGXChar::isASCII</a> instead.</p>
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<h2 class="header" id="nodiscard_bool_isDigit_func_const_">[[nodiscard]] bool <a class="link" href="#nodiscard_bool_isDigit_func_const_">isDigit</a>() const;</h2>
+<p class="description">Returns if all characters in this <a class="link" href="../cppclass/sgxstring">SGXString</a> are digits from 0 to 9.</p>
+<p class="note">For a single <a class="link" href="../cppclass/sgxchar">SGXChar</a>, use <a class="link" href="../cppclass/sgxchar#nodiscard_bool_isDigit_func_const_">SGXChar::isDigit</a> instead.</p>
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<h2 class="header" id="nodiscard_bool_isDigitBase16_func_const_">[[nodiscard]] bool <a class="link" href="#nodiscard_bool_isDigitBase16_func_const_">isDigitBase16</a>() const;</h2>
+<p class="description">Returns if all characters in this <a class="link" href="../cppclass/sgxstring">SGXString</a> are base 16 digits from 0 to F.</p>
+<p class="note">Both uppercase and lowercase representations of non numerical base16 digits are accepted.</p>
+<p class="note">For a single <a class="link" href="../cppclass/sgxchar">SGXChar</a>, use <a class="link" href="../cppclass/sgxchar#nodiscard_bool_isDigitBase16_func_const_">SGXChar::isDigitBase16</a> instead.</p>
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<h2 class="header" id="nodiscard_bool_isEnglishAlphanumeric_func_const_">[[nodiscard]] bool <a class="link" href="#nodiscard_bool_isEnglishAlphanumeric_func_const_">isEnglishAlphanumeric</a>() const;</h2>
+<p class="description">Returns if all characters in this <a class="link" href="../cppclass/sgxstring">SGXString</a> are alphanumeric characters.</p>
+<p class="note">This can be used to validate usernames and file names.</p>
+<p class="note">For a single <a class="link" href="../cppclass/sgxchar">SGXChar</a>, use <a class="link" href="../cppclass/sgxchar#nodiscard_bool_isEnglishAlphanumeric_func_const_">SGXChar::isEnglishAlphanumeric</a> instead.</p>
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<h2 class="header" id="nodiscard_bool_isEnglishLetter_func_const_">[[nodiscard]] bool <a class="link" href="#nodiscard_bool_isEnglishLetter_func_const_">isEnglishLetter</a>() const;</h2>
+<p class="description">Returns if all characters in this <a class="link" href="../cppclass/sgxstring">SGXString</a> are English letters ignoring case.</p>
+<p class="note">For a single <a class="link" href="../cppclass/sgxchar">SGXChar</a>, use <a class="link" href="../cppclass/sgxchar#nodiscard_bool_isEnglishLetter_func_const_">SGXChar::isEnglishLetter</a> instead.</p>
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<h2 class="header" id="nodiscard_bool_isEnglishLowercase_func_const_">[[nodiscard]] bool <a class="link" href="#nodiscard_bool_isEnglishLowercase_func_const_">isEnglishLowercase</a>() const;</h2>
+<p class="description">Returns if all characters in this <a class="link" href="../cppclass/sgxstring">SGXString</a> are English lowercase letters from a to z.</p>
+<p class="note">For a single <a class="link" href="../cppclass/sgxchar">SGXChar</a>, use <a class="link" href="../cppclass/sgxchar#nodiscard_bool_isEnglishLowercase_func_const_">SGXChar::isEnglishLowercase</a> instead.</p>
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<h2 class="header" id="nodiscard_bool_isEnglishUppercase_func_const_">[[nodiscard]] bool <a class="link" href="#nodiscard_bool_isEnglishUppercase_func_const_">isEnglishUppercase</a>() const;</h2>
+<p class="description">Returns if all characters in this <a class="link" href="../cppclass/sgxstring">SGXString</a> are English uppercase letters from A to Z.</p>
+<p class="note">For a single <a class="link" href="../cppclass/sgxchar">SGXChar</a>, use <a class="link" href="../cppclass/sgxchar#nodiscard_bool_isEnglishUppercase_func_const_">SGXChar::isEnglishUppercase</a> instead.</p>
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<h2 class="header" id="nodiscard_bool_isWhitespace_func_const_">[[nodiscard]] bool <a class="link" href="#nodiscard_bool_isWhitespace_func_const_">isWhitespace</a>() const;</h2>
+<p class="description">Returns if all characters in this <a class="link" href="../cppclass/sgxstring">SGXString</a> are whitespace characters.</p>
+<p class="note">Whitespace is defined by <a class="link" href="../cppclass/sgxchar#nodiscard_bool_isWhitespace_func_const_">SGXChar::isWhitespace</a>.</p>
+<p class="note">For a single <a class="link" href="../cppclass/sgxchar">SGXChar</a>, use <a class="link" href="../cppclass/sgxchar#nodiscard_bool_isWhitespace_func_const_">SGXChar::isWhitespace</a> instead.</p>
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<h2 class="header" id="nodiscard_int_length_func_const_">[[nodiscard]] int <a class="link" href="#nodiscard_int_length_func_const_">length</a>() const;</h2>
+<p class="description">Returns the length of this <a class="link" href="../cppclass/sgxstring">SGXString</a>, which is the number of <a class="link" href="../cppclass/sgxchar">SGXChar</a> it contains.</p>
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<h2 class="header" id="nodiscard_bool_operator_neq_const_SGXString_ref_const_">[[nodiscard]] bool <a class="link" href="#nodiscard_bool_operator_neq_const_SGXString_ref_const_">operator!=</a>(const <a class="link" href="sgxstring">SGXString</a>& x) const;</h2>
+<p class="description">Returns if this <a class="link" href="../cppclass/sgxstring">SGXString</a> is different from <b>x</b>.</p>
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<h2 class="header" id="SGXString_ref_operator_plus_assign_SGXChar_"><a class="link" href="sgxstring">SGXString</a>& <a class="link" href="#SGXString_ref_operator_plus_assign_SGXChar_">operator+</a>=(<a class="link" href="sgxchar">SGXChar</a> x);</h2>
+<p class="description">Appends the <a class="link" href="../cppclass/sgxchar">SGXChar</a> <b>x</b> behind this <a class="link" href="../cppclass/sgxstring">SGXString</a>.</p>
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<h2 class="header" id="nodiscard_SGXString_operator_plus_const_SGXString_ref_const_">[[nodiscard]] <a class="link" href="sgxstring">SGXString</a> <a class="link" href="#nodiscard_SGXString_operator_plus_const_SGXString_ref_const_">operator+</a>(const <a class="link" href="sgxstring">SGXString</a>& x) const;</h2>
+<p class="description">Appends the <a class="link" href="../cppclass/sgxstring">SGXString</a> <b>x</b> behind this <a class="link" href="../cppclass/sgxstring">SGXString</a>.</p>
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<h2 class="header" id="SGXString_ref_operator_plus_assign_const_SGXString_ref_"><a class="link" href="sgxstring">SGXString</a>& <a class="link" href="#SGXString_ref_operator_plus_assign_const_SGXString_ref_">operator+</a>=(const <a class="link" href="sgxstring">SGXString</a>& x);</h2>
+<p class="description">Appends the <a class="link" href="../cppclass/sgxstring">SGXString</a> <b>x</b> behind this <a class="link" href="../cppclass/sgxstring">SGXString</a>.</p>
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<h2 class="header" id="nodiscard_SGXString_operator_plus_SGXChar_const_">[[nodiscard]] <a class="link" href="sgxstring">SGXString</a> <a class="link" href="#nodiscard_SGXString_operator_plus_SGXChar_const_">operator+</a>(<a class="link" href="sgxchar">SGXChar</a> x) const;</h2>
+<p class="description">Appends the <a class="link" href="../cppclass/sgxchar">SGXChar</a> <b>x</b> behind this <a class="link" href="../cppclass/sgxstring">SGXString</a>.</p>
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<h2 class="header" id="nodiscard_bool_operator_lt_const_SGXString_ref_const_">[[nodiscard]] bool <a class="link" href="#nodiscard_bool_operator_lt_const_SGXString_ref_const_">operator‹</a>(const <a class="link" href="sgxstring">SGXString</a>& x) const;</h2>
+<p class="description">Returns if this <a class="link" href="../cppclass/sgxstring">SGXString</a> is in front of <b>x</b> when ordered alphabetically.</p>
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<h2 class="header" id="nodiscard_bool_operator_leq_const_SGXString_ref_const_">[[nodiscard]] bool <a class="link" href="#nodiscard_bool_operator_leq_const_SGXString_ref_const_">operator‹=</a>(const <a class="link" href="sgxstring">SGXString</a>& x) const;</h2>
+<p class="description">Returns if this <a class="link" href="../cppclass/sgxstring">SGXString</a> is in front of or equal to <b>x</b> when ordered alphabetically.</p>
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<h2 class="header" id="nodiscard_bool_operator_eq_const_SGXString_ref_const_">[[nodiscard]] bool <a class="link" href="#nodiscard_bool_operator_eq_const_SGXString_ref_const_">operator==</a>(const <a class="link" href="sgxstring">SGXString</a>& x) const;</h2>
+<p class="description">Returns if this <a class="link" href="../cppclass/sgxstring">SGXString</a> is the same as <b>x</b>.</p>
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<h2 class="header" id="nodiscard_bool_operator_gt_const_SGXString_ref_const_">[[nodiscard]] bool <a class="link" href="#nodiscard_bool_operator_gt_const_SGXString_ref_const_">operator›</a>(const <a class="link" href="sgxstring">SGXString</a>& x) const;</h2>
+<p class="description">Returns if this <a class="link" href="../cppclass/sgxstring">SGXString</a> is behind <b>x</b> when ordered alphabetically.</p>
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<h2 class="header" id="nodiscard_bool_operator_geq_const_SGXString_ref_const_">[[nodiscard]] bool <a class="link" href="#nodiscard_bool_operator_geq_const_SGXString_ref_const_">operator›=</a>(const <a class="link" href="sgxstring">SGXString</a>& x) const;</h2>
+<p class="description">Returns if this <a class="link" href="../cppclass/sgxstring">SGXString</a> is behind or equal to <b>x</b> when ordered alphabetically.</p>
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<h2 class="header" id="nodiscard_double_parseToDouble_bool_ptr_const_">[[nodiscard]] double <a class="link" href="#nodiscard_double_parseToDouble_bool_ptr_const_">parseToDouble</a>(bool* isValid) const;</h2>
+<p class="description">Returns the double precision floating point number that this <a class="link" href="../cppclass/sgxstring">SGXString</a> represents. If this <a class="link" href="../cppclass/sgxstring">SGXString</a> does not represent a double precision floating point number, 0 is returned as default. If <b>isValid</b> is not nullptr, the bool that it points to is set to true if this <a class="link" href="../cppclass/sgxstring">SGXString</a> represents a double precision floating point number and false otherwise.</p>
+<p class="note">If you are not interested in if this <a class="link" href="../cppclass/sgxstring">SGXString</a> represents a double precision floating point number, pass nullptr to <b>isValid</b>.</p>
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<h2 class="header" id="nodiscard_float_parseToFloat_bool_ptr_const_">[[nodiscard]] float <a class="link" href="#nodiscard_float_parseToFloat_bool_ptr_const_">parseToFloat</a>(bool* isValid) const;</h2>
+<p class="description">Returns the floating point number that this <a class="link" href="../cppclass/sgxstring">SGXString</a> represents. If this <a class="link" href="../cppclass/sgxstring">SGXString</a> does not represent a floating point number, 0 is returned as default. If <b>isValid</b> is not nullptr, the bool that it points to is set to true if this <a class="link" href="../cppclass/sgxstring">SGXString</a> represents a floating point number and false otherwise.</p>
+<p class="note">If you are not interested in if this <a class="link" href="../cppclass/sgxstring">SGXString</a> represents a floating point number, pass nullptr to <b>isValid</b>.</p>
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<h2 class="header" id="nodiscard_int_parseToInt_bool_ptr_const_">[[nodiscard]] int <a class="link" href="#nodiscard_int_parseToInt_bool_ptr_const_">parseToInt</a>(bool* isValid) const;</h2>
+<p class="description">Returns the int that this <a class="link" href="../cppclass/sgxstring">SGXString</a> represents. If this <a class="link" href="../cppclass/sgxstring">SGXString</a> does not represent a int, 0 is returned as default. If <b>isValid</b> is not nullptr, the bool that it points to is set to true if this <a class="link" href="../cppclass/sgxstring">SGXString</a> represents a int and false otherwise.</p>
+<p class="note">If you are not interested in if this <a class="link" href="../cppclass/sgxstring">SGXString</a> represents a int, pass nullptr to <b>isValid</b>.</p>
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<h2 class="header" id="nodiscard_int_parseToIntBase16_bool_ptr_const_">[[nodiscard]] int <a class="link" href="#nodiscard_int_parseToIntBase16_bool_ptr_const_">parseToIntBase16</a>(bool* isValid) const;</h2>
+<p class="description">Returns the int in base16 that this <a class="link" href="../cppclass/sgxstring">SGXString</a> represents. If this <a class="link" href="../cppclass/sgxstring">SGXString</a> does not represent a base16 int, 0 is returned as default. If <b>isValid</b> is not nullptr, the bool that it points to is set to true if this <a class="link" href="../cppclass/sgxstring">SGXString</a> represents a base16 int and false otherwise.</p>
+<p class="note">If you are not interested in if this <a class="link" href="../cppclass/sgxstring">SGXString</a> represents a base16 int, pass nullptr to <b>isValid</b>.</p>
+<p class="note">Both uppercase and lowercase represents of non numerical base16 digits are accepted.</p>
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<h2 class="header" id="nodiscard_int_parseToIntCustomBase_bool_ptr_int_const_">[[nodiscard]] int <a class="link" href="#nodiscard_int_parseToIntCustomBase_bool_ptr_int_const_">parseToIntCustomBase</a>(bool* isValid, int base) const;</h2>
+<p class="description">Returns the int in base <b>base</b> that this <a class="link" href="../cppclass/sgxstring">SGXString</a> represents. If this <a class="link" href="../cppclass/sgxstring">SGXString</a> does not represent a base <b>base</b> int, 0 is returned as default. If <b>isValid</b> is not nullptr, the bool that it points to is set to true if this <a class="link" href="../cppclass/sgxstring">SGXString</a> represents a base <b>base</b> int and false otherwise.</p>
+<p class="note">If you are not interested in if this <a class="link" href="../cppclass/sgxstring">SGXString</a> represents a base <b>base</b> int, pass nullptr to <b>isValid</b>.</p>
+<p class="note">Both uppercase and lowercase represents of non numerical base <b>base</b> digits are accepted.</p>
+<p class="warning"><b>base</b> being below 2 or above 36 is <a class="link" href="../tutorials/undefinedbehaviour">undefined behaviour</a>.</p>
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<h2 class="header" id="nodiscard_long_long_parseToLongLong_bool_ptr_const_">[[nodiscard]] long long <a class="link" href="#nodiscard_long_long_parseToLongLong_bool_ptr_const_">parseToLongLong</a>(bool* isValid) const;</h2>
+<p class="description">Returns the long long that this <a class="link" href="../cppclass/sgxstring">SGXString</a> represents. If this <a class="link" href="../cppclass/sgxstring">SGXString</a> does not represent a long long, 0 is returned as default. If <b>isValid</b> is not nullptr, the bool that it points to is set to true if this <a class="link" href="../cppclass/sgxstring">SGXString</a> represents a long long and false otherwise.</p>
+<p class="note">If you are not interested in if this <a class="link" href="../cppclass/sgxstring">SGXString</a> represents a long long, pass nullptr to <b>isValid</b>.</p>
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<h2 class="header" id="nodiscard_long_long_parseToLongLongBase16_bool_ptr_const_">[[nodiscard]] long long <a class="link" href="#nodiscard_long_long_parseToLongLongBase16_bool_ptr_const_">parseToLongLongBase16</a>(bool* isValid) const;</h2>
+<p class="description">Returns the long long in base16 that this <a class="link" href="../cppclass/sgxstring">SGXString</a> represents. If this <a class="link" href="../cppclass/sgxstring">SGXString</a> does not represent a base16 long long, 0 is returned as default. If <b>isValid</b> is not nullptr, the bool that it points to is set to true if this <a class="link" href="../cppclass/sgxstring">SGXString</a> represents a base16 long long and false otherwise.</p>
+<p class="note">If you are not interested in if this <a class="link" href="../cppclass/sgxstring">SGXString</a> represents a base16 long long, pass nullptr to <b>isValid</b>.</p>
+<p class="note">Both uppercase and lowercase represents of non numerical base16 digits are accepted.</p>
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<h2 class="header" id="nodiscard_long_long_parseToLongLongCustomBase_bool_ptr_int_const_">[[nodiscard]] long long <a class="link" href="#nodiscard_long_long_parseToLongLongCustomBase_bool_ptr_int_const_">parseToLongLongCustomBase</a>(bool* isValid, int base) const;</h2>
+<p class="description">Returns the long long in base <b>base</b> that this <a class="link" href="../cppclass/sgxstring">SGXString</a> represents. If this <a class="link" href="../cppclass/sgxstring">SGXString</a> does not represent a base <b>base</b> long long, 0 is returned as default. If <b>isValid</b> is not nullptr, the bool that it points to is set to true if this <a class="link" href="../cppclass/sgxstring">SGXString</a> represents a base <b>base</b> long long and false otherwise.</p>
+<p class="note">If you are not interested in if this <a class="link" href="../cppclass/sgxstring">SGXString</a> represents a base <b>base</b> long long, pass nullptr to <b>isValid</b>.</p>
+<p class="note">Both uppercase and lowercase represents of non numerical base <b>base</b> digits are accepted.</p>
+<p class="warning"><b>base</b> being below 2 or above 36 is <a class="link" href="../tutorials/undefinedbehaviour">undefined behaviour</a>.</p>
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<h2 class="header" id="nodiscard_unsigned_int_parseToUnsignedInt_bool_ptr_const_">[[nodiscard]] unsigned int <a class="link" href="#nodiscard_unsigned_int_parseToUnsignedInt_bool_ptr_const_">parseToUnsignedInt</a>(bool* isValid) const;</h2>
+<p class="description">Returns the unsigned int that this <a class="link" href="../cppclass/sgxstring">SGXString</a> represents. If this <a class="link" href="../cppclass/sgxstring">SGXString</a> does not represent a unsigned int, 0 is returned as default. If <b>isValid</b> is not nullptr, the bool that it points to is set to true if this <a class="link" href="../cppclass/sgxstring">SGXString</a> represents a unsigned int and false otherwise.</p>
+<p class="note">If you are not interested in if this <a class="link" href="../cppclass/sgxstring">SGXString</a> represents a unsigned int, pass nullptr to <b>isValid</b>.</p>
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<h2 class="header" id="nodiscard_unsigned_int_parseToUnsignedIntBase16_bool_ptr_const_">[[nodiscard]] unsigned int <a class="link" href="#nodiscard_unsigned_int_parseToUnsignedIntBase16_bool_ptr_const_">parseToUnsignedIntBase16</a>(bool* isValid) const;</h2>
+<p class="description">Returns the unsigned int in base16 that this <a class="link" href="../cppclass/sgxstring">SGXString</a> represents. If this <a class="link" href="../cppclass/sgxstring">SGXString</a> does not represent a base16 unsigned int, 0 is returned as default. If <b>isValid</b> is not nullptr, the bool that it points to is set to true if this <a class="link" href="../cppclass/sgxstring">SGXString</a> represents a base16 unsigned int and false otherwise.</p>
+<p class="note">If you are not interested in if this <a class="link" href="../cppclass/sgxstring">SGXString</a> represents a base16 unsigned int, pass nullptr to <b>isValid</b>.</p>
+<p class="note">Both uppercase and lowercase represents of non numerical base16 digits are accepted.</p>
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<h2 class="header" id="nodiscard_unsigned_int_parseToUnsignedIntCustomBase_bool_ptr_int_const_">[[nodiscard]] unsigned int <a class="link" href="#nodiscard_unsigned_int_parseToUnsignedIntCustomBase_bool_ptr_int_const_">parseToUnsignedIntCustomBase</a>(bool* isValid, int base) const;</h2>
+<p class="description">Returns the unsigned int in base <b>base</b> that this <a class="link" href="../cppclass/sgxstring">SGXString</a> represents. If this <a class="link" href="../cppclass/sgxstring">SGXString</a> does not represent a base <b>base</b> unsigned int, 0 is returned as default. If <b>isValid</b> is not nullptr, the bool that it points to is set to true if this <a class="link" href="../cppclass/sgxstring">SGXString</a> represents a base <b>base</b> unsigned int and false otherwise.</p>
+<p class="note">If you are not interested in if this <a class="link" href="../cppclass/sgxstring">SGXString</a> represents a base <b>base</b> unsigned int, pass nullptr to <b>isValid</b>.</p>
+<p class="note">Both uppercase and lowercase represents of non numerical base <b>base</b> digits are accepted.</p>
+<p class="warning"><b>base</b> being below 2 or above 36 is <a class="link" href="../tutorials/undefinedbehaviour">undefined behaviour</a>.</p>
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<h2 class="header" id="nodiscard_unsigned_long_long_parseToUnsignedLongLong_bool_ptr_const_">[[nodiscard]] unsigned long long <a class="link" href="#nodiscard_unsigned_long_long_parseToUnsignedLongLong_bool_ptr_const_">parseToUnsignedLongLong</a>(bool* isValid) const;</h2>
+<p class="description">Returns the unsigned long long that this <a class="link" href="../cppclass/sgxstring">SGXString</a> represents. If this <a class="link" href="../cppclass/sgxstring">SGXString</a> does not represent a unsigned long long, 0 is returned as default. If <b>isValid</b> is not nullptr, the bool that it points to is set to true if this <a class="link" href="../cppclass/sgxstring">SGXString</a> represents a unsigned long long and false otherwise.</p>
+<p class="note">If you are not interested in if this <a class="link" href="../cppclass/sgxstring">SGXString</a> represents a unsigned long long, pass nullptr to <b>isValid</b>.</p>
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<h2 class="header" id="nodiscard_unsigned_long_long_parseToUnsignedLongLongBase16_bool_ptr_const_">[[nodiscard]] unsigned long long <a class="link" href="#nodiscard_unsigned_long_long_parseToUnsignedLongLongBase16_bool_ptr_const_">parseToUnsignedLongLongBase16</a>(bool* isValid) const;</h2>
+<p class="description">Returns the unsigned long long in base16 that this <a class="link" href="../cppclass/sgxstring">SGXString</a> represents. If this <a class="link" href="../cppclass/sgxstring">SGXString</a> does not represent a base16 unsigned long long, 0 is returned as default. If <b>isValid</b> is not nullptr, the bool that it points to is set to true if this <a class="link" href="../cppclass/sgxstring">SGXString</a> represents a base16 unsigned long long and false otherwise.</p>
+<p class="note">If you are not interested in if this <a class="link" href="../cppclass/sgxstring">SGXString</a> represents a base16 unsigned long long, pass nullptr to <b>isValid</b>.</p>
+<p class="note">Both uppercase and lowercase represents of non numerical base16 digits are accepted.</p>
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<h2 class="header" id="nodiscard_unsigned_long_long_parseToUnsignedLongLongCustomBase_bool_ptr_int_const_">[[nodiscard]] unsigned long long <a class="link" href="#nodiscard_unsigned_long_long_parseToUnsignedLongLongCustomBase_bool_ptr_int_const_">parseToUnsignedLongLongCustomBase</a>(bool* isValid, int base) const;</h2>
+<p class="description">Returns the unsigned long long in base <b>base</b> that this <a class="link" href="../cppclass/sgxstring">SGXString</a> represents. If this <a class="link" href="../cppclass/sgxstring">SGXString</a> does not represent a base <b>base</b> unsigned long long, 0 is returned as default. If <b>isValid</b> is not nullptr, the bool that it points to is set to true if this <a class="link" href="../cppclass/sgxstring">SGXString</a> represents a base <b>base</b> unsigned long long and false otherwise.</p>
+<p class="note">If you are not interested in if this <a class="link" href="../cppclass/sgxstring">SGXString</a> represents a base <b>base</b> unsigned long long, pass nullptr to <b>isValid</b>.</p>
+<p class="note">Both uppercase and lowercase represents of non numerical base <b>base</b> digits are accepted.</p>
+<p class="warning"><b>base</b> being below 2 or above 36 is <a class="link" href="../tutorials/undefinedbehaviour">undefined behaviour</a>.</p>
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<h2 class="header" id="void_removeLeadingTrailingWhitespace_func_const_">void <a class="link" href="#void_removeLeadingTrailingWhitespace_func_const_">removeLeadingTrailingWhitespace</a>() const;</h2>
+<p class="description">Removes leading and trailing whitespace from this <a class="link" href="../cppclass/sgxstring">SGXString</a>.</p>
+<p class="note">Whitespace is defined by <a class="link" href="../cppclass/sgxchar#nodiscard_bool_isWhitespace_func_const_">SGXChar::isWhitespace</a>.</p>
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<h2 class="header" id="SGXString_ref_replace_SGXChar_SGXChar_"><a class="link" href="sgxstring">SGXString</a>& <a class="link" href="#SGXString_ref_replace_SGXChar_SGXChar_">replace</a>(<a class="link" href="sgxchar">SGXChar</a> oldChar, <a class="link" href="sgxchar">SGXChar</a> newChar);</h2>
+<p class="description">Replaces every instance of <b>oldChar</b> in this <a class="link" href="../cppclass/sgxstring">SGXString</a> with <b>newChar</b>, then returns a reference to this <a class="link" href="../cppclass/sgxstring">SGXString</a> to enable expression chaining.</p>
+<p class="note">If this <a class="link" href="../cppclass/sgxstring">SGXString</a> does not contain <b>oldChar</b>, nothing is done.</p>
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<h2 class="header" id="SGXString_ref_replace_const_SGXString_ref_const_SGXString_ref_"><a class="link" href="sgxstring">SGXString</a>& <a class="link" href="#SGXString_ref_replace_const_SGXString_ref_const_SGXString_ref_">replace</a>(const <a class="link" href="sgxstring">SGXString</a>& oldText, const <a class="link" href="sgxstring">SGXString</a>& newText);</h2>
+<p class="description">Replaces every instance of <b>oldText</b> in this <a class="link" href="../cppclass/sgxstring">SGXString</a> with <b>newText</b>, then returns a reference to this <a class="link" href="../cppclass/sgxstring">SGXString</a> to enable expression chaining.</p>
+<p class="note">If this <a class="link" href="../cppclass/sgxstring">SGXString</a> does not contain <b>oldText</b>, nothing is done.</p>
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<h2 class="header" id="nodiscard_SGLArray_lt_SGXString_gt_split_func_const_">[[nodiscard]] <a class="link" href="sglarray">SGLArray</a>‹<a class="link" href="sgxstring">SGXString</a>› <a class="link" href="#nodiscard_SGLArray_lt_SGXString_gt_split_func_const_">split</a>() const;</h2>
+<p class="description">Returns a <a class="link" href="../cppclass/sglarray">SGLArray</a> of <a class="link" href="../cppclass/sgxstring">SGXString</a> of space separated strings that make up this <a class="link" href="../cppclass/sgxstring">SGXString</a>.</p>
+<p class="note">This can be used to parse text input.</p>
+<p class="note">The extracted strings will not contain any space.</p>
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<h2 class="header" id="nodiscard_SGLArray_lt_SGXString_gt_splitCustomSeparator_SGXChar_const_">[[nodiscard]] <a class="link" href="sglarray">SGLArray</a>‹<a class="link" href="sgxstring">SGXString</a>› <a class="link" href="#nodiscard_SGLArray_lt_SGXString_gt_splitCustomSeparator_SGXChar_const_">splitCustomSeparator</a>(<a class="link" href="sgxchar">SGXChar</a> separator) const;</h2>
+<p class="description">Returns a <a class="link" href="../cppclass/sglarray">SGLArray</a> of <a class="link" href="../cppclass/sgxstring">SGXString</a> of strings separated by character <b>separator</b> that make up this <a class="link" href="../cppclass/sgxstring">SGXString</a>.</p>
+<p class="note">This can be used to parse text input.</p>
+<p class="note">The extracted strings will not contain any <b>separator</b> character.</p>
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<h2 class="header" id="nodiscard_SGLArray_lt_SGXString_gt_splitCustomSeparator_const_SGXString_ref_const_">[[nodiscard]] <a class="link" href="sglarray">SGLArray</a>‹<a class="link" href="sgxstring">SGXString</a>› <a class="link" href="#nodiscard_SGLArray_lt_SGXString_gt_splitCustomSeparator_const_SGXString_ref_const_">splitCustomSeparator</a>(const <a class="link" href="sgxstring">SGXString</a>& separator) const;</h2>
+<p class="description">Returns a <a class="link" href="../cppclass/sglarray">SGLArray</a> of <a class="link" href="../cppclass/sgxstring">SGXString</a> of strings separated by substring <b>separator</b> that make up this <a class="link" href="../cppclass/sgxstring">SGXString</a>.</p>
+<p class="note">This can be used to parse text input.</p>
+<p class="note">The extracted strings will not contain any <b>separator</b> substring.</p>
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<h2 class="header" id="nodiscard_SGXString_substring_int_int_const_">[[nodiscard]] <a class="link" href="sgxstring">SGXString</a> <a class="link" href="#nodiscard_SGXString_substring_int_int_const_">substring</a>(int start, int length) const;</h2>
+<p class="description">Returns the substring of this <a class="link" href="../cppclass/sgxstring">SGXString</a> starting at <b>start</b> with a length of <b>length</b>.</p>
+<p class="warning">This is <a class="link" href="../tutorials/undefinedbehaviour">undefined behaviour</a> if <b>start</b> or <b>start</b> + <b>length</b> - 1 is out of bounds.</p>
+<p class="warning">This is <a class="link" href="../tutorials/undefinedbehaviour">undefined behaviour</a> if <b>length</b> is negative.</p>
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<h2 class="header" id="nodiscard_SGXString_substringLeft_int_const_">[[nodiscard]] <a class="link" href="sgxstring">SGXString</a> <a class="link" href="#nodiscard_SGXString_substringLeft_int_const_">substringLeft</a>(int length) const;</h2>
+<p class="description">Returns the substring of this <a class="link" href="../cppclass/sgxstring">SGXString</a> containing the first <b>length</b> letters from the left.</p>
+<p class="warning">This is <a class="link" href="../tutorials/undefinedbehaviour">undefined behaviour</a> is <b>length</b> is negative or greater than the length of this <a class="link" href="../cppclass/sgxstring">SGXString</a>.</p>
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<h2 class="header" id="nodiscard_SGXString_substringRight_int_const_">[[nodiscard]] <a class="link" href="sgxstring">SGXString</a> <a class="link" href="#nodiscard_SGXString_substringRight_int_const_">substringRight</a>(int length) const;</h2>
+<p class="description">Returns the substring of this <a class="link" href="../cppclass/sgxstring">SGXString</a> containing the first <b>length</b> letters from the right.</p>
+<p class="warning">This is <a class="link" href="../tutorials/undefinedbehaviour">undefined behaviour</a> is <b>length</b> is negative or greater than the length of this <a class="link" href="../cppclass/sgxstring">SGXString</a>.</p>
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<h2 class="header" id="void_toLowerLanguageAware_func_const_">void <a class="link" href="#void_toLowerLanguageAware_func_const_">toLowerLanguageAware</a>() const;</h2>
+<p class="description">Converts this <a class="link" href="../cppclass/sgxstring">SGXString</a> to its language aware lowercase form.</p>
+<p class="note">For a single <a class="link" href="../cppclass/sgxchar">SGXChar</a>, use <a class="link" href="../cppclass/sgxchar#void_toLowerLanguageAware_func_">SGXChar::toLowerLanguageAware</a> instead.</p>
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<h2 class="header" id="void_toUpperLanguageAware_func_const_">void <a class="link" href="#void_toUpperLanguageAware_func_const_">toUpperLanguageAware</a>() const;</h2>
+<p class="description">Converts this <a class="link" href="../cppclass/sgxstring">SGXString</a> to its language aware uppercase form.</p>
+<p class="note">For a single <a class="link" href="../cppclass/sgxchar">SGXChar</a>, use <a class="link" href="../cppclass/sgxchar#void_toUpperLanguageAware_func_">SGXChar::toUpperLanguageAware</a> instead.</p>
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<h2 class="header" id="static_SGXString_doubleToString_double_">static <a class="link" href="sgxstring">SGXString</a> <a class="link" href="#static_SGXString_doubleToString_double_">doubleToString</a>(double x);</h2>
+<p class="description">Returns the <a class="link" href="../cppclass/sgxstring">SGXString</a> that represents <b>x</b>.</p>
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<h2 class="header" id="static_SGXString_doubleToStringDecimalPlaces_double_int_">static <a class="link" href="sgxstring">SGXString</a> <a class="link" href="#static_SGXString_doubleToStringDecimalPlaces_double_int_">doubleToStringDecimalPlaces</a>(double x, int dp);</h2>
+<p class="description">Returns the <a class="link" href="../cppclass/sgxstring">SGXString</a> that represents <b>x</b> rounded to <b>dp</b> decimal places.</p>
+<p class="warning">In this version of SGEXTN, negative <b>dp</b> is <a class="link" href="../tutorials/undefinedbehaviour">undefined behaviour</a>. Support is likely to be added in a future version.</p>
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<h2 class="header" id="static_SGXString_doubleToStringScientificNotation_double_int_">static <a class="link" href="sgxstring">SGXString</a> <a class="link" href="#static_SGXString_doubleToStringScientificNotation_double_int_">doubleToStringScientificNotation</a>(double x, int sf);</h2>
+<p class="description">Returns the <a class="link" href="../cppclass/sgxstring">SGXString</a> that represents <b>x</b> rounds to <b>sf</b> significant figures, expressed in scientific notation.</p>
+<p class="note">The exponent is prefixed with English lowercase letter e, this is likely to be changed to the x10 Unicode character in a future version of SGEXTN.</p>
+<p class="warning">Negative <b>sf</b> is <a class="link" href="../tutorials/undefinedbehaviour">undefined behaviour</a>.</p>
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<h2 class="header" id="static_SGXString_doubleToStringSignificantFigures_double_int_">static <a class="link" href="sgxstring">SGXString</a> <a class="link" href="#static_SGXString_doubleToStringSignificantFigures_double_int_">doubleToStringSignificantFigures</a>(double x, int sf);</h2>
+<p class="description">Returns the <a class="link" href="../cppclass/sgxstring">SGXString</a> that represents <b>x</b> rounds to <b>sf</b> significant figures.</p>
+<p class="warning">Negative <b>sf</b> is <a class="link" href="../tutorials/undefinedbehaviour">undefined behaviour</a>.</p>
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<h2 class="header" id="static_SGXString_floatToString_float_">static <a class="link" href="sgxstring">SGXString</a> <a class="link" href="#static_SGXString_floatToString_float_">floatToString</a>(float x);</h2>
+<p class="description">Returns the <a class="link" href="../cppclass/sgxstring">SGXString</a> that represents <b>x</b>.</p>
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<h2 class="header" id="static_SGXString_floatToStringDecimalPlaces_float_int_">static <a class="link" href="sgxstring">SGXString</a> <a class="link" href="#static_SGXString_floatToStringDecimalPlaces_float_int_">floatToStringDecimalPlaces</a>(float x, int dp);</h2>
+<p class="description">Returns the <a class="link" href="../cppclass/sgxstring">SGXString</a> that represents <b>x</b> rounded to <b>dp</b> decimal places.</p>
+<p class="warning">In this version of SGEXTN, negative <b>dp</b> is <a class="link" href="../tutorials/undefinedbehaviour">undefined behaviour</a>. Support is likely to be added in a future version.</p>
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<h2 class="header" id="static_SGXString_floatToStringScientificNotation_float_int_">static <a class="link" href="sgxstring">SGXString</a> <a class="link" href="#static_SGXString_floatToStringScientificNotation_float_int_">floatToStringScientificNotation</a>(float x, int sf);</h2>
+<p class="description">Returns the <a class="link" href="../cppclass/sgxstring">SGXString</a> that represents <b>x</b> rounds to <b>sf</b> significant figures, expressed in scientific notation.</p>
+<p class="note">The exponent is prefixed with English lowercase letter e, this is likely to be changed to the x10 Unicode character in a future version of SGEXTN.</p>
+<p class="warning">Negative <b>sf</b> is <a class="link" href="../tutorials/undefinedbehaviour">undefined behaviour</a>.</p>
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<h2 class="header" id="static_SGXString_floatToStringSignificantFigures_float_int_">static <a class="link" href="sgxstring">SGXString</a> <a class="link" href="#static_SGXString_floatToStringSignificantFigures_float_int_">floatToStringSignificantFigures</a>(float x, int sf);</h2>
+<p class="description">Returns the <a class="link" href="../cppclass/sgxstring">SGXString</a> that represents <b>x</b> rounds to <b>sf</b> significant figures.</p>
+<p class="warning">Negative <b>sf</b> is <a class="link" href="../tutorials/undefinedbehaviour">undefined behaviour</a>.</p>
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<h2 class="header" id="static_SGXString_intToString_int_">static <a class="link" href="sgxstring">SGXString</a> <a class="link" href="#static_SGXString_intToString_int_">intToString</a>(int x);</h2>
+<p class="description">Returns the <a class="link" href="../cppclass/sgxstring">SGXString</a> that represents <b>x</b>.</p>
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<h2 class="header" id="static_SGXString_intToStringBase16_int_">static <a class="link" href="sgxstring">SGXString</a> <a class="link" href="#static_SGXString_intToStringBase16_int_">intToStringBase16</a>(int x);</h2>
+<p class="description">Returns the <a class="link" href="../cppclass/sgxstring">SGXString</a> that represents <b>x</b> in base16.</p>
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<h2 class="header" id="static_SGXString_intToStringCustomBase_int_int_">static <a class="link" href="sgxstring">SGXString</a> <a class="link" href="#static_SGXString_intToStringCustomBase_int_int_">intToStringCustomBase</a>(int x, int base);</h2>
+<p class="description">Returns the <a class="link" href="../cppclass/sgxstring">SGXString</a> that represents <b>x</b> in base <b>base</b>.</p>
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<h2 class="header" id="static_SGXString_longLongToString_long_long_">static <a class="link" href="sgxstring">SGXString</a> <a class="link" href="#static_SGXString_longLongToString_long_long_">longLongToString</a>(long long x);</h2>
+<p class="description">Returns the <a class="link" href="../cppclass/sgxstring">SGXString</a> that represents <b>x</b>.</p>
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<h2 class="header" id="static_SGXString_longLongToStringBase16_long_long_">static <a class="link" href="sgxstring">SGXString</a> <a class="link" href="#static_SGXString_longLongToStringBase16_long_long_">longLongToStringBase16</a>(long long x);</h2>
+<p class="description">Returns the <a class="link" href="../cppclass/sgxstring">SGXString</a> that represents <b>x</b> in base16.</p>
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<h2 class="header" id="static_SGXString_longLongToStringCustomBase_long_long_int_">static <a class="link" href="sgxstring">SGXString</a> <a class="link" href="#static_SGXString_longLongToStringCustomBase_long_long_int_">longLongToStringCustomBase</a>(long long x, int base);</h2>
+<p class="description">Returns the <a class="link" href="../cppclass/sgxstring">SGXString</a> that represents <b>x</b> in base <b>base</b>.</p>
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<h2 class="header" id="static_SGXString_repeatChar_SGXChar_int_">static <a class="link" href="sgxstring">SGXString</a> <a class="link" href="#static_SGXString_repeatChar_SGXChar_int_">repeatChar</a>(<a class="link" href="sgxchar">SGXChar</a> c, int count);</h2>
+<p class="description">Returns the <a class="link" href="../cppclass/sgxstring">SGXString</a> formed by putting together <b>count</b> copies of <b>c</b>.</p>
+<p class="warning">Negative <b>count</b> is <a class="link" href="../tutorials/undefinedbehaviour">undefined behaviour</a>.</p>
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<h2 class="header" id="static_SGXString_unsignedIntToString_unsigned_int_">static <a class="link" href="sgxstring">SGXString</a> <a class="link" href="#static_SGXString_unsignedIntToString_unsigned_int_">unsignedIntToString</a>(unsigned int x);</h2>
+<p class="description">Returns the <a class="link" href="../cppclass/sgxstring">SGXString</a> that represents <b>x</b>.</p>
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<h2 class="header" id="static_SGXString_unsignedIntToStringBase16_unsigned_int_">static <a class="link" href="sgxstring">SGXString</a> <a class="link" href="#static_SGXString_unsignedIntToStringBase16_unsigned_int_">unsignedIntToStringBase16</a>(unsigned int x);</h2>
+<p class="description">Returns the <a class="link" href="../cppclass/sgxstring">SGXString</a> that represents <b>x</b> in base16.</p>
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<h2 class="header" id="static_SGXString_unsignedIntToStringCustomBase_unsigned_int_int_">static <a class="link" href="sgxstring">SGXString</a> <a class="link" href="#static_SGXString_unsignedIntToStringCustomBase_unsigned_int_int_">unsignedIntToStringCustomBase</a>(unsigned int x, int base);</h2>
+<p class="description">Returns the <a class="link" href="../cppclass/sgxstring">SGXString</a> that represents <b>x</b> in base <b>base</b>.</p>
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<h2 class="header" id="static_SGXString_unsignedLongLongToString_unsigned_long_long_">static <a class="link" href="sgxstring">SGXString</a> <a class="link" href="#static_SGXString_unsignedLongLongToString_unsigned_long_long_">unsignedLongLongToString</a>(unsigned long long x);</h2>
+<p class="description">Returns the <a class="link" href="../cppclass/sgxstring">SGXString</a> that represents <b>x</b>.</p>
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<h2 class="header" id="static_SGXString_unsignedLongLongToStringBase16_unsigned_long_long_">static <a class="link" href="sgxstring">SGXString</a> <a class="link" href="#static_SGXString_unsignedLongLongToStringBase16_unsigned_long_long_">unsignedLongLongToStringBase16</a>(unsigned long long x);</h2>
+<p class="description">Returns the <a class="link" href="../cppclass/sgxstring">SGXString</a> that represents <b>x</b> in base16.</p>
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<h2 class="header" id="static_SGXString_unsignedLongLongToStringCustomBase_unsigned_long_long_int_">static <a class="link" href="sgxstring">SGXString</a> <a class="link" href="#static_SGXString_unsignedLongLongToStringCustomBase_unsigned_long_long_int_">unsignedLongLongToStringCustomBase</a>(unsigned long long x, int base);</h2>
+<p class="description">Returns the <a class="link" href="../cppclass/sgxstring">SGXString</a> that represents <b>x</b> in base <b>base</b>.</p>
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<p class="description"></p>
+
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<div style="width: 100%; height: 0.25rem; background-color: var(--c4);"></div>
+<div style="width: 100%; height: 0.25rem; background-color: var(--c8);"></div>
+<p class="description">©2025 05524F.sg (Singapore)</p>
+<p class="description"><a class="link" href="/contact">contact 05524F / report a bug / make a suggestion</a></p>
+<p class="description"><a class="link" href="/values">about 05524F SINGAPORE values</a></p>
+<p class="description"><a class="link" href="/projects">list of 05524F projects</a></p>
+<div style="width: 100%; height: 0.25rem; background-color: var(--c8);"></div>
+<div style="width: 100%; height: 0.25rem; background-color: var(--c4);"></div>
+<div style="width: 100%; height: 0.25rem; background-color: var(--c8);"></div>
+</body>
+</html>

@@ -1,0 +1,443 @@
+
+<!DOCTYPE html>
+<html lang="en-SG">
+<head>
+<meta charset="UTF-8">
+<title>SGLFloatMath Documentation</title>
+<link rel="icon" href="/icon.png" type="image/png">
+<meta property="og:image" content="/icon.png">
+<meta name="twitter:image" content="/icon.png">
+<link rel="apple-touch-icon" href="/icon.png">
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "url": "https://infinityintegral.github.io",
+    "image": "/icon.png"
+}
+</script>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+@font-face {
+	font-family: "SingScript.sg";
+	src: url("/SingScript.sg")format("truetype");
+	font-weight: normal;
+	font-style: normal;
+}
+
+:root {
+	--c0: rgb(0, 0, 0);
+	--c1: rgb(64, 0, 50);
+	--c2: rgb(128, 0, 100);
+	--c3: rgb(191, 0, 150);
+	--c4: rgb(255, 0, 200);
+	--c5: rgb(255, 64, 214);
+	--c6: rgb(255, 128, 227);
+	--c7: rgb(255, 191, 241);
+	--c8: rgb(255, 255, 255);
+}
+
+*{
+    font-family: "SingScript.sg";
+	max-width: 100%;
+	word-break: break-word;
+	-webkit-text-size-adjust: 100%;
+	-ms-text-size-adjust: 100%;
+}
+
+.title {
+	color: var(--c4);
+	font-size: 3.5rem;
+	margin: 0;
+	font-weight: normal;
+}
+.title::selection {
+	color: var(--c8);
+	background-color: var(--c4);
+	font-size: 3.5rem;
+	margin: 0;
+	font-weight: normal;
+}
+
+.header {
+	color: var(--c4);
+	font-size: 2.5rem;
+	margin: 0;
+	font-weight: normal;
+}
+.header::selection {
+	color: var(--c8);
+	background-color: var(--c4);
+	font-size: 2.625rem;
+	margin: 0;
+	font-weight: normal;
+}
+
+.description {
+	color: var(--c4);
+	font-size: 1.75rem;
+	margin: 0;
+	white-space: pre-wrap;
+}
+.description::selection {
+	color: var(--c8);
+	background-color: var(--c4);
+	font-size: 1.75rem;
+	margin: 0;
+	white-space: pre-wrap;
+}
+
+.note {
+	color: var(--c4);
+	font-size: 1.75rem;
+	margin: 0.25rem;
+	white-space: pre-wrap;
+    border: 0.25rem solid var(--c7);
+    padding: 0.25rem;
+}
+.note::selection {
+	color: var(--c8);
+	background-color: var(--c4);
+	font-size: 1.75rem;
+	margin: 0.25rem;
+	white-space: pre-wrap;
+    border: 0.25rem solid var(--c7);
+    padding: 0.25rem;
+}
+
+.warning {
+	color: var(--c4);
+	font-size: 1.75rem;
+	margin: 0.25rem;
+	white-space: pre-wrap;
+    border: 0.25rem solid var(--c4);
+    padding: 0.25rem;
+}
+.warning::selection {
+	color: var(--c8);
+	background-color: var(--c4);
+	font-size: 1.75rem;
+	margin: 0.25rem;
+	white-space: pre-wrap;
+    border: 0.25rem solid var(--c4);
+    padding: 0.25rem;
+}
+
+.link {
+	color: var(--c2);
+	text-decoration: underline;
+}
+.link:hover {
+	color: var(--c2);
+	background-color: var(--c7);
+	text-decoration: underline;
+}
+.link:active {
+	color: var(--c2);
+	background-color: var(--c6);
+	text-decoration: underline;
+}
+.link::selection {
+	color: var(--c8);
+	background-color: var(--c4);
+	text-decoration: underline;
+}
+
+.button {
+	color: var(--c8);
+	background-color: var(--c4);
+	font-size: 1.75rem;
+	border: none;
+}
+.button:hover {
+	color: var(--c7);
+	background-color: var(--c3);
+	font-size: 1.75rem;
+	border: none;
+}
+.button:active {
+	color: var(--c6);
+	background-color: var(--c2);
+	font-size: 1.75rem;
+	border: none;
+}
+.button::selection {
+	color: var(--c4);
+	background-color: var(--c8);
+	font-size: 1.75rem;
+	border: none;
+}
+
+.input {
+	color: var(--c8);
+	background-color: var(--c4);
+	font-size: 1.75rem;
+	border: none;
+	outline: none;
+	text-align: center;
+}
+.input:hover {
+	color: var(--c7);
+	background-color: var(--c3);
+	font-size: 1.75rem;
+	border: none;
+	outline: none;
+	text-align: center;
+}
+.input:focus {
+	color: var(--c6);
+	background-color: var(--c2);
+	font-size: 1.75rem;
+	border: none;
+	outline: none;
+	text-align: center;
+}
+.input::selection {
+	color: var(--c4);
+	background-color: var(--c8);
+	font-size: 1.75rem;
+	border: none;
+	outline: none;
+	text-align: center;
+}
+
+.highlight {
+    animation: highlightFlash 2s ease-out;
+}
+
+@keyframes highlightFlash {
+    0% {background-color: var(--c6);}
+    100% {background-color: var(--c8);}
+}
+</style>
+<script>
+let m = (new Date()).getMonth() + 1;
+if(m >= 7 && m <= 9){
+    document.documentElement.style.setProperty("--c0", "rgb(0, 0, 0)");
+    document.documentElement.style.setProperty("--c1", "rgb(60, 9, 14)");
+    document.documentElement.style.setProperty("--c2", "rgb(119, 19, 27)");
+    document.documentElement.style.setProperty("--c3", "rgb(179, 28, 41)");
+    document.documentElement.style.setProperty("--c4", "rgb(238, 37, 54)");
+    document.documentElement.style.setProperty("--c5", "rgb(242, 92, 104)");
+    document.documentElement.style.setProperty("--c6", "rgb(247, 146, 155)");
+    document.documentElement.style.setProperty("--c7", "rgb(251, 201, 205)");
+    document.documentElement.style.setProperty("--c8", "rgb(255, 255, 255)");
+}
+function highlightSection(){
+    let tag = window.location.hash.substring(1);
+    if(tag == ""){return;}
+    let element = document.getElementById(tag);
+    if(element == null){return;}
+    element.classList.add("highlight");
+    element.addEventListener("animationend", () => {element.classList.remove("highlight");}, {once: true});
+}
+window.addEventListener("DOMContentLoaded", highlightSection);
+window.addEventListener("hashchange", highlightSection);
+</script>
+</head>
+<body style="margin-left: 1em;">
+<p class="description" style="color: rgb(238, 37, 54); text-align: center; font-size: 2.5rem">sincerely <img src="/flag.png" style="vertical-align: middle; height: 2.5rem; image-rendering: auto;"> Singaporean</p>
+<div style="width: 100%; height: 0.25rem; background-color: var(--c8);"></div>
+<div><button class="button" style="width: 100%;" onclick="location.href='/'">Project 05524F.sg</button></div>
+<div style="width: 100%; height: 0.25rem; background-color: var(--c8);"></div>
+<div><button class="button" style="width: 100%;" onclick="location.href='../readme/readme'">SGEXTN Documentation</button></div><div style="width: 100%; height: 0.25rem; background-color: var(--c8);"></div><p class="warning">If you have not done so, read this full <a class="link" href="../tutorials/full">tutorial</a> on how to use SGEXTN to build an application.</p><div style="width: 100%; height: 0.75rem; background-color: var(--c8);"></div><h1 class="title">SGLFloatMath</h1>
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<p class="description"><a class="link" href="https://github.com/InfinityIntegral/SGEXTN/tree/main/SG_Math/include/SGLFloatMath.h">see header file</a></p>
+<p class="description"><a class="link" href="https://github.com/InfinityIntegral/SGEXTN/tree/main/SG_Math/src/SGLFloatMath.cpp">see source file</a></p>
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<p class="description">class SGLFloatMath;</p>
+<p class="description">part of SGEXTN module <a class="link" href="../modules/sg_math">SG_Math</a></p>
+<p class="description">static function class providing floating point mathematical operations</p>
+<p class="description"><a class="link" href="#sg_detaileddescription">detailed description</a></p>
+<p class="description"><a class="link" href="../funclist/sglfloatmath">list of all including inherited members</a></p>
+<p class="description"><a class="link" href="#sg_implementationdetails">implementation details</a></p>
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<p class="description">preprocessor file inclusion directive: #include ‹SGLFloatMath.h›</p>
+<p class="description">CMake commands:</p>
+<p class="description">&#9;find_package(<a class="link" href="../readme/readme">SGEXTN</a> REQUIRED COMPONENTS <a class="link" href="../modules/sg_math">SG_Math</a>)</p>
+<p class="description">&#9;target_link_libraries(yourCMakeTarget PRIVATE <a class="link" href="../modules/sg_math">SGEXTN::SG_Math</a>)</p>
+<p class="description">parent class: (none)</p>
+<p class="description">children classes: (none)</p>
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<h2 class="header" id="">static member functions</h2>
+<p class="description">&#9;static float <a class="link" href="#static_float_aToThePowerOfB_float_float_">aToThePowerOfB</a>(float a, float b);</p>
+<p class="description">&#9;static float <a class="link" href="#static_float_absoluteValue_float_">absoluteValue</a>(float x);</p>
+<p class="description">&#9;static float <a class="link" href="#static_float_arccosine_float_">arccosine</a>(float x);</p>
+<p class="description">&#9;static float <a class="link" href="#static_float_arcsine_float_">arcsine</a>(float x);</p>
+<p class="description">&#9;static float <a class="link" href="#static_float_arctangent_float_">arctangent</a>(float x);</p>
+<p class="description">&#9;static float <a class="link" href="#static_float_arctangentQuadrantAware_float_float_">arctangentQuadrantAware</a>(float y, float x);</p>
+<p class="description">&#9;static float <a class="link" href="#static_float_ceiling_float_">ceiling</a>(float x);</p>
+<p class="description">&#9;static int <a class="link" href="#static_int_ceilingToInt_float_">ceilingToInt</a>(float x);</p>
+<p class="description">&#9;static long long <a class="link" href="#static_long_long_ceilingToLongLong_float_">ceilingToLongLong</a>(float x);</p>
+<p class="description">&#9;static float <a class="link" href="#static_float_cosecant_float_">cosecant</a>(float x);</p>
+<p class="description">&#9;static float <a class="link" href="#static_float_cosine_float_">cosine</a>(float x);</p>
+<p class="description">&#9;static float <a class="link" href="#static_float_cotangent_float_">cotangent</a>(float x);</p>
+<p class="description">&#9;static float <a class="link" href="#static_float_cubeRoot_float_">cubeRoot</a>(float x);</p>
+<p class="description">&#9;static float <a class="link" href="#static_float_eToThePowerOfThis_float_">eToThePowerOfThis</a>(float x);</p>
+<p class="description">&#9;static float <a class="link" href="#static_float_extendedFactorial_float_">extendedFactorial</a>(float x);</p>
+<p class="description">&#9;static float <a class="link" href="#static_float_floor_float_">floor</a>(float x);</p>
+<p class="description">&#9;static int <a class="link" href="#static_int_floorToInt_float_">floorToInt</a>(float x);</p>
+<p class="description">&#9;static long long <a class="link" href="#static_long_long_floorToLongLong_float_">floorToLongLong</a>(float x);</p>
+<p class="description">&#9;static float <a class="link" href="#static_float_integralOfNormalDistributionFromLeft_float_">integralOfNormalDistributionFromLeft</a>(float x);</p>
+<p class="description">&#9;static float <a class="link" href="#static_float_integralOfNormalDistributionFromRight_float_">integralOfNormalDistributionFromRight</a>(float x);</p>
+<p class="description">&#9;static float <a class="link" href="#static_float_logarithmBase10_float_">logarithmBase10</a>(float x);</p>
+<p class="description">&#9;static float <a class="link" href="#static_float_logarithmBase2_float_">logarithmBase2</a>(float x);</p>
+<p class="description">&#9;static float <a class="link" href="#static_float_maximum_float_float_">maximum</a>(float a, float b);</p>
+<p class="description">&#9;static float <a class="link" href="#static_float_minimum_float_float_">minimum</a>(float a, float b);</p>
+<p class="description">&#9;static float <a class="link" href="#static_float_modulo_float_float_">modulo</a>(float a, float b);</p>
+<p class="description">&#9;static float <a class="link" href="#static_float_naturalLogarithm_float_">naturalLogarithm</a>(float x);</p>
+<p class="description">&#9;static float <a class="link" href="#static_float_round_float_">round</a>(float x);</p>
+<p class="description">&#9;static int <a class="link" href="#static_int_roundToInt_float_">roundToInt</a>(float x);</p>
+<p class="description">&#9;static long long <a class="link" href="#static_long_long_roundToLongLong_float_">roundToLongLong</a>(float x);</p>
+<p class="description">&#9;static float <a class="link" href="#static_float_secant_float_">secant</a>(float x);</p>
+<p class="description">&#9;static float <a class="link" href="#static_float_sine_float_">sine</a>(float x);</p>
+<p class="description">&#9;static float <a class="link" href="#static_float_squareRoot_float_">squareRoot</a>(float x);</p>
+<p class="description">&#9;static float <a class="link" href="#static_float_tangent_float_">tangent</a>(float x);</p>
+<p class="description">&#9;static float <a class="link" href="#static_float_twoToThePowerOfThis_float_">twoToThePowerOfThis</a>(float x);</p>
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<h2 class="header" id="sg_detaileddescription">Detailed Description</h2>
+<p class="description"><a class="link" href="../cppclass/sglfloatmath">SGLFloatMath</a> provides mathematical functions for floating point numbers including logarithm, square root, and factorial (gamma).</p>
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<h2 class="header" id="sg_implementationdetails">Implementation Details</h2>
+<p class="description">Uses ‹cmath› from Standard Template Library</p>
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<h2 class="header" id="static_float_aToThePowerOfB_float_float_">static float <a class="link" href="#static_float_aToThePowerOfB_float_float_">aToThePowerOfB</a>(float a, float b);</h2>
+<p class="description">Returns <b>a</b>^<b>b</b>.</p>
+<p class="note">The behaviour is not defined for negative <b>a</b>, but it will not crash.</p>
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<h2 class="header" id="static_float_absoluteValue_float_">static float <a class="link" href="#static_float_absoluteValue_float_">absoluteValue</a>(float x);</h2>
+<p class="description">Returns absolute value of <b>x</b>.</p>
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<h2 class="header" id="static_float_arccosine_float_">static float <a class="link" href="#static_float_arccosine_float_">arccosine</a>(float x);</h2>
+<p class="description">Returns the angle in radians, the cosine of which is <b>x</b>.</p>
+<p class="note">The behaviour is undefined for <b>x</b> less than -1 or more than 1, but it will not crash.</p>
+<p class="note">Multiply by 180 / pi to convert from radians to degrees.</p>
+<p class="note">This is the inverse function of cosine.</p>
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<h2 class="header" id="static_float_arcsine_float_">static float <a class="link" href="#static_float_arcsine_float_">arcsine</a>(float x);</h2>
+<p class="description">Returns the angle in radians, the sine of which is <b>x</b>.</p>
+<p class="note">The behaviour is undefined for <b>x</b> less than -1 or more than 1, but it will not crash.</p>
+<p class="note">Multiply by 180 / pi to convert from radians to degrees.</p>
+<p class="note">This is the inverse function of sine.</p>
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<h2 class="header" id="static_float_arctangent_float_">static float <a class="link" href="#static_float_arctangent_float_">arctangent</a>(float x);</h2>
+<p class="description">Returns the angle in radians, the tangent of which is <b>x</b>.</p>
+<p class="note">Multiply by 180 / pi to convert from radians to degrees.</p>
+<p class="note">This is the inverse function of tangent.</p>
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<h2 class="header" id="static_float_arctangentQuadrantAware_float_float_">static float <a class="link" href="#static_float_arctangentQuadrantAware_float_float_">arctangentQuadrantAware</a>(float y, float x);</h2>
+<p class="description">Returns the angle in radians such that rotating (1, 0) by that angle around the origin counterclockwise gives the point (k * <b>x</b>, k * <b>y</b>) where k is positive.</p>
+<p class="note">Multiply by 180 / pi to convert from radians to degrees.</p>
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<h2 class="header" id="static_float_ceiling_float_">static float <a class="link" href="#static_float_ceiling_float_">ceiling</a>(float x);</h2>
+<p class="description">Returns <b>x</b> rounded up to the nearest integer.</p>
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<h2 class="header" id="static_int_ceilingToInt_float_">static int <a class="link" href="#static_int_ceilingToInt_float_">ceilingToInt</a>(float x);</h2>
+<p class="description">Returns <b>x</b> rounded up to the nearest integer.</p>
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<h2 class="header" id="static_long_long_ceilingToLongLong_float_">static long long <a class="link" href="#static_long_long_ceilingToLongLong_float_">ceilingToLongLong</a>(float x);</h2>
+<p class="description">Returns <b>x</b> rounded up to the nearest integer.</p>
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<h2 class="header" id="static_float_cosecant_float_">static float <a class="link" href="#static_float_cosecant_float_">cosecant</a>(float x);</h2>
+<p class="description">Returns the cosecant of a <b>x</b> radians angle.</p>
+<p class="note">Multiply by pi / 180 to convert degrees to radians.</p>
+<p class="note">This is the reciprocal function of sine.</p>
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<h2 class="header" id="static_float_cosine_float_">static float <a class="link" href="#static_float_cosine_float_">cosine</a>(float x);</h2>
+<p class="description">Returns the cosine of a <b>x</b> radians angle.</p>
+<p class="note">Multiply by pi / 180 to convert degrees to radians.</p>
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<h2 class="header" id="static_float_cotangent_float_">static float <a class="link" href="#static_float_cotangent_float_">cotangent</a>(float x);</h2>
+<p class="description">Returns the cotangent of a <b>x</b> radians angle.</p>
+<p class="note">Multiply by pi / 180 to convert degrees to radians.</p>
+<p class="note">This is the reciprocal function of tangent.</p>
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<h2 class="header" id="static_float_cubeRoot_float_">static float <a class="link" href="#static_float_cubeRoot_float_">cubeRoot</a>(float x);</h2>
+<p class="description">Returns cbrt(<b>x</b>).</p>
+<p class="note">The behaviour is not defined for negative <b>x</b>, but it will not crash.</p>
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<h2 class="header" id="static_float_eToThePowerOfThis_float_">static float <a class="link" href="#static_float_eToThePowerOfThis_float_">eToThePowerOfThis</a>(float x);</h2>
+<p class="description">Returns e^<b>x</b> where e is Euler's Number.</p>
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<h2 class="header" id="static_float_extendedFactorial_float_">static float <a class="link" href="#static_float_extendedFactorial_float_">extendedFactorial</a>(float x);</h2>
+<p class="description">Returns the extended factorial (gamma function) of <b>x</b>.</p>
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<h2 class="header" id="static_float_floor_float_">static float <a class="link" href="#static_float_floor_float_">floor</a>(float x);</h2>
+<p class="description">Returns <b>x</b> rounded down to the nearest integer.</p>
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<h2 class="header" id="static_int_floorToInt_float_">static int <a class="link" href="#static_int_floorToInt_float_">floorToInt</a>(float x);</h2>
+<p class="description">Returns <b>x</b> rounded down to the nearest integer.</p>
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<h2 class="header" id="static_long_long_floorToLongLong_float_">static long long <a class="link" href="#static_long_long_floorToLongLong_float_">floorToLongLong</a>(float x);</h2>
+<p class="description">Returns <b>x</b> rounded down to the nearest integer.</p>
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<h2 class="header" id="static_float_integralOfNormalDistributionFromLeft_float_">static float <a class="link" href="#static_float_integralOfNormalDistributionFromLeft_float_">integralOfNormalDistributionFromLeft</a>(float x);</h2>
+<p class="description">Returns the integral of a normal distribution from negative infinity to <b>x</b>.</p>
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<h2 class="header" id="static_float_integralOfNormalDistributionFromRight_float_">static float <a class="link" href="#static_float_integralOfNormalDistributionFromRight_float_">integralOfNormalDistributionFromRight</a>(float x);</h2>
+<p class="description">Returns the integral of a normal distribution from <b>x</b> to positive infinity.</p>
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<h2 class="header" id="static_float_logarithmBase10_float_">static float <a class="link" href="#static_float_logarithmBase10_float_">logarithmBase10</a>(float x);</h2>
+<p class="description">Returns the base 10 logarithm of <b>x</b>.</p>
+<p class="note">The behaviour is not defined for negative <b>x</b>, but it will not crash.</p>
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<h2 class="header" id="static_float_logarithmBase2_float_">static float <a class="link" href="#static_float_logarithmBase2_float_">logarithmBase2</a>(float x);</h2>
+<p class="description">Returns the base 2 logarithm of <b>x</b>.</p>
+<p class="note">The behaviour is not defined for negative <b>x</b>, but it will not crash.</p>
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<h2 class="header" id="static_float_maximum_float_float_">static float <a class="link" href="#static_float_maximum_float_float_">maximum</a>(float a, float b);</h2>
+<p class="description">Returns maximum of <b>a</b> and <b>b</b>.</p>
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<h2 class="header" id="static_float_minimum_float_float_">static float <a class="link" href="#static_float_minimum_float_float_">minimum</a>(float a, float b);</h2>
+<p class="description">Returns minimum of <b>a</b> and <b>b</b>.</p>
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<h2 class="header" id="static_float_modulo_float_float_">static float <a class="link" href="#static_float_modulo_float_float_">modulo</a>(float a, float b);</h2>
+<p class="description">Returns remainder of <b>a</b> when divided by <b>b</b>.</p>
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<h2 class="header" id="static_float_naturalLogarithm_float_">static float <a class="link" href="#static_float_naturalLogarithm_float_">naturalLogarithm</a>(float x);</h2>
+<p class="description">Returns ln(<b>x</b>).</p>
+<p class="note">The behaviour is not defined for negative <b>x</b>, but it will not crash.</p>
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<h2 class="header" id="static_float_round_float_">static float <a class="link" href="#static_float_round_float_">round</a>(float x);</h2>
+<p class="description">Returns <b>x</b> rounded to the nearest integer.</p>
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<h2 class="header" id="static_int_roundToInt_float_">static int <a class="link" href="#static_int_roundToInt_float_">roundToInt</a>(float x);</h2>
+<p class="description">Returns <b>x</b> rounded to the nearest integer.</p>
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<h2 class="header" id="static_long_long_roundToLongLong_float_">static long long <a class="link" href="#static_long_long_roundToLongLong_float_">roundToLongLong</a>(float x);</h2>
+<p class="description">Returns <b>x</b> rounded to the nearest integer.</p>
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<h2 class="header" id="static_float_secant_float_">static float <a class="link" href="#static_float_secant_float_">secant</a>(float x);</h2>
+<p class="description">Returns the secant of a <b>x</b> radians angle.</p>
+<p class="note">Multiply by pi / 180 to convert degrees to radians.</p>
+<p class="note">This is the reciprocal function of cosine.</p>
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<h2 class="header" id="static_float_sine_float_">static float <a class="link" href="#static_float_sine_float_">sine</a>(float x);</h2>
+<p class="description">Returns the sine of a <b>x</b> radians angle.</p>
+<p class="note">Multiply by pi / 180 to convert degrees to radians.</p>
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<h2 class="header" id="static_float_squareRoot_float_">static float <a class="link" href="#static_float_squareRoot_float_">squareRoot</a>(float x);</h2>
+<p class="description">Returns sqrt(<b>x</b>).</p>
+<p class="note">The behaviour is not defined for negative <b>x</b>, but it will not crash.</p>
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<h2 class="header" id="static_float_tangent_float_">static float <a class="link" href="#static_float_tangent_float_">tangent</a>(float x);</h2>
+<p class="description">Returns the tangent of a <b>x</b> radians angle.</p>
+<p class="note">Multiply by pi / 180 to convert degrees to radians.</p>
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<h2 class="header" id="static_float_twoToThePowerOfThis_float_">static float <a class="link" href="#static_float_twoToThePowerOfThis_float_">twoToThePowerOfThis</a>(float x);</h2>
+<p class="description">Returns 2^<b>x</b>.</p>
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<p class="description"></p>
+
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<div style="width: 100%; height: 0.25rem; background-color: var(--c4);"></div>
+<div style="width: 100%; height: 0.25rem; background-color: var(--c8);"></div>
+<p class="description">©2025 05524F.sg (Singapore)</p>
+<p class="description"><a class="link" href="/contact">contact 05524F / report a bug / make a suggestion</a></p>
+<p class="description"><a class="link" href="/values">about 05524F SINGAPORE values</a></p>
+<p class="description"><a class="link" href="/projects">list of 05524F projects</a></p>
+<div style="width: 100%; height: 0.25rem; background-color: var(--c8);"></div>
+<div style="width: 100%; height: 0.25rem; background-color: var(--c4);"></div>
+<div style="width: 100%; height: 0.25rem; background-color: var(--c8);"></div>
+</body>
+</html>

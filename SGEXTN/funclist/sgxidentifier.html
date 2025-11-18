@@ -3,7 +3,7 @@
 <html lang="en-SG">
 <head>
 <meta charset="UTF-8">
-<title>Contact 05524F</title>
+<title>SGXIdentifier Function List</title>
 <link rel="icon" href="/icon.png" type="image/png">
 <meta property="og:image" content="/icon.png">
 <meta name="twitter:image" content="/icon.png">
@@ -240,12 +240,20 @@ window.addEventListener("hashchange", highlightSection);
 <div style="width: 100%; height: 0.25rem; background-color: var(--c8);"></div>
 <div><button class="button" style="width: 100%;" onclick="location.href='/'">Project 05524F.sg</button></div>
 <div style="width: 100%; height: 0.25rem; background-color: var(--c8);"></div>
-<h1 class="title">Contact 05524F</h1>
-<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
-<p class="description">&#9;To contact 05524F, email to <a class="link" href="mailto:infinityintegral333@gmail.com">infinityintegral333@gmail.com</a> or message <a class="link" href="https://www.instagram.com/infinityintegral.sg/">@infinityintegral.sg</a> on Instagram. Messages sent by mutual Instagram followers (05524F's friends) via Instagram will have priority.</p>
-<p class="description">&#9;Almost all the time, your reason for contacting 05524F is either a complaint or a suggestion. A complaint refers to a request to fix a bug, inaccurate information, or unexpected behaviour in a 05524F product or its associated documentation. A suggestion is a request for 05524F to add a new feature to a existing product or to build a new product.</p>
-<p class="description">&#9;05524F is very likely to accept complaints but less likely to accept suggestions. Since all 05524F software is open source, you can build your own feature on top of 05524F software as long as you use the correct license (General Public License version 3 is always safe).</p>
-<p class="description">&#9;</p>
+<div><button class="button" style="width: 100%;" onclick="location.href='../readme/readme'">SGEXTN Documentation</button></div><div style="width: 100%; height: 0.25rem; background-color: var(--c8);"></div><p class="warning">If you have not done so, read this full <a class="link" href="../tutorials/full">tutorial</a> on how to use SGEXTN to build an application.</p><div style="width: 100%; height: 0.75rem; background-color: var(--c8);"></div><h1 class="title"><a class="link" href="../cppclass/sgxidentifier">SGXIdentifier</a></h1>
+<p class="description">&#9;<a class="link" href="../cppclass/sgxidentifier">SGXIdentifier</a>::<a class="link" href="../cppclass/sgxidentifier#SGXIdentifier_const_SGXString_ref_bool_int_ptr_">SGXIdentifier</a>(const <a class="link" href="sgxstring">SGXString</a>& s, bool ifValid, int* errCode);</p>
+<p class="description">&#9;<a class="link" href="../cppclass/sgxidentifier">SGXIdentifier</a>::<a class="link" href="../cppclass/sgxidentifier#SGXIdentifier_bool_">SGXIdentifier</a>(bool ifValid);</p>
+<p class="description">&#9;<a class="link" href="../cppclass/sgxidentifier">SGXIdentifier</a>::<a class="link" href="../cppclass/sgxidentifier#SGXIdentifier_unsigned_int_unsigned_int_unsigned_int_unsigned_int_bool_int_ptr_">SGXIdentifier</a>(unsigned int a, unsigned int b, unsigned int c, unsigned int d, bool ifValid, int* errCode);</p>
+<p class="description">&#9;[[nodiscard]] bool <a class="link" href="../cppclass/sgxidentifier">SGXIdentifier</a>::<a class="link" href="../cppclass/sgxidentifier#nodiscard_bool_exists_func_const_">exists</a>() const;</p>
+<p class="description">&#9;[[nodiscard]] <a class="link" href="sgxstring">SGXString</a> <a class="link" href="../cppclass/sgxidentifier">SGXIdentifier</a>::<a class="link" href="../cppclass/sgxidentifier#nodiscard_SGXString_getStringForPrinting_func_const_">getStringForPrinting</a>() const;</p>
+<p class="description">&#9;[[nodiscard]] int <a class="link" href="../cppclass/sgxidentifier">SGXIdentifier</a>::<a class="link" href="../cppclass/sgxidentifier#nodiscard_int_hash_func_const_">hash</a>() const;</p>
+<p class="description">&#9;static const <a class="link" href="sgxidentifier">SGXIdentifier</a> <a class="link" href="../cppclass/sgxidentifier">SGXIdentifier</a>::<a class="link" href="../cppclass/sgxidentifier#static_const_SGXIdentifier_nullIdentifier_">nullIdentifier</a>;</p>
+<p class="description">&#9;[[nodiscard]] bool <a class="link" href="../cppclass/sgxidentifier">SGXIdentifier</a>::<a class="link" href="../cppclass/sgxidentifier#nodiscard_bool_operator_neq_SGXIdentifier_const_">operator!=</a>(<a class="link" href="sgxidentifier">SGXIdentifier</a> x) const;</p>
+<p class="description">&#9;[[nodiscard]] bool <a class="link" href="../cppclass/sgxidentifier">SGXIdentifier</a>::<a class="link" href="../cppclass/sgxidentifier#nodiscard_bool_operator_lt_SGXIdentifier_const_">operator‹</a>(<a class="link" href="sgxidentifier">SGXIdentifier</a> x) const;</p>
+<p class="description">&#9;[[nodiscard]] bool <a class="link" href="../cppclass/sgxidentifier">SGXIdentifier</a>::<a class="link" href="../cppclass/sgxidentifier#nodiscard_bool_operator_eq_SGXIdentifier_const_">operator==</a>(<a class="link" href="sgxidentifier">SGXIdentifier</a> x) const;</p>
+<p class="description">&#9;[[nodiscard]] bool <a class="link" href="../cppclass/sgxidentifier">SGXIdentifier</a>::<a class="link" href="../cppclass/sgxidentifier#nodiscard_bool_operator_gt_SGXIdentifier_const_">operator›</a>(<a class="link" href="sgxidentifier">SGXIdentifier</a> x) const;</p>
+<p class="description">&#9;[[nodiscard]] int <a class="link" href="../cppclass/sgxidentifier">SGXIdentifier</a>::<a class="link" href="../cppclass/sgxidentifier#nodiscard_int_registerIdentifier_func_const_">registerIdentifier</a>() const;</p>
+<p class="description">&#9;[[nodiscard]] int <a class="link" href="../cppclass/sgxidentifier">SGXIdentifier</a>::<a class="link" href="../cppclass/sgxidentifier#nodiscard_int_unregisterIdentifier_func_const_">unregisterIdentifier</a>() const;</p>
 <p class="description"></p>
 
 <div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>

@@ -3,13 +3,11 @@
 <html lang="en-SG">
 <head>
 <meta charset="UTF-8">
-<title>Error liao</title>
-
+<title>Error 404</title>
 <link rel="icon" href="/icon.png" type="image/png">
 <meta property="og:image" content="/icon.png">
 <meta name="twitter:image" content="/icon.png">
 <link rel="apple-touch-icon" href="/icon.png">
-
 <script type="application/ld+json">
 {
     "@context": "https://schema.org",
@@ -18,10 +16,8 @@
     "image": "/icon.png"
 }
 </script>
-
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <style>
-
 @font-face {
 	font-family: "SingScript.sg";
 	src: url("/SingScript.sg")format("truetype");
@@ -42,7 +38,7 @@
 }
 
 *{
-        font-family: "SingScript.sg";
+    font-family: "SingScript.sg";
 	max-width: 100%;
 	word-break: break-word;
 	-webkit-text-size-adjust: 100%;
@@ -51,7 +47,6 @@
 
 .title {
 	color: var(--c4);
-	background-color: var(--c8);
 	font-size: 3.5rem;
 	margin: 0;
 	font-weight: normal;
@@ -64,14 +59,13 @@
 	font-weight: normal;
 }
 
-.halftitle {
+.header {
 	color: var(--c4);
-	background-color: var(--c8);
 	font-size: 2.5rem;
 	margin: 0;
 	font-weight: normal;
 }
-.halftitle::selection {
+.header::selection {
 	color: var(--c8);
 	background-color: var(--c4);
 	font-size: 2.625rem;
@@ -79,14 +73,13 @@
 	font-weight: normal;
 }
 
-.label {
+.description {
 	color: var(--c4);
-	background-color: var(--c8);
 	font-size: 1.75rem;
 	margin: 0;
 	white-space: pre-wrap;
 }
-.label::selection {
+.description::selection {
 	color: var(--c8);
 	background-color: var(--c4);
 	font-size: 1.75rem;
@@ -94,9 +87,44 @@
 	white-space: pre-wrap;
 }
 
+.note {
+	color: var(--c4);
+	font-size: 1.75rem;
+	margin: 0.25rem;
+	white-space: pre-wrap;
+    border: 0.25rem solid var(--c7);
+    padding: 0.25rem;
+}
+.note::selection {
+	color: var(--c8);
+	background-color: var(--c4);
+	font-size: 1.75rem;
+	margin: 0.25rem;
+	white-space: pre-wrap;
+    border: 0.25rem solid var(--c7);
+    padding: 0.25rem;
+}
+
+.warning {
+	color: var(--c4);
+	font-size: 1.75rem;
+	margin: 0.25rem;
+	white-space: pre-wrap;
+    border: 0.25rem solid var(--c4);
+    padding: 0.25rem;
+}
+.warning::selection {
+	color: var(--c8);
+	background-color: var(--c4);
+	font-size: 1.75rem;
+	margin: 0.25rem;
+	white-space: pre-wrap;
+    border: 0.25rem solid var(--c4);
+    padding: 0.25rem;
+}
+
 .link {
 	color: var(--c2);
-	background-color: var(--c8);
 	text-decoration: underline;
 }
 .link:hover {
@@ -173,26 +201,65 @@
 	text-align: center;
 }
 
+.highlight {
+    animation: highlightFlash 2s ease-out;
+}
+
+@keyframes highlightFlash {
+    0% {background-color: var(--c6);}
+    100% {background-color: var(--c8);}
+}
 </style>
-
+<script>
+let m = (new Date()).getMonth() + 1;
+if(m >= 7 && m <= 9){
+    document.documentElement.style.setProperty("--c0", "rgb(0, 0, 0)");
+    document.documentElement.style.setProperty("--c1", "rgb(60, 9, 14)");
+    document.documentElement.style.setProperty("--c2", "rgb(119, 19, 27)");
+    document.documentElement.style.setProperty("--c3", "rgb(179, 28, 41)");
+    document.documentElement.style.setProperty("--c4", "rgb(238, 37, 54)");
+    document.documentElement.style.setProperty("--c5", "rgb(242, 92, 104)");
+    document.documentElement.style.setProperty("--c6", "rgb(247, 146, 155)");
+    document.documentElement.style.setProperty("--c7", "rgb(251, 201, 205)");
+    document.documentElement.style.setProperty("--c8", "rgb(255, 255, 255)");
+}
+function highlightSection(){
+    let tag = window.location.hash.substring(1);
+    if(tag == ""){return;}
+    let element = document.getElementById(tag);
+    if(element == null){return;}
+    element.classList.add("highlight");
+    element.addEventListener("animationend", () => {element.classList.remove("highlight");}, {once: true});
+}
+window.addEventListener("DOMContentLoaded", highlightSection);
+window.addEventListener("hashchange", highlightSection);
+</script>
 </head>
-<body>
+<body style="margin-left: 1em;">
+<p class="description" style="color: rgb(238, 37, 54); text-align: center; font-size: 2.5rem">sincerely <img src="/flag.png" style="vertical-align: middle; height: 2.5rem; image-rendering: auto;"> Singaporean</p>
+<div style="width: 100%; height: 0.25rem; background-color: var(--c8);"></div>
+<div><button class="button" style="width: 100%;" onclick="location.href='/'">Project 05524F.sg</button></div>
+<div style="width: 100%; height: 0.25rem; background-color: var(--c8);"></div>
+<h1 class="title">Error 404</h1>
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<p class="description">&#9;I was looking for this page...</p>
+<p class="description">&#9;from Sembawang to Sentosa...</p>
+<p class="description">&#9;from Tuas Second Link to TEL Changi Link...</p>
+<p class="description">&#9;from station DT21 to flight SQ21...</p>
+<p class="description">&#9;and I still cannot find it...</p>
+<p class="description">&#9;maybe you entered the link wrongly?</p>
+<p class="description">&#9;</p>
+<p class="description"></p>
 
-<div>
-<button class="button" style="width: 100%;" onclick="location.href='/'">
-<img src="https://raw.githubusercontent.com/InfinityIntegral/InfinityIntegral/main/flagemoji.png" style="vertical-align: middle; height: 1.5rem; image-rendering: auto;"> SGEXTN Documentation <img src="https://raw.githubusercontent.com/InfinityIntegral/InfinityIntegral/main/flagemoji.png" style="vertical-align: middle; height: 1.5rem; image-rendering: auto;">
-</button>
-</div>
-
-<h1 class="title" style="text-align: center;">Cannot find page leh</h1>
-<p class="label" style="text-align: center;">Go check the link correct or not</p>
-
-<div>
-<div style="width: 100%; height: 0.25em; background-color: var(--c4);"></div>
-<p class="label">©2025 05524F.sg (Singapore)</p>
-<p class="label"><a class="link" href="/contact">report a bug in SGEXTN or contact 05524F</a></p>
-<div style="width: 100%; height: 0.25em; background-color: var(--c4);"></div>
-</div>
-
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<div style="width: 100%; height: 0.25rem; background-color: var(--c4);"></div>
+<div style="width: 100%; height: 0.25rem; background-color: var(--c8);"></div>
+<p class="description">©2025 05524F.sg (Singapore)</p>
+<p class="description"><a class="link" href="/contact">contact 05524F / report a bug / make a suggestion</a></p>
+<p class="description"><a class="link" href="/values">about 05524F SINGAPORE values</a></p>
+<p class="description"><a class="link" href="/projects">list of 05524F projects</a></p>
+<div style="width: 100%; height: 0.25rem; background-color: var(--c8);"></div>
+<div style="width: 100%; height: 0.25rem; background-color: var(--c4);"></div>
+<div style="width: 100%; height: 0.25rem; background-color: var(--c8);"></div>
 </body>
 </html>

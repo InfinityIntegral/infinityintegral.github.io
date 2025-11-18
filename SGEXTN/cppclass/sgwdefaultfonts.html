@@ -3,7 +3,7 @@
 <html lang="en-SG">
 <head>
 <meta charset="UTF-8">
-<title>Contact 05524F</title>
+<title>SGWDefaultFonts Documentation</title>
 <link rel="icon" href="/icon.png" type="image/png">
 <meta property="og:image" content="/icon.png">
 <meta name="twitter:image" content="/icon.png">
@@ -240,12 +240,55 @@ window.addEventListener("hashchange", highlightSection);
 <div style="width: 100%; height: 0.25rem; background-color: var(--c8);"></div>
 <div><button class="button" style="width: 100%;" onclick="location.href='/'">Project 05524F.sg</button></div>
 <div style="width: 100%; height: 0.25rem; background-color: var(--c8);"></div>
-<h1 class="title">Contact 05524F</h1>
+<div><button class="button" style="width: 100%;" onclick="location.href='../readme/readme'">SGEXTN Documentation</button></div><div style="width: 100%; height: 0.25rem; background-color: var(--c8);"></div><p class="warning">If you have not done so, read this full <a class="link" href="../tutorials/full">tutorial</a> on how to use SGEXTN to build an application.</p><div style="width: 100%; height: 0.75rem; background-color: var(--c8);"></div><h1 class="title">SGWDefaultFonts</h1>
 <div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
-<p class="description">&#9;To contact 05524F, email to <a class="link" href="mailto:infinityintegral333@gmail.com">infinityintegral333@gmail.com</a> or message <a class="link" href="https://www.instagram.com/infinityintegral.sg/">@infinityintegral.sg</a> on Instagram. Messages sent by mutual Instagram followers (05524F's friends) via Instagram will have priority.</p>
-<p class="description">&#9;Almost all the time, your reason for contacting 05524F is either a complaint or a suggestion. A complaint refers to a request to fix a bug, inaccurate information, or unexpected behaviour in a 05524F product or its associated documentation. A suggestion is a request for 05524F to add a new feature to a existing product or to build a new product.</p>
-<p class="description">&#9;05524F is very likely to accept complaints but less likely to accept suggestions. Since all 05524F software is open source, you can build your own feature on top of 05524F software as long as you use the correct license (General Public License version 3 is always safe).</p>
-<p class="description">&#9;</p>
+<p class="description"><a class="link" href="https://github.com/InfinityIntegral/SGEXTN/tree/main/SG_Widgets/include/SGWDefaultFonts.h">see header file</a></p>
+<p class="description"><a class="link" href="https://github.com/InfinityIntegral/SGEXTN/tree/main/SG_Widgets/src/SGWDefaultFonts.cpp">see source file</a></p>
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<p class="description">class SGWDefaultFonts;</p>
+<p class="description">part of SGEXTN module <a class="link" href="../modules/sg_widgets">SG_Widgets</a></p>
+<p class="description">provides access to <a class="link" href="../tutorials/sgwidget">SGWidget ⁽㈳㈴㈳㈮㈱㈨㈠㈫ ㈧㈤㈱㈤⁾</a> default fonts</p>
+<p class="description"><a class="link" href="#sg_detaileddescription">detailed description</a></p>
+<p class="description"><a class="link" href="../funclist/sgwdefaultfonts">list of all including inherited members</a></p>
+<p class="description"><a class="link" href="#sg_implementationdetails">implementation details</a></p>
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<p class="description">preprocessor file inclusion directive: #include ‹SGWDefaultFonts.h›</p>
+<p class="description">CMake commands:</p>
+<p class="description">&#9;find_package(<a class="link" href="../readme/readme">SGEXTN</a> REQUIRED COMPONENTS <a class="link" href="../modules/sg_widgets">SG_Widgets</a>)</p>
+<p class="description">&#9;target_link_libraries(yourCMakeTarget PRIVATE <a class="link" href="../modules/sg_widgets">SGEXTN::SG_Widgets</a>)</p>
+<p class="description">parent class: (none)</p>
+<p class="description">children classes: (none)</p>
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<h2 class="header" id="">static member variables</h2>
+<p class="description">&#9;static <a class="link" href="sgxstring">SGXString</a> <a class="link" href="#static_SGXString_iconsFont_">iconsFont</a>;</p>
+<p class="description">&#9;static <a class="link" href="sgxstring">SGXString</a> <a class="link" href="#static_SGXString_textFont_">textFont</a>;</p>
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<h2 class="header" id="">static member functions</h2>
+<p class="description">&#9;static void <a class="link" href="#static_void_addFont_const_SGXString_ref_">addFont</a>(const <a class="link" href="sgxstring">SGXString</a>& fileName);</p>
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<h2 class="header" id="sg_detaileddescription">Detailed Description</h2>
+<p class="description"><a class="link" href="../cppclass/sgwdefaultfonts">SGWDefaultFonts</a> allows you to get application default fonts and apply them to the user interface. This class also allows adding custom fonts.</p>
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<h2 class="header" id="sg_implementationdetails">Implementation Details</h2>
+<p class="description">Returns "SingScript.sg" and "AppIcons.sg"</p>
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<h2 class="header" id="static_SGXString_iconsFont_">static <a class="link" href="sgxstring">SGXString</a> <a class="link" href="#static_SGXString_iconsFont_">iconsFont</a>;</h2>
+<p class="description">Returns the font name AppIcons.sg. This is a user supplied font for <a class="link" href="../tutorials/appicon">application icon ⁽㈳㈴㈳㈮㈱㈨㈠㈫ ㈧㈤㈱㈤⁾</a>.</p>
+<p class="note">AppIcons.sg is only required if using <a class="link" href="../cppclass/sgwiconlabel">SGWIconLabel</a> and <a class="link" href="../cppclass/sgwiconbutton">SGWIconButton</a>.</p>
+<p class="warning">The font must be imported in <a class="link" href="../cppclass/sgxcentral#static_void_ptr_importCustomFonts_func_">SGXCentral::importCustomFonts</a>.</p>
+<p class="warning">Setting this variable is <a class="link" href="../tutorials/undefinedbehaviour">undefined behaviour</a>.</p>
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<h2 class="header" id="static_SGXString_textFont_">static <a class="link" href="sgxstring">SGXString</a> <a class="link" href="#static_SGXString_textFont_">textFont</a>;</h2>
+<p class="description">Returns the font name SingScript.sg. This is the default font for SGEXTN and displays mathematical and scientific symbols.</p>
+<p class="note">You are strongly recommended to use this font for all of the UI.</p>
+<p class="warning">Setting this variable is <a class="link" href="../tutorials/undefinedbehaviour">undefined behaviour</a>.</p>
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<h2 class="header" id="static_void_addFont_const_SGXString_ref_">static void <a class="link" href="#static_void_addFont_const_SGXString_ref_">addFont</a>(const <a class="link" href="sgxstring">SGXString</a>& fileName);</h2>
+<p class="description">Imports the ttf or otf formatted font found at <b>fileName</b>.</p>
+<p class="note">This should be used in <a class="link" href="../cppclass/sgxcentral#static_void_ptr_importCustomFonts_func_">SGXCentral::importCustomFonts</a> if the font need to be used upon application startup.</p>
+<p class="warning">Importing multiple fonts with the same family name is <a class="link" href="../tutorials/undefinedbehaviour">undefined behaviour</a>. If your font is modular, merge everything first.</p>
+<p class="warning">The matching file must exist in the resource system. To ensure that, use relevant CMake commands. For more information about the resource system, see this <a class="link" href="../tutorials/resources">tutorial</a>.</p>
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
 <p class="description"></p>
 
 <div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>

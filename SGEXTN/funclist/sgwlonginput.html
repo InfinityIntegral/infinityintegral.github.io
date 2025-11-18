@@ -1,0 +1,382 @@
+
+<!DOCTYPE html>
+<html lang="en-SG">
+<head>
+<meta charset="UTF-8">
+<title>SGWLongInput Function List</title>
+<link rel="icon" href="/icon.png" type="image/png">
+<meta property="og:image" content="/icon.png">
+<meta name="twitter:image" content="/icon.png">
+<link rel="apple-touch-icon" href="/icon.png">
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "url": "https://infinityintegral.github.io",
+    "image": "/icon.png"
+}
+</script>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+@font-face {
+	font-family: "SingScript.sg";
+	src: url("/SingScript.sg")format("truetype");
+	font-weight: normal;
+	font-style: normal;
+}
+
+:root {
+	--c0: rgb(0, 0, 0);
+	--c1: rgb(64, 0, 50);
+	--c2: rgb(128, 0, 100);
+	--c3: rgb(191, 0, 150);
+	--c4: rgb(255, 0, 200);
+	--c5: rgb(255, 64, 214);
+	--c6: rgb(255, 128, 227);
+	--c7: rgb(255, 191, 241);
+	--c8: rgb(255, 255, 255);
+}
+
+*{
+    font-family: "SingScript.sg";
+	max-width: 100%;
+	word-break: break-word;
+	-webkit-text-size-adjust: 100%;
+	-ms-text-size-adjust: 100%;
+}
+
+.title {
+	color: var(--c4);
+	font-size: 3.5rem;
+	margin: 0;
+	font-weight: normal;
+}
+.title::selection {
+	color: var(--c8);
+	background-color: var(--c4);
+	font-size: 3.5rem;
+	margin: 0;
+	font-weight: normal;
+}
+
+.header {
+	color: var(--c4);
+	font-size: 2.5rem;
+	margin: 0;
+	font-weight: normal;
+}
+.header::selection {
+	color: var(--c8);
+	background-color: var(--c4);
+	font-size: 2.625rem;
+	margin: 0;
+	font-weight: normal;
+}
+
+.description {
+	color: var(--c4);
+	font-size: 1.75rem;
+	margin: 0;
+	white-space: pre-wrap;
+}
+.description::selection {
+	color: var(--c8);
+	background-color: var(--c4);
+	font-size: 1.75rem;
+	margin: 0;
+	white-space: pre-wrap;
+}
+
+.note {
+	color: var(--c4);
+	font-size: 1.75rem;
+	margin: 0.25rem;
+	white-space: pre-wrap;
+    border: 0.25rem solid var(--c7);
+    padding: 0.25rem;
+}
+.note::selection {
+	color: var(--c8);
+	background-color: var(--c4);
+	font-size: 1.75rem;
+	margin: 0.25rem;
+	white-space: pre-wrap;
+    border: 0.25rem solid var(--c7);
+    padding: 0.25rem;
+}
+
+.warning {
+	color: var(--c4);
+	font-size: 1.75rem;
+	margin: 0.25rem;
+	white-space: pre-wrap;
+    border: 0.25rem solid var(--c4);
+    padding: 0.25rem;
+}
+.warning::selection {
+	color: var(--c8);
+	background-color: var(--c4);
+	font-size: 1.75rem;
+	margin: 0.25rem;
+	white-space: pre-wrap;
+    border: 0.25rem solid var(--c4);
+    padding: 0.25rem;
+}
+
+.link {
+	color: var(--c2);
+	text-decoration: underline;
+}
+.link:hover {
+	color: var(--c2);
+	background-color: var(--c7);
+	text-decoration: underline;
+}
+.link:active {
+	color: var(--c2);
+	background-color: var(--c6);
+	text-decoration: underline;
+}
+.link::selection {
+	color: var(--c8);
+	background-color: var(--c4);
+	text-decoration: underline;
+}
+
+.button {
+	color: var(--c8);
+	background-color: var(--c4);
+	font-size: 1.75rem;
+	border: none;
+}
+.button:hover {
+	color: var(--c7);
+	background-color: var(--c3);
+	font-size: 1.75rem;
+	border: none;
+}
+.button:active {
+	color: var(--c6);
+	background-color: var(--c2);
+	font-size: 1.75rem;
+	border: none;
+}
+.button::selection {
+	color: var(--c4);
+	background-color: var(--c8);
+	font-size: 1.75rem;
+	border: none;
+}
+
+.input {
+	color: var(--c8);
+	background-color: var(--c4);
+	font-size: 1.75rem;
+	border: none;
+	outline: none;
+	text-align: center;
+}
+.input:hover {
+	color: var(--c7);
+	background-color: var(--c3);
+	font-size: 1.75rem;
+	border: none;
+	outline: none;
+	text-align: center;
+}
+.input:focus {
+	color: var(--c6);
+	background-color: var(--c2);
+	font-size: 1.75rem;
+	border: none;
+	outline: none;
+	text-align: center;
+}
+.input::selection {
+	color: var(--c4);
+	background-color: var(--c8);
+	font-size: 1.75rem;
+	border: none;
+	outline: none;
+	text-align: center;
+}
+
+.highlight {
+    animation: highlightFlash 2s ease-out;
+}
+
+@keyframes highlightFlash {
+    0% {background-color: var(--c6);}
+    100% {background-color: var(--c8);}
+}
+</style>
+<script>
+let m = (new Date()).getMonth() + 1;
+if(m >= 7 && m <= 9){
+    document.documentElement.style.setProperty("--c0", "rgb(0, 0, 0)");
+    document.documentElement.style.setProperty("--c1", "rgb(60, 9, 14)");
+    document.documentElement.style.setProperty("--c2", "rgb(119, 19, 27)");
+    document.documentElement.style.setProperty("--c3", "rgb(179, 28, 41)");
+    document.documentElement.style.setProperty("--c4", "rgb(238, 37, 54)");
+    document.documentElement.style.setProperty("--c5", "rgb(242, 92, 104)");
+    document.documentElement.style.setProperty("--c6", "rgb(247, 146, 155)");
+    document.documentElement.style.setProperty("--c7", "rgb(251, 201, 205)");
+    document.documentElement.style.setProperty("--c8", "rgb(255, 255, 255)");
+}
+function highlightSection(){
+    let tag = window.location.hash.substring(1);
+    if(tag == ""){return;}
+    let element = document.getElementById(tag);
+    if(element == null){return;}
+    element.classList.add("highlight");
+    element.addEventListener("animationend", () => {element.classList.remove("highlight");}, {once: true});
+}
+window.addEventListener("DOMContentLoaded", highlightSection);
+window.addEventListener("hashchange", highlightSection);
+</script>
+</head>
+<body style="margin-left: 1em;">
+<p class="description" style="color: rgb(238, 37, 54); text-align: center; font-size: 2.5rem">sincerely <img src="/flag.png" style="vertical-align: middle; height: 2.5rem; image-rendering: auto;"> Singaporean</p>
+<div style="width: 100%; height: 0.25rem; background-color: var(--c8);"></div>
+<div><button class="button" style="width: 100%;" onclick="location.href='/'">Project 05524F.sg</button></div>
+<div style="width: 100%; height: 0.25rem; background-color: var(--c8);"></div>
+<div><button class="button" style="width: 100%;" onclick="location.href='../readme/readme'">SGEXTN Documentation</button></div><div style="width: 100%; height: 0.25rem; background-color: var(--c8);"></div><p class="warning">If you have not done so, read this full <a class="link" href="../tutorials/full">tutorial</a> on how to use SGEXTN to build an application.</p><div style="width: 100%; height: 0.75rem; background-color: var(--c8);"></div><h1 class="title"><a class="link" href="../cppclass/sgwlonginput">SGWLongInput</a></h1>
+<p class="description">&#9;<a class="link" href="../cppclass/sgwlonginput">SGWLongInput</a>::<a class="link" href="../cppclass/sgwlonginput#SGWLongInput_SGWWidget_ptr_void_ptr_func_float_float_float_float_float_float_float_float_float_float_float_float_">SGWLongInput</a>(<a class="link" href="sgwwidget">SGWWidget</a>* parent, void (*validationFunction)(), float x1, float x0, float y1, float y0, float w1, float w0, float h1, float h0, float f1, float f0, float s1, float s0);</p>
+<p class="description">&#9;int <a class="link" href="../cppclass/sgwinput">SGWInput</a>::<a class="link" href="../cppclass/sgwinput#int_attachedInt_">attachedInt</a>;</p>
+<p class="description">&#9;<a class="link" href="sgxstring">SGXString</a> <a class="link" href="../cppclass/sgwinput">SGWInput</a>::<a class="link" href="../cppclass/sgwinput#SGXString_attachedString_">attachedString</a>;</p>
+<p class="description">&#9;void (*<a class="link" href="../cppclass/sgwinput">SGWInput</a>::<a class="link" href="../cppclass/sgwinput#void_ptr_focusEndFunction_func_">focusEndFunction</a>)();</p>
+<p class="description">&#9;void (*<a class="link" href="../cppclass/sgwinput">SGWInput</a>::<a class="link" href="../cppclass/sgwinput#void_ptr_focusEndFunctionWithInt_int_">focusEndFunctionWithInt</a>)(int);</p>
+<p class="description">&#9;void (*<a class="link" href="../cppclass/sgwinput">SGWInput</a>::<a class="link" href="../cppclass/sgwinput#void_ptr_focusEndFunctionWithPointer_SGWInput_ptr_">focusEndFunctionWithPointer</a>)(<a class="link" href="sgwinput">SGWInput</a>*);</p>
+<p class="description">&#9;void (*<a class="link" href="../cppclass/sgwinput">SGWInput</a>::<a class="link" href="../cppclass/sgwinput#void_ptr_focusEndFunctionWithString_const_SGXString_ref_">focusEndFunctionWithString</a>)(const <a class="link" href="sgxstring">SGXString</a>&);</p>
+<p class="description">&#9;void (*<a class="link" href="../cppclass/sgwinput">SGWInput</a>::<a class="link" href="../cppclass/sgwinput#void_ptr_focusStartFunction_func_">focusStartFunction</a>)();</p>
+<p class="description">&#9;void (*<a class="link" href="../cppclass/sgwinput">SGWInput</a>::<a class="link" href="../cppclass/sgwinput#void_ptr_focusStartFunctionWithInt_int_">focusStartFunctionWithInt</a>)(int);</p>
+<p class="description">&#9;void (*<a class="link" href="../cppclass/sgwinput">SGWInput</a>::<a class="link" href="../cppclass/sgwinput#void_ptr_focusStartFunctionWithPointer_SGWInput_ptr_">focusStartFunctionWithPointer</a>)(<a class="link" href="sgwinput">SGWInput</a>*);</p>
+<p class="description">&#9;void (*<a class="link" href="../cppclass/sgwinput">SGWInput</a>::<a class="link" href="../cppclass/sgwinput#void_ptr_focusStartFunctionWithString_const_SGXString_ref_">focusStartFunctionWithString</a>)(const <a class="link" href="sgxstring">SGXString</a>&);</p>
+<p class="description">&#9;[[nodiscard]] <a class="link" href="sgxcolourrgba">SGXColourRGBA</a> <a class="link" href="../cppclass/sgwinput">SGWInput</a>::<a class="link" href="../cppclass/sgwinput#nodiscard_SGXColourRGBA_getBackgroundColour_bool_ptr_const_">getBackgroundColour</a>(bool* isUsing) const;</p>
+<p class="description">&#9;[[nodiscard]] <a class="link" href="sgxcolourrgba">SGXColourRGBA</a> <a class="link" href="../cppclass/sgwinput">SGWInput</a>::<a class="link" href="../cppclass/sgwinput#nodiscard_SGXColourRGBA_getBackgroundFocusColour_bool_ptr_const_">getBackgroundFocusColour</a>(bool* isUsing) const;</p>
+<p class="description">&#9;[[nodiscard]] int <a class="link" href="../cppclass/sgwinput">SGWInput</a>::<a class="link" href="../cppclass/sgwinput#nodiscard_int_getBackgroundFocusThemeColour_bool_ptr_const_">getBackgroundFocusThemeColour</a>(bool* isUsing) const;</p>
+<p class="description">&#9;[[nodiscard]] <a class="link" href="sgxcolourrgba">SGXColourRGBA</a> <a class="link" href="../cppclass/sgwinput">SGWInput</a>::<a class="link" href="../cppclass/sgwinput#nodiscard_SGXColourRGBA_getBackgroundHoverColour_bool_ptr_const_">getBackgroundHoverColour</a>(bool* isUsing) const;</p>
+<p class="description">&#9;[[nodiscard]] <a class="link" href="sgxcolourrgba">SGXColourRGBA</a> <a class="link" href="../cppclass/sgwinput">SGWInput</a>::<a class="link" href="../cppclass/sgwinput#nodiscard_SGXColourRGBA_getBackgroundHoverInvalidColour_bool_ptr_const_">getBackgroundHoverInvalidColour</a>(bool* isUsing) const;</p>
+<p class="description">&#9;[[nodiscard]] int <a class="link" href="../cppclass/sgwinput">SGWInput</a>::<a class="link" href="../cppclass/sgwinput#nodiscard_int_getBackgroundHoverInvalidThemeColour_bool_ptr_const_">getBackgroundHoverInvalidThemeColour</a>(bool* isUsing) const;</p>
+<p class="description">&#9;[[nodiscard]] int <a class="link" href="../cppclass/sgwinput">SGWInput</a>::<a class="link" href="../cppclass/sgwinput#nodiscard_int_getBackgroundHoverThemeColour_bool_ptr_const_">getBackgroundHoverThemeColour</a>(bool* isUsing) const;</p>
+<p class="description">&#9;[[nodiscard]] <a class="link" href="sgxcolourrgba">SGXColourRGBA</a> <a class="link" href="../cppclass/sgwinput">SGWInput</a>::<a class="link" href="../cppclass/sgwinput#nodiscard_SGXColourRGBA_getBackgroundInvalidColour_bool_ptr_const_">getBackgroundInvalidColour</a>(bool* isUsing) const;</p>
+<p class="description">&#9;[[nodiscard]] int <a class="link" href="../cppclass/sgwinput">SGWInput</a>::<a class="link" href="../cppclass/sgwinput#nodiscard_int_getBackgroundInvalidThemeColour_bool_ptr_const_">getBackgroundInvalidThemeColour</a>(bool* isUsing) const;</p>
+<p class="description">&#9;[[nodiscard]] int <a class="link" href="../cppclass/sgwinput">SGWInput</a>::<a class="link" href="../cppclass/sgwinput#nodiscard_int_getBackgroundThemeColour_bool_ptr_const_">getBackgroundThemeColour</a>(bool* isUsing) const;</p>
+<p class="description">&#9;[[nodiscard]] <a class="link" href="sglarray">SGLArray</a>‹<a class="link" href="sgwwidget">SGWWidget</a>*› <a class="link" href="../cppclass/sgwwidget">SGWWidget</a>::<a class="link" href="../cppclass/sgwwidget#nodiscard_SGLArray_lt_SGWWidget_ptr_gt_getChildren_func_const_">getChildren</a>() const;</p>
+<p class="description">&#9;[[nodiscard]] float <a class="link" href="../cppclass/sgwinput">SGWInput</a>::<a class="link" href="../cppclass/sgwinput#nodiscard_float_getF0_func_const_">getF0</a>() const;</p>
+<p class="description">&#9;[[nodiscard]] float <a class="link" href="../cppclass/sgwinput">SGWInput</a>::<a class="link" href="../cppclass/sgwinput#nodiscard_float_getF1_func_const_">getF1</a>() const;</p>
+<p class="description">&#9;[[nodiscard]] <a class="link" href="sgxstring">SGXString</a> <a class="link" href="../cppclass/sgwinput">SGWInput</a>::<a class="link" href="../cppclass/sgwinput#nodiscard_SGXString_getFont_func_const_">getFont</a>() const;</p>
+<p class="description">&#9;[[nodiscard]] <a class="link" href="sgxcolourrgba">SGXColourRGBA</a> <a class="link" href="../cppclass/sgwinput">SGWInput</a>::<a class="link" href="../cppclass/sgwinput#nodiscard_SGXColourRGBA_getForegroundColour_bool_ptr_const_">getForegroundColour</a>(bool* isUsing) const;</p>
+<p class="description">&#9;[[nodiscard]] <a class="link" href="sgxcolourrgba">SGXColourRGBA</a> <a class="link" href="../cppclass/sgwinput">SGWInput</a>::<a class="link" href="../cppclass/sgwinput#nodiscard_SGXColourRGBA_getForegroundFocusColour_bool_ptr_const_">getForegroundFocusColour</a>(bool* isUsing) const;</p>
+<p class="description">&#9;[[nodiscard]] int <a class="link" href="../cppclass/sgwinput">SGWInput</a>::<a class="link" href="../cppclass/sgwinput#nodiscard_int_getForegroundFocusThemeColour_bool_ptr_const_">getForegroundFocusThemeColour</a>(bool* isUsing) const;</p>
+<p class="description">&#9;[[nodiscard]] <a class="link" href="sgxcolourrgba">SGXColourRGBA</a> <a class="link" href="../cppclass/sgwinput">SGWInput</a>::<a class="link" href="../cppclass/sgwinput#nodiscard_SGXColourRGBA_getForegroundHoverColour_bool_ptr_const_">getForegroundHoverColour</a>(bool* isUsing) const;</p>
+<p class="description">&#9;[[nodiscard]] <a class="link" href="sgxcolourrgba">SGXColourRGBA</a> <a class="link" href="../cppclass/sgwinput">SGWInput</a>::<a class="link" href="../cppclass/sgwinput#nodiscard_SGXColourRGBA_getForegroundHoverInvalidColour_bool_ptr_const_">getForegroundHoverInvalidColour</a>(bool* isUsing) const;</p>
+<p class="description">&#9;[[nodiscard]] int <a class="link" href="../cppclass/sgwinput">SGWInput</a>::<a class="link" href="../cppclass/sgwinput#nodiscard_int_getForegroundHoverInvalidThemeColour_bool_ptr_const_">getForegroundHoverInvalidThemeColour</a>(bool* isUsing) const;</p>
+<p class="description">&#9;[[nodiscard]] int <a class="link" href="../cppclass/sgwinput">SGWInput</a>::<a class="link" href="../cppclass/sgwinput#nodiscard_int_getForegroundHoverThemeColour_bool_ptr_const_">getForegroundHoverThemeColour</a>(bool* isUsing) const;</p>
+<p class="description">&#9;[[nodiscard]] <a class="link" href="sgxcolourrgba">SGXColourRGBA</a> <a class="link" href="../cppclass/sgwinput">SGWInput</a>::<a class="link" href="../cppclass/sgwinput#nodiscard_SGXColourRGBA_getForegroundInvalidColour_bool_ptr_const_">getForegroundInvalidColour</a>(bool* isUsing) const;</p>
+<p class="description">&#9;[[nodiscard]] int <a class="link" href="../cppclass/sgwinput">SGWInput</a>::<a class="link" href="../cppclass/sgwinput#nodiscard_int_getForegroundInvalidThemeColour_bool_ptr_const_">getForegroundInvalidThemeColour</a>(bool* isUsing) const;</p>
+<p class="description">&#9;[[nodiscard]] int <a class="link" href="../cppclass/sgwinput">SGWInput</a>::<a class="link" href="../cppclass/sgwinput#nodiscard_int_getForegroundThemeColour_bool_ptr_const_">getForegroundThemeColour</a>(bool* isUsing) const;</p>
+<p class="description">&#9;[[nodiscard]] float <a class="link" href="../cppclass/sgwwidget">SGWWidget</a>::<a class="link" href="../cppclass/sgwwidget#nodiscard_float_getH0_func_const_">getH0</a>() const;</p>
+<p class="description">&#9;[[nodiscard]] float <a class="link" href="../cppclass/sgwwidget">SGWWidget</a>::<a class="link" href="../cppclass/sgwwidget#nodiscard_float_getH1_func_const_">getH1</a>() const;</p>
+<p class="description">&#9;[[nodiscard]] SGWHorizontalAlignment::Flag <a class="link" href="../cppclass/sgwinput">SGWInput</a>::<a class="link" href="../cppclass/sgwinput#nodiscard_SGWHorizontalAlignment_mc_Flag_getHorizontalAlignment_func_const_">getHorizontalAlignment</a>() const;</p>
+<p class="description">&#9;[[nodiscard]] bool <a class="link" href="../cppclass/sgwinput">SGWInput</a>::<a class="link" href="../cppclass/sgwinput#nodiscard_bool_getInvalid_func_const_">getInvalid</a>() const;</p>
+<p class="description">&#9;[[nodiscard]] bool <a class="link" href="../cppclass/sgwwidget">SGWWidget</a>::<a class="link" href="../cppclass/sgwwidget#nodiscard_bool_getItemVisibility_func_const_">getItemVisibility</a>() const;</p>
+<p class="description">&#9;[[nodiscard]] <a class="link" href="sgwwidget">SGWWidget</a>* <a class="link" href="../cppclass/sgwwidget">SGWWidget</a>::<a class="link" href="../cppclass/sgwwidget#nodiscard_SGWWidget_ptr_getParent_func_const_">getParent</a>() const;</p>
+<p class="description">&#9;[[nodiscard]] float <a class="link" href="../cppclass/sgwlonginput">SGWLongInput</a>::<a class="link" href="../cppclass/sgwlonginput#nodiscard_float_getS0_func_const_">getS0</a>() const;</p>
+<p class="description">&#9;[[nodiscard]] float <a class="link" href="../cppclass/sgwlonginput">SGWLongInput</a>::<a class="link" href="../cppclass/sgwlonginput#nodiscard_float_getS1_func_const_">getS1</a>() const;</p>
+<p class="description">&#9;[[nodiscard]] <a class="link" href="sgxcolourrgba">SGXColourRGBA</a> <a class="link" href="../cppclass/sgwlonginput">SGWLongInput</a>::<a class="link" href="../cppclass/sgwlonginput#nodiscard_SGXColourRGBA_getScrollbarBackgroundColour_bool_ptr_const_">getScrollbarBackgroundColour</a>(bool* isUsing) const;</p>
+<p class="description">&#9;[[nodiscard]] <a class="link" href="sgxcolourrgba">SGXColourRGBA</a> <a class="link" href="../cppclass/sgwlonginput">SGWLongInput</a>::<a class="link" href="../cppclass/sgwlonginput#nodiscard_SGXColourRGBA_getScrollbarBackgroundFocusColour_bool_ptr_const_">getScrollbarBackgroundFocusColour</a>(bool* isUsing) const;</p>
+<p class="description">&#9;[[nodiscard]] int <a class="link" href="../cppclass/sgwlonginput">SGWLongInput</a>::<a class="link" href="../cppclass/sgwlonginput#nodiscard_int_getScrollbarBackgroundFocusThemeColour_bool_ptr_const_">getScrollbarBackgroundFocusThemeColour</a>(bool* isUsing) const;</p>
+<p class="description">&#9;[[nodiscard]] <a class="link" href="sgxcolourrgba">SGXColourRGBA</a> <a class="link" href="../cppclass/sgwlonginput">SGWLongInput</a>::<a class="link" href="../cppclass/sgwlonginput#nodiscard_SGXColourRGBA_getScrollbarBackgroundHoverColour_bool_ptr_const_">getScrollbarBackgroundHoverColour</a>(bool* isUsing) const;</p>
+<p class="description">&#9;[[nodiscard]] int <a class="link" href="../cppclass/sgwlonginput">SGWLongInput</a>::<a class="link" href="../cppclass/sgwlonginput#nodiscard_int_getScrollbarBackgroundHoverThemeColour_bool_ptr_const_">getScrollbarBackgroundHoverThemeColour</a>(bool* isUsing) const;</p>
+<p class="description">&#9;[[nodiscard]] int <a class="link" href="../cppclass/sgwlonginput">SGWLongInput</a>::<a class="link" href="../cppclass/sgwlonginput#nodiscard_int_getScrollbarBackgroundThemeColour_bool_ptr_const_">getScrollbarBackgroundThemeColour</a>(bool* isUsing) const;</p>
+<p class="description">&#9;[[nodiscard]] <a class="link" href="sgxcolourrgba">SGXColourRGBA</a> <a class="link" href="../cppclass/sgwlonginput">SGWLongInput</a>::<a class="link" href="../cppclass/sgwlonginput#nodiscard_SGXColourRGBA_getScrollbarForegroundColour_bool_ptr_const_">getScrollbarForegroundColour</a>(bool* isUsing) const;</p>
+<p class="description">&#9;[[nodiscard]] <a class="link" href="sgxcolourrgba">SGXColourRGBA</a> <a class="link" href="../cppclass/sgwlonginput">SGWLongInput</a>::<a class="link" href="../cppclass/sgwlonginput#nodiscard_SGXColourRGBA_getScrollbarForegroundFocusColour_bool_ptr_const_">getScrollbarForegroundFocusColour</a>(bool* isUsing) const;</p>
+<p class="description">&#9;[[nodiscard]] int <a class="link" href="../cppclass/sgwlonginput">SGWLongInput</a>::<a class="link" href="../cppclass/sgwlonginput#nodiscard_int_getScrollbarForegroundFocusThemeColour_bool_ptr_const_">getScrollbarForegroundFocusThemeColour</a>(bool* isUsing) const;</p>
+<p class="description">&#9;[[nodiscard]] <a class="link" href="sgxcolourrgba">SGXColourRGBA</a> <a class="link" href="../cppclass/sgwlonginput">SGWLongInput</a>::<a class="link" href="../cppclass/sgwlonginput#nodiscard_SGXColourRGBA_getScrollbarForegroundHoverColour_bool_ptr_const_">getScrollbarForegroundHoverColour</a>(bool* isUsing) const;</p>
+<p class="description">&#9;[[nodiscard]] int <a class="link" href="../cppclass/sgwlonginput">SGWLongInput</a>::<a class="link" href="../cppclass/sgwlonginput#nodiscard_int_getScrollbarForegroundHoverThemeColour_bool_ptr_const_">getScrollbarForegroundHoverThemeColour</a>(bool* isUsing) const;</p>
+<p class="description">&#9;[[nodiscard]] int <a class="link" href="../cppclass/sgwlonginput">SGWLongInput</a>::<a class="link" href="../cppclass/sgwlonginput#nodiscard_int_getScrollbarForegroundThemeColour_bool_ptr_const_">getScrollbarForegroundThemeColour</a>(bool* isUsing) const;</p>
+<p class="description">&#9;[[nodiscard]] float <a class="link" href="../cppclass/sgwinput">SGWInput</a>::<a class="link" href="../cppclass/sgwinput#nodiscard_float_getTextAsFloat_bool_ptr_float_float_const_">getTextAsFloat</a>(bool* isValid, float minimum, float maximum) const;</p>
+<p class="description">&#9;[[nodiscard]] int <a class="link" href="../cppclass/sgwinput">SGWInput</a>::<a class="link" href="../cppclass/sgwinput#nodiscard_int_getTextAsInt_bool_ptr_int_int_const_">getTextAsInt</a>(bool* isValid, int minimum, int maximum) const;</p>
+<p class="description">&#9;[[nodiscard]] <a class="link" href="sgxstring">SGXString</a> <a class="link" href="../cppclass/sgwinput">SGWInput</a>::<a class="link" href="../cppclass/sgwinput#nodiscard_SGXString_getTextAsString_func_const_">getTextAsString</a>() const;</p>
+<p class="description">&#9;[[nodiscard]] SGWType::Type <a class="link" href="../cppclass/sgwwidget">SGWWidget</a>::<a class="link" href="../cppclass/sgwwidget#nodiscard_SGWType_mc_Type_getType_func_const_">getType</a>() const;</p>
+<p class="description">&#9;[[nodiscard]] SGWVerticalAlignment::Flag <a class="link" href="../cppclass/sgwinput">SGWInput</a>::<a class="link" href="../cppclass/sgwinput#nodiscard_SGWVerticalAlignment_mc_Flag_getVerticalAlignment_func_const_">getVerticalAlignment</a>() const;</p>
+<p class="description">&#9;[[nodiscard]] float <a class="link" href="../cppclass/sgwwidget">SGWWidget</a>::<a class="link" href="../cppclass/sgwwidget#nodiscard_float_getW0_func_const_">getW0</a>() const;</p>
+<p class="description">&#9;[[nodiscard]] float <a class="link" href="../cppclass/sgwwidget">SGWWidget</a>::<a class="link" href="../cppclass/sgwwidget#nodiscard_float_getW1_func_const_">getW1</a>() const;</p>
+<p class="description">&#9;[[nodiscard]] float <a class="link" href="../cppclass/sgwwidget">SGWWidget</a>::<a class="link" href="../cppclass/sgwwidget#nodiscard_float_getX0_func_const_">getX0</a>() const;</p>
+<p class="description">&#9;[[nodiscard]] float <a class="link" href="../cppclass/sgwwidget">SGWWidget</a>::<a class="link" href="../cppclass/sgwwidget#nodiscard_float_getX1_func_const_">getX1</a>() const;</p>
+<p class="description">&#9;[[nodiscard]] float <a class="link" href="../cppclass/sgwwidget">SGWWidget</a>::<a class="link" href="../cppclass/sgwwidget#nodiscard_float_getY0_func_const_">getY0</a>() const;</p>
+<p class="description">&#9;[[nodiscard]] float <a class="link" href="../cppclass/sgwwidget">SGWWidget</a>::<a class="link" href="../cppclass/sgwwidget#nodiscard_float_getY1_func_const_">getY1</a>() const;</p>
+<p class="description">&#9;static <a class="link" href="sgwwidget">SGWWidget</a>* <a class="link" href="../cppclass/sgwwidget">SGWWidget</a>::<a class="link" href="../cppclass/sgwwidget#static_SGWWidget_ptr_parentWidget_">parentWidget</a>;</p>
+<p class="description">&#9;static <a class="link" href="sgwwidget">SGWWidget</a>* <a class="link" href="../cppclass/sgwwidget">SGWWidget</a>::<a class="link" href="../cppclass/sgwwidget#static_SGWWidget_ptr_rootWidget_">rootWidget</a>;</p>
+<p class="description">&#9;void <a class="link" href="../cppclass/sgwwidget">SGWWidget</a>::<a class="link" href="../cppclass/sgwwidget#void_screenshot_void_ptr_SGRImage_ptr_const_">screenshot</a>(void (*callback)(<a class="link" href="sgrimage">SGRImage</a>*)) const;</p>
+<p class="description">&#9;void <a class="link" href="../cppclass/sgwinput">SGWInput</a>::<a class="link" href="../cppclass/sgwinput#void_setBackgroundColour_SGXColourRGBA_">setBackgroundColour</a>(<a class="link" href="sgxcolourrgba">SGXColourRGBA</a> colour);</p>
+<p class="description">&#9;void <a class="link" href="../cppclass/sgwinput">SGWInput</a>::<a class="link" href="../cppclass/sgwinput#void_setBackgroundFocusColour_SGXColourRGBA_">setBackgroundFocusColour</a>(<a class="link" href="sgxcolourrgba">SGXColourRGBA</a> colour);</p>
+<p class="description">&#9;void <a class="link" href="../cppclass/sgwinput">SGWInput</a>::<a class="link" href="../cppclass/sgwinput#void_setBackgroundFocusThemeColour_int_">setBackgroundFocusThemeColour</a>(int themeColour);</p>
+<p class="description">&#9;void <a class="link" href="../cppclass/sgwinput">SGWInput</a>::<a class="link" href="../cppclass/sgwinput#void_setBackgroundHoverColour_SGXColourRGBA_">setBackgroundHoverColour</a>(<a class="link" href="sgxcolourrgba">SGXColourRGBA</a> colour);</p>
+<p class="description">&#9;void <a class="link" href="../cppclass/sgwinput">SGWInput</a>::<a class="link" href="../cppclass/sgwinput#void_setBackgroundHoverInvalidColour_SGXColourRGBA_">setBackgroundHoverInvalidColour</a>(<a class="link" href="sgxcolourrgba">SGXColourRGBA</a> colour);</p>
+<p class="description">&#9;void <a class="link" href="../cppclass/sgwinput">SGWInput</a>::<a class="link" href="../cppclass/sgwinput#void_setBackgroundHoverInvalidThemeColour_int_">setBackgroundHoverInvalidThemeColour</a>(int themeColour);</p>
+<p class="description">&#9;void <a class="link" href="../cppclass/sgwinput">SGWInput</a>::<a class="link" href="../cppclass/sgwinput#void_setBackgroundHoverThemeColour_int_">setBackgroundHoverThemeColour</a>(int themeColour);</p>
+<p class="description">&#9;void <a class="link" href="../cppclass/sgwinput">SGWInput</a>::<a class="link" href="../cppclass/sgwinput#void_setBackgroundInvalidColour_SGXColourRGBA_">setBackgroundInvalidColour</a>(<a class="link" href="sgxcolourrgba">SGXColourRGBA</a> colour);</p>
+<p class="description">&#9;void <a class="link" href="../cppclass/sgwinput">SGWInput</a>::<a class="link" href="../cppclass/sgwinput#void_setBackgroundInvalidThemeColour_int_">setBackgroundInvalidThemeColour</a>(int themeColour);</p>
+<p class="description">&#9;void <a class="link" href="../cppclass/sgwinput">SGWInput</a>::<a class="link" href="../cppclass/sgwinput#void_setBackgroundThemeColour_int_">setBackgroundThemeColour</a>(int themeColour);</p>
+<p class="description">&#9;void <a class="link" href="../cppclass/sgwinput">SGWInput</a>::<a class="link" href="../cppclass/sgwinput#void_setF0_float_">setF0</a>(float f0);</p>
+<p class="description">&#9;void <a class="link" href="../cppclass/sgwinput">SGWInput</a>::<a class="link" href="../cppclass/sgwinput#void_setF1_float_">setF1</a>(float f1);</p>
+<p class="description">&#9;void <a class="link" href="../cppclass/sgwinput">SGWInput</a>::<a class="link" href="../cppclass/sgwinput#void_setFont_const_SGXString_ref_">setFont</a>(const <a class="link" href="sgxstring">SGXString</a>& font);</p>
+<p class="description">&#9;void <a class="link" href="../cppclass/sgwinput">SGWInput</a>::<a class="link" href="../cppclass/sgwinput#void_setForegroundColour_SGXColourRGBA_">setForegroundColour</a>(<a class="link" href="sgxcolourrgba">SGXColourRGBA</a> colour);</p>
+<p class="description">&#9;void <a class="link" href="../cppclass/sgwinput">SGWInput</a>::<a class="link" href="../cppclass/sgwinput#void_setForegroundFocusColour_SGXColourRGBA_">setForegroundFocusColour</a>(<a class="link" href="sgxcolourrgba">SGXColourRGBA</a> colour);</p>
+<p class="description">&#9;void <a class="link" href="../cppclass/sgwinput">SGWInput</a>::<a class="link" href="../cppclass/sgwinput#void_setForegroundFocusThemeColour_int_">setForegroundFocusThemeColour</a>(int themeColour);</p>
+<p class="description">&#9;void <a class="link" href="../cppclass/sgwinput">SGWInput</a>::<a class="link" href="../cppclass/sgwinput#void_setForegroundHoverColour_SGXColourRGBA_">setForegroundHoverColour</a>(<a class="link" href="sgxcolourrgba">SGXColourRGBA</a> colour);</p>
+<p class="description">&#9;void <a class="link" href="../cppclass/sgwinput">SGWInput</a>::<a class="link" href="../cppclass/sgwinput#void_setForegroundHoverInvalidColour_SGXColourRGBA_">setForegroundHoverInvalidColour</a>(<a class="link" href="sgxcolourrgba">SGXColourRGBA</a> colour);</p>
+<p class="description">&#9;void <a class="link" href="../cppclass/sgwinput">SGWInput</a>::<a class="link" href="../cppclass/sgwinput#void_setForegroundHoverInvalidThemeColour_int_">setForegroundHoverInvalidThemeColour</a>(int themeColour);</p>
+<p class="description">&#9;void <a class="link" href="../cppclass/sgwinput">SGWInput</a>::<a class="link" href="../cppclass/sgwinput#void_setForegroundHoverThemeColour_int_">setForegroundHoverThemeColour</a>(int themeColour);</p>
+<p class="description">&#9;void <a class="link" href="../cppclass/sgwinput">SGWInput</a>::<a class="link" href="../cppclass/sgwinput#void_setForegroundInvalidColour_SGXColourRGBA_">setForegroundInvalidColour</a>(<a class="link" href="sgxcolourrgba">SGXColourRGBA</a> colour);</p>
+<p class="description">&#9;void <a class="link" href="../cppclass/sgwinput">SGWInput</a>::<a class="link" href="../cppclass/sgwinput#void_setForegroundInvalidThemeColour_int_">setForegroundInvalidThemeColour</a>(int themeColour);</p>
+<p class="description">&#9;void <a class="link" href="../cppclass/sgwinput">SGWInput</a>::<a class="link" href="../cppclass/sgwinput#void_setForegroundThemeColour_int_">setForegroundThemeColour</a>(int themeColour);</p>
+<p class="description">&#9;void <a class="link" href="../cppclass/sgwwidget">SGWWidget</a>::<a class="link" href="../cppclass/sgwwidget#void_setH0_float_">setH0</a>(float h0);</p>
+<p class="description">&#9;void <a class="link" href="../cppclass/sgwwidget">SGWWidget</a>::<a class="link" href="../cppclass/sgwwidget#void_setH1_float_">setH1</a>(float h1);</p>
+<p class="description">&#9;void <a class="link" href="../cppclass/sgwinput">SGWInput</a>::<a class="link" href="../cppclass/sgwinput#void_setHorizontalAlignment_SGWHorizontalAlignment_mc_Flag_">setHorizontalAlignment</a>(SGWHorizontalAlignment::Flag alignment);</p>
+<p class="description">&#9;void <a class="link" href="../cppclass/sgwinput">SGWInput</a>::<a class="link" href="../cppclass/sgwinput#void_setInvalid_bool_">setInvalid</a>(bool invalid);</p>
+<p class="description">&#9;void <a class="link" href="../cppclass/sgwwidget">SGWWidget</a>::<a class="link" href="../cppclass/sgwwidget#void_setItemVisibility_bool_">setItemVisibility</a>(bool x);</p>
+<p class="description">&#9;void <a class="link" href="../cppclass/sgwlonginput">SGWLongInput</a>::<a class="link" href="../cppclass/sgwlonginput#void_setS0_float_">setS0</a>(float s0);</p>
+<p class="description">&#9;void <a class="link" href="../cppclass/sgwlonginput">SGWLongInput</a>::<a class="link" href="../cppclass/sgwlonginput#void_setS1_float_">setS1</a>(float s1);</p>
+<p class="description">&#9;void <a class="link" href="../cppclass/sgwlonginput">SGWLongInput</a>::<a class="link" href="../cppclass/sgwlonginput#void_setScrollbarBackgroundColour_SGXColourRGBA_">setScrollbarBackgroundColour</a>(<a class="link" href="sgxcolourrgba">SGXColourRGBA</a> colour);</p>
+<p class="description">&#9;void <a class="link" href="../cppclass/sgwlonginput">SGWLongInput</a>::<a class="link" href="../cppclass/sgwlonginput#void_setScrollbarBackgroundFocusColour_SGXColourRGBA_">setScrollbarBackgroundFocusColour</a>(<a class="link" href="sgxcolourrgba">SGXColourRGBA</a> colour);</p>
+<p class="description">&#9;void <a class="link" href="../cppclass/sgwlonginput">SGWLongInput</a>::<a class="link" href="../cppclass/sgwlonginput#void_setScrollbarBackgroundFocusThemeColour_int_">setScrollbarBackgroundFocusThemeColour</a>(int themeColour);</p>
+<p class="description">&#9;void <a class="link" href="../cppclass/sgwlonginput">SGWLongInput</a>::<a class="link" href="../cppclass/sgwlonginput#void_setScrollbarBackgroundHoverColour_SGXColourRGBA_">setScrollbarBackgroundHoverColour</a>(<a class="link" href="sgxcolourrgba">SGXColourRGBA</a> colour);</p>
+<p class="description">&#9;void <a class="link" href="../cppclass/sgwlonginput">SGWLongInput</a>::<a class="link" href="../cppclass/sgwlonginput#void_setScrollbarBackgroundHoverThemeColour_int_">setScrollbarBackgroundHoverThemeColour</a>(int themeColour);</p>
+<p class="description">&#9;void <a class="link" href="../cppclass/sgwlonginput">SGWLongInput</a>::<a class="link" href="../cppclass/sgwlonginput#void_setScrollbarBackgroundThemeColour_int_">setScrollbarBackgroundThemeColour</a>(int themeColour);</p>
+<p class="description">&#9;void <a class="link" href="../cppclass/sgwlonginput">SGWLongInput</a>::<a class="link" href="../cppclass/sgwlonginput#void_setScrollbarForegroundColour_SGXColourRGBA_">setScrollbarForegroundColour</a>(<a class="link" href="sgxcolourrgba">SGXColourRGBA</a> colour);</p>
+<p class="description">&#9;void <a class="link" href="../cppclass/sgwlonginput">SGWLongInput</a>::<a class="link" href="../cppclass/sgwlonginput#void_setScrollbarForegroundFocusColour_SGXColourRGBA_">setScrollbarForegroundFocusColour</a>(<a class="link" href="sgxcolourrgba">SGXColourRGBA</a> colour);</p>
+<p class="description">&#9;void <a class="link" href="../cppclass/sgwlonginput">SGWLongInput</a>::<a class="link" href="../cppclass/sgwlonginput#void_setScrollbarForegroundFocusThemeColour_int_">setScrollbarForegroundFocusThemeColour</a>(int themeColour);</p>
+<p class="description">&#9;void <a class="link" href="../cppclass/sgwlonginput">SGWLongInput</a>::<a class="link" href="../cppclass/sgwlonginput#void_setScrollbarForegroundHoverColour_SGXColourRGBA_">setScrollbarForegroundHoverColour</a>(<a class="link" href="sgxcolourrgba">SGXColourRGBA</a> colour);</p>
+<p class="description">&#9;void <a class="link" href="../cppclass/sgwlonginput">SGWLongInput</a>::<a class="link" href="../cppclass/sgwlonginput#void_setScrollbarForegroundHoverThemeColour_int_">setScrollbarForegroundHoverThemeColour</a>(int themeColour);</p>
+<p class="description">&#9;void <a class="link" href="../cppclass/sgwlonginput">SGWLongInput</a>::<a class="link" href="../cppclass/sgwlonginput#void_setScrollbarForegroundThemeColour_int_">setScrollbarForegroundThemeColour</a>(int themeColour);</p>
+<p class="description">&#9;void <a class="link" href="../cppclass/sgwinput">SGWInput</a>::<a class="link" href="../cppclass/sgwinput#void_setTextFromFloat_float_">setTextFromFloat</a>(float x);</p>
+<p class="description">&#9;void <a class="link" href="../cppclass/sgwinput">SGWInput</a>::<a class="link" href="../cppclass/sgwinput#void_setTextFromInt_int_">setTextFromInt</a>(int x);</p>
+<p class="description">&#9;void <a class="link" href="../cppclass/sgwinput">SGWInput</a>::<a class="link" href="../cppclass/sgwinput#void_setTextFromString_const_SGXString_ref_">setTextFromString</a>(const <a class="link" href="sgxstring">SGXString</a>& s);</p>
+<p class="description">&#9;void <a class="link" href="../cppclass/sgwinput">SGWInput</a>::<a class="link" href="../cppclass/sgwinput#void_setVerticalAlignment_SGWVerticalAlignment_mc_Flag_">setVerticalAlignment</a>(SGWVerticalAlignment::Flag alignment);</p>
+<p class="description">&#9;void <a class="link" href="../cppclass/sgwwidget">SGWWidget</a>::<a class="link" href="../cppclass/sgwwidget#void_setW0_float_">setW0</a>(float w0);</p>
+<p class="description">&#9;void <a class="link" href="../cppclass/sgwwidget">SGWWidget</a>::<a class="link" href="../cppclass/sgwwidget#void_setW1_float_">setW1</a>(float w1);</p>
+<p class="description">&#9;void <a class="link" href="../cppclass/sgwwidget">SGWWidget</a>::<a class="link" href="../cppclass/sgwwidget#void_setX0_float_">setX0</a>(float x0);</p>
+<p class="description">&#9;void <a class="link" href="../cppclass/sgwwidget">SGWWidget</a>::<a class="link" href="../cppclass/sgwwidget#void_setX1_float_">setX1</a>(float x1);</p>
+<p class="description">&#9;void <a class="link" href="../cppclass/sgwwidget">SGWWidget</a>::<a class="link" href="../cppclass/sgwwidget#void_setY0_float_">setY0</a>(float y0);</p>
+<p class="description">&#9;void <a class="link" href="../cppclass/sgwwidget">SGWWidget</a>::<a class="link" href="../cppclass/sgwwidget#void_setY1_float_">setY1</a>(float y1);</p>
+<p class="description">&#9;void (*<a class="link" href="../cppclass/sgwinput">SGWInput</a>::<a class="link" href="../cppclass/sgwinput#void_ptr_textChangedFunction_func_">textChangedFunction</a>)();</p>
+<p class="description">&#9;void (*<a class="link" href="../cppclass/sgwinput">SGWInput</a>::<a class="link" href="../cppclass/sgwinput#void_ptr_textChangedFunctionWithInt_int_">textChangedFunctionWithInt</a>)(int);</p>
+<p class="description">&#9;void (*<a class="link" href="../cppclass/sgwinput">SGWInput</a>::<a class="link" href="../cppclass/sgwinput#void_ptr_textChangedFunctionWithPointer_SGWInput_ptr_">textChangedFunctionWithPointer</a>)(<a class="link" href="sgwinput">SGWInput</a>*);</p>
+<p class="description">&#9;void (*<a class="link" href="../cppclass/sgwinput">SGWInput</a>::<a class="link" href="../cppclass/sgwinput#void_ptr_textChangedFunctionWithString_const_SGXString_ref_">textChangedFunctionWithString</a>)(const <a class="link" href="sgxstring">SGXString</a>&);</p>
+<p class="description"></p>
+
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<div style="width: 100%; height: 0.25rem; background-color: var(--c4);"></div>
+<div style="width: 100%; height: 0.25rem; background-color: var(--c8);"></div>
+<p class="description">©2025 05524F.sg (Singapore)</p>
+<p class="description"><a class="link" href="/contact">contact 05524F / report a bug / make a suggestion</a></p>
+<p class="description"><a class="link" href="/values">about 05524F SINGAPORE values</a></p>
+<p class="description"><a class="link" href="/projects">list of 05524F projects</a></p>
+<div style="width: 100%; height: 0.25rem; background-color: var(--c8);"></div>
+<div style="width: 100%; height: 0.25rem; background-color: var(--c4);"></div>
+<div style="width: 100%; height: 0.25rem; background-color: var(--c8);"></div>
+</body>
+</html>

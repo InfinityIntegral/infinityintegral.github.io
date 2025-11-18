@@ -1,0 +1,337 @@
+
+<!DOCTYPE html>
+<html lang="en-SG">
+<head>
+<meta charset="UTF-8">
+<title>SGLSpan Documentation</title>
+<link rel="icon" href="/icon.png" type="image/png">
+<meta property="og:image" content="/icon.png">
+<meta name="twitter:image" content="/icon.png">
+<link rel="apple-touch-icon" href="/icon.png">
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "url": "https://infinityintegral.github.io",
+    "image": "/icon.png"
+}
+</script>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+@font-face {
+	font-family: "SingScript.sg";
+	src: url("/SingScript.sg")format("truetype");
+	font-weight: normal;
+	font-style: normal;
+}
+
+:root {
+	--c0: rgb(0, 0, 0);
+	--c1: rgb(64, 0, 50);
+	--c2: rgb(128, 0, 100);
+	--c3: rgb(191, 0, 150);
+	--c4: rgb(255, 0, 200);
+	--c5: rgb(255, 64, 214);
+	--c6: rgb(255, 128, 227);
+	--c7: rgb(255, 191, 241);
+	--c8: rgb(255, 255, 255);
+}
+
+*{
+    font-family: "SingScript.sg";
+	max-width: 100%;
+	word-break: break-word;
+	-webkit-text-size-adjust: 100%;
+	-ms-text-size-adjust: 100%;
+}
+
+.title {
+	color: var(--c4);
+	font-size: 3.5rem;
+	margin: 0;
+	font-weight: normal;
+}
+.title::selection {
+	color: var(--c8);
+	background-color: var(--c4);
+	font-size: 3.5rem;
+	margin: 0;
+	font-weight: normal;
+}
+
+.header {
+	color: var(--c4);
+	font-size: 2.5rem;
+	margin: 0;
+	font-weight: normal;
+}
+.header::selection {
+	color: var(--c8);
+	background-color: var(--c4);
+	font-size: 2.625rem;
+	margin: 0;
+	font-weight: normal;
+}
+
+.description {
+	color: var(--c4);
+	font-size: 1.75rem;
+	margin: 0;
+	white-space: pre-wrap;
+}
+.description::selection {
+	color: var(--c8);
+	background-color: var(--c4);
+	font-size: 1.75rem;
+	margin: 0;
+	white-space: pre-wrap;
+}
+
+.note {
+	color: var(--c4);
+	font-size: 1.75rem;
+	margin: 0.25rem;
+	white-space: pre-wrap;
+    border: 0.25rem solid var(--c7);
+    padding: 0.25rem;
+}
+.note::selection {
+	color: var(--c8);
+	background-color: var(--c4);
+	font-size: 1.75rem;
+	margin: 0.25rem;
+	white-space: pre-wrap;
+    border: 0.25rem solid var(--c7);
+    padding: 0.25rem;
+}
+
+.warning {
+	color: var(--c4);
+	font-size: 1.75rem;
+	margin: 0.25rem;
+	white-space: pre-wrap;
+    border: 0.25rem solid var(--c4);
+    padding: 0.25rem;
+}
+.warning::selection {
+	color: var(--c8);
+	background-color: var(--c4);
+	font-size: 1.75rem;
+	margin: 0.25rem;
+	white-space: pre-wrap;
+    border: 0.25rem solid var(--c4);
+    padding: 0.25rem;
+}
+
+.link {
+	color: var(--c2);
+	text-decoration: underline;
+}
+.link:hover {
+	color: var(--c2);
+	background-color: var(--c7);
+	text-decoration: underline;
+}
+.link:active {
+	color: var(--c2);
+	background-color: var(--c6);
+	text-decoration: underline;
+}
+.link::selection {
+	color: var(--c8);
+	background-color: var(--c4);
+	text-decoration: underline;
+}
+
+.button {
+	color: var(--c8);
+	background-color: var(--c4);
+	font-size: 1.75rem;
+	border: none;
+}
+.button:hover {
+	color: var(--c7);
+	background-color: var(--c3);
+	font-size: 1.75rem;
+	border: none;
+}
+.button:active {
+	color: var(--c6);
+	background-color: var(--c2);
+	font-size: 1.75rem;
+	border: none;
+}
+.button::selection {
+	color: var(--c4);
+	background-color: var(--c8);
+	font-size: 1.75rem;
+	border: none;
+}
+
+.input {
+	color: var(--c8);
+	background-color: var(--c4);
+	font-size: 1.75rem;
+	border: none;
+	outline: none;
+	text-align: center;
+}
+.input:hover {
+	color: var(--c7);
+	background-color: var(--c3);
+	font-size: 1.75rem;
+	border: none;
+	outline: none;
+	text-align: center;
+}
+.input:focus {
+	color: var(--c6);
+	background-color: var(--c2);
+	font-size: 1.75rem;
+	border: none;
+	outline: none;
+	text-align: center;
+}
+.input::selection {
+	color: var(--c4);
+	background-color: var(--c8);
+	font-size: 1.75rem;
+	border: none;
+	outline: none;
+	text-align: center;
+}
+
+.highlight {
+    animation: highlightFlash 2s ease-out;
+}
+
+@keyframes highlightFlash {
+    0% {background-color: var(--c6);}
+    100% {background-color: var(--c8);}
+}
+</style>
+<script>
+let m = (new Date()).getMonth() + 1;
+if(m >= 7 && m <= 9){
+    document.documentElement.style.setProperty("--c0", "rgb(0, 0, 0)");
+    document.documentElement.style.setProperty("--c1", "rgb(60, 9, 14)");
+    document.documentElement.style.setProperty("--c2", "rgb(119, 19, 27)");
+    document.documentElement.style.setProperty("--c3", "rgb(179, 28, 41)");
+    document.documentElement.style.setProperty("--c4", "rgb(238, 37, 54)");
+    document.documentElement.style.setProperty("--c5", "rgb(242, 92, 104)");
+    document.documentElement.style.setProperty("--c6", "rgb(247, 146, 155)");
+    document.documentElement.style.setProperty("--c7", "rgb(251, 201, 205)");
+    document.documentElement.style.setProperty("--c8", "rgb(255, 255, 255)");
+}
+function highlightSection(){
+    let tag = window.location.hash.substring(1);
+    if(tag == ""){return;}
+    let element = document.getElementById(tag);
+    if(element == null){return;}
+    element.classList.add("highlight");
+    element.addEventListener("animationend", () => {element.classList.remove("highlight");}, {once: true});
+}
+window.addEventListener("DOMContentLoaded", highlightSection);
+window.addEventListener("hashchange", highlightSection);
+</script>
+</head>
+<body style="margin-left: 1em;">
+<p class="description" style="color: rgb(238, 37, 54); text-align: center; font-size: 2.5rem">sincerely <img src="/flag.png" style="vertical-align: middle; height: 2.5rem; image-rendering: auto;"> Singaporean</p>
+<div style="width: 100%; height: 0.25rem; background-color: var(--c8);"></div>
+<div><button class="button" style="width: 100%;" onclick="location.href='/'">Project 05524F.sg</button></div>
+<div style="width: 100%; height: 0.25rem; background-color: var(--c8);"></div>
+<div><button class="button" style="width: 100%;" onclick="location.href='../readme/readme'">SGEXTN Documentation</button></div><div style="width: 100%; height: 0.25rem; background-color: var(--c8);"></div><p class="warning">If you have not done so, read this full <a class="link" href="../tutorials/full">tutorial</a> on how to use SGEXTN to build an application.</p><div style="width: 100%; height: 0.75rem; background-color: var(--c8);"></div><h1 class="title">SGLSpan</h1>
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<p class="description"><a class="link" href="https://github.com/InfinityIntegral/SGEXTN/tree/main/SG_Containers/include/SGLSpan.h">see header file</a></p>
+<p class="description">(no source file, everything inside header)</p>
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<p class="description">template ‹typename T› class SGLSpan;</p>
+<p class="description">part of SGEXTN module <a class="link" href="../modules/sg_containers">SG_Containers</a></p>
+<p class="description">span for any type of data</p>
+<p class="description"><a class="link" href="#sg_detaileddescription">detailed description</a></p>
+<p class="description"><a class="link" href="../funclist/sglspan">list of all including inherited members</a></p>
+<p class="description"><a class="link" href="#sg_implementationdetails">implementation details</a></p>
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<p class="description">preprocessor file inclusion directive: #include ‹SGLSpan.h›</p>
+<p class="description">CMake commands:</p>
+<p class="description">&#9;find_package(<a class="link" href="../readme/readme">SGEXTN</a> REQUIRED COMPONENTS <a class="link" href="../modules/sg_containers">SG_Containers</a>)</p>
+<p class="description">&#9;target_link_libraries(yourCMakeTarget PRIVATE <a class="link" href="../modules/sg_containers">SGEXTN::SG_Containers</a>)</p>
+<p class="description">parent class: (none)</p>
+<p class="description">children classes: (none)</p>
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<h2 class="header" id="">instance member functions</h2>
+<p class="description">&#9;<a class="link" href="#SGLSpan_T_ptr_int_">SGLSpan</a>(T* dataInternal, int lengthInternal);</p>
+<p class="description">&#9;[[nodiscard]] const T& <a class="link" href="#nodiscard_const_T_ref_at_int_const_">at</a>(int i) const;</p>
+<p class="description">&#9;[[nodiscard]] T& <a class="link" href="#nodiscard_T_ref_at_int_">at</a>(int i);</p>
+<p class="description">&#9;[[nodiscard]] int <a class="link" href="#nodiscard_int_length_func_const_">length</a>() const;</p>
+<p class="description">&#9;[[nodiscard]] const T* <a class="link" href="#nodiscard_const_T_ptr_pointerToData_int_const_">pointerToData</a>(int n) const;</p>
+<p class="description">&#9;[[nodiscard]] T* <a class="link" href="#nodiscard_T_ptr_pointerToData_int_">pointerToData</a>(int n);</p>
+<p class="description">&#9;[[nodiscard]] <a class="link" href="sglspan">SGLSpan</a> <a class="link" href="#nodiscard_SGLSpan_subspan_int_int_const_">subspan</a>(int start, int length) const;</p>
+<p class="description">&#9;[[nodiscard]] <a class="link" href="sglspan">SGLSpan</a> <a class="link" href="#nodiscard_SGLSpan_subspanLeft_int_const_">subspanLeft</a>(int length) const;</p>
+<p class="description">&#9;[[nodiscard]] <a class="link" href="sglspan">SGLSpan</a> <a class="link" href="#nodiscard_SGLSpan_subspanRight_int_const_">subspanRight</a>(int length) const;</p>
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<h2 class="header" id="sg_detaileddescription">Detailed Description</h2>
+<p class="description"><a class="link" href="../cppclass/sglspan">SGLSpan</a> provides a template based span that can be used with any data type. <a class="link" href="../cppclass/sglspan">SGLSpan</a> does not own the data that it allows access to. Deleting heap data accessed through <a class="link" href="../cppclass/sglspan">SGLSpan</a> is <a class="link" href="../tutorials/undefinedbehaviour">undefined behaviour</a> in the form of double delete. This is a template based class with no separate source file.</p>
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<h2 class="header" id="sg_implementationdetails">Implementation Details</h2>
+<p class="description"><a class="link" href="../cppclass/sglspan">SGLSpan</a> stores a pointer to the start of the span and the number of elements in the span.</p>
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<h2 class="header" id="SGLSpan_T_ptr_int_"><a class="link" href="#SGLSpan_T_ptr_int_">SGLSpan</a>(T* dataInternal, int lengthInternal);</h2>
+<p class="description">Creates a <a class="link" href="../cppclass/sglspan">SGLSpan</a> starting from <b>dataInternal</b> with a length of <b>lengthInternal</b>.</p>
+<p class="warning">Negative <b>lengthInternal</b> is <a class="link" href="../tutorials/undefinedbehaviour">undefined behaviour</a>.</p>
+<p class="warning">If any memory between <b>dataInternal</b> (inclusive) and <b>dataInternal</b> + <b>lengthInternal</b> (exclusive) is not allocated, have been deleted, or if the 2 endpoints come from different data structures, creating the span is <a class="link" href="../tutorials/undefinedbehaviour">undefined behaviour</a>.</p>
+<p class="warning">Using the span in any way after the host data structure is deleted is <a class="link" href="../tutorials/undefinedbehaviour">undefined behaviour</a></p>
+<p class="warning">To avoid <a class="link" href="../tutorials/undefinedbehaviour">undefined behaviour</a>, do not allocate any <a class="link" href="../cppclass/sglspan">SGLSpan</a> on the heap.</p>
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<h2 class="header" id="nodiscard_const_T_ref_at_int_const_">[[nodiscard]] const T& <a class="link" href="#nodiscard_const_T_ref_at_int_const_">at</a>(int i) const;</h2>
+<p class="description">Returns a constant reference to the element at index <b>i</b> of the <a class="link" href="../cppclass/sglspan">SGLSpan</a>.</p>
+<p class="warning">If <b>i</b> is out of bounds, this causes a crash.</p>
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<h2 class="header" id="nodiscard_T_ref_at_int_">[[nodiscard]] T& <a class="link" href="#nodiscard_T_ref_at_int_">at</a>(int i);</h2>
+<p class="description">Returns a reference to the element at index <b>i</b> of the <a class="link" href="../cppclass/sglspan">SGLSpan</a>.</p>
+<p class="note">This returns a reference and not a copy. Assigning to the returned value (using it as a lvalue) modifies the host data structure.</p>
+<p class="warning">If <b>i</b> is out of bounds, this causes a crash.</p>
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<h2 class="header" id="nodiscard_int_length_func_const_">[[nodiscard]] int <a class="link" href="#nodiscard_int_length_func_const_">length</a>() const;</h2>
+<p class="description">Returns the length of the <a class="link" href="../cppclass/sglspan">SGLSpan</a>.</p>
+<p class="note">This is constant after the creation of the <a class="link" href="../cppclass/sglspan">SGLSpan</a>.</p>
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<h2 class="header" id="nodiscard_const_T_ptr_pointerToData_int_const_">[[nodiscard]] const T* <a class="link" href="#nodiscard_const_T_ptr_pointerToData_int_const_">pointerToData</a>(int n) const;</h2>
+<p class="description">Returns a read only pointer to the element at index <b>n</b> of the original span.</p>
+<p class="note">It is ok for <b>n</b> to be out of bounds as long as the returned pointer is not dereferenced. This can be done intentionally to define bounds for <a class="link" href="../cppclass/sglsort">SGLSort</a>.</p>
+<p class="note">The returned value may function as an iterator.</p>
+<p class="warning">Dereferencing the returned pointer when <b>n</b> is out of bounds is <a class="link" href="../tutorials/undefinedbehaviour">undefined behaviour</a>.</p>
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<h2 class="header" id="nodiscard_T_ptr_pointerToData_int_">[[nodiscard]] T* <a class="link" href="#nodiscard_T_ptr_pointerToData_int_">pointerToData</a>(int n);</h2>
+<p class="description">Returns a pointer to the element at index <b>n</b> of the original span.</p>
+<p class="note">It is ok for <b>n</b> to be out of bounds as long as the returned pointer is not dereferenced. This can be done intentionally to define bounds for <a class="link" href="../cppclass/sglsort">SGLSort</a>.</p>
+<p class="note">The returned value may function as an iterator.</p>
+<p class="warning">Dereferencing the returned pointer when <b>n</b> is out of bounds is <a class="link" href="../tutorials/undefinedbehaviour">undefined behaviour</a>.</p>
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<h2 class="header" id="nodiscard_SGLSpan_subspan_int_int_const_">[[nodiscard]] <a class="link" href="sglspan">SGLSpan</a> <a class="link" href="#nodiscard_SGLSpan_subspan_int_int_const_">subspan</a>(int start, int length) const;</h2>
+<p class="description">Returns a subspan starting at index <b>start</b> of the original span with a length of <b>length</b>.</p>
+<p class="warning">Negative <b>length</b> is <a class="link" href="../tutorials/undefinedbehaviour">undefined behaviour</a>.</p>
+<p class="warning">If <b>start</b> or <b>start</b> + <b>length</b> - 1 is out of bounds, this results in <a class="link" href="../tutorials/undefinedbehaviour">undefined behaviour</a>.</p>
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<h2 class="header" id="nodiscard_SGLSpan_subspanLeft_int_const_">[[nodiscard]] <a class="link" href="sglspan">SGLSpan</a> <a class="link" href="#nodiscard_SGLSpan_subspanLeft_int_const_">subspanLeft</a>(int length) const;</h2>
+<p class="description">Returns a subspan containing the first <b>length</b> elements of the original span.</p>
+<p class="warning">Negative <b>length</b> is <a class="link" href="../tutorials/undefinedbehaviour">undefined behaviour</a>.</p>
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<h2 class="header" id="nodiscard_SGLSpan_subspanRight_int_const_">[[nodiscard]] <a class="link" href="sglspan">SGLSpan</a> <a class="link" href="#nodiscard_SGLSpan_subspanRight_int_const_">subspanRight</a>(int length) const;</h2>
+<p class="description">Returns a subspan containing the last <b>length</b> elements of the original span.</p>
+<p class="warning">Negative <b>length</b> is <a class="link" href="../tutorials/undefinedbehaviour">undefined behaviour</a>.</p>
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<p class="description"></p>
+
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<div style="width: 100%; height: 0.25rem; background-color: var(--c4);"></div>
+<div style="width: 100%; height: 0.25rem; background-color: var(--c8);"></div>
+<p class="description">©2025 05524F.sg (Singapore)</p>
+<p class="description"><a class="link" href="/contact">contact 05524F / report a bug / make a suggestion</a></p>
+<p class="description"><a class="link" href="/values">about 05524F SINGAPORE values</a></p>
+<p class="description"><a class="link" href="/projects">list of 05524F projects</a></p>
+<div style="width: 100%; height: 0.25rem; background-color: var(--c8);"></div>
+<div style="width: 100%; height: 0.25rem; background-color: var(--c4);"></div>
+<div style="width: 100%; height: 0.25rem; background-color: var(--c8);"></div>
+</body>
+</html>

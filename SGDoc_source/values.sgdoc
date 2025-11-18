@@ -1,0 +1,53 @@
+@SG_OTHERFILE_values 05524F SINGAPORE values
+The SINGAPORE values is the system of values followed by 05524F. This is inspired by values of primary and secondary schools in Singapore. Both 05524F and users of 05524F products are expected to follow these values.
+@SG_ML_BLANKLINE
+@SG_ML_HEADER_ Sincerity and integrity
+You should be honest about the capabilities of your software and what technologies that you are using. This includes clearly stating the limitations of your software (for example indicating what behaviour is undefined).
+Do not put random buzzwords everywhere. pls...
+@SG_ML_BLANKLINE
+@SG_ML_HEADER_ Independence
+When in doubt, search online for resources to help with your learning. This can include asking ChatGPT, searching forums, or just searching on the Internet. The important thing is that you learn, not copy paste code.
+05524F tries to make this as easy as possible by writing documentation and tutorials for everything.
+@SG_ML_BLANKLINE
+@SG_ML_HEADER_ Nation Loving
+05524F is from Singapore and all achievements of 05524F, programming related or not, are only possible after learning skills in Singapore. The name 05524F literally comes from 05524F's PSLE index number.
+When you use 05524F software, remember that the SG prefix in front of everything is not just a name, it is what makes everything possible.
+@SG_ML_BLANKLINE
+@SG_STARTCODEBLK
+"Sing, a song of home,
+a land of peace,
+where dreams are born, every day,
+my home,
+wherever I may be,
+I believe,
+you will always be a part of me"
+(My Island Home, NDP 2006)
+@SG_ENDCODEBLK
+@SG_ML_BLANKLINE
+@SG_ML_HEADER_ Gratitude (paying it forwards)
+All 05524F products are built on top of existing technologies, and are made open source so other technologies can build on top of them.
+As much as possible, make your software open source and contribute to the community.
+@SG_ML_BLANKLINE
+@SG_ML_HEADER_ Anti-complacency
+When you find a bug in your software, immediately push changes to fix it. Users of 05524F products are also expected to follow this and keep everything up to date at the latest version.
+This means backwards compatibility is irrelevant. Every time an update is made, the older version is deprecated immediately with its documentation removed. A changelog will be written so that users know what parts need to be updated.
+@SG_ML_BLANKLINE
+@SG_ML_HEADER_ Positivity
+Programming, especially when you get random crashes from data race and use after delete bugs, can be very frustrating. However, you still must stay positive and not give up.
+Every time you feel frustrated with C++, try coding something in Python or JS, then you will know how good C++ actually is. Note that the use of interpreted and dynamically typed languages may lead to increased risk of depression.
+@SG_ML_BLANKLINE
+@SG_ML_HEADER_ Optimisation
+Always optimise your code for public facing projects to provide maximum value to the user. You do not have to micro optimise every CPU cycle (that is unfeasible), but at least match the optimal time complexity for algorithms iterating over large data sets.
+Apart from optimise the code itself, also optimise dependencies. This means do not add in dependencies unless you really, really, really need it.
+@SG_ML_BLANKLINE
+@SG_ML_HEADER_ Responsibility
+Applications that store user data must ensure that the data is handled safely. For example, always allow the user to recover data after deleting it, within a reasonable amount of time.
+If the application sends data to the server, make sure to comply with PDPA (Personal Data Protection Act) and tell the user clearly where the data is going and how it will be stored.
+@SG_ML_BLANKLINE
+@SG_ML_HEADER_ Excellence
+@SG_STARTCODEBLK
+"May the good we achieve,
+as one nation,
+be shared with the world"
+(My People My Home, NDP 1995)
+@SG_ENDCODEBLK

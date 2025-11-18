@@ -3,7 +3,7 @@
 <html lang="en-SG">
 <head>
 <meta charset="UTF-8">
-<title>Contact 05524F</title>
+<title>Project 05524F</title>
 <link rel="icon" href="/icon.png" type="image/png">
 <meta property="og:image" content="/icon.png">
 <meta name="twitter:image" content="/icon.png">
@@ -236,15 +236,22 @@ window.addEventListener("hashchange", highlightSection);
 </script>
 </head>
 <body style="margin-left: 1em;">
-<p class="description" style="color: rgb(238, 37, 54); text-align: center; font-size: 2.5rem">sincerely <img src="/flag.png" style="vertical-align: middle; height: 2.5rem; image-rendering: auto;"> Singaporean</p>
-<div style="width: 100%; height: 0.25rem; background-color: var(--c8);"></div>
-<div><button class="button" style="width: 100%;" onclick="location.href='/'">Project 05524F.sg</button></div>
-<div style="width: 100%; height: 0.25rem; background-color: var(--c8);"></div>
-<h1 class="title">Contact 05524F</h1>
+<div id="parentdiv">
+<img src="/bannerbg.png" style="vertical-align: middle; image-rendering: auto;" id="bg">
+<canvas id="canvas" class="emscripten" oncontextmenu="event.preventDefault()" tabindex="-1" style="position: absolute;"></canvas>
+</div>
+{{{ SCRIPT }}}
 <div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
-<p class="description">&#9;To contact 05524F, email to <a class="link" href="mailto:infinityintegral333@gmail.com">infinityintegral333@gmail.com</a> or message <a class="link" href="https://www.instagram.com/infinityintegral.sg/">@infinityintegral.sg</a> on Instagram. Messages sent by mutual Instagram followers (05524F's friends) via Instagram will have priority.</p>
-<p class="description">&#9;Almost all the time, your reason for contacting 05524F is either a complaint or a suggestion. A complaint refers to a request to fix a bug, inaccurate information, or unexpected behaviour in a 05524F product or its associated documentation. A suggestion is a request for 05524F to add a new feature to a existing product or to build a new product.</p>
-<p class="description">&#9;05524F is very likely to accept complaints but less likely to accept suggestions. Since all 05524F software is open source, you can build your own feature on top of 05524F software as long as you use the correct license (General Public License version 3 is always safe).</p>
+<p class="warning">"We raised our flag upon the shore&#10;and sang out We Are Singapore&#10;we've learnt that home is really more than just a word&#10;today, tomorrow this will always be my...&#10;HOME"&#10;(These Are the Days, NDP 2015)</p>
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<h1 class="title">Project 05524F</h1>
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<p class="description">&#9;05524F (the open source software initiative) is a Singaporean open source software initiative led by 05524F (the person). See <a class="link" href="projects">projects</a> for a list of 05524F projects, see <a class="link" href="values">05524F SINGAPORE values</a> for more information about the values that 05524F believes in, and see <a class="link" href="contact">contact</a> for instructions on how to contact 05524F.</p>
+<p class="description">&#9;If you came to this page looking for documentation, the documentation for available 05524F projects are listed below.</p>
+<p class="description">&#9;<a class="link" href="SGEXTN/readme/readme">SGEXTN</a></p>
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<p class="description">&#9;Fun fact: the animation of the Singapore flag above is actually a realtime cloth simulation implemented using WebASM and WebGL 1, not a video. If you only see a static image, it means your browser cannot access either technology likely due to organisation policies from your school or workplace.</p>
+<p class="description">&#9;To find out who exactly 05524F is, see <a class="link" href="aboutme">about me</a>.</p>
 <p class="description">&#9;</p>
 <p class="description"></p>
 
@@ -258,5 +265,54 @@ window.addEventListener("hashchange", highlightSection);
 <div style="width: 100%; height: 0.25rem; background-color: var(--c8);"></div>
 <div style="width: 100%; height: 0.25rem; background-color: var(--c4);"></div>
 <div style="width: 100%; height: 0.25rem; background-color: var(--c8);"></div>
+
+<script>
+let usingFallback = false;
+function resize(){
+	let w = document.documentElement.clientWidth;
+	let bg = document.getElementById("bg");
+	bg.style.width = w.toString() + "px";
+	bg.style.height = (9.0 / 16.0 * w).toString() + "px";
+	let parentdiv = document.getElementById("parentdiv");
+	let parentX = parentdiv.getBoundingClientRect().left + window.scrollX;
+	let parentY = parentdiv.getBoundingClientRect().top + window.scrollY;
+	if(usingFallback == false){
+		let canvas = document.getElementById("canvas");
+		canvas.width = Math.floor(w);
+		canvas.height = Math.floor(2.0 / 3.0 * w);
+		canvas.style.left = (parentX + w / 4.0 - 10.0).toString() + "px";
+		canvas.style.top = (parentY + w / 24.0 - 2.0).toString() + "px";
+		canvas.style.width = (w / 2.0).toString() + "px";
+		canvas.style.height = (w / 3.0).toString() + "px";
+	}
+	else{
+		let canvas = document.getElementById("img");
+		canvas.style.left = (parentX + w * 0.355 - 10.0).toString() + "px";
+		canvas.style.top = (parentY + w * 0.05).toString() + "px";
+		canvas.style.width = (w * 0.3).toString() + "px";
+		canvas.style.height = (w * 0.3).toString() + "px";
+	}
+}
+window.addEventListener("resize", resize);
+resize();
+</script>
+<script>
+function debug(){
+	if(usingFallback == true){return;}
+	if((typeof Module) == "undefined" || (!Module) || (!Module["ctx"])){
+		usingFallback = true;
+		let canvas = document.getElementById("canvas");
+		canvas.style.display = "none";
+		let parent = document.getElementById("parentdiv");
+		canvas = document.createElement("img");
+		canvas.id = "img";
+		canvas.src = "/flag.png";
+		canvas.style.position = "absolute";
+		parent.appendChild(canvas);
+		resize();
+	}
+}
+setInterval(() => {debug();}, 100);
+</script>
 </body>
 </html>

@@ -1,0 +1,296 @@
+
+<!DOCTYPE html>
+<html lang="en-SG">
+<head>
+<meta charset="UTF-8">
+<title>SGXFile Function List</title>
+<link rel="icon" href="/icon.png" type="image/png">
+<meta property="og:image" content="/icon.png">
+<meta name="twitter:image" content="/icon.png">
+<link rel="apple-touch-icon" href="/icon.png">
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "url": "https://infinityintegral.github.io",
+    "image": "/icon.png"
+}
+</script>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+@font-face {
+	font-family: "SingScript.sg";
+	src: url("/SingScript.sg")format("truetype");
+	font-weight: normal;
+	font-style: normal;
+}
+
+:root {
+	--c0: rgb(0, 0, 0);
+	--c1: rgb(64, 0, 50);
+	--c2: rgb(128, 0, 100);
+	--c3: rgb(191, 0, 150);
+	--c4: rgb(255, 0, 200);
+	--c5: rgb(255, 64, 214);
+	--c6: rgb(255, 128, 227);
+	--c7: rgb(255, 191, 241);
+	--c8: rgb(255, 255, 255);
+}
+
+*{
+    font-family: "SingScript.sg";
+	max-width: 100%;
+	word-break: break-word;
+	-webkit-text-size-adjust: 100%;
+	-ms-text-size-adjust: 100%;
+}
+
+.title {
+	color: var(--c4);
+	font-size: 3.5rem;
+	margin: 0;
+	font-weight: normal;
+}
+.title::selection {
+	color: var(--c8);
+	background-color: var(--c4);
+	font-size: 3.5rem;
+	margin: 0;
+	font-weight: normal;
+}
+
+.header {
+	color: var(--c4);
+	font-size: 2.5rem;
+	margin: 0;
+	font-weight: normal;
+}
+.header::selection {
+	color: var(--c8);
+	background-color: var(--c4);
+	font-size: 2.625rem;
+	margin: 0;
+	font-weight: normal;
+}
+
+.description {
+	color: var(--c4);
+	font-size: 1.75rem;
+	margin: 0;
+	white-space: pre-wrap;
+}
+.description::selection {
+	color: var(--c8);
+	background-color: var(--c4);
+	font-size: 1.75rem;
+	margin: 0;
+	white-space: pre-wrap;
+}
+
+.note {
+	color: var(--c4);
+	font-size: 1.75rem;
+	margin: 0.25rem;
+	white-space: pre-wrap;
+    border: 0.25rem solid var(--c7);
+    padding: 0.25rem;
+}
+.note::selection {
+	color: var(--c8);
+	background-color: var(--c4);
+	font-size: 1.75rem;
+	margin: 0.25rem;
+	white-space: pre-wrap;
+    border: 0.25rem solid var(--c7);
+    padding: 0.25rem;
+}
+
+.warning {
+	color: var(--c4);
+	font-size: 1.75rem;
+	margin: 0.25rem;
+	white-space: pre-wrap;
+    border: 0.25rem solid var(--c4);
+    padding: 0.25rem;
+}
+.warning::selection {
+	color: var(--c8);
+	background-color: var(--c4);
+	font-size: 1.75rem;
+	margin: 0.25rem;
+	white-space: pre-wrap;
+    border: 0.25rem solid var(--c4);
+    padding: 0.25rem;
+}
+
+.link {
+	color: var(--c2);
+	text-decoration: underline;
+}
+.link:hover {
+	color: var(--c2);
+	background-color: var(--c7);
+	text-decoration: underline;
+}
+.link:active {
+	color: var(--c2);
+	background-color: var(--c6);
+	text-decoration: underline;
+}
+.link::selection {
+	color: var(--c8);
+	background-color: var(--c4);
+	text-decoration: underline;
+}
+
+.button {
+	color: var(--c8);
+	background-color: var(--c4);
+	font-size: 1.75rem;
+	border: none;
+}
+.button:hover {
+	color: var(--c7);
+	background-color: var(--c3);
+	font-size: 1.75rem;
+	border: none;
+}
+.button:active {
+	color: var(--c6);
+	background-color: var(--c2);
+	font-size: 1.75rem;
+	border: none;
+}
+.button::selection {
+	color: var(--c4);
+	background-color: var(--c8);
+	font-size: 1.75rem;
+	border: none;
+}
+
+.input {
+	color: var(--c8);
+	background-color: var(--c4);
+	font-size: 1.75rem;
+	border: none;
+	outline: none;
+	text-align: center;
+}
+.input:hover {
+	color: var(--c7);
+	background-color: var(--c3);
+	font-size: 1.75rem;
+	border: none;
+	outline: none;
+	text-align: center;
+}
+.input:focus {
+	color: var(--c6);
+	background-color: var(--c2);
+	font-size: 1.75rem;
+	border: none;
+	outline: none;
+	text-align: center;
+}
+.input::selection {
+	color: var(--c4);
+	background-color: var(--c8);
+	font-size: 1.75rem;
+	border: none;
+	outline: none;
+	text-align: center;
+}
+
+.highlight {
+    animation: highlightFlash 2s ease-out;
+}
+
+@keyframes highlightFlash {
+    0% {background-color: var(--c6);}
+    100% {background-color: var(--c8);}
+}
+</style>
+<script>
+let m = (new Date()).getMonth() + 1;
+if(m >= 7 && m <= 9){
+    document.documentElement.style.setProperty("--c0", "rgb(0, 0, 0)");
+    document.documentElement.style.setProperty("--c1", "rgb(60, 9, 14)");
+    document.documentElement.style.setProperty("--c2", "rgb(119, 19, 27)");
+    document.documentElement.style.setProperty("--c3", "rgb(179, 28, 41)");
+    document.documentElement.style.setProperty("--c4", "rgb(238, 37, 54)");
+    document.documentElement.style.setProperty("--c5", "rgb(242, 92, 104)");
+    document.documentElement.style.setProperty("--c6", "rgb(247, 146, 155)");
+    document.documentElement.style.setProperty("--c7", "rgb(251, 201, 205)");
+    document.documentElement.style.setProperty("--c8", "rgb(255, 255, 255)");
+}
+function highlightSection(){
+    let tag = window.location.hash.substring(1);
+    if(tag == ""){return;}
+    let element = document.getElementById(tag);
+    if(element == null){return;}
+    element.classList.add("highlight");
+    element.addEventListener("animationend", () => {element.classList.remove("highlight");}, {once: true});
+}
+window.addEventListener("DOMContentLoaded", highlightSection);
+window.addEventListener("hashchange", highlightSection);
+</script>
+</head>
+<body style="margin-left: 1em;">
+<p class="description" style="color: rgb(238, 37, 54); text-align: center; font-size: 2.5rem">sincerely <img src="/flag.png" style="vertical-align: middle; height: 2.5rem; image-rendering: auto;"> Singaporean</p>
+<div style="width: 100%; height: 0.25rem; background-color: var(--c8);"></div>
+<div><button class="button" style="width: 100%;" onclick="location.href='/'">Project 05524F.sg</button></div>
+<div style="width: 100%; height: 0.25rem; background-color: var(--c8);"></div>
+<div><button class="button" style="width: 100%;" onclick="location.href='../readme/readme'">SGEXTN Documentation</button></div><div style="width: 100%; height: 0.25rem; background-color: var(--c8);"></div><p class="warning">If you have not done so, read this full <a class="link" href="../tutorials/full">tutorial</a> on how to use SGEXTN to build an application.</p><div style="width: 100%; height: 0.75rem; background-color: var(--c8);"></div><h1 class="title"><a class="link" href="../cppclass/sgxfile">SGXFile</a></h1>
+<p class="description">&#9;<a class="link" href="../cppclass/sgxfile">SGXFile</a>::<a class="link" href="../cppclass/sgxfile#SGXFile_const_SGXString_ref_">SGXFile</a>(const <a class="link" href="sgxstring">SGXString</a>& s);</p>
+<p class="description">&#9;[[nodiscard]] long long <a class="link" href="../cppclass/sgxfile">SGXFile</a>::<a class="link" href="../cppclass/sgxfile#nodiscard_long_long_getPointerLocation_func_const_">getPointerLocation</a>() const;</p>
+<p class="description">&#9;bool <a class="link" href="../cppclass/sgxfile">SGXFile</a>::<a class="link" href="../cppclass/sgxfile#bool_isValid_">isValid</a>;</p>
+<p class="description">&#9;[[nodiscard]] <a class="link" href="sglarray">SGLArray</a>‹char› <a class="link" href="../cppclass/sgxfile">SGXFile</a>::<a class="link" href="../cppclass/sgxfile#nodiscard_SGLArray_lt_char_gt_readAllBytes_func_const_">readAllBytes</a>() const;</p>
+<p class="description">&#9;static <a class="link" href="sgxstring">SGXString</a> <a class="link" href="../cppclass/sgxfile">SGXFile</a>::<a class="link" href="../cppclass/sgxfile#static_SGXString_readAllText_const_SGXString_ref_">readAllText</a>(const <a class="link" href="sgxstring">SGXString</a>& filePath);</p>
+<p class="description">&#9;[[nodiscard]] bool <a class="link" href="../cppclass/sgxfile">SGXFile</a>::<a class="link" href="../cppclass/sgxfile#nodiscard_bool_readBool_func_const_">readBool</a>() const;</p>
+<p class="description">&#9;[[nodiscard]] <a class="link" href="sglarray">SGLArray</a>‹char› <a class="link" href="../cppclass/sgxfile">SGXFile</a>::<a class="link" href="../cppclass/sgxfile#nodiscard_SGLArray_lt_char_gt_readBytes_long_long_const_">readBytes</a>(long long n) const;</p>
+<p class="description">&#9;[[nodiscard]] char <a class="link" href="../cppclass/sgxfile">SGXFile</a>::<a class="link" href="../cppclass/sgxfile#nodiscard_char_readChar_func_const_">readChar</a>() const;</p>
+<p class="description">&#9;[[nodiscard]] <a class="link" href="sgxcolourhsla">SGXColourHSLA</a> <a class="link" href="../cppclass/sgxfile">SGXFile</a>::<a class="link" href="../cppclass/sgxfile#nodiscard_SGXColourHSLA_readColourHSLA_func_const_">readColourHSLA</a>() const;</p>
+<p class="description">&#9;[[nodiscard]] <a class="link" href="sgxcolourrgba">SGXColourRGBA</a> <a class="link" href="../cppclass/sgxfile">SGXFile</a>::<a class="link" href="../cppclass/sgxfile#nodiscard_SGXColourRGBA_readColourRGBA_func_const_">readColourRGBA</a>() const;</p>
+<p class="description">&#9;[[nodiscard]] double <a class="link" href="../cppclass/sgxfile">SGXFile</a>::<a class="link" href="../cppclass/sgxfile#nodiscard_double_readDouble_func_const_">readDouble</a>() const;</p>
+<p class="description">&#9;[[nodiscard]] float <a class="link" href="../cppclass/sgxfile">SGXFile</a>::<a class="link" href="../cppclass/sgxfile#nodiscard_float_readFloat_func_const_">readFloat</a>() const;</p>
+<p class="description">&#9;[[nodiscard]] <a class="link" href="sgxidentifier">SGXIdentifier</a> <a class="link" href="../cppclass/sgxfile">SGXFile</a>::<a class="link" href="../cppclass/sgxfile#nodiscard_SGXIdentifier_readIdentifier_func_const_">readIdentifier</a>() const;</p>
+<p class="description">&#9;[[nodiscard]] int <a class="link" href="../cppclass/sgxfile">SGXFile</a>::<a class="link" href="../cppclass/sgxfile#nodiscard_int_readInt_func_const_">readInt</a>() const;</p>
+<p class="description">&#9;[[nodiscard]] long long <a class="link" href="../cppclass/sgxfile">SGXFile</a>::<a class="link" href="../cppclass/sgxfile#nodiscard_long_long_readLongLong_func_const_">readLongLong</a>() const;</p>
+<p class="description">&#9;[[nodiscard]] <a class="link" href="sgxchar">SGXChar</a> <a class="link" href="../cppclass/sgxfile">SGXFile</a>::<a class="link" href="../cppclass/sgxfile#nodiscard_SGXChar_readSGEXTNChar_func_const_">readSGEXTNChar</a>() const;</p>
+<p class="description">&#9;[[nodiscard]] <a class="link" href="sgxstring">SGXString</a> <a class="link" href="../cppclass/sgxfile">SGXFile</a>::<a class="link" href="../cppclass/sgxfile#nodiscard_SGXString_readString_func_const_">readString</a>() const;</p>
+<p class="description">&#9;[[nodiscard]] <a class="link" href="sgxtimestamp">SGXTimeStamp</a> <a class="link" href="../cppclass/sgxfile">SGXFile</a>::<a class="link" href="../cppclass/sgxfile#nodiscard_SGXTimeStamp_readTimeStamp_func_const_">readTimeStamp</a>() const;</p>
+<p class="description">&#9;[[nodiscard]] unsigned int <a class="link" href="../cppclass/sgxfile">SGXFile</a>::<a class="link" href="../cppclass/sgxfile#nodiscard_unsigned_int_readUnsignedInt_func_const_">readUnsignedInt</a>() const;</p>
+<p class="description">&#9;[[nodiscard]] unsigned long long <a class="link" href="../cppclass/sgxfile">SGXFile</a>::<a class="link" href="../cppclass/sgxfile#nodiscard_unsigned_long_long_readUnsignedLongLong_func_const_">readUnsignedLongLong</a>() const;</p>
+<p class="description">&#9;[[nodiscard]] <a class="link" href="sgxvector2">SGXVector2</a> <a class="link" href="../cppclass/sgxfile">SGXFile</a>::<a class="link" href="../cppclass/sgxfile#nodiscard_SGXVector2_readVector2_func_const_">readVector2</a>() const;</p>
+<p class="description">&#9;void <a class="link" href="../cppclass/sgxfile">SGXFile</a>::<a class="link" href="../cppclass/sgxfile#void_setPointerLocation_long_long_const_">setPointerLocation</a>(long long x) const;</p>
+<p class="description">&#9;static void <a class="link" href="../cppclass/sgxfile">SGXFile</a>::<a class="link" href="../cppclass/sgxfile#static_void_writeAllText_const_SGXString_ref_const_SGXString_ref_">writeAllText</a>(const <a class="link" href="sgxstring">SGXString</a>& filePath, const <a class="link" href="sgxstring">SGXString</a>& contents);</p>
+<p class="description">&#9;void <a class="link" href="../cppclass/sgxfile">SGXFile</a>::<a class="link" href="../cppclass/sgxfile#void_writeBool_bool_const_">writeBool</a>(bool x) const;</p>
+<p class="description">&#9;void <a class="link" href="../cppclass/sgxfile">SGXFile</a>::<a class="link" href="../cppclass/sgxfile#void_writeBytes_const_SGLArray_lt_char_gt_ref_const_">writeBytes</a>(const <a class="link" href="sglarray">SGLArray</a>‹char›& x) const;</p>
+<p class="description">&#9;void <a class="link" href="../cppclass/sgxfile">SGXFile</a>::<a class="link" href="../cppclass/sgxfile#void_writeChar_char_const_">writeChar</a>(char x) const;</p>
+<p class="description">&#9;void <a class="link" href="../cppclass/sgxfile">SGXFile</a>::<a class="link" href="../cppclass/sgxfile#void_writeColourHSLA_SGXColourHSLA_const_">writeColourHSLA</a>(<a class="link" href="sgxcolourhsla">SGXColourHSLA</a> x) const;</p>
+<p class="description">&#9;void <a class="link" href="../cppclass/sgxfile">SGXFile</a>::<a class="link" href="../cppclass/sgxfile#void_writeColourRGBA_SGXColourRGBA_const_">writeColourRGBA</a>(<a class="link" href="sgxcolourrgba">SGXColourRGBA</a> x) const;</p>
+<p class="description">&#9;void <a class="link" href="../cppclass/sgxfile">SGXFile</a>::<a class="link" href="../cppclass/sgxfile#void_writeDouble_double_const_">writeDouble</a>(double x) const;</p>
+<p class="description">&#9;void <a class="link" href="../cppclass/sgxfile">SGXFile</a>::<a class="link" href="../cppclass/sgxfile#void_writeFloat_float_const_">writeFloat</a>(float x) const;</p>
+<p class="description">&#9;void <a class="link" href="../cppclass/sgxfile">SGXFile</a>::<a class="link" href="../cppclass/sgxfile#void_writeIdentifier_SGXIdentifier_const_">writeIdentifier</a>(<a class="link" href="sgxidentifier">SGXIdentifier</a> x) const;</p>
+<p class="description">&#9;void <a class="link" href="../cppclass/sgxfile">SGXFile</a>::<a class="link" href="../cppclass/sgxfile#void_writeInt_int_const_">writeInt</a>(int x) const;</p>
+<p class="description">&#9;void <a class="link" href="../cppclass/sgxfile">SGXFile</a>::<a class="link" href="../cppclass/sgxfile#void_writeLongLong_long_long_const_">writeLongLong</a>(long long x) const;</p>
+<p class="description">&#9;void <a class="link" href="../cppclass/sgxfile">SGXFile</a>::<a class="link" href="../cppclass/sgxfile#void_writeSGEXTNChar_SGXChar_const_">writeSGEXTNChar</a>(<a class="link" href="sgxchar">SGXChar</a> x) const;</p>
+<p class="description">&#9;void <a class="link" href="../cppclass/sgxfile">SGXFile</a>::<a class="link" href="../cppclass/sgxfile#void_writeString_const_SGXString_ref_const_">writeString</a>(const <a class="link" href="sgxstring">SGXString</a>& x) const;</p>
+<p class="description">&#9;void <a class="link" href="../cppclass/sgxfile">SGXFile</a>::<a class="link" href="../cppclass/sgxfile#void_writeTimeStamp_SGXTimeStamp_const_">writeTimeStamp</a>(<a class="link" href="sgxtimestamp">SGXTimeStamp</a> x) const;</p>
+<p class="description">&#9;void <a class="link" href="../cppclass/sgxfile">SGXFile</a>::<a class="link" href="../cppclass/sgxfile#void_writeUnsignedInt_unsigned_int_const_">writeUnsignedInt</a>(unsigned int x) const;</p>
+<p class="description">&#9;void <a class="link" href="../cppclass/sgxfile">SGXFile</a>::<a class="link" href="../cppclass/sgxfile#void_writeUnsignedLongLong_unsigned_long_long_const_">writeUnsignedLongLong</a>(unsigned long long x) const;</p>
+<p class="description">&#9;void <a class="link" href="../cppclass/sgxfile">SGXFile</a>::<a class="link" href="../cppclass/sgxfile#void_writeVector2_SGXVector2_const_">writeVector2</a>(<a class="link" href="sgxvector2">SGXVector2</a> x) const;</p>
+<p class="description"></p>
+
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<div style="width: 100%; height: 0.25rem; background-color: var(--c4);"></div>
+<div style="width: 100%; height: 0.25rem; background-color: var(--c8);"></div>
+<p class="description">©2025 05524F.sg (Singapore)</p>
+<p class="description"><a class="link" href="/contact">contact 05524F / report a bug / make a suggestion</a></p>
+<p class="description"><a class="link" href="/values">about 05524F SINGAPORE values</a></p>
+<p class="description"><a class="link" href="/projects">list of 05524F projects</a></p>
+<div style="width: 100%; height: 0.25rem; background-color: var(--c8);"></div>
+<div style="width: 100%; height: 0.25rem; background-color: var(--c4);"></div>
+<div style="width: 100%; height: 0.25rem; background-color: var(--c8);"></div>
+</body>
+</html>

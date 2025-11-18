@@ -1,0 +1,305 @@
+
+<!DOCTYPE html>
+<html lang="en-SG">
+<head>
+<meta charset="UTF-8">
+<title>SG_Widgets Module Documentation</title>
+<link rel="icon" href="/icon.png" type="image/png">
+<meta property="og:image" content="/icon.png">
+<meta name="twitter:image" content="/icon.png">
+<link rel="apple-touch-icon" href="/icon.png">
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "url": "https://infinityintegral.github.io",
+    "image": "/icon.png"
+}
+</script>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+@font-face {
+	font-family: "SingScript.sg";
+	src: url("/SingScript.sg")format("truetype");
+	font-weight: normal;
+	font-style: normal;
+}
+
+:root {
+	--c0: rgb(0, 0, 0);
+	--c1: rgb(64, 0, 50);
+	--c2: rgb(128, 0, 100);
+	--c3: rgb(191, 0, 150);
+	--c4: rgb(255, 0, 200);
+	--c5: rgb(255, 64, 214);
+	--c6: rgb(255, 128, 227);
+	--c7: rgb(255, 191, 241);
+	--c8: rgb(255, 255, 255);
+}
+
+*{
+    font-family: "SingScript.sg";
+	max-width: 100%;
+	word-break: break-word;
+	-webkit-text-size-adjust: 100%;
+	-ms-text-size-adjust: 100%;
+}
+
+.title {
+	color: var(--c4);
+	font-size: 3.5rem;
+	margin: 0;
+	font-weight: normal;
+}
+.title::selection {
+	color: var(--c8);
+	background-color: var(--c4);
+	font-size: 3.5rem;
+	margin: 0;
+	font-weight: normal;
+}
+
+.header {
+	color: var(--c4);
+	font-size: 2.5rem;
+	margin: 0;
+	font-weight: normal;
+}
+.header::selection {
+	color: var(--c8);
+	background-color: var(--c4);
+	font-size: 2.625rem;
+	margin: 0;
+	font-weight: normal;
+}
+
+.description {
+	color: var(--c4);
+	font-size: 1.75rem;
+	margin: 0;
+	white-space: pre-wrap;
+}
+.description::selection {
+	color: var(--c8);
+	background-color: var(--c4);
+	font-size: 1.75rem;
+	margin: 0;
+	white-space: pre-wrap;
+}
+
+.note {
+	color: var(--c4);
+	font-size: 1.75rem;
+	margin: 0.25rem;
+	white-space: pre-wrap;
+    border: 0.25rem solid var(--c7);
+    padding: 0.25rem;
+}
+.note::selection {
+	color: var(--c8);
+	background-color: var(--c4);
+	font-size: 1.75rem;
+	margin: 0.25rem;
+	white-space: pre-wrap;
+    border: 0.25rem solid var(--c7);
+    padding: 0.25rem;
+}
+
+.warning {
+	color: var(--c4);
+	font-size: 1.75rem;
+	margin: 0.25rem;
+	white-space: pre-wrap;
+    border: 0.25rem solid var(--c4);
+    padding: 0.25rem;
+}
+.warning::selection {
+	color: var(--c8);
+	background-color: var(--c4);
+	font-size: 1.75rem;
+	margin: 0.25rem;
+	white-space: pre-wrap;
+    border: 0.25rem solid var(--c4);
+    padding: 0.25rem;
+}
+
+.link {
+	color: var(--c2);
+	text-decoration: underline;
+}
+.link:hover {
+	color: var(--c2);
+	background-color: var(--c7);
+	text-decoration: underline;
+}
+.link:active {
+	color: var(--c2);
+	background-color: var(--c6);
+	text-decoration: underline;
+}
+.link::selection {
+	color: var(--c8);
+	background-color: var(--c4);
+	text-decoration: underline;
+}
+
+.button {
+	color: var(--c8);
+	background-color: var(--c4);
+	font-size: 1.75rem;
+	border: none;
+}
+.button:hover {
+	color: var(--c7);
+	background-color: var(--c3);
+	font-size: 1.75rem;
+	border: none;
+}
+.button:active {
+	color: var(--c6);
+	background-color: var(--c2);
+	font-size: 1.75rem;
+	border: none;
+}
+.button::selection {
+	color: var(--c4);
+	background-color: var(--c8);
+	font-size: 1.75rem;
+	border: none;
+}
+
+.input {
+	color: var(--c8);
+	background-color: var(--c4);
+	font-size: 1.75rem;
+	border: none;
+	outline: none;
+	text-align: center;
+}
+.input:hover {
+	color: var(--c7);
+	background-color: var(--c3);
+	font-size: 1.75rem;
+	border: none;
+	outline: none;
+	text-align: center;
+}
+.input:focus {
+	color: var(--c6);
+	background-color: var(--c2);
+	font-size: 1.75rem;
+	border: none;
+	outline: none;
+	text-align: center;
+}
+.input::selection {
+	color: var(--c4);
+	background-color: var(--c8);
+	font-size: 1.75rem;
+	border: none;
+	outline: none;
+	text-align: center;
+}
+
+.highlight {
+    animation: highlightFlash 2s ease-out;
+}
+
+@keyframes highlightFlash {
+    0% {background-color: var(--c6);}
+    100% {background-color: var(--c8);}
+}
+</style>
+<script>
+let m = (new Date()).getMonth() + 1;
+if(m >= 7 && m <= 9){
+    document.documentElement.style.setProperty("--c0", "rgb(0, 0, 0)");
+    document.documentElement.style.setProperty("--c1", "rgb(60, 9, 14)");
+    document.documentElement.style.setProperty("--c2", "rgb(119, 19, 27)");
+    document.documentElement.style.setProperty("--c3", "rgb(179, 28, 41)");
+    document.documentElement.style.setProperty("--c4", "rgb(238, 37, 54)");
+    document.documentElement.style.setProperty("--c5", "rgb(242, 92, 104)");
+    document.documentElement.style.setProperty("--c6", "rgb(247, 146, 155)");
+    document.documentElement.style.setProperty("--c7", "rgb(251, 201, 205)");
+    document.documentElement.style.setProperty("--c8", "rgb(255, 255, 255)");
+}
+function highlightSection(){
+    let tag = window.location.hash.substring(1);
+    if(tag == ""){return;}
+    let element = document.getElementById(tag);
+    if(element == null){return;}
+    element.classList.add("highlight");
+    element.addEventListener("animationend", () => {element.classList.remove("highlight");}, {once: true});
+}
+window.addEventListener("DOMContentLoaded", highlightSection);
+window.addEventListener("hashchange", highlightSection);
+</script>
+</head>
+<body style="margin-left: 1em;">
+<p class="description" style="color: rgb(238, 37, 54); text-align: center; font-size: 2.5rem">sincerely <img src="/flag.png" style="vertical-align: middle; height: 2.5rem; image-rendering: auto;"> Singaporean</p>
+<div style="width: 100%; height: 0.25rem; background-color: var(--c8);"></div>
+<div><button class="button" style="width: 100%;" onclick="location.href='/'">Project 05524F.sg</button></div>
+<div style="width: 100%; height: 0.25rem; background-color: var(--c8);"></div>
+<div><button class="button" style="width: 100%;" onclick="location.href='../readme/readme'">SGEXTN Documentation</button></div><div style="width: 100%; height: 0.25rem; background-color: var(--c8);"></div><p class="warning">If you have not done so, read this full <a class="link" href="../tutorials/full">tutorial</a> on how to use SGEXTN to build an application.</p><div style="width: 100%; height: 0.75rem; background-color: var(--c8);"></div><h1 class="title">SG_Widgets</h1>
+<p class="description"><a class="link" href="#sg_classlist">list of classes in this module</a></p>
+<p class="description">CMake commands:</p>
+<p class="description">&#9;find_package(<a class="link" href="../readme/readme">SGEXTN</a> REQUIRED COMPONENTS SG_Widgets)</p>
+<p class="description">&#9;target_link_libraries(yourCMakeTarget PRIVATE <a class="link" href="../readme/readme">SGEXTN</a>::SG_Widgets)</p>
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<p class="description">&#9;The SGWidget module provides access to the <a class="link" href="../tutorials/sgwidget">SGWidget ⁽㈳㈴㈳㈮㈱㈨㈠㈫ ㈧㈤㈱㈤⁾</a> system and allows you to build graphical user interfaces (GUIs). This is needed for all non command line applications.</p>
+<p class="description">&#9;The SGWidget module uses Qt Quick internally to render, so all rendering is GPU accelerated and works on all GPUs. However, everything Qt is abstracted away, so you would never need to touch signal-slot, QML, or JavaScript. Note that <a class="link" href="../tutorials/sgwidget">SGWidget ⁽㈳㈴㈳㈮㈱㈨㈠㈫ ㈧㈤㈱㈤⁾</a> is a imperative, not declarative, GUI toolkit, making it more familiar to C++ developers. <a class="link" href="../tutorials/callback">callback function ⁽㈳㈴㈳㈮㈱㈨㈠㈫ ㈧㈤㈱㈤⁾</a> is used instead of signal-slot for event listening and callback functions.</p>
+<p class="description">&#9;<a class="link" href="../tutorials/sgwidget">SGWidget ⁽㈳㈴㈳㈮㈱㈨㈠㈫ ㈧㈤㈱㈤⁾</a> has resizing builtin, so anything using it will resize automatically to fit the screen aspect ratio. This is done using <a class="link" href="../tutorials/wdistance">w-distance ⁽㈳㈴㈳㈮㈱㈨㈠㈫ ㈧㈤㈱㈤⁾</a>. Use <a class="link" href="../cppclass/sgwcustomisationpagecontrol#static_void_enableFontSizeCustomisationPage_func_">SGWCustomisationPageControl::enableFontSizeCustomisationPage</a> to show the page allowing the user to change the font size.</p>
+<p class="description">&#9;<a class="link" href="../tutorials/themecolour">theme colour ⁽㈳㈴㈳㈮㈱㈨㈠㈫ ㈧㈤㈱㈤⁾</a> is also builtin and user customisable. You are allowed a set of 9 theme colours to build your application with, preferably they should be in a gradient. Note that every year around National Day, the theme of all SGEXTN applications will be switched to For Our Nation, the special National Day theme. To allow user customisation of application theme colours, you must link to the <a class="link" href="../tutorials/renderer">SG - RI ⁽㈳㈴㈳㈮㈱㈨㈠㈫ ㈧㈤㈱㈤⁾</a> module and call <a class="link" href="../cppclass/sgwcustomisationpagecontrol#static_void_enableThemeColoursCustomisationPage_func_">SGWCustomisationPageControl::enableThemeColoursCustomisationPage</a>.</p>
+<p class="description">&#9;<a class="link" href="../tutorials/appicon">application icon ⁽㈳㈴㈳㈮㈱㈨㈠㈫ ㈧㈤㈱㈤⁾</a> is used to display icons on buttons. Note that instead of SVGs or images, fonts are used. This means that the colour of icons always match the theme automatically. Using fonts also provide a performance improvement.</p>
+<p class="description">&#9;This module does not have builtin support for displaying images. For images, you need to build a custom shader, which is actually really easily done with <a class="link" href="../tutorials/renderer">SG - RI ⁽㈳㈴㈳㈮㈱㈨㈠㈫ ㈧㈤㈱㈤⁾</a>.</p>
+<p class="description">&#9;<a class="link" href="../tutorials/singcorrect">SingCorrect ⁽㈳㈴㈳㈮㈱㈨㈠㈫ ㈧㈤㈱㈤⁾</a> is builtin to all <a class="link" href="../tutorials/sgwidget">SGWidget ⁽㈳㈴㈳㈮㈱㈨㈠㈫ ㈧㈤㈱㈤⁾</a> input fields. This replaces <a class="link" href="../tutorials/singcorrect">SingCorrect ⁽㈳㈴㈳㈮㈱㈨㈠㈫ ㈧㈤㈱㈤⁾</a> commands, which look like LaTeX, with the corresponding Unicode character automatically, making it very easy for the user to input mathematical or scientific notation. Call <a class="link" href="../cppclass/sgwcustomisationpagecontrol#static_void_enableSingCorrectCustomisationPage_func_">SGWCustomisationPageControl::enableSingCorrectCustomisationPage</a> to allow the user to customise their set of <a class="link" href="../tutorials/singcorrect">SingCorrect ⁽㈳㈴㈳㈮㈱㈨㈠㈫ ㈧㈤㈱㈤⁾</a> commands.</p>
+<p class="description">&#9;File uploading and file downloading functionality is provided through <a class="link" href="../cppclass/sgxfiledownloader">SGXFileDownloader</a> and <a class="link" href="../cppclass/sgxfileuploader">SGXFileUploader</a>. This refers to bringing files into and out of the application folder, not actually transmitting them over a network.</p>
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<h2 class="header" id="sg_classlist">List of classes in this module</h2>
+<p class="description">&#9;<a class="link" href="../cppclass/sgrimage">SGRImage</a></p>
+<p class="description">&#9;<a class="link" href="../cppclass/sgwbackground">SGWBackground</a></p>
+<p class="description">&#9;<a class="link" href="../cppclass/sgwblankwidget">SGWBlankWidget</a></p>
+<p class="description">&#9;<a class="link" href="../cppclass/sgwbutton">SGWButton</a></p>
+<p class="description">&#9;<a class="link" href="../cppclass/sgwcustomisationpagecontrol">SGWCustomisationPageControl</a></p>
+<p class="description">&#9;<a class="link" href="../cppclass/sgwdefaultfonts">SGWDefaultFonts</a></p>
+<p class="description">&#9;<a class="link" href="../cppclass/sgwhorizontalalignment">SGWHorizontalAlignment</a></p>
+<p class="description">&#9;<a class="link" href="../cppclass/sgwiconbutton">SGWIconButton</a></p>
+<p class="description">&#9;<a class="link" href="../cppclass/sgwiconlabel">SGWIconLabel</a></p>
+<p class="description">&#9;<a class="link" href="../cppclass/sgwinput">SGWInput</a></p>
+<p class="description">&#9;<a class="link" href="../cppclass/sgwlabel">SGWLabel</a></p>
+<p class="description">&#9;<a class="link" href="../cppclass/sgwlonginput">SGWLongInput</a></p>
+<p class="description">&#9;<a class="link" href="../cppclass/sgwlonglabel">SGWLongLabel</a></p>
+<p class="description">&#9;<a class="link" href="../cppclass/sgwmultitouchreceiver">SGWMultiTouchReceiver</a></p>
+<p class="description">&#9;<a class="link" href="../cppclass/sgwnotify">SGWNotify</a></p>
+<p class="description">&#9;<a class="link" href="../cppclass/sgwpagebackground">SGWPageBackground</a></p>
+<p class="description">&#9;<a class="link" href="../cppclass/sgwscrollview">SGWScrollView</a></p>
+<p class="description">&#9;<a class="link" href="../cppclass/sgwsequentiallonglabel">SGWSequentialLongLabel</a></p>
+<p class="description">&#9;<a class="link" href="../cppclass/sgwsequentialscrollview">SGWSequentialScrollView</a></p>
+<p class="description">&#9;<a class="link" href="../cppclass/sgwsingletouchreceiver">SGWSingleTouchReceiver</a></p>
+<p class="description">&#9;<a class="link" href="../cppclass/sgwtextbutton">SGWTextButton</a></p>
+<p class="description">&#9;<a class="link" href="../cppclass/sgwtextinput">SGWTextInput</a></p>
+<p class="description">&#9;<a class="link" href="../cppclass/sgwtextlabel">SGWTextLabel</a></p>
+<p class="description">&#9;<a class="link" href="../cppclass/sgwtype">SGWType</a></p>
+<p class="description">&#9;<a class="link" href="../cppclass/sgwverticalalignment">SGWVerticalAlignment</a></p>
+<p class="description">&#9;<a class="link" href="../cppclass/sgwwidget">SGWWidget</a></p>
+<p class="description">&#9;<a class="link" href="../cppclass/sgxfiledownloader">SGXFileDownloader</a></p>
+<p class="description">&#9;<a class="link" href="../cppclass/sgxfileuploader">SGXFileUploader</a></p>
+<p class="description">&#9;<a class="link" href="../cppclass/sgxresizer">SGXResizer</a></p>
+<p class="description">&#9;<a class="link" href="../cppclass/sgxsingcorrectcore">SGXSingCorrectCore</a></p>
+<p class="description">&#9;<a class="link" href="../cppclass/sgxthemecolours">SGXThemeColours</a></p>
+<p class="description">&#9;<a class="link" href="../cppclass/sgxthemecolourscustomisation">SGXThemeColoursCustomisation</a></p>
+<p class="description">&#9;<a class="link" href="../cppclass/sgxtouchevent">SGXTouchEvent</a></p>
+<p class="description"></p>
+
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<div style="width: 100%; height: 0.25rem; background-color: var(--c4);"></div>
+<div style="width: 100%; height: 0.25rem; background-color: var(--c8);"></div>
+<p class="description">©2025 05524F.sg (Singapore)</p>
+<p class="description"><a class="link" href="/contact">contact 05524F / report a bug / make a suggestion</a></p>
+<p class="description"><a class="link" href="/values">about 05524F SINGAPORE values</a></p>
+<p class="description"><a class="link" href="/projects">list of 05524F projects</a></p>
+<div style="width: 100%; height: 0.25rem; background-color: var(--c8);"></div>
+<div style="width: 100%; height: 0.25rem; background-color: var(--c4);"></div>
+<div style="width: 100%; height: 0.25rem; background-color: var(--c8);"></div>
+</body>
+</html>

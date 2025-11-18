@@ -3,7 +3,7 @@
 <html lang="en-SG">
 <head>
 <meta charset="UTF-8">
-<title>Contact 05524F</title>
+<title>Resource File Tutorial</title>
 <link rel="icon" href="/icon.png" type="image/png">
 <meta property="og:image" content="/icon.png">
 <meta name="twitter:image" content="/icon.png">
@@ -240,11 +240,20 @@ window.addEventListener("hashchange", highlightSection);
 <div style="width: 100%; height: 0.25rem; background-color: var(--c8);"></div>
 <div><button class="button" style="width: 100%;" onclick="location.href='/'">Project 05524F.sg</button></div>
 <div style="width: 100%; height: 0.25rem; background-color: var(--c8);"></div>
-<h1 class="title">Contact 05524F</h1>
+<div><button class="button" style="width: 100%;" onclick="location.href='../readme/readme'">SGEXTN Documentation</button></div><div style="width: 100%; height: 0.25rem; background-color: var(--c8);"></div><p class="warning">If you have not done so, read this full <a class="link" href="../tutorials/full">tutorial</a> on how to use SGEXTN to build an application.</p><div style="width: 100%; height: 0.75rem; background-color: var(--c8);"></div><h1 class="title">Resource File Tutorial</h1>
 <div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
-<p class="description">&#9;To contact 05524F, email to <a class="link" href="mailto:infinityintegral333@gmail.com">infinityintegral333@gmail.com</a> or message <a class="link" href="https://www.instagram.com/infinityintegral.sg/">@infinityintegral.sg</a> on Instagram. Messages sent by mutual Instagram followers (05524F's friends) via Instagram will have priority.</p>
-<p class="description">&#9;Almost all the time, your reason for contacting 05524F is either a complaint or a suggestion. A complaint refers to a request to fix a bug, inaccurate information, or unexpected behaviour in a 05524F product or its associated documentation. A suggestion is a request for 05524F to add a new feature to a existing product or to build a new product.</p>
-<p class="description">&#9;05524F is very likely to accept complaints but less likely to accept suggestions. Since all 05524F software is open source, you can build your own feature on top of 05524F software as long as you use the correct license (General Public License version 3 is always safe).</p>
+<p class="description">&#9;SGEXTN uses the Qt QRC system to add resources into your application. Resources can be fonts, images, shaders (most of the time), and even default configuration files. Resource files behave like any other file in the file system.</p>
+<p class="description">&#9;Resource files are added using CMake. You must first ensure that you use SGEXTN default CMake settings or have this line somewhere in your CMakeLists.txt</p>
+<p class="warning">set(CMAKE_AUTORCC ON)</p>
+<p class="description">&#9;After that, you can add resource files like this</p>
+<p class="warning">qt6_add_resources(yourCMakeTarget assetsFileName PREFIX "prefix" BASE "assetsfolder" FILES&#10;    "assetsfolder/configfile1.sg"&#10;    "assetsfolder/configfile2.sg"&#10;    "assetsfolder/font.ttf"&#10;    "assetsfolder/vertexshader.vert.qsb"&#10;    "assetsfolder/fragmentshader.frag.qsb"&#10;)</p>
+<p class="description">&#9;Here, assetsFileName is what you want the collection of assets to be called. This is never used in your own code, so typically naming it to the target name with "_assets" added behind is a good idea.</p>
+<p class="description">&#9;The PREFIX and BASE arguments control the exact path being added to the resource file system. Since the BASE is assetsfolder, the file assetsfolder/configfile1.sg will be read as configfile1.sg, with the file path included starting from the BASE path.</p>
+<p class="description">&#9;If a file being added is not actually in the BASE folder, it is <a class="link" href="../tutorials/undefinedbehaviour">undefined behaviour</a>.</p>
+<p class="description">&#9;The PREFIX argument adds a prefix in front of the file path before it is added to the resource file system. Here the PREFIX is prefix, configfile1.sg will actually be named as prefix/configfile1.sg in the resource file system. This is really helpful for organising files.</p>
+<p class="description">&#9;The FILES argument is simply a list of files to add.</p>
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<p class="description">&#9;You may have heard that you need a dedicated .qrc file to add files to the resource file system. That is only necessary for QMake, a Qt alternative build system that SGEXTN does not support.</p>
 <p class="description">&#9;</p>
 <p class="description"></p>
 

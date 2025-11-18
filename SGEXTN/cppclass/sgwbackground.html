@@ -1,0 +1,317 @@
+
+<!DOCTYPE html>
+<html lang="en-SG">
+<head>
+<meta charset="UTF-8">
+<title>SGWBackground Documentation</title>
+<link rel="icon" href="/icon.png" type="image/png">
+<meta property="og:image" content="/icon.png">
+<meta name="twitter:image" content="/icon.png">
+<link rel="apple-touch-icon" href="/icon.png">
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "url": "https://infinityintegral.github.io",
+    "image": "/icon.png"
+}
+</script>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+@font-face {
+	font-family: "SingScript.sg";
+	src: url("/SingScript.sg")format("truetype");
+	font-weight: normal;
+	font-style: normal;
+}
+
+:root {
+	--c0: rgb(0, 0, 0);
+	--c1: rgb(64, 0, 50);
+	--c2: rgb(128, 0, 100);
+	--c3: rgb(191, 0, 150);
+	--c4: rgb(255, 0, 200);
+	--c5: rgb(255, 64, 214);
+	--c6: rgb(255, 128, 227);
+	--c7: rgb(255, 191, 241);
+	--c8: rgb(255, 255, 255);
+}
+
+*{
+    font-family: "SingScript.sg";
+	max-width: 100%;
+	word-break: break-word;
+	-webkit-text-size-adjust: 100%;
+	-ms-text-size-adjust: 100%;
+}
+
+.title {
+	color: var(--c4);
+	font-size: 3.5rem;
+	margin: 0;
+	font-weight: normal;
+}
+.title::selection {
+	color: var(--c8);
+	background-color: var(--c4);
+	font-size: 3.5rem;
+	margin: 0;
+	font-weight: normal;
+}
+
+.header {
+	color: var(--c4);
+	font-size: 2.5rem;
+	margin: 0;
+	font-weight: normal;
+}
+.header::selection {
+	color: var(--c8);
+	background-color: var(--c4);
+	font-size: 2.625rem;
+	margin: 0;
+	font-weight: normal;
+}
+
+.description {
+	color: var(--c4);
+	font-size: 1.75rem;
+	margin: 0;
+	white-space: pre-wrap;
+}
+.description::selection {
+	color: var(--c8);
+	background-color: var(--c4);
+	font-size: 1.75rem;
+	margin: 0;
+	white-space: pre-wrap;
+}
+
+.note {
+	color: var(--c4);
+	font-size: 1.75rem;
+	margin: 0.25rem;
+	white-space: pre-wrap;
+    border: 0.25rem solid var(--c7);
+    padding: 0.25rem;
+}
+.note::selection {
+	color: var(--c8);
+	background-color: var(--c4);
+	font-size: 1.75rem;
+	margin: 0.25rem;
+	white-space: pre-wrap;
+    border: 0.25rem solid var(--c7);
+    padding: 0.25rem;
+}
+
+.warning {
+	color: var(--c4);
+	font-size: 1.75rem;
+	margin: 0.25rem;
+	white-space: pre-wrap;
+    border: 0.25rem solid var(--c4);
+    padding: 0.25rem;
+}
+.warning::selection {
+	color: var(--c8);
+	background-color: var(--c4);
+	font-size: 1.75rem;
+	margin: 0.25rem;
+	white-space: pre-wrap;
+    border: 0.25rem solid var(--c4);
+    padding: 0.25rem;
+}
+
+.link {
+	color: var(--c2);
+	text-decoration: underline;
+}
+.link:hover {
+	color: var(--c2);
+	background-color: var(--c7);
+	text-decoration: underline;
+}
+.link:active {
+	color: var(--c2);
+	background-color: var(--c6);
+	text-decoration: underline;
+}
+.link::selection {
+	color: var(--c8);
+	background-color: var(--c4);
+	text-decoration: underline;
+}
+
+.button {
+	color: var(--c8);
+	background-color: var(--c4);
+	font-size: 1.75rem;
+	border: none;
+}
+.button:hover {
+	color: var(--c7);
+	background-color: var(--c3);
+	font-size: 1.75rem;
+	border: none;
+}
+.button:active {
+	color: var(--c6);
+	background-color: var(--c2);
+	font-size: 1.75rem;
+	border: none;
+}
+.button::selection {
+	color: var(--c4);
+	background-color: var(--c8);
+	font-size: 1.75rem;
+	border: none;
+}
+
+.input {
+	color: var(--c8);
+	background-color: var(--c4);
+	font-size: 1.75rem;
+	border: none;
+	outline: none;
+	text-align: center;
+}
+.input:hover {
+	color: var(--c7);
+	background-color: var(--c3);
+	font-size: 1.75rem;
+	border: none;
+	outline: none;
+	text-align: center;
+}
+.input:focus {
+	color: var(--c6);
+	background-color: var(--c2);
+	font-size: 1.75rem;
+	border: none;
+	outline: none;
+	text-align: center;
+}
+.input::selection {
+	color: var(--c4);
+	background-color: var(--c8);
+	font-size: 1.75rem;
+	border: none;
+	outline: none;
+	text-align: center;
+}
+
+.highlight {
+    animation: highlightFlash 2s ease-out;
+}
+
+@keyframes highlightFlash {
+    0% {background-color: var(--c6);}
+    100% {background-color: var(--c8);}
+}
+</style>
+<script>
+let m = (new Date()).getMonth() + 1;
+if(m >= 7 && m <= 9){
+    document.documentElement.style.setProperty("--c0", "rgb(0, 0, 0)");
+    document.documentElement.style.setProperty("--c1", "rgb(60, 9, 14)");
+    document.documentElement.style.setProperty("--c2", "rgb(119, 19, 27)");
+    document.documentElement.style.setProperty("--c3", "rgb(179, 28, 41)");
+    document.documentElement.style.setProperty("--c4", "rgb(238, 37, 54)");
+    document.documentElement.style.setProperty("--c5", "rgb(242, 92, 104)");
+    document.documentElement.style.setProperty("--c6", "rgb(247, 146, 155)");
+    document.documentElement.style.setProperty("--c7", "rgb(251, 201, 205)");
+    document.documentElement.style.setProperty("--c8", "rgb(255, 255, 255)");
+}
+function highlightSection(){
+    let tag = window.location.hash.substring(1);
+    if(tag == ""){return;}
+    let element = document.getElementById(tag);
+    if(element == null){return;}
+    element.classList.add("highlight");
+    element.addEventListener("animationend", () => {element.classList.remove("highlight");}, {once: true});
+}
+window.addEventListener("DOMContentLoaded", highlightSection);
+window.addEventListener("hashchange", highlightSection);
+</script>
+</head>
+<body style="margin-left: 1em;">
+<p class="description" style="color: rgb(238, 37, 54); text-align: center; font-size: 2.5rem">sincerely <img src="/flag.png" style="vertical-align: middle; height: 2.5rem; image-rendering: auto;"> Singaporean</p>
+<div style="width: 100%; height: 0.25rem; background-color: var(--c8);"></div>
+<div><button class="button" style="width: 100%;" onclick="location.href='/'">Project 05524F.sg</button></div>
+<div style="width: 100%; height: 0.25rem; background-color: var(--c8);"></div>
+<div><button class="button" style="width: 100%;" onclick="location.href='../readme/readme'">SGEXTN Documentation</button></div><div style="width: 100%; height: 0.25rem; background-color: var(--c8);"></div><p class="warning">If you have not done so, read this full <a class="link" href="../tutorials/full">tutorial</a> on how to use SGEXTN to build an application.</p><div style="width: 100%; height: 0.75rem; background-color: var(--c8);"></div><h1 class="title">SGWBackground</h1>
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<p class="description"><a class="link" href="https://github.com/InfinityIntegral/SGEXTN/tree/main/SG_Widgets/include/SGWBackground.h">see header file</a></p>
+<p class="description"><a class="link" href="https://github.com/InfinityIntegral/SGEXTN/tree/main/SG_Widgets/src/SGWBackground.cpp">see source file</a></p>
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<p class="description">class SGWBackground;</p>
+<p class="description">part of SGEXTN module <a class="link" href="../modules/sg_widgets">SG_Widgets</a></p>
+<p class="description"><a class="link" href="../tutorials/sgwidget">SGWidget ⁽㈳㈴㈳㈮㈱㈨㈠㈫ ㈧㈤㈱㈤⁾</a> UI page background base class</p>
+<p class="description"><a class="link" href="#sg_detaileddescription">detailed description</a></p>
+<p class="description"><a class="link" href="../funclist/sgwbackground">list of all including inherited members</a></p>
+<p class="description"><a class="link" href="#sg_implementationdetails">implementation details</a></p>
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<p class="description">preprocessor file inclusion directive: #include ‹SGWBackground.h›</p>
+<p class="description">CMake commands:</p>
+<p class="description">&#9;find_package(<a class="link" href="../readme/readme">SGEXTN</a> REQUIRED COMPONENTS <a class="link" href="../modules/sg_widgets">SG_Widgets</a>)</p>
+<p class="description">&#9;target_link_libraries(yourCMakeTarget PRIVATE <a class="link" href="../modules/sg_widgets">SGEXTN::SG_Widgets</a>)</p>
+<p class="description">parent class: <a class="link" href="sgwwidget">SGWWidget</a></p>
+<p class="description">children classes: <a class="link" href="sgwpagebackground">SGWPageBackground</a>, <a class="link" href="sgwscrollview">SGWScrollView</a>, <a class="link" href="sgwsequentialscrollview">SGWSequentialScrollView</a></p>
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<h2 class="header" id="">instance member functions</h2>
+<p class="description">&#9;[[nodiscard]] <a class="link" href="sgxcolourrgba">SGXColourRGBA</a> <a class="link" href="#nodiscard_SGXColourRGBA_getColour_bool_ptr_const_">getColour</a>(bool* isUsing) const;</p>
+<p class="description">&#9;[[nodiscard]] int <a class="link" href="#nodiscard_int_getThemeColour_bool_ptr_const_">getThemeColour</a>(bool* isUsing) const;</p>
+<p class="description">&#9;void <a class="link" href="#void_setColour_SGXColourRGBA_">setColour</a>(<a class="link" href="sgxcolourrgba">SGXColourRGBA</a> colour);</p>
+<p class="description">&#9;void <a class="link" href="#void_setThemeColour_int_">setThemeColour</a>(int themeColour);</p>
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<h2 class="header" id="">static member functions</h2>
+<p class="description">&#9;static void <a class="link" href="#static_void_disable_SGWBackground_ptr_ref_">disable</a>(<a class="link" href="sgwbackground">SGWBackground</a>*& thisPointer);</p>
+<p class="description">&#9;static void <a class="link" href="#static_void_enable_SGWBackground_ptr_ref_SGWBackground_ptr_ptr_func_void_ptr_func_">enable</a>(<a class="link" href="sgwbackground">SGWBackground</a>*& thisPointer, <a class="link" href="sgwbackground">SGWBackground</a>* (*initFunction)(), void (*resetFunction)());</p>
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<h2 class="header" id="sg_detaileddescription">Detailed Description</h2>
+<p class="description"><a class="link" href="../cppclass/sgwbackground">SGWBackground</a> provides a base class for UI pages. This is not meant to be instantiated directly, you are supposed to create its subclasses (<a class="link" href="../cppclass/sgwpagebackground">SGWPageBackground</a>, <a class="link" href="../cppclass/sgwscrollview">SGWScrollView</a>, <a class="link" href="../cppclass/sgwsequentialscrollview">SGWSequentialScrollView</a>) to use its functionality. <a class="link" href="../cppclass/sgwbackground">SGWBackground</a> allows you to easily turn on and turn off <a class="link" href="../tutorials/sgwidget">SGWidget ⁽㈳㈴㈳㈮㈱㈨㈠㈫ ㈧㈤㈱㈤⁾</a> UI pages. Use a <a class="link" href="../cppclass/sgwblankwidget">SGWBlankWidget</a> instead if only a blank rectangle is needed.</p>
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<h2 class="header" id="sg_implementationdetails">Implementation Details</h2>
+<p class="description">Stores information about the <a class="link" href="../cppclass/sgwbackground">SGWBackground</a> and also within static variables, information about which <a class="link" href="../cppclass/sgwbackground">SGWBackground</a> are on.</p>
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<h2 class="header" id="nodiscard_SGXColourRGBA_getColour_bool_ptr_const_">[[nodiscard]] <a class="link" href="sgxcolourrgba">SGXColourRGBA</a> <a class="link" href="#nodiscard_SGXColourRGBA_getColour_bool_ptr_const_">getColour</a>(bool* isUsing) const;</h2>
+<p class="description">Returns the <a class="link" href="../cppclass/sgxcolourrgba">SGXColourRGBA</a> currently being used for the background of this <a class="link" href="../cppclass/sgwbackground">SGWBackground</a>. The bool that <b>isUsing</b> points to is set to true if <a class="link" href="../tutorials/themecolour">theme colour ⁽㈳㈴㈳㈮㈱㈨㈠㈫ ㈧㈤㈱㈤⁾</a> mode is off, and false otherwise.</p>
+<p class="note">If you are not interested in the current <a class="link" href="../tutorials/themecolour">theme colour ⁽㈳㈴㈳㈮㈱㈨㈠㈫ ㈧㈤㈱㈤⁾</a> mode, pass nullptr to <b>isUsing</b>.</p>
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<h2 class="header" id="nodiscard_int_getThemeColour_bool_ptr_const_">[[nodiscard]] int <a class="link" href="#nodiscard_int_getThemeColour_bool_ptr_const_">getThemeColour</a>(bool* isUsing) const;</h2>
+<p class="description">Returns the <a class="link" href="../tutorials/themecolour">theme colour ⁽㈳㈴㈳㈮㈱㈨㈠㈫ ㈧㈤㈱㈤⁾</a> currently being used for the background of this <a class="link" href="../cppclass/sgwbackground">SGWBackground</a>. The bool that <b>isUsing</b> points to is set to true if <a class="link" href="../tutorials/themecolour">theme colour ⁽㈳㈴㈳㈮㈱㈨㈠㈫ ㈧㈤㈱㈤⁾</a> mode is on, and false otherwise.</p>
+<p class="note">If you are not interested in the current <a class="link" href="../tutorials/themecolour">theme colour ⁽㈳㈴㈳㈮㈱㈨㈠㈫ ㈧㈤㈱㈤⁾</a> mode, pass nullptr to <b>isUsing</b>.</p>
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<h2 class="header" id="void_setColour_SGXColourRGBA_">void <a class="link" href="#void_setColour_SGXColourRGBA_">setColour</a>(<a class="link" href="sgxcolourrgba">SGXColourRGBA</a> colour);</h2>
+<p class="description">Sets the <a class="link" href="../cppclass/sgxcolourrgba">SGXColourRGBA</a> of the background of this <a class="link" href="../cppclass/sgwbackground">SGWBackground</a> to <b>colour</b> and turns off <a class="link" href="../tutorials/themecolour">theme colour ⁽㈳㈴㈳㈮㈱㈨㈠㈫ ㈧㈤㈱㈤⁾</a> mode.</p>
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<h2 class="header" id="void_setThemeColour_int_">void <a class="link" href="#void_setThemeColour_int_">setThemeColour</a>(int themeColour);</h2>
+<p class="description">Sets the <a class="link" href="../tutorials/themecolour">theme colour ⁽㈳㈴㈳㈮㈱㈨㈠㈫ ㈧㈤㈱㈤⁾</a> of the background of this <a class="link" href="../cppclass/sgwbackground">SGWBackground</a> to <b>themeColour</b> and turns on <a class="link" href="../tutorials/themecolour">theme colour ⁽㈳㈴㈳㈮㈱㈨㈠㈫ ㈧㈤㈱㈤⁾</a> mode.</p>
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<h2 class="header" id="static_void_disable_SGWBackground_ptr_ref_">static void <a class="link" href="#static_void_disable_SGWBackground_ptr_ref_">disable</a>(<a class="link" href="sgwbackground">SGWBackground</a>*& thisPointer);</h2>
+<p class="description">Turns off the UI page referenced by <b>thisPointer</b> then set <b>thisPointer</b>, which is passed by reference, to nullptr.</p>
+<p class="warning">If <b>thisPointer</b> is nullptr when the function is called, it is assumed that the UI page is already off so nothing is done. If the UI page was previously turned on using <a class="link" href="../cppclass/sgwbackground#static_void_enable_SGWBackground_ptr_ref_SGWBackground_ptr_ptr_func_void_ptr_func_">SGWBackground::enable</a>, this is not a concern.</p>
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<h2 class="header" id="static_void_enable_SGWBackground_ptr_ref_SGWBackground_ptr_ptr_func_void_ptr_func_">static void <a class="link" href="#static_void_enable_SGWBackground_ptr_ref_SGWBackground_ptr_ptr_func_void_ptr_func_">enable</a>(<a class="link" href="sgwbackground">SGWBackground</a>*& thisPointer, <a class="link" href="sgwbackground">SGWBackground</a>* (*initFunction)(), void (*resetFunction)());</h2>
+<p class="description">Turn on a <a class="link" href="../cppclass/sgwbackground">SGWBackground</a> using a initialisation function and a reset function. <b>initFunction</b> is run to create the <a class="link" href="../cppclass/sgwbackground">SGWBackground</a> instance which is stored in <b>thisPointer</b> which is passed by reference, then <b>resetFunction</b> is run.</p>
+<p class="note">If no <b>resetFunction</b> is needed, pass nullptr to it.</p>
+<p class="note">This hides all other UI pages to ensure that keyboard focus (pressing tab) works as expected.</p>
+<p class="warning">Forgetting to return a valid <a class="link" href="../cppclass/sgwbackground">SGWBackground</a> in <b>initFunction</b> is <a class="link" href="../tutorials/undefinedbehaviour">undefined behaviour</a>.</p>
+<p class="warning">Passing nullptr to <b>initFunction</b> is <a class="link" href="../tutorials/undefinedbehaviour">undefined behaviour</a>.</p>
+<p class="warning">If <b>thisPointer</b> is not nullptr when the function is called, it is assumed that the UI page is already on so nothing is done. If the UI page was previously turned off using <a class="link" href="../cppclass/sgwbackground#static_void_disable_SGWBackground_ptr_ref_">SGWBackground::disable</a>, this is not a concern.</p>
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<p class="description"></p>
+
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<div style="width: 100%; height: 0.25rem; background-color: var(--c4);"></div>
+<div style="width: 100%; height: 0.25rem; background-color: var(--c8);"></div>
+<p class="description">©2025 05524F.sg (Singapore)</p>
+<p class="description"><a class="link" href="/contact">contact 05524F / report a bug / make a suggestion</a></p>
+<p class="description"><a class="link" href="/values">about 05524F SINGAPORE values</a></p>
+<p class="description"><a class="link" href="/projects">list of 05524F projects</a></p>
+<div style="width: 100%; height: 0.25rem; background-color: var(--c8);"></div>
+<div style="width: 100%; height: 0.25rem; background-color: var(--c4);"></div>
+<div style="width: 100%; height: 0.25rem; background-color: var(--c8);"></div>
+</body>
+</html>

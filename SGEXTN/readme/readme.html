@@ -3,7 +3,7 @@
 <html lang="en-SG">
 <head>
 <meta charset="UTF-8">
-<title>Contact 05524F</title>
+<title>SGEXTN README</title>
 <link rel="icon" href="/icon.png" type="image/png">
 <meta property="og:image" content="/icon.png">
 <meta name="twitter:image" content="/icon.png">
@@ -240,11 +240,46 @@ window.addEventListener("hashchange", highlightSection);
 <div style="width: 100%; height: 0.25rem; background-color: var(--c8);"></div>
 <div><button class="button" style="width: 100%;" onclick="location.href='/'">Project 05524F.sg</button></div>
 <div style="width: 100%; height: 0.25rem; background-color: var(--c8);"></div>
-<h1 class="title">Contact 05524F</h1>
+<div><button class="button" style="width: 100%;" onclick="location.href='../readme/readme'">SGEXTN Documentation</button></div><div style="width: 100%; height: 0.25rem; background-color: var(--c8);"></div><p class="warning">If you have not done so, read this full <a class="link" href="../tutorials/full">tutorial</a> on how to use SGEXTN to build an application.</p><div style="width: 100%; height: 0.75rem; background-color: var(--c8);"></div><h1 class="title">SGEXTN README</h1>
 <div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
-<p class="description">&#9;To contact 05524F, email to <a class="link" href="mailto:infinityintegral333@gmail.com">infinityintegral333@gmail.com</a> or message <a class="link" href="https://www.instagram.com/infinityintegral.sg/">@infinityintegral.sg</a> on Instagram. Messages sent by mutual Instagram followers (05524F's friends) via Instagram will have priority.</p>
-<p class="description">&#9;Almost all the time, your reason for contacting 05524F is either a complaint or a suggestion. A complaint refers to a request to fix a bug, inaccurate information, or unexpected behaviour in a 05524F product or its associated documentation. A suggestion is a request for 05524F to add a new feature to a existing product or to build a new product.</p>
-<p class="description">&#9;05524F is very likely to accept complaints but less likely to accept suggestions. Since all 05524F software is open source, you can build your own feature on top of 05524F software as long as you use the correct license (General Public License version 3 is always safe).</p>
+<p class="description">&#9;SGEXTN is 05524F's own C++ framework for application development with an emphasis on pure C++ code. Users of SGEXTN will only need to write C++ (and GLSL if you need custom shaders). There is also an emphasis on clean header files for fast clang-tidy passes and easy availability of the source code which is linked on every documentation page.</p>
+<p class="description">&#9;No compiled binaries are available for SGEXTN but it is very easy to build one yourself. See <a class="link" href="#setup">setting up SGEXTN</a> for more information. You need Qt, CMake and Qt Shader Tools to build SGEXTN.</p>
+<p class="description">&#9;When developing SGEXTN applications, you are strongly encouraged to use the Qt Creator IDE. Qt Creator has tooling that SGEXTN uses either builtin or easily available through the Qt Maintenance Tool. You are strongly recommended to use Git, GitHub, and clang-tidy when building your applications.</p>
+<p class="description">&#9;This version of SGEXTN is designed to work with Qt version 6.10.0, though anything at or above Qt 6.9.1 is likely fine.</p>
+<p class="description">&#9;SGEXTN uses Qt Quick and QRhi for rendering, however users do not need to care at all about QML, JavaScript, and any other such nonsense. There is also no need to care about Qt's macros, the Qt meta object system, or signal-slot. In fact, your application does not even need to link Qt, just keep the Qt DLLs in the same folder when deploying your application.</p>
+<p class="description">&#9;SGEXTN exposes private API, so as long as you know exactly what you are doing, you can extend SGEXTN by using its private API, or even linking to Qt libraries and using Qt features side by side with SGEXTN. For example building a custom <a class="link" href="../tutorials/sgwidget">SGWidget ⁽㈳㈴㈳㈮㈱㈨㈠㈫ ㈧㈤㈱㈤⁾</a> that uses your own QQuickItem is completely feasible. Note that doing this will require deep understanding of the source code, since private API is not documented.</p>
+<p class="description">&#9;If you came here from somewhere other than GitHub, here is the <a class="link" href="https://github.com/InfinityIntegral/SGEXTN">GitHub repository</a>.</p>
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<p class="description">&#9;<a class="link" href="#featurelist">list of features</a></p>
+<p class="description">&#9;<a class="link" href="#setup">setting up SGEXTN</a></p>
+<p class="description">&#9;<a class="link" href="#demo">demo app</a></p>
+<p class="description">&#9;<a class="link" href="#legal">credits and legal info</a></p>
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<h2 class="header" id="featurelist">List of modules</h2>
+<p class="description">&#9;SGEXTN contains 6 modules. Each module is described in detail in their own documentation pages linked below.</p>
+<p class="description">&#9;<a class="link" href="../modules/sg_containers">Containers</a> - template based container data structures</p>
+<p class="description">&#9;<a class="link" href="../modules/sg_math">Math</a> - mathematical operations</p>
+<p class="description">&#9;<a class="link" href="../modules/sg_core">Core</a> - core SGEXTN functionality</p>
+<p class="description">&#9;<a class="link" href="../modules/sg_filesystem">FileSystem</a> - access to file system</p>
+<p class="description">&#9;<a class="link" href="../modules/sg_widgets">SGWidget</a> - graphical user interface</p>
+<p class="description">&#9;<a class="link" href="../modules/sg_ri">SG - RI</a> - custom rendering</p>
+<h2 class="header" id="setup">Setting up SGEXTN</h2>
+<p class="description">&#9;There are no compiled binaries for SGEXTN as supporting all possible operating system and compiler combinations is unfeasible. However, building SGEXTN yourself is really easy.</p>
+<p class="description">&#9;First ensure that you have CMake (at least version 3.21) available. Then you can simply download the entire repository and open the top level CMakeLists.txt in Qt Creator as a project and click the "build" button 2 spaces below the run button. After that, run the CMake command</p>
+<p class="warning">cmake --install [folder where you find the DLLs] --config Release --prefix [folder where you want to install SGEXTN to]</p>
+<p class="description">&#9;in the Qt Creator terminal and add these to your system PATH.</p>
+<p class="warning">[folder where you want to install SGEXTN to]/lib&#10;[folder where you want to install SGEXTN to]/lib/cmake/SGEXTN</p>
+<p class="description">&#9;Now your computer is ready for building SGEXTN apps. To learn how to build one, see this <a class="link" href="../tutorials/full">tutorial</a>.</p>
+<p class="description">&#9;When naming classes in your applications, ensure that the names start with "SG", followed by 3 capital letters indicating your application, followed by the actual class name. This ensures that different developers using SGEXTN would not have conflicting class names and that your application is compatible with SGEXTN tooling.</p>
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<h2 class="header" id="demo">Demo app</h2>
+<p class="description">&#9;The SGEXTN demo app has not been built yet.</p>
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<h2 class="header" id="legal">Credits and legal information</h2>
+<p class="description">&#9;SGEXTN uses <a class="link" href="https://www.qt.io">Qt</a> under the Lesser General Public License version 3.</p>
+<p class="description">&#9;SGEXTN itself is licensed under the Lesser General Public License version 3.</p>
+<p class="description">&#9;For more information about licensing, see the LICENSE.txt file in the GitHub repository.</p>
+<p class="description">&#9;05524F is the only contributor to SGEXTN.</p>
 <p class="description">&#9;</p>
 <p class="description"></p>
 

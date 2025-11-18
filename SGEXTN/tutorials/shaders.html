@@ -3,7 +3,7 @@
 <html lang="en-SG">
 <head>
 <meta charset="UTF-8">
-<title>Contact 05524F</title>
+<title>Shader Compilation Tutorial</title>
 <link rel="icon" href="/icon.png" type="image/png">
 <meta property="og:image" content="/icon.png">
 <meta name="twitter:image" content="/icon.png">
@@ -240,11 +240,17 @@ window.addEventListener("hashchange", highlightSection);
 <div style="width: 100%; height: 0.25rem; background-color: var(--c8);"></div>
 <div><button class="button" style="width: 100%;" onclick="location.href='/'">Project 05524F.sg</button></div>
 <div style="width: 100%; height: 0.25rem; background-color: var(--c8);"></div>
-<h1 class="title">Contact 05524F</h1>
+<div><button class="button" style="width: 100%;" onclick="location.href='../readme/readme'">SGEXTN Documentation</button></div><div style="width: 100%; height: 0.25rem; background-color: var(--c8);"></div><p class="warning">If you have not done so, read this full <a class="link" href="../tutorials/full">tutorial</a> on how to use SGEXTN to build an application.</p><div style="width: 100%; height: 0.75rem; background-color: var(--c8);"></div><h1 class="title">Shader Compilation Tutorial</h1>
 <div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
-<p class="description">&#9;To contact 05524F, email to <a class="link" href="mailto:infinityintegral333@gmail.com">infinityintegral333@gmail.com</a> or message <a class="link" href="https://www.instagram.com/infinityintegral.sg/">@infinityintegral.sg</a> on Instagram. Messages sent by mutual Instagram followers (05524F's friends) via Instagram will have priority.</p>
-<p class="description">&#9;Almost all the time, your reason for contacting 05524F is either a complaint or a suggestion. A complaint refers to a request to fix a bug, inaccurate information, or unexpected behaviour in a 05524F product or its associated documentation. A suggestion is a request for 05524F to add a new feature to a existing product or to build a new product.</p>
-<p class="description">&#9;05524F is very likely to accept complaints but less likely to accept suggestions. Since all 05524F software is open source, you can build your own feature on top of 05524F software as long as you use the correct license (General Public License version 3 is always safe).</p>
+<p class="description">&#9;This tutorial is about compiling shaders and including compiled shaders in the built application. For information about how to write shaders, see this <a class="link" href="renderer">tutorial</a> instead.</p>
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<p class="description">&#9;GLSL vertex and fragment shaders must be built using QSB, the Qt Shader Binary compiler, before they can be used with QRhi which is used by SGEXTN's <a class="link" href="../tutorials/renderer">SG - RI ⁽㈳㈴㈳㈮㈱㈨㈠㈫ ㈧㈤㈱㈤⁾</a> module. This process is very similar to adding resource files and it is assumed that you know how to add resource files. If not, read this <a class="link" href="resources">tutorial</a> first.</p>
+<p class="description">&#9;Note that although you only write the shaders in GLSL, they are automatically translated to other shader languages by Qt for best performance across a wide range of hardware.</p>
+<p class="description">&#9;Firstly, make sure you have QSB installed. You can check by opening the Qt Maintenance Tool and looking for "Qt Shader Tools" under "Additional Libraries" of your Qt version. If you do not have it installed yet, you need to install it.</p>
+<p class="description">&#9;After that, add these to your CMake file.</p>
+<p class="warning">find_package(Qt6 REQUIRED COMPONENTS ShaderTools)&#10;qt6_add_shaders(yourCMakeTarget shadersFileName PREFIX "prefix" BASE "shaders" FILES&#10;    "shaders/vertexshader.vert"&#10;    "shaders/fragmentshaders.frag"&#10;)</p>
+<p class="description">&#9;The shadersFileName, similar to assetsFileName for adding QRC resources, is not used in your code. You are recommended to leave it to the target name with "_shaders" added behind.</p>
+<p class="description">&#9;The PREFIX and BASE behave identically to the corresponding arguments when adding QRC files. After shaders are compiled, the extension .qsb is added to their names. So after applying all changes to the file paths, shaders/vertexshader.vert would end up as prefix/vertexshader.vert.qsb in the resource file system and that path should be passed to <a class="link" href="../cppclass/sgrrenderingprogramme#void_setShaderQSBFiles_const_SGXString_ref_const_SGXString_ref_">SGRRenderingProgramme::setShaderQSBFiles</a>.</p>
 <p class="description">&#9;</p>
 <p class="description"></p>
 

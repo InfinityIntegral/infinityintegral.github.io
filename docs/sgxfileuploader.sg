@@ -1,6 +1,0 @@
-#c SGXFileUploader
-class allowing user to bring external file into application folder
-#ic SGEXTN/filesystem/sgxfileuploader.h
-#d SGXFileUploader allows user to bring a file outside the application folder into the application folder where the application can access it without violating app sandboxing rules on mobile operating systems. This can be done for the application to access uploaded files and images from the user. Note that here "upload" does not refer to uploading to a network, it refers to moving data such that it can be accessed by the application.
-#sf void $uploadFile(void (*attachedFunction)(const QString&))
-This function allows the user to upload a file. The uploaded file is first copied into the application folder and the path to that file (which is now in the application folder, specifically in the configs folder, so it could be accessed) is passed to attachedFunction. If no file is chosen by the user, an empty string is passed, so attachedFunction must handle that case also. The function pointer attachedFunction should be the function that will process the file upload input, it should return void and take a string that stores the path to the uploaded file.

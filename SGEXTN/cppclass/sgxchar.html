@@ -1,0 +1,410 @@
+
+<!DOCTYPE html>
+<html lang="en-SG">
+<head>
+<meta charset="UTF-8">
+<title>SGXChar Documentation</title>
+<link rel="icon" href="/icon.png" type="image/png">
+<meta property="og:image" content="/icon.png">
+<meta name="twitter:image" content="/icon.png">
+<link rel="apple-touch-icon" href="/icon.png">
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "url": "https://infinityintegral.github.io",
+    "image": "/icon.png"
+}
+</script>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+@font-face {
+	font-family: "SingScript.sg";
+	src: url("/SingScript.sg")format("truetype");
+	font-weight: normal;
+	font-style: normal;
+}
+
+:root {
+	--c0: rgb(0, 0, 0);
+	--c1: rgb(64, 0, 50);
+	--c2: rgb(128, 0, 100);
+	--c3: rgb(191, 0, 150);
+	--c4: rgb(255, 0, 200);
+	--c5: rgb(255, 64, 214);
+	--c6: rgb(255, 128, 227);
+	--c7: rgb(255, 191, 241);
+	--c8: rgb(255, 255, 255);
+}
+
+*{
+    font-family: "SingScript.sg";
+	max-width: 100%;
+	word-break: break-word;
+	-webkit-text-size-adjust: 100%;
+	-ms-text-size-adjust: 100%;
+}
+
+.title {
+	color: var(--c4);
+	font-size: 3.5rem;
+	margin: 0;
+	font-weight: normal;
+}
+.title::selection {
+	color: var(--c8);
+	background-color: var(--c4);
+	font-size: 3.5rem;
+	margin: 0;
+	font-weight: normal;
+}
+
+.header {
+	color: var(--c4);
+	font-size: 2.5rem;
+	margin: 0;
+	font-weight: normal;
+}
+.header::selection {
+	color: var(--c8);
+	background-color: var(--c4);
+	font-size: 2.625rem;
+	margin: 0;
+	font-weight: normal;
+}
+
+.description {
+	color: var(--c4);
+	font-size: 1.75rem;
+	margin: 0;
+	white-space: pre-wrap;
+}
+.description::selection {
+	color: var(--c8);
+	background-color: var(--c4);
+	font-size: 1.75rem;
+	margin: 0;
+	white-space: pre-wrap;
+}
+
+.note {
+	color: var(--c4);
+	font-size: 1.75rem;
+	margin: 0.25rem;
+	white-space: pre-wrap;
+    border: 0.25rem solid var(--c7);
+    padding: 0.25rem;
+}
+.note::selection {
+	color: var(--c8);
+	background-color: var(--c4);
+	font-size: 1.75rem;
+	margin: 0.25rem;
+	white-space: pre-wrap;
+    border: 0.25rem solid var(--c7);
+    padding: 0.25rem;
+}
+
+.warning {
+	color: var(--c4);
+	font-size: 1.75rem;
+	margin: 0.25rem;
+	white-space: pre-wrap;
+    border: 0.25rem solid var(--c4);
+    padding: 0.25rem;
+}
+.warning::selection {
+	color: var(--c8);
+	background-color: var(--c4);
+	font-size: 1.75rem;
+	margin: 0.25rem;
+	white-space: pre-wrap;
+    border: 0.25rem solid var(--c4);
+    padding: 0.25rem;
+}
+
+.link {
+	color: var(--c2);
+	text-decoration: underline;
+}
+.link:hover {
+	color: var(--c2);
+	background-color: var(--c7);
+	text-decoration: underline;
+}
+.link:active {
+	color: var(--c2);
+	background-color: var(--c6);
+	text-decoration: underline;
+}
+.link::selection {
+	color: var(--c8);
+	background-color: var(--c4);
+	text-decoration: underline;
+}
+
+.button {
+	color: var(--c8);
+	background-color: var(--c4);
+	font-size: 1.75rem;
+	border: none;
+}
+.button:hover {
+	color: var(--c7);
+	background-color: var(--c3);
+	font-size: 1.75rem;
+	border: none;
+}
+.button:active {
+	color: var(--c6);
+	background-color: var(--c2);
+	font-size: 1.75rem;
+	border: none;
+}
+.button::selection {
+	color: var(--c4);
+	background-color: var(--c8);
+	font-size: 1.75rem;
+	border: none;
+}
+
+.input {
+	color: var(--c8);
+	background-color: var(--c4);
+	font-size: 1.75rem;
+	border: none;
+	outline: none;
+	text-align: center;
+}
+.input:hover {
+	color: var(--c7);
+	background-color: var(--c3);
+	font-size: 1.75rem;
+	border: none;
+	outline: none;
+	text-align: center;
+}
+.input:focus {
+	color: var(--c6);
+	background-color: var(--c2);
+	font-size: 1.75rem;
+	border: none;
+	outline: none;
+	text-align: center;
+}
+.input::selection {
+	color: var(--c4);
+	background-color: var(--c8);
+	font-size: 1.75rem;
+	border: none;
+	outline: none;
+	text-align: center;
+}
+
+.highlight {
+    animation: highlightFlash 2s ease-out;
+}
+
+@keyframes highlightFlash {
+    0% {background-color: var(--c6);}
+    100% {background-color: var(--c8);}
+}
+</style>
+<script>
+let m = (new Date()).getMonth() + 1;
+if(m >= 7 && m <= 9){
+    document.documentElement.style.setProperty("--c0", "rgb(0, 0, 0)");
+    document.documentElement.style.setProperty("--c1", "rgb(60, 9, 14)");
+    document.documentElement.style.setProperty("--c2", "rgb(119, 19, 27)");
+    document.documentElement.style.setProperty("--c3", "rgb(179, 28, 41)");
+    document.documentElement.style.setProperty("--c4", "rgb(238, 37, 54)");
+    document.documentElement.style.setProperty("--c5", "rgb(242, 92, 104)");
+    document.documentElement.style.setProperty("--c6", "rgb(247, 146, 155)");
+    document.documentElement.style.setProperty("--c7", "rgb(251, 201, 205)");
+    document.documentElement.style.setProperty("--c8", "rgb(255, 255, 255)");
+}
+function highlightSection(){
+    let tag = window.location.hash.substring(1);
+    if(tag == ""){return;}
+    let element = document.getElementById(tag);
+    if(element == null){return;}
+    element.classList.add("highlight");
+    element.addEventListener("animationend", () => {element.classList.remove("highlight");}, {once: true});
+}
+window.addEventListener("DOMContentLoaded", highlightSection);
+window.addEventListener("hashchange", highlightSection);
+</script>
+</head>
+<body style="margin-left: 1em;">
+<p class="description" style="color: rgb(238, 37, 54); text-align: center; font-size: 2.5rem">sincerely <img src="/flag.png" style="vertical-align: middle; height: 2.5rem; image-rendering: auto;"> Singaporean</p>
+<div style="width: 100%; height: 0.25rem; background-color: var(--c8);"></div>
+<div><button class="button" style="width: 100%;" onclick="location.href='/'">Project 05524F.sg</button></div>
+<div style="width: 100%; height: 0.25rem; background-color: var(--c8);"></div>
+<div><button class="button" style="width: 100%;" onclick="location.href='../readme/readme'">SGEXTN Documentation</button></div><div style="width: 100%; height: 0.25rem; background-color: var(--c8);"></div><p class="warning">If you have not done so, read this full <a class="link" href="../tutorials/full">tutorial</a> on how to use SGEXTN to build an application.</p><div style="width: 100%; height: 0.75rem; background-color: var(--c8);"></div><h1 class="title">SGXChar</h1>
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<p class="description"><a class="link" href="https://github.com/InfinityIntegral/SGEXTN/tree/main/SG_Core/include/SGXChar.h">see header file</a></p>
+<p class="description"><a class="link" href="https://github.com/InfinityIntegral/SGEXTN/tree/main/SG_Core/src/SGXChar.cpp">see source file</a></p>
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<p class="description">class SGXChar;</p>
+<p class="description">part of SGEXTN module <a class="link" href="../modules/sg_core">SG_Core</a></p>
+<p class="description">Unicode character (most of them)</p>
+<p class="description"><a class="link" href="#sg_detaileddescription">detailed description</a></p>
+<p class="description"><a class="link" href="../funclist/sgxchar">list of all including inherited members</a></p>
+<p class="description"><a class="link" href="#sg_implementationdetails">implementation details</a></p>
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<p class="description">preprocessor file inclusion directive: #include ‹SGXChar.h›</p>
+<p class="description">CMake commands:</p>
+<p class="description">&#9;find_package(<a class="link" href="../readme/readme">SGEXTN</a> REQUIRED COMPONENTS <a class="link" href="../modules/sg_core">SG_Core</a>)</p>
+<p class="description">&#9;target_link_libraries(yourCMakeTarget PRIVATE <a class="link" href="../modules/sg_core">SGEXTN::SG_Core</a>)</p>
+<p class="description">parent class: (none)</p>
+<p class="description">children classes: (none)</p>
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<h2 class="header" id="">instance member functions</h2>
+<p class="description">&#9;<a class="link" href="#SGXChar_int_">SGXChar</a>(int unicode);</p>
+<p class="description">&#9;<a class="link" href="#SGXChar_char_">SGXChar</a>(char c);</p>
+<p class="description">&#9;[[nodiscard]] operator char() const;</p>
+<p class="description">&#9;[[nodiscard]] <a class="link" href="sgxchar">SGXChar</a> <a class="link" href="#nodiscard_SGXChar_getLowerLanguageAware_func_const_">getLowerLanguageAware</a>() const;</p>
+<p class="description">&#9;[[nodiscard]] int <a class="link" href="#nodiscard_int_getUnicode_func_const_">getUnicode</a>() const;</p>
+<p class="description">&#9;[[nodiscard]] <a class="link" href="sgxchar">SGXChar</a> <a class="link" href="#nodiscard_SGXChar_getUpperLanguageAware_func_const_">getUpperLanguageAware</a>() const;</p>
+<p class="description">&#9;[[nodiscard]] int <a class="link" href="#nodiscard_int_hash_func_const_">hash</a>() const;</p>
+<p class="description">&#9;[[nodiscard]] bool <a class="link" href="#nodiscard_bool_isASCII_func_const_">isASCII</a>() const;</p>
+<p class="description">&#9;[[nodiscard]] bool <a class="link" href="#nodiscard_bool_isDigit_func_const_">isDigit</a>() const;</p>
+<p class="description">&#9;[[nodiscard]] bool <a class="link" href="#nodiscard_bool_isDigitBase16_func_const_">isDigitBase16</a>() const;</p>
+<p class="description">&#9;[[nodiscard]] bool <a class="link" href="#nodiscard_bool_isEnglishAlphanumeric_func_const_">isEnglishAlphanumeric</a>() const;</p>
+<p class="description">&#9;[[nodiscard]] bool <a class="link" href="#nodiscard_bool_isEnglishLetter_func_const_">isEnglishLetter</a>() const;</p>
+<p class="description">&#9;[[nodiscard]] bool <a class="link" href="#nodiscard_bool_isEnglishLowercase_func_const_">isEnglishLowercase</a>() const;</p>
+<p class="description">&#9;[[nodiscard]] bool <a class="link" href="#nodiscard_bool_isEnglishUppercase_func_const_">isEnglishUppercase</a>() const;</p>
+<p class="description">&#9;[[nodiscard]] bool <a class="link" href="#nodiscard_bool_isWhitespace_func_const_">isWhitespace</a>() const;</p>
+<p class="description">&#9;[[nodiscard]] bool <a class="link" href="#nodiscard_bool_operator_neq_char_const_">operator!=</a>(char x) const;</p>
+<p class="description">&#9;[[nodiscard]] bool <a class="link" href="#nodiscard_bool_operator_neq_SGXChar_const_">operator!=</a>(<a class="link" href="sgxchar">SGXChar</a> x) const;</p>
+<p class="description">&#9;[[nodiscard]] bool <a class="link" href="#nodiscard_bool_operator_lt_SGXChar_const_">operator‹</a>(<a class="link" href="sgxchar">SGXChar</a> x) const;</p>
+<p class="description">&#9;[[nodiscard]] bool <a class="link" href="#nodiscard_bool_operator_lt_char_const_">operator‹</a>(char x) const;</p>
+<p class="description">&#9;[[nodiscard]] bool <a class="link" href="#nodiscard_bool_operator_leq_SGXChar_const_">operator‹=</a>(<a class="link" href="sgxchar">SGXChar</a> x) const;</p>
+<p class="description">&#9;[[nodiscard]] bool <a class="link" href="#nodiscard_bool_operator_leq_char_const_">operator‹=</a>(char x) const;</p>
+<p class="description">&#9;[[nodiscard]] bool <a class="link" href="#nodiscard_bool_operator_eq_SGXChar_const_">operator==</a>(<a class="link" href="sgxchar">SGXChar</a> x) const;</p>
+<p class="description">&#9;[[nodiscard]] bool <a class="link" href="#nodiscard_bool_operator_eq_char_const_">operator==</a>(char x) const;</p>
+<p class="description">&#9;[[nodiscard]] bool <a class="link" href="#nodiscard_bool_operator_gt_char_const_">operator›</a>(char x) const;</p>
+<p class="description">&#9;[[nodiscard]] bool <a class="link" href="#nodiscard_bool_operator_gt_SGXChar_const_">operator›</a>(<a class="link" href="sgxchar">SGXChar</a> x) const;</p>
+<p class="description">&#9;[[nodiscard]] bool <a class="link" href="#nodiscard_bool_operator_geq_char_const_">operator›=</a>(char x) const;</p>
+<p class="description">&#9;[[nodiscard]] bool <a class="link" href="#nodiscard_bool_operator_geq_SGXChar_const_">operator›=</a>(<a class="link" href="sgxchar">SGXChar</a> x) const;</p>
+<p class="description">&#9;void <a class="link" href="#void_toLowerLanguageAware_func_">toLowerLanguageAware</a>();</p>
+<p class="description">&#9;void <a class="link" href="#void_toUpperLanguageAware_func_">toUpperLanguageAware</a>();</p>
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<h2 class="header" id="sg_detaileddescription">Detailed Description</h2>
+<p class="description"><a class="link" href="../cppclass/sgxchar">SGXChar</a> stores a Unicode character in the Basic Multilingual Plane. This covers almost all characters that you would need except for emojis. It is not guaranteed that all these characters will display correctly since that depends on the font (SingScript.sg) that you are using. English, Malay, and most common mathematical symbols are guaranteed to display properly.</p>
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<h2 class="header" id="sg_implementationdetails">Implementation Details</h2>
+<p class="description"><a class="link" href="../cppclass/sgxchar">SGXChar</a> stores the Unicode value of the character. When language aware features are needed, it uses QChar internally.</p>
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<h2 class="header" id="SGXChar_int_"><a class="link" href="#SGXChar_int_">SGXChar</a>(int unicode);</h2>
+<p class="description">Converts Unicode index <b>unicode</b> to its corresponding <a class="link" href="../cppclass/sgxchar">SGXChar</a>.</p>
+<p class="warning">If <b>unicode</b> is below 0 or above 65535, this is <a class="link" href="../tutorials/undefinedbehaviour">undefined behaviour</a>.</p>
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<h2 class="header" id="SGXChar_char_"><a class="link" href="#SGXChar_char_">SGXChar</a>(char c);</h2>
+<p class="description">Converts C++ char <b>c</b> to a <a class="link" href="../cppclass/sgxchar">SGXChar</a>.</p>
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<h2 class="header" id="nodiscard_operator_char_func_const_">[[nodiscard]] operator char() const;</h2>
+<p class="description">Converts <a class="link" href="../cppclass/sgxchar">SGXChar</a> to a C++ char.</p>
+<p class="warning">If the <a class="link" href="../cppclass/sgxchar">SGXChar</a> is not a ASCII character, this causes <a class="link" href="../tutorials/undefinedbehaviour">undefined behaviour</a>.</p>
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<h2 class="header" id="nodiscard_SGXChar_getLowerLanguageAware_func_const_">[[nodiscard]] <a class="link" href="sgxchar">SGXChar</a> <a class="link" href="#nodiscard_SGXChar_getLowerLanguageAware_func_const_">getLowerLanguageAware</a>() const;</h2>
+<p class="description">Returns the language aware lowercase version of this <a class="link" href="../cppclass/sgxchar">SGXChar</a>.</p>
+<p class="note">This works for non English languages also.</p>
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<h2 class="header" id="nodiscard_int_getUnicode_func_const_">[[nodiscard]] int <a class="link" href="#nodiscard_int_getUnicode_func_const_">getUnicode</a>() const;</h2>
+<p class="description">Returns the Unicode index of this <a class="link" href="../cppclass/sgxchar">SGXChar</a>.</p>
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<h2 class="header" id="nodiscard_SGXChar_getUpperLanguageAware_func_const_">[[nodiscard]] <a class="link" href="sgxchar">SGXChar</a> <a class="link" href="#nodiscard_SGXChar_getUpperLanguageAware_func_const_">getUpperLanguageAware</a>() const;</h2>
+<p class="description">Returns the language aware uppercase version of this <a class="link" href="../cppclass/sgxchar">SGXChar</a>.</p>
+<p class="note">This works for non English languages also.</p>
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<h2 class="header" id="nodiscard_int_hash_func_const_">[[nodiscard]] int <a class="link" href="#nodiscard_int_hash_func_const_">hash</a>() const;</h2>
+<p class="description">Hash function defined for <a class="link" href="../cppclass/sglhash">SGLHash</a>.</p>
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<h2 class="header" id="nodiscard_bool_isASCII_func_const_">[[nodiscard]] bool <a class="link" href="#nodiscard_bool_isASCII_func_const_">isASCII</a>() const;</h2>
+<p class="description">Returns if this <a class="link" href="../cppclass/sgxchar">SGXChar</a> is an ASCII character.</p>
+<p class="warning">The <a class="link" href="../cppclass/sgxchar">SGXChar</a> can only be converted to a C++ char safely if this is true.</p>
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<h2 class="header" id="nodiscard_bool_isDigit_func_const_">[[nodiscard]] bool <a class="link" href="#nodiscard_bool_isDigit_func_const_">isDigit</a>() const;</h2>
+<p class="description">Returns if this <a class="link" href="../cppclass/sgxchar">SGXChar</a> is a digit from 0 to 9.</p>
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<h2 class="header" id="nodiscard_bool_isDigitBase16_func_const_">[[nodiscard]] bool <a class="link" href="#nodiscard_bool_isDigitBase16_func_const_">isDigitBase16</a>() const;</h2>
+<p class="description">Returns if this <a class="link" href="../cppclass/sgxchar">SGXChar</a> is a digit from 0 to F in base16.</p>
+<p class="note">Both uppercase and lowercase letters are fine for base16 numerical representation.</p>
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<h2 class="header" id="nodiscard_bool_isEnglishAlphanumeric_func_const_">[[nodiscard]] bool <a class="link" href="#nodiscard_bool_isEnglishAlphanumeric_func_const_">isEnglishAlphanumeric</a>() const;</h2>
+<p class="description">Returns if this <a class="link" href="../cppclass/sgxchar">SGXChar</a> is an alphanumeric character.</p>
+<p class="note">This can be used to validate usernames and file names.</p>
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<h2 class="header" id="nodiscard_bool_isEnglishLetter_func_const_">[[nodiscard]] bool <a class="link" href="#nodiscard_bool_isEnglishLetter_func_const_">isEnglishLetter</a>() const;</h2>
+<p class="description">Returns if this <a class="link" href="../cppclass/sgxchar">SGXChar</a> is a English letter, ignoring case.</p>
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<h2 class="header" id="nodiscard_bool_isEnglishLowercase_func_const_">[[nodiscard]] bool <a class="link" href="#nodiscard_bool_isEnglishLowercase_func_const_">isEnglishLowercase</a>() const;</h2>
+<p class="description">Returns if this <a class="link" href="../cppclass/sgxchar">SGXChar</a> is a English lowercase character fron a to z.</p>
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<h2 class="header" id="nodiscard_bool_isEnglishUppercase_func_const_">[[nodiscard]] bool <a class="link" href="#nodiscard_bool_isEnglishUppercase_func_const_">isEnglishUppercase</a>() const;</h2>
+<p class="description">Returns if this <a class="link" href="../cppclass/sgxchar">SGXChar</a> is a English uppercase character from A to Z.</p>
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<h2 class="header" id="nodiscard_bool_isWhitespace_func_const_">[[nodiscard]] bool <a class="link" href="#nodiscard_bool_isWhitespace_func_const_">isWhitespace</a>() const;</h2>
+<p class="description">Returns if this <a class="link" href="../cppclass/sgxchar">SGXChar</a> is a whitespace character, including zero width space, em space, en space, Chinese space, etc.</p>
+<p class="note">The Braille character with no dots definitely bypass this check.</p>
+<p class="note">The zero width joiner may or may not bypass this check.</p>
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<h2 class="header" id="nodiscard_bool_operator_neq_char_const_">[[nodiscard]] bool <a class="link" href="#nodiscard_bool_operator_neq_char_const_">operator!=</a>(char x) const;</h2>
+<p class="description">Returns if this <a class="link" href="../cppclass/sgxchar">SGXChar</a> is a different character from <b>x</b>.</p>
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<h2 class="header" id="nodiscard_bool_operator_neq_SGXChar_const_">[[nodiscard]] bool <a class="link" href="#nodiscard_bool_operator_neq_SGXChar_const_">operator!=</a>(<a class="link" href="sgxchar">SGXChar</a> x) const;</h2>
+<p class="description">Returns if this <a class="link" href="../cppclass/sgxchar">SGXChar</a> is a different character from <b>x</b>.</p>
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<h2 class="header" id="nodiscard_bool_operator_lt_SGXChar_const_">[[nodiscard]] bool <a class="link" href="#nodiscard_bool_operator_lt_SGXChar_const_">operator‹</a>(<a class="link" href="sgxchar">SGXChar</a> x) const;</h2>
+<p class="description">Returns if this <a class="link" href="../cppclass/sgxchar">SGXChar</a> has a smaller Unicode index than <b>x</b>.</p>
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<h2 class="header" id="nodiscard_bool_operator_lt_char_const_">[[nodiscard]] bool <a class="link" href="#nodiscard_bool_operator_lt_char_const_">operator‹</a>(char x) const;</h2>
+<p class="description">Returns if this <a class="link" href="../cppclass/sgxchar">SGXChar</a> has a smaller Unicode index than <b>x</b>.</p>
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<h2 class="header" id="nodiscard_bool_operator_leq_SGXChar_const_">[[nodiscard]] bool <a class="link" href="#nodiscard_bool_operator_leq_SGXChar_const_">operator‹=</a>(<a class="link" href="sgxchar">SGXChar</a> x) const;</h2>
+<p class="description">Returns if this <a class="link" href="../cppclass/sgxchar">SGXChar</a> has a Unicode index smaller than or equal to that of <b>x</b>.</p>
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<h2 class="header" id="nodiscard_bool_operator_leq_char_const_">[[nodiscard]] bool <a class="link" href="#nodiscard_bool_operator_leq_char_const_">operator‹=</a>(char x) const;</h2>
+<p class="description">Returns if this <a class="link" href="../cppclass/sgxchar">SGXChar</a> has a Unicode index smaller than or equal to that of <b>x</b>.</p>
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<h2 class="header" id="nodiscard_bool_operator_eq_SGXChar_const_">[[nodiscard]] bool <a class="link" href="#nodiscard_bool_operator_eq_SGXChar_const_">operator==</a>(<a class="link" href="sgxchar">SGXChar</a> x) const;</h2>
+<p class="description">Returns if this <a class="link" href="../cppclass/sgxchar">SGXChar</a> is the same character as <b>x</b>.</p>
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<h2 class="header" id="nodiscard_bool_operator_eq_char_const_">[[nodiscard]] bool <a class="link" href="#nodiscard_bool_operator_eq_char_const_">operator==</a>(char x) const;</h2>
+<p class="description">Returns if this <a class="link" href="../cppclass/sgxchar">SGXChar</a> is the same character as <b>x</b>.</p>
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<h2 class="header" id="nodiscard_bool_operator_gt_char_const_">[[nodiscard]] bool <a class="link" href="#nodiscard_bool_operator_gt_char_const_">operator›</a>(char x) const;</h2>
+<p class="description">Returns if this <a class="link" href="../cppclass/sgxchar">SGXChar</a> has a greater Unicode index than <b>x</b>.</p>
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<h2 class="header" id="nodiscard_bool_operator_gt_SGXChar_const_">[[nodiscard]] bool <a class="link" href="#nodiscard_bool_operator_gt_SGXChar_const_">operator›</a>(<a class="link" href="sgxchar">SGXChar</a> x) const;</h2>
+<p class="description">Returns if this <a class="link" href="../cppclass/sgxchar">SGXChar</a> has a greater Unicode index than <b>x</b>.</p>
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<h2 class="header" id="nodiscard_bool_operator_geq_char_const_">[[nodiscard]] bool <a class="link" href="#nodiscard_bool_operator_geq_char_const_">operator›=</a>(char x) const;</h2>
+<p class="description">Returns if this <a class="link" href="../cppclass/sgxchar">SGXChar</a> has a Unicode index greater than or equal to that of <b>x</b>.</p>
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<h2 class="header" id="nodiscard_bool_operator_geq_SGXChar_const_">[[nodiscard]] bool <a class="link" href="#nodiscard_bool_operator_geq_SGXChar_const_">operator›=</a>(<a class="link" href="sgxchar">SGXChar</a> x) const;</h2>
+<p class="description">Returns if this <a class="link" href="../cppclass/sgxchar">SGXChar</a> has a Unicode index greater than or equal to that of <b>x</b>.</p>
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<h2 class="header" id="void_toLowerLanguageAware_func_">void <a class="link" href="#void_toLowerLanguageAware_func_">toLowerLanguageAware</a>();</h2>
+<p class="description">Changes this <a class="link" href="../cppclass/sgxchar">SGXChar</a> to its language aware lowercase form.</p>
+<p class="note">This works for non English languages also.</p>
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<h2 class="header" id="void_toUpperLanguageAware_func_">void <a class="link" href="#void_toUpperLanguageAware_func_">toUpperLanguageAware</a>();</h2>
+<p class="description">Changes this <a class="link" href="../cppclass/sgxchar">SGXChar</a> to its language aware uppercase form.</p>
+<p class="note">This works for non English languages also.</p>
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<p class="description"></p>
+
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<div style="width: 100%; height: 0.25rem; background-color: var(--c4);"></div>
+<div style="width: 100%; height: 0.25rem; background-color: var(--c8);"></div>
+<p class="description">©2025 05524F.sg (Singapore)</p>
+<p class="description"><a class="link" href="/contact">contact 05524F / report a bug / make a suggestion</a></p>
+<p class="description"><a class="link" href="/values">about 05524F SINGAPORE values</a></p>
+<p class="description"><a class="link" href="/projects">list of 05524F projects</a></p>
+<div style="width: 100%; height: 0.25rem; background-color: var(--c8);"></div>
+<div style="width: 100%; height: 0.25rem; background-color: var(--c4);"></div>
+<div style="width: 100%; height: 0.25rem; background-color: var(--c8);"></div>
+</body>
+</html>

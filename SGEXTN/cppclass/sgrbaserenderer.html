@@ -1,0 +1,321 @@
+
+<!DOCTYPE html>
+<html lang="en-SG">
+<head>
+<meta charset="UTF-8">
+<title>SGRBaseRenderer Documentation</title>
+<link rel="icon" href="/icon.png" type="image/png">
+<meta property="og:image" content="/icon.png">
+<meta name="twitter:image" content="/icon.png">
+<link rel="apple-touch-icon" href="/icon.png">
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "url": "https://infinityintegral.github.io",
+    "image": "/icon.png"
+}
+</script>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+@font-face {
+	font-family: "SingScript.sg";
+	src: url("/SingScript.sg")format("truetype");
+	font-weight: normal;
+	font-style: normal;
+}
+
+:root {
+	--c0: rgb(0, 0, 0);
+	--c1: rgb(64, 0, 50);
+	--c2: rgb(128, 0, 100);
+	--c3: rgb(191, 0, 150);
+	--c4: rgb(255, 0, 200);
+	--c5: rgb(255, 64, 214);
+	--c6: rgb(255, 128, 227);
+	--c7: rgb(255, 191, 241);
+	--c8: rgb(255, 255, 255);
+}
+
+*{
+    font-family: "SingScript.sg";
+	max-width: 100%;
+	word-break: break-word;
+	-webkit-text-size-adjust: 100%;
+	-ms-text-size-adjust: 100%;
+}
+
+.title {
+	color: var(--c4);
+	font-size: 3.5rem;
+	margin: 0;
+	font-weight: normal;
+}
+.title::selection {
+	color: var(--c8);
+	background-color: var(--c4);
+	font-size: 3.5rem;
+	margin: 0;
+	font-weight: normal;
+}
+
+.header {
+	color: var(--c4);
+	font-size: 2.5rem;
+	margin: 0;
+	font-weight: normal;
+}
+.header::selection {
+	color: var(--c8);
+	background-color: var(--c4);
+	font-size: 2.625rem;
+	margin: 0;
+	font-weight: normal;
+}
+
+.description {
+	color: var(--c4);
+	font-size: 1.75rem;
+	margin: 0;
+	white-space: pre-wrap;
+}
+.description::selection {
+	color: var(--c8);
+	background-color: var(--c4);
+	font-size: 1.75rem;
+	margin: 0;
+	white-space: pre-wrap;
+}
+
+.note {
+	color: var(--c4);
+	font-size: 1.75rem;
+	margin: 0.25rem;
+	white-space: pre-wrap;
+    border: 0.25rem solid var(--c7);
+    padding: 0.25rem;
+}
+.note::selection {
+	color: var(--c8);
+	background-color: var(--c4);
+	font-size: 1.75rem;
+	margin: 0.25rem;
+	white-space: pre-wrap;
+    border: 0.25rem solid var(--c7);
+    padding: 0.25rem;
+}
+
+.warning {
+	color: var(--c4);
+	font-size: 1.75rem;
+	margin: 0.25rem;
+	white-space: pre-wrap;
+    border: 0.25rem solid var(--c4);
+    padding: 0.25rem;
+}
+.warning::selection {
+	color: var(--c8);
+	background-color: var(--c4);
+	font-size: 1.75rem;
+	margin: 0.25rem;
+	white-space: pre-wrap;
+    border: 0.25rem solid var(--c4);
+    padding: 0.25rem;
+}
+
+.link {
+	color: var(--c2);
+	text-decoration: underline;
+}
+.link:hover {
+	color: var(--c2);
+	background-color: var(--c7);
+	text-decoration: underline;
+}
+.link:active {
+	color: var(--c2);
+	background-color: var(--c6);
+	text-decoration: underline;
+}
+.link::selection {
+	color: var(--c8);
+	background-color: var(--c4);
+	text-decoration: underline;
+}
+
+.button {
+	color: var(--c8);
+	background-color: var(--c4);
+	font-size: 1.75rem;
+	border: none;
+}
+.button:hover {
+	color: var(--c7);
+	background-color: var(--c3);
+	font-size: 1.75rem;
+	border: none;
+}
+.button:active {
+	color: var(--c6);
+	background-color: var(--c2);
+	font-size: 1.75rem;
+	border: none;
+}
+.button::selection {
+	color: var(--c4);
+	background-color: var(--c8);
+	font-size: 1.75rem;
+	border: none;
+}
+
+.input {
+	color: var(--c8);
+	background-color: var(--c4);
+	font-size: 1.75rem;
+	border: none;
+	outline: none;
+	text-align: center;
+}
+.input:hover {
+	color: var(--c7);
+	background-color: var(--c3);
+	font-size: 1.75rem;
+	border: none;
+	outline: none;
+	text-align: center;
+}
+.input:focus {
+	color: var(--c6);
+	background-color: var(--c2);
+	font-size: 1.75rem;
+	border: none;
+	outline: none;
+	text-align: center;
+}
+.input::selection {
+	color: var(--c4);
+	background-color: var(--c8);
+	font-size: 1.75rem;
+	border: none;
+	outline: none;
+	text-align: center;
+}
+
+.highlight {
+    animation: highlightFlash 2s ease-out;
+}
+
+@keyframes highlightFlash {
+    0% {background-color: var(--c6);}
+    100% {background-color: var(--c8);}
+}
+</style>
+<script>
+let m = (new Date()).getMonth() + 1;
+if(m >= 7 && m <= 9){
+    document.documentElement.style.setProperty("--c0", "rgb(0, 0, 0)");
+    document.documentElement.style.setProperty("--c1", "rgb(60, 9, 14)");
+    document.documentElement.style.setProperty("--c2", "rgb(119, 19, 27)");
+    document.documentElement.style.setProperty("--c3", "rgb(179, 28, 41)");
+    document.documentElement.style.setProperty("--c4", "rgb(238, 37, 54)");
+    document.documentElement.style.setProperty("--c5", "rgb(242, 92, 104)");
+    document.documentElement.style.setProperty("--c6", "rgb(247, 146, 155)");
+    document.documentElement.style.setProperty("--c7", "rgb(251, 201, 205)");
+    document.documentElement.style.setProperty("--c8", "rgb(255, 255, 255)");
+}
+function highlightSection(){
+    let tag = window.location.hash.substring(1);
+    if(tag == ""){return;}
+    let element = document.getElementById(tag);
+    if(element == null){return;}
+    element.classList.add("highlight");
+    element.addEventListener("animationend", () => {element.classList.remove("highlight");}, {once: true});
+}
+window.addEventListener("DOMContentLoaded", highlightSection);
+window.addEventListener("hashchange", highlightSection);
+</script>
+</head>
+<body style="margin-left: 1em;">
+<p class="description" style="color: rgb(238, 37, 54); text-align: center; font-size: 2.5rem">sincerely <img src="/flag.png" style="vertical-align: middle; height: 2.5rem; image-rendering: auto;"> Singaporean</p>
+<div style="width: 100%; height: 0.25rem; background-color: var(--c8);"></div>
+<div><button class="button" style="width: 100%;" onclick="location.href='/'">Project 05524F.sg</button></div>
+<div style="width: 100%; height: 0.25rem; background-color: var(--c8);"></div>
+<div><button class="button" style="width: 100%;" onclick="location.href='../readme/readme'">SGEXTN Documentation</button></div><div style="width: 100%; height: 0.25rem; background-color: var(--c8);"></div><p class="warning">If you have not done so, read this full <a class="link" href="../tutorials/full">tutorial</a> on how to use SGEXTN to build an application.</p><div style="width: 100%; height: 0.75rem; background-color: var(--c8);"></div><h1 class="title">SGRBaseRenderer</h1>
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<p class="description"><a class="link" href="https://github.com/InfinityIntegral/SGEXTN/tree/main/SG_RI/include/SGRBaseRenderer.h">see header file</a></p>
+<p class="description"><a class="link" href="https://github.com/InfinityIntegral/SGEXTN/tree/main/SG_RI/src/SGRBaseRenderer.cpp">see source file</a></p>
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<p class="description">class SGRBaseRenderer;</p>
+<p class="description">part of SGEXTN module <a class="link" href="../modules/sg_ri">SG_RI</a></p>
+<p class="description">base class of custom renderers</p>
+<p class="description"><a class="link" href="#sg_detaileddescription">detailed description</a></p>
+<p class="description"><a class="link" href="../funclist/sgrbaserenderer">list of all including inherited members</a></p>
+<p class="description"><a class="link" href="#sg_implementationdetails">implementation details</a></p>
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<p class="description">preprocessor file inclusion directive: #include ‹SGRBaseRenderer.h›</p>
+<p class="description">CMake commands:</p>
+<p class="description">&#9;find_package(<a class="link" href="../readme/readme">SGEXTN</a> REQUIRED COMPONENTS <a class="link" href="../modules/sg_ri">SG_RI</a>)</p>
+<p class="description">&#9;target_link_libraries(yourCMakeTarget PRIVATE <a class="link" href="../modules/sg_ri">SGEXTN::SG_RI</a>)</p>
+<p class="description">parent class: (none)</p>
+<p class="description">children classes: (none)</p>
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<h2 class="header" id="">pure virtual functions</h2>
+<p class="description">&#9;virtual void <a class="link" href="#virtual_void_cleanResourcesOnDestruction_func_assign_">cleanResourcesOnDestruction</a>() = 0;</p>
+<p class="description">&#9;virtual <a class="link" href="sgrrenderingprogramme">SGRRenderingProgramme</a>* <a class="link" href="#virtual_SGRRenderingProgramme_ptr_createRenderingProgramme_func_assign_">createRenderingProgramme</a>() = 0;</p>
+<p class="description">&#9;virtual void <a class="link" href="#virtual_void_initialise_func_assign_">initialise</a>() = 0;</p>
+<p class="description">&#9;virtual void <a class="link" href="#virtual_void_requestRenderCommands_SGRCommandRequest_ptr_assign_">requestRenderCommands</a>(<a class="link" href="sgrcommandrequest">SGRCommandRequest</a>* commandRequest) = 0;</p>
+<p class="description">&#9;virtual void <a class="link" href="#virtual_void_uploadShaderData_func_assign_">uploadShaderData</a>() = 0;</p>
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<h2 class="header" id="">instance member functions</h2>
+<p class="description">&#9;<a class="link" href="#SGRBaseRenderer_func_">SGRBaseRenderer</a>();</p>
+<p class="description">&#9;[[nodiscard]] <a class="link" href="sgrrenderingprogramme">SGRRenderingProgramme</a>* <a class="link" href="#nodiscard_SGRRenderingProgramme_ptr_renderingProgramme_func_const_">renderingProgramme</a>() const;</p>
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<h2 class="header" id="sg_detaileddescription">Detailed Description</h2>
+<p class="description"><a class="link" href="../cppclass/sgrbaserenderer">SGRBaseRenderer</a> provides a base class to build <a class="link" href="../tutorials/renderer">SG - RI ⁽㈳㈴㈳㈮㈱㈨㈠㈫ ㈧㈤㈱㈤⁾</a> renderers on top of. All renderers must inherit this class and implement all pure virtual functions provided in this class. Creating <a class="link" href="../tutorials/renderer">SG - RI ⁽㈳㈴㈳㈮㈱㈨㈠㈫ ㈧㈤㈱㈤⁾</a> renderers is the only way in SGEXTN to use custom shaders.</p>
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<h2 class="header" id="sg_implementationdetails">Implementation Details</h2>
+<p class="description"><a class="link" href="../tutorials/renderer">SG - RI ⁽㈳㈴㈳㈮㈱㈨㈠㈫ ㈧㈤㈱㈤⁾</a> internally uses QRhi.</p>
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<h2 class="header" id="virtual_void_cleanResourcesOnDestruction_func_assign_">virtual void <a class="link" href="#virtual_void_cleanResourcesOnDestruction_func_assign_">cleanResourcesOnDestruction</a>() = 0;</h2>
+<p class="description">This is called when a renderer is deleted. It must clean up everything that you allocated yourself, including vertex buffer objects, element buffer objects, and textures.</p>
+<p class="warning">Forgetting to free all allocated memory in this function will lead to memory leaks.</p>
+<p class="warning">To prevent data race, accessing any static variables or objects that do not belong to the renderer in this function is <a class="link" href="../tutorials/undefinedbehaviour">undefined behaviour</a>.</p>
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<h2 class="header" id="virtual_SGRRenderingProgramme_ptr_createRenderingProgramme_func_assign_">virtual <a class="link" href="sgrrenderingprogramme">SGRRenderingProgramme</a>* <a class="link" href="#virtual_SGRRenderingProgramme_ptr_createRenderingProgramme_func_assign_">createRenderingProgramme</a>() = 0;</h2>
+<p class="description">Use this to create a <a class="link" href="../cppclass/sgrrenderingprogramme">SGRRenderingProgramme</a>. The <a class="link" href="../cppclass/sgrrenderingprogramme">SGRRenderingProgramme</a> enables the use of shaders, textures and uniform buffer objects. Every renderer must create a <a class="link" href="../cppclass/sgrrenderingprogramme">SGRRenderingProgramme</a>.</p>
+<p class="warning">Not returning a pointer to a valid <a class="link" href="../cppclass/sgrrenderingprogramme">SGRRenderingProgramme</a> at the end of this function is <a class="link" href="../tutorials/undefinedbehaviour">undefined behaviour</a>.</p>
+<p class="warning">To prevent data race, accessing any static variables or objects that do not belong to the renderer in this function is <a class="link" href="../tutorials/undefinedbehaviour">undefined behaviour</a>.</p>
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<h2 class="header" id="virtual_void_initialise_func_assign_">virtual void <a class="link" href="#virtual_void_initialise_func_assign_">initialise</a>() = 0;</h2>
+<p class="description">This is run once before the render process begins. Use this to create resources that do not change, such as vertex buffer objects for the bounding box of your shader.</p>
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<h2 class="header" id="virtual_void_requestRenderCommands_SGRCommandRequest_ptr_assign_">virtual void <a class="link" href="#virtual_void_requestRenderCommands_SGRCommandRequest_ptr_assign_">requestRenderCommands</a>(<a class="link" href="sgrcommandrequest">SGRCommandRequest</a>* commandRequest) = 0;</h2>
+<p class="description">Use this to issue draw commands to the GPU. The <a class="link" href="../cppclass/sgrcommandrequest">SGRCommandRequest</a> <b>commandRequest</b> is provided for this purpose. It is not allowed to upload shader data in this function, that should have been done in your implementation of <a class="link" href="../cppclass/sgrbaserenderer#virtual_void_uploadShaderData_func_assign_">SGRBaseRenderer::uploadShaderData</a>.</p>
+<p class="warning">Uploading shader data in this function is <a class="link" href="../tutorials/undefinedbehaviour">undefined behaviour</a>.</p>
+<p class="warning">To prevent data race, accessing any static variables or objects that do not belong to the renderer in this function is <a class="link" href="../tutorials/undefinedbehaviour">undefined behaviour</a>.</p>
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<h2 class="header" id="virtual_void_uploadShaderData_func_assign_">virtual void <a class="link" href="#virtual_void_uploadShaderData_func_assign_">uploadShaderData</a>() = 0;</h2>
+<p class="description">This is used to upload data to the GPU. Data can be uploaded using <a class="link" href="../cppclass/sgrrenderingprogramme#void_updateDataBuffer_SGRDataBuffer_ptr_int_int_void_ptr_const_">SGRRenderingProgramme::updateDataBuffer</a> for vertex buffer objects and element buffer objects, <a class="link" href="../cppclass/sgrrenderingprogramme#void_updateShaderUniforms_int_int_int_void_ptr_const_">SGRRenderingProgramme::updateShaderUniforms</a> for uniform buffer objects, and <a class="link" href="../cppclass/sgrrenderingprogramme#void_updateTexture_int_SGRImage_ptr_const_">SGRRenderingProgramme::updateTexture</a> for textures. It is not allowed to issue draw commands in this function, which you cannot do anyways as you do not have a <a class="link" href="../cppclass/sgrcommandrequest">SGRCommandRequest</a>.</p>
+<p class="warning">To prevent data race, accessing any static variables or objects that do not belong to the renderer in this function is <a class="link" href="../tutorials/undefinedbehaviour">undefined behaviour</a>.</p>
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<h2 class="header" id="SGRBaseRenderer_func_"><a class="link" href="#SGRBaseRenderer_func_">SGRBaseRenderer</a>();</h2>
+<p class="description">Creates a <a class="link" href="../cppclass/sgrbaserenderer">SGRBaseRenderer</a>. This should be used in the constructor of your renderer.</p>
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<h2 class="header" id="nodiscard_SGRRenderingProgramme_ptr_renderingProgramme_func_const_">[[nodiscard]] <a class="link" href="sgrrenderingprogramme">SGRRenderingProgramme</a>* <a class="link" href="#nodiscard_SGRRenderingProgramme_ptr_renderingProgramme_func_const_">renderingProgramme</a>() const;</h2>
+<p class="description">Returns a pointer to the <a class="link" href="../cppclass/sgrrenderingprogramme">SGRRenderingProgramme</a> used by this renderer. This is owned by the renderer and is automatically cleaned up upon deletion. Access to this is needed to upload shader data.</p>
+<p class="warning">Attempting to modify the <a class="link" href="../cppclass/sgrrenderingprogramme">SGRRenderingProgramme</a> that this pointer points to is <a class="link" href="../tutorials/undefinedbehaviour">undefined behaviour</a>.</p>
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<p class="description"></p>
+
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<div style="width: 100%; height: 0.25rem; background-color: var(--c4);"></div>
+<div style="width: 100%; height: 0.25rem; background-color: var(--c8);"></div>
+<p class="description">©2025 05524F.sg (Singapore)</p>
+<p class="description"><a class="link" href="/contact">contact 05524F / report a bug / make a suggestion</a></p>
+<p class="description"><a class="link" href="/values">about 05524F SINGAPORE values</a></p>
+<p class="description"><a class="link" href="/projects">list of 05524F projects</a></p>
+<div style="width: 100%; height: 0.25rem; background-color: var(--c8);"></div>
+<div style="width: 100%; height: 0.25rem; background-color: var(--c4);"></div>
+<div style="width: 100%; height: 0.25rem; background-color: var(--c8);"></div>
+</body>
+</html>

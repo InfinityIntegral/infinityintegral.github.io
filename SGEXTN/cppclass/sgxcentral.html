@@ -1,0 +1,347 @@
+
+<!DOCTYPE html>
+<html lang="en-SG">
+<head>
+<meta charset="UTF-8">
+<title>SGXCentral Documentation</title>
+<link rel="icon" href="/icon.png" type="image/png">
+<meta property="og:image" content="/icon.png">
+<meta name="twitter:image" content="/icon.png">
+<link rel="apple-touch-icon" href="/icon.png">
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "url": "https://infinityintegral.github.io",
+    "image": "/icon.png"
+}
+</script>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+@font-face {
+	font-family: "SingScript.sg";
+	src: url("/SingScript.sg")format("truetype");
+	font-weight: normal;
+	font-style: normal;
+}
+
+:root {
+	--c0: rgb(0, 0, 0);
+	--c1: rgb(64, 0, 50);
+	--c2: rgb(128, 0, 100);
+	--c3: rgb(191, 0, 150);
+	--c4: rgb(255, 0, 200);
+	--c5: rgb(255, 64, 214);
+	--c6: rgb(255, 128, 227);
+	--c7: rgb(255, 191, 241);
+	--c8: rgb(255, 255, 255);
+}
+
+*{
+    font-family: "SingScript.sg";
+	max-width: 100%;
+	word-break: break-word;
+	-webkit-text-size-adjust: 100%;
+	-ms-text-size-adjust: 100%;
+}
+
+.title {
+	color: var(--c4);
+	font-size: 3.5rem;
+	margin: 0;
+	font-weight: normal;
+}
+.title::selection {
+	color: var(--c8);
+	background-color: var(--c4);
+	font-size: 3.5rem;
+	margin: 0;
+	font-weight: normal;
+}
+
+.header {
+	color: var(--c4);
+	font-size: 2.5rem;
+	margin: 0;
+	font-weight: normal;
+}
+.header::selection {
+	color: var(--c8);
+	background-color: var(--c4);
+	font-size: 2.625rem;
+	margin: 0;
+	font-weight: normal;
+}
+
+.description {
+	color: var(--c4);
+	font-size: 1.75rem;
+	margin: 0;
+	white-space: pre-wrap;
+}
+.description::selection {
+	color: var(--c8);
+	background-color: var(--c4);
+	font-size: 1.75rem;
+	margin: 0;
+	white-space: pre-wrap;
+}
+
+.note {
+	color: var(--c4);
+	font-size: 1.75rem;
+	margin: 0.25rem;
+	white-space: pre-wrap;
+    border: 0.25rem solid var(--c7);
+    padding: 0.25rem;
+}
+.note::selection {
+	color: var(--c8);
+	background-color: var(--c4);
+	font-size: 1.75rem;
+	margin: 0.25rem;
+	white-space: pre-wrap;
+    border: 0.25rem solid var(--c7);
+    padding: 0.25rem;
+}
+
+.warning {
+	color: var(--c4);
+	font-size: 1.75rem;
+	margin: 0.25rem;
+	white-space: pre-wrap;
+    border: 0.25rem solid var(--c4);
+    padding: 0.25rem;
+}
+.warning::selection {
+	color: var(--c8);
+	background-color: var(--c4);
+	font-size: 1.75rem;
+	margin: 0.25rem;
+	white-space: pre-wrap;
+    border: 0.25rem solid var(--c4);
+    padding: 0.25rem;
+}
+
+.link {
+	color: var(--c2);
+	text-decoration: underline;
+}
+.link:hover {
+	color: var(--c2);
+	background-color: var(--c7);
+	text-decoration: underline;
+}
+.link:active {
+	color: var(--c2);
+	background-color: var(--c6);
+	text-decoration: underline;
+}
+.link::selection {
+	color: var(--c8);
+	background-color: var(--c4);
+	text-decoration: underline;
+}
+
+.button {
+	color: var(--c8);
+	background-color: var(--c4);
+	font-size: 1.75rem;
+	border: none;
+}
+.button:hover {
+	color: var(--c7);
+	background-color: var(--c3);
+	font-size: 1.75rem;
+	border: none;
+}
+.button:active {
+	color: var(--c6);
+	background-color: var(--c2);
+	font-size: 1.75rem;
+	border: none;
+}
+.button::selection {
+	color: var(--c4);
+	background-color: var(--c8);
+	font-size: 1.75rem;
+	border: none;
+}
+
+.input {
+	color: var(--c8);
+	background-color: var(--c4);
+	font-size: 1.75rem;
+	border: none;
+	outline: none;
+	text-align: center;
+}
+.input:hover {
+	color: var(--c7);
+	background-color: var(--c3);
+	font-size: 1.75rem;
+	border: none;
+	outline: none;
+	text-align: center;
+}
+.input:focus {
+	color: var(--c6);
+	background-color: var(--c2);
+	font-size: 1.75rem;
+	border: none;
+	outline: none;
+	text-align: center;
+}
+.input::selection {
+	color: var(--c4);
+	background-color: var(--c8);
+	font-size: 1.75rem;
+	border: none;
+	outline: none;
+	text-align: center;
+}
+
+.highlight {
+    animation: highlightFlash 2s ease-out;
+}
+
+@keyframes highlightFlash {
+    0% {background-color: var(--c6);}
+    100% {background-color: var(--c8);}
+}
+</style>
+<script>
+let m = (new Date()).getMonth() + 1;
+if(m >= 7 && m <= 9){
+    document.documentElement.style.setProperty("--c0", "rgb(0, 0, 0)");
+    document.documentElement.style.setProperty("--c1", "rgb(60, 9, 14)");
+    document.documentElement.style.setProperty("--c2", "rgb(119, 19, 27)");
+    document.documentElement.style.setProperty("--c3", "rgb(179, 28, 41)");
+    document.documentElement.style.setProperty("--c4", "rgb(238, 37, 54)");
+    document.documentElement.style.setProperty("--c5", "rgb(242, 92, 104)");
+    document.documentElement.style.setProperty("--c6", "rgb(247, 146, 155)");
+    document.documentElement.style.setProperty("--c7", "rgb(251, 201, 205)");
+    document.documentElement.style.setProperty("--c8", "rgb(255, 255, 255)");
+}
+function highlightSection(){
+    let tag = window.location.hash.substring(1);
+    if(tag == ""){return;}
+    let element = document.getElementById(tag);
+    if(element == null){return;}
+    element.classList.add("highlight");
+    element.addEventListener("animationend", () => {element.classList.remove("highlight");}, {once: true});
+}
+window.addEventListener("DOMContentLoaded", highlightSection);
+window.addEventListener("hashchange", highlightSection);
+</script>
+</head>
+<body style="margin-left: 1em;">
+<p class="description" style="color: rgb(238, 37, 54); text-align: center; font-size: 2.5rem">sincerely <img src="/flag.png" style="vertical-align: middle; height: 2.5rem; image-rendering: auto;"> Singaporean</p>
+<div style="width: 100%; height: 0.25rem; background-color: var(--c8);"></div>
+<div><button class="button" style="width: 100%;" onclick="location.href='/'">Project 05524F.sg</button></div>
+<div style="width: 100%; height: 0.25rem; background-color: var(--c8);"></div>
+<div><button class="button" style="width: 100%;" onclick="location.href='../readme/readme'">SGEXTN Documentation</button></div><div style="width: 100%; height: 0.25rem; background-color: var(--c8);"></div><p class="warning">If you have not done so, read this full <a class="link" href="../tutorials/full">tutorial</a> on how to use SGEXTN to build an application.</p><div style="width: 100%; height: 0.75rem; background-color: var(--c8);"></div><h1 class="title">SGXCentral</h1>
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<p class="description"><a class="link" href="https://github.com/InfinityIntegral/SGEXTN/tree/main/SG_Core/include/SGXCentral.h">see header file</a></p>
+<p class="description"><a class="link" href="https://github.com/InfinityIntegral/SGEXTN/tree/main/SG_Core/src/SGXCentral.cpp">see source file</a></p>
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<p class="description">class SGXCentral;</p>
+<p class="description">part of SGEXTN module <a class="link" href="../modules/sg_core">SG_Core</a></p>
+<p class="description">class controlling initialisation and termination of the application</p>
+<p class="description"><a class="link" href="#sg_detaileddescription">detailed description</a></p>
+<p class="description"><a class="link" href="../funclist/sgxcentral">list of all including inherited members</a></p>
+<p class="description"><a class="link" href="#sg_implementationdetails">implementation details</a></p>
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<p class="description">preprocessor file inclusion directive: #include ‹SGXCentral.h›</p>
+<p class="description">CMake commands:</p>
+<p class="description">&#9;find_package(<a class="link" href="../readme/readme">SGEXTN</a> REQUIRED COMPONENTS <a class="link" href="../modules/sg_core">SG_Core</a>)</p>
+<p class="description">&#9;target_link_libraries(yourCMakeTarget PRIVATE <a class="link" href="../modules/sg_core">SGEXTN::SG_Core</a>)</p>
+<p class="description">parent class: (none)</p>
+<p class="description">children classes: (none)</p>
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<h2 class="header" id="">static member variables</h2>
+<p class="description">&#9;static <a class="link" href="sgxstring">SGXString</a> <a class="link" href="#static_SGXString_applicationName_">applicationName</a>;</p>
+<p class="description">&#9;static <a class="link" href="sgxstring">SGXString</a> <a class="link" href="#static_SGXString_applicationVersion_">applicationVersion</a>;</p>
+<p class="description">&#9;static void (*<a class="link" href="#static_void_ptr_customInitialise_func_">customInitialise</a>)();</p>
+<p class="description">&#9;static void (*<a class="link" href="#static_void_ptr_customTerminate_func_">customTerminate</a>)();</p>
+<p class="description">&#9;static <a class="link" href="sgxstring">SGXString</a> <a class="link" href="#static_SGXString_folderName_">folderName</a>;</p>
+<p class="description">&#9;static void (*<a class="link" href="#static_void_ptr_importCustomFonts_func_">importCustomFonts</a>)();</p>
+<p class="description">&#9;static void (*<a class="link" href="#static_void_ptr_interpretCmdArgs_int_char_ptr_ptr_">interpretCmdArgs</a>)(int, char**);</p>
+<p class="description">&#9;static <a class="link" href="sgxstring">SGXString</a> <a class="link" href="#static_SGXString_organisationName_">organisationName</a>;</p>
+<p class="description">&#9;static <a class="link" href="sgxstring">SGXString</a> <a class="link" href="#static_SGXString_pathToAppIcon_">pathToAppIcon</a>;</p>
+<p class="description">&#9;static void (*<a class="link" href="#static_void_ptr_setCustomTheme_func_">setCustomTheme</a>)();</p>
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<h2 class="header" id="sg_detaileddescription">Detailed Description</h2>
+<p class="description"><a class="link" href="../cppclass/sgxcentral">SGXCentral</a> contains general information about the application, including the functions that should be called during the application's initialisation and termination. Initialisation and termination of SGEXTN applications rely significantly on the entry point. You should read the <a class="link" href="../tutorials/entrypoint">tutorial</a> to learn how to use the entry point.</p>
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<h2 class="header" id="sg_implementationdetails">Implementation Details</h2>
+<p class="description"><a class="link" href="../cppclass/sgxcentral">SGXCentral</a> stores function pointers as static variables to initialise every module that are defined at compile time using preprocessor conditionals and then set at runtime.</p>
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<h2 class="header" id="static_SGXString_applicationName_">static <a class="link" href="sgxstring">SGXString</a> <a class="link" href="#static_SGXString_applicationName_">applicationName</a>;</h2>
+<p class="description">Name of the application and is displayed as the window name. This must be set in the entry point.</p>
+<p class="note">Setting this after the entry point has no effect.</p>
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<h2 class="header" id="static_SGXString_applicationVersion_">static <a class="link" href="sgxstring">SGXString</a> <a class="link" href="#static_SGXString_applicationVersion_">applicationVersion</a>;</h2>
+<p class="description">Version number of the application. This must be set in the entry point.</p>
+<p class="note">The version number is a <a class="link" href="../cppclass/sgxstring">SGXString</a>, not a number. You are strongly encouraged to use semantic versioning for your application.</p>
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<h2 class="header" id="static_void_ptr_customInitialise_func_">static void (*<a class="link" href="#static_void_ptr_customInitialise_func_">customInitialise</a>)();</h2>
+<p class="description">Function pointer to the initialisation function of your custom code. This must be set in the entry point but is run after SGEXTN initialisation.</p>
+<p class="note">Setting this after the entry point has no effect.</p>
+<p class="note">SGEXTN is fully initialised when this function runs, but this function is run before the event loop starts.</p>
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<h2 class="header" id="static_void_ptr_customTerminate_func_">static void (*<a class="link" href="#static_void_ptr_customTerminate_func_">customTerminate</a>)();</h2>
+<p class="description">Function pointer to the termination function of your custom code.</p>
+<p class="note">You are strongly encouraged to set this in the entry point.</p>
+<p class="note">This runs before the termination function of SGEXTN.</p>
+<p class="note">All memory allocated by your custom code should be freed by the end of this function's execution.</p>
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<h2 class="header" id="static_SGXString_folderName_">static <a class="link" href="sgxstring">SGXString</a> <a class="link" href="#static_SGXString_folderName_">folderName</a>;</h2>
+<p class="description">Name of the folder where your application stores data. This must be set in the entry point.</p>
+<p class="note">Setting this after the entry point has no effect.</p>
+<p class="warning">This must be a valid folder name, otherwise the SGEXTN file system module will not work. You are strongly recommended to only use English letters in the folder name.</p>
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<h2 class="header" id="static_void_ptr_importCustomFonts_func_">static void (*<a class="link" href="#static_void_ptr_importCustomFonts_func_">importCustomFonts</a>)();</h2>
+<p class="description">Function pointer to the function import custom fonts. This must be set in the entry point if needed.</p>
+<p class="note">Setting this after the entry point has no effect.</p>
+<p class="note">Use <a class="link" href="../cppclass/sgwdefaultfonts#static_void_addFont_const_SGXString_ref_">SGWDefaultFonts::addFont</a> to import custom fonts.</p>
+<p class="note">You may import custom fonts outside this function.</p>
+<p class="note">SGEXTN will warn if the <a class="link" href="../tutorials/appicon">application icon ⁽㈳㈴㈳㈮㈱㈨㈠㈫ ㈧㈤㈱㈤⁾</a> font is not found by the end of this function's execution.</p>
+<p class="warning">Using <a class="link" href="../cppclass/sgwiconlabel">SGWIconLabel</a> or <a class="link" href="../cppclass/sgwiconbutton">SGWIconButton</a> when there is no <a class="link" href="../tutorials/appicon">application icon ⁽㈳㈴㈳㈮㈱㈨㈠㈫ ㈧㈤㈱㈤⁾</a> font is <a class="link" href="../tutorials/undefinedbehaviour">undefined behaviour</a>.</p>
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<h2 class="header" id="static_void_ptr_interpretCmdArgs_int_char_ptr_ptr_">static void (*<a class="link" href="#static_void_ptr_interpretCmdArgs_int_char_ptr_ptr_">interpretCmdArgs</a>)(int, char**);</h2>
+<p class="description">Function pointer to function interpreting command line arguments. This must be set in the entry point.</p>
+<p class="note">Setting this after the entry point has no effect.</p>
+<p class="note">The function that this points to should interpret the arguments passed and use them to set static variables.</p>
+<p class="warning">Creating any registered <a class="link" href="../cppclass/sgxidentifier">SGXIdentifier</a>, registering any <a class="link" href="../cppclass/sgxidentifier">SGXIdentifier</a>, and using any class from the SGEXTN file system, widgets, and renderer interface modules within this function is <a class="link" href="../tutorials/undefinedbehaviour">undefined behaviour</a>. Instead, do this in the function that is provided to <a class="link" href="../cppclass/sgxcentral#static_void_ptr_customInitialise_func_">SGXCentral::customInitialise</a>.</p>
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<h2 class="header" id="static_SGXString_organisationName_">static <a class="link" href="sgxstring">SGXString</a> <a class="link" href="#static_SGXString_organisationName_">organisationName</a>;</h2>
+<p class="description">Name of your company or yourself. This must be set in the entry point.</p>
+<p class="note">This should match the name shown on your company website or personal website, or at least be similar enough to not confuse users.</p>
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<h2 class="header" id="static_SGXString_pathToAppIcon_">static <a class="link" href="sgxstring">SGXString</a> <a class="link" href="#static_SGXString_pathToAppIcon_">pathToAppIcon</a>;</h2>
+<p class="description">Path to the application icon which is shown when users run the application. This must be set in the entry point.</p>
+<p class="note">Setting this after the entry point has no effect.</p>
+<p class="warning">The matching file must exist in the resource system. To ensure that, use relevant CMake commands. For more information about the resource system, see this <a class="link" href="../tutorials/resources">tutorial</a>.</p>
+<p class="warning">If the icon file cannot be found, this is <a class="link" href="../tutorials/undefinedbehaviour">undefined behaviour</a>. However not setting this does not cause <a class="link" href="../tutorials/undefinedbehaviour">undefined behaviour</a>.</p>
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<h2 class="header" id="static_void_ptr_setCustomTheme_func_">static void (*<a class="link" href="#static_void_ptr_setCustomTheme_func_">setCustomTheme</a>)();</h2>
+<p class="description">Function pointer to the function setting custom <a class="link" href="../tutorials/themecolour">theme colour ⁽㈳㈴㈳㈮㈱㈨㈠㈫ ㈧㈤㈱㈤⁾</a> for your application. This must be set in the entry point if needed.</p>
+<p class="note">Setting this after the entry point has no effect.</p>
+<p class="note">This does not bypass custom <a class="link" href="../tutorials/themecolour">theme colour ⁽㈳㈴㈳㈮㈱㈨㈠㈫ ㈧㈤㈱㈤⁾</a> applied to celebrate National Day.</p>
+<p class="warning">Running anything apart from setting <a class="link" href="../tutorials/themecolour">theme colour ⁽㈳㈴㈳㈮㈱㈨㈠㈫ ㈧㈤㈱㈤⁾</a> in this function is <a class="link" href="../tutorials/undefinedbehaviour">undefined behaviour</a>.</p>
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<p class="description"></p>
+
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<div style="width: 100%; height: 0.25rem; background-color: var(--c4);"></div>
+<div style="width: 100%; height: 0.25rem; background-color: var(--c8);"></div>
+<p class="description">©2025 05524F.sg (Singapore)</p>
+<p class="description"><a class="link" href="/contact">contact 05524F / report a bug / make a suggestion</a></p>
+<p class="description"><a class="link" href="/values">about 05524F SINGAPORE values</a></p>
+<p class="description"><a class="link" href="/projects">list of 05524F projects</a></p>
+<div style="width: 100%; height: 0.25rem; background-color: var(--c8);"></div>
+<div style="width: 100%; height: 0.25rem; background-color: var(--c4);"></div>
+<div style="width: 100%; height: 0.25rem; background-color: var(--c8);"></div>
+</body>
+</html>

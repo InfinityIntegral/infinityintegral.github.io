@@ -3,7 +3,7 @@
 <html lang="en-SG">
 <head>
 <meta charset="UTF-8">
-<title>Contact 05524F</title>
+<title>SGLLongLongMath Documentation</title>
 <link rel="icon" href="/icon.png" type="image/png">
 <meta property="og:image" content="/icon.png">
 <meta name="twitter:image" content="/icon.png">
@@ -240,12 +240,53 @@ window.addEventListener("hashchange", highlightSection);
 <div style="width: 100%; height: 0.25rem; background-color: var(--c8);"></div>
 <div><button class="button" style="width: 100%;" onclick="location.href='/'">Project 05524F.sg</button></div>
 <div style="width: 100%; height: 0.25rem; background-color: var(--c8);"></div>
-<h1 class="title">Contact 05524F</h1>
+<div><button class="button" style="width: 100%;" onclick="location.href='../readme/readme'">SGEXTN Documentation</button></div><div style="width: 100%; height: 0.25rem; background-color: var(--c8);"></div><p class="warning">If you have not done so, read this full <a class="link" href="../tutorials/full">tutorial</a> on how to use SGEXTN to build an application.</p><div style="width: 100%; height: 0.75rem; background-color: var(--c8);"></div><h1 class="title">SGLLongLongMath</h1>
 <div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
-<p class="description">&#9;To contact 05524F, email to <a class="link" href="mailto:infinityintegral333@gmail.com">infinityintegral333@gmail.com</a> or message <a class="link" href="https://www.instagram.com/infinityintegral.sg/">@infinityintegral.sg</a> on Instagram. Messages sent by mutual Instagram followers (05524F's friends) via Instagram will have priority.</p>
-<p class="description">&#9;Almost all the time, your reason for contacting 05524F is either a complaint or a suggestion. A complaint refers to a request to fix a bug, inaccurate information, or unexpected behaviour in a 05524F product or its associated documentation. A suggestion is a request for 05524F to add a new feature to a existing product or to build a new product.</p>
-<p class="description">&#9;05524F is very likely to accept complaints but less likely to accept suggestions. Since all 05524F software is open source, you can build your own feature on top of 05524F software as long as you use the correct license (General Public License version 3 is always safe).</p>
-<p class="description">&#9;</p>
+<p class="description"><a class="link" href="https://github.com/InfinityIntegral/SGEXTN/tree/main/SG_Math/include/SGLLongLongMath.h">see header file</a></p>
+<p class="description"><a class="link" href="https://github.com/InfinityIntegral/SGEXTN/tree/main/SG_Math/src/SGLLongLongMath.cpp">see source file</a></p>
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<p class="description">class SGLLongLongMath;</p>
+<p class="description">part of SGEXTN module <a class="link" href="../modules/sg_math">SG_Math</a></p>
+<p class="description">static function class providing long long mathematical operations.</p>
+<p class="description"><a class="link" href="#sg_detaileddescription">detailed description</a></p>
+<p class="description"><a class="link" href="../funclist/sgllonglongmath">list of all including inherited members</a></p>
+<p class="description"><a class="link" href="#sg_implementationdetails">implementation details</a></p>
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<p class="description">preprocessor file inclusion directive: #include ‹SGLLongLongMath.h›</p>
+<p class="description">CMake commands:</p>
+<p class="description">&#9;find_package(<a class="link" href="../readme/readme">SGEXTN</a> REQUIRED COMPONENTS <a class="link" href="../modules/sg_math">SG_Math</a>)</p>
+<p class="description">&#9;target_link_libraries(yourCMakeTarget PRIVATE <a class="link" href="../modules/sg_math">SGEXTN::SG_Math</a>)</p>
+<p class="description">parent class: (none)</p>
+<p class="description">children classes: (none)</p>
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<h2 class="header" id="">static member functions</h2>
+<p class="description">&#9;static long long <a class="link" href="#static_long_long_absoluteValue_long_long_">absoluteValue</a>(long long x);</p>
+<p class="description">&#9;static long long <a class="link" href="#static_long_long_highestCommonFactor_long_long_long_long_">highestCommonFactor</a>(long long a, long long b);</p>
+<p class="description">&#9;static long long <a class="link" href="#static_long_long_lowestCommonMultiple_long_long_long_long_">lowestCommonMultiple</a>(long long a, long long b);</p>
+<p class="description">&#9;static long long <a class="link" href="#static_long_long_maximum_long_long_long_long_">maximum</a>(long long a, long long b);</p>
+<p class="description">&#9;static long long <a class="link" href="#static_long_long_minimum_long_long_long_long_">minimum</a>(long long a, long long b);</p>
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<h2 class="header" id="sg_detaileddescription">Detailed Description</h2>
+<p class="description"><a class="link" href="../cppclass/sgllonglongmath">SGLLongLongMath</a> provides mathematical operations for the long long data type, such as computing the highest common factor and the lowest common multiple.</p>
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<h2 class="header" id="sg_implementationdetails">Implementation Details</h2>
+<p class="description">Uses ‹cmath› from Standard Template Library</p>
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<h2 class="header" id="static_long_long_absoluteValue_long_long_">static long long <a class="link" href="#static_long_long_absoluteValue_long_long_">absoluteValue</a>(long long x);</h2>
+<p class="description">Returns the absolute value of <b>x</b>.</p>
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<h2 class="header" id="static_long_long_highestCommonFactor_long_long_long_long_">static long long <a class="link" href="#static_long_long_highestCommonFactor_long_long_long_long_">highestCommonFactor</a>(long long a, long long b);</h2>
+<p class="description">Returns the highest common factor of <b>a</b> and <b>b</b>.</p>
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<h2 class="header" id="static_long_long_lowestCommonMultiple_long_long_long_long_">static long long <a class="link" href="#static_long_long_lowestCommonMultiple_long_long_long_long_">lowestCommonMultiple</a>(long long a, long long b);</h2>
+<p class="description">Returns the lowest common multiple of <b>a</b> and <b>b</b>.</p>
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<h2 class="header" id="static_long_long_maximum_long_long_long_long_">static long long <a class="link" href="#static_long_long_maximum_long_long_long_long_">maximum</a>(long long a, long long b);</h2>
+<p class="description">Returns the maximum of <b>a</b> and <b>b</b>.</p>
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<h2 class="header" id="static_long_long_minimum_long_long_long_long_">static long long <a class="link" href="#static_long_long_minimum_long_long_long_long_">minimum</a>(long long a, long long b);</h2>
+<p class="description">Returns the minimum of <b>a</b> and <b>b</b>.</p>
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
 <p class="description"></p>
 
 <div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>

@@ -1,0 +1,372 @@
+
+<!DOCTYPE html>
+<html lang="en-SG">
+<head>
+<meta charset="UTF-8">
+<title>SGEXTN Renderer Interface Tutorial</title>
+<link rel="icon" href="/icon.png" type="image/png">
+<meta property="og:image" content="/icon.png">
+<meta name="twitter:image" content="/icon.png">
+<link rel="apple-touch-icon" href="/icon.png">
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "url": "https://infinityintegral.github.io",
+    "image": "/icon.png"
+}
+</script>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+@font-face {
+	font-family: "SingScript.sg";
+	src: url("/SingScript.sg")format("truetype");
+	font-weight: normal;
+	font-style: normal;
+}
+
+:root {
+	--c0: rgb(0, 0, 0);
+	--c1: rgb(64, 0, 50);
+	--c2: rgb(128, 0, 100);
+	--c3: rgb(191, 0, 150);
+	--c4: rgb(255, 0, 200);
+	--c5: rgb(255, 64, 214);
+	--c6: rgb(255, 128, 227);
+	--c7: rgb(255, 191, 241);
+	--c8: rgb(255, 255, 255);
+}
+
+*{
+    font-family: "SingScript.sg";
+	max-width: 100%;
+	word-break: break-word;
+	-webkit-text-size-adjust: 100%;
+	-ms-text-size-adjust: 100%;
+}
+
+.title {
+	color: var(--c4);
+	font-size: 3.5rem;
+	margin: 0;
+	font-weight: normal;
+}
+.title::selection {
+	color: var(--c8);
+	background-color: var(--c4);
+	font-size: 3.5rem;
+	margin: 0;
+	font-weight: normal;
+}
+
+.header {
+	color: var(--c4);
+	font-size: 2.5rem;
+	margin: 0;
+	font-weight: normal;
+}
+.header::selection {
+	color: var(--c8);
+	background-color: var(--c4);
+	font-size: 2.625rem;
+	margin: 0;
+	font-weight: normal;
+}
+
+.description {
+	color: var(--c4);
+	font-size: 1.75rem;
+	margin: 0;
+	white-space: pre-wrap;
+}
+.description::selection {
+	color: var(--c8);
+	background-color: var(--c4);
+	font-size: 1.75rem;
+	margin: 0;
+	white-space: pre-wrap;
+}
+
+.note {
+	color: var(--c4);
+	font-size: 1.75rem;
+	margin: 0.25rem;
+	white-space: pre-wrap;
+    border: 0.25rem solid var(--c7);
+    padding: 0.25rem;
+}
+.note::selection {
+	color: var(--c8);
+	background-color: var(--c4);
+	font-size: 1.75rem;
+	margin: 0.25rem;
+	white-space: pre-wrap;
+    border: 0.25rem solid var(--c7);
+    padding: 0.25rem;
+}
+
+.warning {
+	color: var(--c4);
+	font-size: 1.75rem;
+	margin: 0.25rem;
+	white-space: pre-wrap;
+    border: 0.25rem solid var(--c4);
+    padding: 0.25rem;
+}
+.warning::selection {
+	color: var(--c8);
+	background-color: var(--c4);
+	font-size: 1.75rem;
+	margin: 0.25rem;
+	white-space: pre-wrap;
+    border: 0.25rem solid var(--c4);
+    padding: 0.25rem;
+}
+
+.link {
+	color: var(--c2);
+	text-decoration: underline;
+}
+.link:hover {
+	color: var(--c2);
+	background-color: var(--c7);
+	text-decoration: underline;
+}
+.link:active {
+	color: var(--c2);
+	background-color: var(--c6);
+	text-decoration: underline;
+}
+.link::selection {
+	color: var(--c8);
+	background-color: var(--c4);
+	text-decoration: underline;
+}
+
+.button {
+	color: var(--c8);
+	background-color: var(--c4);
+	font-size: 1.75rem;
+	border: none;
+}
+.button:hover {
+	color: var(--c7);
+	background-color: var(--c3);
+	font-size: 1.75rem;
+	border: none;
+}
+.button:active {
+	color: var(--c6);
+	background-color: var(--c2);
+	font-size: 1.75rem;
+	border: none;
+}
+.button::selection {
+	color: var(--c4);
+	background-color: var(--c8);
+	font-size: 1.75rem;
+	border: none;
+}
+
+.input {
+	color: var(--c8);
+	background-color: var(--c4);
+	font-size: 1.75rem;
+	border: none;
+	outline: none;
+	text-align: center;
+}
+.input:hover {
+	color: var(--c7);
+	background-color: var(--c3);
+	font-size: 1.75rem;
+	border: none;
+	outline: none;
+	text-align: center;
+}
+.input:focus {
+	color: var(--c6);
+	background-color: var(--c2);
+	font-size: 1.75rem;
+	border: none;
+	outline: none;
+	text-align: center;
+}
+.input::selection {
+	color: var(--c4);
+	background-color: var(--c8);
+	font-size: 1.75rem;
+	border: none;
+	outline: none;
+	text-align: center;
+}
+
+.highlight {
+    animation: highlightFlash 2s ease-out;
+}
+
+@keyframes highlightFlash {
+    0% {background-color: var(--c6);}
+    100% {background-color: var(--c8);}
+}
+</style>
+<script>
+let m = (new Date()).getMonth() + 1;
+if(m >= 7 && m <= 9){
+    document.documentElement.style.setProperty("--c0", "rgb(0, 0, 0)");
+    document.documentElement.style.setProperty("--c1", "rgb(60, 9, 14)");
+    document.documentElement.style.setProperty("--c2", "rgb(119, 19, 27)");
+    document.documentElement.style.setProperty("--c3", "rgb(179, 28, 41)");
+    document.documentElement.style.setProperty("--c4", "rgb(238, 37, 54)");
+    document.documentElement.style.setProperty("--c5", "rgb(242, 92, 104)");
+    document.documentElement.style.setProperty("--c6", "rgb(247, 146, 155)");
+    document.documentElement.style.setProperty("--c7", "rgb(251, 201, 205)");
+    document.documentElement.style.setProperty("--c8", "rgb(255, 255, 255)");
+}
+function highlightSection(){
+    let tag = window.location.hash.substring(1);
+    if(tag == ""){return;}
+    let element = document.getElementById(tag);
+    if(element == null){return;}
+    element.classList.add("highlight");
+    element.addEventListener("animationend", () => {element.classList.remove("highlight");}, {once: true});
+}
+window.addEventListener("DOMContentLoaded", highlightSection);
+window.addEventListener("hashchange", highlightSection);
+</script>
+</head>
+<body style="margin-left: 1em;">
+<p class="description" style="color: rgb(238, 37, 54); text-align: center; font-size: 2.5rem">sincerely <img src="/flag.png" style="vertical-align: middle; height: 2.5rem; image-rendering: auto;"> Singaporean</p>
+<div style="width: 100%; height: 0.25rem; background-color: var(--c8);"></div>
+<div><button class="button" style="width: 100%;" onclick="location.href='/'">Project 05524F.sg</button></div>
+<div style="width: 100%; height: 0.25rem; background-color: var(--c8);"></div>
+<div><button class="button" style="width: 100%;" onclick="location.href='../readme/readme'">SGEXTN Documentation</button></div><div style="width: 100%; height: 0.25rem; background-color: var(--c8);"></div><p class="warning">If you have not done so, read this full <a class="link" href="../tutorials/full">tutorial</a> on how to use SGEXTN to build an application.</p><div style="width: 100%; height: 0.75rem; background-color: var(--c8);"></div><h1 class="title">SGEXTN Renderer Interface Tutorial</h1>
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<p class="description">&#9;SG - RI allows you to use custom shaders without worrying about all the nonsense that OpenGL, Vulkan, or even QRhi forces you to do. If you do not know what these are, that is excellent, since this page is designed for beginners in GPU programming.</p>
+<p class="description">&#9;This tutorial will guide you through programming the custom renderers that you see when you open a SGEXTN colour picker.</p>
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<p class="description">&#9;So what is the GPU again?</p>
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<p class="description">&#9;The GPU is a different chip from your CPU (which runs C++ code) that draws stuff on the screen. It can do other stuff also, but for the purposes of this tutorial, we will think of it just as a chip that draws stuff on the screen.</p>
+<p class="description">&#9;The GPU is completely different from the CPU, so C++ does not work there. Instead, we use GLSL to programme it.</p>
+<p class="description">&#9;GLSL really looks similar to C++, so if you do not know how to use it, you can just write C++ and get DeepSeek or ChatGPT to translate it for you, and you will still be able to understand it. We will assume that you either know GLSL or you are able to translate C++ to GLSL using AI tools.</p>
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<p class="description">&#9;The GPU draws triangles, a lot of triangles, really quickly. When drawing a triangle, it first look for the data of the triangles inside a array called a vertex buffer object (VBO). After that, it applies transformations to the vertices of the triangle to move that triangle to where it should be on the screen. The vertex shader is a GLSL programme that tells the GPU how to apply transformations to the triangles.</p>
+<p class="description">&#9;When it knows where each triangle should be, the GPU calculates which pixels each triangle contains. Then it runs another GLSL programme, called the fragment shader, on each pixel to determine what colour it should have.</p>
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<p class="description">&#9;We will start by writing the vertex shader. The vertex shader should look like this</p>
+<p class="warning">#version 310 es&#10;precision highp float;&#10;layout(std140, binding = 0) uniform SG_RI_builtin_{&#10;    float x;&#10;    float y;&#10;    float width;&#10;    float height;&#10;    float windowWidth;&#10;    float windowHeight;&#10;    int offscreen;&#10;} SG_RI_builtin;&#10;vec4 SG_RI_transform(vec4 prelimPosition){&#10;    prelimPosition = vec4(2.0f * (prelimPosition.x * SG_RI_builtin.width / SG_RI_builtin.windowWidth + SG_RI_builtin.x / SG_RI_builtin.windowWidth) - 1.0f, -2.0f * (prelimPosition.y * SG_RI_builtin.height / SG_RI_builtin.windowHeight + SG_RI_builtin.y / SG_RI_builtin.windowHeight) + 1.0f, prelimPosition.z, prelimPosition.w);&#10;    if(SG_RI_builtin.offscreen != 0){prelimPosition = vec4(prelimPosition.x, -1.0f * prelimPosition.y, prelimPosition.z, prelimPosition.w);}&#10;    return prelimPosition;&#10;}&#10;// declare your input and output variables here&#10;&#10;void main(){&#10;    // write the actual code here&#10;    gl_Position = SG_RI_transform(gl_Position);&#10;}</p>
+<p class="description">&#9;That looks really complicated...</p>
+<p class="description">&#9;All the code you see above is stuff that allows the rendered output to be moved inside the correct <a class="link" href="../tutorials/sgwidget">SGWidget ⁽㈳㈴㈳㈮㈱㈨㈠㈫ ㈧㈤㈱㈤⁾</a>, instead of filling the whole screen. It looks annoying, but you just have to copy paste the same thing for literally every single vertex shader.</p>
+<p class="description">&#9;All the code logic that you will write is only in the positions of the 2 comments you see in the code block above. The first comment is where you should declare input and output variables, and the second comment is where you write the actual code.</p>
+<p class="description">&#9;Input variables are sourced from the vertex buffer object. This must include the coordinates of the vertices of the triangles.</p>
+<p class="description">&#9;The output variables will be passed to the fragment shader. This can be used so that a pixel knows where it is inside the <a class="link" href="../tutorials/sgwidget">SGWidget ⁽㈳㈴㈳㈮㈱㈨㈠㈫ ㈧㈤㈱㈤⁾</a>.</p>
+<p class="description">&#9;Since the renderer that we are building just draws a rectangle with some colours on it, the vertex shader will do nothing except telling the GPU where the triangles should be and sending the coordinates to the fragment shader. The triangles will not be transformed.</p>
+<p class="description">&#9;We can replace the first commend with</p>
+<p class="warning">layout(location = 0) in vec2 vertex;&#10;layout(location = 0) out vec2 vertexUnits;</p>
+<p class="description">&#9;This declares <b>vertex</b> to be an input variable corresponding to the coordinates of a vertex of the triangle, and <b>vertexUnits</b> to be an output variable that will get sent to the fragment shader.</p>
+<p class="description">&#9;The layout(location = 0) before the declaration of <b>vertex</b> means that <b>vertex</b> will be found at location 0 of each vertex in the vertex buffer object.</p>
+<p class="description">&#9;The layout(location = 0) before the declaration of <b>vertexUnits</b> means that <b>vertexUnits</b> will be found at location 0 of the output of the vertex shader, so the fragment shader should take it from location 0 later.</p>
+<p class="description">&#9;We replace the second command with</p>
+<p class="warning">gl_Position = vec4(vertex.x, vertex.y, 0.0f, 1.0f);&#10;vertexUnits = vertex;</p>
+<p class="description">&#9;Assigning to gl_Position tells the GPU that the triangle is found at whatever the input position is (so it should not be moved). When using SG - RI, the third and fourth coordinates must always be 0.0f and 1.0f, anything else is <a class="link" href="../tutorials/undefinedbehaviour">undefined behaviour</a>.</p>
+<p class="description">&#9;Setting <b>vertexUnits</b> to <b>vertex</b> passes the same variable into the fragment shader where it will actually be used.</p>
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<p class="description">&#9;Next we write the fragment shader to tell the GPU how exactly to colour the pixels.</p>
+<p class="warning">#version 310 es&#10;precision highp float;&#10;layout(std140, binding = 0) uniform SG_RI_builtin_{&#10;    float x;&#10;    float y;&#10;    float width;&#10;    float height;&#10;    float windowWidth;&#10;    float windowHeight;&#10;    int offscreen;&#10;} SG_RI_builtin;&#10;layout(std140, binding = 1) uniform selection_{&#10;    float hue;&#10;    float saturation;&#10;    float lightness;&#10;    float transparency;&#10;    int type;&#10;} selection;&#10;layout(location = 0) in vec2 vertexUnits;&#10;layout(location = 0) out vec4 outColour;&#10;&#10;float computePQT(float p, float q, float t){&#10;	if(t &lt; 0.0){t += 1.0;}&#10;    else if(t &gt; 1.0){t -= 1.0;}&#10;    if(t &lt; 1.0 / 6.0){return (p + 6.0 * t * (q - p));}&#10;    if(t &lt; 0.5){return q;}&#10;    if(t &lt; 2.0 / 3.0){return (p + 6.0 * (2.0 / 3.0 - t) * (q - p));}&#10;    return p;&#10;}&#10;&#10;vec4 getRGB(float xh, float xs, float xl, float xa){&#10;	float r = 0.0;&#10;	float g = 0.0;&#10;	float b = 0.0;&#10;	if(xs == 0.0){&#10;        r = xl;&#10;        g = xl;&#10;        b = xl;&#10;    }&#10;    else{&#10;        float q = 0.0;&#10;        if(xl &lt; 0.5){q = xl * (1.0 + xs);}&#10;        else{q = xl + xs - xl * xs;}&#10;        float p = 2.0 * xl - q;&#10;        r = computePQT(p, q, xh + 1.0 / 3.0);&#10;        g = computePQT(p, q, xh);&#10;        b = computePQT(p, q, xh - 1.0 / 3.0);&#10;    }&#10;	return vec4(r, g, b, xa);&#10;}&#10;&#10;void main(){&#10;    float zeroPointTwo = 0.2f * SG_RI_builtin.height / SG_RI_builtin.width;&#10;    float selectPoint = 0.0f;&#10;    bool addTransparencyGrid = false;&#10;    if(selection.type == 1){selectPoint = selection.hue;}&#10;    else if(selection.type == 2){selectPoint = selection.saturation;}&#10;    else if(selection.type == 3){selectPoint = selection.lightness;}&#10;    else if(selection.type == 4){selectPoint = selection.transparency;}&#10;    if(0.5f * (1.0f - vertexUnits.y) + abs(vertexUnits.x - (zeroPointTwo + selectPoint * (1.0f - 2.0f * zeroPointTwo))) * SG_RI_builtin.width / SG_RI_builtin.height &lt; 0.2f){&#10;        if(selection.type == 1){outColour = getRGB(selection.hue, 1.0f, 0.5f, 1.0f);}&#10;        else if(selection.type == 2){outColour = getRGB(selection.hue, selection.saturation, 0.5f, 1.0f);}&#10;        else if(selection.type == 3){outColour = getRGB(selection.hue, selection.saturation, selection.lightness, 1.0f);}&#10;        else if(selection.type == 4){&#10;            outColour = getRGB(selection.hue, selection.saturation, selection.lightness, selection.transparency);&#10;            addTransparencyGrid = true;&#10;        }&#10;    }&#10;    else if(vertexUnits.y &lt;= 0.8f && vertexUnits.x &gt; zeroPointTwo && vertexUnits.x &lt; 1.0f - zeroPointTwo){&#10;        float x = (vertexUnits.x - zeroPointTwo) / (1.0f - 2.0f * zeroPointTwo);&#10;        if(selection.type == 1){outColour = getRGB(x, 1.0f, 0.5f, 1.0f);}&#10;        else if(selection.type == 2){outColour = getRGB(selection.hue, x, 0.5f, 1.0f);}&#10;        else if(selection.type == 3){outColour = getRGB(selection.hue, selection.saturation, x, 1.0f);}&#10;        else if(selection.type == 4){&#10;            outColour = getRGB(selection.hue, selection.saturation, selection.lightness, x);&#10;            addTransparencyGrid = true;&#10;        }&#10;    }&#10;    else{outColour = vec4(1.0f, 1.0f, 1.0f, 1.0f);}&#10;    if(addTransparencyGrid == true){&#10;        float intensity = 0.8f + 0.15f * float((int(5.0f * vertexUnits.x * SG_RI_builtin.width / SG_RI_builtin.height) + int(5.0f * vertexUnits.y)) % 2);&#10;        outColour = vec4(outColour.a * outColour.r + (1.0f - outColour.a) * intensity, outColour.a * outColour.g + (1.0f - outColour.a) * intensity, outColour.a * outColour.b + (1.0f - outColour.a) * intensity, 1.0f);&#10;    }&#10;}</p>
+<p class="description">&#9;All this code determines how the pixels are actually coloured, that is why it is so long.</p>
+<p class="description">&#9;Pay special attention to this part</p>
+<p class="warning">layout(location = 0) in vec2 vertexUnits;&#10;layout(location = 0) out vec4 outColour;</p>
+<p class="description">&#9;We declare a output variable that is a vec4. All fragment shaders should have exactly 1 output variable with type being vec4 at location 0, this is the colour that will be drawn to the corresponding pixels on the screen.</p>
+<p class="description">&#9;Also note how the name, type, and location of <b>vertexUnits</b> matches the output variable <b>vertexUnits</b> from the vertex shader. This allows the vertex shader output to be passed into the fragment shader correctly.</p>
+<p class="description">&#9;These are uniform buffer objects.</p>
+<p class="warning">layout(std140, binding = 0) uniform SG_RI_builtin_{&#10;    float x;&#10;    float y;&#10;    float width;&#10;    float height;&#10;    float windowWidth;&#10;    float windowHeight;&#10;    int offscreen;&#10;} SG_RI_builtin;&#10;layout(std140, binding = 1) uniform selection_{&#10;    float hue;&#10;    float saturation;&#10;    float lightness;&#10;    float transparency;&#10;    int type;&#10;} selection;</p>
+<p class="description">&#9;We have a uniform buffer object at binding point 0 called <b>SG_RI_builtin</b> and another one at binding point 1 called <b>selection</b>.</p>
+<p class="description">&#9;The binding point indicates the location of the uniform buffer object.</p>
+<p class="description">&#9;The <b>SG_RI_builtin</b> uniform buffer object must always be present and declared in exactly that form. <b>selection</b> is our custom uniform buffer object which we can use to pass data to the shader.</p>
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<p class="description">&#9;Now that we have our shaders ready, we can add them to our project. For more information about this step, you can see <a class="link" href="shaders">this link</a>, but here is the CMake commands.</p>
+<p class="warning">qt6_add_shaders(SG_RI SG_RI_shaders PREFIX "SGEXTN" BASE "SG_RI/assets" FILES&#10;    "SG_RI/assets/colourpicker.vert"&#10;    "SG_RI/assets/colourpicker.frag"&#10;)</p>
+<p class="description">&#9;This assumes that your vertex shader is at path SG_RI/assets/colourpicker.vert and your fragment shader is at path SG_RI/assets/colourpicker.frag</p>
+<p class="description">&#9;After doing these, the shaders will be automatically compiled by QSB and you can access the compiled shaders at :/SGEXTN/colourpicker.vert.qsb and :/SGEXTN/colourpicker.frag.qsb respectively.</p>
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<p class="description">&#9;Finally we can work on the C++ side.</p>
+<p class="description">&#9;We will need a renderer that uses GPU commands, and a syncer that sends information to the renderer. The renderer runs on a separate thread and it is not allowed to directly use information outside its thread, since that will cause data race.</p>
+<p class="description">&#9;Our header file should look like this</p>
+<p class="warning">class SGRColourPickerRenderer : public SGRBaseRenderer&#10;{&#10;public:&#10;    SGRColourPickerRenderer(int type);&#10;    int type;&#10;    float hue;&#10;    float saturation;&#10;    float lightness;&#10;    float transparency;&#10;    SGRRenderingProgramme* createRenderingProgramme() override;&#10;    void initialise() override;&#10;    void cleanResourcesOnDestruction() override;&#10;    void uploadShaderData() override;&#10;    void requestRenderCommands(SGRCommandRequest* commandRequest) override;&#10;    SGRVertexBufferObject* vbo;&#10;    SGRElementBufferObject* ebo;&#10;};</p>
+<p class="description">&#9;A few things to take note here</p>
+<p class="description">&#9;The renderer must inherit from <a class="link" href="../cppclass/sgrbaserenderer">SGRBaseRenderer</a>, because <a class="link" href="../cppclass/sgrbaserenderer">SGRBaseRenderer</a> provides everything necessary to render. It also must implement all pure virtual functions in <a class="link" href="../cppclass/sgrbaserenderer">SGRBaseRenderer</a>.</p>
+<p class="description">&#9;The renderer manages its on <a class="link" href="../cppclass/sgrvertexbufferobject">SGRVertexBufferObject</a> and <a class="link" href="../cppclass/sgrelementbufferobject">SGRElementBufferObject</a>. These are the vertex buffer object, and the element buffer object which tells the GPU which vertices to use for each triangle.</p>
+<p class="description">&#9;Also, the renderer contains its own data. This data is stored on the renderer's thread and can be safely accessed by it whenever necessary. The syncer syncs this data with what it should be on every frame.</p>
+<p class="description">&#9;And the code for the syncer</p>
+<p class="warning">class SGRColourPickerSyncer : public SGRBaseSyncer&#10;{&#10;public:&#10;    SGRColourPickerSyncer();&#10;    float hue;&#10;    float saturation;&#10;    float lightness;&#10;    float transparency;&#10;    void sync(SGRBaseRenderer* renderControl) override;&#10;};</p>
+<p class="description">&#9;Just like how the renderer must inherit from <a class="link" href="../cppclass/sgrbaserenderer">SGRBaseRenderer</a>, the syncer must inherit from <a class="link" href="../cppclass/sgrbasesyncer">SGRBaseSyncer</a> and implement its pure virtual functions.</p>
+<p class="description">&#9;The syncer also keeps its own copy of all the variables. This copy can be freely read from and written to by other parts of the programme at any time, since it is on the main thread.</p>
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<p class="description">&#9;Next we can work on implementing everything.</p>
+<p class="description">&#9;Here you will see how much easier it is to work with SG - RI as compared to other graphics frameworks.</p>
+<p class="description">&#9;First, the constructor of the renderer.</p>
+<p class="warning">SGRColourPickerRenderer::SGRColourPickerRenderer(int type){&#10;    (*this).type = type;&#10;    (*this).hue = 0.0f;&#10;    (*this).saturation = 0.0f;&#10;    (*this).lightness = 0.0f;&#10;    (*this).transparency = 0.0f;&#10;    (*this).vbo = nullptr;&#10;    (*this).ebo = nullptr;&#10;}</p>
+<p class="description">&#9;This does nothing, because the renderer is created before anything GPU side even starts to set up. The actual setting up process is done in the implementation of <a class="link" href="../cppclass/sgrbaserenderer#virtual_void_initialise_func_assign_">SGRBaseRenderer::initialise</a>.</p>
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<p class="description">&#9;Then we implement <a class="link" href="../cppclass/sgrbaserenderer#virtual_SGRRenderingProgramme_ptr_createRenderingProgramme_func_assign_">SGRBaseRenderer::createRenderingProgramme</a>. This creates a <a class="link" href="../cppclass/sgrrenderingprogramme">SGRRenderingProgramme</a> which can tell the GPU what to do.</p>
+<p class="warning">SGRRenderingProgramme* SGRColourPickerRenderer::createRenderingProgramme(){&#10;    SGRRenderingProgramme* rp = new SGRRenderingProgramme(this);&#10;    (*rp).setShaderQSBFiles(":/SGEXTN/colourpicker.vert.qsb", ":/SGEXTN/colourpicker.frag.qsb");&#10;    (*rp).addUniformBufferObject(20, 1);&#10;    (*rp).finaliseShaderResource();&#10;    (*rp).addVertexBufferObject(2 * 4);&#10;    (*rp).addVertexProperty(0, 0, 0, SGRGraphicsLanguageType::Float, 2);&#10;    (*rp).finaliseVertices();&#10;    (*rp).finaliseRenderingProgramme();&#10;    return rp;&#10;}</p>
+<p class="description">&#9;Normally, this step is extremely complicated, but in SG - RI, it is much simpler.</p>
+<p class="description">&#9;We first create a <a class="link" href="../cppclass/sgrrenderingprogramme">SGRRenderingProgramme</a> called rp. A pointer to the renderer is passed to indicate which renderer the <a class="link" href="../cppclass/sgrrenderingprogramme">SGRRenderingProgramme</a> is associated with.</p>
+<p class="description">&#9;Then we set the shader files. This step tells the <a class="link" href="../cppclass/sgrrenderingprogramme">SGRRenderingProgramme</a> what vertex shader and fragment shader it should use.</p>
+<p class="description">&#9;After that, we add a uniform buffer object using <a class="link" href="../cppclass/sgrrenderingprogramme#void_addUniformBufferObject_int_int_const_">SGRRenderingProgramme::addUniformBufferObject</a> with a size of 20 bytes and binding point 1. This is <b>selection</b> which we declared earlier in the fragment shader. Note how the binding point matches.</p>
+<p class="description">&#9;The length of a uniform buffer object depends on what it contains and can be calculated using std140 alignment rules. If you are not passing any vectors, the rules just say that the length is the sum of everything you use and they should be packed tightly in order of declaration. In our case, 4 floating point numbers and 1 int sum to 20 bytes.</p>
+<p class="description">&#9;Since we only need 1 uniform buffer object and no textures, we can call <a class="link" href="../cppclass/sgrrenderingprogramme#void_finaliseShaderResource_func_">SGRRenderingProgramme::finaliseShaderResource</a> after adding the uniform buffer object.</p>
+<p class="description">&#9;Then we add a vertex buffer object with a size of 8 bytes per vertex. SG - RI allows you to add many vertex buffer objects that can each contain a different part of the vertex, but here we only need 1.</p>
+<p class="description">&#9;The size per vertex must match the size of all input variables that the vertex shader receives. In our case, it is a vec2, or 2 floats, giving a length of 8 bytes.</p>
+<p class="description">&#9;We then use <a class="link" href="../cppclass/sgrrenderingprogramme#void_addVertexProperty_int_int_int_SGRGraphicsLanguageType_mc_Type_int_const_">SGRRenderingProgramme::addVertexProperty</a> on the vertex shader input variable to register it. This tells the GPU where the variable can be found (both vertex shader number and offset), which location of the vertex shader input it should be placed, and the type of the variable. In our case, the data should be sourced from offset 0 of each vertex in vertex buffer object number 0. The data need to be placed at location 0 of the vertex shader, and it is 2 floating point numbers.</p>
+<p class="description">&#9;Since that is all inputs we need to the vertex shader, we can call <a class="link" href="../cppclass/sgrrenderingprogramme#void_finaliseVertices_func_">SGRRenderingProgramme::finaliseVertices</a>. After that we call <a class="link" href="../cppclass/sgrrenderingprogramme#void_finaliseRenderingProgramme_func_">SGRRenderingProgramme::finaliseRenderingProgramme</a> because we have done setting up the <a class="link" href="../cppclass/sgrrenderingprogramme">SGRRenderingProgramme</a>.</p>
+<p class="description">&#9;If you are familiar with graphics terminology, this process is setting up the rendering pipeline. Note how it is so much simpler in SG - RI compared to any other graphics framework.</p>
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<p class="description">&#9;Our next step is to set up the vertex buffer object and element buffer object.</p>
+<p class="warning">void SGRColourPickerRenderer::initialise(){&#10;    vbo = new SGRVertexBufferObject(this, 4 * 2 * 4);&#10;    SGLArray&lt;float&gt; vt(0.0f, 0.0f, 1.0f, 0.0f, 0.0f, 1.0f, 1.0f, 1.0f);&#10;    (*renderingProgramme()).updateDataBuffer(vbo, 0, 4 * 2 * 4, vt.pointerToData(0));&#10;    ebo = new SGRElementBufferObject(this, 2 * 3 * 4);&#10;    SGLArray&lt;int&gt; et(0, 1, 2, 1, 2, 3);&#10;    (*renderingProgramme()).updateDataBuffer(ebo, 0, 2 * 3 * 4, et.pointerToData(0));&#10;}</p>
+<p class="description">&#9;We create a <a class="link" href="../cppclass/sgrvertexbufferobject">SGRVertexBufferObject</a> linked to the renderer and with a size of 4 (number of vertices) x 2 (floats per vertex) x 4 (bytes per float) bytes.</p>
+<p class="description">&#9;We then create the data to be put into the vertex array buffer, this is (0, 0), (1, 0), (0, 1), (1, 1). The x and y coordinates are relative to the <a class="link" href="../tutorials/sgwidget">SGWidget ⁽㈳㈴㈳㈮㈱㈨㈠㈫ ㈧㈤㈱㈤⁾</a> (or more specifically, the <a class="link" href="../cppclass/sgrrendererwidget">SGRRendererWidget</a>) using this renderer. (0, 0) is the top left corner and (1, 1) is the bottom right corner.</p>
+<p class="description">&#9;We use <a class="link" href="../cppclass/sgrrenderingprogramme#void_updateDataBuffer_SGRDataBuffer_ptr_int_int_void_ptr_const_">SGRRenderingProgramme::updateDataBuffer</a> to upload the data, both <a class="link" href="../cppclass/sgrvertexbufferobject">SGRVertexBufferObject</a> and <a class="link" href="../cppclass/sgrelementbufferobject">SGRElementBufferObject</a> inherit from <a class="link" href="../cppclass/sgrdatabuffer">SGRDataBuffer</a> so they fit in the argument. A pointer to the <a class="link" href="../cppclass/sgrrenderingprogramme">SGRRenderingProgramme</a> being used can be gotten from <a class="link" href="../cppclass/sgrbaserenderer#nodiscard_SGRRenderingProgramme_ptr_renderingProgramme_func_const_">SGRBaseRenderer::renderingProgramme</a>.</p>
+<p class="description">&#9;Similarly, we create a element buffer object with 2 (number of triangles) x 3 (vertices per triangle) x 4 (bytes per integer) bytes to store information about how the vertices should be used. We write in 0, 1, 2, 1, 2, 3, which means that a triangle should use vertices 0, 1, 2 and the other should use vertices 1, 2, 3.</p>
+<p class="description">&#9;When the triangles are combined, they form a rectangle that covers the area of the associated <a class="link" href="../tutorials/sgwidget">SGWidget ⁽㈳㈴㈳㈮㈱㈨㈠㈫ ㈧㈤㈱㈤⁾</a> perfectly. This is called a fullscreen quad.</p>
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<p class="description">&#9;Next we define how to clean up when the renderer is deleted. Since the only parts that we own is the vertex buffer object and element buffer object, we just delete these.</p>
+<p class="warning">void SGRColourPickerRenderer::cleanResourcesOnDestruction(){&#10;    delete vbo;&#10;    delete ebo;&#10;}</p>
+<p class="description">&#9;The <a class="link" href="../cppclass/sgrrenderingprogramme">SGRRenderingProgramme</a> is managed internally by SG - RI and will be deleted automatically. Freeing of GPU side memory is also done automatically.</p>
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<p class="description">&#9;Then we can tell the GPU how to update the uniform buffer objects. <b>SG_RI_builtin</b> is updated automatically so you do not need to worry about that.</p>
+<p class="description">&#9;To update <b>selection</b>, we do this</p>
+<p class="warning">void SGRColourPickerRenderer::uploadShaderData(){&#10;    SGLArray&lt;float&gt; ut(hue, saturation, lightness, transparency);&#10;    (*renderingProgramme()).updateShaderUniforms(1, 0, 16, ut.pointerToData(0));&#10;    (*renderingProgramme()).updateShaderUniforms(1, 16, 4, &type);&#10;}</p>
+<p class="description">&#9;Note how the binding point of 1 passed to <a class="link" href="../cppclass/sgrrenderingprogramme#void_updateShaderUniforms_int_int_int_void_ptr_const_">SGRRenderingProgramme::updateShaderUniforms</a> matches the binding point 1 of <b>selection</b> as declared in the fragment shader.</p>
+<p class="description">&#9;Also note how in the first call, we write bytes 0 - 15, and in the second call, we write bytes 16 - 19, filling up all 20 allocated bytes that we declared to be the length of the uniform buffer object.</p>
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<p class="description">&#9;Finally, time to actually draw stuff on the screen.</p>
+<p class="warning">void SGRColourPickerRenderer::requestRenderCommands(SGRCommandRequest *commandRequest){&#10;    (*commandRequest).addVertexBufferObject(vbo, 0);&#10;    (*commandRequest).chooseElementBufferObject(ebo);&#10;    (*commandRequest).finaliseForDraw();&#10;    (*commandRequest).drawTriangles(2, 0);&#10;}</p>
+<p class="description">&#9;This makes a draw call. On every frame, we must rebind the vertex buffer objects and element buffer object. After binding everything, we need to call <a class="link" href="../cppclass/sgrcommandrequest#void_finaliseForDraw_func_">SGRCommandRequest::finaliseForDraw</a> before using <a class="link" href="../cppclass/sgrcommandrequest#void_drawTriangles_int_int_const_">SGRCommandRequest::drawTriangles</a> to actually draw the triangles.</p>
+<p class="description">&#9;Note that the 2 passed to <a class="link" href="../cppclass/sgrcommandrequest#void_drawTriangles_int_int_const_">SGRCommandRequest::drawTriangles</a> is the number of triangles, not number of vertices, to draw. SG - RI only supports drawing triangles.</p>
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<p class="description">&#9;We only have the syncer remaining to implement. Similar to the renderer, it is created before anything on the GPU happens, so its constructor does nothing.</p>
+<p class="warning">SGRColourPickerSyncer::SGRColourPickerSyncer(){&#10;    (*this).hue = 0.0f;&#10;    (*this).saturation = 0.0f;&#10;    (*this).lightness = 0.0f;&#10;    (*this).transparency = 0.0f;&#10;}</p>
+<p class="description">&#9;In <a class="link" href="../cppclass/sgrbasesyncer#virtual_void_sync_SGRBaseRenderer_ptr_assign_">SGRBaseSyncer::sync</a>, we simply copy over the data. This is the only safe point where data can be exchanged between the renderer and the syncer.</p>
+<p class="warning">void SGRColourPickerSyncer::sync(SGRBaseRenderer *renderControl){&#10;    SGRColourPickerRenderer* rc = static_cast&lt;SGRColourPickerRenderer*&gt;(renderControl);&#10;    (*rc).hue = hue;&#10;    (*rc).saturation = saturation;&#10;    (*rc).lightness = lightness;&#10;    (*rc).transparency = transparency;&#10;}</p>
+<p class="description">&#9;And we are done.</p>
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<p class="description">&#9;To use the custom renderer, we simply create a <a class="link" href="../cppclass/sgrrendererwidget">SGRRendererWidget</a> containing it.</p>
+<p class="warning">SGRColourPickerSyncer* syncer = new SGRColourPickerSyncer();&#10;new SGRRendererWidget(realBg, 0.0f, 0.5f, 0.0f, 0.5f, 1.0f, -1.0f, 0.0f, 1.25f, new SGRColourPickerRenderer(1), SGWColourPicker::hueSync);</p>
+<p class="description">&#9;Remember to keep a pointer to the syncer so that you can update the information to be synced each frame. After updating the information, call <a class="link" href="../cppclass/sgrrendererwidget#void_updateCustomRenderer_func_const_">SGRRendererWidget::updateCustomRenderer</a> to redraw.</p>
+<p class="description">&#9;</p>
+<p class="description"></p>
+
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<div style="width: 100%; height: 0.25rem; background-color: var(--c4);"></div>
+<div style="width: 100%; height: 0.25rem; background-color: var(--c8);"></div>
+<p class="description">©2025 05524F.sg (Singapore)</p>
+<p class="description"><a class="link" href="/contact">contact 05524F / report a bug / make a suggestion</a></p>
+<p class="description"><a class="link" href="/values">about 05524F SINGAPORE values</a></p>
+<p class="description"><a class="link" href="/projects">list of 05524F projects</a></p>
+<div style="width: 100%; height: 0.25rem; background-color: var(--c8);"></div>
+<div style="width: 100%; height: 0.25rem; background-color: var(--c4);"></div>
+<div style="width: 100%; height: 0.25rem; background-color: var(--c8);"></div>
+</body>
+</html>
