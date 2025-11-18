@@ -239,6 +239,7 @@ window.addEventListener("hashchange", highlightSection);
 <div id="parentdiv">
 <img src="/bannerbg.png" style="vertical-align: middle; image-rendering: auto;" id="bg">
 <canvas id="canvas" class="emscripten" oncontextmenu="event.preventDefault()" tabindex="-1" style="position: absolute;"></canvas>
+<img src="/flag.png" style="position: absolute; display: none;" id="img">
 </div>
 {{{ SCRIPT }}}
 <div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
@@ -298,21 +299,22 @@ resize();
 </script>
 <script>
 function debug(){
-	if(usingFallback == true){return;}
 	if((typeof Module) == "undefined" || (!Module) || (!Module["ctx"])){
+		if(usingFallback == true){return;}
 		usingFallback = true;
-		let canvas = document.getElementById("canvas");
-		canvas.style.display = "none";
-		let parent = document.getElementById("parentdiv");
-		canvas = document.createElement("img");
-		canvas.id = "img";
-		canvas.src = "/flag.png";
-		canvas.style.position = "absolute";
-		parent.appendChild(canvas);
+		document.getElementById("canvas").style.display = "none";
+		document.getElementById("img").style.display = "";
+		resize();
+	}
+	else{
+		if(usingFallback == false){return;}
+		usingFallback = false;
+		document.getElementById("img").style.display = "none";
+		document.getElementById("canvas").style.display = "";
 		resize();
 	}
 }
-setInterval(() => {debug();}, 100);
+setInterval(debug, 100);
 </script>
 </body>
 </html>
