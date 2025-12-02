@@ -264,6 +264,7 @@ window.addEventListener("hashchange", highlightSection);
 <div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
 <h2 class="header" id="">instance member functions</h2>
 <p class="description">&#9;<a class="link" href="#SGXTimer_float_void_ptr_func_">SGXTimer</a>(float t, void (*attachedFunction)());</p>
+<p class="description">&#9;void <a class="link" href="#void_deleteTimer_func_">deleteTimer</a>();</p>
 <p class="description">&#9;void <a class="link" href="#void_start_func_const_">start</a>() const;</p>
 <p class="description">&#9;void <a class="link" href="#void_stop_func_const_">stop</a>() const;</p>
 <div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
@@ -287,6 +288,11 @@ window.addEventListener("hashchange", highlightSection);
 <p class="note">The timer is automatically started upon creation.</p>
 <p class="warning"><b>attachedFunction</b> being nullptr is <a class="link" href="../tutorials/undefinedbehaviour">undefined behaviour</a>.</p>
 <p class="warning"><b>t</b> being negative is <a class="link" href="../tutorials/undefinedbehaviour">undefined behaviour</a>.</p>
+<p class="warning">Directly deleting a <a class="link" href="../cppclass/sgxtimer">SGXTimer</a> will crash as not preventing it would lead to a use after free bug.</p>
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<h2 class="header" id="void_deleteTimer_func_">void <a class="link" href="#void_deleteTimer_func_">deleteTimer</a>();</h2>
+<p class="description">Deletes the <a class="link" href="../cppclass/sgxtimer">SGXTimer</a> safely.</p>
+<p class="warning">Directly deleting a <a class="link" href="../cppclass/sgxtimer">SGXTimer</a> will crash as not preventing it would lead to a use after free bug.</p>
 <div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
 <h2 class="header" id="void_start_func_const_">void <a class="link" href="#void_start_func_const_">start</a>() const;</h2>
 <p class="description">Restarts this <a class="link" href="../cppclass/sgxtimer">SGXTimer</a> which is previously paused.</p>
