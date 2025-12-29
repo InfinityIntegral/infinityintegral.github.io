@@ -244,13 +244,12 @@ window.addEventListener("hashchange", highlightSection);
 <div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
 <p class="description">&#9;This tutorial is about compiling shaders and including compiled shaders in the built application. For information about how to write shaders, see this <a class="link" href="renderer">tutorial</a> instead.</p>
 <div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
-<p class="description">&#9;GLSL vertex and fragment shaders must be built using QSB, the Qt Shader Binary compiler, before they can be used with QRhi which is used by SGEXTN's <a class="link" href="../tutorials/renderer">SG - RI ⁽㈳㈴㈳㈮㈱㈨㈠㈫ ㈧㈤㈱㈤⁾</a> module. This process is very similar to adding resource files and it is assumed that you know how to add resource files. If not, read this <a class="link" href="resources">tutorial</a> first.</p>
+<p class="description">&#9;GLSL vertex and fragment shaders must be built using QSB, the Qt Shader Binary compiler, before they can be used with QRhi which is used by SGEXTN's <a class="link" href="../tutorials/renderer">SG - RI ⁽㈳㈴㈳㈮㈱㈨㈠㈫ ㈧㈤㈱㈤⁾</a> module.</p>
 <p class="description">&#9;Note that although you only write the shaders in GLSL, they are automatically translated to other shader languages by Qt for best performance across a wide range of hardware.</p>
 <p class="description">&#9;Firstly, make sure you have QSB installed. You can check by opening the Qt Maintenance Tool and looking for "Qt Shader Tools" under "Additional Libraries" of your Qt version. If you do not have it installed yet, you need to install it.</p>
-<p class="description">&#9;After that, add these to your CMake file.</p>
-<p class="warning">find_package(Qt6 REQUIRED COMPONENTS ShaderTools)&#10;qt6_add_shaders(yourCMakeTarget shadersFileName PREFIX "prefix" BASE "shaders" FILES&#10;    "shaders/vertexshader.vert"&#10;    "shaders/fragmentshaders.frag"&#10;)</p>
-<p class="description">&#9;The shadersFileName, similar to assetsFileName for adding QRC resources, is not used in your code. You are recommended to leave it to the target name with "_shaders" added behind.</p>
-<p class="description">&#9;The PREFIX and BASE behave identically to the corresponding arguments when adding QRC files. After shaders are compiled, the extension .qsb is added to their names. So after applying all changes to the file paths, shaders/vertexshader.vert would end up as prefix/vertexshader.vert.qsb in the resource file system and that path should be passed to <a class="link" href="../cppclass/sgrrenderingprogramme#void_setShaderQSBFiles_const_SGXString_ref_const_SGXString_ref_">SGRRenderingProgramme::setShaderQSBFiles</a>.</p>
+<p class="description">&#9;After that, you just have to put the shaders inside the shaders folder and <a class="link" href="../tutorials/buildlah">BuildLah ⁽㈳㈴㈳㈮㈱㈨㈠㈫ ㈧㈤㈱㈤⁾</a> will do the rest. For more information pls see <a class="link" href="buildlah">this link</a>.</p>
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<p class="description">&#9;If you are not using <a class="link" href="../tutorials/buildlah">BuildLah ⁽㈳㈴㈳㈮㈱㈨㈠㈫ ㈧㈤㈱㈤⁾</a>, you can use the CMake command qt6_add_shaders to add shaders also, but that is more complicated and you will have to specify each file manually.</p>
 <p class="description">&#9;</p>
 <p class="description"></p>
 

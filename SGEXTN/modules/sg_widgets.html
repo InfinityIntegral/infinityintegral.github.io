@@ -242,9 +242,8 @@ window.addEventListener("hashchange", highlightSection);
 <div style="width: 100%; height: 0.25rem; background-color: var(--c8);"></div>
 <div><button class="button" style="width: 100%;" onclick="location.href='../readme/readme'">SGEXTN Documentation</button></div><div style="width: 100%; height: 0.25rem; background-color: var(--c8);"></div><p class="warning">If you have not done so, read this full <a class="link" href="../tutorials/full">tutorial</a> on how to use SGEXTN to build an application.</p><div style="width: 100%; height: 0.75rem; background-color: var(--c8);"></div><h1 class="title">SG_Widgets</h1>
 <p class="description"><a class="link" href="#sg_classlist">list of classes in this module</a></p>
-<p class="description">CMake commands:</p>
-<p class="description">&#9;find_package(<a class="link" href="../readme/readme">SGEXTN</a> REQUIRED COMPONENTS SG_Widgets)</p>
-<p class="description">&#9;target_link_libraries(yourCMakeTarget PRIVATE <a class="link" href="../readme/readme">SGEXTN</a>::SG_Widgets)</p>
+<p class="description">CMake target for BuildLah: <a class="link" href="../readme/readme">SGEXTN</a>::SG_Widgets</p>
+<p class="description">see <a class="link" href="../tutorials/buildlah">this link</a> for more information about BuildLah</p>
 <div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
 <p class="description">&#9;The SGWidget module provides access to the <a class="link" href="../tutorials/sgwidget">SGWidget ⁽㈳㈴㈳㈮㈱㈨㈠㈫ ㈧㈤㈱㈤⁾</a> system and allows you to build graphical user interfaces (GUIs). This is needed for all non command line applications.</p>
 <p class="description">&#9;The SGWidget module uses Qt Quick internally to render, so all rendering is GPU accelerated and works on all GPUs. However, everything Qt is abstracted away, so you would never need to touch signal-slot, QML, or JavaScript. Note that <a class="link" href="../tutorials/sgwidget">SGWidget ⁽㈳㈴㈳㈮㈱㈨㈠㈫ ㈧㈤㈱㈤⁾</a> is a imperative, not declarative, GUI toolkit, making it more familiar to C++ developers. <a class="link" href="../tutorials/callback">callback function ⁽㈳㈴㈳㈮㈱㈨㈠㈫ ㈧㈤㈱㈤⁾</a> is used instead of signal-slot for event listening and callback functions.</p>

@@ -1,0 +1,293 @@
+
+<!DOCTYPE html>
+<html lang="en-SG">
+<head>
+<meta charset="UTF-8">
+<title>Full Tutorial Part 0</title>
+<link rel="icon" href="/icon.png" type="image/png">
+<meta property="og:image" content="/icon.png">
+<meta name="twitter:image" content="/icon.png">
+<link rel="apple-touch-icon" href="/icon.png">
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "url": "https://infinityintegral.github.io",
+    "image": "/icon.png"
+}
+</script>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+@font-face {
+	font-family: "SingScript.sg";
+	src: url("/SingScript.sg")format("truetype");
+	font-weight: normal;
+	font-style: normal;
+}
+
+:root {
+	--c0: rgb(0, 0, 0);
+	--c1: rgb(64, 0, 50);
+	--c2: rgb(128, 0, 100);
+	--c3: rgb(191, 0, 150);
+	--c4: rgb(255, 0, 200);
+	--c5: rgb(255, 64, 214);
+	--c6: rgb(255, 128, 227);
+	--c7: rgb(255, 191, 241);
+	--c8: rgb(255, 255, 255);
+}
+
+*{
+    font-family: "SingScript.sg";
+	max-width: 100%;
+	word-break: break-word;
+	-webkit-text-size-adjust: 100%;
+	-ms-text-size-adjust: 100%;
+}
+
+.title {
+	color: var(--c4);
+	font-size: 3.5rem;
+	margin: 0;
+	font-weight: normal;
+}
+.title::selection {
+	color: var(--c8);
+	background-color: var(--c4);
+	font-size: 3.5rem;
+	margin: 0;
+	font-weight: normal;
+}
+
+.header {
+	color: var(--c4);
+	font-size: 2.5rem;
+	margin: 0;
+	font-weight: normal;
+}
+.header::selection {
+	color: var(--c8);
+	background-color: var(--c4);
+	font-size: 2.625rem;
+	margin: 0;
+	font-weight: normal;
+}
+
+.description {
+	color: var(--c4);
+	font-size: 1.75rem;
+	margin: 0;
+	white-space: pre-wrap;
+}
+.description::selection {
+	color: var(--c8);
+	background-color: var(--c4);
+	font-size: 1.75rem;
+	margin: 0;
+	white-space: pre-wrap;
+}
+
+.note {
+	color: var(--c4);
+	font-size: 1.75rem;
+	margin: 0.25rem;
+	white-space: pre-wrap;
+    border: 0.25rem solid var(--c7);
+    padding: 0.25rem;
+}
+.note::selection {
+	color: var(--c8);
+	background-color: var(--c4);
+	font-size: 1.75rem;
+	margin: 0.25rem;
+	white-space: pre-wrap;
+    border: 0.25rem solid var(--c7);
+    padding: 0.25rem;
+}
+
+.warning {
+	color: var(--c4);
+	font-size: 1.75rem;
+	margin: 0.25rem;
+	white-space: pre-wrap;
+    border: 0.25rem solid var(--c4);
+    padding: 0.25rem;
+}
+.warning::selection {
+	color: var(--c8);
+	background-color: var(--c4);
+	font-size: 1.75rem;
+	margin: 0.25rem;
+	white-space: pre-wrap;
+    border: 0.25rem solid var(--c4);
+    padding: 0.25rem;
+}
+
+.link {
+	color: var(--c2);
+	text-decoration: underline;
+}
+.link:hover {
+	color: var(--c2);
+	background-color: var(--c7);
+	text-decoration: underline;
+}
+.link:active {
+	color: var(--c2);
+	background-color: var(--c6);
+	text-decoration: underline;
+}
+.link::selection {
+	color: var(--c8);
+	background-color: var(--c4);
+	text-decoration: underline;
+}
+
+.button {
+	color: var(--c8);
+	background-color: var(--c4);
+	font-size: 1.75rem;
+	border: none;
+}
+.button:hover {
+	color: var(--c7);
+	background-color: var(--c3);
+	font-size: 1.75rem;
+	border: none;
+}
+.button:active {
+	color: var(--c6);
+	background-color: var(--c2);
+	font-size: 1.75rem;
+	border: none;
+}
+.button::selection {
+	color: var(--c4);
+	background-color: var(--c8);
+	font-size: 1.75rem;
+	border: none;
+}
+
+.input {
+	color: var(--c8);
+	background-color: var(--c4);
+	font-size: 1.75rem;
+	border: none;
+	outline: none;
+	text-align: center;
+}
+.input:hover {
+	color: var(--c7);
+	background-color: var(--c3);
+	font-size: 1.75rem;
+	border: none;
+	outline: none;
+	text-align: center;
+}
+.input:focus {
+	color: var(--c6);
+	background-color: var(--c2);
+	font-size: 1.75rem;
+	border: none;
+	outline: none;
+	text-align: center;
+}
+.input::selection {
+	color: var(--c4);
+	background-color: var(--c8);
+	font-size: 1.75rem;
+	border: none;
+	outline: none;
+	text-align: center;
+}
+
+.highlight {
+    animation: highlightFlash 2s ease-out;
+}
+
+@keyframes highlightFlash {
+    0% {background-color: var(--c6);}
+    100% {background-color: var(--c8);}
+}
+</style>
+<script>
+let m = (new Date()).getMonth() + 1;
+if(m >= 7 && m <= 9){
+    document.documentElement.style.setProperty("--c0", "rgb(0, 0, 0)");
+    document.documentElement.style.setProperty("--c1", "rgb(60, 9, 14)");
+    document.documentElement.style.setProperty("--c2", "rgb(119, 19, 27)");
+    document.documentElement.style.setProperty("--c3", "rgb(179, 28, 41)");
+    document.documentElement.style.setProperty("--c4", "rgb(238, 37, 54)");
+    document.documentElement.style.setProperty("--c5", "rgb(242, 92, 104)");
+    document.documentElement.style.setProperty("--c6", "rgb(247, 146, 155)");
+    document.documentElement.style.setProperty("--c7", "rgb(251, 201, 205)");
+    document.documentElement.style.setProperty("--c8", "rgb(255, 255, 255)");
+}
+function highlightSection(){
+    let tag = window.location.hash.substring(1);
+    if(tag == ""){return;}
+    let element = document.getElementById(tag);
+    if(element == null){return;}
+    element.classList.add("highlight");
+    element.addEventListener("animationend", () => {element.classList.remove("highlight");}, {once: true});
+}
+window.addEventListener("DOMContentLoaded", highlightSection);
+window.addEventListener("hashchange", highlightSection);
+</script>
+</head>
+<body style="margin-left: 1em;">
+<p class="description" style="color: rgb(238, 37, 54); text-align: center; font-size: 2.5rem">sincerely <img src="/flag.png" style="vertical-align: middle; height: 2.5rem; image-rendering: auto;"> Singaporean</p>
+<div style="width: 100%; height: 0.25rem; background-color: var(--c8);"></div>
+<div><button class="button" style="width: 100%;" onclick="location.href='/'">Project 05524F.sg</button></div>
+<div style="width: 100%; height: 0.25rem; background-color: var(--c8);"></div>
+<div><button class="button" style="width: 100%;" onclick="location.href='../readme/readme'">SGEXTN Documentation</button></div><div style="width: 100%; height: 0.25rem; background-color: var(--c8);"></div><p class="warning">If you have not done so, read this full <a class="link" href="../tutorials/full">tutorial</a> on how to use SGEXTN to build an application.</p><div style="width: 100%; height: 0.75rem; background-color: var(--c8);"></div><h1 class="title">Full Tutorial Part 0</h1>
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<h2 class="header" id="">Defining scope and basic setup</h2>
+<p class="description">&#9;Before we even start any coding, for any large scale project, it is best to first write a "to do list". There is probably a professional name for this, but I will just call it a feature list.</p>
+<p class="description">&#9;The feature list should contain a very rough outline of what you want to have in your final product. Almost certainly, this will change, but the feature list gives us somewhat of a project overview.</p>
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<p class="description">&#9;The app that we are trying to build in this tutorial is essentially a rebuild of Colours++ from my Science project, so the features list is quite simple.</p>
+<p class="description">&#9;- explanation (to show scrollable GUI in <a class="link" href="../tutorials/sgwidget">SGWidget ⁽㈳㈴㈳㈮㈱㈨㈠㈫ ㈧㈤㈱㈤⁾</a>)</p>
+<p class="description">&#9;- choose colour (to show use of colour pickers from <a class="link" href="../tutorials/renderer">SG - RI ⁽㈳㈴㈳㈮㈱㈨㈠㈫ ㈧㈤㈱㈤⁾</a>)</p>
+<p class="description">&#9;- choose shape (to show use of shaders from <a class="link" href="../tutorials/renderer">SG - RI ⁽㈳㈴㈳㈮㈱㈨㈠㈫ ㈧㈤㈱㈤⁾</a>)</p>
+<p class="description">&#9;- countdown timer (to show use of <a class="link" href="../cppclass/sgxtimer">SGXTimer</a>)</p>
+<p class="description">&#9;- save and load presets (to show use of <a class="link" href="../cppclass/sgxfilesystem">SGXFileSystem</a> and <a class="link" href="../cppclass/sgxfile">SGXFile</a>)</p>
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<p class="description">&#9;Next, we go to GitHub and use the GitHub UI to make a new repository, this is significantly easier than setting 1 up locally. Make sure that you do NOT add a README or a license or a .gitignore, since we will add these ourselves later.</p>
+<p class="description">&#9;In your computer file system, make a empty folder preferably named after the project, and use cmd (or terminal) to run</p>
+<p class="warning">git clone https://github.com/[your GitHub username]/[repository name].git</p>
+<p class="description">&#9;For me, this would be</p>
+<p class="warning">git clone https://github.com/InfinityIntegral/ColoursPlusPlus.git</p>
+<p class="description">&#9;This links the GitHub remote repository with the new folder that you just created. If this is successful, you should see a hidden folder called .git in the new folder.</p>
+<p class="description">&#9;If Git complains something about not being able to start a thread, restart (turn off then turn on) your Windows firewall and try again. If you do not have Git, install Git first.</p>
+<p class="description">&#9;If you are on Linux, replace the link with</p>
+<p class="warning">git@github.com:[your GitHub username]/[repository name].git</p>
+<p class="description">&#9;to use SSH instead of HTTPS. This requires you to set up SSH access on your account first and is easier than trying to get Git Credential Manager to work on Linux.</p>
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<p class="description">&#9;We create a blank text file CMakeLists.txt in the new folder then open up Qt Creator.</p>
+<p class="description">&#9;On the top right corner of the Qt Creator welcome page, click "open project" and navigate to the new folder that you just created. Select the empty CMakeLists.txt file.</p>
+<p class="description">&#9;When asked to configure the project, choose a compiler and use the debug version of the kit. You cannot run a release build unless you copy paste the DLLs, which is annoying, so we will only do that at the end.</p>
+<p class="description">&#9;Now we have the Qt Creator project set up.</p>
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<p class="description">&#9;We can then write our .gitignore and License.txt</p>
+<p class="description">&#9;.gitignore tells GitHub which files should not be commited to the repository. These are automatically generated and do not contain any significant code. For SGEXTN projects, this is a safe default to copy.</p>
+<p class="warning">build*/&#10;fakeqml*/&#10;*.o&#10;*.exe&#10;*.user&#10;*.pro.user&#10;*.qmake.stash&#10;*.autosave&#10;.DS_Store&#10;.qtcreator/*</p>
+<p class="description">&#9;The License.txt would depend on what license you want to use. For software that provide an existing feature (for example SGEXTN, because there are other C++ frameworks available), you should use the Lesser General Public License to encourage user adoption. For software that provide a new feature, such as _ocu_entation, the application processing .sgdoc files, use General Public License version 3 and later to promote open source software.</p>
+<p class="description">&#9;For the README, you can either leave it blank for now or write a placeholder one saying that this is a work in progress.</p>
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<p class="description">&#9;See <a class="link" href="full01">here</a> for the next part of the tutorial.</p>
+<p class="description">&#9;</p>
+<p class="description"></p>
+
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<div style="width: 100%; height: 0.25rem; background-color: var(--c4);"></div>
+<div style="width: 100%; height: 0.25rem; background-color: var(--c8);"></div>
+<p class="description">©2025 05524F.sg (Singapore)</p>
+<p class="description"><a class="link" href="/contact">contact 05524F / report a bug / make a suggestion</a></p>
+<p class="description"><a class="link" href="/values">about 05524F SINGAPORE values</a></p>
+<p class="description"><a class="link" href="/projects">list of 05524F projects</a></p>
+<div style="width: 100%; height: 0.25rem; background-color: var(--c8);"></div>
+<div style="width: 100%; height: 0.25rem; background-color: var(--c4);"></div>
+<div style="width: 100%; height: 0.25rem; background-color: var(--c8);"></div>
+</body>
+</html>

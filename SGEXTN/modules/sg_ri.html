@@ -242,14 +242,13 @@ window.addEventListener("hashchange", highlightSection);
 <div style="width: 100%; height: 0.25rem; background-color: var(--c8);"></div>
 <div><button class="button" style="width: 100%;" onclick="location.href='../readme/readme'">SGEXTN Documentation</button></div><div style="width: 100%; height: 0.25rem; background-color: var(--c8);"></div><p class="warning">If you have not done so, read this full <a class="link" href="../tutorials/full">tutorial</a> on how to use SGEXTN to build an application.</p><div style="width: 100%; height: 0.75rem; background-color: var(--c8);"></div><h1 class="title">SG_RI</h1>
 <p class="description"><a class="link" href="#sg_classlist">list of classes in this module</a></p>
-<p class="description">CMake commands:</p>
-<p class="description">&#9;find_package(<a class="link" href="../readme/readme">SGEXTN</a> REQUIRED COMPONENTS SG_RI)</p>
-<p class="description">&#9;target_link_libraries(yourCMakeTarget PRIVATE <a class="link" href="../readme/readme">SGEXTN</a>::SG_RI)</p>
+<p class="description">CMake target for BuildLah: <a class="link" href="../readme/readme">SGEXTN</a>::SG_RI</p>
+<p class="description">see <a class="link" href="../tutorials/buildlah">this link</a> for more information about BuildLah</p>
 <div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
 <p class="description">&#9;The SG - RI module, both named after Raffles Institution and also short form for Renderer Interface, allows you to build custom renderers in SGEXTN.</p>
 <p class="description">&#9;This module should be used only to build renderers that display a custom <a class="link" href="../tutorials/sgwidget">SGWidget ⁽㈳㈴㈳㈮㈱㈨㈠㈫ ㈧㈤㈱㈤⁾</a> on the screen. This is not for 3 dimensional rendering or GPU based computation.</p>
 <p class="description">&#9;Every custom <a class="link" href="../tutorials/sgwidget">SGWidget ⁽㈳㈴㈳㈮㈱㈨㈠㈫ ㈧㈤㈱㈤⁾</a> has a <a class="link" href="../cppclass/sgrbaserenderer">SGRBaseRenderer</a> that uses the shaders and optionally a <a class="link" href="../cppclass/sgrbasesyncer">SGRBaseSyncer</a> for passing data to and from the shader. This is much simpler than OpenGL, Vulkan, or QRhi, but to use it properly you still must read through the <a class="link" href="../tutorials/renderer">tutorial</a> here.</p>
-<p class="description">&#9;The actual vertex and fragment shaders in the form of GLSL files must be compiled and then made accessible to the application through the resource system. For more information about compiling and using shaders, see this <a class="link" href="../tutorials/shaders">tutorial</a>. For more information about the resource system, see this <a class="link" href="../tutorials/resources">tutorial</a>.</p>
+<p class="description">&#9;The actual vertex and fragment shaders in the form of GLSL files must be compiled and then made accessible to the application through the resource system. To ensure that, place them in the shaders folder. For more information about compiling and using shaders, see this <a class="link" href="../tutorials/shaders">tutorial</a>.</p>
 <p class="description">&#9;Note that since the colour picker internally uses this module, this must be linked for using colour pickers even if you are not building custom shaders. In fact, the colour picker is provided as <a class="link" href="../cppclass/sgwcolourpickerwidget">SGWColourPickerWidget</a> which is in this module.</p>
 <div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
 <h2 class="header" id="sg_classlist">List of classes in this module</h2>

@@ -1,0 +1,325 @@
+
+<!DOCTYPE html>
+<html lang="en-SG">
+<head>
+<meta charset="UTF-8">
+<title>Full Tutorial Part 16</title>
+<link rel="icon" href="/icon.png" type="image/png">
+<meta property="og:image" content="/icon.png">
+<meta name="twitter:image" content="/icon.png">
+<link rel="apple-touch-icon" href="/icon.png">
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "url": "https://infinityintegral.github.io",
+    "image": "/icon.png"
+}
+</script>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+@font-face {
+	font-family: "SingScript.sg";
+	src: url("/SingScript.sg")format("truetype");
+	font-weight: normal;
+	font-style: normal;
+}
+
+:root {
+	--c0: rgb(0, 0, 0);
+	--c1: rgb(64, 0, 50);
+	--c2: rgb(128, 0, 100);
+	--c3: rgb(191, 0, 150);
+	--c4: rgb(255, 0, 200);
+	--c5: rgb(255, 64, 214);
+	--c6: rgb(255, 128, 227);
+	--c7: rgb(255, 191, 241);
+	--c8: rgb(255, 255, 255);
+}
+
+*{
+    font-family: "SingScript.sg";
+	max-width: 100%;
+	word-break: break-word;
+	-webkit-text-size-adjust: 100%;
+	-ms-text-size-adjust: 100%;
+}
+
+.title {
+	color: var(--c4);
+	font-size: 3.5rem;
+	margin: 0;
+	font-weight: normal;
+}
+.title::selection {
+	color: var(--c8);
+	background-color: var(--c4);
+	font-size: 3.5rem;
+	margin: 0;
+	font-weight: normal;
+}
+
+.header {
+	color: var(--c4);
+	font-size: 2.5rem;
+	margin: 0;
+	font-weight: normal;
+}
+.header::selection {
+	color: var(--c8);
+	background-color: var(--c4);
+	font-size: 2.625rem;
+	margin: 0;
+	font-weight: normal;
+}
+
+.description {
+	color: var(--c4);
+	font-size: 1.75rem;
+	margin: 0;
+	white-space: pre-wrap;
+}
+.description::selection {
+	color: var(--c8);
+	background-color: var(--c4);
+	font-size: 1.75rem;
+	margin: 0;
+	white-space: pre-wrap;
+}
+
+.note {
+	color: var(--c4);
+	font-size: 1.75rem;
+	margin: 0.25rem;
+	white-space: pre-wrap;
+    border: 0.25rem solid var(--c7);
+    padding: 0.25rem;
+}
+.note::selection {
+	color: var(--c8);
+	background-color: var(--c4);
+	font-size: 1.75rem;
+	margin: 0.25rem;
+	white-space: pre-wrap;
+    border: 0.25rem solid var(--c7);
+    padding: 0.25rem;
+}
+
+.warning {
+	color: var(--c4);
+	font-size: 1.75rem;
+	margin: 0.25rem;
+	white-space: pre-wrap;
+    border: 0.25rem solid var(--c4);
+    padding: 0.25rem;
+}
+.warning::selection {
+	color: var(--c8);
+	background-color: var(--c4);
+	font-size: 1.75rem;
+	margin: 0.25rem;
+	white-space: pre-wrap;
+    border: 0.25rem solid var(--c4);
+    padding: 0.25rem;
+}
+
+.link {
+	color: var(--c2);
+	text-decoration: underline;
+}
+.link:hover {
+	color: var(--c2);
+	background-color: var(--c7);
+	text-decoration: underline;
+}
+.link:active {
+	color: var(--c2);
+	background-color: var(--c6);
+	text-decoration: underline;
+}
+.link::selection {
+	color: var(--c8);
+	background-color: var(--c4);
+	text-decoration: underline;
+}
+
+.button {
+	color: var(--c8);
+	background-color: var(--c4);
+	font-size: 1.75rem;
+	border: none;
+}
+.button:hover {
+	color: var(--c7);
+	background-color: var(--c3);
+	font-size: 1.75rem;
+	border: none;
+}
+.button:active {
+	color: var(--c6);
+	background-color: var(--c2);
+	font-size: 1.75rem;
+	border: none;
+}
+.button::selection {
+	color: var(--c4);
+	background-color: var(--c8);
+	font-size: 1.75rem;
+	border: none;
+}
+
+.input {
+	color: var(--c8);
+	background-color: var(--c4);
+	font-size: 1.75rem;
+	border: none;
+	outline: none;
+	text-align: center;
+}
+.input:hover {
+	color: var(--c7);
+	background-color: var(--c3);
+	font-size: 1.75rem;
+	border: none;
+	outline: none;
+	text-align: center;
+}
+.input:focus {
+	color: var(--c6);
+	background-color: var(--c2);
+	font-size: 1.75rem;
+	border: none;
+	outline: none;
+	text-align: center;
+}
+.input::selection {
+	color: var(--c4);
+	background-color: var(--c8);
+	font-size: 1.75rem;
+	border: none;
+	outline: none;
+	text-align: center;
+}
+
+.highlight {
+    animation: highlightFlash 2s ease-out;
+}
+
+@keyframes highlightFlash {
+    0% {background-color: var(--c6);}
+    100% {background-color: var(--c8);}
+}
+</style>
+<script>
+let m = (new Date()).getMonth() + 1;
+if(m >= 7 && m <= 9){
+    document.documentElement.style.setProperty("--c0", "rgb(0, 0, 0)");
+    document.documentElement.style.setProperty("--c1", "rgb(60, 9, 14)");
+    document.documentElement.style.setProperty("--c2", "rgb(119, 19, 27)");
+    document.documentElement.style.setProperty("--c3", "rgb(179, 28, 41)");
+    document.documentElement.style.setProperty("--c4", "rgb(238, 37, 54)");
+    document.documentElement.style.setProperty("--c5", "rgb(242, 92, 104)");
+    document.documentElement.style.setProperty("--c6", "rgb(247, 146, 155)");
+    document.documentElement.style.setProperty("--c7", "rgb(251, 201, 205)");
+    document.documentElement.style.setProperty("--c8", "rgb(255, 255, 255)");
+}
+function highlightSection(){
+    let tag = window.location.hash.substring(1);
+    if(tag == ""){return;}
+    let element = document.getElementById(tag);
+    if(element == null){return;}
+    element.classList.add("highlight");
+    element.addEventListener("animationend", () => {element.classList.remove("highlight");}, {once: true});
+}
+window.addEventListener("DOMContentLoaded", highlightSection);
+window.addEventListener("hashchange", highlightSection);
+</script>
+</head>
+<body style="margin-left: 1em;">
+<p class="description" style="color: rgb(238, 37, 54); text-align: center; font-size: 2.5rem">sincerely <img src="/flag.png" style="vertical-align: middle; height: 2.5rem; image-rendering: auto;"> Singaporean</p>
+<div style="width: 100%; height: 0.25rem; background-color: var(--c8);"></div>
+<div><button class="button" style="width: 100%;" onclick="location.href='/'">Project 05524F.sg</button></div>
+<div style="width: 100%; height: 0.25rem; background-color: var(--c8);"></div>
+<div><button class="button" style="width: 100%;" onclick="location.href='../readme/readme'">SGEXTN Documentation</button></div><div style="width: 100%; height: 0.25rem; background-color: var(--c8);"></div><p class="warning">If you have not done so, read this full <a class="link" href="../tutorials/full">tutorial</a> on how to use SGEXTN to build an application.</p><div style="width: 100%; height: 0.75rem; background-color: var(--c8);"></div><h1 class="title">Full Tutorial Part 16</h1>
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<p class="description">&#9;See <a class="link" href="full15">here</a> for the previous part of the tutorial.</p>
+<p class="description">&#9;In the previous part, we built the functionality of using previously saved presets.</p>
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<h2 class="header" id="">shaders (part 1)</h2>
+<p class="description">&#9;In this part of the tutorial, we will be writing shaders and using the SG - RI system to actually make the display page display stuff.</p>
+<p class="description">&#9;SG - RI lets you use shaders really easily and also integrates into <a class="link" href="../tutorials/sgwidget">SGWidget ⁽㈳㈴㈳㈮㈱㈨㈠㈫ ㈧㈤㈱㈤⁾</a>. Before we continue, first read through this <a class="link" href="renderer">tutorial</a> here.</p>
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<p class="description">&#9;Now that you have read through the tutorial, we can start programming. Firstly, we have to decide how each pattern will be displayed.</p>
+<p class="description">&#9;For the circle pattern, we will use a texture for the circle itself and do processing on the fragment shader to see if a pixel is inside the circle. This demonstrates the use of textures and also writing fragment shader code.</p>
+<p class="description">&#9;For the polygon and star patterns, we will have the actual geometry of the shapes encoded via vertices to demonstrate the generation and usage of the vertex buffer object and the fragment buffer object.</p>
+<p class="description">&#9;For the fractal pattern, we will render a Mandelbrot set. Obviously this must be done on the fragment shader.</p>
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<p class="description">&#9;We write code to display the circle first.</p>
+<p class="description">&#9;First we write the vertex shader.</p>
+<p class="warning">#version 310 es&#10;precision highp float;&#10;precision highp int;&#10;layout(std140, binding = 0) uniform SG_RI_builtin_{&#10;    float x;&#10;    float y;&#10;    float width;&#10;    float height;&#10;    float windowWidth;&#10;    float windowHeight;&#10;    int offscreen;&#10;} SG_RI_builtin;&#10;vec4 SG_RI_transform(vec4 prelimPosition){&#10;    prelimPosition = vec4(2.0f * (prelimPosition.x * SG_RI_builtin.width / SG_RI_builtin.windowWidth + SG_RI_builtin.x / SG_RI_builtin.windowWidth) - 1.0f, -2.0f * (prelimPosition.y * SG_RI_builtin.height / SG_RI_builtin.windowHeight + SG_RI_builtin.y / SG_RI_builtin.windowHeight) + 1.0f, prelimPosition.z, prelimPosition.w);&#10;    if(SG_RI_builtin.offscreen != 0){prelimPosition = vec4(prelimPosition.x, -1.0f * prelimPosition.y, prelimPosition.z, prelimPosition.w);}&#10;    return prelimPosition;&#10;}&#10;&#10;layout(location = 0) in vec2 vertex;&#10;layout(location = 0) out vec2 vertexCoords;&#10;&#10;void main(){&#10;    gl_Position = vec4(vertex.x, vertex.y, 0.0f, 1.0f);&#10;    vertexCoords = vec2(2.0f * vertex.x - 1.0f, 2.0f * vertex.y - 1.0f);&#10;    if(SG_RI_builtin.width &gt; SG_RI_builtin.height){vertexCoords = vec2(vertexCoords.x * SG_RI_builtin.width / SG_RI_builtin.height, vertexCoords.y);}&#10;    else{vertexCoords = vec2(vertexCoords.x, vertexCoords.y * SG_RI_builtin.height / SG_RI_builtin.width);}&#10;&#10;    gl_Position = SG_RI_transform(gl_Position);&#10;}</p>
+<p class="description">&#9;The vertex shader takes input from the element buffer object a vec2 called vertex. It then applies transforms to change it to vertexCoords, which is sent to the fragment shader to determine how to colour each pixel.</p>
+<p class="description">&#9;vertexCoords is in a coordinate system centered at the center of the screen, with the minimum of the screen width and the screen height being 2 units long. This makes it easier to draw the circle, since it will just be centered at the origin with radius 0.75.</p>
+<p class="description">&#9;The vertex shader also directly passes the vertex variable into gl_Position which decides where the vertex should be displayed on screen. Combined with the data that we will put in the vertex buffer object later, this will create a full screen quad.</p>
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<p class="description">&#9;The fragment shader is also really simple.</p>
+<p class="warning">#version 310 es&#10;precision highp float;&#10;precision highp int;&#10;layout(std140, binding = 1) uniform data_{&#10;    vec4 backgroundColour;&#10;} data;&#10;layout(binding = 0) uniform sampler2D textureSampler;&#10;layout(location = 0) in vec2 vertexCoords;&#10;layout(location = 0) out vec4 outColour;&#10;&#10;void main(){&#10;    if(vertexCoords.x * vertexCoords.x + vertexCoords.y * vertexCoords.y &gt; 0.75f * 0.75f){outColour = data.backgroundColour;}&#10;    else{outColour = texture(textureSampler, vertexCoords);}&#10;}</p>
+<p class="description">&#9;It simply checks if the pixel coordinate is inside the circle. If inside the circle, the fragment shader colours it using the image. Otherwise it uses the background colour.</p>
+<p class="description">&#9;To ensure that <a class="link" href="../tutorials/buildlah">BuildLah ⁽㈳㈴㈳㈮㈱㈨㈠㈫ ㈧㈤㈱㈤⁾</a> recognises these shaders, we have to put them inside the shaders/ folder, as shaders/circle.vert and shaders/circle.frag respectively.</p>
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<p class="description">&#9;With the GLSL side done, we proceed to work on the C++ side.</p>
+<p class="description">&#9;First we make 2 files, include/SGCLPCircleDisplay.h and src/SGCLPCircleDisplay.cpp</p>
+<p class="description">&#9;We create a new class, SGCLPCircleDisplay, for the SG - RI powered renderer that will display the circle. Inside the class, apart from implementing all the pure virtual functions from <a class="link" href="../cppclass/sgrbaserenderer">SGRBaseRenderer</a>, we also need to store the background colour, the vertex buffer object, the element buffer object, and the image texture.</p>
+<p class="warning">class SGCLPCircleDisplay : public SGRBaseRenderer {&#10;public:&#10;    SGCLPCircleDisplay(SGXColourRGBA bg);&#10;    SGXColourRGBA backgroundColour;&#10;    SGRRenderingProgramme* createRenderingProgramme() override;&#10;    void initialise() override;&#10;    void cleanResourcesOnDestruction() override;&#10;    void uploadShaderData() override;&#10;    void requestRenderCommands(SGRCommandRequest* commandRequest) override;&#10;    SGRVertexBufferObject* vbo;&#10;    SGRElementBufferObject* ebo;&#10;    SGRImage* textureImage;&#10;};</p>
+<p class="description">&#9;Note that <a class="link" href="../cppclass/sgrbaserenderer">SGRBaseRenderer</a> does NOT own the vertex buffer object and the fragment buffer object. These must be managed manually.</p>
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<p class="description">&#9;Inside src/SGCLPCircleDisplay.cpp we can implement all the functions on SGCLPCircleDisplay.</p>
+<p class="description">&#9;Firstly, we write the constructor which sets the background colour.</p>
+<p class="warning">SGCLPCircleDisplay::SGCLPCircleDisplay(SGXColourRGBA bg){&#10;    (*this).backgroundColour = bg;&#10;    (*this).vbo = nullptr;&#10;    (*this).ebo = nullptr;&#10;    (*this).textureImage = nullptr;&#10;}</p>
+<p class="description">&#9;The destructor also has nothing interesting. It just frees all the memory.</p>
+<p class="warning">void SGCLPCircleDisplay::cleanResourcesOnDestruction(){&#10;    delete vbo;&#10;    delete ebo;&#10;    delete textureImage;&#10;}</p>
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<p class="description">&#9;The implementation of <a class="link" href="../cppclass/sgrbaserenderer#virtual_SGRRenderingProgramme_ptr_createRenderingProgramme_func_assign_">SGRBaseRenderer::createRenderingProgramme</a> is much more interesting.</p>
+<p class="warning">SGRRenderingProgramme* SGCLPCircleDisplay::createRenderingProgramme(){&#10;    SGRRenderingProgramme* rp = new SGRRenderingProgramme(this);&#10;    (*rp).setShaderQSBFiles(":/ColoursPlusPlus/circle.vert.qsb", ":/ColoursPlusPlus/circle.frag.qsb");&#10;    (*rp).addUniformBufferObject(16, 1);&#10;    (*rp).addTexture(0);&#10;    (*rp).finaliseShaderResource();&#10;    (*rp).addVertexBufferObject(2 * 4);&#10;    (*rp).addVertexProperty(0, 0, 0, SGRGraphicsLanguageType::Float, 2);&#10;    (*rp).finaliseVertices();&#10;    (*rp).finaliseRenderingProgramme();&#10;    return rp;&#10;}</p>
+<p class="description">&#9;Here we provide information about how the shader will behave. Firstly, we use <a class="link" href="../cppclass/sgrrenderingprogramme#void_setShaderQSBFiles_const_SGXString_ref_const_SGXString_ref_">SGRRenderingProgramme::setShaderQSBFiles</a> to provide the GLSL code.</p>
+<p class="description">&#9;Then we add a uniform buffer object of size 16 at binding point 1. 16 bytes is just enough to contain 1 vec4 for the background colour, and the binding point of 1 matches our declaration in GLSL.</p>
+<p class="warning">layout(std140, binding = 1) uniform data_{ ... } data;</p>
+<p class="description">&#9;We also add a texture at binding point 0. Again note how the binding point of 0 matches the GLSL declaration of the texture sampler.</p>
+<p class="warning">layout(binding = 0) uniform sampler2D textureSampler;</p>
+<p class="description">&#9;Once the uniform buffer object and texture are set up, we create a slot for a vertex buffer object using <a class="link" href="../cppclass/sgrrenderingprogramme#void_addVertexBufferObject_int_const_">SGRRenderingProgramme::addVertexBufferObject</a>. The argument of 2 * 4 indicates that 8 bytes (2 floats x 4 bytes per float) are used per vertex. This is just enough to contain a vec2, which is our coordinates from the vertex buffer object.</p>
+<p class="description">&#9;<a class="link" href="../cppclass/sgrrenderingprogramme#void_addVertexProperty_int_int_int_SGRGraphicsLanguageType_mc_Type_int_const_">SGRRenderingProgramme::addVertexProperty</a> is then used to tell the GPU that the 8 bytes of data is a vec2.</p>
+<p class="description">&#9;After the <a class="link" href="../cppclass/sgrrenderingprogramme">SGRRenderingProgramme</a> (or rendering pipeline) is set up, we return a pointer to it which SG - RI internally uses for further processing.</p>
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<p class="description">&#9;We then can implement initialisation of the display.</p>
+<p class="warning">void SGCLPCircleDisplay::initialise(){&#10;    vbo = new SGRVertexBufferObject(this, 4 * 2 * 4);&#10;    SGLArray&lt;float&gt; vt(0.0f, 0.0f, 1.0f, 0.0f, 0.0f, 1.0f, 1.0f, 1.0f);&#10;    (*renderingProgramme()).updateDataBuffer(vbo, 0, 4 * 2 * 4, vt.pointerToData(0));&#10;    ebo = new SGRElementBufferObject(this, 2 * 3 * 4);&#10;    SGLArray&lt;int&gt; et(0, 1, 2, 1, 2, 3);&#10;    (*renderingProgramme()).updateDataBuffer(ebo, 0, 2 * 3 * 4, et.pointerToData(0));&#10;    textureImage = new SGRImage(":/ColoursPlusPlus/conjugates.png");&#10;    (*renderingProgramme()).updateTexture(0, textureImage);&#10;    SGLArray&lt;float&gt; ut(backgroundColour.getRedAsFloat(), backgroundColour.getGreenAsFloat(), backgroundColour.getBlueAsFloat(), backgroundColour.getTransparencyAsFloat());&#10;    (*renderingProgramme()).updateShaderUniforms(1, 0, 16, ut.pointerToData(0));&#10;}</p>
+<p class="description">&#9;Here we create the vertex buffer object, element buffer object, and texture. We then upload these to the GPU. Since these do not change throughout the rendering process, they are created and uploaded once inside <a class="link" href="../cppclass/sgrbaserenderer#virtual_void_initialise_func_assign_">SGRBaseRenderer::initialise</a> and not touched inside <a class="link" href="../cppclass/sgrbaserenderer#virtual_void_uploadShaderData_func_assign_">SGRBaseRenderer::uploadShaderData</a>.</p>
+<p class="description">&#9;Note that the values used for the vertex buffer object and element buffer object here will give a fullscreen quad in SG - RI.</p>
+<p class="description">&#9;The image is a random image I found on my computer, anything will work as long as it is inside the assets/ folder so <a class="link" href="../tutorials/buildlah">BuildLah ⁽㈳㈴㈳㈮㈱㈨㈠㈫ ㈧㈤㈱㈤⁾</a> will include it.</p>
+<p class="description">&#9;Since the background colour does not change, we can also write the uniform buffer object here with the background colour data. However note that in most shader setups, uniforms constantly update and will need to be written to every frame in <a class="link" href="../cppclass/sgrbaserenderer#virtual_void_uploadShaderData_func_assign_">SGRBaseRenderer::uploadShaderData</a>.</p>
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<p class="description">&#9;Lastly we tell the GPU what to do every frame.</p>
+<p class="warning">void SGCLPCircleDisplay::uploadShaderData(){&#10;&#10;}&#10;&#10;void SGCLPCircleDisplay::requestRenderCommands(SGRCommandRequest *commandRequest){&#10;    (*commandRequest).addVertexBufferObject(vbo, 0);&#10;    (*commandRequest).chooseElementBufferObject(ebo);&#10;    (*commandRequest).finaliseForDraw();&#10;    (*commandRequest).drawTriangles(2, 0);&#10;}</p>
+<p class="description">&#9;Since there is no per frame changing data, <a class="link" href="../cppclass/sgrbaserenderer#virtual_void_uploadShaderData_func_assign_">SGRBaseRenderer::uploadShaderData</a> does literally nothing.</p>
+<p class="description">&#9;<a class="link" href="../cppclass/sgrbaserenderer#virtual_void_requestRenderCommands_SGRCommandRequest_ptr_assign_">SGRBaseRenderer::requestRenderCommands</a> binds the vertex buffer object and element buffer object before asking the GPU to draw 2 triangles to give a fullscreen quad. Note that the vertex buffer object and element buffer object must be selected every frame in SG - RI. This is different from the behaviour in OpenGL.</p>
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<p class="description">&#9;To actually display the renderer on screen, we need to create a <a class="link" href="../cppclass/sgrrendererwidget">SGRRendererWidget</a> that uses it. We can add this line of code</p>
+<p class="warning">if(SGCLPOptionsPage::chosenPattern == SGCLPOptionsPage::Circle){new SGRRendererWidget(bg, 0.0f, 0.0f, 0.0f, 1.0f, 1.0f, 0.0f, 1.0f, -1.0f, new SGCLPCircleDisplay(SGCLPOptionsPage::chosenBackgroundColour), nullptr);}</p>
+<p class="description">&#9;to the end of SGCLPDisplayPage::initialise so that the application creates the renderer when showing the display page.</p>
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<p class="description">&#9;With the code done, we can run our app again. As expected, display the circle works perfectly. We can then run a clang-tidy check and commit everything onto GitHub.</p>
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<p class="description">&#9;See <a class="link" href="full17">here</a> for the next part of the tutorial.</p>
+<p class="description">&#9;</p>
+<p class="description"></p>
+
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<div style="width: 100%; height: 0.25rem; background-color: var(--c4);"></div>
+<div style="width: 100%; height: 0.25rem; background-color: var(--c8);"></div>
+<p class="description">©2025 05524F.sg (Singapore)</p>
+<p class="description"><a class="link" href="/contact">contact 05524F / report a bug / make a suggestion</a></p>
+<p class="description"><a class="link" href="/values">about 05524F SINGAPORE values</a></p>
+<p class="description"><a class="link" href="/projects">list of 05524F projects</a></p>
+<div style="width: 100%; height: 0.25rem; background-color: var(--c8);"></div>
+<div style="width: 100%; height: 0.25rem; background-color: var(--c4);"></div>
+<div style="width: 100%; height: 0.25rem; background-color: var(--c8);"></div>
+</body>
+</html>

@@ -1,0 +1,280 @@
+
+<!DOCTYPE html>
+<html lang="en-SG">
+<head>
+<meta charset="UTF-8">
+<title>Full Tutorial Part 20</title>
+<link rel="icon" href="/icon.png" type="image/png">
+<meta property="og:image" content="/icon.png">
+<meta name="twitter:image" content="/icon.png">
+<link rel="apple-touch-icon" href="/icon.png">
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "url": "https://infinityintegral.github.io",
+    "image": "/icon.png"
+}
+</script>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+@font-face {
+	font-family: "SingScript.sg";
+	src: url("/SingScript.sg")format("truetype");
+	font-weight: normal;
+	font-style: normal;
+}
+
+:root {
+	--c0: rgb(0, 0, 0);
+	--c1: rgb(64, 0, 50);
+	--c2: rgb(128, 0, 100);
+	--c3: rgb(191, 0, 150);
+	--c4: rgb(255, 0, 200);
+	--c5: rgb(255, 64, 214);
+	--c6: rgb(255, 128, 227);
+	--c7: rgb(255, 191, 241);
+	--c8: rgb(255, 255, 255);
+}
+
+*{
+    font-family: "SingScript.sg";
+	max-width: 100%;
+	word-break: break-word;
+	-webkit-text-size-adjust: 100%;
+	-ms-text-size-adjust: 100%;
+}
+
+.title {
+	color: var(--c4);
+	font-size: 3.5rem;
+	margin: 0;
+	font-weight: normal;
+}
+.title::selection {
+	color: var(--c8);
+	background-color: var(--c4);
+	font-size: 3.5rem;
+	margin: 0;
+	font-weight: normal;
+}
+
+.header {
+	color: var(--c4);
+	font-size: 2.5rem;
+	margin: 0;
+	font-weight: normal;
+}
+.header::selection {
+	color: var(--c8);
+	background-color: var(--c4);
+	font-size: 2.625rem;
+	margin: 0;
+	font-weight: normal;
+}
+
+.description {
+	color: var(--c4);
+	font-size: 1.75rem;
+	margin: 0;
+	white-space: pre-wrap;
+}
+.description::selection {
+	color: var(--c8);
+	background-color: var(--c4);
+	font-size: 1.75rem;
+	margin: 0;
+	white-space: pre-wrap;
+}
+
+.note {
+	color: var(--c4);
+	font-size: 1.75rem;
+	margin: 0.25rem;
+	white-space: pre-wrap;
+    border: 0.25rem solid var(--c7);
+    padding: 0.25rem;
+}
+.note::selection {
+	color: var(--c8);
+	background-color: var(--c4);
+	font-size: 1.75rem;
+	margin: 0.25rem;
+	white-space: pre-wrap;
+    border: 0.25rem solid var(--c7);
+    padding: 0.25rem;
+}
+
+.warning {
+	color: var(--c4);
+	font-size: 1.75rem;
+	margin: 0.25rem;
+	white-space: pre-wrap;
+    border: 0.25rem solid var(--c4);
+    padding: 0.25rem;
+}
+.warning::selection {
+	color: var(--c8);
+	background-color: var(--c4);
+	font-size: 1.75rem;
+	margin: 0.25rem;
+	white-space: pre-wrap;
+    border: 0.25rem solid var(--c4);
+    padding: 0.25rem;
+}
+
+.link {
+	color: var(--c2);
+	text-decoration: underline;
+}
+.link:hover {
+	color: var(--c2);
+	background-color: var(--c7);
+	text-decoration: underline;
+}
+.link:active {
+	color: var(--c2);
+	background-color: var(--c6);
+	text-decoration: underline;
+}
+.link::selection {
+	color: var(--c8);
+	background-color: var(--c4);
+	text-decoration: underline;
+}
+
+.button {
+	color: var(--c8);
+	background-color: var(--c4);
+	font-size: 1.75rem;
+	border: none;
+}
+.button:hover {
+	color: var(--c7);
+	background-color: var(--c3);
+	font-size: 1.75rem;
+	border: none;
+}
+.button:active {
+	color: var(--c6);
+	background-color: var(--c2);
+	font-size: 1.75rem;
+	border: none;
+}
+.button::selection {
+	color: var(--c4);
+	background-color: var(--c8);
+	font-size: 1.75rem;
+	border: none;
+}
+
+.input {
+	color: var(--c8);
+	background-color: var(--c4);
+	font-size: 1.75rem;
+	border: none;
+	outline: none;
+	text-align: center;
+}
+.input:hover {
+	color: var(--c7);
+	background-color: var(--c3);
+	font-size: 1.75rem;
+	border: none;
+	outline: none;
+	text-align: center;
+}
+.input:focus {
+	color: var(--c6);
+	background-color: var(--c2);
+	font-size: 1.75rem;
+	border: none;
+	outline: none;
+	text-align: center;
+}
+.input::selection {
+	color: var(--c4);
+	background-color: var(--c8);
+	font-size: 1.75rem;
+	border: none;
+	outline: none;
+	text-align: center;
+}
+
+.highlight {
+    animation: highlightFlash 2s ease-out;
+}
+
+@keyframes highlightFlash {
+    0% {background-color: var(--c6);}
+    100% {background-color: var(--c8);}
+}
+</style>
+<script>
+let m = (new Date()).getMonth() + 1;
+if(m >= 7 && m <= 9){
+    document.documentElement.style.setProperty("--c0", "rgb(0, 0, 0)");
+    document.documentElement.style.setProperty("--c1", "rgb(60, 9, 14)");
+    document.documentElement.style.setProperty("--c2", "rgb(119, 19, 27)");
+    document.documentElement.style.setProperty("--c3", "rgb(179, 28, 41)");
+    document.documentElement.style.setProperty("--c4", "rgb(238, 37, 54)");
+    document.documentElement.style.setProperty("--c5", "rgb(242, 92, 104)");
+    document.documentElement.style.setProperty("--c6", "rgb(247, 146, 155)");
+    document.documentElement.style.setProperty("--c7", "rgb(251, 201, 205)");
+    document.documentElement.style.setProperty("--c8", "rgb(255, 255, 255)");
+}
+function highlightSection(){
+    let tag = window.location.hash.substring(1);
+    if(tag == ""){return;}
+    let element = document.getElementById(tag);
+    if(element == null){return;}
+    element.classList.add("highlight");
+    element.addEventListener("animationend", () => {element.classList.remove("highlight");}, {once: true});
+}
+window.addEventListener("DOMContentLoaded", highlightSection);
+window.addEventListener("hashchange", highlightSection);
+</script>
+</head>
+<body style="margin-left: 1em;">
+<p class="description" style="color: rgb(238, 37, 54); text-align: center; font-size: 2.5rem">sincerely <img src="/flag.png" style="vertical-align: middle; height: 2.5rem; image-rendering: auto;"> Singaporean</p>
+<div style="width: 100%; height: 0.25rem; background-color: var(--c8);"></div>
+<div><button class="button" style="width: 100%;" onclick="location.href='/'">Project 05524F.sg</button></div>
+<div style="width: 100%; height: 0.25rem; background-color: var(--c8);"></div>
+<div><button class="button" style="width: 100%;" onclick="location.href='../readme/readme'">SGEXTN Documentation</button></div><div style="width: 100%; height: 0.25rem; background-color: var(--c8);"></div><p class="warning">If you have not done so, read this full <a class="link" href="../tutorials/full">tutorial</a> on how to use SGEXTN to build an application.</p><div style="width: 100%; height: 0.75rem; background-color: var(--c8);"></div><h1 class="title">Full Tutorial Part 20</h1>
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<p class="description">&#9;See <a class="link" href="full19">here</a> for the previous part of the tutorial.</p>
+<p class="description">&#9;In the previous part, we built the fractal display.</p>
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<h2 class="header" id="">writing a release</h2>
+<p class="description">&#9;Our app is completed now and we are ready to make a release for it on GitHub. Before we do that, we will first need to build and package it. This can be done very easily using <a class="link" href="../tutorials/buildlah">BuildLah ⁽㈳㈴㈳㈮㈱㈨㈠㈫ ㈧㈤㈱㈤⁾</a> GitHub Actions. Without BuildLah, getting the app to build on all platforms can take weeks.</p>
+<p class="description">&#9;You may want to read through the <a class="link" href="../tutorials/buildlah">BuildLah ⁽㈳㈴㈳㈮㈱㈨㈠㈫ ㈧㈤㈱㈤⁾</a> tutorial again.</p>
+<p class="description">&#9;We need to write a GitHub Actions workflow at .github/workflows/build.yaml which invokes the BuildLah reusable workflow. The file should look like this.</p>
+<p class="warning">name: build app&#10;&#10;on:&#10;  workflow_dispatch:&#10;&#10;jobs:&#10;  build:&#10;    uses: InfinityIntegral/SGEXTN/.github/workflows/BuildLah.yaml@main&#10;    with:&#10;      app-name: colours-plus-plus&#10;      app-version: 2.0.0&#10;      qt-version: 6.10.1&#10;      cmake-target-name: ColoursPlusPlus_app&#10;      user-facing-app-name: Colours++&#10;      user-facing-app-version: v2.0.0&#10;      app-icon: assets/SGEXTN_icon.png&#10;      user-facing-organisation-name: 05524F.sg&#10;      bundle-id: sg.singapore05524f.coloursplusplus&#10;      app-category: Development&#10;      licensing: GPLv3&#10;      license-file: LICENSE.txt&#10;      app-description: demo app from SGEXTN tutorial&#10;      platforms: linux-gcc windows-llvm-mingw macos-clang android-arm64-clang</p>
+<p class="description">&#9;See <a class="link" href="../tutorials/buildlah">BuildLah ⁽㈳㈴㈳㈮㈱㈨㈠㈫ ㈧㈤㈱㈤⁾</a> for more information what each input means.</p>
+<p class="description">&#9;We are building 1 binary of the application for each of Windows, MacOS, Linux, and Android. The on: workflow_dispatch: means that the workflow will be used manually. This avoids unnecessary runs when a release is not needed.</p>
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<p class="description">&#9;To let GitHub see the workflow, we need to commit first. After that you should be able to see the workflow on the left menu on the actions tab of your repository. After clicking it in the menu, there should be a blue banner saying "This workflow has a workflow_dispatch event trigger.", clicking "run workflow" on the right side of the banner will run it.</p>
+<p class="description">&#9;You may need to wait for about 10 minutes for the workflow to finish. Once it is done, click into the most recent run and scroll all the way down. You should see the following files.</p>
+<p class="warning">qt-source-code&#10;sgextn-source-code&#10;linux-gcc-build&#10;linux-gcc-binary&#10;windows-llvm-mingw-build&#10;windows-llvm-mingw-binary&#10;macos-clang-build&#10;macos-clang-binary&#10;android-arm64-clang-build&#10;android-arm64-clang-binary</p>
+<p class="description">&#9;The -binary files are what we want, so we should download them. To comply with licensing, you need to download the qt-source-code and sgextn-source-code also. You can make a release with these files.</p>
+<p class="description">&#9;For actual apps that you intend to distribute, you should sign the binaries if possible, for MacOS and Android you should also consider using their official application distribution platforms.</p>
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<p class="description">&#9;To make a release, first click "Draft a new release" in the releases tab. The releases tab should be on the right hand side menu of the code tab. You can then write the release according to the instructions there.</p>
+<p class="description">&#9;For the tag, choose "create new tag" and make the tag name "v" followed by the version number, so something like v2.0.0 makes sense. The title should be the application name followed by the tag. You can write a short description for the release describing what it is about, and if there is a previous version, what changed. Remember to upload all the files along with the release.</p>
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<p class="description">&#9;You have now successfully completed the tutorial.</p>
+<p class="description">&#9;</p>
+<p class="description"></p>
+
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<div style="width: 100%; height: 0.25rem; background-color: var(--c4);"></div>
+<div style="width: 100%; height: 0.25rem; background-color: var(--c8);"></div>
+<p class="description">©2025 05524F.sg (Singapore)</p>
+<p class="description"><a class="link" href="/contact">contact 05524F / report a bug / make a suggestion</a></p>
+<p class="description"><a class="link" href="/values">about 05524F SINGAPORE values</a></p>
+<p class="description"><a class="link" href="/projects">list of 05524F projects</a></p>
+<div style="width: 100%; height: 0.25rem; background-color: var(--c8);"></div>
+<div style="width: 100%; height: 0.25rem; background-color: var(--c4);"></div>
+<div style="width: 100%; height: 0.25rem; background-color: var(--c8);"></div>
+</body>
+</html>

@@ -1,0 +1,285 @@
+
+<!DOCTYPE html>
+<html lang="en-SG">
+<head>
+<meta charset="UTF-8">
+<title>Full Tutorial Part 8</title>
+<link rel="icon" href="/icon.png" type="image/png">
+<meta property="og:image" content="/icon.png">
+<meta name="twitter:image" content="/icon.png">
+<link rel="apple-touch-icon" href="/icon.png">
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "url": "https://infinityintegral.github.io",
+    "image": "/icon.png"
+}
+</script>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+@font-face {
+	font-family: "SingScript.sg";
+	src: url("/SingScript.sg")format("truetype");
+	font-weight: normal;
+	font-style: normal;
+}
+
+:root {
+	--c0: rgb(0, 0, 0);
+	--c1: rgb(64, 0, 50);
+	--c2: rgb(128, 0, 100);
+	--c3: rgb(191, 0, 150);
+	--c4: rgb(255, 0, 200);
+	--c5: rgb(255, 64, 214);
+	--c6: rgb(255, 128, 227);
+	--c7: rgb(255, 191, 241);
+	--c8: rgb(255, 255, 255);
+}
+
+*{
+    font-family: "SingScript.sg";
+	max-width: 100%;
+	word-break: break-word;
+	-webkit-text-size-adjust: 100%;
+	-ms-text-size-adjust: 100%;
+}
+
+.title {
+	color: var(--c4);
+	font-size: 3.5rem;
+	margin: 0;
+	font-weight: normal;
+}
+.title::selection {
+	color: var(--c8);
+	background-color: var(--c4);
+	font-size: 3.5rem;
+	margin: 0;
+	font-weight: normal;
+}
+
+.header {
+	color: var(--c4);
+	font-size: 2.5rem;
+	margin: 0;
+	font-weight: normal;
+}
+.header::selection {
+	color: var(--c8);
+	background-color: var(--c4);
+	font-size: 2.625rem;
+	margin: 0;
+	font-weight: normal;
+}
+
+.description {
+	color: var(--c4);
+	font-size: 1.75rem;
+	margin: 0;
+	white-space: pre-wrap;
+}
+.description::selection {
+	color: var(--c8);
+	background-color: var(--c4);
+	font-size: 1.75rem;
+	margin: 0;
+	white-space: pre-wrap;
+}
+
+.note {
+	color: var(--c4);
+	font-size: 1.75rem;
+	margin: 0.25rem;
+	white-space: pre-wrap;
+    border: 0.25rem solid var(--c7);
+    padding: 0.25rem;
+}
+.note::selection {
+	color: var(--c8);
+	background-color: var(--c4);
+	font-size: 1.75rem;
+	margin: 0.25rem;
+	white-space: pre-wrap;
+    border: 0.25rem solid var(--c7);
+    padding: 0.25rem;
+}
+
+.warning {
+	color: var(--c4);
+	font-size: 1.75rem;
+	margin: 0.25rem;
+	white-space: pre-wrap;
+    border: 0.25rem solid var(--c4);
+    padding: 0.25rem;
+}
+.warning::selection {
+	color: var(--c8);
+	background-color: var(--c4);
+	font-size: 1.75rem;
+	margin: 0.25rem;
+	white-space: pre-wrap;
+    border: 0.25rem solid var(--c4);
+    padding: 0.25rem;
+}
+
+.link {
+	color: var(--c2);
+	text-decoration: underline;
+}
+.link:hover {
+	color: var(--c2);
+	background-color: var(--c7);
+	text-decoration: underline;
+}
+.link:active {
+	color: var(--c2);
+	background-color: var(--c6);
+	text-decoration: underline;
+}
+.link::selection {
+	color: var(--c8);
+	background-color: var(--c4);
+	text-decoration: underline;
+}
+
+.button {
+	color: var(--c8);
+	background-color: var(--c4);
+	font-size: 1.75rem;
+	border: none;
+}
+.button:hover {
+	color: var(--c7);
+	background-color: var(--c3);
+	font-size: 1.75rem;
+	border: none;
+}
+.button:active {
+	color: var(--c6);
+	background-color: var(--c2);
+	font-size: 1.75rem;
+	border: none;
+}
+.button::selection {
+	color: var(--c4);
+	background-color: var(--c8);
+	font-size: 1.75rem;
+	border: none;
+}
+
+.input {
+	color: var(--c8);
+	background-color: var(--c4);
+	font-size: 1.75rem;
+	border: none;
+	outline: none;
+	text-align: center;
+}
+.input:hover {
+	color: var(--c7);
+	background-color: var(--c3);
+	font-size: 1.75rem;
+	border: none;
+	outline: none;
+	text-align: center;
+}
+.input:focus {
+	color: var(--c6);
+	background-color: var(--c2);
+	font-size: 1.75rem;
+	border: none;
+	outline: none;
+	text-align: center;
+}
+.input::selection {
+	color: var(--c4);
+	background-color: var(--c8);
+	font-size: 1.75rem;
+	border: none;
+	outline: none;
+	text-align: center;
+}
+
+.highlight {
+    animation: highlightFlash 2s ease-out;
+}
+
+@keyframes highlightFlash {
+    0% {background-color: var(--c6);}
+    100% {background-color: var(--c8);}
+}
+</style>
+<script>
+let m = (new Date()).getMonth() + 1;
+if(m >= 7 && m <= 9){
+    document.documentElement.style.setProperty("--c0", "rgb(0, 0, 0)");
+    document.documentElement.style.setProperty("--c1", "rgb(60, 9, 14)");
+    document.documentElement.style.setProperty("--c2", "rgb(119, 19, 27)");
+    document.documentElement.style.setProperty("--c3", "rgb(179, 28, 41)");
+    document.documentElement.style.setProperty("--c4", "rgb(238, 37, 54)");
+    document.documentElement.style.setProperty("--c5", "rgb(242, 92, 104)");
+    document.documentElement.style.setProperty("--c6", "rgb(247, 146, 155)");
+    document.documentElement.style.setProperty("--c7", "rgb(251, 201, 205)");
+    document.documentElement.style.setProperty("--c8", "rgb(255, 255, 255)");
+}
+function highlightSection(){
+    let tag = window.location.hash.substring(1);
+    if(tag == ""){return;}
+    let element = document.getElementById(tag);
+    if(element == null){return;}
+    element.classList.add("highlight");
+    element.addEventListener("animationend", () => {element.classList.remove("highlight");}, {once: true});
+}
+window.addEventListener("DOMContentLoaded", highlightSection);
+window.addEventListener("hashchange", highlightSection);
+</script>
+</head>
+<body style="margin-left: 1em;">
+<p class="description" style="color: rgb(238, 37, 54); text-align: center; font-size: 2.5rem">sincerely <img src="/flag.png" style="vertical-align: middle; height: 2.5rem; image-rendering: auto;"> Singaporean</p>
+<div style="width: 100%; height: 0.25rem; background-color: var(--c8);"></div>
+<div><button class="button" style="width: 100%;" onclick="location.href='/'">Project 05524F.sg</button></div>
+<div style="width: 100%; height: 0.25rem; background-color: var(--c8);"></div>
+<div><button class="button" style="width: 100%;" onclick="location.href='../readme/readme'">SGEXTN Documentation</button></div><div style="width: 100%; height: 0.25rem; background-color: var(--c8);"></div><p class="warning">If you have not done so, read this full <a class="link" href="../tutorials/full">tutorial</a> on how to use SGEXTN to build an application.</p><div style="width: 100%; height: 0.75rem; background-color: var(--c8);"></div><h1 class="title">Full Tutorial Part 8</h1>
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<p class="description">&#9;See <a class="link" href="full07">here</a> for the previous part of the tutorial.</p>
+<p class="description">&#9;In the previous part, we wrote behaviours for the options page buttons that control what is inverted when using complementary mode for background colour.</p>
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<h2 class="header" id="">writing options page behaviour (part 3)</h2>
+<p class="description">&#9;Next, we can build the pattern selection buttons. If "star" or "regular polygon" is selected, the user can customise the number of vertices that it has, so we need to show SGCLPOptionsPage::polygonSideCountInput. Otherwise there is no need to show the input field and it will be hidden to reveal the "not applicable" text below.</p>
+<p class="description">&#9;We can write 4 functions, 1 per button, but that is annoying.</p>
+<p class="description">&#9;Using what we learnt from the last part of this tutorial, we can use <a class="link" href="../cppclass/sgwbutton#void_ptr_clickFunctionWithPointer_SGWButton_ptr_">SGWButton::clickFunctionWithPointer</a> to get a pointer to the button being clicked and make that selected. The problem with that is we do not know whether to hide or show the input field without keeping track of additional things...</p>
+<p class="description">&#9;What if there is a way to store non displayed information inside a UI element?</p>
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<p class="description">&#9;In QWidget, we would subclass the UI element and add our own field. However, this is annoying to do once you have many types of UI elements doing various things.</p>
+<p class="description">&#9;In QML, we would add a property. Though that sounds like nonsense from JS and not nice at all.</p>
+<p class="description">&#9;SGEXTN's approach to this issue is attaching a int and a <a class="link" href="../cppclass/sgxstring">SGXString</a> to every interactive UI element. In this case we can use <a class="link" href="../cppclass/sgwbutton#int_attachedInt_">SGWButton::attachedInt</a>. We can set it to 0 if the pattern does not need a vertex count, and 1 otherwise.</p>
+<p class="description">&#9;Inside the <a class="link" href="../tutorials/callback">callback function ⁽㈳㈴㈳㈮㈱㈨㈠㈫ ㈧㈤㈱㈤⁾</a>, we can just check <a class="link" href="../cppclass/sgwbutton#int_attachedInt_">SGWButton::attachedInt</a> to determine what to do. This is simple and does not use JS nonsense.</p>
+<p class="description">&#9;We then can implement this.</p>
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<p class="description">&#9;First we declare a function in SGCLPOptionsPage</p>
+<p class="warning">static void patternSelect(SGWButton* x);</p>
+<p class="description">&#9;Then when creating the buttons, not only do we set the associated <a class="link" href="../tutorials/callback">callback function ⁽㈳㈴㈳㈮㈱㈨㈠㈫ ㈧㈤㈱㈤⁾</a>, we also set the <a class="link" href="../cppclass/sgwbutton#int_attachedInt_">SGWButton::attachedInt</a>.</p>
+<p class="warning">SGCLPOptionsPage::patternCircleButton = new SGWTextButton(bg, "circle", nullptr, 0.0f, 0.5f, 0.0f, 12.0f, 0.5f, -0.5f, 0.0f, 1.0f);&#10;(*SGCLPOptionsPage::patternCircleButton).clickFunctionWithPointer = &SGCLPOptionsPage::patternSelect;&#10;(*SGCLPOptionsPage::patternCircleButton).attachedInt = 0;&#10;SGCLPOptionsPage::patternPolygonButton = new SGWTextButton(bg, "regular polygon", nullptr, 0.5f, 0.0f, 0.0f, 12.0f, 0.5f, -0.5f, 0.0f, 1.0f);&#10;(*SGCLPOptionsPage::patternPolygonButton).clickFunctionWithPointer = &SGCLPOptionsPage::patternSelect;&#10;(*SGCLPOptionsPage::patternPolygonButton).attachedInt = 1;&#10;SGCLPOptionsPage::patternStarButton = new SGWTextButton(bg, "star", nullptr, 0.0f, 0.5f, 0.0f, 13.0f, 0.5f, -0.5f, 0.0f, 1.0f);&#10;(*SGCLPOptionsPage::patternStarButton).clickFunctionWithPointer = &SGCLPOptionsPage::patternSelect;&#10;(*SGCLPOptionsPage::patternStarButton).attachedInt = 1;&#10;SGCLPOptionsPage::patternFractalButton = new SGWTextButton(bg, "fractal", nullptr, 0.5f, 0.0f, 0.0f, 13.0f, 0.5f, -0.5f, 0.0f, 1.0f);&#10;(*SGCLPOptionsPage::patternFractalButton).clickFunctionWithPointer = &SGCLPOptionsPage::patternSelect;&#10;(*SGCLPOptionsPage::patternFractalButton).attachedInt = 0;</p>
+<p class="description">&#9;We make sure the default is circle by setting that in SGCLPOptionsPage::reset</p>
+<p class="warning">SGCLPOptionsPage::patternSelect(SGCLPOptionsPage::patternCircleButton);</p>
+<p class="description">&#9;Then we finally actually implement the function.</p>
+<p class="warning">void SGCLPOptionsPage::patternSelect(SGWButton *x){&#10;    (*SGCLPOptionsPage::patternCircleButton).setSelected(false);&#10;    (*SGCLPOptionsPage::patternPolygonButton).setSelected(false);&#10;    (*SGCLPOptionsPage::patternStarButton).setSelected(false);&#10;    (*SGCLPOptionsPage::patternFractalButton).setSelected(false);&#10;    (*x).setSelected(true);&#10;    if((*x).attachedInt == 0){(*SGCLPOptionsPage::polygonSideCountInput).setItemVisibility(false);}&#10;    else{(*SGCLPOptionsPage::polygonSideCountInput).setItemVisibility(true);}&#10;}</p>
+<p class="description">&#9;Testing that shows that it works.</p>
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<p class="description">&#9;See <a class="link" href="full09">here</a> for the next part of the tutorial.</p>
+<p class="description">&#9;</p>
+<p class="description"></p>
+
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<div style="width: 100%; height: 0.25rem; background-color: var(--c4);"></div>
+<div style="width: 100%; height: 0.25rem; background-color: var(--c8);"></div>
+<p class="description">©2025 05524F.sg (Singapore)</p>
+<p class="description"><a class="link" href="/contact">contact 05524F / report a bug / make a suggestion</a></p>
+<p class="description"><a class="link" href="/values">about 05524F SINGAPORE values</a></p>
+<p class="description"><a class="link" href="/projects">list of 05524F projects</a></p>
+<div style="width: 100%; height: 0.25rem; background-color: var(--c8);"></div>
+<div style="width: 100%; height: 0.25rem; background-color: var(--c4);"></div>
+<div style="width: 100%; height: 0.25rem; background-color: var(--c8);"></div>
+</body>
+</html>

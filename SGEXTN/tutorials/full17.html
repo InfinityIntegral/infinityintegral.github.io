@@ -1,0 +1,302 @@
+
+<!DOCTYPE html>
+<html lang="en-SG">
+<head>
+<meta charset="UTF-8">
+<title>Full Tutorial Part 17</title>
+<link rel="icon" href="/icon.png" type="image/png">
+<meta property="og:image" content="/icon.png">
+<meta name="twitter:image" content="/icon.png">
+<link rel="apple-touch-icon" href="/icon.png">
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "url": "https://infinityintegral.github.io",
+    "image": "/icon.png"
+}
+</script>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+@font-face {
+	font-family: "SingScript.sg";
+	src: url("/SingScript.sg")format("truetype");
+	font-weight: normal;
+	font-style: normal;
+}
+
+:root {
+	--c0: rgb(0, 0, 0);
+	--c1: rgb(64, 0, 50);
+	--c2: rgb(128, 0, 100);
+	--c3: rgb(191, 0, 150);
+	--c4: rgb(255, 0, 200);
+	--c5: rgb(255, 64, 214);
+	--c6: rgb(255, 128, 227);
+	--c7: rgb(255, 191, 241);
+	--c8: rgb(255, 255, 255);
+}
+
+*{
+    font-family: "SingScript.sg";
+	max-width: 100%;
+	word-break: break-word;
+	-webkit-text-size-adjust: 100%;
+	-ms-text-size-adjust: 100%;
+}
+
+.title {
+	color: var(--c4);
+	font-size: 3.5rem;
+	margin: 0;
+	font-weight: normal;
+}
+.title::selection {
+	color: var(--c8);
+	background-color: var(--c4);
+	font-size: 3.5rem;
+	margin: 0;
+	font-weight: normal;
+}
+
+.header {
+	color: var(--c4);
+	font-size: 2.5rem;
+	margin: 0;
+	font-weight: normal;
+}
+.header::selection {
+	color: var(--c8);
+	background-color: var(--c4);
+	font-size: 2.625rem;
+	margin: 0;
+	font-weight: normal;
+}
+
+.description {
+	color: var(--c4);
+	font-size: 1.75rem;
+	margin: 0;
+	white-space: pre-wrap;
+}
+.description::selection {
+	color: var(--c8);
+	background-color: var(--c4);
+	font-size: 1.75rem;
+	margin: 0;
+	white-space: pre-wrap;
+}
+
+.note {
+	color: var(--c4);
+	font-size: 1.75rem;
+	margin: 0.25rem;
+	white-space: pre-wrap;
+    border: 0.25rem solid var(--c7);
+    padding: 0.25rem;
+}
+.note::selection {
+	color: var(--c8);
+	background-color: var(--c4);
+	font-size: 1.75rem;
+	margin: 0.25rem;
+	white-space: pre-wrap;
+    border: 0.25rem solid var(--c7);
+    padding: 0.25rem;
+}
+
+.warning {
+	color: var(--c4);
+	font-size: 1.75rem;
+	margin: 0.25rem;
+	white-space: pre-wrap;
+    border: 0.25rem solid var(--c4);
+    padding: 0.25rem;
+}
+.warning::selection {
+	color: var(--c8);
+	background-color: var(--c4);
+	font-size: 1.75rem;
+	margin: 0.25rem;
+	white-space: pre-wrap;
+    border: 0.25rem solid var(--c4);
+    padding: 0.25rem;
+}
+
+.link {
+	color: var(--c2);
+	text-decoration: underline;
+}
+.link:hover {
+	color: var(--c2);
+	background-color: var(--c7);
+	text-decoration: underline;
+}
+.link:active {
+	color: var(--c2);
+	background-color: var(--c6);
+	text-decoration: underline;
+}
+.link::selection {
+	color: var(--c8);
+	background-color: var(--c4);
+	text-decoration: underline;
+}
+
+.button {
+	color: var(--c8);
+	background-color: var(--c4);
+	font-size: 1.75rem;
+	border: none;
+}
+.button:hover {
+	color: var(--c7);
+	background-color: var(--c3);
+	font-size: 1.75rem;
+	border: none;
+}
+.button:active {
+	color: var(--c6);
+	background-color: var(--c2);
+	font-size: 1.75rem;
+	border: none;
+}
+.button::selection {
+	color: var(--c4);
+	background-color: var(--c8);
+	font-size: 1.75rem;
+	border: none;
+}
+
+.input {
+	color: var(--c8);
+	background-color: var(--c4);
+	font-size: 1.75rem;
+	border: none;
+	outline: none;
+	text-align: center;
+}
+.input:hover {
+	color: var(--c7);
+	background-color: var(--c3);
+	font-size: 1.75rem;
+	border: none;
+	outline: none;
+	text-align: center;
+}
+.input:focus {
+	color: var(--c6);
+	background-color: var(--c2);
+	font-size: 1.75rem;
+	border: none;
+	outline: none;
+	text-align: center;
+}
+.input::selection {
+	color: var(--c4);
+	background-color: var(--c8);
+	font-size: 1.75rem;
+	border: none;
+	outline: none;
+	text-align: center;
+}
+
+.highlight {
+    animation: highlightFlash 2s ease-out;
+}
+
+@keyframes highlightFlash {
+    0% {background-color: var(--c6);}
+    100% {background-color: var(--c8);}
+}
+</style>
+<script>
+let m = (new Date()).getMonth() + 1;
+if(m >= 7 && m <= 9){
+    document.documentElement.style.setProperty("--c0", "rgb(0, 0, 0)");
+    document.documentElement.style.setProperty("--c1", "rgb(60, 9, 14)");
+    document.documentElement.style.setProperty("--c2", "rgb(119, 19, 27)");
+    document.documentElement.style.setProperty("--c3", "rgb(179, 28, 41)");
+    document.documentElement.style.setProperty("--c4", "rgb(238, 37, 54)");
+    document.documentElement.style.setProperty("--c5", "rgb(242, 92, 104)");
+    document.documentElement.style.setProperty("--c6", "rgb(247, 146, 155)");
+    document.documentElement.style.setProperty("--c7", "rgb(251, 201, 205)");
+    document.documentElement.style.setProperty("--c8", "rgb(255, 255, 255)");
+}
+function highlightSection(){
+    let tag = window.location.hash.substring(1);
+    if(tag == ""){return;}
+    let element = document.getElementById(tag);
+    if(element == null){return;}
+    element.classList.add("highlight");
+    element.addEventListener("animationend", () => {element.classList.remove("highlight");}, {once: true});
+}
+window.addEventListener("DOMContentLoaded", highlightSection);
+window.addEventListener("hashchange", highlightSection);
+</script>
+</head>
+<body style="margin-left: 1em;">
+<p class="description" style="color: rgb(238, 37, 54); text-align: center; font-size: 2.5rem">sincerely <img src="/flag.png" style="vertical-align: middle; height: 2.5rem; image-rendering: auto;"> Singaporean</p>
+<div style="width: 100%; height: 0.25rem; background-color: var(--c8);"></div>
+<div><button class="button" style="width: 100%;" onclick="location.href='/'">Project 05524F.sg</button></div>
+<div style="width: 100%; height: 0.25rem; background-color: var(--c8);"></div>
+<div><button class="button" style="width: 100%;" onclick="location.href='../readme/readme'">SGEXTN Documentation</button></div><div style="width: 100%; height: 0.25rem; background-color: var(--c8);"></div><p class="warning">If you have not done so, read this full <a class="link" href="../tutorials/full">tutorial</a> on how to use SGEXTN to build an application.</p><div style="width: 100%; height: 0.75rem; background-color: var(--c8);"></div><h1 class="title">Full Tutorial Part 17</h1>
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<p class="description">&#9;See <a class="link" href="full16">here</a> for the previous part of the tutorial.</p>
+<p class="description">&#9;In the previous part, we built the circle display.</p>
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<h2 class="header" id="">shaders (part 2)</h2>
+<p class="description">&#9;In this part of the tutorial, we will build the polygon display.</p>
+<p class="description">&#9;Unlike the circle display which used the fragment shader to determine the circle's shape, this time we will be using actual vertices.</p>
+<p class="description">&#9;We will use the same coordinate system for the vertices as what we used in the fragment shader of the circle display. The polygon will have its vertices all on the circle centered at the origin with a radius of 0.75</p>
+<p class="description">&#9;Since the geometry will not cover the background, the background colour will be drawn using a <a class="link" href="../cppclass/sgwblankwidget">SGWBlankWidget</a> with a custom background colour.</p>
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<p class="description">&#9;Firstly we write the vertex shader in a file at shaders/polygon.vert</p>
+<p class="warning">#version 310 es&#10;precision highp float;&#10;precision highp int;&#10;layout(std140, binding = 0) uniform SG_RI_builtin_{&#10;    float x;&#10;    float y;&#10;    float width;&#10;    float height;&#10;    float windowWidth;&#10;    float windowHeight;&#10;    int offscreen;&#10;} SG_RI_builtin;&#10;vec4 SG_RI_transform(vec4 prelimPosition){&#10;    prelimPosition = vec4(2.0f * (prelimPosition.x * SG_RI_builtin.width / SG_RI_builtin.windowWidth + SG_RI_builtin.x / SG_RI_builtin.windowWidth) - 1.0f, -2.0f * (prelimPosition.y * SG_RI_builtin.height / SG_RI_builtin.windowHeight + SG_RI_builtin.y / SG_RI_builtin.windowHeight) + 1.0f, prelimPosition.z, prelimPosition.w);&#10;    if(SG_RI_builtin.offscreen != 0){prelimPosition = vec4(prelimPosition.x, -1.0f * prelimPosition.y, prelimPosition.z, prelimPosition.w);}&#10;    return prelimPosition;&#10;}&#10;&#10;layout(location = 0) in vec2 vertex;&#10;&#10;void main(){&#10;    vec2 vertexCoords = vec2(0.5f * vertex.x, 0.5f * vertex.y);&#10;    if(SG_RI_builtin.width &gt; SG_RI_builtin.height){vertexCoords = vec2(vertexCoords.x * SG_RI_builtin.height / SG_RI_builtin.width, vertexCoords.y);}&#10;    else{vertexCoords = vec2(vertexCoords.x, vertexCoords.y * SG_RI_builtin.width / SG_RI_builtin.height);}&#10;    vertexCoords += vec2(0.5f, 0.5f);&#10;    gl_Position = vec4(vertexCoords.x, vertexCoords.y, 0.0f, 1.0f);&#10;&#10;    gl_Position = SG_RI_transform(gl_Position);&#10;}</p>
+<p class="description">&#9;This essentially converts the coordinate system that the vertices are in to the coordinate system used by SG - RI. The code block is really long, but most of it is simple copy pasting that must be done for every SG - RI vertex shader.</p>
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<p class="description">&#9;Next we write the fragment shader.</p>
+<p class="description">&#9;This is even simpler, as it literally just displays whatever colour that the uniform is set to use.</p>
+<p class="warning">#version 310 es&#10;precision highp float;&#10;precision highp int;&#10;layout(std140, binding = 1) uniform data_{&#10;    vec4 foregroundColour;&#10;} data;&#10;&#10;layout(location = 0) out vec4 outColour;&#10;&#10;void main(){&#10;    outColour = data.foregroundColour;&#10;}</p>
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<p class="description">&#9;Then in the header file include/SGCLPPolygonDisplay.h we can define the SGCLPPolygonDisplay class inheriting from <a class="link" href="../cppclass/sgrbaserenderer">SGRBaseRenderer</a>.</p>
+<p class="warning">class SGCLPPolygonDisplay : public SGRBaseRenderer {&#10;public:&#10;    SGCLPPolygonDisplay(int vertexCount, SGXColourRGBA fg);&#10;    int vertexCount;&#10;    SGXColourRGBA foregroundColour = {};&#10;    SGRRenderingProgramme* createRenderingProgramme() override;&#10;    void initialise() override;&#10;    void cleanResourcesOnDestruction() override;&#10;    void uploadShaderData() override;&#10;    void requestRenderCommands(SGRCommandRequest* commandRequest) override;&#10;    SGRVertexBufferObject* vbo;&#10;    SGRElementBufferObject* ebo;&#10;};</p>
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<p class="description">&#9;We then implement everything.</p>
+<p class="warning">SGCLPPolygonDisplay::SGCLPPolygonDisplay(int vertexCount, SGXColourRGBA fg){&#10;    (*this).foregroundColour = fg;&#10;    (*this).vertexCount = vertexCount;&#10;    (*this).vbo = nullptr;&#10;    (*this).ebo = nullptr;&#10;}&#10;&#10;SGRRenderingProgramme* SGCLPPolygonDisplay::createRenderingProgramme(){&#10;    SGRRenderingProgramme* rp = new SGRRenderingProgramme(this);&#10;    (*rp).setShaderQSBFiles(":/ColoursPlusPlus/polygon.vert.qsb", ":/ColoursPlusPlus/polygon.frag.qsb");&#10;    (*rp).addUniformBufferObject(16, 1);&#10;    (*rp).finaliseShaderResource();&#10;    (*rp).addVertexBufferObject(2 * 4);&#10;    (*rp).addVertexProperty(0, 0, 0, SGRGraphicsLanguageType::Float, 2);&#10;    (*rp).finaliseVertices();&#10;    (*rp).finaliseRenderingProgramme();&#10;    return rp;&#10;}&#10;&#10;void SGCLPPolygonDisplay::cleanResourcesOnDestruction(){&#10;    delete vbo;&#10;    delete ebo;&#10;}&#10;&#10;void SGCLPPolygonDisplay::uploadShaderData(){&#10;&#10;}&#10;&#10;void SGCLPPolygonDisplay::requestRenderCommands(SGRCommandRequest *commandRequest){&#10;    (*commandRequest).addVertexBufferObject(vbo, 0);&#10;    (*commandRequest).chooseElementBufferObject(ebo);&#10;    (*commandRequest).finaliseForDraw();&#10;    (*commandRequest).drawTriangles(vertexCount, 0);&#10;}</p>
+<p class="description">&#9;These do essentially the same thing as what you have seen in the implementation of SGCLPCircleDisplay, not very interesting.</p>
+<p class="description">&#9;The interesting part of SGCLPPolygonDisplay is in the SGCLPPolygonDisplay::initialise function where the vertices are generated.</p>
+<p class="warning">void SGCLPPolygonDisplay::initialise(){&#10;    SGLArray&lt;float&gt; vt(2 * (vertexCount + 1));&#10;    vt.at(0) = 0.0f;&#10;    vt.at(1) = 0.0f;&#10;    for(int i=0; i&lt;vertexCount; i++){&#10;        float angle = -0.5f * SGLFloatConstants::pi() + 2.0f * SGLFloatConstants::pi() /static_cast&lt;float&gt;(vertexCount) * static_cast&lt;float&gt;(i);&#10;        vt.at(2 + 2 * i) = 0.75f * SGLFloatMath::cosine(angle);&#10;        vt.at(3 + 2 * i) = 0.75f * SGLFloatMath::sine(angle);&#10;    }&#10;    vbo = new SGRVertexBufferObject(this, 4 * 2 * (vertexCount + 1));&#10;    (*renderingProgramme()).updateDataBuffer(vbo, 0, 4 * 2 * (vertexCount + 1), vt.pointerToData(0));&#10;    SGLArray&lt;int&gt; et(3 * vertexCount);&#10;    for(int i=0; i&lt;vertexCount; i++){&#10;        et.at(3 * i) = 0;&#10;        et.at(3 * i + 1) = i + 1;&#10;        et.at(3 * i + 2) = i + 2;&#10;    }&#10;    et.at(3 * vertexCount - 1) = 1;&#10;    ebo = new SGRElementBufferObject(this, 4 * 3 * vertexCount);&#10;    (*renderingProgramme()).updateDataBuffer(ebo, 0, 4 * 3 * vertexCount, et.pointerToData(0));&#10;    SGLArray&lt;float&gt; ut(foregroundColour.getRedAsFloat(), foregroundColour.getGreenAsFloat(), foregroundColour.getBlueAsFloat(), foregroundColour.getTransparencyAsFloat());&#10;    (*renderingProgramme()).updateShaderUniforms(1, 0, 16, ut.pointerToData(0));&#10;}</p>
+<p class="description">&#9;This function can roughly be divided into 3 parts. The first part generates the vertex buffer object, the second part generates the element buffer object, and the last part uploads the uniforms. We will focus on the first 2 parts.</p>
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<p class="description">&#9;First part:</p>
+<p class="warning">SGLArray&lt;float&gt; vt(2 * (vertexCount + 1));&#10;vt.at(0) = 0.0f;&#10;vt.at(1) = 0.0f;&#10;for(int i=0; i&lt;vertexCount; i++){&#10;    float angle = -0.5f * SGLFloatConstants::pi() + 2.0f * SGLFloatConstants::pi() /static_cast&lt;float&gt;(vertexCount) * static_cast&lt;float&gt;(i);&#10;    vt.at(2 + 2 * i) = 0.75f * SGLFloatMath::cosine(angle);&#10;    vt.at(3 + 2 * i) = 0.75f * SGLFloatMath::sine(angle);&#10;}</p>
+<p class="description">&#9;Here vt is a <a class="link" href="../cppclass/sglarray">SGLArray</a> containing all the vertices to be uploaded into the vertex buffer object, with 2 numbers for each vertex.</p>
+<p class="description">&#9;Vertex 0 is the origin, while the remaining vertices are like what you would expect, vertices around the perimeter of the regular polygon. Wait... but a regular polygon does not have a vertex at its center. Is this code not passing 1 more vertex than necessary and thus is being inefficient?</p>
+<p class="description">&#9;To understand the reason for this design, we need to look at how the polygon is actually being drawn. The GPU can only draw triangles, nothing else. So to draw a polygon, we need to divide it into many triangles. This process is called triangulation.</p>
+<p class="description">&#9;In a good triangulation, most triangles produced should be roughly equilateral and triangles should not vary in size too much. Using a bad triangulation can lead to visual artifacts when textures are being used. Although we are not using textures here, it is a good habit to use good triangulations.</p>
+<p class="description">&#9;How exactly the triangles are drawn on the screen are determined by the element buffer object, where each group of 3 numbers defines a triangle connecting the 3 vertices at these index numbers.</p>
+<p class="warning">SGLArray&lt;int&gt; et(3 * vertexCount);&#10;for(int i=0; i&lt;vertexCount; i++){&#10;    et.at(3 * i) = 0;&#10;    et.at(3 * i + 1) = i + 1;&#10;    et.at(3 * i + 2) = i + 2;&#10;}&#10;et.at(3 * vertexCount - 1) = 1;</p>
+<p class="description">&#9;From the code in the second part of the implementation, we can see that the triangulation being used slices the polygon into identical triangles around the center. This is not perfect, but better than slicing it into triangles around a vertex. When a good triangulation is absolutely necessary (when you use textures), you can consider using the Delaunay Triangulation or Constrained Delaunay Triangulation.</p>
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<p class="description">&#9;Now we can add these lines to SGCLPDisplayPage::initialise</p>
+<p class="warning">else if(SGCLPOptionsPage::chosenPattern == SGCLPOptionsPage::Polygon){&#10;    SGWBlankWidget* w = new SGWBlankWidget(bg, 0.0f, 0.0f, 0.0f, 1.0f, 1.0f, 0.0f, 1.0f, -1.0f, -1);&#10;    (*w).setColour(SGCLPOptionsPage::chosenBackgroundColour);&#10;    new SGRRendererWidget(bg, 0.0f, 0.0f, 0.0f, 1.0f, 1.0f, 0.0f, 1.0f, -1.0f, new SGCLPPolygonDisplay(SGCLPOptionsPage::chosenVertexCount, SGCLPOptionsPage::chosenForegroundColour), nullptr);&#10;}</p>
+<p class="description">&#9;Apart from creating a <a class="link" href="../cppclass/sgrrendererwidget">SGRRendererWidget</a> to display the renderer, this also creates a <a class="link" href="../cppclass/sgwblankwidget">SGWBlankWidget</a> and uses <a class="link" href="../cppclass/sgwblankwidget#void_setColour_SGXColourRGBA_">SGWBlankWidget::setColour</a> to set its colour from a <a class="link" href="../cppclass/sgxcolourrgba">SGXColourRGBA</a>. All colours on <a class="link" href="../tutorials/sgwidget">SGWidget ⁽㈳㈴㈳㈮㈱㈨㈠㈫ ㈧㈤㈱㈤⁾</a> UI elements can be fully customised using the theme system and by directly inputting the colour.</p>
+<p class="description">&#9;Testing shows that the <a class="link" href="../cppclass/sgrrendererwidget">SGRRendererWidget</a> is working as expected, so we can run a clang-tidy check and commit to GitHub.</p>
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<p class="description">&#9;See <a class="link" href="full18">here</a> for the next part of the tutorial.</p>
+<p class="description">&#9;</p>
+<p class="description"></p>
+
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<div style="width: 100%; height: 0.25rem; background-color: var(--c4);"></div>
+<div style="width: 100%; height: 0.25rem; background-color: var(--c8);"></div>
+<p class="description">©2025 05524F.sg (Singapore)</p>
+<p class="description"><a class="link" href="/contact">contact 05524F / report a bug / make a suggestion</a></p>
+<p class="description"><a class="link" href="/values">about 05524F SINGAPORE values</a></p>
+<p class="description"><a class="link" href="/projects">list of 05524F projects</a></p>
+<div style="width: 100%; height: 0.25rem; background-color: var(--c8);"></div>
+<div style="width: 100%; height: 0.25rem; background-color: var(--c4);"></div>
+<div style="width: 100%; height: 0.25rem; background-color: var(--c8);"></div>
+</body>
+</html>

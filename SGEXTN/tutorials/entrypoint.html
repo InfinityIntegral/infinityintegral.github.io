@@ -250,8 +250,7 @@ window.addEventListener("hashchange", highlightSection);
 <div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
 <p class="description">&#9;When you write your application's entry point, the computer does not know about SGEXTN or how to initialise it. To initialise SGEXTN properly, you would need to use the function</p>
 <p class="warning">int SGEXTN(int argc, char **argv, void (*initialiseFunction)())</p>
-<p class="description">&#9;This function is found in the EntryPoint_SG "module", so to use it, you have to link to the "module" in your CMakeLists.txt file. Here is the CMake command required.</p>
-<p class="warning">find_package(SGEXTN REQUIRED COMPONENTS EntryPoint_SG)&#10;target_link_libraries(yourCMakeTarget PRIVATE SGEXTN::EntryPoint_SG)</p>
+<p class="description">&#9;This function is found in the EntryPoint_SG "module", so to use it, you have to link to SGEXTN::EntryPoint_SG in <a class="link" href="../tutorials/buildlah">BuildLah ⁽㈳㈴㈳㈮㈱㈨㈠㈫ ㈧㈤㈱㈤⁾</a></p>
 <p class="description">&#9;You must pass argc and argv to the SGEXTN entry point. This is especially important if your programme will accept command line arguments, since SGEXTN internally provides the arguments to your function handling them. If no arguments or the wrong arguments are sent, it may cause <a class="link" href="../tutorials/undefinedbehaviour">undefined behaviour</a>.</p>
 <div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
 <p class="description">&#9;Almost certainly, your application also needs to perform setup. This can include creating UI pages, reading configuration files, setting up static variables, or even loading fonts.</p>

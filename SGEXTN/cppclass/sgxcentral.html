@@ -253,9 +253,8 @@ window.addEventListener("hashchange", highlightSection);
 <p class="description"><a class="link" href="#sg_implementationdetails">implementation details</a></p>
 <div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
 <p class="description">preprocessor file inclusion directive: #include ‹SGXCentral.h›</p>
-<p class="description">CMake commands:</p>
-<p class="description">&#9;find_package(<a class="link" href="../readme/readme">SGEXTN</a> REQUIRED COMPONENTS <a class="link" href="../modules/sg_core">SG_Core</a>)</p>
-<p class="description">&#9;target_link_libraries(yourCMakeTarget PRIVATE <a class="link" href="../modules/sg_core">SGEXTN::SG_Core</a>)</p>
+<p class="description">CMake target for BuildLah: <a class="link" href="../modules/sg_core">SGEXTN::SG_Core</a></p>
+<p class="description">see <a class="link" href="../tutorials/buildlah">this link</a> for more information about BuildLah</p>
 <p class="description">parent class: (none)</p>
 <p class="description">children classes: (none)</p>
 <div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
@@ -322,7 +321,7 @@ window.addEventListener("hashchange", highlightSection);
 <h2 class="header" id="static_SGXString_pathToAppIcon_">static <a class="link" href="sgxstring">SGXString</a> <a class="link" href="#static_SGXString_pathToAppIcon_">pathToAppIcon</a>;</h2>
 <p class="description">Path to the application icon which is shown when users run the application. This must be set in the entry point.</p>
 <p class="note">Setting this after the entry point has no effect.</p>
-<p class="warning">The matching file must exist in the resource system. To ensure that, use relevant CMake commands. For more information about the resource system, see this <a class="link" href="../tutorials/resources">tutorial</a>.</p>
+<p class="warning">The matching file must exist in the resource system. To ensure that, put the app icon in the assets folder. For more information about the resource system, see this <a class="link" href="../tutorials/resources">tutorial</a>.</p>
 <p class="warning">If the icon file cannot be found, this is <a class="link" href="../tutorials/undefinedbehaviour">undefined behaviour</a>. However not setting this does not cause <a class="link" href="../tutorials/undefinedbehaviour">undefined behaviour</a>.</p>
 <div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
 <h2 class="header" id="static_void_ptr_setCustomTheme_func_">static void (*<a class="link" href="#static_void_ptr_setCustomTheme_func_">setCustomTheme</a>)();</h2>

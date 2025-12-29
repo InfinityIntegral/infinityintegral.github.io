@@ -1,0 +1,284 @@
+
+<!DOCTYPE html>
+<html lang="en-SG">
+<head>
+<meta charset="UTF-8">
+<title>Full Tutorial Part 10</title>
+<link rel="icon" href="/icon.png" type="image/png">
+<meta property="og:image" content="/icon.png">
+<meta name="twitter:image" content="/icon.png">
+<link rel="apple-touch-icon" href="/icon.png">
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "url": "https://infinityintegral.github.io",
+    "image": "/icon.png"
+}
+</script>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+@font-face {
+	font-family: "SingScript.sg";
+	src: url("/SingScript.sg")format("truetype");
+	font-weight: normal;
+	font-style: normal;
+}
+
+:root {
+	--c0: rgb(0, 0, 0);
+	--c1: rgb(64, 0, 50);
+	--c2: rgb(128, 0, 100);
+	--c3: rgb(191, 0, 150);
+	--c4: rgb(255, 0, 200);
+	--c5: rgb(255, 64, 214);
+	--c6: rgb(255, 128, 227);
+	--c7: rgb(255, 191, 241);
+	--c8: rgb(255, 255, 255);
+}
+
+*{
+    font-family: "SingScript.sg";
+	max-width: 100%;
+	word-break: break-word;
+	-webkit-text-size-adjust: 100%;
+	-ms-text-size-adjust: 100%;
+}
+
+.title {
+	color: var(--c4);
+	font-size: 3.5rem;
+	margin: 0;
+	font-weight: normal;
+}
+.title::selection {
+	color: var(--c8);
+	background-color: var(--c4);
+	font-size: 3.5rem;
+	margin: 0;
+	font-weight: normal;
+}
+
+.header {
+	color: var(--c4);
+	font-size: 2.5rem;
+	margin: 0;
+	font-weight: normal;
+}
+.header::selection {
+	color: var(--c8);
+	background-color: var(--c4);
+	font-size: 2.625rem;
+	margin: 0;
+	font-weight: normal;
+}
+
+.description {
+	color: var(--c4);
+	font-size: 1.75rem;
+	margin: 0;
+	white-space: pre-wrap;
+}
+.description::selection {
+	color: var(--c8);
+	background-color: var(--c4);
+	font-size: 1.75rem;
+	margin: 0;
+	white-space: pre-wrap;
+}
+
+.note {
+	color: var(--c4);
+	font-size: 1.75rem;
+	margin: 0.25rem;
+	white-space: pre-wrap;
+    border: 0.25rem solid var(--c7);
+    padding: 0.25rem;
+}
+.note::selection {
+	color: var(--c8);
+	background-color: var(--c4);
+	font-size: 1.75rem;
+	margin: 0.25rem;
+	white-space: pre-wrap;
+    border: 0.25rem solid var(--c7);
+    padding: 0.25rem;
+}
+
+.warning {
+	color: var(--c4);
+	font-size: 1.75rem;
+	margin: 0.25rem;
+	white-space: pre-wrap;
+    border: 0.25rem solid var(--c4);
+    padding: 0.25rem;
+}
+.warning::selection {
+	color: var(--c8);
+	background-color: var(--c4);
+	font-size: 1.75rem;
+	margin: 0.25rem;
+	white-space: pre-wrap;
+    border: 0.25rem solid var(--c4);
+    padding: 0.25rem;
+}
+
+.link {
+	color: var(--c2);
+	text-decoration: underline;
+}
+.link:hover {
+	color: var(--c2);
+	background-color: var(--c7);
+	text-decoration: underline;
+}
+.link:active {
+	color: var(--c2);
+	background-color: var(--c6);
+	text-decoration: underline;
+}
+.link::selection {
+	color: var(--c8);
+	background-color: var(--c4);
+	text-decoration: underline;
+}
+
+.button {
+	color: var(--c8);
+	background-color: var(--c4);
+	font-size: 1.75rem;
+	border: none;
+}
+.button:hover {
+	color: var(--c7);
+	background-color: var(--c3);
+	font-size: 1.75rem;
+	border: none;
+}
+.button:active {
+	color: var(--c6);
+	background-color: var(--c2);
+	font-size: 1.75rem;
+	border: none;
+}
+.button::selection {
+	color: var(--c4);
+	background-color: var(--c8);
+	font-size: 1.75rem;
+	border: none;
+}
+
+.input {
+	color: var(--c8);
+	background-color: var(--c4);
+	font-size: 1.75rem;
+	border: none;
+	outline: none;
+	text-align: center;
+}
+.input:hover {
+	color: var(--c7);
+	background-color: var(--c3);
+	font-size: 1.75rem;
+	border: none;
+	outline: none;
+	text-align: center;
+}
+.input:focus {
+	color: var(--c6);
+	background-color: var(--c2);
+	font-size: 1.75rem;
+	border: none;
+	outline: none;
+	text-align: center;
+}
+.input::selection {
+	color: var(--c4);
+	background-color: var(--c8);
+	font-size: 1.75rem;
+	border: none;
+	outline: none;
+	text-align: center;
+}
+
+.highlight {
+    animation: highlightFlash 2s ease-out;
+}
+
+@keyframes highlightFlash {
+    0% {background-color: var(--c6);}
+    100% {background-color: var(--c8);}
+}
+</style>
+<script>
+let m = (new Date()).getMonth() + 1;
+if(m >= 7 && m <= 9){
+    document.documentElement.style.setProperty("--c0", "rgb(0, 0, 0)");
+    document.documentElement.style.setProperty("--c1", "rgb(60, 9, 14)");
+    document.documentElement.style.setProperty("--c2", "rgb(119, 19, 27)");
+    document.documentElement.style.setProperty("--c3", "rgb(179, 28, 41)");
+    document.documentElement.style.setProperty("--c4", "rgb(238, 37, 54)");
+    document.documentElement.style.setProperty("--c5", "rgb(242, 92, 104)");
+    document.documentElement.style.setProperty("--c6", "rgb(247, 146, 155)");
+    document.documentElement.style.setProperty("--c7", "rgb(251, 201, 205)");
+    document.documentElement.style.setProperty("--c8", "rgb(255, 255, 255)");
+}
+function highlightSection(){
+    let tag = window.location.hash.substring(1);
+    if(tag == ""){return;}
+    let element = document.getElementById(tag);
+    if(element == null){return;}
+    element.classList.add("highlight");
+    element.addEventListener("animationend", () => {element.classList.remove("highlight");}, {once: true});
+}
+window.addEventListener("DOMContentLoaded", highlightSection);
+window.addEventListener("hashchange", highlightSection);
+</script>
+</head>
+<body style="margin-left: 1em;">
+<p class="description" style="color: rgb(238, 37, 54); text-align: center; font-size: 2.5rem">sincerely <img src="/flag.png" style="vertical-align: middle; height: 2.5rem; image-rendering: auto;"> Singaporean</p>
+<div style="width: 100%; height: 0.25rem; background-color: var(--c8);"></div>
+<div><button class="button" style="width: 100%;" onclick="location.href='/'">Project 05524F.sg</button></div>
+<div style="width: 100%; height: 0.25rem; background-color: var(--c8);"></div>
+<div><button class="button" style="width: 100%;" onclick="location.href='../readme/readme'">SGEXTN Documentation</button></div><div style="width: 100%; height: 0.25rem; background-color: var(--c8);"></div><p class="warning">If you have not done so, read this full <a class="link" href="../tutorials/full">tutorial</a> on how to use SGEXTN to build an application.</p><div style="width: 100%; height: 0.75rem; background-color: var(--c8);"></div><h1 class="title">Full Tutorial Part 10</h1>
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<p class="description">&#9;See <a class="link" href="full09">here</a> for the previous part of the tutorial.</p>
+<p class="description">&#9;In the previous part, we wrote the behaviour of the input field in the options page.</p>
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<h2 class="header" id="">writing options page behaviour (final part)</h2>
+<p class="description">&#9;Noe the options page is done (we will write the presets system later, ignore it for now), we need to extract data from the UI for processing by the application.</p>
+<p class="description">&#9;We can use <a class="link" href="../cppclass/sgwbutton#nodiscard_bool_getSelected_func_const_">SGWButton::getSelected</a>, <a class="link" href="../cppclass/sgwinput#nodiscard_bool_getInvalid_func_const_">SGWInput::getInvalid</a>, <a class="link" href="../cppclass/sgwcolourpickerwidget#nodiscard_SGXColourRGBA_getColour_func_const_">SGWColourPickerWidget::getColour</a>, <a class="link" href="../cppclass/sgwinput#nodiscard_int_getTextAsInt_bool_ptr_int_int_const_">SGWInput::getTextAsInt</a>, <a class="link" href="../cppclass/sgwinput#nodiscard_float_getTextAsFloat_bool_ptr_float_float_const_">SGWInput::getTextAsFloat</a>, and <a class="link" href="../cppclass/sgwinput#nodiscard_SGXString_getTextAsString_func_const_">SGWInput::getTextAsString</a> to do this.</p>
+<p class="description">&#9;Before we do that, we should first make a function SGCLPOptionsPage::submitOptions and call it whenever the submit button is pressed. By now you should already know how to do that. We will focus on implementing the function.</p>
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<p class="description">&#9;First we check if the input field for the number of vertices is valid. If the value is relevant but it is not valid, then we prevent the user from actually submitting the options.</p>
+<p class="description">&#9;To warn the user about invalid input, we can use <a class="link" href="../cppclass/sgwnotify#static_void_pullDownNotify_const_SGXString_ref_">SGWNotify::pullDownNotify</a>. To display informational messages, use <a class="link" href="../cppclass/sgwnotify#static_void_notify_const_SGXString_ref_">SGWNotify::notify</a>.</p>
+<p class="warning">if((*SGCLPOptionsPage::polygonSideCountInput).getInvalid() == true && ((*SGCLPOptionsPage::patternPolygonButton).getSelected() == true || (*SGCLPOptionsPage::patternStarButton).getSelected() == true)){&#10;    SGWNotify::pullDownNotify("invalid number of vertices chosen");&#10;    return;&#10;}</p>
+<p class="description">&#9;If this does not trigger, it would mean that everything is ok. In that case, we can save the chosen options for the next part of the application to process.</p>
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<p class="description">&#9;When we turn off this UI page, the UI elements on screen will be destroyed and the data will be gone, so we have to save it in static variables first. We can declare the static variables first.</p>
+<p class="warning">static SGXColourRGBA chosenBackgroundColour;&#10;static SGXColourRGBA chosenForegroundColour;&#10;enum Pattern{&#10;    Circle,&#10;    Polygon,&#10;    Star,&#10;    Fractal&#10;};&#10;static Pattern chosenPattern;&#10;static int chosenVertexCount;</p>
+<p class="description">&#9;Here we use a enum for the pattern type as it gives better readability. In SGEXTN, unlike in Qt, there is no registration or MetaObject processing required for enums.</p>
+<p class="description">&#9;As usual, we have to declare these in the source file.</p>
+<p class="warning">SGXColourRGBA SGCLPOptionsPage::chosenForegroundColour = SGXColourRGBA(255, 0, 200);&#10;SGXColourRGBA SGCLPOptionsPage::chosenBackgroundColour = SGXColourRGBA(255, 255, 255);&#10;SGCLPOptionsPage::Pattern SGCLPOptionsPage::chosenPattern = SGCLPOptionsPage::Circle;&#10;int SGCLPOptionsPage::chosenVertexCount = 3;</p>
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<p class="description">&#9;Then we save everything into static variables.</p>
+<p class="warning">SGCLPOptionsPage::chosenForegroundColour = (*SGCLPOptionsPage::foregroundColourPicker).getColour();&#10;SGCLPOptionsPage::chosenBackgroundColour = SGCLPOptionsPage::chosenForegroundColour;&#10;if((*SGCLPOptionsPage::backgroundUseCustomButton).getSelected() == true){SGCLPOptionsPage::chosenBackgroundColour = (*SGCLPOptionsPage::backgroundColourPicker).getColour();}&#10;else{&#10;    SGXColourHSLA backgroundColourHSLA(SGCLPOptionsPage::chosenBackgroundColour);&#10;    if((*SGCLPOptionsPage::backgroundComplementaryHueButton).getSelected() == true){backgroundColourHSLA.invertHue();}&#10;    if((*SGCLPOptionsPage::backgroundComplementarySaturationButton).getSelected() == true){backgroundColourHSLA.invertSaturation();}&#10;    if((*SGCLPOptionsPage::backgroundComplementaryLightnessButton).getSelected() == true){backgroundColourHSLA.invertLightness();}&#10;    SGCLPOptionsPage::chosenBackgroundColour = backgroundColourHSLA.toRGBA();&#10;}&#10;if((*SGCLPOptionsPage::patternCircleButton).getSelected() == true){SGCLPOptionsPage::chosenPattern = SGCLPOptionsPage::Circle;}&#10;else if((*SGCLPOptionsPage::patternPolygonButton).getSelected() == true){SGCLPOptionsPage::chosenPattern = SGCLPOptionsPage::Polygon;}&#10;else if((*SGCLPOptionsPage::patternStarButton).getSelected() == true){SGCLPOptionsPage::chosenPattern = SGCLPOptionsPage::Star;}&#10;else{SGCLPOptionsPage::chosenPattern = SGCLPOptionsPage::Fractal;}&#10;SGCLPOptionsPage::chosenVertexCount = (*SGCLPOptionsPage::polygonSideCountInput).getTextAsInt(nullptr, 3, SGLIntLimits::maximum());</p>
+<p class="description">&#9;Note that we use <a class="link" href="../cppclass/sgwbutton#nodiscard_bool_getSelected_func_const_">SGWButton::getSelected</a> to check if a selectable button is currently selected.</p>
+<p class="description">&#9;<a class="link" href="../cppclass/sgxcolourrgba">SGXColourRGBA</a> and <a class="link" href="../cppclass/sgxcolourhsla">SGXColourHSLA</a> have a wide variety of utility functions for colour processing. Most SGEXTN APIs take <a class="link" href="../cppclass/sgxcolourrgba">SGXColourRGBA</a> as input and output, so for representing colours, <a class="link" href="../cppclass/sgxcolourrgba">SGXColourRGBA</a> should always be used. If you need HSL stuff, you can convert a <a class="link" href="../cppclass/sgxcolourrgba">SGXColourRGBA</a> to a <a class="link" href="../cppclass/sgxcolourhsla">SGXColourHSLA</a> using the constructor of <a class="link" href="../cppclass/sgxcolourhsla">SGXColourHSLA</a> that takes a <a class="link" href="../cppclass/sgxcolourrgba">SGXColourRGBA</a>, process it, then convert it back using <a class="link" href="../cppclass/sgxcolourhsla#nodiscard_SGXColourRGBA_toRGBA_func_const_">SGXColourHSLA::toRGBA</a>.</p>
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<p class="description">&#9;See <a class="link" href="full11">here</a> for the next part of the tutorial.</p>
+<p class="description">&#9;</p>
+<p class="description"></p>
+
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<div style="width: 100%; height: 0.25rem; background-color: var(--c4);"></div>
+<div style="width: 100%; height: 0.25rem; background-color: var(--c8);"></div>
+<p class="description">©2025 05524F.sg (Singapore)</p>
+<p class="description"><a class="link" href="/contact">contact 05524F / report a bug / make a suggestion</a></p>
+<p class="description"><a class="link" href="/values">about 05524F SINGAPORE values</a></p>
+<p class="description"><a class="link" href="/projects">list of 05524F projects</a></p>
+<div style="width: 100%; height: 0.25rem; background-color: var(--c8);"></div>
+<div style="width: 100%; height: 0.25rem; background-color: var(--c4);"></div>
+<div style="width: 100%; height: 0.25rem; background-color: var(--c8);"></div>
+</body>
+</html>

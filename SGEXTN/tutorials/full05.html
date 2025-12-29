@@ -1,0 +1,287 @@
+
+<!DOCTYPE html>
+<html lang="en-SG">
+<head>
+<meta charset="UTF-8">
+<title>Full Tutorial Part 5</title>
+<link rel="icon" href="/icon.png" type="image/png">
+<meta property="og:image" content="/icon.png">
+<meta name="twitter:image" content="/icon.png">
+<link rel="apple-touch-icon" href="/icon.png">
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "url": "https://infinityintegral.github.io",
+    "image": "/icon.png"
+}
+</script>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+@font-face {
+	font-family: "SingScript.sg";
+	src: url("/SingScript.sg")format("truetype");
+	font-weight: normal;
+	font-style: normal;
+}
+
+:root {
+	--c0: rgb(0, 0, 0);
+	--c1: rgb(64, 0, 50);
+	--c2: rgb(128, 0, 100);
+	--c3: rgb(191, 0, 150);
+	--c4: rgb(255, 0, 200);
+	--c5: rgb(255, 64, 214);
+	--c6: rgb(255, 128, 227);
+	--c7: rgb(255, 191, 241);
+	--c8: rgb(255, 255, 255);
+}
+
+*{
+    font-family: "SingScript.sg";
+	max-width: 100%;
+	word-break: break-word;
+	-webkit-text-size-adjust: 100%;
+	-ms-text-size-adjust: 100%;
+}
+
+.title {
+	color: var(--c4);
+	font-size: 3.5rem;
+	margin: 0;
+	font-weight: normal;
+}
+.title::selection {
+	color: var(--c8);
+	background-color: var(--c4);
+	font-size: 3.5rem;
+	margin: 0;
+	font-weight: normal;
+}
+
+.header {
+	color: var(--c4);
+	font-size: 2.5rem;
+	margin: 0;
+	font-weight: normal;
+}
+.header::selection {
+	color: var(--c8);
+	background-color: var(--c4);
+	font-size: 2.625rem;
+	margin: 0;
+	font-weight: normal;
+}
+
+.description {
+	color: var(--c4);
+	font-size: 1.75rem;
+	margin: 0;
+	white-space: pre-wrap;
+}
+.description::selection {
+	color: var(--c8);
+	background-color: var(--c4);
+	font-size: 1.75rem;
+	margin: 0;
+	white-space: pre-wrap;
+}
+
+.note {
+	color: var(--c4);
+	font-size: 1.75rem;
+	margin: 0.25rem;
+	white-space: pre-wrap;
+    border: 0.25rem solid var(--c7);
+    padding: 0.25rem;
+}
+.note::selection {
+	color: var(--c8);
+	background-color: var(--c4);
+	font-size: 1.75rem;
+	margin: 0.25rem;
+	white-space: pre-wrap;
+    border: 0.25rem solid var(--c7);
+    padding: 0.25rem;
+}
+
+.warning {
+	color: var(--c4);
+	font-size: 1.75rem;
+	margin: 0.25rem;
+	white-space: pre-wrap;
+    border: 0.25rem solid var(--c4);
+    padding: 0.25rem;
+}
+.warning::selection {
+	color: var(--c8);
+	background-color: var(--c4);
+	font-size: 1.75rem;
+	margin: 0.25rem;
+	white-space: pre-wrap;
+    border: 0.25rem solid var(--c4);
+    padding: 0.25rem;
+}
+
+.link {
+	color: var(--c2);
+	text-decoration: underline;
+}
+.link:hover {
+	color: var(--c2);
+	background-color: var(--c7);
+	text-decoration: underline;
+}
+.link:active {
+	color: var(--c2);
+	background-color: var(--c6);
+	text-decoration: underline;
+}
+.link::selection {
+	color: var(--c8);
+	background-color: var(--c4);
+	text-decoration: underline;
+}
+
+.button {
+	color: var(--c8);
+	background-color: var(--c4);
+	font-size: 1.75rem;
+	border: none;
+}
+.button:hover {
+	color: var(--c7);
+	background-color: var(--c3);
+	font-size: 1.75rem;
+	border: none;
+}
+.button:active {
+	color: var(--c6);
+	background-color: var(--c2);
+	font-size: 1.75rem;
+	border: none;
+}
+.button::selection {
+	color: var(--c4);
+	background-color: var(--c8);
+	font-size: 1.75rem;
+	border: none;
+}
+
+.input {
+	color: var(--c8);
+	background-color: var(--c4);
+	font-size: 1.75rem;
+	border: none;
+	outline: none;
+	text-align: center;
+}
+.input:hover {
+	color: var(--c7);
+	background-color: var(--c3);
+	font-size: 1.75rem;
+	border: none;
+	outline: none;
+	text-align: center;
+}
+.input:focus {
+	color: var(--c6);
+	background-color: var(--c2);
+	font-size: 1.75rem;
+	border: none;
+	outline: none;
+	text-align: center;
+}
+.input::selection {
+	color: var(--c4);
+	background-color: var(--c8);
+	font-size: 1.75rem;
+	border: none;
+	outline: none;
+	text-align: center;
+}
+
+.highlight {
+    animation: highlightFlash 2s ease-out;
+}
+
+@keyframes highlightFlash {
+    0% {background-color: var(--c6);}
+    100% {background-color: var(--c8);}
+}
+</style>
+<script>
+let m = (new Date()).getMonth() + 1;
+if(m >= 7 && m <= 9){
+    document.documentElement.style.setProperty("--c0", "rgb(0, 0, 0)");
+    document.documentElement.style.setProperty("--c1", "rgb(60, 9, 14)");
+    document.documentElement.style.setProperty("--c2", "rgb(119, 19, 27)");
+    document.documentElement.style.setProperty("--c3", "rgb(179, 28, 41)");
+    document.documentElement.style.setProperty("--c4", "rgb(238, 37, 54)");
+    document.documentElement.style.setProperty("--c5", "rgb(242, 92, 104)");
+    document.documentElement.style.setProperty("--c6", "rgb(247, 146, 155)");
+    document.documentElement.style.setProperty("--c7", "rgb(251, 201, 205)");
+    document.documentElement.style.setProperty("--c8", "rgb(255, 255, 255)");
+}
+function highlightSection(){
+    let tag = window.location.hash.substring(1);
+    if(tag == ""){return;}
+    let element = document.getElementById(tag);
+    if(element == null){return;}
+    element.classList.add("highlight");
+    element.addEventListener("animationend", () => {element.classList.remove("highlight");}, {once: true});
+}
+window.addEventListener("DOMContentLoaded", highlightSection);
+window.addEventListener("hashchange", highlightSection);
+</script>
+</head>
+<body style="margin-left: 1em;">
+<p class="description" style="color: rgb(238, 37, 54); text-align: center; font-size: 2.5rem">sincerely <img src="/flag.png" style="vertical-align: middle; height: 2.5rem; image-rendering: auto;"> Singaporean</p>
+<div style="width: 100%; height: 0.25rem; background-color: var(--c8);"></div>
+<div><button class="button" style="width: 100%;" onclick="location.href='/'">Project 05524F.sg</button></div>
+<div style="width: 100%; height: 0.25rem; background-color: var(--c8);"></div>
+<div><button class="button" style="width: 100%;" onclick="location.href='../readme/readme'">SGEXTN Documentation</button></div><div style="width: 100%; height: 0.25rem; background-color: var(--c8);"></div><p class="warning">If you have not done so, read this full <a class="link" href="../tutorials/full">tutorial</a> on how to use SGEXTN to build an application.</p><div style="width: 100%; height: 0.75rem; background-color: var(--c8);"></div><h1 class="title">Full Tutorial Part 5</h1>
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<p class="description">&#9;See <a class="link" href="full04">here</a> for the previous part of the tutorial.</p>
+<p class="description">&#9;In the previous part, we debugged and tested the introduction page.</p>
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<h2 class="header" id="">building the options page</h2>
+<p class="description">&#9;If we look back at our features list, we need to let the user choose how the app will display stuff. So we can build that UI page now.</p>
+<p class="description">&#9;Before we actually start coding, we should first plan out what the UI page should look like.</p>
+<p class="description">&#9;Since we want the user to see all options and not click submit without knowing that there are more things to change, we can put the submit button inside the scroll view.</p>
+<p class="description">&#9;The page background can then be a <a class="link" href="../cppclass/sgwscrollview">SGWScrollView</a> that contains all the UI, and with the submit button at the bottom.</p>
+<p class="description">&#9;We can let the UI look like this, the [] indicate the type of element and the w() indicate the 0 coordinate of the <a class="link" href="../tutorials/wdistance">w-distance ⁽㈳㈴㈳㈮㈱㈨㈠㈫ ㈧㈤㈱㈤⁾</a> of the top edge of the UI element from the top of the scroll view.</p>
+<p class="warning">Preferences [title] w(0.5)&#10;use preset [button] w(2.5)&#10;foreground colour [label + colour picker] w(4.5)&#10;background colour (choose from below) [label] w(6.0)&#10;custom [button + colour picker] w(7.5)&#10;complementary / H / S / L [4 buttons] w(8.5)&#10;choose pattern [label] w(10.5)&#10;circle / regular polygon [2 buttons] w(12.0)&#10;star / fractal [2 buttons] w(13.0)&#10;number of sides: input [label + input field with validation] w(14.5)&#10;save current setting as preset [button] w(17.0)&#10;save preferences and continue [button] w(18.5)&#10;[end scroll view] w(20.0)</p>
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<p class="description">&#9;Now that we know what our UI for this page should look like, we can write a function to create it. We will put this in a new class, SGCLPOptionsPage, and call the function SGCLPOptionsPage::initialise. The process of creating a class is similar to what we have done with SGCLPIntroductionPage.</p>
+<p class="description">&#9;Similar to last time, we also define SGCLPOptionsPage::instance to be a pointer to the page background. and SGCLPOptionsPage::activate which can be used as a <a class="link" href="../tutorials/callback">callback function ⁽㈳㈴㈳㈮㈱㈨㈠㈫ ㈧㈤㈱㈤⁾</a> to turn on the page.</p>
+<p class="description">&#9;Do not forget to add the source file to your CMakeLists.txt.</p>
+<p class="description">&#9;Note that we have to store pointers to everything accepting user input, including colour pickers and selectable buttons and input fields, as we will need to retrieve this input later. Also store pointers to stuff that you will need to dynamically turn on and off.</p>
+<p class="description">&#9;Remember to declare all static variables in the source file, if not the linker will complain.</p>
+<p class="description">&#9;We can declare and implement the static member function SGCLPIntroductionPage::terminate, also used as a <a class="link" href="../tutorials/callback">callback function ⁽㈳㈴㈳㈮㈱㈨㈠㈫ ㈧㈤㈱㈤⁾</a>, which turns off the introduction page and turns on the options page.</p>
+<p class="warning">void SGCLPIntroductionPage::terminate(){&#10;    SGWBackground::disable(SGCLPIntroductionPage::instance);&#10;    SGCLPOptionsPage::activate();&#10;}</p>
+<p class="description">&#9;We then go to SGCLPIntroductionPage and change the <a class="link" href="../tutorials/callback">callback function ⁽㈳㈴㈳㈮㈱㈨㈠㈫ ㈧㈤㈱㈤⁾</a> attached to the "continue" button from nullptr to &SGCLPOptionsPage::activate, like in the code below.</p>
+<p class="warning">new SGWTextButton(bg, "continue", &SGCLPIntroductionPage::terminate, 0.0f, 0.0f, 1.0f, -1.0f, 1.0f, 0.0f, 0.0f, 1.0f);</p>
+<p class="description">&#9;It is very likely that some of the UI elements are misplaced on the first try, you can fix this easily by adjusting the <a class="link" href="../tutorials/wdistance">w-distance ⁽㈳㈴㈳㈮㈱㈨㈠㈫ ㈧㈤㈱㈤⁾</a> that you entered. The proper code is presented below for you to check against your work.</p>
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<p class="description">&#9;include/SGCLPOptionsPage.h</p>
+<p class="warning">#ifndef SGCLPOPTIONSPAGE_H&#10;#define SGCLPOPTIONSPAGE_H&#10;&#10;class SGWColourPickerWidget;&#10;class SGWButton;&#10;class SGWInput;&#10;class SGWBackground;&#10;class SGCLPOptionsPage {&#10;public:&#10;    static SGWBackground* instance;&#10;    static SGWBackground* initialise();&#10;    static void activate();&#10;    static SGWColourPickerWidget* foregroundColourPicker;&#10;    static SGWButton* backgroundUseCustomButton;&#10;    static SGWColourPickerWidget* backgroundColourPicker;&#10;    static SGWButton* backgroundUseComplementaryButton;&#10;    static SGWButton* backgroundComplementaryHueButton;&#10;    static SGWButton* backgroundComplementarySaturationButton;&#10;    static SGWButton* backgroundComplementaryLightnessButton;&#10;    static SGWButton* patternCircleButton;&#10;    static SGWButton* patternPolygonButton;&#10;    static SGWButton* patternStarButton;&#10;    static SGWButton* patternFractalButton;&#10;    static SGWInput* polygonSideCountInput;&#10;};&#10;&#10;#endif // SGCLPOPTIONSPAGE_H</p>
+<p class="description">&#9;src/SGCLPOptionsPage.cpp</p>
+<p class="warning">#include &lt;SGCLPOptionsPage.h&gt;&#10;#include &lt;SGWBackground.h&gt;&#10;#include &lt;SGWWidget.h&gt;&#10;#include &lt;SGWScrollView.h&gt;&#10;#include &lt;SGWTextLabel.h&gt;&#10;#include &lt;SGWHorizontalAlignment.h&gt;&#10;#include &lt;SGWTextButton.h&gt;&#10;#include &lt;SGWColourPickerWidget.h&gt;&#10;#include &lt;SGXColourRGBA.h&gt;&#10;#include &lt;SGWTextInput.h&gt;&#10;&#10;SGWBackground* SGCLPOptionsPage::instance = nullptr;&#10;SGWColourPickerWidget* SGCLPOptionsPage::foregroundColourPicker = nullptr;&#10;SGWButton* SGCLPOptionsPage::backgroundUseCustomButton = nullptr;&#10;SGWColourPickerWidget* SGCLPOptionsPage::backgroundColourPicker = nullptr;&#10;SGWButton* SGCLPOptionsPage::backgroundUseComplementaryButton = nullptr;&#10;SGWButton* SGCLPOptionsPage::backgroundComplementaryHueButton = nullptr;&#10;SGWButton* SGCLPOptionsPage::backgroundComplementarySaturationButton = nullptr;&#10;SGWButton* SGCLPOptionsPage::backgroundComplementaryLightnessButton = nullptr;&#10;SGWButton* SGCLPOptionsPage::patternCircleButton = nullptr;&#10;SGWButton* SGCLPOptionsPage::patternPolygonButton = nullptr;&#10;SGWButton* SGCLPOptionsPage::patternStarButton = nullptr;&#10;SGWButton* SGCLPOptionsPage::patternFractalButton = nullptr;&#10;SGWInput* SGCLPOptionsPage::polygonSideCountInput = nullptr;&#10;&#10;void SGCLPOptionsPage::activate(){&#10;    SGWBackground::enable(SGCLPOptionsPage::instance, &SGCLPOptionsPage::initialise, nullptr);&#10;}&#10;&#10;SGWBackground* SGCLPOptionsPage::initialise(){&#10;    SGWBackground* bg = new SGWScrollView(SGWWidget::parentWidget, 0.0f, 0.0f, 0.0f, 0.0f, 1.0f, 0.0f, 1.0f, 0.0f, 0.0f, 20.0f, 0.0f, 0.5f, 8);&#10;    new SGWTextLabel(bg, "Preferences", 0.0f, 0.5f, 0.0f, 0.5f, 1.0f, -1.0f, 0.0f, 1.5f, SGWHorizontalAlignment::Center, false);&#10;    new SGWTextButton(bg, "use preset", nullptr, 0.0f, 0.5f, 0.0f, 2.5f, 1.0f, -1.0f, 0.0f, 1.0f);&#10;    new SGWTextLabel(bg, "foreground colour:", 0.0f, 0.5f, 0.0f, 4.5f, 0.5f, -0.6f, 0.0f, 1.0f, SGWHorizontalAlignment::Right, false);&#10;    SGCLPOptionsPage::foregroundColourPicker = new SGWColourPickerWidget(bg, 0.5f, 0.1f, 0.0f, 4.5f, 0.5f, -0.6f, 0.0f, 1.0f, SGXColourRGBA(255, 0, 200));&#10;    new SGWTextLabel(bg, "background colour (choose from below)", 0.0f, 0.5f, 0.0f, 6.0f, 1.0f, -1.0f, 0.0f, 1.0f, SGWHorizontalAlignment::Center, false);&#10;    SGCLPOptionsPage::backgroundColourPicker = new SGWColourPickerWidget(bg, 0.5f, 0.0f, 0.0f, 7.5f, 0.5f, -0.5f, 0.0f, 1.0f, SGXColourRGBA(255, 255, 255));&#10;    SGCLPOptionsPage::backgroundUseCustomButton = new SGWTextButton(bg, "custom", nullptr, 0.0f, 0.5f, 0.0f, 7.5f, 0.5f, -0.5f, 0.0f, 1.0f);&#10;    SGCLPOptionsPage::backgroundComplementaryHueButton = new SGWTextButton(bg, "H", nullptr, 0.5f, 0.0f, 0.0f, 8.5f, 1.0f / 6.0f, -1.0f / 6.0f, 0.0f, 1.0f);&#10;    SGCLPOptionsPage::backgroundComplementarySaturationButton = new SGWTextButton(bg, "S", nullptr, 2.0f / 3.0f, -1.0f / 6.0f, 0.0f, 8.5f, 1.0f / 6.0f, -1.0f / 6.0f, 0.0f, 1.0f);&#10;    SGCLPOptionsPage::backgroundComplementaryLightnessButton = new SGWTextButton(bg, "L", nullptr, 5.0f / 6.0f, -1.0f / 3.0f, 0.0f, 8.5f, 1.0f / 6.0f, -1.0f / 6.0f, 0.0f, 1.0f);&#10;    SGCLPOptionsPage::backgroundUseComplementaryButton = new SGWTextButton(bg, "complementary", nullptr, 0.0f, 0.5f, 0.0f, 8.5f, 1.0f, -1.0f, 0.0f, 1.0f);&#10;    new SGWTextLabel(bg, "choose pattern", 0.0f, 0.5f, 0.0f, 10.5f, 1.0f, -1.0f, 0.0f, 1.0f, SGWHorizontalAlignment::Center, false);&#10;    SGCLPOptionsPage::patternCircleButton = new SGWTextButton(bg, "circle", nullptr, 0.0f, 0.5f, 0.0f, 12.0f, 0.5f, -0.5f, 0.0f, 1.0f);&#10;    SGCLPOptionsPage::patternPolygonButton = new SGWTextButton(bg, "regular polygon", nullptr, 0.5f, 0.0f, 0.0f, 12.0f, 0.5f, -0.5f, 0.0f, 1.0f);&#10;    SGCLPOptionsPage::patternStarButton = new SGWTextButton(bg, "star", nullptr, 0.0f, 0.5f, 0.0f, 13.0f, 0.5f, -0.5f, 0.0f, 1.0f);&#10;    SGCLPOptionsPage::patternFractalButton = new SGWTextButton(bg, "fractal", nullptr, 0.5f, 0.0f, 0.0f, 13.0f, 0.5f, -0.5f, 0.0f, 1.0f);&#10;    new SGWTextLabel(bg, "number of vertices:", 0.0f, 0.5f, 0.0f, 14.5f, 0.5f, -0.6f, 0.0f, 1.0f, SGWHorizontalAlignment::Right, false);&#10;    new SGWTextLabel(bg, "(not applicable)", 0.5f, 0.1f, 0.0f, 14.5f, 0.5f, -0.6f, 0.0f, 1.0f, SGWHorizontalAlignment::Left, false);&#10;    SGCLPOptionsPage::polygonSideCountInput = new SGWTextInput(bg, nullptr, 0.5f, 0.1f, 0.0f, 14.5f, 0.5f, -0.6f, 0.0f, 1.0f);&#10;    new SGWTextButton(bg, "save current settings as preset", nullptr, 0.0f, 0.5f, 0.0f, 17.0f, 1.0f, -1.0f, 0.0f, 1.0f);&#10;    new SGWTextButton(bg, "save preferences and continue", nullptr, 0.0f, 0.5f, 0.0f, 18.5f, 1.0f, -1.0f, 0.0f, 1.0f);&#10;    return bg;&#10;}</p>
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<p class="description">&#9;See <a class="link" href="full06">here</a> for the next part of the tutorial.</p>
+<p class="description">&#9;</p>
+<p class="description"></p>
+
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<div style="width: 100%; height: 0.25rem; background-color: var(--c4);"></div>
+<div style="width: 100%; height: 0.25rem; background-color: var(--c8);"></div>
+<p class="description">©2025 05524F.sg (Singapore)</p>
+<p class="description"><a class="link" href="/contact">contact 05524F / report a bug / make a suggestion</a></p>
+<p class="description"><a class="link" href="/values">about 05524F SINGAPORE values</a></p>
+<p class="description"><a class="link" href="/projects">list of 05524F projects</a></p>
+<div style="width: 100%; height: 0.25rem; background-color: var(--c8);"></div>
+<div style="width: 100%; height: 0.25rem; background-color: var(--c4);"></div>
+<div style="width: 100%; height: 0.25rem; background-color: var(--c8);"></div>
+</body>
+</html>

@@ -253,9 +253,8 @@ window.addEventListener("hashchange", highlightSection);
 <p class="description"><a class="link" href="#sg_implementationdetails">implementation details</a></p>
 <div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
 <p class="description">preprocessor file inclusion directive: #include ‹SGRRenderingProgramme.h›</p>
-<p class="description">CMake commands:</p>
-<p class="description">&#9;find_package(<a class="link" href="../readme/readme">SGEXTN</a> REQUIRED COMPONENTS <a class="link" href="../modules/sg_ri">SG_RI</a>)</p>
-<p class="description">&#9;target_link_libraries(yourCMakeTarget PRIVATE <a class="link" href="../modules/sg_ri">SGEXTN::SG_RI</a>)</p>
+<p class="description">CMake target for BuildLah: <a class="link" href="../modules/sg_ri">SGEXTN::SG_RI</a></p>
+<p class="description">see <a class="link" href="../tutorials/buildlah">this link</a> for more information about BuildLah</p>
 <p class="description">parent class: (none)</p>
 <p class="description">children classes: (none)</p>
 <div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
@@ -332,8 +331,7 @@ window.addEventListener("hashchange", highlightSection);
 <div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
 <h2 class="header" id="void_setShaderQSBFiles_const_SGXString_ref_const_SGXString_ref_">void <a class="link" href="#void_setShaderQSBFiles_const_SGXString_ref_const_SGXString_ref_">setShaderQSBFiles</a>(const <a class="link" href="sgxstring">SGXString</a>& vertexShaderPath, const <a class="link" href="sgxstring">SGXString</a>& fragmentShaderPath);</h2>
 <p class="description">Sets this <a class="link" href="../cppclass/sgrrenderingprogramme">SGRRenderingProgramme</a> to use the vertex shader at <b>vertexShaderPath</b> and the fragment shader at <b>fragmentShaderPath</b>.</p>
-<p class="warning">The shaders must be pre compiled using the Qt shader binary compiler. To ensure that, use relevant CMake commands. For more information about compiling and using shaders, see this <a class="link" href="../tutorials/shaders">tutorial</a>.</p>
-<p class="warning">The matching file must exist in the resource system. To ensure that, use relevant CMake commands. For more information about the resource system, see this <a class="link" href="../tutorials/resources">tutorial</a>.</p>
+<p class="warning">The compiled shader must exist in the resource system. To ensure that, put the shader GLSL source code in the shaders folder. For more information about compiling and using shaders, see this <a class="link" href="../tutorials/shaders">tutorial</a>.</p>
 <div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
 <h2 class="header" id="void_updateDataBuffer_SGRDataBuffer_ptr_int_int_void_ptr_const_">void <a class="link" href="#void_updateDataBuffer_SGRDataBuffer_ptr_int_int_void_ptr_const_">updateDataBuffer</a>(<a class="link" href="sgrdatabuffer">SGRDataBuffer</a>* buffer, int startLocation, int dataSize, void* pointerToData) const;</h2>
 <p class="description">Uploads <b>dataSize</b> bytes of data from <b>pointerToData</b> to an offset of <b>startLocation</b> bytes into the buffer <b>buffer</b>.</p>

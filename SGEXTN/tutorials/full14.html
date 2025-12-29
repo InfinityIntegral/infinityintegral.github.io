@@ -1,0 +1,308 @@
+
+<!DOCTYPE html>
+<html lang="en-SG">
+<head>
+<meta charset="UTF-8">
+<title>Full Tutorial Part 14</title>
+<link rel="icon" href="/icon.png" type="image/png">
+<meta property="og:image" content="/icon.png">
+<meta name="twitter:image" content="/icon.png">
+<link rel="apple-touch-icon" href="/icon.png">
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "url": "https://infinityintegral.github.io",
+    "image": "/icon.png"
+}
+</script>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+@font-face {
+	font-family: "SingScript.sg";
+	src: url("/SingScript.sg")format("truetype");
+	font-weight: normal;
+	font-style: normal;
+}
+
+:root {
+	--c0: rgb(0, 0, 0);
+	--c1: rgb(64, 0, 50);
+	--c2: rgb(128, 0, 100);
+	--c3: rgb(191, 0, 150);
+	--c4: rgb(255, 0, 200);
+	--c5: rgb(255, 64, 214);
+	--c6: rgb(255, 128, 227);
+	--c7: rgb(255, 191, 241);
+	--c8: rgb(255, 255, 255);
+}
+
+*{
+    font-family: "SingScript.sg";
+	max-width: 100%;
+	word-break: break-word;
+	-webkit-text-size-adjust: 100%;
+	-ms-text-size-adjust: 100%;
+}
+
+.title {
+	color: var(--c4);
+	font-size: 3.5rem;
+	margin: 0;
+	font-weight: normal;
+}
+.title::selection {
+	color: var(--c8);
+	background-color: var(--c4);
+	font-size: 3.5rem;
+	margin: 0;
+	font-weight: normal;
+}
+
+.header {
+	color: var(--c4);
+	font-size: 2.5rem;
+	margin: 0;
+	font-weight: normal;
+}
+.header::selection {
+	color: var(--c8);
+	background-color: var(--c4);
+	font-size: 2.625rem;
+	margin: 0;
+	font-weight: normal;
+}
+
+.description {
+	color: var(--c4);
+	font-size: 1.75rem;
+	margin: 0;
+	white-space: pre-wrap;
+}
+.description::selection {
+	color: var(--c8);
+	background-color: var(--c4);
+	font-size: 1.75rem;
+	margin: 0;
+	white-space: pre-wrap;
+}
+
+.note {
+	color: var(--c4);
+	font-size: 1.75rem;
+	margin: 0.25rem;
+	white-space: pre-wrap;
+    border: 0.25rem solid var(--c7);
+    padding: 0.25rem;
+}
+.note::selection {
+	color: var(--c8);
+	background-color: var(--c4);
+	font-size: 1.75rem;
+	margin: 0.25rem;
+	white-space: pre-wrap;
+    border: 0.25rem solid var(--c7);
+    padding: 0.25rem;
+}
+
+.warning {
+	color: var(--c4);
+	font-size: 1.75rem;
+	margin: 0.25rem;
+	white-space: pre-wrap;
+    border: 0.25rem solid var(--c4);
+    padding: 0.25rem;
+}
+.warning::selection {
+	color: var(--c8);
+	background-color: var(--c4);
+	font-size: 1.75rem;
+	margin: 0.25rem;
+	white-space: pre-wrap;
+    border: 0.25rem solid var(--c4);
+    padding: 0.25rem;
+}
+
+.link {
+	color: var(--c2);
+	text-decoration: underline;
+}
+.link:hover {
+	color: var(--c2);
+	background-color: var(--c7);
+	text-decoration: underline;
+}
+.link:active {
+	color: var(--c2);
+	background-color: var(--c6);
+	text-decoration: underline;
+}
+.link::selection {
+	color: var(--c8);
+	background-color: var(--c4);
+	text-decoration: underline;
+}
+
+.button {
+	color: var(--c8);
+	background-color: var(--c4);
+	font-size: 1.75rem;
+	border: none;
+}
+.button:hover {
+	color: var(--c7);
+	background-color: var(--c3);
+	font-size: 1.75rem;
+	border: none;
+}
+.button:active {
+	color: var(--c6);
+	background-color: var(--c2);
+	font-size: 1.75rem;
+	border: none;
+}
+.button::selection {
+	color: var(--c4);
+	background-color: var(--c8);
+	font-size: 1.75rem;
+	border: none;
+}
+
+.input {
+	color: var(--c8);
+	background-color: var(--c4);
+	font-size: 1.75rem;
+	border: none;
+	outline: none;
+	text-align: center;
+}
+.input:hover {
+	color: var(--c7);
+	background-color: var(--c3);
+	font-size: 1.75rem;
+	border: none;
+	outline: none;
+	text-align: center;
+}
+.input:focus {
+	color: var(--c6);
+	background-color: var(--c2);
+	font-size: 1.75rem;
+	border: none;
+	outline: none;
+	text-align: center;
+}
+.input::selection {
+	color: var(--c4);
+	background-color: var(--c8);
+	font-size: 1.75rem;
+	border: none;
+	outline: none;
+	text-align: center;
+}
+
+.highlight {
+    animation: highlightFlash 2s ease-out;
+}
+
+@keyframes highlightFlash {
+    0% {background-color: var(--c6);}
+    100% {background-color: var(--c8);}
+}
+</style>
+<script>
+let m = (new Date()).getMonth() + 1;
+if(m >= 7 && m <= 9){
+    document.documentElement.style.setProperty("--c0", "rgb(0, 0, 0)");
+    document.documentElement.style.setProperty("--c1", "rgb(60, 9, 14)");
+    document.documentElement.style.setProperty("--c2", "rgb(119, 19, 27)");
+    document.documentElement.style.setProperty("--c3", "rgb(179, 28, 41)");
+    document.documentElement.style.setProperty("--c4", "rgb(238, 37, 54)");
+    document.documentElement.style.setProperty("--c5", "rgb(242, 92, 104)");
+    document.documentElement.style.setProperty("--c6", "rgb(247, 146, 155)");
+    document.documentElement.style.setProperty("--c7", "rgb(251, 201, 205)");
+    document.documentElement.style.setProperty("--c8", "rgb(255, 255, 255)");
+}
+function highlightSection(){
+    let tag = window.location.hash.substring(1);
+    if(tag == ""){return;}
+    let element = document.getElementById(tag);
+    if(element == null){return;}
+    element.classList.add("highlight");
+    element.addEventListener("animationend", () => {element.classList.remove("highlight");}, {once: true});
+}
+window.addEventListener("DOMContentLoaded", highlightSection);
+window.addEventListener("hashchange", highlightSection);
+</script>
+</head>
+<body style="margin-left: 1em;">
+<p class="description" style="color: rgb(238, 37, 54); text-align: center; font-size: 2.5rem">sincerely <img src="/flag.png" style="vertical-align: middle; height: 2.5rem; image-rendering: auto;"> Singaporean</p>
+<div style="width: 100%; height: 0.25rem; background-color: var(--c8);"></div>
+<div><button class="button" style="width: 100%;" onclick="location.href='/'">Project 05524F.sg</button></div>
+<div style="width: 100%; height: 0.25rem; background-color: var(--c8);"></div>
+<div><button class="button" style="width: 100%;" onclick="location.href='../readme/readme'">SGEXTN Documentation</button></div><div style="width: 100%; height: 0.25rem; background-color: var(--c8);"></div><p class="warning">If you have not done so, read this full <a class="link" href="../tutorials/full">tutorial</a> on how to use SGEXTN to build an application.</p><div style="width: 100%; height: 0.75rem; background-color: var(--c8);"></div><h1 class="title">Full Tutorial Part 14</h1>
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<p class="description">&#9;See <a class="link" href="full13">here</a> for the previous part of the tutorial.</p>
+<p class="description">&#9;In the previous part, we built the progress bar on the display page</p>
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<h2 class="header" id="">saving user data</h2>
+<p class="description">&#9;Most applications will need to save user data across sessions. The dedicated SG_FileSystem module in SGEXTN makes this very convenient.</p>
+<p class="description">&#9;The user data in the case of Colours++ is the options that the user chose in the options page. These can be saved to a binary file using <a class="link" href="../cppclass/sgxfile">SGXFile</a>. Although SGEXTN technically supports saving to a text file, support is not good (at least in version 6.2.0) and binary files occupy less space and are faster to read and write compared to text files containing the same information. The only reason why you would consider storing user data in a text file is if you are building a tool for software engineers who would need to write configuration files.</p>
+<p class="description">&#9;The file system can be easily accessed through <a class="link" href="../cppclass/sgxfilesystem">SGXFileSystem</a>, and <a class="link" href="../cppclass/sgxfile">SGXFile</a> is used to read from and write to binary files.</p>
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<p class="description">&#9;We will implement a function that is called whenever "save current settings to preset" is clicked. For convenience, we will set the name of the preset to the current date. In a actual consumer facing app, it is likely better to let the user decide the name of files, but here we will leave out that to avoid being repetitive about UI.</p>
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<p class="description">&#9;Firstly, we must get all the information about what the user has selected from the UI.</p>
+<p class="description">&#9;But wait... We have already done that when we built the submit button, inside the function SGCLPOptionsPage::submitOptions. If we are to implement the same logic again in another function, we would have 2 copies of the same code.</p>
+<p class="description">&#9;Having 2 copies of the same code is known as code duplication.</p>
+<p class="description">&#9;This is bad because whenever you need to make a change, you need to do it to both copies, slowing down development speed. Furthermore if you only make a change to 1 copy because you forgot the other one, it can lead to weird bugs that are difficult to catch during testing.</p>
+<p class="description">&#9;To avoid this, we can define a new function in SGCLPOptionsPage</p>
+<p class="warning">static bool checkOptions();</p>
+<p class="description">&#9;and refactor the code currently inside SGCLPOptionsPage::submitOptions into 2 functions. The part that handles reading the UI will go to SGCLPOptionsPage::checkOptions while the part only run when submitting the options should stay in SGCLPOptionsPage::checkOptions.</p>
+<p class="description">&#9;This is known as modularising code and is good for preventing code duplication.</p>
+<p class="warning">bool SGCLPOptionsPage::checkOptions(){&#10;    if((*SGCLPOptionsPage::polygonSideCountInput).getInvalid() == true && ((*SGCLPOptionsPage::patternPolygonButton).getSelected() == true || (*SGCLPOptionsPage::patternStarButton).getSelected() == true)){&#10;        SGWNotify::pullDownNotify("invalid number of vertices chosen");&#10;        return false;&#10;    }&#10;    SGCLPOptionsPage::chosenForegroundColour = (*SGCLPOptionsPage::foregroundColourPicker).getColour();&#10;    SGCLPOptionsPage::chosenBackgroundColour = SGCLPOptionsPage::chosenForegroundColour;&#10;    if((*SGCLPOptionsPage::backgroundUseCustomButton).getSelected() == true){SGCLPOptionsPage::chosenBackgroundColour = (*SGCLPOptionsPage::backgroundColourPicker).getColour();}&#10;    else{&#10;        SGXColourHSLA backgroundColourHSLA(SGCLPOptionsPage::chosenBackgroundColour);&#10;        if((*SGCLPOptionsPage::backgroundComplementaryHueButton).getSelected() == true){backgroundColourHSLA.invertHue();}&#10;        if((*SGCLPOptionsPage::backgroundComplementarySaturationButton).getSelected() == true){backgroundColourHSLA.invertSaturation();}&#10;        if((*SGCLPOptionsPage::backgroundComplementaryLightnessButton).getSelected() == true){backgroundColourHSLA.invertLightness();}&#10;        SGCLPOptionsPage::chosenBackgroundColour = backgroundColourHSLA.toRGBA();&#10;    }&#10;    if((*SGCLPOptionsPage::patternCircleButton).getSelected() == true){SGCLPOptionsPage::chosenPattern = SGCLPOptionsPage::Circle;}&#10;    else if((*SGCLPOptionsPage::patternPolygonButton).getSelected() == true){SGCLPOptionsPage::chosenPattern = SGCLPOptionsPage::Polygon;}&#10;    else if((*SGCLPOptionsPage::patternStarButton).getSelected() == true){SGCLPOptionsPage::chosenPattern = SGCLPOptionsPage::Star;}&#10;    else{SGCLPOptionsPage::chosenPattern = SGCLPOptionsPage::Fractal;}&#10;    SGCLPOptionsPage::chosenVertexCount = (*SGCLPOptionsPage::polygonSideCountInput).getTextAsInt(nullptr, 3, SGLIntLimits::maximum());&#10;    return true;&#10;}&#10;&#10;void SGCLPOptionsPage::submitOptions(){&#10;    if(SGCLPOptionsPage::checkOptions() == false){return;}&#10;    SGWBackground::disable(SGCLPOptionsPage::instance);&#10;    SGCLPDisplayPage::activate();&#10;}</p>
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<p class="description">&#9;Once that is done, we can proceed to actually implement the saving of presets. Let us define a function SGCLPOptionsPage::savePresets that will be called when the button is pressed and adjust the line of code that creates the button to use the <a class="link" href="../tutorials/callback">callback function ⁽㈳㈴㈳㈮㈱㈨㈠㈫ ㈧㈤㈱㈤⁾</a>. You should already know how to do this.</p>
+<p class="warning">static void savePresets();</p>
+<p class="description">&#9;Inside this function, obviously first we check that the UI is in a valid state and the user did not choose something nonsensical for the number of vertices.</p>
+<p class="warning">if(SGCLPOptionsPage::checkOptions() == false){return;}</p>
+<p class="description">&#9;Note how we are reusing the same code.</p>
+<p class="description">&#9;Next we can determine the file path of the preset file. In this case, we can let it be</p>
+<p class="warning">[user data folder] / [current time].sg</p>
+<p class="description">&#9;In code, that is</p>
+<p class="warning">SGXString fileName = SGXFileSystem::joinFilePaths(SGXFileSystem::userDataFilePath, SGXTimeStamp::now().getFileNameCorrectToSecondSeparated('_') + ".sg");</p>
+<p class="description">&#9;Note a few things here.</p>
+<p class="description">&#9;Firstly, we are using <a class="link" href="../cppclass/sgxfilesystem#static_SGXString_joinFilePaths_const_SGXString_ref_const_SGXString_ref_">SGXFileSystem::joinFilePaths</a> to join the parent folder path with the file name. This is helpful as we would not need to write the / by hand which can be annoying.</p>
+<p class="description">&#9;Also, we are putting the file inside <a class="link" href="../cppclass/sgxfilesystem#static_SGXString_userDataFilePath_">SGXFileSystem::userDataFilePath</a>. This is the folder dedicated to storing user data. User data in this case refers to the documents that the app generates, but excludes app settings or configuration files. App settings or configuration files should instead go under <a class="link" href="../cppclass/sgxfilesystem#static_SGXString_configFilePath_">SGXFileSystem::configFilePath</a>.</p>
+<p class="description">&#9;We use <a class="link" href="../cppclass/sgxtimestamp">SGXTimeStamp</a> to get the current time as a string. Firstly <a class="link" href="../cppclass/sgxtimestamp#nodiscard_static_SGXTimeStamp_now_func_">SGXTimeStamp::now</a> gives the current time as a <a class="link" href="../cppclass/sgxtimestamp">SGXTimeStamp</a> object. After that, <a class="link" href="../cppclass/sgxtimestamp#nodiscard_SGXString_getFileNameCorrectToSecondSeparated_SGXChar_const_">SGXTimeStamp::getFileNameCorrectToSecondSeparated</a> gives the string representation in a format compatible with the file system. This function also allows you to choose the separator used, which can be ' ', '-', or '_' depending on use case.</p>
+<p class="description">&#9;<a class="link" href="../cppclass/sgxtimestamp">SGXTimeStamp</a> converts everything to Singapore time zone, so you can either always use Singapore time zone in your app (recommended), or convert from the user's device time zone to Singapore time zone manually. In some places like Canadian Toronto, they like to randomly change the time zone for no reason at all. If you want to take that into account, you can use QDateTime to perform conversions properly.</p>
+<p class="description">&#9;Lastly note that the file extension is .sg, this is done for all SGEXTN application files that are not meant to be exported. In other words, the user will never actually see the file or need to manually transfer it somewhere. If the file needs to be exported, it is better to use a application specific extension.</p>
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<p class="description">&#9;Then we check if the file already exists. If it does, it means the user has been saving presets more than once this second. That likely indicates they are spamming the save button, so we ignore it.</p>
+<p class="warning">if(SGXFileSystem::fileExists(fileName)){return;}</p>
+<p class="description">&#9;Here <a class="link" href="../cppclass/sgxfilesystem#static_bool_fileExists_const_SGXString_ref_">SGXFileSystem::fileExists</a> is used to check if a file exists. There is also <a class="link" href="../cppclass/sgxfilesystem#static_bool_folderExists_const_SGXString_ref_">SGXFileSystem::folderExists</a> to check if a folder exists. You may also find <a class="link" href="../cppclass/sgxfilesystem#static_SGLArray_lt_SGXString_gt_getFilesList_const_SGXString_ref_">SGXFileSystem::getFilesList</a> helpful, which gives a list of files in a folder of your choice.</p>
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<p class="description">&#9;After these checks, we can be sure that the preset needs to be saved and also whatever the user input is valid. We can then use <a class="link" href="../cppclass/sgxfilesystem#static_int_createFile_const_SGXString_ref_">SGXFileSystem::createFile</a> to make a new empty binary file and then use <a class="link" href="../cppclass/sgxfile">SGXFile</a> to write stuff into it.</p>
+<p class="description">&#9;<a class="link" href="../cppclass/sgxfile">SGXFile</a> has a lot of commands for reading and writing a wide variety of data types. This includes both C++ stuff such as int and float, and also SGEXTN structs such as <a class="link" href="../cppclass/sgxcolourrgba">SGXColourRGBA</a> and <a class="link" href="../cppclass/sgxidentifier">SGXIdentifier</a>.</p>
+<p class="warning">SGXFileSystem::createFile(fileName);&#10;SGXFile file(fileName);&#10;file.writeColourRGBA(SGCLPOptionsPage::chosenForegroundColour);&#10;file.writeColourRGBA(SGCLPOptionsPage::chosenBackgroundColour);&#10;if(SGCLPOptionsPage::chosenPattern == SGCLPOptionsPage::Circle){file.writeInt(1);}&#10;else if(SGCLPOptionsPage::chosenPattern == SGCLPOptionsPage::Polygon){file.writeInt(2);}&#10;else if(SGCLPOptionsPage::chosenPattern == SGCLPOptionsPage::Star){file.writeInt(3);}&#10;else if(SGCLPOptionsPage::chosenPattern == SGCLPOptionsPage::Fractal){file.writeInt(4);}&#10;else{file.writeInt(0);}&#10;file.writeInt(SGCLPOptionsPage::chosenVertexCount);</p>
+<p class="description">&#9;Note that the enum is not written directly although technically enums can be casted to int. This is because if in future you want to add a new enum, the number that each enum currently corresponds to may shift. That would corrupt existing preset files. By manually converting them, you ensure that the code is future-proof and behaves consistently across compilers and devices.</p>
+<p class="description">&#9;For the same reason, 0 is written as the chosen pattern if the enum chosen is not any of the 4. Currently this is impossible, but future updates may add more enums and you may forget to update your code somewhere to handle these extra enums. In that case, having it write a invalid value makes the failure consistent and helps with debugging.</p>
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<p class="description">&#9;We can proceed to test the feature by clicking the button and checking if any file is created in the Documents/ColoursPlusPlus/yourdata folder. Assuming that you have done everything correctly, you should be able to find files with the extension .sg there, proving that the presets have actually been saved successfully.</p>
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<p class="description">&#9;See <a class="link" href="full15">here</a> for the next part of the tutorial.</p>
+<p class="description">&#9;</p>
+<p class="description"></p>
+
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<div style="width: 100%; height: 0.25rem; background-color: var(--c4);"></div>
+<div style="width: 100%; height: 0.25rem; background-color: var(--c8);"></div>
+<p class="description">©2025 05524F.sg (Singapore)</p>
+<p class="description"><a class="link" href="/contact">contact 05524F / report a bug / make a suggestion</a></p>
+<p class="description"><a class="link" href="/values">about 05524F SINGAPORE values</a></p>
+<p class="description"><a class="link" href="/projects">list of 05524F projects</a></p>
+<div style="width: 100%; height: 0.25rem; background-color: var(--c8);"></div>
+<div style="width: 100%; height: 0.25rem; background-color: var(--c4);"></div>
+<div style="width: 100%; height: 0.25rem; background-color: var(--c8);"></div>
+</body>
+</html>

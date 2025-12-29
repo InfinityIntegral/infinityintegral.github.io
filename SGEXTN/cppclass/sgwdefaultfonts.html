@@ -253,9 +253,8 @@ window.addEventListener("hashchange", highlightSection);
 <p class="description"><a class="link" href="#sg_implementationdetails">implementation details</a></p>
 <div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
 <p class="description">preprocessor file inclusion directive: #include ‹SGWDefaultFonts.h›</p>
-<p class="description">CMake commands:</p>
-<p class="description">&#9;find_package(<a class="link" href="../readme/readme">SGEXTN</a> REQUIRED COMPONENTS <a class="link" href="../modules/sg_widgets">SG_Widgets</a>)</p>
-<p class="description">&#9;target_link_libraries(yourCMakeTarget PRIVATE <a class="link" href="../modules/sg_widgets">SGEXTN::SG_Widgets</a>)</p>
+<p class="description">CMake target for BuildLah: <a class="link" href="../modules/sg_widgets">SGEXTN::SG_Widgets</a></p>
+<p class="description">see <a class="link" href="../tutorials/buildlah">this link</a> for more information about BuildLah</p>
 <p class="description">parent class: (none)</p>
 <p class="description">children classes: (none)</p>
 <div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
@@ -287,7 +286,7 @@ window.addEventListener("hashchange", highlightSection);
 <p class="description">Imports the ttf or otf formatted font found at <b>fileName</b>.</p>
 <p class="note">This should be used in <a class="link" href="../cppclass/sgxcentral#static_void_ptr_importCustomFonts_func_">SGXCentral::importCustomFonts</a> if the font need to be used upon application startup.</p>
 <p class="warning">Importing multiple fonts with the same family name is <a class="link" href="../tutorials/undefinedbehaviour">undefined behaviour</a>. If your font is modular, merge everything first.</p>
-<p class="warning">The matching file must exist in the resource system. To ensure that, use relevant CMake commands. For more information about the resource system, see this <a class="link" href="../tutorials/resources">tutorial</a>.</p>
+<p class="warning">The matching file must exist in the resource system. To ensure that, place the font file in the assets folder. For more information about the resource system, see this <a class="link" href="../tutorials/resources">tutorial</a>.</p>
 <div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
 <p class="description"></p>
 

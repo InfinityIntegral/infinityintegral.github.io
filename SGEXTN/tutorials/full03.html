@@ -1,0 +1,309 @@
+
+<!DOCTYPE html>
+<html lang="en-SG">
+<head>
+<meta charset="UTF-8">
+<title>Full Tutorial Part 3</title>
+<link rel="icon" href="/icon.png" type="image/png">
+<meta property="og:image" content="/icon.png">
+<meta name="twitter:image" content="/icon.png">
+<link rel="apple-touch-icon" href="/icon.png">
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "url": "https://infinityintegral.github.io",
+    "image": "/icon.png"
+}
+</script>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+@font-face {
+	font-family: "SingScript.sg";
+	src: url("/SingScript.sg")format("truetype");
+	font-weight: normal;
+	font-style: normal;
+}
+
+:root {
+	--c0: rgb(0, 0, 0);
+	--c1: rgb(64, 0, 50);
+	--c2: rgb(128, 0, 100);
+	--c3: rgb(191, 0, 150);
+	--c4: rgb(255, 0, 200);
+	--c5: rgb(255, 64, 214);
+	--c6: rgb(255, 128, 227);
+	--c7: rgb(255, 191, 241);
+	--c8: rgb(255, 255, 255);
+}
+
+*{
+    font-family: "SingScript.sg";
+	max-width: 100%;
+	word-break: break-word;
+	-webkit-text-size-adjust: 100%;
+	-ms-text-size-adjust: 100%;
+}
+
+.title {
+	color: var(--c4);
+	font-size: 3.5rem;
+	margin: 0;
+	font-weight: normal;
+}
+.title::selection {
+	color: var(--c8);
+	background-color: var(--c4);
+	font-size: 3.5rem;
+	margin: 0;
+	font-weight: normal;
+}
+
+.header {
+	color: var(--c4);
+	font-size: 2.5rem;
+	margin: 0;
+	font-weight: normal;
+}
+.header::selection {
+	color: var(--c8);
+	background-color: var(--c4);
+	font-size: 2.625rem;
+	margin: 0;
+	font-weight: normal;
+}
+
+.description {
+	color: var(--c4);
+	font-size: 1.75rem;
+	margin: 0;
+	white-space: pre-wrap;
+}
+.description::selection {
+	color: var(--c8);
+	background-color: var(--c4);
+	font-size: 1.75rem;
+	margin: 0;
+	white-space: pre-wrap;
+}
+
+.note {
+	color: var(--c4);
+	font-size: 1.75rem;
+	margin: 0.25rem;
+	white-space: pre-wrap;
+    border: 0.25rem solid var(--c7);
+    padding: 0.25rem;
+}
+.note::selection {
+	color: var(--c8);
+	background-color: var(--c4);
+	font-size: 1.75rem;
+	margin: 0.25rem;
+	white-space: pre-wrap;
+    border: 0.25rem solid var(--c7);
+    padding: 0.25rem;
+}
+
+.warning {
+	color: var(--c4);
+	font-size: 1.75rem;
+	margin: 0.25rem;
+	white-space: pre-wrap;
+    border: 0.25rem solid var(--c4);
+    padding: 0.25rem;
+}
+.warning::selection {
+	color: var(--c8);
+	background-color: var(--c4);
+	font-size: 1.75rem;
+	margin: 0.25rem;
+	white-space: pre-wrap;
+    border: 0.25rem solid var(--c4);
+    padding: 0.25rem;
+}
+
+.link {
+	color: var(--c2);
+	text-decoration: underline;
+}
+.link:hover {
+	color: var(--c2);
+	background-color: var(--c7);
+	text-decoration: underline;
+}
+.link:active {
+	color: var(--c2);
+	background-color: var(--c6);
+	text-decoration: underline;
+}
+.link::selection {
+	color: var(--c8);
+	background-color: var(--c4);
+	text-decoration: underline;
+}
+
+.button {
+	color: var(--c8);
+	background-color: var(--c4);
+	font-size: 1.75rem;
+	border: none;
+}
+.button:hover {
+	color: var(--c7);
+	background-color: var(--c3);
+	font-size: 1.75rem;
+	border: none;
+}
+.button:active {
+	color: var(--c6);
+	background-color: var(--c2);
+	font-size: 1.75rem;
+	border: none;
+}
+.button::selection {
+	color: var(--c4);
+	background-color: var(--c8);
+	font-size: 1.75rem;
+	border: none;
+}
+
+.input {
+	color: var(--c8);
+	background-color: var(--c4);
+	font-size: 1.75rem;
+	border: none;
+	outline: none;
+	text-align: center;
+}
+.input:hover {
+	color: var(--c7);
+	background-color: var(--c3);
+	font-size: 1.75rem;
+	border: none;
+	outline: none;
+	text-align: center;
+}
+.input:focus {
+	color: var(--c6);
+	background-color: var(--c2);
+	font-size: 1.75rem;
+	border: none;
+	outline: none;
+	text-align: center;
+}
+.input::selection {
+	color: var(--c4);
+	background-color: var(--c8);
+	font-size: 1.75rem;
+	border: none;
+	outline: none;
+	text-align: center;
+}
+
+.highlight {
+    animation: highlightFlash 2s ease-out;
+}
+
+@keyframes highlightFlash {
+    0% {background-color: var(--c6);}
+    100% {background-color: var(--c8);}
+}
+</style>
+<script>
+let m = (new Date()).getMonth() + 1;
+if(m >= 7 && m <= 9){
+    document.documentElement.style.setProperty("--c0", "rgb(0, 0, 0)");
+    document.documentElement.style.setProperty("--c1", "rgb(60, 9, 14)");
+    document.documentElement.style.setProperty("--c2", "rgb(119, 19, 27)");
+    document.documentElement.style.setProperty("--c3", "rgb(179, 28, 41)");
+    document.documentElement.style.setProperty("--c4", "rgb(238, 37, 54)");
+    document.documentElement.style.setProperty("--c5", "rgb(242, 92, 104)");
+    document.documentElement.style.setProperty("--c6", "rgb(247, 146, 155)");
+    document.documentElement.style.setProperty("--c7", "rgb(251, 201, 205)");
+    document.documentElement.style.setProperty("--c8", "rgb(255, 255, 255)");
+}
+function highlightSection(){
+    let tag = window.location.hash.substring(1);
+    if(tag == ""){return;}
+    let element = document.getElementById(tag);
+    if(element == null){return;}
+    element.classList.add("highlight");
+    element.addEventListener("animationend", () => {element.classList.remove("highlight");}, {once: true});
+}
+window.addEventListener("DOMContentLoaded", highlightSection);
+window.addEventListener("hashchange", highlightSection);
+</script>
+</head>
+<body style="margin-left: 1em;">
+<p class="description" style="color: rgb(238, 37, 54); text-align: center; font-size: 2.5rem">sincerely <img src="/flag.png" style="vertical-align: middle; height: 2.5rem; image-rendering: auto;"> Singaporean</p>
+<div style="width: 100%; height: 0.25rem; background-color: var(--c8);"></div>
+<div><button class="button" style="width: 100%;" onclick="location.href='/'">Project 05524F.sg</button></div>
+<div style="width: 100%; height: 0.25rem; background-color: var(--c8);"></div>
+<div><button class="button" style="width: 100%;" onclick="location.href='../readme/readme'">SGEXTN Documentation</button></div><div style="width: 100%; height: 0.25rem; background-color: var(--c8);"></div><p class="warning">If you have not done so, read this full <a class="link" href="../tutorials/full">tutorial</a> on how to use SGEXTN to build an application.</p><div style="width: 100%; height: 0.75rem; background-color: var(--c8);"></div><h1 class="title">Full Tutorial Part 3</h1>
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<p class="description">&#9;See <a class="link" href="full02">here</a> for the previous part of the tutorial.</p>
+<p class="description">&#9;In the previous part, we wrote main.cpp and made the app show a window</p>
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<h2 class="header" id="">setting up basic GUI</h2>
+<p class="description">&#9;GUI? a what now?</p>
+<p class="description">&#9;GUI means graphical user interface, which literally means "something that the user can see (graphical) and use to interact (interface) with the application". In other words, the app shows a window instead of running inside cmd or in the background.</p>
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<p class="description">&#9;We first plan what our UI should look like. This page should explain to the user what the application is about and provide a button to go to the next page.</p>
+<p class="description">&#9;Having an almost full screen, scrollable, textbox explaining what the app is about seems like a good idea. Then we can have a full width button on the bottom which goes to the next page.</p>
+<p class="description">&#9;But wait... we are now using the <a class="link" href="../tutorials/sgwidget">SGWidget ⁽㈳㈴㈳㈮㈱㈨㈠㈫ ㈧㈤㈱㈤⁾</a> system, and also its subsystems <a class="link" href="../tutorials/wdistance">w-distance ⁽㈳㈴㈳㈮㈱㈨㈠㈫ ㈧㈤㈱㈤⁾</a> and <a class="link" href="../tutorials/themecolour">theme colour ⁽㈳㈴㈳㈮㈱㈨㈠㈫ ㈧㈤㈱㈤⁾</a>. You must read through their tutorials first.</p>
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<p class="description">&#9;Now that you have read through the tutorial, we can write the UI.</p>
+<p class="description">&#9;Before we start writing anything, we should first write a static functions class where all the functions concerning the first page will go to. This helps us organise our code better and essentially act as a namespace.</p>
+<p class="description">&#9;Before that, we will create files for it. We can let the app have prefix SGCLP (CoLoursPlusplus) and name our class SGCLPIntroductionPage. We create the header file include/SGCLPIntroductionPage.h and the source file src/SGCLPIntroductionPage.cpp using the Qt Creator file creation UI.</p>
+<p class="description">&#9;Now src/SGCLPIntroductionPage.cpp should be empty and include/SGCLPIntroductionPage.h should have the include guards set up automatically.</p>
+<p class="warning">#ifndef SGCLPINTRODUCTIONPAGE_H&#10;#define SGCLPINTRODUCTIONPAGE_H&#10;&#10;#endif // SGCLPINTRODUCTIONPAGE_H</p>
+<p class="description">&#9;We can write the implementation of our class. A <a class="link" href="../tutorials/callback">callback function ⁽㈳㈴㈳㈮㈱㈨㈠㈫ ㈧㈤㈱㈤⁾</a> returning a <a class="link" href="../cppclass/sgwbackground">SGWBackground</a> to pass to <a class="link" href="../cppclass/sgwbackground#static_void_enable_SGWBackground_ptr_ref_SGWBackground_ptr_ptr_func_void_ptr_func_">SGWBackground::enable</a> and a <a class="link" href="../cppclass/sgwbackground">SGWBackground</a>* storing a pointer to the actual background are definitely necessary, so we will have that.</p>
+<p class="warning">class SGWBackground;&#10;class SGCLPIntroductionPage {&#10;public:&#10;    static SGWBackground* instance;&#10;    static SGWBackground* initialise();&#10;};</p>
+<p class="description">&#9;Note that the <a class="link" href="../cppclass/sgwbackground">SGWBackground</a> class is forward declared because SGCLPIntroductionPage does not need its memory layout. Forward declaring classes in header files wherever possible is good as it speeds up clang-tidy checks and avoids circular dependencies.</p>
+<p class="description">&#9;We also can write the basic layout of src/SGCLPIntroductionPage.cpp</p>
+<p class="warning">#include &lt;SGCLPIntroductionPage.h&gt;&#10;#include &lt;SGWBackground.h&gt;&#10;&#10;SGWBackground* SGCLPIntroductionPage::instance = nullptr;&#10;&#10;SGWBackground* SGCLPIntroductionPage::initialise(){&#10;&#10;}</p>
+<p class="description">&#9;Note that the line</p>
+<p class="warning">SGWBackground* SGCLPIntroductionPage::instance = nullptr;</p>
+<p class="description">&#9;is necessary as it allocates memory for and initialises the static variable SGCLPIntroductionPage::instance.</p>
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<p class="description">&#9;We then proceed to implement SGCLPIntroductionPage::initialise.</p>
+<p class="description">&#9;Inside the function, first we write a message for the user explaining what the application is about. We will use a <a class="link" href="../cppclass/sgxstring">SGXString</a> which is a Unicode compatible string with language aware features designed to replace QString.</p>
+<p class="warning">SGXString message = "This is ColoursPlusPlus, kind of demo app for SGEXTN that we will be building in this tutorial. The app will showcase various SGEXTN features including the SGWidget and SG - RI systems used to implement interactive and customisable user interfaces.";</p>
+<p class="description">&#9;Just like QString or std::string, the + and += operators work for string concatenation.</p>
+<p class="warning">message += " ";&#10;message += SGXChar(0x0378);</p>
+<p class="description">&#9;Note that code point 0x0378 in SingScript.sg is the SG mark, the unofficial logo of Singapore. This does not work in any other font.</p>
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<p class="description">&#9;Since the page will also have a button at the bottom, we can have a <a class="link" href="../cppclass/sgwpagebackground">SGWPageBackground</a> as the background, which would have a <a class="link" href="../cppclass/sgwlonglabel">SGWLongLabel</a> and a <a class="link" href="../cppclass/sgwtextbutton">SGWTextButton</a> as children. The <a class="link" href="../cppclass/sgwlonglabel">SGWLongLabel</a> can be used to display the message and the <a class="link" href="../cppclass/sgwtextbutton">SGWTextButton</a> will send the user to the next page when used.</p>
+<p class="description">&#9;For more information about each UI element, see their documentation as linked above.</p>
+<p class="warning">SGWPageBackground* bg = new SGWPageBackground(SGWWidget::parentWidget, 0.0f, 0.0f, 0.0f, 0.0f, 1.0f, 0.0f, 1.0f, 0.0f, 8);&#10;new SGWLongLabel(bg, message, 0.0f, 0.0f, 0.0f, 0.0f, 1.0f, 0.0f, 1.0f, -1.0f, 0.0f, 1.0f, 0.0f, 0.5f, 0.0f, 0.5f);&#10;new SGWTextButton(bg, "continue", nullptr, 0.0f, 0.0f, 1.0f, -1.0f, 1.0f, 0.0f, 0.0f, 1.0f);</p>
+<p class="description">&#9;All the numbers you see in the code are just <a class="link" href="../tutorials/wdistance">w-distance ⁽㈳㈴㈳㈮㈱㈨㈠㈫ ㈧㈤㈱㈤⁾</a> describing the layout of each UI element.</p>
+<p class="description">&#9;Since we have not written the function yet, we can leave the <a class="link" href="../tutorials/callback">callback function ⁽㈳㈴㈳㈮㈱㈨㈠㈫ ㈧㈤㈱㈤⁾</a> of the <a class="link" href="../cppclass/sgwtextbutton">SGWTextButton</a> to nullptr. This will not crash, the button will just do nothing.</p>
+<p class="description">&#9;Do not forget to return the pointer to the page background since the function must return a <a class="link" href="../cppclass/sgwbackground">SGWBackground</a>*</p>
+<p class="warning">return bg;</p>
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<p class="description">&#9;If you have not done so already, add the preprocessor include directives at the top.</p>
+<p class="warning">#include &lt;SGXString.h&gt;&#10;#include &lt;SGXChar.h&gt;&#10;#include &lt;SGWWidget.h&gt;&#10;#include &lt;SGWPageBackground.h&gt;&#10;#include &lt;SGWLongLabel.h&gt;&#10;#include &lt;SGWTextButton.h&gt;</p>
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<p class="description">&#9;Right now your file should look like the code below. In the next part of the tutorial, we will be testing the UI page.</p>
+<p class="description">&#9;include/SGCLPIntroductionPage.h</p>
+<p class="warning">#ifndef SGCLPINTRODUCTIONPAGE_H&#10;#define SGCLPINTRODUCTIONPAGE_H&#10;&#10;class SGWBackground;&#10;class SGCLPIntroductionPage {&#10;public:&#10;    static SGWBackground* instance;&#10;    static SGWBackground* initialise();&#10;};&#10;&#10;#endif // SGCLPINTRODUCTIONPAGE_H</p>
+<p class="description">&#9;src/SGCLPIntroductionPage.cpp</p>
+<p class="warning">#include &lt;SGCLPIntroductionPage.h&gt;&#10;#include &lt;SGWBackground.h&gt;&#10;#include &lt;SGXString.h&gt;&#10;#include &lt;SGXChar.h&gt;&#10;#include &lt;SGWWidget.h&gt;&#10;#include &lt;SGWPageBackground.h&gt;&#10;#include &lt;SGWLongLabel.h&gt;&#10;#include &lt;SGWTextButton.h&gt;&#10;&#10;SGWBackground* SGCLPIntroductionPage::instance = nullptr;&#10;&#10;SGWBackground* SGCLPIntroductionPage::initialise(){&#10;    SGXString message = "This is ColoursPlusPlus, kind of demo app for SGEXTN that we will be building in this tutorial. The app will showcase various SGEXTN features including the SGWidget and SG - RI systems used to implement interactive and customisable user interfaces.";&#10;    message += " ";&#10;    message += SGXChar(0x0378);&#10;    SGWPageBackground* bg = new SGWPageBackground(SGWWidget::parentWidget, 0.0f, 0.0f, 0.0f, 0.0f, 1.0f, 0.0f, 1.0f, 0.0f, 8);&#10;    new SGWLongLabel(bg, message, 0.0f, 0.0f, 0.0f, 0.0f, 1.0f, 0.0f, 1.0f, -1.0f, 0.0f, 1.0f, 0.0f, 0.5f, 0.0f, 0.5f);&#10;    new SGWTextButton(bg, "continue", nullptr, 0.0f, 0.0f, 1.0f, -1.0f, 1.0f, 0.0f, 0.0f, 1.0f);&#10;    return bg;&#10;}</p>
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<p class="description">&#9;See <a class="link" href="full04">here</a> for the next part of the tutorial.</p>
+<p class="description">&#9;</p>
+<p class="description"></p>
+
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<div style="width: 100%; height: 0.25rem; background-color: var(--c4);"></div>
+<div style="width: 100%; height: 0.25rem; background-color: var(--c8);"></div>
+<p class="description">©2025 05524F.sg (Singapore)</p>
+<p class="description"><a class="link" href="/contact">contact 05524F / report a bug / make a suggestion</a></p>
+<p class="description"><a class="link" href="/values">about 05524F SINGAPORE values</a></p>
+<p class="description"><a class="link" href="/projects">list of 05524F projects</a></p>
+<div style="width: 100%; height: 0.25rem; background-color: var(--c8);"></div>
+<div style="width: 100%; height: 0.25rem; background-color: var(--c4);"></div>
+<div style="width: 100%; height: 0.25rem; background-color: var(--c8);"></div>
+</body>
+</html>

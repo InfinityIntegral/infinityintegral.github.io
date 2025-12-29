@@ -242,9 +242,8 @@ window.addEventListener("hashchange", highlightSection);
 <div style="width: 100%; height: 0.25rem; background-color: var(--c8);"></div>
 <div><button class="button" style="width: 100%;" onclick="location.href='../readme/readme'">SGEXTN Documentation</button></div><div style="width: 100%; height: 0.25rem; background-color: var(--c8);"></div><p class="warning">If you have not done so, read this full <a class="link" href="../tutorials/full">tutorial</a> on how to use SGEXTN to build an application.</p><div style="width: 100%; height: 0.75rem; background-color: var(--c8);"></div><h1 class="title">SG_Core</h1>
 <p class="description"><a class="link" href="#sg_classlist">list of classes in this module</a></p>
-<p class="description">CMake commands:</p>
-<p class="description">&#9;find_package(<a class="link" href="../readme/readme">SGEXTN</a> REQUIRED COMPONENTS SG_Core)</p>
-<p class="description">&#9;target_link_libraries(yourCMakeTarget PRIVATE <a class="link" href="../readme/readme">SGEXTN</a>::SG_Core)</p>
+<p class="description">CMake target for BuildLah: <a class="link" href="../readme/readme">SGEXTN</a>::SG_Core</p>
+<p class="description">see <a class="link" href="../tutorials/buildlah">this link</a> for more information about BuildLah</p>
 <div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
 <p class="description">&#9;This is the core SGEXTN module providing access to structs, the application entry point, and debugging.</p>
 <p class="description">&#9;The module contains structs for colours in both RGBA and HSLA format, timestamps for date and time, 2 dimensional vectors, and identifiers with a registration system builtin. There is also a random number generator and a timer system that operates using <a class="link" href="../tutorials/callback">callback function ⁽㈳㈴㈳㈮㈱㈨㈠㈫ ㈧㈤㈱㈤⁾</a>.</p>
