@@ -268,11 +268,11 @@ window.addEventListener("hashchange", highlightSection);
 <p class="description">&#9;[[nodiscard]] bool <a class="link" href="#nodiscard_bool_contains_const_K_ref_const_">contains</a>(const K& x) const;</p>
 <p class="description">&#9;[[nodiscard]] int <a class="link" href="#nodiscard_int_count_const_K_ref_const_">count</a>(const K& x) const;</p>
 <p class="description">&#9;[[nodiscard]] <a class="link" href="sglunorderedmap__iterator">SGLUnorderedMap::Iterator</a> <a class="link" href="#nodiscard_SGLUnorderedMap_mc_Iterator_end_func_">end</a>();</p>
-<p class="description">&#9;void <a class="link" href="#void_erase_const_K_ref_">erase</a>(const K& x);</p>
-<p class="description">&#9;void <a class="link" href="#void_erase_SGLUnorderedMap_mc_Iterator_ref_">erase</a>(<a class="link" href="sglunorderedmap__iterator">SGLUnorderedMap::Iterator</a>& x);</p>
+<p class="description">&#9;bool <a class="link" href="#bool_erase_SGLUnorderedMap_mc_Iterator_ref_">erase</a>(<a class="link" href="sglunorderedmap__iterator">SGLUnorderedMap::Iterator</a>& x);</p>
+<p class="description">&#9;bool <a class="link" href="#bool_erase_const_K_ref_">erase</a>(const K& x);</p>
 <p class="description">&#9;[[nodiscard]] <a class="link" href="sglunorderedmap__iterator">SGLUnorderedMap::Iterator</a> <a class="link" href="#nodiscard_SGLUnorderedMap_mc_Iterator_find_const_K_ref_">find</a>(const K& x);</p>
 <p class="description">&#9;[[nodiscard]] <a class="link" href="sglunorderedmap__constiterator">SGLUnorderedMap::ConstIterator</a> <a class="link" href="#nodiscard_SGLUnorderedMap_mc_ConstIterator_find_const_K_ref_const_">find</a>(const K& x) const;</p>
-<p class="description">&#9;void <a class="link" href="#void_insert_const_K_ref_const_V_ref_">insert</a>(const K& xKey, const V& xValue);</p>
+<p class="description">&#9;bool <a class="link" href="#bool_insert_const_K_ref_const_V_ref_">insert</a>(const K& xKey, const V& xValue);</p>
 <p class="description">&#9;[[nodiscard]] int <a class="link" href="#nodiscard_int_length_func_const_">length</a>() const;</p>
 <p class="description">&#9;void <a class="link" href="#void_reserve_int_">reserve</a>(int newMemoryLength);</p>
 <div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
@@ -323,14 +323,15 @@ window.addEventListener("hashchange", highlightSection);
 <p class="note"><a class="link" href="../cppclass/sglunorderedmap__iterator">SGLUnorderedMap::Iterator</a> allows modifying the <a class="link" href="../cppclass/sglunorderedmap">SGLUnorderedMap</a> through it. If modification is not needed, use <a class="link" href="../cppclass/sglunorderedmap__constiterator">SGLUnorderedMap::ConstIterator</a> instead. The <a class="link" href="../cppclass/sglunorderedmap__constiterator">SGLUnorderedMap::ConstIterator</a> equivalent to this function is <a class="link" href="../cppclass/sglunorderedmap#nodiscard_SGLUnorderedMap_mc_ConstIterator_constEnd_func_const_">SGLUnorderedMap::constEnd</a>.</p>
 <p class="warning">Attempting to access the key or value that this iterator points to is <a class="link" href="../tutorials/undefinedbehaviour">undefined behaviour</a>.</p>
 <div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
-<h2 class="header" id="void_erase_const_K_ref_">void <a class="link" href="#void_erase_const_K_ref_">erase</a>(const K& x);</h2>
-<p class="description">Removes the key <b>x</b> and its associated value from the <a class="link" href="../cppclass/sglunorderedmap">SGLUnorderedMap</a>.</p>
-<p class="warning">If <b>x</b> is not in the <a class="link" href="../cppclass/sglunorderedmap">SGLUnorderedMap</a>, this will crash. If you cannot guarantee that the <a class="link" href="../cppclass/sglunorderedmap">SGLUnorderedMap</a> already contains the key, use <a class="link" href="../cppclass/sglunorderedmap#nodiscard_bool_contains_const_K_ref_const_">SGLUnorderedMap::contains</a> to check before removal. This is a intentional design choice to avoid silent bugs.</p>
-<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
-<h2 class="header" id="void_erase_SGLUnorderedMap_mc_Iterator_ref_">void <a class="link" href="#void_erase_SGLUnorderedMap_mc_Iterator_ref_">erase</a>(<a class="link" href="sglunorderedmap__iterator">SGLUnorderedMap::Iterator</a>& x);</h2>
+<h2 class="header" id="bool_erase_SGLUnorderedMap_mc_Iterator_ref_">bool <a class="link" href="#bool_erase_SGLUnorderedMap_mc_Iterator_ref_">erase</a>(<a class="link" href="sglunorderedmap__iterator">SGLUnorderedMap::Iterator</a>& x);</h2>
 <p class="description">Removes the key value pair associated with <b>x</b> from the <a class="link" href="../cppclass/sglunorderedmap">SGLUnorderedMap</a>.</p>
 <p class="description">After the removal, <b>x</b> which is passed as a reference, is decremented. This means that you do not have to do any special handling for removed elements when iterating over a <a class="link" href="../cppclass/sglunorderedmap">SGLUnorderedMap</a>.</p>
-<p class="warning">Do not write any special logic to modify iterators while removing elements from a <a class="link" href="../cppclass/sglunorderedmap">SGLUnorderedMap</a> in a loop, <a class="link" href="../cppclass/sglunorderedmap#void_erase_const_K_ref_">SGLUnorderedMap::erase</a><a class="link" href="../cppclass/sglunorderedmap#void_erase_SGLUnorderedMap_mc_Iterator_ref_">SGLUnorderedMap::erase</a> handles this for you automatically.</p>
+<p class="note">This return false if <b>x</b> is <a class="link" href="../cppclass/sglunorderedmap#nodiscard_SGLUnorderedMap_mc_Iterator_end_func_">SGLUnorderedMap::end</a> and true otherwise.</p>
+<p class="warning">Do not write any special logic to modify iterators while removing elements from a <a class="link" href="../cppclass/sglunorderedmap">SGLUnorderedMap</a> in a loop, <a class="link" href="../cppclass/sglunorderedmap#bool_erase_SGLUnorderedMap_mc_Iterator_ref_">SGLUnorderedMap::erase</a><a class="link" href="../cppclass/sglunorderedmap#bool_erase_const_K_ref_">SGLUnorderedMap::erase</a> handles this for you automatically.</p>
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<h2 class="header" id="bool_erase_const_K_ref_">bool <a class="link" href="#bool_erase_const_K_ref_">erase</a>(const K& x);</h2>
+<p class="description">Removes the key <b>x</b> and its associated value from the <a class="link" href="../cppclass/sglunorderedmap">SGLUnorderedMap</a>.</p>
+<p class="note">If <b>x</b> is not in the <a class="link" href="../cppclass/sglunorderedmap">SGLUnorderedMap</a>, this will return false, otherwise this returns true.</p>
 <div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
 <h2 class="header" id="nodiscard_SGLUnorderedMap_mc_Iterator_find_const_K_ref_">[[nodiscard]] <a class="link" href="sglunorderedmap__iterator">SGLUnorderedMap::Iterator</a> <a class="link" href="#nodiscard_SGLUnorderedMap_mc_Iterator_find_const_K_ref_">find</a>(const K& x);</h2>
 <p class="description">Returns the iterator pointing to key <b>x</b>.</p>
@@ -340,9 +341,9 @@ window.addEventListener("hashchange", highlightSection);
 <p class="description">Returns the constant iterator pointing to key <b>x</b>.</p>
 <p class="note"><a class="link" href="../cppclass/sglunorderedmap#nodiscard_SGLUnorderedMap_mc_ConstIterator_constEnd_func_const_">SGLUnorderedMap::constEnd</a> is returned if <b>x</b> is not in the <a class="link" href="../cppclass/sglunorderedmap">SGLUnorderedMap</a>.</p>
 <div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
-<h2 class="header" id="void_insert_const_K_ref_const_V_ref_">void <a class="link" href="#void_insert_const_K_ref_const_V_ref_">insert</a>(const K& xKey, const V& xValue);</h2>
+<h2 class="header" id="bool_insert_const_K_ref_const_V_ref_">bool <a class="link" href="#bool_insert_const_K_ref_const_V_ref_">insert</a>(const K& xKey, const V& xValue);</h2>
 <p class="description">Inserts the key value pair (<b>xKey</b>, <b>xValue</b>) into the <a class="link" href="../cppclass/sglunorderedmap">SGLUnorderedMap</a>.</p>
-<p class="warning">If <b>xKey</b> already exists in the <a class="link" href="../cppclass/sglunorderedmap">SGLUnorderedMap</a>, this will crash. If you cannot guarantee that the <a class="link" href="../cppclass/sglunorderedmap">SGLUnorderedMap</a> does not already contain the key, use <a class="link" href="../cppclass/sglunorderedmap#nodiscard_bool_contains_const_K_ref_const_">SGLUnorderedMap::contains</a> to check before insertion. This is a intentional design choice to avoid silent bugs.</p>
+<p class="note">If <b>xKey</b> already exists in the <a class="link" href="../cppclass/sglunorderedmap">SGLUnorderedMap</a>, this will return false, otherwise this returns true.</p>
 <div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
 <h2 class="header" id="nodiscard_int_length_func_const_">[[nodiscard]] int <a class="link" href="#nodiscard_int_length_func_const_">length</a>() const;</h2>
 <p class="description">Returns the length of the <a class="link" href="../cppclass/sglunorderedmap">SGLUnorderedMap</a>, which is the number of key value pairs currently stored inside it.</p>

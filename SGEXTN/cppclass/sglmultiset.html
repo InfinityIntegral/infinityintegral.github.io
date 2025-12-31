@@ -268,8 +268,8 @@ window.addEventListener("hashchange", highlightSection);
 <p class="description">&#9;[[nodiscard]] int <a class="link" href="#nodiscard_int_count_const_T_ref_const_">count</a>(const T& x) const;</p>
 <p class="description">&#9;[[nodiscard]] const T& <a class="link" href="#nodiscard_const_T_ref_elementAt_int_const_">elementAt</a>(int n) const;</p>
 <p class="description">&#9;[[nodiscard]] <a class="link" href="sglmultiset__iterator">SGLMultiSet::Iterator</a> <a class="link" href="#nodiscard_SGLMultiSet_mc_Iterator_end_func_">end</a>();</p>
-<p class="description">&#9;void <a class="link" href="#void_erase_const_T_ref_">erase</a>(const T& x);</p>
-<p class="description">&#9;void <a class="link" href="#void_erase_SGLMultiSet_mc_Iterator_ref_">erase</a>(<a class="link" href="sglmultiset__iterator">SGLMultiSet::Iterator</a>& i);</p>
+<p class="description">&#9;bool <a class="link" href="#bool_erase_SGLMultiSet_mc_Iterator_ref_">erase</a>(<a class="link" href="sglmultiset__iterator">SGLMultiSet::Iterator</a>& i);</p>
+<p class="description">&#9;bool <a class="link" href="#bool_erase_const_T_ref_">erase</a>(const T& x);</p>
 <p class="description">&#9;[[nodiscard]] <a class="link" href="sglmultiset__constiterator">SGLMultiSet::ConstIterator</a> <a class="link" href="#nodiscard_SGLMultiSet_mc_ConstIterator_find_const_T_ref_const_">find</a>(const T& x) const;</p>
 <p class="description">&#9;[[nodiscard]] <a class="link" href="sglmultiset__iterator">SGLMultiSet::Iterator</a> <a class="link" href="#nodiscard_SGLMultiSet_mc_Iterator_find_const_T_ref_">find</a>(const T& x);</p>
 <p class="description">&#9;[[nodiscard]] int <a class="link" href="#nodiscard_int_indexOf_const_T_ref_const_">indexOf</a>(const T& x) const;</p>
@@ -280,8 +280,8 @@ window.addEventListener("hashchange", highlightSection);
 <p class="description">&#9;[[nodiscard]] int <a class="link" href="#nodiscard_int_length_func_const_">length</a>() const;</p>
 <p class="description">&#9;[[nodiscard]] <a class="link" href="sglmultiset__constiterator">SGLMultiSet::ConstIterator</a> <a class="link" href="#nodiscard_SGLMultiSet_mc_ConstIterator_lowerBound_const_T_ref_const_">lowerBound</a>(const T& x) const;</p>
 <p class="description">&#9;[[nodiscard]] <a class="link" href="sglmultiset__iterator">SGLMultiSet::Iterator</a> <a class="link" href="#nodiscard_SGLMultiSet_mc_Iterator_lowerBound_const_T_ref_">lowerBound</a>(const T& x);</p>
-<p class="description">&#9;[[nodiscard]] <a class="link" href="sglmultiset__constiterator">SGLMultiSet::ConstIterator</a> <a class="link" href="#nodiscard_SGLMultiSet_mc_ConstIterator_upperBound_const_T_ref_const_">upperBound</a>(const T& x) const;</p>
 <p class="description">&#9;[[nodiscard]] <a class="link" href="sglmultiset__iterator">SGLMultiSet::Iterator</a> <a class="link" href="#nodiscard_SGLMultiSet_mc_Iterator_upperBound_const_T_ref_">upperBound</a>(const T& x);</p>
+<p class="description">&#9;[[nodiscard]] <a class="link" href="sglmultiset__constiterator">SGLMultiSet::ConstIterator</a> <a class="link" href="#nodiscard_SGLMultiSet_mc_ConstIterator_upperBound_const_T_ref_const_">upperBound</a>(const T& x) const;</p>
 <div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
 <h2 class="header" id="sg_detaileddescription">Detailed Description</h2>
 <p class="description"><a class="link" href="../cppclass/sglmultiset">SGLMultiSet</a> provides a template based multi set that can be used with any data type. Use <a class="link" href="../cppclass/sglunorderedmultiset">SGLUnorderedMultiSet</a> if order does not matter. This is a template based class with no separate source file. This class is a SGEXTN container. Copy constructor, copy assignment, move constructor, move assignment, and destructor work as expected. A deep copy is performed whenever this class is copied, and the new instance will not be linked to the old instance in any way. It is assumed that the contents placed into this SGEXTN container can be copied and moved. This means that their copy constructor copy assignment, move constructor, move assignment, and destructor work as expected. If this is not the case or if you want the container to store references or constant references, store pointers instead.</p>
@@ -328,15 +328,16 @@ window.addEventListener("hashchange", highlightSection);
 <p class="note"><a class="link" href="../cppclass/sglmultiset__iterator">SGLMultiSet::Iterator</a> allows modifying the <a class="link" href="../cppclass/sglmultiset">SGLMultiSet</a> through it. If modification is not needed, use <a class="link" href="../cppclass/sglmultiset__constiterator">SGLMultiSet::ConstIterator</a> instead. The <a class="link" href="../cppclass/sglmultiset__constiterator">SGLMultiSet::ConstIterator</a> equivalent to this function is <a class="link" href="../cppclass/sglmultiset#nodiscard_SGLMultiSet_mc_ConstIterator_constEnd_func_const_">SGLMultiSet::constEnd</a>.</p>
 <p class="warning">Attempting to access the element that this iterator points to is <a class="link" href="../tutorials/undefinedbehaviour">undefined behaviour</a>.</p>
 <div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
-<h2 class="header" id="void_erase_const_T_ref_">void <a class="link" href="#void_erase_const_T_ref_">erase</a>(const T& x);</h2>
-<p class="description">Removes <b>x</b> from the <a class="link" href="../cppclass/sglmultiset">SGLMultiSet</a>.</p>
-<p class="note">If there is more than 1 copies of <b>x</b>, the last added copy is removed and other copies remain in the set.</p>
-<p class="warning">If the <a class="link" href="../cppclass/sglmultiset">SGLMultiSet</a> does not contain any copy of <b>x</b>, this will cause a crash. If you cannot guarantee that <a class="link" href="../cppclass/sglmultiset">SGLMultiSet</a> contains <b>x</b>, use <a class="link" href="../cppclass/sglmultiset#nodiscard_bool_contains_const_T_ref_const_">SGLMultiSet::contains</a> to check before removal. This is a intentional design choice to avoid silent bugs.</p>
-<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
-<h2 class="header" id="void_erase_SGLMultiSet_mc_Iterator_ref_">void <a class="link" href="#void_erase_SGLMultiSet_mc_Iterator_ref_">erase</a>(<a class="link" href="sglmultiset__iterator">SGLMultiSet::Iterator</a>& i);</h2>
+<h2 class="header" id="bool_erase_SGLMultiSet_mc_Iterator_ref_">bool <a class="link" href="#bool_erase_SGLMultiSet_mc_Iterator_ref_">erase</a>(<a class="link" href="sglmultiset__iterator">SGLMultiSet::Iterator</a>& i);</h2>
 <p class="description">Removes the element associated with <b>i</b> from the <a class="link" href="../cppclass/sglmultiset">SGLMultiSet</a>.</p>
 <p class="description">After the removal, <b>i</b> which is passed as a reference, is decremented. This means that you do not have to do any special handling for removed elements when iterating over a <a class="link" href="../cppclass/sglmultiset">SGLMultiSet</a>.</p>
-<p class="warning">Do not write any special logic to modify iterators while removing elements from a <a class="link" href="../cppclass/sglmultiset">SGLMultiSet</a> in a loop, <a class="link" href="../cppclass/sglmultiset#void_erase_const_T_ref_">SGLMultiSet::erase</a><a class="link" href="../cppclass/sglmultiset#void_erase_SGLMultiSet_mc_Iterator_ref_">SGLMultiSet::erase</a> handles this for you automatically.</p>
+<p class="note">This returns false if <b>i</b> is <a class="link" href="../cppclass/sglmultiset#nodiscard_SGLMultiSet_mc_Iterator_end_func_">SGLMultiSet::end</a> and true otherwise.</p>
+<p class="warning">Do not write any special logic to modify iterators while removing elements from a <a class="link" href="../cppclass/sglmultiset">SGLMultiSet</a> in a loop, <a class="link" href="../cppclass/sglmultiset#bool_erase_SGLMultiSet_mc_Iterator_ref_">SGLMultiSet::erase</a><a class="link" href="../cppclass/sglmultiset#bool_erase_const_T_ref_">SGLMultiSet::erase</a> handles this for you automatically.</p>
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<h2 class="header" id="bool_erase_const_T_ref_">bool <a class="link" href="#bool_erase_const_T_ref_">erase</a>(const T& x);</h2>
+<p class="description">Removes <b>x</b> from the <a class="link" href="../cppclass/sglmultiset">SGLMultiSet</a>.</p>
+<p class="note">If there is more than 1 copies of <b>x</b>, the last added copy is removed and other copies remain in the set.</p>
+<p class="note">If the <a class="link" href="../cppclass/sglmultiset">SGLMultiSet</a> does not contain any copy of <b>x</b>, this will return false, otherwise this returns true.</p>
 <div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
 <h2 class="header" id="nodiscard_SGLMultiSet_mc_ConstIterator_find_const_T_ref_const_">[[nodiscard]] <a class="link" href="sglmultiset__constiterator">SGLMultiSet::ConstIterator</a> <a class="link" href="#nodiscard_SGLMultiSet_mc_ConstIterator_find_const_T_ref_const_">find</a>(const T& x) const;</h2>
 <p class="description">Returns the constant iterator pointing to element <b>x</b>.</p>
@@ -381,13 +382,13 @@ window.addEventListener("hashchange", highlightSection);
 <p class="description">Returns a iterator to the first element in the <a class="link" href="../cppclass/sglmultiset">SGLMultiSet</a> more than or equal to <b>x</b>.</p>
 <p class="note"><a class="link" href="../cppclass/sglmultiset#nodiscard_SGLMultiSet_mc_Iterator_end_func_">SGLMultiSet::end</a> is returned if no such iterator exists.</p>
 <div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
-<h2 class="header" id="nodiscard_SGLMultiSet_mc_ConstIterator_upperBound_const_T_ref_const_">[[nodiscard]] <a class="link" href="sglmultiset__constiterator">SGLMultiSet::ConstIterator</a> <a class="link" href="#nodiscard_SGLMultiSet_mc_ConstIterator_upperBound_const_T_ref_const_">upperBound</a>(const T& x) const;</h2>
-<p class="description">Returns a constant iterator to the first element in the <a class="link" href="../cppclass/sglmultiset">SGLMultiSet</a> strictly more than <b>x</b>.</p>
-<p class="note"><a class="link" href="../cppclass/sglmultiset#nodiscard_SGLMultiSet_mc_ConstIterator_constEnd_func_const_">SGLMultiSet::constEnd</a> is returned if no such iterator exists.</p>
-<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
 <h2 class="header" id="nodiscard_SGLMultiSet_mc_Iterator_upperBound_const_T_ref_">[[nodiscard]] <a class="link" href="sglmultiset__iterator">SGLMultiSet::Iterator</a> <a class="link" href="#nodiscard_SGLMultiSet_mc_Iterator_upperBound_const_T_ref_">upperBound</a>(const T& x);</h2>
 <p class="description">Returns a iterator to the first element in the <a class="link" href="../cppclass/sglmultiset">SGLMultiSet</a> strictly more than <b>x</b>.</p>
 <p class="note"><a class="link" href="../cppclass/sglmultiset#nodiscard_SGLMultiSet_mc_Iterator_end_func_">SGLMultiSet::end</a> is returned if no such iterator exists.</p>
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<h2 class="header" id="nodiscard_SGLMultiSet_mc_ConstIterator_upperBound_const_T_ref_const_">[[nodiscard]] <a class="link" href="sglmultiset__constiterator">SGLMultiSet::ConstIterator</a> <a class="link" href="#nodiscard_SGLMultiSet_mc_ConstIterator_upperBound_const_T_ref_const_">upperBound</a>(const T& x) const;</h2>
+<p class="description">Returns a constant iterator to the first element in the <a class="link" href="../cppclass/sglmultiset">SGLMultiSet</a> strictly more than <b>x</b>.</p>
+<p class="note"><a class="link" href="../cppclass/sglmultiset#nodiscard_SGLMultiSet_mc_ConstIterator_constEnd_func_const_">SGLMultiSet::constEnd</a> is returned if no such iterator exists.</p>
 <div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
 <p class="description"></p>
 

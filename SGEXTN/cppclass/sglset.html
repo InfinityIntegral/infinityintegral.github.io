@@ -268,18 +268,18 @@ window.addEventListener("hashchange", highlightSection);
 <p class="description">&#9;[[nodiscard]] int <a class="link" href="#nodiscard_int_count_const_T_ref_const_">count</a>(const T& x) const;</p>
 <p class="description">&#9;[[nodiscard]] const T& <a class="link" href="#nodiscard_const_T_ref_elementAt_int_const_">elementAt</a>(int n) const;</p>
 <p class="description">&#9;[[nodiscard]] <a class="link" href="sglset__iterator">SGLSet::Iterator</a> <a class="link" href="#nodiscard_SGLSet_mc_Iterator_end_func_">end</a>();</p>
-<p class="description">&#9;void <a class="link" href="#void_erase_SGLSet_mc_Iterator_ref_">erase</a>(<a class="link" href="sglset__iterator">SGLSet::Iterator</a>& i);</p>
-<p class="description">&#9;void <a class="link" href="#void_erase_const_T_ref_">erase</a>(const T& x);</p>
+<p class="description">&#9;bool <a class="link" href="#bool_erase_SGLSet_mc_Iterator_ref_">erase</a>(<a class="link" href="sglset__iterator">SGLSet::Iterator</a>& i);</p>
+<p class="description">&#9;bool <a class="link" href="#bool_erase_const_T_ref_">erase</a>(const T& x);</p>
 <p class="description">&#9;[[nodiscard]] <a class="link" href="sglset__constiterator">SGLSet::ConstIterator</a> <a class="link" href="#nodiscard_SGLSet_mc_ConstIterator_find_const_T_ref_const_">find</a>(const T& x) const;</p>
 <p class="description">&#9;[[nodiscard]] <a class="link" href="sglset__iterator">SGLSet::Iterator</a> <a class="link" href="#nodiscard_SGLSet_mc_Iterator_find_const_T_ref_">find</a>(const T& x);</p>
 <p class="description">&#9;[[nodiscard]] int <a class="link" href="#nodiscard_int_indexOf_SGLSet_mc_ConstIterator_const_">indexOf</a>(<a class="link" href="sglset__constiterator">SGLSet::ConstIterator</a> i) const;</p>
 <p class="description">&#9;[[nodiscard]] int <a class="link" href="#nodiscard_int_indexOf_const_T_ref_const_">indexOf</a>(const T& x) const;</p>
 <p class="description">&#9;[[nodiscard]] int <a class="link" href="#nodiscard_int_indexOf_SGLSet_mc_Iterator_const_">indexOf</a>(<a class="link" href="sglset__iterator">SGLSet::Iterator</a> i) const;</p>
-<p class="description">&#9;void <a class="link" href="#void_insert_const_T_ref_">insert</a>(const T& x);</p>
+<p class="description">&#9;bool <a class="link" href="#bool_insert_const_T_ref_">insert</a>(const T& x);</p>
 <p class="description">&#9;[[nodiscard]] <a class="link" href="sglset__iterator">SGLSet::Iterator</a> <a class="link" href="#nodiscard_SGLSet_mc_Iterator_iteratorAt_int_">iteratorAt</a>(int n);</p>
 <p class="description">&#9;[[nodiscard]] int <a class="link" href="#nodiscard_int_length_func_const_">length</a>() const;</p>
-<p class="description">&#9;[[nodiscard]] <a class="link" href="sglset__constiterator">SGLSet::ConstIterator</a> <a class="link" href="#nodiscard_SGLSet_mc_ConstIterator_lowerBound_const_T_ref_const_">lowerBound</a>(const T& x) const;</p>
 <p class="description">&#9;[[nodiscard]] <a class="link" href="sglset__iterator">SGLSet::Iterator</a> <a class="link" href="#nodiscard_SGLSet_mc_Iterator_lowerBound_const_T_ref_">lowerBound</a>(const T& x);</p>
+<p class="description">&#9;[[nodiscard]] <a class="link" href="sglset__constiterator">SGLSet::ConstIterator</a> <a class="link" href="#nodiscard_SGLSet_mc_ConstIterator_lowerBound_const_T_ref_const_">lowerBound</a>(const T& x) const;</p>
 <p class="description">&#9;[[nodiscard]] <a class="link" href="sglset__constiterator">SGLSet::ConstIterator</a> <a class="link" href="#nodiscard_SGLSet_mc_ConstIterator_upperBound_const_T_ref_const_">upperBound</a>(const T& x) const;</p>
 <p class="description">&#9;[[nodiscard]] <a class="link" href="sglset__iterator">SGLSet::Iterator</a> <a class="link" href="#nodiscard_SGLSet_mc_Iterator_upperBound_const_T_ref_">upperBound</a>(const T& x);</p>
 <div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
@@ -329,14 +329,15 @@ window.addEventListener("hashchange", highlightSection);
 <p class="note"><a class="link" href="../cppclass/sglset__iterator">SGLSet::Iterator</a> allows modifying the <a class="link" href="../cppclass/sglset">SGLSet</a> through it. If modification is not needed, use <a class="link" href="../cppclass/sglset__constiterator">SGLSet::ConstIterator</a> instead. The <a class="link" href="../cppclass/sglset__constiterator">SGLSet::ConstIterator</a> equivalent to this function is <a class="link" href="../cppclass/sglset#nodiscard_SGLSet_mc_ConstIterator_constEnd_func_const_">SGLSet::constEnd</a>.</p>
 <p class="warning">Attempting to access the element that this iterator points to is <a class="link" href="../tutorials/undefinedbehaviour">undefined behaviour</a>.</p>
 <div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
-<h2 class="header" id="void_erase_SGLSet_mc_Iterator_ref_">void <a class="link" href="#void_erase_SGLSet_mc_Iterator_ref_">erase</a>(<a class="link" href="sglset__iterator">SGLSet::Iterator</a>& i);</h2>
+<h2 class="header" id="bool_erase_SGLSet_mc_Iterator_ref_">bool <a class="link" href="#bool_erase_SGLSet_mc_Iterator_ref_">erase</a>(<a class="link" href="sglset__iterator">SGLSet::Iterator</a>& i);</h2>
 <p class="description">Removes the element associated with <b>i</b> from the <a class="link" href="../cppclass/sglset">SGLSet</a>.</p>
 <p class="description">After the removal, <b>i</b> which is passed as a reference, is decremented. This means that you do not have to do any special handling for removed elements when iterating over a <a class="link" href="../cppclass/sglset">SGLSet</a>.</p>
-<p class="warning">Do not write any special logic to modify iterators while removing elements from a <a class="link" href="../cppclass/sglset">SGLSet</a> in a loop, <a class="link" href="../cppclass/sglset#void_erase_SGLSet_mc_Iterator_ref_">SGLSet::erase</a><a class="link" href="../cppclass/sglset#void_erase_const_T_ref_">SGLSet::erase</a> handles this for you automatically.</p>
+<p class="note">This returns false if <b>i</b> is <a class="link" href="../cppclass/sglset#nodiscard_SGLSet_mc_Iterator_end_func_">SGLSet::end</a> and true otherwise.</p>
+<p class="warning">Do not write any special logic to modify iterators while removing elements from a <a class="link" href="../cppclass/sglset">SGLSet</a> in a loop, <a class="link" href="../cppclass/sglset#bool_erase_const_T_ref_">SGLSet::erase</a><a class="link" href="../cppclass/sglset#bool_erase_SGLSet_mc_Iterator_ref_">SGLSet::erase</a> handles this for you automatically.</p>
 <div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
-<h2 class="header" id="void_erase_const_T_ref_">void <a class="link" href="#void_erase_const_T_ref_">erase</a>(const T& x);</h2>
+<h2 class="header" id="bool_erase_const_T_ref_">bool <a class="link" href="#bool_erase_const_T_ref_">erase</a>(const T& x);</h2>
 <p class="description">Removes <b>x</b> from the <a class="link" href="../cppclass/sglset">SGLSet</a>.</p>
-<p class="note">If the <a class="link" href="../cppclass/sglset">SGLSet</a> does not contain <b>x</b>, this function will crash. If you cannot guarantee that the <a class="link" href="../cppclass/sglset">SGLSet</a> already contains <b>x</b>, use <a class="link" href="../cppclass/sglset#nodiscard_bool_contains_const_T_ref_const_">SGLSet::contains</a> to check before removal. This is a intentional design choice to avoid silent bugs.</p>
+<p class="note">If the <a class="link" href="../cppclass/sglset">SGLSet</a> does not contain <b>x</b>, this function will return false, otherwise this returns true.</p>
 <div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
 <h2 class="header" id="nodiscard_SGLSet_mc_ConstIterator_find_const_T_ref_const_">[[nodiscard]] <a class="link" href="sglset__constiterator">SGLSet::ConstIterator</a> <a class="link" href="#nodiscard_SGLSet_mc_ConstIterator_find_const_T_ref_const_">find</a>(const T& x) const;</h2>
 <p class="description">Returns the constant iterator pointing to element <b>x</b>.</p>
@@ -361,9 +362,9 @@ window.addEventListener("hashchange", highlightSection);
 <p class="note">-1 is returned if <b>i</b> is <a class="link" href="../cppclass/sglset#nodiscard_SGLSet_mc_Iterator_end_func_">SGLSet::end</a>.</p>
 <p class="warning">The index may change if elements are inserted into or removed from <a class="link" href="../cppclass/sglset">SGLSet</a> to keep the <a class="link" href="../cppclass/sglset">SGLSet</a> always sorted.</p>
 <div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
-<h2 class="header" id="void_insert_const_T_ref_">void <a class="link" href="#void_insert_const_T_ref_">insert</a>(const T& x);</h2>
+<h2 class="header" id="bool_insert_const_T_ref_">bool <a class="link" href="#bool_insert_const_T_ref_">insert</a>(const T& x);</h2>
 <p class="description">Inserts <b>x</b> into the <a class="link" href="../cppclass/sglset">SGLSet</a>.</p>
-<p class="note">If the <a class="link" href="../cppclass/sglset">SGLSet</a> already contains <b>x</b>, this function will crash. If you cannot guarantee that the <a class="link" href="../cppclass/sglset">SGLSet</a> does not already contain <b>x</b>, use <a class="link" href="../cppclass/sglset#nodiscard_bool_contains_const_T_ref_const_">SGLSet::contains</a> to check before insertion. This is a intentional design choice to avoid silent bugs.</p>
+<p class="note">If the <a class="link" href="../cppclass/sglset">SGLSet</a> already contains <b>x</b>, this function will return false, otherwise this returns true.</p>
 <div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
 <h2 class="header" id="nodiscard_SGLSet_mc_Iterator_iteratorAt_int_">[[nodiscard]] <a class="link" href="sglset__iterator">SGLSet::Iterator</a> <a class="link" href="#nodiscard_SGLSet_mc_Iterator_iteratorAt_int_">iteratorAt</a>(int n);</h2>
 <p class="description">Returns the iterator pointing towards the element at index <b>n</b> in the <a class="link" href="../cppclass/sglset">SGLSet</a>.</p>
@@ -373,13 +374,13 @@ window.addEventListener("hashchange", highlightSection);
 <h2 class="header" id="nodiscard_int_length_func_const_">[[nodiscard]] int <a class="link" href="#nodiscard_int_length_func_const_">length</a>() const;</h2>
 <p class="description">Returns the length of the <a class="link" href="../cppclass/sglset">SGLSet</a>, this is the number of elements stored inside it.</p>
 <div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
-<h2 class="header" id="nodiscard_SGLSet_mc_ConstIterator_lowerBound_const_T_ref_const_">[[nodiscard]] <a class="link" href="sglset__constiterator">SGLSet::ConstIterator</a> <a class="link" href="#nodiscard_SGLSet_mc_ConstIterator_lowerBound_const_T_ref_const_">lowerBound</a>(const T& x) const;</h2>
-<p class="description">Returns a constant iterator to the first element in the <a class="link" href="../cppclass/sglset">SGLSet</a> more than or equal to <b>x</b>.</p>
-<p class="note"><a class="link" href="../cppclass/sglset#nodiscard_SGLSet_mc_ConstIterator_constEnd_func_const_">SGLSet::constEnd</a> is returned if no such iterator exists.</p>
-<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
 <h2 class="header" id="nodiscard_SGLSet_mc_Iterator_lowerBound_const_T_ref_">[[nodiscard]] <a class="link" href="sglset__iterator">SGLSet::Iterator</a> <a class="link" href="#nodiscard_SGLSet_mc_Iterator_lowerBound_const_T_ref_">lowerBound</a>(const T& x);</h2>
 <p class="description">Returns a iterator to the first element in the <a class="link" href="../cppclass/sglset">SGLSet</a> more than or equal to <b>x</b>.</p>
 <p class="note"><a class="link" href="../cppclass/sglset#nodiscard_SGLSet_mc_Iterator_end_func_">SGLSet::end</a> is returned if no such iterator exists.</p>
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<h2 class="header" id="nodiscard_SGLSet_mc_ConstIterator_lowerBound_const_T_ref_const_">[[nodiscard]] <a class="link" href="sglset__constiterator">SGLSet::ConstIterator</a> <a class="link" href="#nodiscard_SGLSet_mc_ConstIterator_lowerBound_const_T_ref_const_">lowerBound</a>(const T& x) const;</h2>
+<p class="description">Returns a constant iterator to the first element in the <a class="link" href="../cppclass/sglset">SGLSet</a> more than or equal to <b>x</b>.</p>
+<p class="note"><a class="link" href="../cppclass/sglset#nodiscard_SGLSet_mc_ConstIterator_constEnd_func_const_">SGLSet::constEnd</a> is returned if no such iterator exists.</p>
 <div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
 <h2 class="header" id="nodiscard_SGLSet_mc_ConstIterator_upperBound_const_T_ref_const_">[[nodiscard]] <a class="link" href="sglset__constiterator">SGLSet::ConstIterator</a> <a class="link" href="#nodiscard_SGLSet_mc_ConstIterator_upperBound_const_T_ref_const_">upperBound</a>(const T& x) const;</h2>
 <p class="description">Returns a constant iterator to the first element in the <a class="link" href="../cppclass/sglset">SGLSet</a> strictly more than <b>x</b>.</p>

@@ -268,21 +268,21 @@ window.addEventListener("hashchange", highlightSection);
 <p class="description">&#9;<a class="link" href="#SGXColourHSLA_SGXColourRGBA_">SGXColourHSLA</a>(<a class="link" href="sgxcolourrgba">SGXColourRGBA</a> x);</p>
 <p class="description">&#9;<a class="link" href="#SGXColourHSLA_float_float_float_float_">SGXColourHSLA</a>(float h, float s, float l, float a);</p>
 <p class="description">&#9;[[nodiscard]] int <a class="link" href="#nodiscard_int_hash_func_const_">hash</a>() const;</p>
-<p class="description">&#9;void <a class="link" href="#void_invertHue_func_">invertHue</a>();</p>
-<p class="description">&#9;void <a class="link" href="#void_invertLightness_func_">invertLightness</a>();</p>
-<p class="description">&#9;void <a class="link" href="#void_invertSaturation_func_">invertSaturation</a>();</p>
-<p class="description">&#9;void <a class="link" href="#void_linearTransformLightness_float_float_">linearTransformLightness</a>(float m, float c);</p>
-<p class="description">&#9;void <a class="link" href="#void_linearTransformSaturation_float_float_">linearTransformSaturation</a>(float m, float c);</p>
-<p class="description">&#9;void <a class="link" href="#void_linearTransformTransparency_float_float_">linearTransformTransparency</a>(float m, float c);</p>
-<p class="description">&#9;void <a class="link" href="#void_offsetHue_float_">offsetHue</a>(float c);</p>
+<p class="description">&#9;<a class="link" href="sgxcolourhsla">SGXColourHSLA</a>& <a class="link" href="#SGXColourHSLA_ref_invertHue_func_">invertHue</a>();</p>
+<p class="description">&#9;<a class="link" href="sgxcolourhsla">SGXColourHSLA</a>& <a class="link" href="#SGXColourHSLA_ref_invertLightness_func_">invertLightness</a>();</p>
+<p class="description">&#9;<a class="link" href="sgxcolourhsla">SGXColourHSLA</a>& <a class="link" href="#SGXColourHSLA_ref_invertSaturation_func_">invertSaturation</a>();</p>
+<p class="description">&#9;<a class="link" href="sgxcolourhsla">SGXColourHSLA</a>& <a class="link" href="#SGXColourHSLA_ref_linearTransformLightness_float_float_">linearTransformLightness</a>(float m, float c);</p>
+<p class="description">&#9;<a class="link" href="sgxcolourhsla">SGXColourHSLA</a>& <a class="link" href="#SGXColourHSLA_ref_linearTransformSaturation_float_float_">linearTransformSaturation</a>(float m, float c);</p>
+<p class="description">&#9;<a class="link" href="sgxcolourhsla">SGXColourHSLA</a>& <a class="link" href="#SGXColourHSLA_ref_linearTransformTransparency_float_float_">linearTransformTransparency</a>(float m, float c);</p>
+<p class="description">&#9;<a class="link" href="sgxcolourhsla">SGXColourHSLA</a>& <a class="link" href="#SGXColourHSLA_ref_offsetHue_float_">offsetHue</a>(float c);</p>
 <p class="description">&#9;[[nodiscard]] bool <a class="link" href="#nodiscard_bool_operator_neq_SGXColourHSLA_const_">operator!=</a>(<a class="link" href="sgxcolourhsla">SGXColourHSLA</a> x) const;</p>
 <p class="description">&#9;[[nodiscard]] bool <a class="link" href="#nodiscard_bool_operator_lt_SGXColourHSLA_const_">operator‹</a>(<a class="link" href="sgxcolourhsla">SGXColourHSLA</a> x) const;</p>
 <p class="description">&#9;[[nodiscard]] bool <a class="link" href="#nodiscard_bool_operator_eq_SGXColourHSLA_const_">operator==</a>(<a class="link" href="sgxcolourhsla">SGXColourHSLA</a> x) const;</p>
 <p class="description">&#9;[[nodiscard]] bool <a class="link" href="#nodiscard_bool_operator_gt_SGXColourHSLA_const_">operator›</a>(<a class="link" href="sgxcolourhsla">SGXColourHSLA</a> x) const;</p>
-<p class="description">&#9;void <a class="link" href="#void_setHue_float_">setHue</a>(float h);</p>
-<p class="description">&#9;void <a class="link" href="#void_setLightness_float_">setLightness</a>(float l);</p>
-<p class="description">&#9;void <a class="link" href="#void_setSaturation_float_">setSaturation</a>(float s);</p>
-<p class="description">&#9;void <a class="link" href="#void_setTransparency_float_">setTransparency</a>(float a);</p>
+<p class="description">&#9;<a class="link" href="sgxcolourhsla">SGXColourHSLA</a>& <a class="link" href="#SGXColourHSLA_ref_setHue_float_">setHue</a>(float h);</p>
+<p class="description">&#9;<a class="link" href="sgxcolourhsla">SGXColourHSLA</a>& <a class="link" href="#SGXColourHSLA_ref_setLightness_float_">setLightness</a>(float l);</p>
+<p class="description">&#9;<a class="link" href="sgxcolourhsla">SGXColourHSLA</a>& <a class="link" href="#SGXColourHSLA_ref_setSaturation_float_">setSaturation</a>(float s);</p>
+<p class="description">&#9;<a class="link" href="sgxcolourhsla">SGXColourHSLA</a>& <a class="link" href="#SGXColourHSLA_ref_setTransparency_float_">setTransparency</a>(float a);</p>
 <p class="description">&#9;[[nodiscard]] <a class="link" href="sgxcolourrgba">SGXColourRGBA</a> <a class="link" href="#nodiscard_SGXColourRGBA_toRGBA_func_const_">toRGBA</a>() const;</p>
 <div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
 <h2 class="header" id="sg_detaileddescription">Detailed Description</h2>
@@ -317,30 +317,30 @@ window.addEventListener("hashchange", highlightSection);
 <h2 class="header" id="nodiscard_int_hash_func_const_">[[nodiscard]] int <a class="link" href="#nodiscard_int_hash_func_const_">hash</a>() const;</h2>
 <p class="description">Hash function defined for <a class="link" href="../cppclass/sgllesserthan">SGLLesserThan</a> and <a class="link" href="../cppclass/sglmorethan">SGLMoreThan</a>.</p>
 <div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
-<h2 class="header" id="void_invertHue_func_">void <a class="link" href="#void_invertHue_func_">invertHue</a>();</h2>
-<p class="description">Inverts the hue of this <a class="link" href="../cppclass/sgxcolourhsla">SGXColourHSLA</a>.</p>
+<h2 class="header" id="SGXColourHSLA_ref_invertHue_func_"><a class="link" href="sgxcolourhsla">SGXColourHSLA</a>& <a class="link" href="#SGXColourHSLA_ref_invertHue_func_">invertHue</a>();</h2>
+<p class="description">Inverts the hue of this <a class="link" href="../cppclass/sgxcolourhsla">SGXColourHSLA</a> and returns a reference to this <a class="link" href="../cppclass/sgxcolourhsla">SGXColourHSLA</a> to allow operation chaining.</p>
 <div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
-<h2 class="header" id="void_invertLightness_func_">void <a class="link" href="#void_invertLightness_func_">invertLightness</a>();</h2>
-<p class="description">Inverts the lightness of this <a class="link" href="../cppclass/sgxcolourhsla">SGXColourHSLA</a>.</p>
+<h2 class="header" id="SGXColourHSLA_ref_invertLightness_func_"><a class="link" href="sgxcolourhsla">SGXColourHSLA</a>& <a class="link" href="#SGXColourHSLA_ref_invertLightness_func_">invertLightness</a>();</h2>
+<p class="description">Inverts the lightness of this <a class="link" href="../cppclass/sgxcolourhsla">SGXColourHSLA</a> and returns a reference to this <a class="link" href="../cppclass/sgxcolourhsla">SGXColourHSLA</a> to allow operation chaining.</p>
 <p class="note">This can be used to change between light mode and dark mode for custom UI.</p>
 <div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
-<h2 class="header" id="void_invertSaturation_func_">void <a class="link" href="#void_invertSaturation_func_">invertSaturation</a>();</h2>
-<p class="description">Inverts the saturation of this <a class="link" href="../cppclass/sgxcolourhsla">SGXColourHSLA</a>.</p>
+<h2 class="header" id="SGXColourHSLA_ref_invertSaturation_func_"><a class="link" href="sgxcolourhsla">SGXColourHSLA</a>& <a class="link" href="#SGXColourHSLA_ref_invertSaturation_func_">invertSaturation</a>();</h2>
+<p class="description">Inverts the saturation of this <a class="link" href="../cppclass/sgxcolourhsla">SGXColourHSLA</a> and returns a reference to this <a class="link" href="../cppclass/sgxcolourhsla">SGXColourHSLA</a> to allow operation chaining.</p>
 <div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
-<h2 class="header" id="void_linearTransformLightness_float_float_">void <a class="link" href="#void_linearTransformLightness_float_float_">linearTransformLightness</a>(float m, float c);</h2>
-<p class="description">Replaces the lightness of this <a class="link" href="../cppclass/sgxcolourhsla">SGXColourHSLA</a> with <b>m</b> * lightness + <b>c</b>.</p>
+<h2 class="header" id="SGXColourHSLA_ref_linearTransformLightness_float_float_"><a class="link" href="sgxcolourhsla">SGXColourHSLA</a>& <a class="link" href="#SGXColourHSLA_ref_linearTransformLightness_float_float_">linearTransformLightness</a>(float m, float c);</h2>
+<p class="description">Replaces the lightness of this <a class="link" href="../cppclass/sgxcolourhsla">SGXColourHSLA</a> with <b>m</b> * lightness + <b>c</b> and returns a reference to this <a class="link" href="../cppclass/sgxcolourhsla">SGXColourHSLA</a> to allow operation chaining.</p>
 <p class="note">If the new lightness is out of bounds, it is corrected automatically.</p>
 <div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
-<h2 class="header" id="void_linearTransformSaturation_float_float_">void <a class="link" href="#void_linearTransformSaturation_float_float_">linearTransformSaturation</a>(float m, float c);</h2>
-<p class="description">Replaces the saturation of this <a class="link" href="../cppclass/sgxcolourhsla">SGXColourHSLA</a> with <b>m</b> * saturation + <b>c</b>.</p>
+<h2 class="header" id="SGXColourHSLA_ref_linearTransformSaturation_float_float_"><a class="link" href="sgxcolourhsla">SGXColourHSLA</a>& <a class="link" href="#SGXColourHSLA_ref_linearTransformSaturation_float_float_">linearTransformSaturation</a>(float m, float c);</h2>
+<p class="description">Replaces the saturation of this <a class="link" href="../cppclass/sgxcolourhsla">SGXColourHSLA</a> with <b>m</b> * saturation + <b>c</b> and returns a reference to this <a class="link" href="../cppclass/sgxcolourhsla">SGXColourHSLA</a> to allow operation chaining.</p>
 <p class="note">If the new saturation is out of bounds, it is corrected automatically.</p>
 <div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
-<h2 class="header" id="void_linearTransformTransparency_float_float_">void <a class="link" href="#void_linearTransformTransparency_float_float_">linearTransformTransparency</a>(float m, float c);</h2>
-<p class="description">Replaces the transparency of this <a class="link" href="../cppclass/sgxcolourhsla">SGXColourHSLA</a> with <b>m</b> * transparency + <b>c</b>.</p>
+<h2 class="header" id="SGXColourHSLA_ref_linearTransformTransparency_float_float_"><a class="link" href="sgxcolourhsla">SGXColourHSLA</a>& <a class="link" href="#SGXColourHSLA_ref_linearTransformTransparency_float_float_">linearTransformTransparency</a>(float m, float c);</h2>
+<p class="description">Replaces the transparency of this <a class="link" href="../cppclass/sgxcolourhsla">SGXColourHSLA</a> with <b>m</b> * transparency + <b>c</b> and returns a reference to this <a class="link" href="../cppclass/sgxcolourhsla">SGXColourHSLA</a> to allow operation chaining.</p>
 <p class="note">If the new transparency is out of bounds, it is corrected automatically.</p>
 <div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
-<h2 class="header" id="void_offsetHue_float_">void <a class="link" href="#void_offsetHue_float_">offsetHue</a>(float c);</h2>
-<p class="description">Replaces the hue of this <a class="link" href="../cppclass/sgxcolourhsla">SGXColourHSLA</a> with hue + <b>c</b>.</p>
+<h2 class="header" id="SGXColourHSLA_ref_offsetHue_float_"><a class="link" href="sgxcolourhsla">SGXColourHSLA</a>& <a class="link" href="#SGXColourHSLA_ref_offsetHue_float_">offsetHue</a>(float c);</h2>
+<p class="description">Replaces the hue of this <a class="link" href="../cppclass/sgxcolourhsla">SGXColourHSLA</a> with hue + <b>c</b> and returns a reference to this <a class="link" href="../cppclass/sgxcolourhsla">SGXColourHSLA</a> to allow operation chaining.</p>
 <p class="note">If the new hue is out of bounds, it is corrected automatically.</p>
 <div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
 <h2 class="header" id="nodiscard_bool_operator_neq_SGXColourHSLA_const_">[[nodiscard]] bool <a class="link" href="#nodiscard_bool_operator_neq_SGXColourHSLA_const_">operator!=</a>(<a class="link" href="sgxcolourhsla">SGXColourHSLA</a> x) const;</h2>
@@ -355,20 +355,20 @@ window.addEventListener("hashchange", highlightSection);
 <h2 class="header" id="nodiscard_bool_operator_gt_SGXColourHSLA_const_">[[nodiscard]] bool <a class="link" href="#nodiscard_bool_operator_gt_SGXColourHSLA_const_">operator›</a>(<a class="link" href="sgxcolourhsla">SGXColourHSLA</a> x) const;</h2>
 <p class="description">More than operator with <b>x</b> defined for <a class="link" href="../cppclass/sgllesserthan">SGLLesserThan</a> and <a class="link" href="../cppclass/sglmorethan">SGLMoreThan</a>.</p>
 <div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
-<h2 class="header" id="void_setHue_float_">void <a class="link" href="#void_setHue_float_">setHue</a>(float h);</h2>
-<p class="description">Sets the hue of this <a class="link" href="../cppclass/sgxcolourhsla">SGXColourHSLA</a> to <b>h</b>.</p>
+<h2 class="header" id="SGXColourHSLA_ref_setHue_float_"><a class="link" href="sgxcolourhsla">SGXColourHSLA</a>& <a class="link" href="#SGXColourHSLA_ref_setHue_float_">setHue</a>(float h);</h2>
+<p class="description">Sets the hue of this <a class="link" href="../cppclass/sgxcolourhsla">SGXColourHSLA</a> to <b>h</b> and returns a reference to this <a class="link" href="../cppclass/sgxcolourhsla">SGXColourHSLA</a> to allow operation chaining.</p>
 <p class="note">If <b>h</b> is out of bounds, it is corrected automatically.</p>
 <div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
-<h2 class="header" id="void_setLightness_float_">void <a class="link" href="#void_setLightness_float_">setLightness</a>(float l);</h2>
-<p class="description">Sets the lightness of this <a class="link" href="../cppclass/sgxcolourhsla">SGXColourHSLA</a> to <b>l</b>.</p>
+<h2 class="header" id="SGXColourHSLA_ref_setLightness_float_"><a class="link" href="sgxcolourhsla">SGXColourHSLA</a>& <a class="link" href="#SGXColourHSLA_ref_setLightness_float_">setLightness</a>(float l);</h2>
+<p class="description">Sets the lightness of this <a class="link" href="../cppclass/sgxcolourhsla">SGXColourHSLA</a> to <b>l</b> and returns a reference to this <a class="link" href="../cppclass/sgxcolourhsla">SGXColourHSLA</a> to allow operation chaining.</p>
 <p class="note">If <b>l</b> is out of bounds, it is corrected automatically.</p>
 <div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
-<h2 class="header" id="void_setSaturation_float_">void <a class="link" href="#void_setSaturation_float_">setSaturation</a>(float s);</h2>
-<p class="description">Sets the saturation of this <a class="link" href="../cppclass/sgxcolourhsla">SGXColourHSLA</a> to <b>s</b>.</p>
+<h2 class="header" id="SGXColourHSLA_ref_setSaturation_float_"><a class="link" href="sgxcolourhsla">SGXColourHSLA</a>& <a class="link" href="#SGXColourHSLA_ref_setSaturation_float_">setSaturation</a>(float s);</h2>
+<p class="description">Sets the saturation of this <a class="link" href="../cppclass/sgxcolourhsla">SGXColourHSLA</a> to <b>s</b> and returns a reference to this <a class="link" href="../cppclass/sgxcolourhsla">SGXColourHSLA</a> to allow operation chaining.</p>
 <p class="note">If <b>s</b> is out of bounds, it is corrected automatically.</p>
 <div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
-<h2 class="header" id="void_setTransparency_float_">void <a class="link" href="#void_setTransparency_float_">setTransparency</a>(float a);</h2>
-<p class="description">Sets the transparency of this <a class="link" href="../cppclass/sgxcolourhsla">SGXColourHSLA</a> to <b>a</b>.</p>
+<h2 class="header" id="SGXColourHSLA_ref_setTransparency_float_"><a class="link" href="sgxcolourhsla">SGXColourHSLA</a>& <a class="link" href="#SGXColourHSLA_ref_setTransparency_float_">setTransparency</a>(float a);</h2>
+<p class="description">Sets the transparency of this <a class="link" href="../cppclass/sgxcolourhsla">SGXColourHSLA</a> to <b>a</b> and returns a reference to this <a class="link" href="../cppclass/sgxcolourhsla">SGXColourHSLA</a> to allow operation chaining.</p>
 <p class="note">If <b>a</b> is out of bounds, it is corrected automatically.</p>
 <div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
 <h2 class="header" id="nodiscard_SGXColourRGBA_toRGBA_func_const_">[[nodiscard]] <a class="link" href="sgxcolourrgba">SGXColourRGBA</a> <a class="link" href="#nodiscard_SGXColourRGBA_toRGBA_func_const_">toRGBA</a>() const;</h2>

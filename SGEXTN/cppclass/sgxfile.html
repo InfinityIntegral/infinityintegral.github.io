@@ -259,10 +259,11 @@ window.addEventListener("hashchange", highlightSection);
 <p class="description">children classes: (none)</p>
 <div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
 <h2 class="header" id="">instance member variables</h2>
-<p class="description">&#9;bool <a class="link" href="#bool_isValid_">isValid</a>;</p>
+<p class="description">&#9;enum <a class="link" href="#enum_OpenStatus_NotOpen_ReadOnly_WriteOnly_FullAccess_">OpenStatus</a> { NotOpen, ReadOnly, WriteOnly, FullAccess };</p>
+<p class="description">&#9;SGXFile::OpenStatus <a class="link" href="#SGXFile_mc_OpenStatus_openStatus_">openStatus</a>;</p>
 <div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
 <h2 class="header" id="">instance member functions</h2>
-<p class="description">&#9;<a class="link" href="#SGXFile_const_SGXString_ref_">SGXFile</a>(const <a class="link" href="sgxstring">SGXString</a>& s);</p>
+<p class="description">&#9;<a class="link" href="#SGXFile_const_SGXString_ref_SGXFile_mc_OpenStatus_">SGXFile</a>(const <a class="link" href="sgxstring">SGXString</a>& s, SGXFile::OpenStatus openMode);</p>
 <p class="description">&#9;[[nodiscard]] long long <a class="link" href="#nodiscard_long_long_getPointerLocation_func_const_">getPointerLocation</a>() const;</p>
 <p class="description">&#9;[[nodiscard]] <a class="link" href="sglarray">SGLArray</a>‹char› <a class="link" href="#nodiscard_SGLArray_lt_char_gt_readAllBytes_func_const_">readAllBytes</a>() const;</p>
 <p class="description">&#9;[[nodiscard]] bool <a class="link" href="#nodiscard_bool_readBool_func_const_">readBool</a>() const;</p>
@@ -309,230 +310,234 @@ window.addEventListener("hashchange", highlightSection);
 <h2 class="header" id="sg_implementationdetails">Implementation Details</h2>
 <p class="description"><a class="link" href="../cppclass/sgxfile">SGXFile</a> wraps QFile and QDataStream with custom handling for SGEXTN structs.</p>
 <div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
-<h2 class="header" id="bool_isValid_">bool <a class="link" href="#bool_isValid_">isValid</a>;</h2>
-<p class="description">If the file can be used.</p>
-<p class="warning">Reading from, writing to, and modifying the pointer in a <a class="link" href="../cppclass/sgxfile">SGXFile</a> with <a class="link" href="../cppclass/sgxfile#bool_isValid_">SGXFile::isValid</a> false is <a class="link" href="../tutorials/undefinedbehaviour">undefined behaviour</a>.</p>
+<h2 class="header" id="enum_OpenStatus_NotOpen_ReadOnly_WriteOnly_FullAccess_">enum <a class="link" href="#enum_OpenStatus_NotOpen_ReadOnly_WriteOnly_FullAccess_">OpenStatus</a> { NotOpen, ReadOnly, WriteOnly, FullAccess };</h2>
+<p class="description">Modes in which the file can be opened in. ReadOnly and FullAccess are read capable, WriteOnly and FullAccess are write capable.</p>
+<p class="warning">Reading from the file in a non read capable mode or writing to the file in a non write capable mode are <a class="link" href="../tutorials/undefinedbehaviour">undefined behaviour</a>. Using the file in any way, including moving to a certain pointer offset, when it is in NotOpen mode is <a class="link" href="../tutorials/undefinedbehaviour">undefined behaviour</a>.</p>
 <div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
-<h2 class="header" id="SGXFile_const_SGXString_ref_"><a class="link" href="#SGXFile_const_SGXString_ref_">SGXFile</a>(const <a class="link" href="sgxstring">SGXString</a>& s);</h2>
-<p class="description">Creates a <a class="link" href="../cppclass/sgxfile">SGXFile</a> associated with the file at path <b>s</b>.</p>
-<p class="note">If the file does not exist or for whatever other reason cannot be opened, <a class="link" href="../cppclass/sgxfile#bool_isValid_">SGXFile::isValid</a> is set to false.</p>
+<h2 class="header" id="SGXFile_mc_OpenStatus_openStatus_">SGXFile::OpenStatus <a class="link" href="#SGXFile_mc_OpenStatus_openStatus_">openStatus</a>;</h2>
+<p class="description">The mode that the file is currently open in.</p>
+<p class="warning">Reading from, writing to, and modifying the pointer in a <a class="link" href="../cppclass/sgxfile">SGXFile</a> with <a class="link" href="../cppclass/sgxfile#SGXFile_mc_OpenStatus_openStatus_">SGXFile::openStatus</a> being NotOpen is <a class="link" href="../tutorials/undefinedbehaviour">undefined behaviour</a>.</p>
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<h2 class="header" id="SGXFile_const_SGXString_ref_SGXFile_mc_OpenStatus_"><a class="link" href="#SGXFile_const_SGXString_ref_SGXFile_mc_OpenStatus_">SGXFile</a>(const <a class="link" href="sgxstring">SGXString</a>& s, SGXFile::OpenStatus openMode);</h2>
+<p class="description">Creates a <a class="link" href="../cppclass/sgxfile">SGXFile</a> object pointing to the file at path <b>s</b> and attempts to open it using the mode <b>openMode</b>.</p>
+<p class="note">If the file does not exist or cannot be opened due to a file system error, its <a class="link" href="../cppclass/sgxfile#SGXFile_mc_OpenStatus_openStatus_">SGXFile::openStatus</a> will be set to NotOpen.</p>
 <div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
 <h2 class="header" id="nodiscard_long_long_getPointerLocation_func_const_">[[nodiscard]] long long <a class="link" href="#nodiscard_long_long_getPointerLocation_func_const_">getPointerLocation</a>() const;</h2>
 <p class="description">Returns the current location of the file pointer as a byte offset from the start of the file.</p>
-<p class="warning">If <a class="link" href="../cppclass/sgxfile#bool_isValid_">SGXFile::isValid</a> is false, this leads to <a class="link" href="../tutorials/undefinedbehaviour">undefined behaviour</a>.</p>
+<p class="warning">If <a class="link" href="../cppclass/sgxfile#SGXFile_mc_OpenStatus_openStatus_">SGXFile::openStatus</a> is NotOpen, this leads to <a class="link" href="../tutorials/undefinedbehaviour">undefined behaviour</a>.</p>
 <div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
 <h2 class="header" id="nodiscard_SGLArray_lt_char_gt_readAllBytes_func_const_">[[nodiscard]] <a class="link" href="sglarray">SGLArray</a>‹char› <a class="link" href="#nodiscard_SGLArray_lt_char_gt_readAllBytes_func_const_">readAllBytes</a>() const;</h2>
 <p class="description">Reads all data in the file as bytes.</p>
 <p class="note">This ignores the file pointer.</p>
-<p class="warning">If <a class="link" href="../cppclass/sgxfile#bool_isValid_">SGXFile::isValid</a> is false, this leads to <a class="link" href="../tutorials/undefinedbehaviour">undefined behaviour</a>.</p>
+<p class="warning">If the file is not open in a read capable mode, this leads to <a class="link" href="../tutorials/undefinedbehaviour">undefined behaviour</a>.</p>
 <div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
 <h2 class="header" id="nodiscard_bool_readBool_func_const_">[[nodiscard]] bool <a class="link" href="#nodiscard_bool_readBool_func_const_">readBool</a>() const;</h2>
 <p class="description">Reads a bool from the current position in the file.</p>
 <p class="note">This moves the file pointer forward.</p>
 <p class="warning">There is no guarantee on the size of the bool. This may be changed in a future SGEXTN version.</p>
-<p class="warning">If <a class="link" href="../cppclass/sgxfile#bool_isValid_">SGXFile::isValid</a> is false, this leads to <a class="link" href="../tutorials/undefinedbehaviour">undefined behaviour</a>.</p>
+<p class="warning">If the file is not open in a read capable mode, this leads to <a class="link" href="../tutorials/undefinedbehaviour">undefined behaviour</a>.</p>
 <div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
 <h2 class="header" id="nodiscard_SGLArray_lt_char_gt_readBytes_long_long_const_">[[nodiscard]] <a class="link" href="sglarray">SGLArray</a>‹char› <a class="link" href="#nodiscard_SGLArray_lt_char_gt_readBytes_long_long_const_">readBytes</a>(long long n) const;</h2>
 <p class="description">Reads <b>n</b> bytes at the current position in the file.</p>
 <p class="note">This moves the file pointer forward.</p>
 <p class="warning">There is no guarantee on the size of the <b>n</b> bytes. This may be changed in a future SGEXTN version.</p>
-<p class="warning">If <a class="link" href="../cppclass/sgxfile#bool_isValid_">SGXFile::isValid</a> is false, this leads to <a class="link" href="../tutorials/undefinedbehaviour">undefined behaviour</a>.</p>
+<p class="warning">If the file is not open in a read capable mode, this leads to <a class="link" href="../tutorials/undefinedbehaviour">undefined behaviour</a>.</p>
 <div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
 <h2 class="header" id="nodiscard_char_readChar_func_const_">[[nodiscard]] char <a class="link" href="#nodiscard_char_readChar_func_const_">readChar</a>() const;</h2>
 <p class="description">Reads a C++ char from the current position in the file.</p>
 <p class="note">This moves the file pointer forward.</p>
 <p class="warning">There is no guarantee on the size of the C++ char. This may be changed in a future SGEXTN version.</p>
-<p class="warning">If <a class="link" href="../cppclass/sgxfile#bool_isValid_">SGXFile::isValid</a> is false, this leads to <a class="link" href="../tutorials/undefinedbehaviour">undefined behaviour</a>.</p>
+<p class="warning">If the file is not open in a read capable mode, this leads to <a class="link" href="../tutorials/undefinedbehaviour">undefined behaviour</a>.</p>
 <div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
 <h2 class="header" id="nodiscard_SGXColourHSLA_readColourHSLA_func_const_">[[nodiscard]] <a class="link" href="sgxcolourhsla">SGXColourHSLA</a> <a class="link" href="#nodiscard_SGXColourHSLA_readColourHSLA_func_const_">readColourHSLA</a>() const;</h2>
 <p class="description">Reads a <a class="link" href="../cppclass/sgxcolourhsla">SGXColourHSLA</a> from the current position in the file.</p>
 <p class="note">This moves the file pointer forward.</p>
 <p class="warning">There is no guarantee on the size of the <a class="link" href="../cppclass/sgxcolourhsla">SGXColourHSLA</a>. This may be changed in a future SGEXTN version.</p>
-<p class="warning">If <a class="link" href="../cppclass/sgxfile#bool_isValid_">SGXFile::isValid</a> is false, this leads to <a class="link" href="../tutorials/undefinedbehaviour">undefined behaviour</a>.</p>
+<p class="warning">If the file is not open in a read capable mode, this leads to <a class="link" href="../tutorials/undefinedbehaviour">undefined behaviour</a>.</p>
 <div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
 <h2 class="header" id="nodiscard_SGXColourRGBA_readColourRGBA_func_const_">[[nodiscard]] <a class="link" href="sgxcolourrgba">SGXColourRGBA</a> <a class="link" href="#nodiscard_SGXColourRGBA_readColourRGBA_func_const_">readColourRGBA</a>() const;</h2>
 <p class="description">Reads a <a class="link" href="../cppclass/sgxcolourrgba">SGXColourRGBA</a> from the current position in the file.</p>
 <p class="note">This moves the file pointer forward.</p>
 <p class="warning">There is no guarantee on the size of the <a class="link" href="../cppclass/sgxcolourrgba">SGXColourRGBA</a>. This may be changed in a future SGEXTN version.</p>
-<p class="warning">If <a class="link" href="../cppclass/sgxfile#bool_isValid_">SGXFile::isValid</a> is false, this leads to <a class="link" href="../tutorials/undefinedbehaviour">undefined behaviour</a>.</p>
+<p class="warning">If the file is not open in a read capable mode, this leads to <a class="link" href="../tutorials/undefinedbehaviour">undefined behaviour</a>.</p>
 <div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
 <h2 class="header" id="nodiscard_double_readDouble_func_const_">[[nodiscard]] double <a class="link" href="#nodiscard_double_readDouble_func_const_">readDouble</a>() const;</h2>
 <p class="description">Reads a double precision floating point number from the current position in the file.</p>
 <p class="note">This moves the file pointer forward.</p>
 <p class="warning">There is no guarantee on the size of the double precision floating point number. This may be changed in a future SGEXTN version.</p>
-<p class="warning">If <a class="link" href="../cppclass/sgxfile#bool_isValid_">SGXFile::isValid</a> is false, this leads to <a class="link" href="../tutorials/undefinedbehaviour">undefined behaviour</a>.</p>
+<p class="warning">If the file is not open in a read capable mode, this leads to <a class="link" href="../tutorials/undefinedbehaviour">undefined behaviour</a>.</p>
 <div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
 <h2 class="header" id="nodiscard_float_readFloat_func_const_">[[nodiscard]] float <a class="link" href="#nodiscard_float_readFloat_func_const_">readFloat</a>() const;</h2>
 <p class="description">Reads a floating point number from the current position in the file.</p>
 <p class="note">This moves the file pointer forward.</p>
 <p class="warning">There is no guarantee on the size of the floating point number. This may be changed in a future SGEXTN version.</p>
-<p class="warning">If <a class="link" href="../cppclass/sgxfile#bool_isValid_">SGXFile::isValid</a> is false, this leads to <a class="link" href="../tutorials/undefinedbehaviour">undefined behaviour</a>.</p>
+<p class="warning">If the file is not open in a read capable mode, this leads to <a class="link" href="../tutorials/undefinedbehaviour">undefined behaviour</a>.</p>
 <div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
 <h2 class="header" id="nodiscard_SGXIdentifier_readIdentifier_func_const_">[[nodiscard]] <a class="link" href="sgxidentifier">SGXIdentifier</a> <a class="link" href="#nodiscard_SGXIdentifier_readIdentifier_func_const_">readIdentifier</a>() const;</h2>
 <p class="description">Reads a <a class="link" href="../cppclass/sgxidentifier">SGXIdentifier</a> from the current position in the file.</p>
 <p class="note">This moves the file pointer forward.</p>
 <p class="warning">There is no guarantee on the size of the <a class="link" href="../cppclass/sgxidentifier">SGXIdentifier</a>. This may be changed in a future SGEXTN version.</p>
-<p class="warning">If <a class="link" href="../cppclass/sgxfile#bool_isValid_">SGXFile::isValid</a> is false, this leads to <a class="link" href="../tutorials/undefinedbehaviour">undefined behaviour</a>.</p>
+<p class="warning">If the file is not open in a read capable mode, this leads to <a class="link" href="../tutorials/undefinedbehaviour">undefined behaviour</a>.</p>
 <div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
 <h2 class="header" id="nodiscard_int_readInt_func_const_">[[nodiscard]] int <a class="link" href="#nodiscard_int_readInt_func_const_">readInt</a>() const;</h2>
 <p class="description">Reads a int from the current position in the file.</p>
 <p class="note">This moves the file pointer forward.</p>
 <p class="warning">There is no guarantee on the size of the int. This may be changed in a future SGEXTN version.</p>
-<p class="warning">If <a class="link" href="../cppclass/sgxfile#bool_isValid_">SGXFile::isValid</a> is false, this leads to <a class="link" href="../tutorials/undefinedbehaviour">undefined behaviour</a>.</p>
+<p class="warning">If the file is not open in a read capable mode, this leads to <a class="link" href="../tutorials/undefinedbehaviour">undefined behaviour</a>.</p>
 <div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
 <h2 class="header" id="nodiscard_long_long_readLongLong_func_const_">[[nodiscard]] long long <a class="link" href="#nodiscard_long_long_readLongLong_func_const_">readLongLong</a>() const;</h2>
 <p class="description">Reads a long long from the current position in the file.</p>
 <p class="note">This moves the file pointer forward.</p>
 <p class="warning">There is no guarantee on the size of the long long. This may be changed in a future SGEXTN version.</p>
-<p class="warning">If <a class="link" href="../cppclass/sgxfile#bool_isValid_">SGXFile::isValid</a> is false, this leads to <a class="link" href="../tutorials/undefinedbehaviour">undefined behaviour</a>.</p>
+<p class="warning">If the file is not open in a read capable mode, this leads to <a class="link" href="../tutorials/undefinedbehaviour">undefined behaviour</a>.</p>
 <div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
 <h2 class="header" id="nodiscard_SGXChar_readSGEXTNChar_func_const_">[[nodiscard]] <a class="link" href="sgxchar">SGXChar</a> <a class="link" href="#nodiscard_SGXChar_readSGEXTNChar_func_const_">readSGEXTNChar</a>() const;</h2>
 <p class="description">Reads a <a class="link" href="../cppclass/sgxchar">SGXChar</a> from the current position in the file.</p>
 <p class="note">This moves the file pointer forward.</p>
 <p class="warning">There is no guarantee on the size of the <a class="link" href="../cppclass/sgxchar">SGXChar</a>. This may be changed in a future SGEXTN version.</p>
-<p class="warning">If <a class="link" href="../cppclass/sgxfile#bool_isValid_">SGXFile::isValid</a> is false, this leads to <a class="link" href="../tutorials/undefinedbehaviour">undefined behaviour</a>.</p>
+<p class="warning">If the file is not open in a read capable mode, this leads to <a class="link" href="../tutorials/undefinedbehaviour">undefined behaviour</a>.</p>
 <div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
 <h2 class="header" id="nodiscard_SGXString_readString_func_const_">[[nodiscard]] <a class="link" href="sgxstring">SGXString</a> <a class="link" href="#nodiscard_SGXString_readString_func_const_">readString</a>() const;</h2>
 <p class="description">Reads a <a class="link" href="../cppclass/sgxstring">SGXString</a> from the current position in the file.</p>
 <p class="note">This moves the file pointer forward.</p>
 <p class="warning">There is no guarantee on the size of the <a class="link" href="../cppclass/sgxstring">SGXString</a>. This may be changed in a future SGEXTN version.</p>
-<p class="warning">If <a class="link" href="../cppclass/sgxfile#bool_isValid_">SGXFile::isValid</a> is false, this leads to <a class="link" href="../tutorials/undefinedbehaviour">undefined behaviour</a>.</p>
+<p class="warning">If the file is not open in a read capable mode, this leads to <a class="link" href="../tutorials/undefinedbehaviour">undefined behaviour</a>.</p>
 <div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
 <h2 class="header" id="nodiscard_SGXTimeStamp_readTimeStamp_func_const_">[[nodiscard]] <a class="link" href="sgxtimestamp">SGXTimeStamp</a> <a class="link" href="#nodiscard_SGXTimeStamp_readTimeStamp_func_const_">readTimeStamp</a>() const;</h2>
 <p class="description">Reads a <a class="link" href="../cppclass/sgxtimestamp">SGXTimeStamp</a> from the current position in the file.</p>
 <p class="note">This moves the file pointer forward.</p>
 <p class="warning">There is no guarantee on the size of the <a class="link" href="../cppclass/sgxtimestamp">SGXTimeStamp</a>. This may be changed in a future SGEXTN version.</p>
-<p class="warning">If <a class="link" href="../cppclass/sgxfile#bool_isValid_">SGXFile::isValid</a> is false, this leads to <a class="link" href="../tutorials/undefinedbehaviour">undefined behaviour</a>.</p>
+<p class="warning">If the file is not open in a read capable mode, this leads to <a class="link" href="../tutorials/undefinedbehaviour">undefined behaviour</a>.</p>
 <div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
 <h2 class="header" id="nodiscard_unsigned_int_readUnsignedInt_func_const_">[[nodiscard]] unsigned int <a class="link" href="#nodiscard_unsigned_int_readUnsignedInt_func_const_">readUnsignedInt</a>() const;</h2>
 <p class="description">Reads a unsigned int from the current position in the file.</p>
 <p class="note">This moves the file pointer forward.</p>
 <p class="warning">There is no guarantee on the size of the unsigned int. This may be changed in a future SGEXTN version.</p>
-<p class="warning">If <a class="link" href="../cppclass/sgxfile#bool_isValid_">SGXFile::isValid</a> is false, this leads to <a class="link" href="../tutorials/undefinedbehaviour">undefined behaviour</a>.</p>
+<p class="warning">If the file is not open in a read capable mode, this leads to <a class="link" href="../tutorials/undefinedbehaviour">undefined behaviour</a>.</p>
 <div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
 <h2 class="header" id="nodiscard_unsigned_long_long_readUnsignedLongLong_func_const_">[[nodiscard]] unsigned long long <a class="link" href="#nodiscard_unsigned_long_long_readUnsignedLongLong_func_const_">readUnsignedLongLong</a>() const;</h2>
 <p class="description">Reads a unsigned long long from the current position in the file.</p>
 <p class="note">This moves the file pointer forward.</p>
 <p class="warning">There is no guarantee on the size of the unsigned long long. This may be changed in a future SGEXTN version.</p>
-<p class="warning">If <a class="link" href="../cppclass/sgxfile#bool_isValid_">SGXFile::isValid</a> is false, this leads to <a class="link" href="../tutorials/undefinedbehaviour">undefined behaviour</a>.</p>
+<p class="warning">If the file is not open in a read capable mode, this leads to <a class="link" href="../tutorials/undefinedbehaviour">undefined behaviour</a>.</p>
 <div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
 <h2 class="header" id="nodiscard_SGXVector2_readVector2_func_const_">[[nodiscard]] <a class="link" href="sgxvector2">SGXVector2</a> <a class="link" href="#nodiscard_SGXVector2_readVector2_func_const_">readVector2</a>() const;</h2>
 <p class="description">Reads a <a class="link" href="../cppclass/sgxvector2">SGXVector2</a> from the current position in the file.</p>
 <p class="note">This moves the file pointer forward.</p>
 <p class="warning">There is no guarantee on the size of the <a class="link" href="../cppclass/sgxvector2">SGXVector2</a>. This may be changed in a future SGEXTN version.</p>
-<p class="warning">If <a class="link" href="../cppclass/sgxfile#bool_isValid_">SGXFile::isValid</a> is false, this leads to <a class="link" href="../tutorials/undefinedbehaviour">undefined behaviour</a>.</p>
+<p class="warning">If the file is not open in a read capable mode, this leads to <a class="link" href="../tutorials/undefinedbehaviour">undefined behaviour</a>.</p>
 <div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
 <h2 class="header" id="void_setPointerLocation_long_long_const_">void <a class="link" href="#void_setPointerLocation_long_long_const_">setPointerLocation</a>(long long x) const;</h2>
 <p class="description">Moves the file pointer to <b>x</b> bytes from the start of the file.</p>
-<p class="warning">If <a class="link" href="../cppclass/sgxfile#bool_isValid_">SGXFile::isValid</a> is false, this leads to <a class="link" href="../tutorials/undefinedbehaviour">undefined behaviour</a>.</p>
+<p class="warning">If <a class="link" href="../cppclass/sgxfile#SGXFile_mc_OpenStatus_openStatus_">SGXFile::openStatus</a> is NotOpen, this leads to <a class="link" href="../tutorials/undefinedbehaviour">undefined behaviour</a>.</p>
 <p class="warning">Negative <b>x</b> is <a class="link" href="../tutorials/undefinedbehaviour">undefined behaviour</a>.</p>
 <div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
 <h2 class="header" id="void_writeBool_bool_const_">void <a class="link" href="#void_writeBool_bool_const_">writeBool</a>(bool x) const;</h2>
 <p class="description">Writes the bool <b>x</b> at the current position in the file.</p>
 <p class="note">This moves the file pointer forward.</p>
 <p class="warning">There is no guarantee on the size of the bool. This may be changed in a future SGEXTN version.</p>
-<p class="warning">If <a class="link" href="../cppclass/sgxfile#bool_isValid_">SGXFile::isValid</a> is false, this leads to <a class="link" href="../tutorials/undefinedbehaviour">undefined behaviour</a>.</p>
+<p class="warning">If the file is not open in a write capable mode, this leads to <a class="link" href="../tutorials/undefinedbehaviour">undefined behaviour</a>.</p>
 <div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
 <h2 class="header" id="void_writeBytes_const_SGLArray_lt_char_gt_ref_const_">void <a class="link" href="#void_writeBytes_const_SGLArray_lt_char_gt_ref_const_">writeBytes</a>(const <a class="link" href="sglarray">SGLArray</a>‹char›& x) const;</h2>
 <p class="description">Writes all bytes in <b>x</b> at the current position in the file</p>
 <p class="note">This moves the file pointer forwards.</p>
 <p class="warning">There is no guarantee on the size of <b>x</b>. This may be changed in a future SGEXTN version.</p>
-<p class="warning">If <a class="link" href="../cppclass/sgxfile#bool_isValid_">SGXFile::isValid</a> is false, this leads to <a class="link" href="../tutorials/undefinedbehaviour">undefined behaviour</a>.</p>
+<p class="warning">If the file is not open in a write capable mode, this leads to <a class="link" href="../tutorials/undefinedbehaviour">undefined behaviour</a>.</p>
 <div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
 <h2 class="header" id="void_writeChar_char_const_">void <a class="link" href="#void_writeChar_char_const_">writeChar</a>(char x) const;</h2>
 <p class="description">Writes the C++ char <b>x</b> at the current position in the file.</p>
 <p class="note">This moves the file pointer forward.</p>
 <p class="warning">There is no guarantee on the size of the C++ char. This may be changed in a future SGEXTN version.</p>
-<p class="warning">If <a class="link" href="../cppclass/sgxfile#bool_isValid_">SGXFile::isValid</a> is false, this leads to <a class="link" href="../tutorials/undefinedbehaviour">undefined behaviour</a>.</p>
+<p class="warning">If the file is not open in a write capable mode, this leads to <a class="link" href="../tutorials/undefinedbehaviour">undefined behaviour</a>.</p>
 <div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
 <h2 class="header" id="void_writeColourHSLA_SGXColourHSLA_const_">void <a class="link" href="#void_writeColourHSLA_SGXColourHSLA_const_">writeColourHSLA</a>(<a class="link" href="sgxcolourhsla">SGXColourHSLA</a> x) const;</h2>
 <p class="description">Writes the <a class="link" href="../cppclass/sgxcolourhsla">SGXColourHSLA</a> <b>x</b> at the current position in the file.</p>
 <p class="note">This moves the file pointer forward.</p>
 <p class="warning">There is no guarantee on the size of the <a class="link" href="../cppclass/sgxcolourhsla">SGXColourHSLA</a>. This may be changed in a future SGEXTN version.</p>
-<p class="warning">If <a class="link" href="../cppclass/sgxfile#bool_isValid_">SGXFile::isValid</a> is false, this leads to <a class="link" href="../tutorials/undefinedbehaviour">undefined behaviour</a>.</p>
+<p class="warning">If the file is not open in a write capable mode, this leads to <a class="link" href="../tutorials/undefinedbehaviour">undefined behaviour</a>.</p>
 <div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
 <h2 class="header" id="void_writeColourRGBA_SGXColourRGBA_const_">void <a class="link" href="#void_writeColourRGBA_SGXColourRGBA_const_">writeColourRGBA</a>(<a class="link" href="sgxcolourrgba">SGXColourRGBA</a> x) const;</h2>
 <p class="description">Writes the <a class="link" href="../cppclass/sgxcolourrgba">SGXColourRGBA</a> <b>x</b> at the current position in the file.</p>
 <p class="note">This moves the file pointer forward.</p>
 <p class="warning">There is no guarantee on the size of the <a class="link" href="../cppclass/sgxcolourrgba">SGXColourRGBA</a>. This may be changed in a future SGEXTN version.</p>
-<p class="warning">If <a class="link" href="../cppclass/sgxfile#bool_isValid_">SGXFile::isValid</a> is false, this leads to <a class="link" href="../tutorials/undefinedbehaviour">undefined behaviour</a>.</p>
+<p class="warning">If the file is not open in a write capable mode, this leads to <a class="link" href="../tutorials/undefinedbehaviour">undefined behaviour</a>.</p>
 <div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
 <h2 class="header" id="void_writeDouble_double_const_">void <a class="link" href="#void_writeDouble_double_const_">writeDouble</a>(double x) const;</h2>
 <p class="description">Writes the double precision floating point number <b>x</b> at the current position in the file.</p>
 <p class="note">This moves the file pointer forward.</p>
 <p class="warning">There is no guarantee on the size of the double precision floating point number. This may be changed in a future SGEXTN version.</p>
-<p class="warning">If <a class="link" href="../cppclass/sgxfile#bool_isValid_">SGXFile::isValid</a> is false, this leads to <a class="link" href="../tutorials/undefinedbehaviour">undefined behaviour</a>.</p>
+<p class="warning">If the file is not open in a write capable mode, this leads to <a class="link" href="../tutorials/undefinedbehaviour">undefined behaviour</a>.</p>
 <div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
 <h2 class="header" id="void_writeFloat_float_const_">void <a class="link" href="#void_writeFloat_float_const_">writeFloat</a>(float x) const;</h2>
 <p class="description">Writes the floating point number <b>x</b> at the current position in the file.</p>
 <p class="note">This moves the file pointer forward.</p>
 <p class="warning">There is no guarantee on the size of the floating point number. This may be changed in a future SGEXTN version.</p>
-<p class="warning">If <a class="link" href="../cppclass/sgxfile#bool_isValid_">SGXFile::isValid</a> is false, this leads to <a class="link" href="../tutorials/undefinedbehaviour">undefined behaviour</a>.</p>
+<p class="warning">If the file is not open in a write capable mode, this leads to <a class="link" href="../tutorials/undefinedbehaviour">undefined behaviour</a>.</p>
 <div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
 <h2 class="header" id="void_writeIdentifier_SGXIdentifier_const_">void <a class="link" href="#void_writeIdentifier_SGXIdentifier_const_">writeIdentifier</a>(<a class="link" href="sgxidentifier">SGXIdentifier</a> x) const;</h2>
 <p class="description">Writes the <a class="link" href="../cppclass/sgxidentifier">SGXIdentifier</a> <b>x</b> at the current position in the file.</p>
 <p class="note">This moves the file pointer forward.</p>
 <p class="warning">There is no guarantee on the size of the <a class="link" href="../cppclass/sgxidentifier">SGXIdentifier</a>. This may be changed in a future SGEXTN version.</p>
-<p class="warning">If <a class="link" href="../cppclass/sgxfile#bool_isValid_">SGXFile::isValid</a> is false, this leads to <a class="link" href="../tutorials/undefinedbehaviour">undefined behaviour</a>.</p>
+<p class="warning">If the file is not open in a write capable mode, this leads to <a class="link" href="../tutorials/undefinedbehaviour">undefined behaviour</a>.</p>
 <div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
 <h2 class="header" id="void_writeInt_int_const_">void <a class="link" href="#void_writeInt_int_const_">writeInt</a>(int x) const;</h2>
 <p class="description">Writes the int <b>x</b> at the current position in the file.</p>
 <p class="note">This moves the file pointer forward.</p>
 <p class="warning">There is no guarantee on the size of the int. This may be changed in a future SGEXTN version.</p>
-<p class="warning">If <a class="link" href="../cppclass/sgxfile#bool_isValid_">SGXFile::isValid</a> is false, this leads to <a class="link" href="../tutorials/undefinedbehaviour">undefined behaviour</a>.</p>
+<p class="warning">IIf the file is not open in a write capable mode, this leads to <a class="link" href="../tutorials/undefinedbehaviour">undefined behaviour</a>.</p>
 <div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
 <h2 class="header" id="void_writeLongLong_long_long_const_">void <a class="link" href="#void_writeLongLong_long_long_const_">writeLongLong</a>(long long x) const;</h2>
 <p class="description">Writes the long long <b>x</b> at the current position in the file.</p>
 <p class="note">This moves the file pointer forward.</p>
 <p class="warning">There is no guarantee on the size of the long long. This may be changed in a future SGEXTN version.</p>
-<p class="warning">If <a class="link" href="../cppclass/sgxfile#bool_isValid_">SGXFile::isValid</a> is false, this leads to <a class="link" href="../tutorials/undefinedbehaviour">undefined behaviour</a>.</p>
+<p class="warning">If the file is not open in a write capable mode, this leads to <a class="link" href="../tutorials/undefinedbehaviour">undefined behaviour</a>.</p>
 <div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
 <h2 class="header" id="void_writeSGEXTNChar_SGXChar_const_">void <a class="link" href="#void_writeSGEXTNChar_SGXChar_const_">writeSGEXTNChar</a>(<a class="link" href="sgxchar">SGXChar</a> x) const;</h2>
 <p class="description">Writes the <a class="link" href="../cppclass/sgxchar">SGXChar</a> <b>x</b> at the current position in the file.</p>
 <p class="note">This moves the file pointer forward.</p>
 <p class="warning">There is no guarantee on the size of the <a class="link" href="../cppclass/sgxchar">SGXChar</a>. This may be changed in a future SGEXTN version.</p>
-<p class="warning">If <a class="link" href="../cppclass/sgxfile#bool_isValid_">SGXFile::isValid</a> is false, this leads to <a class="link" href="../tutorials/undefinedbehaviour">undefined behaviour</a>.</p>
+<p class="warning">If the file is not open in a write capable mode, this leads to <a class="link" href="../tutorials/undefinedbehaviour">undefined behaviour</a>.</p>
 <div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
 <h2 class="header" id="void_writeString_const_SGXString_ref_const_">void <a class="link" href="#void_writeString_const_SGXString_ref_const_">writeString</a>(const <a class="link" href="sgxstring">SGXString</a>& x) const;</h2>
 <p class="description">Writes the <a class="link" href="../cppclass/sgxstring">SGXString</a> <b>x</b> at the current position in the file.</p>
 <p class="note">This moves the file pointer forward.</p>
 <p class="warning">There is no guarantee on the size of the <a class="link" href="../cppclass/sgxstring">SGXString</a>. This may be changed in a future SGEXTN version.</p>
-<p class="warning">If <a class="link" href="../cppclass/sgxfile#bool_isValid_">SGXFile::isValid</a> is false, this leads to <a class="link" href="../tutorials/undefinedbehaviour">undefined behaviour</a>.</p>
+<p class="warning">If the file is not open in a write capable mode, this leads to <a class="link" href="../tutorials/undefinedbehaviour">undefined behaviour</a>.</p>
 <div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
 <h2 class="header" id="void_writeTimeStamp_SGXTimeStamp_const_">void <a class="link" href="#void_writeTimeStamp_SGXTimeStamp_const_">writeTimeStamp</a>(<a class="link" href="sgxtimestamp">SGXTimeStamp</a> x) const;</h2>
 <p class="description">Writes the <a class="link" href="../cppclass/sgxtimestamp">SGXTimeStamp</a> <b>x</b> at the current position in the file.</p>
 <p class="note">This moves the file pointer forward.</p>
 <p class="warning">There is no guarantee on the size of the <a class="link" href="../cppclass/sgxtimestamp">SGXTimeStamp</a>. This may be changed in a future SGEXTN version.</p>
-<p class="warning">If <a class="link" href="../cppclass/sgxfile#bool_isValid_">SGXFile::isValid</a> is false, this leads to <a class="link" href="../tutorials/undefinedbehaviour">undefined behaviour</a>.</p>
+<p class="warning">If the file is not open in a write capable mode, this leads to <a class="link" href="../tutorials/undefinedbehaviour">undefined behaviour</a>.</p>
 <div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
 <h2 class="header" id="void_writeUnsignedInt_unsigned_int_const_">void <a class="link" href="#void_writeUnsignedInt_unsigned_int_const_">writeUnsignedInt</a>(unsigned int x) const;</h2>
 <p class="description">Writes the unsigned int <b>x</b> at the current position in the file.</p>
 <p class="note">This moves the file pointer forward.</p>
 <p class="warning">There is no guarantee on the size of the unsigned int. This may be changed in a future SGEXTN version.</p>
-<p class="warning">If <a class="link" href="../cppclass/sgxfile#bool_isValid_">SGXFile::isValid</a> is false, this leads to <a class="link" href="../tutorials/undefinedbehaviour">undefined behaviour</a>.</p>
+<p class="warning">If the file is not open in a write capable mode, this leads to <a class="link" href="../tutorials/undefinedbehaviour">undefined behaviour</a>.</p>
 <div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
 <h2 class="header" id="void_writeUnsignedLongLong_unsigned_long_long_const_">void <a class="link" href="#void_writeUnsignedLongLong_unsigned_long_long_const_">writeUnsignedLongLong</a>(unsigned long long x) const;</h2>
 <p class="description">Writes the unsigned long long <b>x</b> at the current position in the file.</p>
 <p class="note">This moves the file pointer forward.</p>
 <p class="warning">There is no guarantee on the size of the unsigned long long. This may be changed in a future SGEXTN version.</p>
-<p class="warning">If <a class="link" href="../cppclass/sgxfile#bool_isValid_">SGXFile::isValid</a> is false, this leads to <a class="link" href="../tutorials/undefinedbehaviour">undefined behaviour</a>.</p>
+<p class="warning">If the file is not open in a write capable mode, this leads to <a class="link" href="../tutorials/undefinedbehaviour">undefined behaviour</a>.</p>
 <div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
 <h2 class="header" id="void_writeVector2_SGXVector2_const_">void <a class="link" href="#void_writeVector2_SGXVector2_const_">writeVector2</a>(<a class="link" href="sgxvector2">SGXVector2</a> x) const;</h2>
 <p class="description">Writes the <a class="link" href="../cppclass/sgxvector2">SGXVector2</a> <b>x</b> at the current position in the file.</p>
 <p class="note">This moves the file pointer forward.</p>
 <p class="warning">There is no guarantee on the size of the <a class="link" href="../cppclass/sgxvector2">SGXVector2</a>. This may be changed in a future SGEXTN version.</p>
-<p class="warning">If <a class="link" href="../cppclass/sgxfile#bool_isValid_">SGXFile::isValid</a> is false, this leads to <a class="link" href="../tutorials/undefinedbehaviour">undefined behaviour</a>.</p>
+<p class="warning">If the file is not open in a write capable mode, this leads to <a class="link" href="../tutorials/undefinedbehaviour">undefined behaviour</a>.</p>
 <div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
 <h2 class="header" id="static_SGXString_readAllText_const_SGXString_ref_">static <a class="link" href="sgxstring">SGXString</a> <a class="link" href="#static_SGXString_readAllText_const_SGXString_ref_">readAllText</a>(const <a class="link" href="sgxstring">SGXString</a>& filePath);</h2>
 <p class="description">Reads all text in the file at <b>filePath</b> and returns the text as a <a class="link" href="../cppclass/sgxstring">SGXString</a>.</p>
 <p class="note">You are strongly encouraged to use binary files instead for better support and simplicity.</p>
-<p class="warning">If <b>filePath</b> cannot be opened, this is <a class="link" href="../tutorials/undefinedbehaviour">undefined behaviour</a>. There is no error handling.</p>
+<p class="note">If <b>filePath</b> cannot be opened in a read only mode, this returns an empty string.</p>
 <div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
 <h2 class="header" id="static_void_writeAllText_const_SGXString_ref_const_SGXString_ref_">static void <a class="link" href="#static_void_writeAllText_const_SGXString_ref_const_SGXString_ref_">writeAllText</a>(const <a class="link" href="sgxstring">SGXString</a>& filePath, const <a class="link" href="sgxstring">SGXString</a>& contents);</h2>
 <p class="description">Overwrite the contents of the file at <b>filePath</b> with <b>contents</b>.</p>
 <p class="note">You are strongly encouraged to use binary files instead for better support and simplicity.</p>
+<p class="note">If <b>filePath</b> cannot be opened in a write only mode, this does nothing.</p>
 <p class="warning">This irreversibly overwrites all data previously stored in the file.</p>
-<p class="warning">If <b>filePath</b> cannot be opened, this is <a class="link" href="../tutorials/undefinedbehaviour">undefined behaviour</a>. There is no error handling.</p>
 <div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
 <p class="description"></p>
 

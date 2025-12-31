@@ -265,10 +265,10 @@ window.addEventListener("hashchange", highlightSection);
 <h2 class="header" id="">static member functions</h2>
 <p class="description">&#9;static int <a class="link" href="#static_int_createFile_const_SGXString_ref_">createFile</a>(const <a class="link" href="sgxstring">SGXString</a>& s);</p>
 <p class="description">&#9;static int <a class="link" href="#static_int_createFolder_const_SGXString_ref_">createFolder</a>(const <a class="link" href="sgxstring">SGXString</a>& s);</p>
-<p class="description">&#9;static <a class="link" href="sgxstring">SGXString</a> <a class="link" href="#static_SGXString_decodeBase16_const_SGXString_ref_">decodeBase16</a>(const <a class="link" href="sgxstring">SGXString</a>& str);</p>
+<p class="description">&#9;static <a class="link" href="sgxstring">SGXString</a> <a class="link" href="#static_SGXString_decodeFromFileName_const_SGXString_ref_">decodeFromFileName</a>(const <a class="link" href="sgxstring">SGXString</a>& s);</p>
 <p class="description">&#9;static int <a class="link" href="#static_int_duplicateFile_const_SGXString_ref_const_SGXString_ref_">duplicateFile</a>(const <a class="link" href="sgxstring">SGXString</a>& startPath, const <a class="link" href="sgxstring">SGXString</a>& endPath);</p>
 <p class="description">&#9;static int <a class="link" href="#static_int_duplicateFolder_const_SGXString_ref_const_SGXString_ref_">duplicateFolder</a>(const <a class="link" href="sgxstring">SGXString</a>& startPath, const <a class="link" href="sgxstring">SGXString</a>& endPath);</p>
-<p class="description">&#9;static <a class="link" href="sgxstring">SGXString</a> <a class="link" href="#static_SGXString_encodeBase16_const_SGXString_ref_">encodeBase16</a>(const <a class="link" href="sgxstring">SGXString</a>& s);</p>
+<p class="description">&#9;static <a class="link" href="sgxstring">SGXString</a> <a class="link" href="#static_SGXString_encodeToFileName_const_SGXString_ref_">encodeToFileName</a>(const <a class="link" href="sgxstring">SGXString</a>& s);</p>
 <p class="description">&#9;static bool <a class="link" href="#static_bool_fileExists_const_SGXString_ref_">fileExists</a>(const <a class="link" href="sgxstring">SGXString</a>& s);</p>
 <p class="description">&#9;static bool <a class="link" href="#static_bool_folderExists_const_SGXString_ref_">folderExists</a>(const <a class="link" href="sgxstring">SGXString</a>& s);</p>
 <p class="description">&#9;static <a class="link" href="sgxtimestamp">SGXTimeStamp</a> <a class="link" href="#static_SGXTimeStamp_getFileCreationTime_const_SGXString_ref_">getFileCreationTime</a>(const <a class="link" href="sgxstring">SGXString</a>& s);</p>
@@ -296,6 +296,7 @@ window.addEventListener("hashchange", highlightSection);
 <p class="description">&#9;static int <a class="link" href="#static_int_moveFolder_const_SGXString_ref_const_SGXString_ref_">moveFolder</a>(const <a class="link" href="sgxstring">SGXString</a>& startPath, const <a class="link" href="sgxstring">SGXString</a>& endPath);</p>
 <p class="description">&#9;static bool <a class="link" href="#static_bool_numberAwareLesserThan_const_SGXString_ref_const_SGXString_ref_">numberAwareLesserThan</a>(const <a class="link" href="sgxstring">SGXString</a>& s1, const <a class="link" href="sgxstring">SGXString</a>& s2);</p>
 <p class="description">&#9;static bool <a class="link" href="#static_bool_numberAwareLesserThanBase16_const_SGXString_ref_const_SGXString_ref_">numberAwareLesserThanBase16</a>(const <a class="link" href="sgxstring">SGXString</a>& s1, const <a class="link" href="sgxstring">SGXString</a>& s2);</p>
+<p class="description">&#9;static void <a class="link" href="#static_void_openLink_const_SGXString_ref_">openLink</a>(const <a class="link" href="sgxstring">SGXString</a>& link);</p>
 <p class="description">&#9;static bool <a class="link" href="#static_bool_pathIsSubfolder_const_SGXString_ref_const_SGXString_ref_">pathIsSubfolder</a>(const <a class="link" href="sgxstring">SGXString</a>& childPath, const <a class="link" href="sgxstring">SGXString</a>& parentPath);</p>
 <p class="description">&#9;static int <a class="link" href="#static_int_permanentDeleteFile_const_SGXString_ref_">permanentDeleteFile</a>(const <a class="link" href="sgxstring">SGXString</a>& s);</p>
 <p class="description">&#9;static int <a class="link" href="#static_int_permanentDeleteFolder_const_SGXString_ref_">permanentDeleteFolder</a>(const <a class="link" href="sgxstring">SGXString</a>& s);</p>
@@ -320,9 +321,9 @@ window.addEventListener("hashchange", highlightSection);
 <h2 class="header" id="static_int_createFolder_const_SGXString_ref_">static int <a class="link" href="#static_int_createFolder_const_SGXString_ref_">createFolder</a>(const <a class="link" href="sgxstring">SGXString</a>& s);</h2>
 <p class="description">Creates a folder at <b>s</b>. This returns -2 if a file system error caused the operation to fail, 0 if the file already exists, and 1 if the operation was successful.</p>
 <div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
-<h2 class="header" id="static_SGXString_decodeBase16_const_SGXString_ref_">static <a class="link" href="sgxstring">SGXString</a> <a class="link" href="#static_SGXString_decodeBase16_const_SGXString_ref_">decodeBase16</a>(const <a class="link" href="sgxstring">SGXString</a>& str);</h2>
-<p class="description">Decodes <b>str</b> which is currently in base16, the SGEXTN provided encoding that is guaranteed to be safe on all file systems, including case insensitive ones.</p>
-<p class="note">As of this SGEXTN version, base16 is not human readable. This likely will be changed in a future version.</p>
+<h2 class="header" id="static_SGXString_decodeFromFileName_const_SGXString_ref_">static <a class="link" href="sgxstring">SGXString</a> <a class="link" href="#static_SGXString_decodeFromFileName_const_SGXString_ref_">decodeFromFileName</a>(const <a class="link" href="sgxstring">SGXString</a>& s);</h2>
+<p class="description">Reverses <a class="link" href="../cppclass/sgxfilesystem#static_SGXString_encodeToFileName_const_SGXString_ref_">SGXFileSystem::encodeToFileName</a> for <b>s</b>.</p>
+<p class="note">If <b>s</b> is not a valid encoded file name, this will return <b>s</b>.</p>
 <div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
 <h2 class="header" id="static_int_duplicateFile_const_SGXString_ref_const_SGXString_ref_">static int <a class="link" href="#static_int_duplicateFile_const_SGXString_ref_const_SGXString_ref_">duplicateFile</a>(const <a class="link" href="sgxstring">SGXString</a>& startPath, const <a class="link" href="sgxstring">SGXString</a>& endPath);</h2>
 <p class="description">Copies the file at <b>startPath</b> to <b>endPath</b>. This returns -2 if a file system error caused the operation to fail, 0 if there is already a file at <b>endPath</b> or if there is no file at <b>startPath</b>, and 1 if the operation was successful.</p>
@@ -330,9 +331,8 @@ window.addEventListener("hashchange", highlightSection);
 <h2 class="header" id="static_int_duplicateFolder_const_SGXString_ref_const_SGXString_ref_">static int <a class="link" href="#static_int_duplicateFolder_const_SGXString_ref_const_SGXString_ref_">duplicateFolder</a>(const <a class="link" href="sgxstring">SGXString</a>& startPath, const <a class="link" href="sgxstring">SGXString</a>& endPath);</h2>
 <p class="description">Copies the folder at <b>startPath</b> to <b>endPath</b>. This returns -2 if a file system error caused the operation to fail, 0 if there is already a folder at <b>endPath</b> or if there is no folder at <b>startPath</b>, and 1 if the operation was successful.</p>
 <div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
-<h2 class="header" id="static_SGXString_encodeBase16_const_SGXString_ref_">static <a class="link" href="sgxstring">SGXString</a> <a class="link" href="#static_SGXString_encodeBase16_const_SGXString_ref_">encodeBase16</a>(const <a class="link" href="sgxstring">SGXString</a>& s);</h2>
-<p class="description">Encodes <b>s</b> to base16, the SGEXTN provided encoding that is guaranteed to be safe on all file systems, including case insensitive ones.</p>
-<p class="note">As of this SGEXTN version, base16 is not human readable. This likely will be changed in a future version.</p>
+<h2 class="header" id="static_SGXString_encodeToFileName_const_SGXString_ref_">static <a class="link" href="sgxstring">SGXString</a> <a class="link" href="#static_SGXString_encodeToFileName_const_SGXString_ref_">encodeToFileName</a>(const <a class="link" href="sgxstring">SGXString</a>& s);</h2>
+<p class="description">Encodes <b>s</b> to a file name, the SGEXTN provided encoding that is guaranteed to be safe on all file systems, including case insensitive ones. The file name is as readable as reasonably possible while allowing all Unicode characters.</p>
 <div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
 <h2 class="header" id="static_bool_fileExists_const_SGXString_ref_">static bool <a class="link" href="#static_bool_fileExists_const_SGXString_ref_">fileExists</a>(const <a class="link" href="sgxstring">SGXString</a>& s);</h2>
 <p class="description">Returns if any file exists at <b>s</b>.</p>
@@ -350,7 +350,6 @@ window.addEventListener("hashchange", highlightSection);
 <h2 class="header" id="static_SGXTimeStamp_getFileLastEditTime_const_SGXString_ref_">static <a class="link" href="sgxtimestamp">SGXTimeStamp</a> <a class="link" href="#static_SGXTimeStamp_getFileLastEditTime_const_SGXString_ref_">getFileLastEditTime</a>(const <a class="link" href="sgxstring">SGXString</a>& s);</h2>
 <p class="description">Returns the time at which the file at <b>s</b> was last opened in a write capable mode.</p>
 <p class="note">If there is no file at <b>s</b>, this returns <a class="link" href="../cppclass/sgxtimestamp#static_const_SGXTimeStamp_zero_">SGXTimeStamp::zero</a>.</p>
-<p class="note">Using <a class="link" href="../cppclass/sgxfile">SGXFile</a> for reading a file also causes this to change as <a class="link" href="../cppclass/sgxfile">SGXFile</a> always opens files in read-write mode.</p>
 <div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
 <h2 class="header" id="static_SGXString_getFileName_const_SGXString_ref_">static <a class="link" href="sgxstring">SGXString</a> <a class="link" href="#static_SGXString_getFileName_const_SGXString_ref_">getFileName</a>(const <a class="link" href="sgxstring">SGXString</a>& s);</h2>
 <p class="description">Returns the name of the file at path <b>s</b>.</p>
@@ -393,7 +392,6 @@ window.addEventListener("hashchange", highlightSection);
 <h2 class="header" id="static_SGXTimeStamp_getFolderLastEditTime_const_SGXString_ref_">static <a class="link" href="sgxtimestamp">SGXTimeStamp</a> <a class="link" href="#static_SGXTimeStamp_getFolderLastEditTime_const_SGXString_ref_">getFolderLastEditTime</a>(const <a class="link" href="sgxstring">SGXString</a>& s);</h2>
 <p class="description">Returns the time at which the folder at <b>s</b> was last opened in a write capable mode.</p>
 <p class="note">If there is no folder at <b>s</b>, this returns <a class="link" href="../cppclass/sgxtimestamp#static_const_SGXTimeStamp_zero_">SGXTimeStamp::zero</a>.</p>
-<p class="note">Using <a class="link" href="../cppclass/sgxfile">SGXFile</a> for reading a file in the folder also causes this to change as <a class="link" href="../cppclass/sgxfile">SGXFile</a> always opens files in read-write mode.</p>
 <div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
 <h2 class="header" id="static_SGXString_getFolderName_const_SGXString_ref_">static <a class="link" href="sgxstring">SGXString</a> <a class="link" href="#static_SGXString_getFolderName_const_SGXString_ref_">getFolderName</a>(const <a class="link" href="sgxstring">SGXString</a>& s);</h2>
 <p class="description">Returns the name of the folder at path <b>s</b>.</p>
@@ -407,7 +405,7 @@ window.addEventListener("hashchange", highlightSection);
 <p class="note">If <b>s</b> does not exist, an empty list is returned.</p>
 <div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
 <h2 class="header" id="static_SGXString_getFreePath_const_SGXString_ref_const_SGXString_ref_const_SGXString_ref_">static <a class="link" href="sgxstring">SGXString</a> <a class="link" href="#static_SGXString_getFreePath_const_SGXString_ref_const_SGXString_ref_const_SGXString_ref_">getFreePath</a>(const <a class="link" href="sgxstring">SGXString</a>& prefix, const <a class="link" href="sgxstring">SGXString</a>& unencodedName, const <a class="link" href="sgxstring">SGXString</a>& postfix);</h2>
-<p class="description">This should be used to replace directly setting the path as <b>prefix</b>/<a class="link" href="../cppclass/sgxfilesystem#static_SGXString_encodeBase16_const_SGXString_ref_">SGXFileSystem::encodeBase16</a>(<b>unencodedName</b>)<b>postfix</b> to avoid file name collisions causing accidental overwrite.</p>
+<p class="description">This should be used to replace directly setting the path as <b>prefix</b>/<a class="link" href="../cppclass/sgxfilesystem#static_SGXString_encodeToFileName_const_SGXString_ref_">SGXFileSystem::encodeToFileName</a>(<b>unencodedName</b>)<b>postfix</b> to avoid file name collisions causing accidental overwrite.</p>
 <div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
 <h2 class="header" id="static_SGXString_getParentName_const_SGXString_ref_">static <a class="link" href="sgxstring">SGXString</a> <a class="link" href="#static_SGXString_getParentName_const_SGXString_ref_">getParentName</a>(const <a class="link" href="sgxstring">SGXString</a>& s);</h2>
 <p class="description">Returns the name of the parent folder of <b>s</b>.</p>
@@ -417,6 +415,7 @@ window.addEventListener("hashchange", highlightSection);
 <div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
 <h2 class="header" id="static_SGXString_joinFilePaths_const_SGXString_ref_const_SGXString_ref_">static <a class="link" href="sgxstring">SGXString</a> <a class="link" href="#static_SGXString_joinFilePaths_const_SGXString_ref_const_SGXString_ref_">joinFilePaths</a>(const <a class="link" href="sgxstring">SGXString</a>& a, const <a class="link" href="sgxstring">SGXString</a>& b);</h2>
 <p class="description">Returns the file path <b>a</b>/<b>b</b></p>
+<p class="warning">If either <b>a</b> or <b>b</b> is an empty string, this leads to <a class="link" href="../tutorials/undefinedbehaviour">undefined behaviour</a>.</p>
 <div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
 <h2 class="header" id="static_int_moveFile_const_SGXString_ref_const_SGXString_ref_">static int <a class="link" href="#static_int_moveFile_const_SGXString_ref_const_SGXString_ref_">moveFile</a>(const <a class="link" href="sgxstring">SGXString</a>& startPath, const <a class="link" href="sgxstring">SGXString</a>& endPath);</h2>
 <p class="description">Moves the file at <b>startPath</b> to <b>endPath</b>. This returns -2 if a file system error caused the operation to fail, 0 if there is already a file at <b>endPath</b> or if there is no file at <b>startPath</b>, and 1 if the operation was successful.</p>
@@ -426,9 +425,15 @@ window.addEventListener("hashchange", highlightSection);
 <div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
 <h2 class="header" id="static_bool_numberAwareLesserThan_const_SGXString_ref_const_SGXString_ref_">static bool <a class="link" href="#static_bool_numberAwareLesserThan_const_SGXString_ref_const_SGXString_ref_">numberAwareLesserThan</a>(const <a class="link" href="sgxstring">SGXString</a>& s1, const <a class="link" href="sgxstring">SGXString</a>& s2);</h2>
 <p class="description">Comparator used by <a class="link" href="../cppclass/sgxnumberawarefilepathlesserthan">SGXNumberAwareFilePathLesserThan</a> and <a class="link" href="../cppclass/sgxnumberawarefilepathmorethan">SGXNumberAwareFilePathMoreThan</a>, returns if a file with name <b>s1</b> should be displayed in front of a file with name <b>s2</b> when number aware lesser than sorting is used.</p>
+<p class="note">The file names are decoded before comparison.</p>
 <div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
 <h2 class="header" id="static_bool_numberAwareLesserThanBase16_const_SGXString_ref_const_SGXString_ref_">static bool <a class="link" href="#static_bool_numberAwareLesserThanBase16_const_SGXString_ref_const_SGXString_ref_">numberAwareLesserThanBase16</a>(const <a class="link" href="sgxstring">SGXString</a>& s1, const <a class="link" href="sgxstring">SGXString</a>& s2);</h2>
 <p class="description">Comparator used by <a class="link" href="../cppclass/sgxnumberawarefilepathlesserthanbase16">SGXNumberAwareFilePathLesserThanBase16</a> and <a class="link" href="../cppclass/sgxnumberawarefilepathmorethanbase16">SGXNumberAwareFilePathMoreThanBase16</a>, returns if a file with name <b>s1</b> should be displayed in front of a file with name <b>s2</b> when base16 number aware lesser than sorting is used.</p>
+<p class="note">The file names are decoded before comparison.</p>
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<h2 class="header" id="static_void_openLink_const_SGXString_ref_">static void <a class="link" href="#static_void_openLink_const_SGXString_ref_">openLink</a>(const <a class="link" href="sgxstring">SGXString</a>& link);</h2>
+<p class="description">Opens the website link <b>link</b> in the system default browser.</p>
+<p class="note">There is no need to put the https:// in front of the link, just the website link itself is sufficient.</p>
 <div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
 <h2 class="header" id="static_bool_pathIsSubfolder_const_SGXString_ref_const_SGXString_ref_">static bool <a class="link" href="#static_bool_pathIsSubfolder_const_SGXString_ref_const_SGXString_ref_">pathIsSubfolder</a>(const <a class="link" href="sgxstring">SGXString</a>& childPath, const <a class="link" href="sgxstring">SGXString</a>& parentPath);</h2>
 <p class="description">Returns if <b>childPath</b> is a possibly recursive subfolder of <b>parentPath</b>.</p>

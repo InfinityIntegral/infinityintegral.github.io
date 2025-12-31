@@ -264,12 +264,7 @@ window.addEventListener("hashchange", highlightSection);
 <div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
 <h2 class="header" id="">instance member functions</h2>
 <p class="description">&#9;<a class="link" href="#SGXVector2_float_float_">SGXVector2</a>(float x, float y);</p>
-<p class="description">&#9;[[nodiscard]] float <a class="link" href="#nodiscard_float_crossProduct_SGXVector2_const_">crossProduct</a>(<a class="link" href="sgxvector2">SGXVector2</a> x) const;</p>
-<p class="description">&#9;[[nodiscard]] float <a class="link" href="#nodiscard_float_dotProduct_SGXVector2_const_">dotProduct</a>(<a class="link" href="sgxvector2">SGXVector2</a> x) const;</p>
-<p class="description">&#9;[[nodiscard]] float <a class="link" href="#nodiscard_float_getAngleBetween_SGXVector2_const_">getAngleBetween</a>(<a class="link" href="sgxvector2">SGXVector2</a> x) const;</p>
 <p class="description">&#9;[[nodiscard]] float <a class="link" href="#nodiscard_float_getArgument_func_const_">getArgument</a>() const;</p>
-<p class="description">&#9;[[nodiscard]] float <a class="link" href="#nodiscard_float_getDistance_SGXVector2_const_">getDistance</a>(<a class="link" href="sgxvector2">SGXVector2</a> x) const;</p>
-<p class="description">&#9;[[nodiscard]] float <a class="link" href="#nodiscard_float_getDistanceSquare_SGXVector2_const_">getDistanceSquare</a>(<a class="link" href="sgxvector2">SGXVector2</a> x) const;</p>
 <p class="description">&#9;[[nodiscard]] float <a class="link" href="#nodiscard_float_getDistanceToCircle_float_float_float_const_">getDistanceToCircle</a>(float a, float b, float r) const;</p>
 <p class="description">&#9;[[nodiscard]] float <a class="link" href="#nodiscard_float_getDistanceToLine_SGXVector2_SGXVector2_const_">getDistanceToLine</a>(<a class="link" href="sgxvector2">SGXVector2</a> a, <a class="link" href="sgxvector2">SGXVector2</a> b) const;</p>
 <p class="description">&#9;[[nodiscard]] float <a class="link" href="#nodiscard_float_getDistanceToSegment_SGXVector2_SGXVector2_const_">getDistanceToSegment</a>(<a class="link" href="sgxvector2">SGXVector2</a> a, <a class="link" href="sgxvector2">SGXVector2</a> b) const;</p>
@@ -280,14 +275,9 @@ window.addEventListener("hashchange", highlightSection);
 <p class="description">&#9;[[nodiscard]] <a class="link" href="sgxvector2">SGXVector2</a> <a class="link" href="#nodiscard_SGXVector2_getNearestPointOnSegment_SGXVector2_SGXVector2_const_">getNearestPointOnSegment</a>(<a class="link" href="sgxvector2">SGXVector2</a> a, <a class="link" href="sgxvector2">SGXVector2</a> b) const;</p>
 <p class="description">&#9;[[nodiscard]] <a class="link" href="sgxstring">SGXString</a> <a class="link" href="#nodiscard_SGXString_getStringForPrinting_func_const_">getStringForPrinting</a>() const;</p>
 <p class="description">&#9;[[nodiscard]] int <a class="link" href="#nodiscard_int_hash_func_const_">hash</a>() const;</p>
-<p class="description">&#9;void <a class="link" href="#void_invert_func_">invert</a>();</p>
-<p class="description">&#9;[[nodiscard]] bool <a class="link" href="#nodiscard_bool_isCollinear_SGXVector2_SGXVector2_float_const_">isCollinear</a>(<a class="link" href="sgxvector2">SGXVector2</a> a, <a class="link" href="sgxvector2">SGXVector2</a> b, float limit) const;</p>
-<p class="description">&#9;[[nodiscard]] bool <a class="link" href="#nodiscard_bool_isParallel_SGXVector2_SGXVector2_SGXVector2_float_const_">isParallel</a>(<a class="link" href="sgxvector2">SGXVector2</a> a2, <a class="link" href="sgxvector2">SGXVector2</a> b1, <a class="link" href="sgxvector2">SGXVector2</a> b2, float limit) const;</p>
-<p class="description">&#9;[[nodiscard]] bool <a class="link" href="#nodiscard_bool_isPerpendicular_SGXVector2_SGXVector2_float_const_">isPerpendicular</a>(<a class="link" href="sgxvector2">SGXVector2</a> a, <a class="link" href="sgxvector2">SGXVector2</a> b, float limit) const;</p>
-<p class="description">&#9;[[nodiscard]] <a class="link" href="sgxvector2">SGXVector2</a> <a class="link" href="#nodiscard_SGXVector2_linearInterpolate_SGXVector2_float_const_">linearInterpolate</a>(<a class="link" href="sgxvector2">SGXVector2</a> x, float f) const;</p>
-<p class="description">&#9;[[nodiscard]] <a class="link" href="sgxvector2">SGXVector2</a> <a class="link" href="#nodiscard_SGXVector2_midpoint_SGXVector2_const_">midpoint</a>(<a class="link" href="sgxvector2">SGXVector2</a> x) const;</p>
-<p class="description">&#9;void <a class="link" href="#void_normalise_func_">normalise</a>();</p>
-<p class="description">&#9;void <a class="link" href="#void_normaliseGivenMagnitude_float_">normaliseGivenMagnitude</a>(float m);</p>
+<p class="description">&#9;<a class="link" href="sgxvector2">SGXVector2</a>& <a class="link" href="#SGXVector2_ref_invert_func_">invert</a>();</p>
+<p class="description">&#9;<a class="link" href="sgxvector2">SGXVector2</a>& <a class="link" href="#SGXVector2_ref_normalise_func_">normalise</a>();</p>
+<p class="description">&#9;<a class="link" href="sgxvector2">SGXVector2</a>& <a class="link" href="#SGXVector2_ref_normaliseGivenMagnitude_float_">normaliseGivenMagnitude</a>(float m);</p>
 <p class="description">&#9;[[nodiscard]] bool <a class="link" href="#nodiscard_bool_operator_neq_SGXVector2_const_">operator!=</a>(<a class="link" href="sgxvector2">SGXVector2</a> x) const;</p>
 <p class="description">&#9;<a class="link" href="sgxvector2">SGXVector2</a>& <a class="link" href="#SGXVector2_ref_operator_ptr_assign_float_">operator*</a>=(float m);</p>
 <p class="description">&#9;[[nodiscard]] <a class="link" href="sgxvector2">SGXVector2</a> <a class="link" href="#nodiscard_SGXVector2_operator_ptr_float_const_">operator*</a>(float m) const;</p>
@@ -295,27 +285,39 @@ window.addEventListener("hashchange", highlightSection);
 <p class="description">&#9;<a class="link" href="sgxvector2">SGXVector2</a>& <a class="link" href="#SGXVector2_ref_operator_plus_assign_SGXVector2_">operator+</a>=(<a class="link" href="sgxvector2">SGXVector2</a> x);</p>
 <p class="description">&#9;[[nodiscard]] <a class="link" href="sgxvector2">SGXVector2</a> <a class="link" href="#nodiscard_SGXVector2_operator_minus_SGXVector2_const_">operator-</a>(<a class="link" href="sgxvector2">SGXVector2</a> x) const;</p>
 <p class="description">&#9;<a class="link" href="sgxvector2">SGXVector2</a>& <a class="link" href="#SGXVector2_ref_operator_minus_assign_SGXVector2_">operator-</a>=(<a class="link" href="sgxvector2">SGXVector2</a> x);</p>
-<p class="description">&#9;<a class="link" href="sgxvector2">SGXVector2</a>& <a class="link" href="#SGXVector2_ref_operator_div_assign_float_">operator/</a>=(float m);</p>
 <p class="description">&#9;[[nodiscard]] <a class="link" href="sgxvector2">SGXVector2</a> <a class="link" href="#nodiscard_SGXVector2_operator_div_float_const_">operator/</a>(float m) const;</p>
+<p class="description">&#9;<a class="link" href="sgxvector2">SGXVector2</a>& <a class="link" href="#SGXVector2_ref_operator_div_assign_float_">operator/</a>=(float m);</p>
 <p class="description">&#9;[[nodiscard]] bool <a class="link" href="#nodiscard_bool_operator_lt_SGXVector2_const_">operator‹</a>(<a class="link" href="sgxvector2">SGXVector2</a> x) const;</p>
 <p class="description">&#9;[[nodiscard]] bool <a class="link" href="#nodiscard_bool_operator_eq_SGXVector2_const_">operator==</a>(<a class="link" href="sgxvector2">SGXVector2</a> x) const;</p>
 <p class="description">&#9;[[nodiscard]] bool <a class="link" href="#nodiscard_bool_operator_gt_SGXVector2_const_">operator›</a>(<a class="link" href="sgxvector2">SGXVector2</a> x) const;</p>
-<p class="description">&#9;void <a class="link" href="#void_projectToLine_SGXVector2_SGXVector2_">projectToLine</a>(<a class="link" href="sgxvector2">SGXVector2</a> a, <a class="link" href="sgxvector2">SGXVector2</a> b);</p>
-<p class="description">&#9;void <a class="link" href="#void_projectToX_func_">projectToX</a>();</p>
-<p class="description">&#9;void <a class="link" href="#void_projectToY_func_">projectToY</a>();</p>
-<p class="description">&#9;void <a class="link" href="#void_redirectUsingArgument_float_">redirectUsingArgument</a>(float a);</p>
-<p class="description">&#9;void <a class="link" href="#void_reflectAcrossLine_SGXVector2_SGXVector2_">reflectAcrossLine</a>(<a class="link" href="sgxvector2">SGXVector2</a> a, <a class="link" href="sgxvector2">SGXVector2</a> b);</p>
-<p class="description">&#9;void <a class="link" href="#void_reflectAcrossPoint_SGXVector2_">reflectAcrossPoint</a>(<a class="link" href="sgxvector2">SGXVector2</a> x);</p>
-<p class="description">&#9;void <a class="link" href="#void_reflectAcrossX_func_">reflectAcrossX</a>();</p>
-<p class="description">&#9;void <a class="link" href="#void_reflectAcrossY_func_">reflectAcrossY</a>();</p>
-<p class="description">&#9;void <a class="link" href="#void_rotate180_func_">rotate180</a>();</p>
-<p class="description">&#9;void <a class="link" href="#void_rotateClockwise_float_">rotateClockwise</a>(float a);</p>
-<p class="description">&#9;void <a class="link" href="#void_rotateClockwise90_func_">rotateClockwise90</a>();</p>
-<p class="description">&#9;void <a class="link" href="#void_rotateCounterclockwise_float_">rotateCounterclockwise</a>(float a);</p>
-<p class="description">&#9;void <a class="link" href="#void_rotateCounterclockwise90_func_">rotateCounterclockwise90</a>();</p>
+<p class="description">&#9;<a class="link" href="sgxvector2">SGXVector2</a>& <a class="link" href="#SGXVector2_ref_projectToLine_SGXVector2_SGXVector2_">projectToLine</a>(<a class="link" href="sgxvector2">SGXVector2</a> a, <a class="link" href="sgxvector2">SGXVector2</a> b);</p>
+<p class="description">&#9;<a class="link" href="sgxvector2">SGXVector2</a>& <a class="link" href="#SGXVector2_ref_projectToX_func_">projectToX</a>();</p>
+<p class="description">&#9;<a class="link" href="sgxvector2">SGXVector2</a>& <a class="link" href="#SGXVector2_ref_projectToY_func_">projectToY</a>();</p>
+<p class="description">&#9;<a class="link" href="sgxvector2">SGXVector2</a>& <a class="link" href="#SGXVector2_ref_redirectUsingArgument_float_">redirectUsingArgument</a>(float a);</p>
+<p class="description">&#9;<a class="link" href="sgxvector2">SGXVector2</a>& <a class="link" href="#SGXVector2_ref_reflectAcrossLine_SGXVector2_SGXVector2_">reflectAcrossLine</a>(<a class="link" href="sgxvector2">SGXVector2</a> a, <a class="link" href="sgxvector2">SGXVector2</a> b);</p>
+<p class="description">&#9;<a class="link" href="sgxvector2">SGXVector2</a>& <a class="link" href="#SGXVector2_ref_reflectAcrossPoint_SGXVector2_">reflectAcrossPoint</a>(<a class="link" href="sgxvector2">SGXVector2</a> x);</p>
+<p class="description">&#9;<a class="link" href="sgxvector2">SGXVector2</a>& <a class="link" href="#SGXVector2_ref_reflectAcrossX_func_">reflectAcrossX</a>();</p>
+<p class="description">&#9;<a class="link" href="sgxvector2">SGXVector2</a>& <a class="link" href="#SGXVector2_ref_reflectAcrossY_func_">reflectAcrossY</a>();</p>
+<p class="description">&#9;<a class="link" href="sgxvector2">SGXVector2</a>& <a class="link" href="#SGXVector2_ref_rotate180_func_">rotate180</a>();</p>
+<p class="description">&#9;<a class="link" href="sgxvector2">SGXVector2</a>& <a class="link" href="#SGXVector2_ref_rotateClockwise_float_">rotateClockwise</a>(float a);</p>
+<p class="description">&#9;<a class="link" href="sgxvector2">SGXVector2</a>& <a class="link" href="#SGXVector2_ref_rotateClockwise90_func_">rotateClockwise90</a>();</p>
+<p class="description">&#9;<a class="link" href="sgxvector2">SGXVector2</a>& <a class="link" href="#SGXVector2_ref_rotateCounterclockwise_float_">rotateCounterclockwise</a>(float a);</p>
+<p class="description">&#9;<a class="link" href="sgxvector2">SGXVector2</a>& <a class="link" href="#SGXVector2_ref_rotateCounterclockwise90_func_">rotateCounterclockwise90</a>();</p>
 <div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
 <h2 class="header" id="">static member variables</h2>
 <p class="description">&#9;static const <a class="link" href="sgxvector2">SGXVector2</a> <a class="link" href="#static_const_SGXVector2_origin_">origin</a>;</p>
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<h2 class="header" id="">static member functions</h2>
+<p class="description">&#9;static float <a class="link" href="#static_float_crossProduct_SGXVector2_SGXVector2_">crossProduct</a>(<a class="link" href="sgxvector2">SGXVector2</a> a, <a class="link" href="sgxvector2">SGXVector2</a> b);</p>
+<p class="description">&#9;static float <a class="link" href="#static_float_dotProduct_SGXVector2_SGXVector2_">dotProduct</a>(<a class="link" href="sgxvector2">SGXVector2</a> a, <a class="link" href="sgxvector2">SGXVector2</a> b);</p>
+<p class="description">&#9;static float <a class="link" href="#static_float_getAngleBetween_SGXVector2_SGXVector2_">getAngleBetween</a>(<a class="link" href="sgxvector2">SGXVector2</a> a, <a class="link" href="sgxvector2">SGXVector2</a> b);</p>
+<p class="description">&#9;static float <a class="link" href="#static_float_getDistance_SGXVector2_SGXVector2_">getDistance</a>(<a class="link" href="sgxvector2">SGXVector2</a> a, <a class="link" href="sgxvector2">SGXVector2</a> b);</p>
+<p class="description">&#9;static float <a class="link" href="#static_float_getDistanceSquare_SGXVector2_SGXVector2_">getDistanceSquare</a>(<a class="link" href="sgxvector2">SGXVector2</a> a, <a class="link" href="sgxvector2">SGXVector2</a> b);</p>
+<p class="description">&#9;static bool <a class="link" href="#static_bool_isCollinear_SGXVector2_SGXVector2_SGXVector2_float_">isCollinear</a>(<a class="link" href="sgxvector2">SGXVector2</a> x, <a class="link" href="sgxvector2">SGXVector2</a> a, <a class="link" href="sgxvector2">SGXVector2</a> b, float limit);</p>
+<p class="description">&#9;static bool <a class="link" href="#static_bool_isParallel_SGXVector2_SGXVector2_SGXVector2_SGXVector2_float_">isParallel</a>(<a class="link" href="sgxvector2">SGXVector2</a> a1, <a class="link" href="sgxvector2">SGXVector2</a> a2, <a class="link" href="sgxvector2">SGXVector2</a> b1, <a class="link" href="sgxvector2">SGXVector2</a> b2, float limit);</p>
+<p class="description">&#9;static bool <a class="link" href="#static_bool_isPerpendicular_SGXVector2_SGXVector2_SGXVector2_float_">isPerpendicular</a>(<a class="link" href="sgxvector2">SGXVector2</a> x, <a class="link" href="sgxvector2">SGXVector2</a> a, <a class="link" href="sgxvector2">SGXVector2</a> b, float limit);</p>
+<p class="description">&#9;static <a class="link" href="sgxvector2">SGXVector2</a> <a class="link" href="#static_SGXVector2_linearInterpolate_SGXVector2_SGXVector2_float_">linearInterpolate</a>(<a class="link" href="sgxvector2">SGXVector2</a> a, <a class="link" href="sgxvector2">SGXVector2</a> b, float f);</p>
+<p class="description">&#9;static <a class="link" href="sgxvector2">SGXVector2</a> <a class="link" href="#static_SGXVector2_midpoint_SGXVector2_SGXVector2_">midpoint</a>(<a class="link" href="sgxvector2">SGXVector2</a> a, <a class="link" href="sgxvector2">SGXVector2</a> b);</p>
 <div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
 <h2 class="header" id="sg_detaileddescription">Detailed Description</h2>
 <p class="description"><a class="link" href="../cppclass/sgxvector2">SGXVector2</a> represents a 2D vector which depending on context can refer to either the vector itself or the endpoint of the vector. Common geometry and linear algebra operations are builtin to <a class="link" href="../cppclass/sgxvector2">SGXVector2</a>. SGEXTN currently has no plans of building a 3D vector as it is not designed for rendering in 3D.</p>
@@ -332,25 +334,9 @@ window.addEventListener("hashchange", highlightSection);
 <h2 class="header" id="SGXVector2_float_float_"><a class="link" href="#SGXVector2_float_float_">SGXVector2</a>(float x, float y);</h2>
 <p class="description">Creates a <a class="link" href="../cppclass/sgxvector2">SGXVector2</a> with x coordinate of <b>x</b> and y coordinate of <b>y</b>.</p>
 <div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
-<h2 class="header" id="nodiscard_float_crossProduct_SGXVector2_const_">[[nodiscard]] float <a class="link" href="#nodiscard_float_crossProduct_SGXVector2_const_">crossProduct</a>(<a class="link" href="sgxvector2">SGXVector2</a> x) const;</h2>
-<p class="description">Returns the cross product of this <a class="link" href="../cppclass/sgxvector2">SGXVector2</a> with <b>x</b>.</p>
-<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
-<h2 class="header" id="nodiscard_float_dotProduct_SGXVector2_const_">[[nodiscard]] float <a class="link" href="#nodiscard_float_dotProduct_SGXVector2_const_">dotProduct</a>(<a class="link" href="sgxvector2">SGXVector2</a> x) const;</h2>
-<p class="description">Returns the dot product of this <a class="link" href="../cppclass/sgxvector2">SGXVector2</a> with <b>x</b>.</p>
-<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
-<h2 class="header" id="nodiscard_float_getAngleBetween_SGXVector2_const_">[[nodiscard]] float <a class="link" href="#nodiscard_float_getAngleBetween_SGXVector2_const_">getAngleBetween</a>(<a class="link" href="sgxvector2">SGXVector2</a> x) const;</h2>
-<p class="description">Returns the angle between this <a class="link" href="../cppclass/sgxvector2">SGXVector2</a> and <b>x</b> in degrees.</p>
-<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
 <h2 class="header" id="nodiscard_float_getArgument_func_const_">[[nodiscard]] float <a class="link" href="#nodiscard_float_getArgument_func_const_">getArgument</a>() const;</h2>
 <p class="description">Returns the argument of this <a class="link" href="../cppclass/sgxvector2">SGXVector2</a> in degrees, that is its signed angle away from the positive x direction.</p>
 <p class="note">If the <a class="link" href="../cppclass/sgxvector2">SGXVector2</a> is the origin, this is not defined, but it will not crash.</p>
-<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
-<h2 class="header" id="nodiscard_float_getDistance_SGXVector2_const_">[[nodiscard]] float <a class="link" href="#nodiscard_float_getDistance_SGXVector2_const_">getDistance</a>(<a class="link" href="sgxvector2">SGXVector2</a> x) const;</h2>
-<p class="description">Returns the distance from this <a class="link" href="../cppclass/sgxvector2">SGXVector2</a> to <b>x</b>.</p>
-<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
-<h2 class="header" id="nodiscard_float_getDistanceSquare_SGXVector2_const_">[[nodiscard]] float <a class="link" href="#nodiscard_float_getDistanceSquare_SGXVector2_const_">getDistanceSquare</a>(<a class="link" href="sgxvector2">SGXVector2</a> x) const;</h2>
-<p class="description">Returns the squared distance from this <a class="link" href="../cppclass/sgxvector2">SGXVector2</a> to <b>x</b>.</p>
-<p class="note">This is slightly faster than <a class="link" href="../cppclass/sgxvector2#nodiscard_float_getDistance_SGXVector2_const_">SGXVector2::getDistance</a> as it does not involve square root computation.</p>
 <div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
 <h2 class="header" id="nodiscard_float_getDistanceToCircle_float_float_float_const_">[[nodiscard]] float <a class="link" href="#nodiscard_float_getDistanceToCircle_float_float_float_const_">getDistanceToCircle</a>(float a, float b, float r) const;</h2>
 <p class="description">Returns the distance from this <a class="link" href="../cppclass/sgxvector2">SGXVector2</a> to the circle centered at (<b>a</b>, <b>b</b>) with radius <b>r</b>.</p>
@@ -385,33 +371,14 @@ window.addEventListener("hashchange", highlightSection);
 <h2 class="header" id="nodiscard_int_hash_func_const_">[[nodiscard]] int <a class="link" href="#nodiscard_int_hash_func_const_">hash</a>() const;</h2>
 <p class="description">Hash function for <a class="link" href="../cppclass/sglhash">SGLHash</a>.</p>
 <div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
-<h2 class="header" id="void_invert_func_">void <a class="link" href="#void_invert_func_">invert</a>();</h2>
-<p class="description">Multiplies this <a class="link" href="../cppclass/sgxvector2">SGXVector2</a> by -1.</p>
+<h2 class="header" id="SGXVector2_ref_invert_func_"><a class="link" href="sgxvector2">SGXVector2</a>& <a class="link" href="#SGXVector2_ref_invert_func_">invert</a>();</h2>
+<p class="description">Multiplies this <a class="link" href="../cppclass/sgxvector2">SGXVector2</a> by -1 and returns a reference to this <a class="link" href="../cppclass/sgxvector2">SGXVector2</a> to allow operation chaining.</p>
 <div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
-<h2 class="header" id="nodiscard_bool_isCollinear_SGXVector2_SGXVector2_float_const_">[[nodiscard]] bool <a class="link" href="#nodiscard_bool_isCollinear_SGXVector2_SGXVector2_float_const_">isCollinear</a>(<a class="link" href="sgxvector2">SGXVector2</a> a, <a class="link" href="sgxvector2">SGXVector2</a> b, float limit) const;</h2>
-<p class="description">Returns if this <a class="link" href="../cppclass/sgxvector2">SGXVector2</a>, <b>a</b>, and <b>b</b> are collinear with a maximum angular tolerance of <b>limit</b> degrees.</p>
-<p class="note">If any 2 points overlap, the behaviour is not defined but it will not crash.</p>
+<h2 class="header" id="SGXVector2_ref_normalise_func_"><a class="link" href="sgxvector2">SGXVector2</a>& <a class="link" href="#SGXVector2_ref_normalise_func_">normalise</a>();</h2>
+<p class="description">Normalises this <a class="link" href="../cppclass/sgxvector2">SGXVector2</a>, or sets its magnitude to 1 without changing its direction and returns a reference to this <a class="link" href="../cppclass/sgxvector2">SGXVector2</a> to allow operation chaining.</p>
 <div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
-<h2 class="header" id="nodiscard_bool_isParallel_SGXVector2_SGXVector2_SGXVector2_float_const_">[[nodiscard]] bool <a class="link" href="#nodiscard_bool_isParallel_SGXVector2_SGXVector2_SGXVector2_float_const_">isParallel</a>(<a class="link" href="sgxvector2">SGXVector2</a> a2, <a class="link" href="sgxvector2">SGXVector2</a> b1, <a class="link" href="sgxvector2">SGXVector2</a> b2, float limit) const;</h2>
-<p class="description">Returns if the line formed by joining this <a class="link" href="../cppclass/sgxvector2">SGXVector2</a> with <b>a2</b> and the line formed by joining <b>b1</b> with <b>b2</b> are parallel with a maximum angular tolerance of <b>limit</b> degrees.</p>
-<p class="note">If any 2 points overlap, the behaviour is not defined but it will not crash.</p>
-<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
-<h2 class="header" id="nodiscard_bool_isPerpendicular_SGXVector2_SGXVector2_float_const_">[[nodiscard]] bool <a class="link" href="#nodiscard_bool_isPerpendicular_SGXVector2_SGXVector2_float_const_">isPerpendicular</a>(<a class="link" href="sgxvector2">SGXVector2</a> a, <a class="link" href="sgxvector2">SGXVector2</a> b, float limit) const;</h2>
-<p class="description">Returns if the line formed by joining this <a class="link" href="../cppclass/sgxvector2">SGXVector2</a> with <b>a</b> is perpendicular with the line formed by joining this <a class="link" href="../cppclass/sgxvector2">SGXVector2</a> with <b>b</b> with a maximum angular tolerance of <b>limit</b> degrees.</p>
-<p class="note">If any 2 points overlap, the behaviour is not defined but it will not crash.</p>
-<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
-<h2 class="header" id="nodiscard_SGXVector2_linearInterpolate_SGXVector2_float_const_">[[nodiscard]] <a class="link" href="sgxvector2">SGXVector2</a> <a class="link" href="#nodiscard_SGXVector2_linearInterpolate_SGXVector2_float_const_">linearInterpolate</a>(<a class="link" href="sgxvector2">SGXVector2</a> x, float f) const;</h2>
-<p class="description">Returns <b>f</b> * this <a class="link" href="../cppclass/sgxvector2">SGXVector2</a> + (1 - <b>f</b>) * <b>x</b>.</p>
-<p class="note">It is ok for <b>f</b> to be below 0 or above 1.</p>
-<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
-<h2 class="header" id="nodiscard_SGXVector2_midpoint_SGXVector2_const_">[[nodiscard]] <a class="link" href="sgxvector2">SGXVector2</a> <a class="link" href="#nodiscard_SGXVector2_midpoint_SGXVector2_const_">midpoint</a>(<a class="link" href="sgxvector2">SGXVector2</a> x) const;</h2>
-<p class="description">Returns the midpoint of this <a class="link" href="../cppclass/sgxvector2">SGXVector2</a> and <b>x</b>.</p>
-<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
-<h2 class="header" id="void_normalise_func_">void <a class="link" href="#void_normalise_func_">normalise</a>();</h2>
-<p class="description">Normalises this <a class="link" href="../cppclass/sgxvector2">SGXVector2</a>, or sets its magnitude to 1 without changing its direction.</p>
-<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
-<h2 class="header" id="void_normaliseGivenMagnitude_float_">void <a class="link" href="#void_normaliseGivenMagnitude_float_">normaliseGivenMagnitude</a>(float m);</h2>
-<p class="description">Sets the magnitude of this <a class="link" href="../cppclass/sgxvector2">SGXVector2</a> to <b>m</b> without changing its direction.</p>
+<h2 class="header" id="SGXVector2_ref_normaliseGivenMagnitude_float_"><a class="link" href="sgxvector2">SGXVector2</a>& <a class="link" href="#SGXVector2_ref_normaliseGivenMagnitude_float_">normaliseGivenMagnitude</a>(float m);</h2>
+<p class="description">Sets the magnitude of this <a class="link" href="../cppclass/sgxvector2">SGXVector2</a> to <b>m</b> without changing its direction and returns a reference to this <a class="link" href="../cppclass/sgxvector2">SGXVector2</a> to allow operation chaining.</p>
 <div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
 <h2 class="header" id="nodiscard_bool_operator_neq_SGXVector2_const_">[[nodiscard]] bool <a class="link" href="#nodiscard_bool_operator_neq_SGXVector2_const_">operator!=</a>(<a class="link" href="sgxvector2">SGXVector2</a> x) const;</h2>
 <p class="description">Returns if this <a class="link" href="../cppclass/sgxvector2">SGXVector2</a> is different from <b>x</b>.</p>
@@ -434,12 +401,12 @@ window.addEventListener("hashchange", highlightSection);
 <h2 class="header" id="SGXVector2_ref_operator_minus_assign_SGXVector2_"><a class="link" href="sgxvector2">SGXVector2</a>& <a class="link" href="#SGXVector2_ref_operator_minus_assign_SGXVector2_">operator-</a>=(<a class="link" href="sgxvector2">SGXVector2</a> x);</h2>
 <p class="description">Subtracts <b>x</b> from this <a class="link" href="../cppclass/sgxvector2">SGXVector2</a> and returns a reference to this <a class="link" href="../cppclass/sgxvector2">SGXVector2</a>.</p>
 <div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
-<h2 class="header" id="SGXVector2_ref_operator_div_assign_float_"><a class="link" href="sgxvector2">SGXVector2</a>& <a class="link" href="#SGXVector2_ref_operator_div_assign_float_">operator/</a>=(float m);</h2>
-<p class="description">Divides this <a class="link" href="../cppclass/sgxvector2">SGXVector2</a> by <b>m</b> and returns a reference to this <a class="link" href="../cppclass/sgxvector2">SGXVector2</a>.</p>
-<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
 <h2 class="header" id="nodiscard_SGXVector2_operator_div_float_const_">[[nodiscard]] <a class="link" href="sgxvector2">SGXVector2</a> <a class="link" href="#nodiscard_SGXVector2_operator_div_float_const_">operator/</a>(float m) const;</h2>
 <p class="description">Returns (this <a class="link" href="../cppclass/sgxvector2">SGXVector2</a> / <b>m</b>).</p>
 <p class="note">Division by 0 here follows floating point numbers division by 0 rules.</p>
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<h2 class="header" id="SGXVector2_ref_operator_div_assign_float_"><a class="link" href="sgxvector2">SGXVector2</a>& <a class="link" href="#SGXVector2_ref_operator_div_assign_float_">operator/</a>=(float m);</h2>
+<p class="description">Divides this <a class="link" href="../cppclass/sgxvector2">SGXVector2</a> by <b>m</b> and returns a reference to this <a class="link" href="../cppclass/sgxvector2">SGXVector2</a>.</p>
 <div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
 <h2 class="header" id="nodiscard_bool_operator_lt_SGXVector2_const_">[[nodiscard]] bool <a class="link" href="#nodiscard_bool_operator_lt_SGXVector2_const_">operator‹</a>(<a class="link" href="sgxvector2">SGXVector2</a> x) const;</h2>
 <p class="description">Lesser than operator with <b>x</b> for <a class="link" href="../cppclass/sgllesserthan">SGLLesserThan</a> and <a class="link" href="../cppclass/sglmorethan">SGLMoreThan</a>.</p>
@@ -450,52 +417,87 @@ window.addEventListener("hashchange", highlightSection);
 <h2 class="header" id="nodiscard_bool_operator_gt_SGXVector2_const_">[[nodiscard]] bool <a class="link" href="#nodiscard_bool_operator_gt_SGXVector2_const_">operator›</a>(<a class="link" href="sgxvector2">SGXVector2</a> x) const;</h2>
 <p class="description">More than operator with <b>x</b> for <a class="link" href="../cppclass/sgllesserthan">SGLLesserThan</a> and <a class="link" href="../cppclass/sglmorethan">SGLMoreThan</a>.</p>
 <div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
-<h2 class="header" id="void_projectToLine_SGXVector2_SGXVector2_">void <a class="link" href="#void_projectToLine_SGXVector2_SGXVector2_">projectToLine</a>(<a class="link" href="sgxvector2">SGXVector2</a> a, <a class="link" href="sgxvector2">SGXVector2</a> b);</h2>
-<p class="description">Projects this <a class="link" href="../cppclass/sgxvector2">SGXVector2</a> onto the line formed by joining <b>a</b> and <b>b</b>.</p>
+<h2 class="header" id="SGXVector2_ref_projectToLine_SGXVector2_SGXVector2_"><a class="link" href="sgxvector2">SGXVector2</a>& <a class="link" href="#SGXVector2_ref_projectToLine_SGXVector2_SGXVector2_">projectToLine</a>(<a class="link" href="sgxvector2">SGXVector2</a> a, <a class="link" href="sgxvector2">SGXVector2</a> b);</h2>
+<p class="description">Projects this <a class="link" href="../cppclass/sgxvector2">SGXVector2</a> onto the line formed by joining <b>a</b> and <b>b</b> and returns a reference to this <a class="link" href="../cppclass/sgxvector2">SGXVector2</a> to allow operation chaining.</p>
 <div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
-<h2 class="header" id="void_projectToX_func_">void <a class="link" href="#void_projectToX_func_">projectToX</a>();</h2>
-<p class="description">Projects this <a class="link" href="../cppclass/sgxvector2">SGXVector2</a> onto the x axis.</p>
+<h2 class="header" id="SGXVector2_ref_projectToX_func_"><a class="link" href="sgxvector2">SGXVector2</a>& <a class="link" href="#SGXVector2_ref_projectToX_func_">projectToX</a>();</h2>
+<p class="description">Projects this <a class="link" href="../cppclass/sgxvector2">SGXVector2</a> onto the x axis and returns a reference to this <a class="link" href="../cppclass/sgxvector2">SGXVector2</a> to allow operation chaining.</p>
 <p class="note">This is equivalent to setting its y coordinate to 0.</p>
 <div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
-<h2 class="header" id="void_projectToY_func_">void <a class="link" href="#void_projectToY_func_">projectToY</a>();</h2>
-<p class="description">Projects this <a class="link" href="../cppclass/sgxvector2">SGXVector2</a> onto the y axis.</p>
+<h2 class="header" id="SGXVector2_ref_projectToY_func_"><a class="link" href="sgxvector2">SGXVector2</a>& <a class="link" href="#SGXVector2_ref_projectToY_func_">projectToY</a>();</h2>
+<p class="description">Projects this <a class="link" href="../cppclass/sgxvector2">SGXVector2</a> onto the y axis and returns a reference to this <a class="link" href="../cppclass/sgxvector2">SGXVector2</a> to allow operation chaining.</p>
 <p class="note">This is equivalent to setting its x coordinate to 0.</p>
 <div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
-<h2 class="header" id="void_redirectUsingArgument_float_">void <a class="link" href="#void_redirectUsingArgument_float_">redirectUsingArgument</a>(float a);</h2>
-<p class="description">Sets the argument of this <a class="link" href="../cppclass/sgxvector2">SGXVector2</a> to <b>a</b> degrees without changing its magnitude.</p>
+<h2 class="header" id="SGXVector2_ref_redirectUsingArgument_float_"><a class="link" href="sgxvector2">SGXVector2</a>& <a class="link" href="#SGXVector2_ref_redirectUsingArgument_float_">redirectUsingArgument</a>(float a);</h2>
+<p class="description">Sets the argument of this <a class="link" href="../cppclass/sgxvector2">SGXVector2</a> to <b>a</b> degrees without changing its magnitude and returns a reference to this <a class="link" href="../cppclass/sgxvector2">SGXVector2</a> to allow operation chaining.</p>
 <div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
-<h2 class="header" id="void_reflectAcrossLine_SGXVector2_SGXVector2_">void <a class="link" href="#void_reflectAcrossLine_SGXVector2_SGXVector2_">reflectAcrossLine</a>(<a class="link" href="sgxvector2">SGXVector2</a> a, <a class="link" href="sgxvector2">SGXVector2</a> b);</h2>
-<p class="description">Reflects this <a class="link" href="../cppclass/sgxvector2">SGXVector2</a> across the line formed by joining <b>a</b> with <b>b</b>.</p>
+<h2 class="header" id="SGXVector2_ref_reflectAcrossLine_SGXVector2_SGXVector2_"><a class="link" href="sgxvector2">SGXVector2</a>& <a class="link" href="#SGXVector2_ref_reflectAcrossLine_SGXVector2_SGXVector2_">reflectAcrossLine</a>(<a class="link" href="sgxvector2">SGXVector2</a> a, <a class="link" href="sgxvector2">SGXVector2</a> b);</h2>
+<p class="description">Reflects this <a class="link" href="../cppclass/sgxvector2">SGXVector2</a> across the line formed by joining <b>a</b> with <b>b</b> and returns a reference to this <a class="link" href="../cppclass/sgxvector2">SGXVector2</a> to allow operation chaining.</p>
 <div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
-<h2 class="header" id="void_reflectAcrossPoint_SGXVector2_">void <a class="link" href="#void_reflectAcrossPoint_SGXVector2_">reflectAcrossPoint</a>(<a class="link" href="sgxvector2">SGXVector2</a> x);</h2>
-<p class="description">Reflects this <a class="link" href="../cppclass/sgxvector2">SGXVector2</a> across <b>x</b>.</p>
+<h2 class="header" id="SGXVector2_ref_reflectAcrossPoint_SGXVector2_"><a class="link" href="sgxvector2">SGXVector2</a>& <a class="link" href="#SGXVector2_ref_reflectAcrossPoint_SGXVector2_">reflectAcrossPoint</a>(<a class="link" href="sgxvector2">SGXVector2</a> x);</h2>
+<p class="description">Reflects this <a class="link" href="../cppclass/sgxvector2">SGXVector2</a> across <b>x</b> and returns a reference to this <a class="link" href="../cppclass/sgxvector2">SGXVector2</a> to allow operation chaining.</p>
 <div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
-<h2 class="header" id="void_reflectAcrossX_func_">void <a class="link" href="#void_reflectAcrossX_func_">reflectAcrossX</a>();</h2>
-<p class="description">Reflect this <a class="link" href="../cppclass/sgxvector2">SGXVector2</a> across the x axis.</p>
+<h2 class="header" id="SGXVector2_ref_reflectAcrossX_func_"><a class="link" href="sgxvector2">SGXVector2</a>& <a class="link" href="#SGXVector2_ref_reflectAcrossX_func_">reflectAcrossX</a>();</h2>
+<p class="description">Reflect this <a class="link" href="../cppclass/sgxvector2">SGXVector2</a> across the x axis and returns a reference to this <a class="link" href="../cppclass/sgxvector2">SGXVector2</a> to allow operation chaining.</p>
 <p class="note">This is equivalent to multiplying its y coordinate by -1.</p>
 <div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
-<h2 class="header" id="void_reflectAcrossY_func_">void <a class="link" href="#void_reflectAcrossY_func_">reflectAcrossY</a>();</h2>
-<p class="description">Reflect this <a class="link" href="../cppclass/sgxvector2">SGXVector2</a> across the y axis.</p>
+<h2 class="header" id="SGXVector2_ref_reflectAcrossY_func_"><a class="link" href="sgxvector2">SGXVector2</a>& <a class="link" href="#SGXVector2_ref_reflectAcrossY_func_">reflectAcrossY</a>();</h2>
+<p class="description">Reflect this <a class="link" href="../cppclass/sgxvector2">SGXVector2</a> across the y axis and returns a reference to this <a class="link" href="../cppclass/sgxvector2">SGXVector2</a> to allow operation chaining.</p>
 <p class="note">This is equivalent to multiplying its x coordinate by -1.</p>
 <div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
-<h2 class="header" id="void_rotate180_func_">void <a class="link" href="#void_rotate180_func_">rotate180</a>();</h2>
-<p class="description">Rotates this <a class="link" href="../cppclass/sgxvector2">SGXVector2</a> by 180 degrees in either direction.</p>
+<h2 class="header" id="SGXVector2_ref_rotate180_func_"><a class="link" href="sgxvector2">SGXVector2</a>& <a class="link" href="#SGXVector2_ref_rotate180_func_">rotate180</a>();</h2>
+<p class="description">Rotates this <a class="link" href="../cppclass/sgxvector2">SGXVector2</a> by 180 degrees in either direction and returns a reference to this <a class="link" href="../cppclass/sgxvector2">SGXVector2</a> to allow operation chaining.</p>
 <p class="note">This is equivalent to multiplying the <a class="link" href="../cppclass/sgxvector2">SGXVector2</a> by -1.</p>
 <div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
-<h2 class="header" id="void_rotateClockwise_float_">void <a class="link" href="#void_rotateClockwise_float_">rotateClockwise</a>(float a);</h2>
-<p class="description">Rotates this <a class="link" href="../cppclass/sgxvector2">SGXVector2</a> by <b>a</b> degrees clockwise.</p>
+<h2 class="header" id="SGXVector2_ref_rotateClockwise_float_"><a class="link" href="sgxvector2">SGXVector2</a>& <a class="link" href="#SGXVector2_ref_rotateClockwise_float_">rotateClockwise</a>(float a);</h2>
+<p class="description">Rotates this <a class="link" href="../cppclass/sgxvector2">SGXVector2</a> by <b>a</b> degrees clockwise and returns a reference to this <a class="link" href="../cppclass/sgxvector2">SGXVector2</a> to allow operation chaining.</p>
 <div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
-<h2 class="header" id="void_rotateClockwise90_func_">void <a class="link" href="#void_rotateClockwise90_func_">rotateClockwise90</a>();</h2>
-<p class="description">Rotates this <a class="link" href="../cppclass/sgxvector2">SGXVector2</a> clockwise by 90 degrees.</p>
+<h2 class="header" id="SGXVector2_ref_rotateClockwise90_func_"><a class="link" href="sgxvector2">SGXVector2</a>& <a class="link" href="#SGXVector2_ref_rotateClockwise90_func_">rotateClockwise90</a>();</h2>
+<p class="description">Rotates this <a class="link" href="../cppclass/sgxvector2">SGXVector2</a> clockwise by 90 degrees and returns a reference to this <a class="link" href="../cppclass/sgxvector2">SGXVector2</a> to allow operation chaining.</p>
 <div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
-<h2 class="header" id="void_rotateCounterclockwise_float_">void <a class="link" href="#void_rotateCounterclockwise_float_">rotateCounterclockwise</a>(float a);</h2>
-<p class="description">Rotates this <a class="link" href="../cppclass/sgxvector2">SGXVector2</a> by <b>a</b> degrees counterclockwise.</p>
+<h2 class="header" id="SGXVector2_ref_rotateCounterclockwise_float_"><a class="link" href="sgxvector2">SGXVector2</a>& <a class="link" href="#SGXVector2_ref_rotateCounterclockwise_float_">rotateCounterclockwise</a>(float a);</h2>
+<p class="description">Rotates this <a class="link" href="../cppclass/sgxvector2">SGXVector2</a> by <b>a</b> degrees counterclockwise and returns a reference to this <a class="link" href="../cppclass/sgxvector2">SGXVector2</a> to allow operation chaining.</p>
 <div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
-<h2 class="header" id="void_rotateCounterclockwise90_func_">void <a class="link" href="#void_rotateCounterclockwise90_func_">rotateCounterclockwise90</a>();</h2>
-<p class="description">Rotates this <a class="link" href="../cppclass/sgxvector2">SGXVector2</a> counterclockwise by 90 degrees.</p>
+<h2 class="header" id="SGXVector2_ref_rotateCounterclockwise90_func_"><a class="link" href="sgxvector2">SGXVector2</a>& <a class="link" href="#SGXVector2_ref_rotateCounterclockwise90_func_">rotateCounterclockwise90</a>();</h2>
+<p class="description">Rotates this <a class="link" href="../cppclass/sgxvector2">SGXVector2</a> counterclockwise by 90 degrees and returns a reference to this <a class="link" href="../cppclass/sgxvector2">SGXVector2</a> to allow operation chaining.</p>
 <div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
 <h2 class="header" id="static_const_SGXVector2_origin_">static const <a class="link" href="sgxvector2">SGXVector2</a> <a class="link" href="#static_const_SGXVector2_origin_">origin</a>;</h2>
 <p class="description">The origin, which is (0, 0).</p>
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<h2 class="header" id="static_float_crossProduct_SGXVector2_SGXVector2_">static float <a class="link" href="#static_float_crossProduct_SGXVector2_SGXVector2_">crossProduct</a>(<a class="link" href="sgxvector2">SGXVector2</a> a, <a class="link" href="sgxvector2">SGXVector2</a> b);</h2>
+<p class="description">Returns the cross product of <b>a</b> with <b>b</b>.</p>
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<h2 class="header" id="static_float_dotProduct_SGXVector2_SGXVector2_">static float <a class="link" href="#static_float_dotProduct_SGXVector2_SGXVector2_">dotProduct</a>(<a class="link" href="sgxvector2">SGXVector2</a> a, <a class="link" href="sgxvector2">SGXVector2</a> b);</h2>
+<p class="description">Returns the dot product of <b>a</b> with <b>b</b>.</p>
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<h2 class="header" id="static_float_getAngleBetween_SGXVector2_SGXVector2_">static float <a class="link" href="#static_float_getAngleBetween_SGXVector2_SGXVector2_">getAngleBetween</a>(<a class="link" href="sgxvector2">SGXVector2</a> a, <a class="link" href="sgxvector2">SGXVector2</a> b);</h2>
+<p class="description">Returns the angle between <b>a</b> and <b>b</b> in degrees.</p>
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<h2 class="header" id="static_float_getDistance_SGXVector2_SGXVector2_">static float <a class="link" href="#static_float_getDistance_SGXVector2_SGXVector2_">getDistance</a>(<a class="link" href="sgxvector2">SGXVector2</a> a, <a class="link" href="sgxvector2">SGXVector2</a> b);</h2>
+<p class="description">Returns the distance from <b>a</b> to <b>b</b>.</p>
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<h2 class="header" id="static_float_getDistanceSquare_SGXVector2_SGXVector2_">static float <a class="link" href="#static_float_getDistanceSquare_SGXVector2_SGXVector2_">getDistanceSquare</a>(<a class="link" href="sgxvector2">SGXVector2</a> a, <a class="link" href="sgxvector2">SGXVector2</a> b);</h2>
+<p class="description">Returns the squared distance from <b>a</b> to <b>b</b>.</p>
+<p class="note">This is slightly faster than <a class="link" href="../cppclass/sgxvector2#static_float_getDistance_SGXVector2_SGXVector2_">SGXVector2::getDistance</a> as it does not involve square root computation.</p>
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<h2 class="header" id="static_bool_isCollinear_SGXVector2_SGXVector2_SGXVector2_float_">static bool <a class="link" href="#static_bool_isCollinear_SGXVector2_SGXVector2_SGXVector2_float_">isCollinear</a>(<a class="link" href="sgxvector2">SGXVector2</a> x, <a class="link" href="sgxvector2">SGXVector2</a> a, <a class="link" href="sgxvector2">SGXVector2</a> b, float limit);</h2>
+<p class="description">Returns if <b>x</b>, <b>a</b>, and <b>b</b> are (almost) collinear with angle AXB at most <b>limit</b> degrees away from 0 or 180.</p>
+<p class="note">If any 2 points overlap, the behaviour is not defined but it will not crash.</p>
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<h2 class="header" id="static_bool_isParallel_SGXVector2_SGXVector2_SGXVector2_SGXVector2_float_">static bool <a class="link" href="#static_bool_isParallel_SGXVector2_SGXVector2_SGXVector2_SGXVector2_float_">isParallel</a>(<a class="link" href="sgxvector2">SGXVector2</a> a1, <a class="link" href="sgxvector2">SGXVector2</a> a2, <a class="link" href="sgxvector2">SGXVector2</a> b1, <a class="link" href="sgxvector2">SGXVector2</a> b2, float limit);</h2>
+<p class="description">Returns if the line formed by joining <b>a1</b> with <b>a2</b> and the line formed by joining <b>b1</b> with <b>b2</b> are (almost) parallel with the angle formed between them at most <b>limit</b> degrees.</p>
+<p class="note">If any 2 points overlap, the behaviour is not defined but it will not crash.</p>
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<h2 class="header" id="static_bool_isPerpendicular_SGXVector2_SGXVector2_SGXVector2_float_">static bool <a class="link" href="#static_bool_isPerpendicular_SGXVector2_SGXVector2_SGXVector2_float_">isPerpendicular</a>(<a class="link" href="sgxvector2">SGXVector2</a> x, <a class="link" href="sgxvector2">SGXVector2</a> a, <a class="link" href="sgxvector2">SGXVector2</a> b, float limit);</h2>
+<p class="description">Returns if the line formed by joining this <b>x</b> with <b>a</b> is (almost) perpendicular with the line formed by joining <b>x</b> with <b>b</b> with angle AXB at most <b>limit</b> degrees away from 90.</p>
+<p class="note">If any 2 points overlap, the behaviour is not defined but it will not crash.</p>
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<h2 class="header" id="static_SGXVector2_linearInterpolate_SGXVector2_SGXVector2_float_">static <a class="link" href="sgxvector2">SGXVector2</a> <a class="link" href="#static_SGXVector2_linearInterpolate_SGXVector2_SGXVector2_float_">linearInterpolate</a>(<a class="link" href="sgxvector2">SGXVector2</a> a, <a class="link" href="sgxvector2">SGXVector2</a> b, float f);</h2>
+<p class="description">Returns <b>f</b> * <b>a</b> + (1 - <b>f</b>) * <b>b</b>.</p>
+<p class="note">It is ok for <b>f</b> to be below 0 or above 1.</p>
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<h2 class="header" id="static_SGXVector2_midpoint_SGXVector2_SGXVector2_">static <a class="link" href="sgxvector2">SGXVector2</a> <a class="link" href="#static_SGXVector2_midpoint_SGXVector2_SGXVector2_">midpoint</a>(<a class="link" href="sgxvector2">SGXVector2</a> a, <a class="link" href="sgxvector2">SGXVector2</a> b);</h2>
+<p class="description">Returns the midpoint of <b>a</b> and <b>b</b>.</p>
 <div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
 <p class="description"></p>
 

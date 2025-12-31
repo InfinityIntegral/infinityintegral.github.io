@@ -265,6 +265,7 @@ window.addEventListener("hashchange", highlightSection);
 <p class="description">&#9;static void (*<a class="link" href="#static_void_ptr_customTerminate_func_">customTerminate</a>)();</p>
 <p class="description">&#9;static <a class="link" href="sgxstring">SGXString</a> <a class="link" href="#static_SGXString_folderName_">folderName</a>;</p>
 <p class="description">&#9;static void (*<a class="link" href="#static_void_ptr_importCustomFonts_func_">importCustomFonts</a>)();</p>
+<p class="description">&#9;static <a class="link" href="sgxstring">SGXString</a> <a class="link" href="#static_SGXString_infoWebsite_">infoWebsite</a>;</p>
 <p class="description">&#9;static void (*<a class="link" href="#static_void_ptr_interpretCmdArgs_int_char_ptr_ptr_">interpretCmdArgs</a>)(int, char**);</p>
 <p class="description">&#9;static <a class="link" href="sgxstring">SGXString</a> <a class="link" href="#static_SGXString_organisationName_">organisationName</a>;</p>
 <p class="description">&#9;static <a class="link" href="sgxstring">SGXString</a> <a class="link" href="#static_SGXString_pathToAppIcon_">pathToAppIcon</a>;</p>
@@ -308,6 +309,12 @@ window.addEventListener("hashchange", highlightSection);
 <p class="note">SGEXTN will warn if the <a class="link" href="../tutorials/appicon">application icon ⁽㈳㈴㈳㈮㈱㈨㈠㈫ ㈧㈤㈱㈤⁾</a> font is not found by the end of this function's execution.</p>
 <p class="warning">Using <a class="link" href="../cppclass/sgwiconlabel">SGWIconLabel</a> or <a class="link" href="../cppclass/sgwiconbutton">SGWIconButton</a> when there is no <a class="link" href="../tutorials/appicon">application icon ⁽㈳㈴㈳㈮㈱㈨㈠㈫ ㈧㈤㈱㈤⁾</a> font is <a class="link" href="../tutorials/undefinedbehaviour">undefined behaviour</a>.</p>
 <div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<h2 class="header" id="static_SGXString_infoWebsite_">static <a class="link" href="sgxstring">SGXString</a> <a class="link" href="#static_SGXString_infoWebsite_">infoWebsite</a>;</h2>
+<p class="description">link to the website with information about this application</p>
+<p class="note">Setting this after the entry point has no effect.</p>
+<p class="note">If the application does not have a information website, use the GitHub repository link instead. If it also does not have a GitHub repository link, you can leave this unset.</p>
+<p class="note">The website link should not include the https:// part</p>
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
 <h2 class="header" id="static_void_ptr_interpretCmdArgs_int_char_ptr_ptr_">static void (*<a class="link" href="#static_void_ptr_interpretCmdArgs_int_char_ptr_ptr_">interpretCmdArgs</a>)(int, char**);</h2>
 <p class="description">Function pointer to function interpreting command line arguments. This must be set in the entry point.</p>
 <p class="note">Setting this after the entry point has no effect.</p>
@@ -322,7 +329,7 @@ window.addEventListener("hashchange", highlightSection);
 <p class="description">Path to the application icon which is shown when users run the application. This must be set in the entry point.</p>
 <p class="note">Setting this after the entry point has no effect.</p>
 <p class="warning">The matching file must exist in the resource system. To ensure that, put the app icon in the assets folder. For more information about the resource system, see this <a class="link" href="../tutorials/resources">tutorial</a>.</p>
-<p class="warning">If the icon file cannot be found, this is <a class="link" href="../tutorials/undefinedbehaviour">undefined behaviour</a>. However not setting this does not cause <a class="link" href="../tutorials/undefinedbehaviour">undefined behaviour</a>.</p>
+<p class="warning">If the icon file cannot be found, this is <a class="link" href="../tutorials/undefinedbehaviour">undefined behaviour</a>. However not setting this does not cause <a class="link" href="../tutorials/undefinedbehaviour">undefined behaviour</a>, if this is not set then the app will use the SGEXTN icon.</p>
 <div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
 <h2 class="header" id="static_void_ptr_setCustomTheme_func_">static void (*<a class="link" href="#static_void_ptr_setCustomTheme_func_">setCustomTheme</a>)();</h2>
 <p class="description">Function pointer to the function setting custom <a class="link" href="../tutorials/themecolour">theme colour ⁽㈳㈴㈳㈮㈱㈨㈠㈫ ㈧㈤㈱㈤⁾</a> for your application. This must be set in the entry point if needed.</p>

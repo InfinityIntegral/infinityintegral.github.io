@@ -269,21 +269,21 @@ window.addEventListener("hashchange", highlightSection);
 <p class="description">&#9;[[nodiscard]] bool <a class="link" href="#nodiscard_bool_contains_const_K_ref_const_">contains</a>(const K& x) const;</p>
 <p class="description">&#9;[[nodiscard]] int <a class="link" href="#nodiscard_int_count_const_K_ref_const_">count</a>(const K& x) const;</p>
 <p class="description">&#9;[[nodiscard]] <a class="link" href="sglmap__iterator">SGLMap::Iterator</a> <a class="link" href="#nodiscard_SGLMap_mc_Iterator_end_func_">end</a>();</p>
-<p class="description">&#9;void <a class="link" href="#void_erase_SGLMap_mc_Iterator_ref_">erase</a>(<a class="link" href="sglmap__iterator">SGLMap::Iterator</a>& i);</p>
-<p class="description">&#9;void <a class="link" href="#void_erase_const_K_ref_">erase</a>(const K& x);</p>
-<p class="description">&#9;[[nodiscard]] <a class="link" href="sglmap__iterator">SGLMap::Iterator</a> <a class="link" href="#nodiscard_SGLMap_mc_Iterator_find_const_K_ref_">find</a>(const K& x);</p>
+<p class="description">&#9;bool <a class="link" href="#bool_erase_const_K_ref_">erase</a>(const K& x);</p>
+<p class="description">&#9;bool <a class="link" href="#bool_erase_SGLMap_mc_Iterator_ref_">erase</a>(<a class="link" href="sglmap__iterator">SGLMap::Iterator</a>& i);</p>
 <p class="description">&#9;[[nodiscard]] <a class="link" href="sglmap__constiterator">SGLMap::ConstIterator</a> <a class="link" href="#nodiscard_SGLMap_mc_ConstIterator_find_const_K_ref_const_">find</a>(const K& x) const;</p>
+<p class="description">&#9;[[nodiscard]] <a class="link" href="sglmap__iterator">SGLMap::Iterator</a> <a class="link" href="#nodiscard_SGLMap_mc_Iterator_find_const_K_ref_">find</a>(const K& x);</p>
 <p class="description">&#9;[[nodiscard]] int <a class="link" href="#nodiscard_int_indexOf_SGLMap_mc_Iterator_const_">indexOf</a>(<a class="link" href="sglmap__iterator">SGLMap::Iterator</a> i) const;</p>
 <p class="description">&#9;[[nodiscard]] int <a class="link" href="#nodiscard_int_indexOf_SGLMap_mc_ConstIterator_const_">indexOf</a>(<a class="link" href="sglmap__constiterator">SGLMap::ConstIterator</a> i) const;</p>
 <p class="description">&#9;[[nodiscard]] int <a class="link" href="#nodiscard_int_indexOf_const_K_ref_const_">indexOf</a>(const K& x) const;</p>
-<p class="description">&#9;void <a class="link" href="#void_insert_const_K_ref_const_V_ref_">insert</a>(const K& xKey, const V& xValue);</p>
+<p class="description">&#9;bool <a class="link" href="#bool_insert_const_K_ref_const_V_ref_">insert</a>(const K& xKey, const V& xValue);</p>
 <p class="description">&#9;[[nodiscard]] <a class="link" href="sglmap__iterator">SGLMap::Iterator</a> <a class="link" href="#nodiscard_SGLMap_mc_Iterator_iteratorAt_int_">iteratorAt</a>(int n);</p>
 <p class="description">&#9;[[nodiscard]] const K& <a class="link" href="#nodiscard_const_K_ref_keyAt_int_const_">keyAt</a>(int n) const;</p>
 <p class="description">&#9;[[nodiscard]] int <a class="link" href="#nodiscard_int_length_func_const_">length</a>() const;</p>
 <p class="description">&#9;[[nodiscard]] <a class="link" href="sglmap__iterator">SGLMap::Iterator</a> <a class="link" href="#nodiscard_SGLMap_mc_Iterator_lowerBound_const_K_ref_">lowerBound</a>(const K& x);</p>
 <p class="description">&#9;[[nodiscard]] <a class="link" href="sglmap__constiterator">SGLMap::ConstIterator</a> <a class="link" href="#nodiscard_SGLMap_mc_ConstIterator_lowerBound_const_K_ref_const_">lowerBound</a>(const K& x) const;</p>
-<p class="description">&#9;[[nodiscard]] <a class="link" href="sglmap__iterator">SGLMap::Iterator</a> <a class="link" href="#nodiscard_SGLMap_mc_Iterator_upperBound_const_K_ref_">upperBound</a>(const K& x);</p>
 <p class="description">&#9;[[nodiscard]] <a class="link" href="sglmap__constiterator">SGLMap::ConstIterator</a> <a class="link" href="#nodiscard_SGLMap_mc_ConstIterator_upperBound_const_K_ref_const_">upperBound</a>(const K& x) const;</p>
+<p class="description">&#9;[[nodiscard]] <a class="link" href="sglmap__iterator">SGLMap::Iterator</a> <a class="link" href="#nodiscard_SGLMap_mc_Iterator_upperBound_const_K_ref_">upperBound</a>(const K& x);</p>
 <p class="description">&#9;[[nodiscard]] V& <a class="link" href="#nodiscard_V_ref_valueAt_int_">valueAt</a>(int n);</p>
 <div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
 <h2 class="header" id="sg_detaileddescription">Detailed Description</h2>
@@ -337,22 +337,23 @@ window.addEventListener("hashchange", highlightSection);
 <p class="note"><a class="link" href="../cppclass/sglmap__iterator">SGLMap::Iterator</a> allows modifying the <a class="link" href="../cppclass/sglmap">SGLMap</a> through it. If modification is not needed, use <a class="link" href="../cppclass/sglmap__constiterator">SGLMap::ConstIterator</a> instead. The <a class="link" href="../cppclass/sglmap__constiterator">SGLMap::ConstIterator</a> equivalent to this function is <a class="link" href="../cppclass/sglmap#nodiscard_SGLMap_mc_ConstIterator_constEnd_func_const_">SGLMap::constEnd</a>.</p>
 <p class="warning">Attempting to access the key or value that this iterator points to is <a class="link" href="../tutorials/undefinedbehaviour">undefined behaviour</a>.</p>
 <div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
-<h2 class="header" id="void_erase_SGLMap_mc_Iterator_ref_">void <a class="link" href="#void_erase_SGLMap_mc_Iterator_ref_">erase</a>(<a class="link" href="sglmap__iterator">SGLMap::Iterator</a>& i);</h2>
+<h2 class="header" id="bool_erase_const_K_ref_">bool <a class="link" href="#bool_erase_const_K_ref_">erase</a>(const K& x);</h2>
+<p class="description">Removes the key <b>x</b> and its associated value from the <a class="link" href="../cppclass/sglmap">SGLMap</a>.</p>
+<p class="note">If <b>x</b> is not in the <a class="link" href="../cppclass/sglmap">SGLMap</a>, this will return false, otherwise this returns true.</p>
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<h2 class="header" id="bool_erase_SGLMap_mc_Iterator_ref_">bool <a class="link" href="#bool_erase_SGLMap_mc_Iterator_ref_">erase</a>(<a class="link" href="sglmap__iterator">SGLMap::Iterator</a>& i);</h2>
 <p class="description">Removes the key value pair associated with <b>i</b> from the <a class="link" href="../cppclass/sglmap">SGLMap</a>.</p>
 <p class="description">After the removal, <b>i</b> which is passed as a reference, is decremented. This means that you do not have to do any special handling for removed elements when iterating over a <a class="link" href="../cppclass/sglmap">SGLMap</a>.</p>
-<p class="warning">Do not write any special logic to modify iterators while removing elements from a <a class="link" href="../cppclass/sglmap">SGLMap</a> in a loop, <a class="link" href="../cppclass/sglmap#void_erase_const_K_ref_">SGLMap::erase</a><a class="link" href="../cppclass/sglmap#void_erase_SGLMap_mc_Iterator_ref_">SGLMap::erase</a> handles this for you automatically.</p>
-<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
-<h2 class="header" id="void_erase_const_K_ref_">void <a class="link" href="#void_erase_const_K_ref_">erase</a>(const K& x);</h2>
-<p class="description">Removes the key <b>x</b> and its associated value from the <a class="link" href="../cppclass/sglmap">SGLMap</a>.</p>
-<p class="warning">If <b>x</b> is not in the <a class="link" href="../cppclass/sglmap">SGLMap</a>, this will crash. If you cannot guarantee that the <a class="link" href="../cppclass/sglmap">SGLMap</a> already contains the key, use <a class="link" href="../cppclass/sglmap#nodiscard_bool_contains_const_K_ref_const_">SGLMap::contains</a> to check before removal. This is a intentional design choice to avoid silent bugs.</p>
-<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
-<h2 class="header" id="nodiscard_SGLMap_mc_Iterator_find_const_K_ref_">[[nodiscard]] <a class="link" href="sglmap__iterator">SGLMap::Iterator</a> <a class="link" href="#nodiscard_SGLMap_mc_Iterator_find_const_K_ref_">find</a>(const K& x);</h2>
-<p class="description">Returns the iterator pointing to key <b>x</b>.</p>
-<p class="note"><a class="link" href="../cppclass/sglmap#nodiscard_SGLMap_mc_Iterator_end_func_">SGLMap::end</a> is returned if <b>x</b> is not in the <a class="link" href="../cppclass/sglmap">SGLMap</a>.</p>
+<p class="note">This returns false if <b>i</b> is <a class="link" href="../cppclass/sglmap#nodiscard_SGLMap_mc_Iterator_end_func_">SGLMap::end</a> and true otherwise.</p>
+<p class="warning">Do not write any special logic to modify iterators while removing elements from a <a class="link" href="../cppclass/sglmap">SGLMap</a> in a loop, <a class="link" href="../cppclass/sglmap#bool_erase_const_K_ref_">SGLMap::erase</a><a class="link" href="../cppclass/sglmap#bool_erase_SGLMap_mc_Iterator_ref_">SGLMap::erase</a> handles this for you automatically.</p>
 <div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
 <h2 class="header" id="nodiscard_SGLMap_mc_ConstIterator_find_const_K_ref_const_">[[nodiscard]] <a class="link" href="sglmap__constiterator">SGLMap::ConstIterator</a> <a class="link" href="#nodiscard_SGLMap_mc_ConstIterator_find_const_K_ref_const_">find</a>(const K& x) const;</h2>
 <p class="description">Returns the constant iterator pointing to key <b>x</b>.</p>
 <p class="note"><a class="link" href="../cppclass/sglmap#nodiscard_SGLMap_mc_ConstIterator_constEnd_func_const_">SGLMap::constEnd</a> is returned if <b>x</b> is not in the <a class="link" href="../cppclass/sglmap">SGLMap</a>.</p>
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<h2 class="header" id="nodiscard_SGLMap_mc_Iterator_find_const_K_ref_">[[nodiscard]] <a class="link" href="sglmap__iterator">SGLMap::Iterator</a> <a class="link" href="#nodiscard_SGLMap_mc_Iterator_find_const_K_ref_">find</a>(const K& x);</h2>
+<p class="description">Returns the iterator pointing to key <b>x</b>.</p>
+<p class="note"><a class="link" href="../cppclass/sglmap#nodiscard_SGLMap_mc_Iterator_end_func_">SGLMap::end</a> is returned if <b>x</b> is not in the <a class="link" href="../cppclass/sglmap">SGLMap</a>.</p>
 <div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
 <h2 class="header" id="nodiscard_int_indexOf_SGLMap_mc_Iterator_const_">[[nodiscard]] int <a class="link" href="#nodiscard_int_indexOf_SGLMap_mc_Iterator_const_">indexOf</a>(<a class="link" href="sglmap__iterator">SGLMap::Iterator</a> i) const;</h2>
 <p class="description">Returns the index of the key value pair in the <a class="link" href="../cppclass/sglmap">SGLMap</a> that <b>i</b> points to.</p>
@@ -369,9 +370,9 @@ window.addEventListener("hashchange", highlightSection);
 <p class="note">-1 is returned if the key <b>x</b> is not in the <a class="link" href="../cppclass/sglmap">SGLMap</a>.</p>
 <p class="warning">The index may change if elements are inserted into or removed from <a class="link" href="../cppclass/sglmap">SGLMap</a> to keep the <a class="link" href="../cppclass/sglmap">SGLMap</a> always sorted by key.</p>
 <div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
-<h2 class="header" id="void_insert_const_K_ref_const_V_ref_">void <a class="link" href="#void_insert_const_K_ref_const_V_ref_">insert</a>(const K& xKey, const V& xValue);</h2>
+<h2 class="header" id="bool_insert_const_K_ref_const_V_ref_">bool <a class="link" href="#bool_insert_const_K_ref_const_V_ref_">insert</a>(const K& xKey, const V& xValue);</h2>
 <p class="description">Inserts the key value pair (<b>xKey</b>, <b>xValue</b>) into the <a class="link" href="../cppclass/sglmap">SGLMap</a>.</p>
-<p class="warning">If <b>xKey</b> already exists in the <a class="link" href="../cppclass/sglmap">SGLMap</a>, this will crash. If you cannot guarantee that the <a class="link" href="../cppclass/sglmap">SGLMap</a> does not already contain the key, use <a class="link" href="../cppclass/sglmap#nodiscard_bool_contains_const_K_ref_const_">SGLMap::contains</a> to check before insertion. This is a intentional design choice to avoid silent bugs.</p>
+<p class="note">If <b>xKey</b> already exists in the <a class="link" href="../cppclass/sglmap">SGLMap</a>, this will return false, otherwise this returns true.</p>
 <div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
 <h2 class="header" id="nodiscard_SGLMap_mc_Iterator_iteratorAt_int_">[[nodiscard]] <a class="link" href="sglmap__iterator">SGLMap::Iterator</a> <a class="link" href="#nodiscard_SGLMap_mc_Iterator_iteratorAt_int_">iteratorAt</a>(int n);</h2>
 <p class="description">Returns the iterator pointing towards the key value pair, the key of which is at index <b>n</b> in the <a class="link" href="../cppclass/sglmap">SGLMap</a>.</p>
@@ -393,13 +394,13 @@ window.addEventListener("hashchange", highlightSection);
 <p class="description">Returns a constant iterator to the first key value pair in the <a class="link" href="../cppclass/sglmap">SGLMap</a> with a key more than or equal to <b>x</b>.</p>
 <p class="note"><a class="link" href="../cppclass/sglmap#nodiscard_SGLMap_mc_ConstIterator_constEnd_func_const_">SGLMap::constEnd</a> is returned if no such iterator exists.</p>
 <div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
-<h2 class="header" id="nodiscard_SGLMap_mc_Iterator_upperBound_const_K_ref_">[[nodiscard]] <a class="link" href="sglmap__iterator">SGLMap::Iterator</a> <a class="link" href="#nodiscard_SGLMap_mc_Iterator_upperBound_const_K_ref_">upperBound</a>(const K& x);</h2>
-<p class="description">Returns a iterator to the first key value pair in the <a class="link" href="../cppclass/sglmap">SGLMap</a> with a key strictly more than <b>x</b>.</p>
-<p class="note"><a class="link" href="../cppclass/sglmap#nodiscard_SGLMap_mc_Iterator_end_func_">SGLMap::end</a> is returned if no such iterator exists.</p>
-<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
 <h2 class="header" id="nodiscard_SGLMap_mc_ConstIterator_upperBound_const_K_ref_const_">[[nodiscard]] <a class="link" href="sglmap__constiterator">SGLMap::ConstIterator</a> <a class="link" href="#nodiscard_SGLMap_mc_ConstIterator_upperBound_const_K_ref_const_">upperBound</a>(const K& x) const;</h2>
 <p class="description">Returns a constant iterator to the first key value pair in the <a class="link" href="../cppclass/sglmap">SGLMap</a> with a key strictly more than <b>x</b>.</p>
 <p class="note"><a class="link" href="../cppclass/sglmap#nodiscard_SGLMap_mc_ConstIterator_constEnd_func_const_">SGLMap::constEnd</a> is returned if no such iterator exists.</p>
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<h2 class="header" id="nodiscard_SGLMap_mc_Iterator_upperBound_const_K_ref_">[[nodiscard]] <a class="link" href="sglmap__iterator">SGLMap::Iterator</a> <a class="link" href="#nodiscard_SGLMap_mc_Iterator_upperBound_const_K_ref_">upperBound</a>(const K& x);</h2>
+<p class="description">Returns a iterator to the first key value pair in the <a class="link" href="../cppclass/sglmap">SGLMap</a> with a key strictly more than <b>x</b>.</p>
+<p class="note"><a class="link" href="../cppclass/sglmap#nodiscard_SGLMap_mc_Iterator_end_func_">SGLMap::end</a> is returned if no such iterator exists.</p>
 <div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
 <h2 class="header" id="nodiscard_V_ref_valueAt_int_">[[nodiscard]] V& <a class="link" href="#nodiscard_V_ref_valueAt_int_">valueAt</a>(int n);</h2>
 <p class="description">Returns the value associated with the key at index <b>n</b> in the <a class="link" href="../cppclass/sglmap">SGLMap</a>.</p>
