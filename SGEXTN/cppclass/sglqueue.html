@@ -278,11 +278,11 @@ window.addEventListener("hashchange", highlightSection);
 <div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
 <h2 class="header" id="nodiscard_const_T_ref_back_func_const_">[[nodiscard]] const T& <a class="link" href="#nodiscard_const_T_ref_back_func_const_">back</a>() const;</h2>
 <p class="description">Returns the element at the back of the <a class="link" href="../cppclass/sglqueue">SGLQueue</a>.</p>
-<p class="warning">This is <a class="link" href="../tutorials/undefinedbehaviour">undefined behaviour</a> if the <a class="link" href="../cppclass/sglqueue">SGLQueue</a> is empty.</p>
+<p class="warning">This will crash if the <a class="link" href="../cppclass/sglqueue">SGLQueue</a> is empty.</p>
 <div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
 <h2 class="header" id="nodiscard_const_T_ref_front_func_const_">[[nodiscard]] const T& <a class="link" href="#nodiscard_const_T_ref_front_func_const_">front</a>() const;</h2>
 <p class="description">Returns the element at the front of the <a class="link" href="../cppclass/sglqueue">SGLQueue</a>.</p>
-<p class="warning">This is <a class="link" href="../tutorials/undefinedbehaviour">undefined behaviour</a> if the <a class="link" href="../cppclass/sglqueue">SGLQueue</a> is empty.</p>
+<p class="warning">This will crash if the <a class="link" href="../cppclass/sglqueue">SGLQueue</a> is empty.</p>
 <div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
 <h2 class="header" id="nodiscard_int_length_func_const_">[[nodiscard]] int <a class="link" href="#nodiscard_int_length_func_const_">length</a>() const;</h2>
 <p class="description">Returns the length of the <a class="link" href="../cppclass/sglqueue">SGLQueue</a>.</p>
@@ -291,7 +291,7 @@ window.addEventListener("hashchange", highlightSection);
 <p class="description">Removes the front element of the <a class="link" href="../cppclass/sglqueue">SGLQueue</a>.</p>
 <p class="note">This has truly constant time complexity.</p>
 <p class="note">This does not return the removed element. To access the removed element, use <a class="link" href="../cppclass/sglqueue#nodiscard_const_T_ref_front_func_const_">SGLQueue::front</a> before removal.</p>
-<p class="warning">This is <a class="link" href="../tutorials/undefinedbehaviour">undefined behaviour</a> if the <a class="link" href="../cppclass/sglqueue">SGLQueue</a> is empty.</p>
+<p class="warning">This will crash if the <a class="link" href="../cppclass/sglqueue">SGLQueue</a> is empty.</p>
 <div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
 <h2 class="header" id="void_push_const_T_ref_">void <a class="link" href="#void_push_const_T_ref_">push</a>(const T& x);</h2>
 <p class="description">Appends <b>x</b> at the back of the <a class="link" href="../cppclass/sglqueue">SGLQueue</a>.</p>

@@ -281,12 +281,11 @@ window.addEventListener("hashchange", highlightSection);
 <h2 class="header" id="SGRRenderingProgramme_SGRBaseRenderer_ptr_"><a class="link" href="#SGRRenderingProgramme_SGRBaseRenderer_ptr_">SGRRenderingProgramme</a>(<a class="link" href="sgrbaserenderer">SGRBaseRenderer</a>* renderControl);</h2>
 <p class="description">Creates a <a class="link" href="../cppclass/sgrrenderingprogramme">SGRRenderingProgramme</a> associated with the <a class="link" href="../tutorials/renderer">SG - RI ⁽㈳㈴㈳㈮㈱㈨㈠㈫ ㈧㈤㈱㈤⁾</a> renderer <b>renderControl</b>.</p>
 <p class="note"><b>renderControl</b> owns this <a class="link" href="../cppclass/sgrrenderingprogramme">SGRRenderingProgramme</a> and will delete it when no longer needed.</p>
-<p class="warning">Passing nullptr to <b>renderControl</b> is <a class="link" href="../tutorials/undefinedbehaviour">undefined behaviour</a>.</p>
+<p class="warning">Passing nullptr to <b>renderControl</b> will crash.</p>
 <div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
 <h2 class="header" id="void_addTexture_int_const_">void <a class="link" href="#void_addTexture_int_const_">addTexture</a>(int shaderDeclaredBinding) const;</h2>
 <p class="description">Adds a texture attached to the binding point <b>shaderDeclaredBinding</b>.</p>
-<p class="note">The actual texture is internally managed by <a class="link" href="../tutorials/renderer">SG - RI ⁽㈳㈴㈳㈮㈱㈨㈠㈫ ㈧㈤㈱㈤⁾</a>, images can be uploaded using <a class="link" href="../cppclass/sgrimage">SGRImage</a>.</p>
-<p class="note">Efficiently swapping textures frequently would need access to private API. This is likely to be changed in a future SGEXTN version.</p>
+<p class="note">The actual texture is internally managed by <a class="link" href="../tutorials/renderer">SG - RI ⁽㈳㈴㈳㈮㈱㈨㈠㈫ ㈧㈤㈱㈤⁾</a>, images can be uploaded as <a class="link" href="../cppclass/sgrimage">SGRImage</a> using <a class="link" href="../cppclass/sgrrenderingprogramme#void_updateTexture_int_SGRImage_ptr_const_">SGRRenderingProgramme::updateTexture</a>.</p>
 <p class="warning"><b>shaderDeclaredBinding</b> not being in the shaders or wrong binding point being passed is <a class="link" href="../tutorials/undefinedbehaviour">undefined behaviour</a>.</p>
 <div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
 <h2 class="header" id="void_addUniformBufferObject_int_int_const_">void <a class="link" href="#void_addUniformBufferObject_int_int_const_">addUniformBufferObject</a>(int std140AlignedSize, int shaderDeclaredBinding) const;</h2>
@@ -301,7 +300,7 @@ window.addEventListener("hashchange", highlightSection);
 <p class="description">Registers a vertex buffer object with each vertex having a size of <b>vertexSize</b> bytes.</p>
 <p class="note">This does not create anything, it only tells the <a class="link" href="../cppclass/sgrrenderingprogramme">SGRRenderingProgramme</a> that such a vertex buffer object will be used later.</p>
 <p class="note">The index of vertex buffer objects corresponds to the order in which they are declared using <a class="link" href="../cppclass/sgrrenderingprogramme#void_addVertexBufferObject_int_const_">SGRRenderingProgramme::addVertexBufferObject</a>, with the first one having index 0.</p>
-<p class="warning">Zero or negative <b>vertexSize</b> is <a class="link" href="../tutorials/undefinedbehaviour">undefined behaviour</a>.</p>
+<p class="warning">Zero or negative <b>vertexSize</b> will crash.</p>
 <div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
 <h2 class="header" id="void_addVertexProperty_int_int_int_SGRGraphicsLanguageType_mc_Type_int_const_">void <a class="link" href="#void_addVertexProperty_int_int_int_SGRGraphicsLanguageType_mc_Type_int_const_">addVertexProperty</a>(int vertexBufferObjectIndex, int offsetFromVertexStart, int shaderDeclaredLocation, SGRGraphicsLanguageType::Type propertyType, int vectorLength) const;</h2>
 <p class="description">Registers a vertex property corresponding to the in variable at location <b>shaderDeclaredLocation</b> in the input shader, which is sourced from vertex buffer object number <b>vertexBufferObjectIndex</b> at a offset of <b>offsetFromVertexStart</b> bytes. This vertex shader in variable contains <b>vectorLength</b> of the GLSL data type <b>propertyType</b>.</p>
@@ -310,9 +309,9 @@ window.addEventListener("hashchange", highlightSection);
 <p class="warning">Forgetting to bind the vertex buffer object before drawing is <a class="link" href="../tutorials/undefinedbehaviour">undefined behaviour</a>.</p>
 <p class="warning">Passing a vertex buffer object that does not match the layout is <a class="link" href="../tutorials/undefinedbehaviour">undefined behaviour</a>.</p>
 <p class="warning">Registering a vertex property that does not exist in the vertex shader is <a class="link" href="../tutorials/undefinedbehaviour">undefined behaviour</a>.</p>
-<p class="warning">Negative <b>offsetFromVertexStart</b> is <a class="link" href="../tutorials/undefinedbehaviour">undefined behaviour</a>.</p>
-<p class="warning">Negative <b>vertexBufferObjectIndex</b> is <a class="link" href="../tutorials/undefinedbehaviour">undefined behaviour</a>.</p>
-<p class="warning"><b>vectorLength</b> below 1 or above 4 is <a class="link" href="../tutorials/undefinedbehaviour">undefined behaviour</a>.</p>
+<p class="warning">Negative <b>offsetFromVertexStart</b> will crash.</p>
+<p class="warning">Negative <b>vertexBufferObjectIndex</b> will crash.</p>
+<p class="warning"><b>vectorLength</b> below 1 or above 4 will crash.</p>
 <div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
 <h2 class="header" id="void_finaliseRenderingProgramme_func_">void <a class="link" href="#void_finaliseRenderingProgramme_func_">finaliseRenderingProgramme</a>();</h2>
 <p class="description">Prepares the <a class="link" href="../cppclass/sgrrenderingprogramme">SGRRenderingProgramme</a> for usage.</p>
@@ -336,25 +335,30 @@ window.addEventListener("hashchange", highlightSection);
 <h2 class="header" id="void_updateDataBuffer_SGRDataBuffer_ptr_int_int_void_ptr_const_">void <a class="link" href="#void_updateDataBuffer_SGRDataBuffer_ptr_int_int_void_ptr_const_">updateDataBuffer</a>(<a class="link" href="sgrdatabuffer">SGRDataBuffer</a>* buffer, int startLocation, int dataSize, void* pointerToData) const;</h2>
 <p class="description">Uploads <b>dataSize</b> bytes of data from <b>pointerToData</b> to an offset of <b>startLocation</b> bytes into the buffer <b>buffer</b>.</p>
 <p class="warning">Using this outside of <a class="link" href="../cppclass/sgrbaserenderer#virtual_void_uploadShaderData_func_assign_">SGRBaseRenderer::uploadShaderData</a> or <a class="link" href="../cppclass/sgrbaserenderer#virtual_void_initialise_func_assign_">SGRBaseRenderer::initialise</a> is <a class="link" href="../tutorials/undefinedbehaviour">undefined behaviour</a>.</p>
-<p class="warning"><b>buffer</b> being nullptr is <a class="link" href="../tutorials/undefinedbehaviour">undefined behaviour</a>.</p>
-<p class="warning">Negative <b>startLocation</b> or <b>startLocation</b> + <b>dataSize</b> being more than or equal to length of <b>buffer</b> is <a class="link" href="../tutorials/undefinedbehaviour">undefined behaviour</a>.</p>
+<p class="warning"><b>buffer</b> being nullptr will crash.</p>
+<p class="warning">Negative <b>startLocation</b> or <b>startLocation</b> + <b>dataSize</b> - 1 being more than or equal to length of <b>buffer</b> will crash.</p>
 <p class="warning"><a class="link" href="../cppclass/sglarray">SGLArray</a> or <a class="link" href="../cppclass/sglvector">SGLVector</a> where <b>pointerToData</b> came from having a byte length below <b>dataSize</b> is <a class="link" href="../tutorials/undefinedbehaviour">undefined behaviour</a>.</p>
-<p class="warning"><b>pointerToData</b> being nullptr is <a class="link" href="../tutorials/undefinedbehaviour">undefined behaviour</a>.</p>
+<p class="warning"><b>pointerToData</b> being nullptr will crash.</p>
 <div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
 <h2 class="header" id="void_updateShaderUniforms_int_int_int_void_ptr_const_">void <a class="link" href="#void_updateShaderUniforms_int_int_int_void_ptr_const_">updateShaderUniforms</a>(int shaderDeclaredBinding, int startLocation, int dataSize, void* pointerToData) const;</h2>
 <p class="description">Uploads <b>dataSize</b> bytes of data from <b>pointerToData</b> to an offset of <b>startLocation</b> bytes into the uniform buffer object at binding point <b>shaderDeclaredBinding</b>.</p>
 <p class="warning">Using this outside of <a class="link" href="../cppclass/sgrbaserenderer#virtual_void_uploadShaderData_func_assign_">SGRBaseRenderer::uploadShaderData</a> or <a class="link" href="../cppclass/sgrbaserenderer#virtual_void_initialise_func_assign_">SGRBaseRenderer::initialise</a> is <a class="link" href="../tutorials/undefinedbehaviour">undefined behaviour</a>.</p>
-<p class="warning">Nonexistent <b>shaderDeclaredBinding</b> is <a class="link" href="../tutorials/undefinedbehaviour">undefined behaviour</a>.</p>
-<p class="warning">Negative <b>startLocation</b> or <b>startLocation</b> + <b>dataSize</b> being more than or equal to length of the uniform buffer object at <b>shaderDeclaredBinding</b> is <a class="link" href="../tutorials/undefinedbehaviour">undefined behaviour</a>.</p>
+<p class="warning">Nonexistent <b>shaderDeclaredBinding</b> will crash.</p>
+<p class="warning"><b>startLocation</b> + <b>dataSize</b> being more than or equal to length of the uniform buffer object at <b>shaderDeclaredBinding</b> is <a class="link" href="../tutorials/undefinedbehaviour">undefined behaviour</a>.</p>
 <p class="warning"><a class="link" href="../cppclass/sglarray">SGLArray</a> or <a class="link" href="../cppclass/sglvector">SGLVector</a> where <b>pointerToData</b> came from having a byte length below <b>dataSize</b> is <a class="link" href="../tutorials/undefinedbehaviour">undefined behaviour</a>.</p>
-<p class="warning"><b>pointerToData</b> being nullptr is <a class="link" href="../tutorials/undefinedbehaviour">undefined behaviour</a>.</p>
+<p class="warning"><b>pointerToData</b> being nullptr will crash.</p>
+<p class="warning"><b>shaderDeclaredBinding</b> being negative will crash.</p>
+<p class="warning"><b>startLocation</b> being negative will crash.</p>
+<p class="warning"><b>dataSize</b> being negative will crash.</p>
 <div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
 <h2 class="header" id="void_updateTexture_int_SGRImage_ptr_const_">void <a class="link" href="#void_updateTexture_int_SGRImage_ptr_const_">updateTexture</a>(int shaderDeclaredBinding, <a class="link" href="sgrimage">SGRImage</a>* sourceImage) const;</h2>
 <p class="description">Uploads <b>sourceImage</b> to the texture at <b>shaderDeclaredBinding</b>.</p>
 <p class="note"><b>sourceImage</b> does not need to have the same size as the previously bound texture.</p>
+<p class="note"><b>sourceImage</b> is uploaded to the GPU every time this function is used. To swap between multiple textures, consider creating separate <a class="link" href="../cppclass/sgrrendererwidget">SGRRendererWidget</a> for them and using <a class="link" href="../cppclass/sgwwidget#void_setItemVisibility_bool_">SGWWidget::setItemVisibility</a> to control the active <a class="link" href="../tutorials/sgwidget">SGWidget ⁽㈳㈴㈳㈮㈱㈨㈠㈫ ㈧㈤㈱㈤⁾</a>.</p>
 <p class="warning">Using this outside of <a class="link" href="../cppclass/sgrbaserenderer#virtual_void_uploadShaderData_func_assign_">SGRBaseRenderer::uploadShaderData</a> or <a class="link" href="../cppclass/sgrbaserenderer#virtual_void_initialise_func_assign_">SGRBaseRenderer::initialise</a> is <a class="link" href="../tutorials/undefinedbehaviour">undefined behaviour</a>.</p>
-<p class="warning">Nonexistent <b>shaderDeclaredBinding</b> is <a class="link" href="../tutorials/undefinedbehaviour">undefined behaviour</a>.</p>
-<p class="warning"><b>sourceImage</b> being nullptr is <a class="link" href="../tutorials/undefinedbehaviour">undefined behaviour</a>.</p>
+<p class="warning">Nonexistent <b>shaderDeclaredBinding</b> will crash.</p>
+<p class="warning"><b>shaderDeclaredBinding</b> being negative will crash.</p>
+<p class="warning"><b>sourceImage</b> being nullptr will crash.</p>
 <div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
 <p class="description"></p>
 

@@ -277,7 +277,8 @@ window.addEventListener("hashchange", highlightSection);
 <div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
 <h2 class="header" id="SGLSpan_T_ptr_int_"><a class="link" href="#SGLSpan_T_ptr_int_">SGLSpan</a>(T* dataInternal, int lengthInternal);</h2>
 <p class="description">Creates a <a class="link" href="../cppclass/sglspan">SGLSpan</a> starting from <b>dataInternal</b> with a length of <b>lengthInternal</b>.</p>
-<p class="warning">Negative <b>lengthInternal</b> is <a class="link" href="../tutorials/undefinedbehaviour">undefined behaviour</a>.</p>
+<p class="warning">Negative <b>lengthInternal</b> will cause a crash.</p>
+<p class="warning"><b>dataInternal</b> being nullptr will cause a crash.</p>
 <p class="warning">If any memory between <b>dataInternal</b> (inclusive) and <b>dataInternal</b> + <b>lengthInternal</b> (exclusive) is not allocated, have been deleted, or if the 2 endpoints come from different data structures, creating the span is <a class="link" href="../tutorials/undefinedbehaviour">undefined behaviour</a>.</p>
 <p class="warning">Using the span in any way after the host data structure is deleted is <a class="link" href="../tutorials/undefinedbehaviour">undefined behaviour</a></p>
 <p class="warning">To avoid <a class="link" href="../tutorials/undefinedbehaviour">undefined behaviour</a>, do not allocate any <a class="link" href="../cppclass/sglspan">SGLSpan</a> on the heap.</p>
@@ -309,16 +310,18 @@ window.addEventListener("hashchange", highlightSection);
 <div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
 <h2 class="header" id="nodiscard_SGLSpan_subspan_int_int_const_">[[nodiscard]] <a class="link" href="sglspan">SGLSpan</a> <a class="link" href="#nodiscard_SGLSpan_subspan_int_int_const_">subspan</a>(int start, int length) const;</h2>
 <p class="description">Returns a subspan starting at index <b>start</b> of the original span with a length of <b>length</b>.</p>
-<p class="warning">Negative <b>length</b> is <a class="link" href="../tutorials/undefinedbehaviour">undefined behaviour</a>.</p>
-<p class="warning">If <b>start</b> or <b>start</b> + <b>length</b> - 1 is out of bounds, this results in <a class="link" href="../tutorials/undefinedbehaviour">undefined behaviour</a>.</p>
+<p class="warning">Negative <b>length</b> will crash.</p>
+<p class="warning">If <b>start</b> or <b>start</b> + <b>length</b> - 1 is out of bounds, this will crash.</p>
 <div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
 <h2 class="header" id="nodiscard_SGLSpan_subspanLeft_int_const_">[[nodiscard]] <a class="link" href="sglspan">SGLSpan</a> <a class="link" href="#nodiscard_SGLSpan_subspanLeft_int_const_">subspanLeft</a>(int length) const;</h2>
 <p class="description">Returns a subspan containing the first <b>length</b> elements of the original span.</p>
-<p class="warning">Negative <b>length</b> is <a class="link" href="../tutorials/undefinedbehaviour">undefined behaviour</a>.</p>
+<p class="warning">Negative <b>length</b> will crash.</p>
+<p class="warning">If <b>length</b> is greater than the length of the span, this will crash.</p>
 <div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
 <h2 class="header" id="nodiscard_SGLSpan_subspanRight_int_const_">[[nodiscard]] <a class="link" href="sglspan">SGLSpan</a> <a class="link" href="#nodiscard_SGLSpan_subspanRight_int_const_">subspanRight</a>(int length) const;</h2>
 <p class="description">Returns a subspan containing the last <b>length</b> elements of the original span.</p>
-<p class="warning">Negative <b>length</b> is <a class="link" href="../tutorials/undefinedbehaviour">undefined behaviour</a>.</p>
+<p class="warning">Negative <b>length</b> will crash.</p>
+<p class="warning">If <b>length</b> is greater than the length of the span, this will crash.</p>
 <div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
 <p class="description"></p>
 

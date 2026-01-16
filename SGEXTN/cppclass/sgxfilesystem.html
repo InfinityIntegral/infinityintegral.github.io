@@ -333,6 +333,7 @@ window.addEventListener("hashchange", highlightSection);
 <div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
 <h2 class="header" id="static_SGXString_encodeToFileName_const_SGXString_ref_">static <a class="link" href="sgxstring">SGXString</a> <a class="link" href="#static_SGXString_encodeToFileName_const_SGXString_ref_">encodeToFileName</a>(const <a class="link" href="sgxstring">SGXString</a>& s);</h2>
 <p class="description">Encodes <b>s</b> to a file name, the SGEXTN provided encoding that is guaranteed to be safe on all file systems, including case insensitive ones. The file name is as readable as reasonably possible while allowing all Unicode characters.</p>
+<p class="note">Encoded file names always start with sg0</p>
 <div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
 <h2 class="header" id="static_bool_fileExists_const_SGXString_ref_">static bool <a class="link" href="#static_bool_fileExists_const_SGXString_ref_">fileExists</a>(const <a class="link" href="sgxstring">SGXString</a>& s);</h2>
 <p class="description">Returns if any file exists at <b>s</b>.</p>
@@ -378,11 +379,11 @@ window.addEventListener("hashchange", highlightSection);
 <p class="note">If <b>s</b> does not exist, an empty list is returned.</p>
 <div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
 <h2 class="header" id="static_SGLArray_lt_SGXString_gt_getFilesListWithExtension_const_SGXString_ref_const_SGXString_ref_">static <a class="link" href="sglarray">SGLArray</a>‹<a class="link" href="sgxstring">SGXString</a>› <a class="link" href="#static_SGLArray_lt_SGXString_gt_getFilesListWithExtension_const_SGXString_ref_const_SGXString_ref_">getFilesListWithExtension</a>(const <a class="link" href="sgxstring">SGXString</a>& s, const <a class="link" href="sgxstring">SGXString</a>& ext);</h2>
-<p class="description">Returns a list of paths to files in folder <b>s</b> with extension matching <b>ext</b>.</p>
+<p class="description">Returns a list of paths to files in folder <b>s</b> with extension matching <b>ext</b>. <b>ext</b> should not include the dot.</p>
 <p class="note">An empty list is returned if there is no folder at <b>s</b>.</p>
 <div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
 <h2 class="header" id="static_SGLArray_lt_SGXString_gt_getFilesListWithExtensionRecursive_const_SGXString_ref_const_SGXString_ref_">static <a class="link" href="sglarray">SGLArray</a>‹<a class="link" href="sgxstring">SGXString</a>› <a class="link" href="#static_SGLArray_lt_SGXString_gt_getFilesListWithExtensionRecursive_const_SGXString_ref_const_SGXString_ref_">getFilesListWithExtensionRecursive</a>(const <a class="link" href="sgxstring">SGXString</a>& s, const <a class="link" href="sgxstring">SGXString</a>& ext);</h2>
-<p class="description">Returns a list of paths to files in folder <b>s</b> including recursive subfolders, with extension matching <b>ext</b>.</p>
+<p class="description">Returns a list of paths to files in folder <b>s</b> including recursive subfolders, with extension matching <b>ext</b>. <b>ext</b> should not include the dot.</p>
 <p class="note">An empty list is returned if there is no folder at <b>s</b>.</p>
 <div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
 <h2 class="header" id="static_SGXTimeStamp_getFolderCreationTime_const_SGXString_ref_">static <a class="link" href="sgxtimestamp">SGXTimeStamp</a> <a class="link" href="#static_SGXTimeStamp_getFolderCreationTime_const_SGXString_ref_">getFolderCreationTime</a>(const <a class="link" href="sgxstring">SGXString</a>& s);</h2>
@@ -414,8 +415,8 @@ window.addEventListener("hashchange", highlightSection);
 <p class="description">Returns the path to the parent folder of <b>s</b>.</p>
 <div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
 <h2 class="header" id="static_SGXString_joinFilePaths_const_SGXString_ref_const_SGXString_ref_">static <a class="link" href="sgxstring">SGXString</a> <a class="link" href="#static_SGXString_joinFilePaths_const_SGXString_ref_const_SGXString_ref_">joinFilePaths</a>(const <a class="link" href="sgxstring">SGXString</a>& a, const <a class="link" href="sgxstring">SGXString</a>& b);</h2>
-<p class="description">Returns the file path <b>a</b>/<b>b</b></p>
-<p class="warning">If either <b>a</b> or <b>b</b> is an empty string, this leads to <a class="link" href="../tutorials/undefinedbehaviour">undefined behaviour</a>.</p>
+<p class="description">Returns the file path <b>a</b>/<b>b</b>, this handles automatically trailing slash in <b>a</b> and leading slash in <b>b</b> if any are present.</p>
+<p class="warning">If either <b>a</b> or <b>b</b> is an empty string, this will crash.</p>
 <div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
 <h2 class="header" id="static_int_moveFile_const_SGXString_ref_const_SGXString_ref_">static int <a class="link" href="#static_int_moveFile_const_SGXString_ref_const_SGXString_ref_">moveFile</a>(const <a class="link" href="sgxstring">SGXString</a>& startPath, const <a class="link" href="sgxstring">SGXString</a>& endPath);</h2>
 <p class="description">Moves the file at <b>startPath</b> to <b>endPath</b>. This returns -2 if a file system error caused the operation to fail, 0 if there is already a file at <b>endPath</b> or if there is no file at <b>startPath</b>, and 1 if the operation was successful.</p>
@@ -434,6 +435,7 @@ window.addEventListener("hashchange", highlightSection);
 <h2 class="header" id="static_void_openLink_const_SGXString_ref_">static void <a class="link" href="#static_void_openLink_const_SGXString_ref_">openLink</a>(const <a class="link" href="sgxstring">SGXString</a>& link);</h2>
 <p class="description">Opens the website link <b>link</b> in the system default browser.</p>
 <p class="note">There is no need to put the https:// in front of the link, just the website link itself is sufficient.</p>
+<p class="note">If the link is invalid or does not exist, the user's browser will see the error, this will not affect the application.</p>
 <div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
 <h2 class="header" id="static_bool_pathIsSubfolder_const_SGXString_ref_const_SGXString_ref_">static bool <a class="link" href="#static_bool_pathIsSubfolder_const_SGXString_ref_const_SGXString_ref_">pathIsSubfolder</a>(const <a class="link" href="sgxstring">SGXString</a>& childPath, const <a class="link" href="sgxstring">SGXString</a>& parentPath);</h2>
 <p class="description">Returns if <b>childPath</b> is a possibly recursive subfolder of <b>parentPath</b>.</p>

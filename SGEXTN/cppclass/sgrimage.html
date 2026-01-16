@@ -277,7 +277,7 @@ window.addEventListener("hashchange", highlightSection);
 <div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
 <h2 class="header" id="SGRImage_int_int_SGXColourRGBA_"><a class="link" href="#SGRImage_int_int_SGXColourRGBA_">SGRImage</a>(int w, int h, <a class="link" href="sgxcolourrgba">SGXColourRGBA</a> c);</h2>
 <p class="description">Creates a <a class="link" href="../cppclass/sgrimage">SGRImage</a> with width <b>w</b> pixels, height <b>h</b> pixels, and with every pixel initialised to <b>c</b>.</p>
-<p class="warning">Negative or 0 <b>w</b> or <b>h</b> is <a class="link" href="../tutorials/undefinedbehaviour">undefined behaviour</a>.</p>
+<p class="warning">Negative <b>w</b> or <b>h</b> will crash.</p>
 <div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
 <h2 class="header" id="SGRImage_const_SGXString_ref_"><a class="link" href="#SGRImage_const_SGXString_ref_">SGRImage</a>(const <a class="link" href="sgxstring">SGXString</a>& filePath);</h2>
 <p class="description">Creates a <a class="link" href="../cppclass/sgrimage">SGRImage</a> using the image found at <b>filePath</b>.</p>
@@ -287,11 +287,11 @@ window.addEventListener("hashchange", highlightSection);
 <h2 class="header" id="SGRImage_int_int_"><a class="link" href="#SGRImage_int_int_">SGRImage</a>(int w, int h);</h2>
 <p class="description">Creates a <a class="link" href="../cppclass/sgrimage">SGRImage</a> with width <b>w</b> pixels, height <b>h</b> pixels, containing uninitialised nonsense.</p>
 <p class="warning">Accessing the colours of this <a class="link" href="../cppclass/sgrimage">SGRImage</a> before setting them is <a class="link" href="../tutorials/undefinedbehaviour">undefined behaviour</a>.</p>
-<p class="warning">Negative or 0 <b>w</b> or <b>h</b> is <a class="link" href="../tutorials/undefinedbehaviour">undefined behaviour</a>.</p>
+<p class="warning">Negative <b>w</b> or <b>h</b> will crash.</p>
 <div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
 <h2 class="header" id="nodiscard_SGXColourRGBA_colourAt_int_int_const_">[[nodiscard]] <a class="link" href="sgxcolourrgba">SGXColourRGBA</a> <a class="link" href="#nodiscard_SGXColourRGBA_colourAt_int_int_const_">colourAt</a>(int x, int y) const;</h2>
 <p class="description">Returns the <a class="link" href="../cppclass/sgxcolourrgba">SGXColourRGBA</a> of the pixel at (<b>x</b>, <b>y</b>).</p>
-<p class="warning"><b>x</b> below zero, <b>x</b> more than or equal to the width, <b>y</b> below zero, <b>y</b> more than or equal to the height is <a class="link" href="../tutorials/undefinedbehaviour">undefined behaviour</a>. If you want image sampling, use <a class="link" href="../cppclass/sgrimage#nodiscard_SGXColourRGBA_interpolatedColourAt_float_float_const_">SGRImage::interpolatedColourAt</a> instead.</p>
+<p class="warning"><b>x</b> below zero, <b>x</b> more than or equal to the width, <b>y</b> below zero, <b>y</b> more than or equal to the height will crash. If you want image sampling, use <a class="link" href="../cppclass/sgrimage#nodiscard_SGXColourRGBA_interpolatedColourAt_float_float_const_">SGRImage::interpolatedColourAt</a> instead.</p>
 <div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
 <h2 class="header" id="nodiscard_int_height_func_const_">[[nodiscard]] int <a class="link" href="#nodiscard_int_height_func_const_">height</a>() const;</h2>
 <p class="description">Returns the height of this <a class="link" href="../cppclass/sgrimage">SGRImage</a>.</p>
@@ -302,10 +302,11 @@ window.addEventListener("hashchange", highlightSection);
 <div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
 <h2 class="header" id="void_saveToFile_const_SGXString_ref_const_">void <a class="link" href="#void_saveToFile_const_SGXString_ref_const_">saveToFile</a>(const <a class="link" href="sgxstring">SGXString</a>& filePath) const;</h2>
 <p class="description">Saves this <a class="link" href="../cppclass/sgrimage">SGRImage</a> to file at <b>filePath</b> in PNG format.</p>
+<p class="warning">If <b>filePath</b> is not a valid file path, this is <a class="link" href="../tutorials/undefinedbehaviour">undefined behaviour</a>.</p>
 <div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
 <h2 class="header" id="void_setColourAt_int_int_SGXColourRGBA_const_">void <a class="link" href="#void_setColourAt_int_int_SGXColourRGBA_const_">setColourAt</a>(int x, int y, <a class="link" href="sgxcolourrgba">SGXColourRGBA</a> c) const;</h2>
 <p class="description">Sets the <a class="link" href="../cppclass/sgxcolourrgba">SGXColourRGBA</a> of the pixel at (<b>x</b>, <b>y</b>) to <b>c</b>.</p>
-<p class="warning"><b>x</b> below zero, <b>x</b> more than or equal to the width, <b>y</b> below zero, <b>y</b> more than or equal to the height is <a class="link" href="../tutorials/undefinedbehaviour">undefined behaviour</a>.</p>
+<p class="warning"><b>x</b> below zero, <b>x</b> more than or equal to the width, <b>y</b> below zero, <b>y</b> more than or equal to the height will crash</p>
 <div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
 <h2 class="header" id="nodiscard_int_width_func_const_">[[nodiscard]] int <a class="link" href="#nodiscard_int_width_func_const_">width</a>() const;</h2>
 <p class="description">Returns the width of this <a class="link" href="../cppclass/sgrimage">SGRImage</a>.</p>

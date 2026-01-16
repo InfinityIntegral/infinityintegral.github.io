@@ -259,9 +259,9 @@ window.addEventListener("hashchange", highlightSection);
 <p class="description">children classes: (none)</p>
 <div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
 <h2 class="header" id="">instance member functions</h2>
+<p class="description">&#9;[[nodiscard]] operator char() const;</p>
 <p class="description">&#9;<a class="link" href="#SGXChar_int_">SGXChar</a>(int unicode);</p>
 <p class="description">&#9;<a class="link" href="#SGXChar_char_">SGXChar</a>(char c);</p>
-<p class="description">&#9;[[nodiscard]] operator char() const;</p>
 <p class="description">&#9;[[nodiscard]] <a class="link" href="sgxchar">SGXChar</a> <a class="link" href="#nodiscard_SGXChar_getLowerLanguageAware_func_const_">getLowerLanguageAware</a>() const;</p>
 <p class="description">&#9;[[nodiscard]] int <a class="link" href="#nodiscard_int_getUnicode_func_const_">getUnicode</a>() const;</p>
 <p class="description">&#9;[[nodiscard]] <a class="link" href="sgxchar">SGXChar</a> <a class="link" href="#nodiscard_SGXChar_getUpperLanguageAware_func_const_">getUpperLanguageAware</a>() const;</p>
@@ -295,16 +295,16 @@ window.addEventListener("hashchange", highlightSection);
 <h2 class="header" id="sg_implementationdetails">Implementation Details</h2>
 <p class="description"><a class="link" href="../cppclass/sgxchar">SGXChar</a> stores the Unicode value of the character. When language aware features are needed, it uses QChar internally.</p>
 <div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
-<h2 class="header" id="SGXChar_int_"><a class="link" href="#SGXChar_int_">SGXChar</a>(int unicode);</h2>
-<p class="description">Converts Unicode index <b>unicode</b> to its corresponding <a class="link" href="../cppclass/sgxchar">SGXChar</a>.</p>
-<p class="warning">If <b>unicode</b> is below 0 or above 65535, this is <a class="link" href="../tutorials/undefinedbehaviour">undefined behaviour</a>.</p>
-<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
-<h2 class="header" id="SGXChar_char_"><a class="link" href="#SGXChar_char_">SGXChar</a>(char c);</h2>
-<p class="description">Converts C++ char <b>c</b> to a <a class="link" href="../cppclass/sgxchar">SGXChar</a>.</p>
-<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
 <h2 class="header" id="nodiscard_operator_char_func_const_">[[nodiscard]] operator char() const;</h2>
 <p class="description">Converts <a class="link" href="../cppclass/sgxchar">SGXChar</a> to a C++ char.</p>
 <p class="warning">If the <a class="link" href="../cppclass/sgxchar">SGXChar</a> is not a ASCII character, this causes <a class="link" href="../tutorials/undefinedbehaviour">undefined behaviour</a>.</p>
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<h2 class="header" id="SGXChar_int_"><a class="link" href="#SGXChar_int_">SGXChar</a>(int unicode);</h2>
+<p class="description">Converts Unicode index <b>unicode</b> to its corresponding <a class="link" href="../cppclass/sgxchar">SGXChar</a>.</p>
+<p class="warning">If <b>unicode</b> is below 0 or above 65535, this will crash.</p>
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<h2 class="header" id="SGXChar_char_"><a class="link" href="#SGXChar_char_">SGXChar</a>(char c);</h2>
+<p class="description">Converts C++ char <b>c</b> to a <a class="link" href="../cppclass/sgxchar">SGXChar</a>.</p>
 <div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
 <h2 class="header" id="nodiscard_SGXChar_getLowerLanguageAware_func_const_">[[nodiscard]] <a class="link" href="sgxchar">SGXChar</a> <a class="link" href="#nodiscard_SGXChar_getLowerLanguageAware_func_const_">getLowerLanguageAware</a>() const;</h2>
 <p class="description">Returns the language aware lowercase version of this <a class="link" href="../cppclass/sgxchar">SGXChar</a>.</p>

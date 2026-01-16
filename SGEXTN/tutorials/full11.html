@@ -255,7 +255,7 @@ window.addEventListener("hashchange", highlightSection);
 <p class="description">&#9;Declarations:</p>
 <p class="warning">static SGWBackground* instance;&#10;static SGWBackground* initialise();&#10;static void activate();</p>
 <p class="description">&#9;Implementation of SGCLPDisplayPage::initialise</p>
-<p class="warning">SGWBackground* SGCLPDisplayPage::initialise(){&#10;    return new SGWPageBackground(SGWWidget::parentWidget, 0.0f, 0.0f, 0.0f, 0.0f, 1.0f, 0.0f, 1.0f, 0.0f, 8);&#10;}</p>
+<p class="warning">SGWBackground* SGCLPDisplayPage::initialise(){&#10;    return new SGWPageBackground(SGWWidget::parentWidget, 0.0f, 0.0f, 0.0f, 0.0f, 1.0f, 0.0f, 1.0f, 0.0f);&#10;}</p>
 <p class="description">&#9;We will put more stuff here later</p>
 <p class="description">&#9;Implementation of SGCLPDisplayPage::activate</p>
 <p class="warning">void SGCLPDisplayPage::activate(){&#10;    SGWBackground::enable(SGCLPDisplayPage::instance, &SGCLPDisplayPage::initialise, nullptr);&#10;}</p>

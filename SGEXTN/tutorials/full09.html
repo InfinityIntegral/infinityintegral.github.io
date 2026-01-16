@@ -267,7 +267,7 @@ window.addEventListener("hashchange", highlightSection);
 <p class="description">&#9;First we declare the function</p>
 <p class="warning">static void polygonSideCountCheck();</p>
 <p class="description">&#9;We then change the line creating the input field in SGCLPOptionsPage::initialise to use the function</p>
-<p class="warning">SGCLPOptionsPage::polygonSideCountInput = new SGWTextInput(bg, &SGCLPOptionsPage::polygonSideCountCheck, 0.5f, 0.1f, 0.0f, 14.5f, 0.5f, -0.6f, 0.0f, 1.0f);</p>
+<p class="warning">SGCLPOptionsPage::polygonSideCountInput = new SGWTextInput(bg, "vertex count", &SGCLPOptionsPage::polygonSideCountCheck, 0.5f, 0.1f, 0.0f, 14.5f, 0.5f, -0.6f, 0.0f, 1.0f);</p>
 <p class="description">&#9;then we give a reasonable default of 3 vertices in SGCLPOptionsPage::reset</p>
 <p class="warning">(*SGCLPOptionsPage::polygonSideCountInput).setTextFromInt(3);</p>
 <p class="description">&#9;Note that <a class="link" href="../cppclass/sgwinput#void_setTextFromInt_int_">SGWInput::setTextFromInt</a> directly sets the string representation of a integer to the input field. There is also <a class="link" href="../cppclass/sgwinput#void_setTextFromFloat_float_">SGWInput::setTextFromFloat</a> and the usual <a class="link" href="../cppclass/sgwinput#void_setTextFromString_const_SGXString_ref_">SGWInput::setTextFromString</a>.</p>

@@ -259,6 +259,7 @@ window.addEventListener("hashchange", highlightSection);
 <p class="description">children classes: (none)</p>
 <div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
 <h2 class="header" id="">static member functions</h2>
+<p class="description">&#9;static <a class="link" href="sglarray">SGLArray</a>‹<a class="link" href="sgxcolourrgba">SGXColourRGBA</a>› <a class="link" href="#static_SGLArray_lt_SGXColourRGBA_gt_generateSincerityUIThemeSet_SGXColourRGBA_bool_">generateSincerityUIThemeSet</a>(<a class="link" href="sgxcolourrgba">SGXColourRGBA</a> baseColour, bool darkMode);</p>
 <p class="description">&#9;static <a class="link" href="sgxcolourrgba">SGXColourRGBA</a> <a class="link" href="#static_SGXColourRGBA_getThemeColour_int_">getThemeColour</a>(int themeColour);</p>
 <div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
 <h2 class="header" id="sg_detaileddescription">Detailed Description</h2>
@@ -267,9 +268,13 @@ window.addEventListener("hashchange", highlightSection);
 <h2 class="header" id="sg_implementationdetails">Implementation Details</h2>
 <p class="description">Returns <a class="link" href="../tutorials/themecolour">theme colour ⁽㈳㈴㈳㈮㈱㈨㈠㈫ ㈧㈤㈱㈤⁾</a>.</p>
 <div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<h2 class="header" id="static_SGLArray_lt_SGXColourRGBA_gt_generateSincerityUIThemeSet_SGXColourRGBA_bool_">static <a class="link" href="sglarray">SGLArray</a>‹<a class="link" href="sgxcolourrgba">SGXColourRGBA</a>› <a class="link" href="#static_SGLArray_lt_SGXColourRGBA_gt_generateSincerityUIThemeSet_SGXColourRGBA_bool_">generateSincerityUIThemeSet</a>(<a class="link" href="sgxcolourrgba">SGXColourRGBA</a> baseColour, bool darkMode);</h2>
+<p class="description">Returns a <a class="link" href="../cppclass/sglarray">SGLArray</a> of <a class="link" href="../cppclass/sgxcolourrgba">SGXColourRGBA</a> representing a Sincerity UI compatible theme with hue and saturation following that of <b>baseColour</b>. This is a light mode theme if <b>darkMode</b> is false, and dark mode otherwise.</p>
+<p class="note">All Sincerity UI compatible themes are WCAG AAA compliant.</p>
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
 <h2 class="header" id="static_SGXColourRGBA_getThemeColour_int_">static <a class="link" href="sgxcolourrgba">SGXColourRGBA</a> <a class="link" href="#static_SGXColourRGBA_getThemeColour_int_">getThemeColour</a>(int themeColour);</h2>
 <p class="description">Returns <a class="link" href="../tutorials/themecolour">theme colour ⁽㈳㈴㈳㈮㈱㈨㈠㈫ ㈧㈤㈱㈤⁾</a> number <b>themeColour</b>.</p>
-<p class="note">If <b>themeColour</b> is between 0 to 8 inclusive, this returns an actual colour. Otherwise it gives fully transparent black.</p>
+<p class="note">If <b>themeColour</b> is in range, this returns an actual colour. Otherwise it gives fully transparent black.</p>
 <div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
 <p class="description"></p>
 

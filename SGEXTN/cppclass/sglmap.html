@@ -298,27 +298,27 @@ window.addEventListener("hashchange", highlightSection);
 <h2 class="header" id="nodiscard_V_ref_at_const_K_ref_">[[nodiscard]] V& <a class="link" href="#nodiscard_V_ref_at_const_K_ref_">at</a>(const K& x);</h2>
 <p class="description">Returns a reference to the value associated with key <b>x</b> in the <a class="link" href="../cppclass/sglmap">SGLMap</a>.</p>
 <p class="note">Since this returns a reference and not a copy, assigning to it directly (using it as a lvalue) would modify the <a class="link" href="../cppclass/sglmap">SGLMap</a>.</p>
-<p class="warning">This crashes if <b>x</b> is not in the <a class="link" href="../cppclass/sglmap">SGLMap</a>. Use <a class="link" href="../cppclass/sglmap#nodiscard_bool_contains_const_K_ref_const_">SGLMap::contains</a> to check if <b>x</b> is in the <a class="link" href="../cppclass/sglmap">SGLMap</a> if unsure.</p>
+<p class="warning">This will crash if <b>x</b> is not in the <a class="link" href="../cppclass/sglmap">SGLMap</a>. Use <a class="link" href="../cppclass/sglmap#nodiscard_bool_contains_const_K_ref_const_">SGLMap::contains</a> to check if <b>x</b> is in the <a class="link" href="../cppclass/sglmap">SGLMap</a> if unsure.</p>
 <div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
 <h2 class="header" id="nodiscard_const_V_ref_at_const_K_ref_const_">[[nodiscard]] const V& <a class="link" href="#nodiscard_const_V_ref_at_const_K_ref_const_">at</a>(const K& x) const;</h2>
 <p class="description">Returns a constant reference to the value associated with key <b>x</b> in the <a class="link" href="../cppclass/sglmap">SGLMap</a>.</p>
-<p class="warning">This crashes if <b>x</b> is not in the <a class="link" href="../cppclass/sglmap">SGLMap</a>. Use <a class="link" href="../cppclass/sglmap#nodiscard_bool_contains_const_K_ref_const_">SGLMap::contains</a> to check if <b>x</b> is in the <a class="link" href="../cppclass/sglmap">SGLMap</a> if unsure.</p>
+<p class="warning">This will crash if <b>x</b> is not in the <a class="link" href="../cppclass/sglmap">SGLMap</a>. Use <a class="link" href="../cppclass/sglmap#nodiscard_bool_contains_const_K_ref_const_">SGLMap::contains</a> to check if <b>x</b> is in the <a class="link" href="../cppclass/sglmap">SGLMap</a> if unsure.</p>
 <div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
 <h2 class="header" id="nodiscard_SGLMap_mc_Iterator_begin_func_">[[nodiscard]] <a class="link" href="sglmap__iterator">SGLMap::Iterator</a> <a class="link" href="#nodiscard_SGLMap_mc_Iterator_begin_func_">begin</a>();</h2>
 <p class="description">Returns a iterator to the first key value pair in the <a class="link" href="../cppclass/sglmap">SGLMap</a>.</p>
 <p class="note"><a class="link" href="../cppclass/sglmap">SGLMap</a> iterators behave circularly. This is equivalent to running operator++ on <a class="link" href="../cppclass/sglmap#nodiscard_SGLMap_mc_Iterator_end_func_">SGLMap::end</a>.</p>
 <p class="note"><a class="link" href="../cppclass/sglmap__iterator">SGLMap::Iterator</a> allows modifying the <a class="link" href="../cppclass/sglmap">SGLMap</a> through it. If modification is not needed, use <a class="link" href="../cppclass/sglmap__constiterator">SGLMap::ConstIterator</a> instead. The <a class="link" href="../cppclass/sglmap__constiterator">SGLMap::ConstIterator</a> equivalent to this function is <a class="link" href="../cppclass/sglmap#nodiscard_SGLMap_mc_ConstIterator_constBegin_func_const_">SGLMap::constBegin</a>.</p>
-<p class="warning">If the <a class="link" href="../cppclass/sglmap">SGLMap</a> is empty, this is the same as <a class="link" href="../cppclass/sglmap#nodiscard_SGLMap_mc_Iterator_end_func_">SGLMap::end</a>.</p>
+<p class="note">If the <a class="link" href="../cppclass/sglmap">SGLMap</a> is empty, this is the same as <a class="link" href="../cppclass/sglmap#nodiscard_SGLMap_mc_Iterator_end_func_">SGLMap::end</a>.</p>
 <div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
 <h2 class="header" id="nodiscard_SGLMap_mc_ConstIterator_constBegin_func_const_">[[nodiscard]] <a class="link" href="sglmap__constiterator">SGLMap::ConstIterator</a> <a class="link" href="#nodiscard_SGLMap_mc_ConstIterator_constBegin_func_const_">constBegin</a>() const;</h2>
 <p class="description">Returns a constant iterator to the first key value pair in the <a class="link" href="../cppclass/sglmap">SGLMap</a>.</p>
 <p class="note"><a class="link" href="../cppclass/sglmap">SGLMap</a> iterators behave circularly. This is equivalent to running operator++ on <a class="link" href="../cppclass/sglmap#nodiscard_SGLMap_mc_ConstIterator_constEnd_func_const_">SGLMap::constEnd</a>.</p>
-<p class="warning">If the <a class="link" href="../cppclass/sglmap">SGLMap</a> is empty, this is the same as <a class="link" href="../cppclass/sglmap#nodiscard_SGLMap_mc_ConstIterator_constEnd_func_const_">SGLMap::constEnd</a>.</p>
+<p class="note">If the <a class="link" href="../cppclass/sglmap">SGLMap</a> is empty, this is the same as <a class="link" href="../cppclass/sglmap#nodiscard_SGLMap_mc_ConstIterator_constEnd_func_const_">SGLMap::constEnd</a>.</p>
 <div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
 <h2 class="header" id="nodiscard_SGLMap_mc_ConstIterator_constEnd_func_const_">[[nodiscard]] <a class="link" href="sglmap__constiterator">SGLMap::ConstIterator</a> <a class="link" href="#nodiscard_SGLMap_mc_ConstIterator_constEnd_func_const_">constEnd</a>() const;</h2>
 <p class="description">Returns a null constant iterator associated to this <a class="link" href="../cppclass/sglmap">SGLMap</a>.</p>
 <p class="note"><a class="link" href="../cppclass/sglmap">SGLMap</a> iterators behave circularly. This is equivalent to running operator-- on <a class="link" href="../cppclass/sglmap#nodiscard_SGLMap_mc_ConstIterator_constBegin_func_const_">SGLMap::constBegin</a>.</p>
-<p class="warning">Attempting to access the key or value that this iterator points to is <a class="link" href="../tutorials/undefinedbehaviour">undefined behaviour</a>.</p>
+<p class="warning">Attempting to access the key or value that this iterator points to will crash.</p>
 <div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
 <h2 class="header" id="nodiscard_SGLMap_mc_ConstIterator_constIteratorAt_int_const_">[[nodiscard]] <a class="link" href="sglmap__constiterator">SGLMap::ConstIterator</a> <a class="link" href="#nodiscard_SGLMap_mc_ConstIterator_constIteratorAt_int_const_">constIteratorAt</a>(int n) const;</h2>
 <p class="description">Returns the constant iterator pointing towards the key value pair, the key of which is at index <b>n</b> in the <a class="link" href="../cppclass/sglmap">SGLMap</a>.</p>
@@ -335,7 +335,7 @@ window.addEventListener("hashchange", highlightSection);
 <p class="description">Returns a null iterator associated to this <a class="link" href="../cppclass/sglmap">SGLMap</a>.</p>
 <p class="note"><a class="link" href="../cppclass/sglmap">SGLMap</a> iterators behave circularly. This is equivalent to running operator-- on <a class="link" href="../cppclass/sglmap#nodiscard_SGLMap_mc_Iterator_begin_func_">SGLMap::begin</a>.</p>
 <p class="note"><a class="link" href="../cppclass/sglmap__iterator">SGLMap::Iterator</a> allows modifying the <a class="link" href="../cppclass/sglmap">SGLMap</a> through it. If modification is not needed, use <a class="link" href="../cppclass/sglmap__constiterator">SGLMap::ConstIterator</a> instead. The <a class="link" href="../cppclass/sglmap__constiterator">SGLMap::ConstIterator</a> equivalent to this function is <a class="link" href="../cppclass/sglmap#nodiscard_SGLMap_mc_ConstIterator_constEnd_func_const_">SGLMap::constEnd</a>.</p>
-<p class="warning">Attempting to access the key or value that this iterator points to is <a class="link" href="../tutorials/undefinedbehaviour">undefined behaviour</a>.</p>
+<p class="warning">Attempting to access the key or value that this iterator points to will crash.</p>
 <div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
 <h2 class="header" id="bool_erase_const_K_ref_">bool <a class="link" href="#bool_erase_const_K_ref_">erase</a>(const K& x);</h2>
 <p class="description">Removes the key <b>x</b> and its associated value from the <a class="link" href="../cppclass/sglmap">SGLMap</a>.</p>
@@ -381,7 +381,7 @@ window.addEventListener("hashchange", highlightSection);
 <div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
 <h2 class="header" id="nodiscard_const_K_ref_keyAt_int_const_">[[nodiscard]] const K& <a class="link" href="#nodiscard_const_K_ref_keyAt_int_const_">keyAt</a>(int n) const;</h2>
 <p class="description">Returns the key at index <b>n</b> in the <a class="link" href="../cppclass/sglmap">SGLMap</a>.</p>
-<p class="warning">If <b>n</b> is out of bounds, this is <a class="link" href="../tutorials/undefinedbehaviour">undefined behaviour</a>.</p>
+<p class="warning">If <b>n</b> is out of bounds, this will crash.</p>
 <div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
 <h2 class="header" id="nodiscard_int_length_func_const_">[[nodiscard]] int <a class="link" href="#nodiscard_int_length_func_const_">length</a>() const;</h2>
 <p class="description">Returns the length of the <a class="link" href="../cppclass/sglmap">SGLMap</a>, which is the number of elements currently stored inside it.</p>
@@ -405,7 +405,7 @@ window.addEventListener("hashchange", highlightSection);
 <h2 class="header" id="nodiscard_V_ref_valueAt_int_">[[nodiscard]] V& <a class="link" href="#nodiscard_V_ref_valueAt_int_">valueAt</a>(int n);</h2>
 <p class="description">Returns the value associated with the key at index <b>n</b> in the <a class="link" href="../cppclass/sglmap">SGLMap</a>.</p>
 <p class="note">The value is returned as a reference and not a copy. Assigning to it (using it as a lvalue) modifies the <a class="link" href="../cppclass/sglmap">SGLMap</a>.</p>
-<p class="warning">If <b>n</b> is out of bounds, this is <a class="link" href="../tutorials/undefinedbehaviour">undefined behaviour</a>.</p>
+<p class="warning">If <b>n</b> is out of bounds, this will crash.</p>
 <div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
 <p class="description"></p>
 

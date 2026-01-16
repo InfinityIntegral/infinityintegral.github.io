@@ -282,7 +282,7 @@ window.addEventListener("hashchange", highlightSection);
 <p class="description">Removes the most in front element of the <a class="link" href="../cppclass/sglpriorityqueue">SGLPriorityQueue</a>.</p>
 <p class="note">This function has truly logarithmic time complexity.</p>
 <p class="note">This function does not return the first element before removing it. To access the element being removed, use <a class="link" href="../cppclass/sglpriorityqueue#nodiscard_const_T_ref_top_func_const_">SGLPriorityQueue::top</a> before removal.</p>
-<p class="warning">Removing from an empty <a class="link" href="../cppclass/sglpriorityqueue">SGLPriorityQueue</a> is <a class="link" href="../tutorials/undefinedbehaviour">undefined behaviour</a>.</p>
+<p class="warning">Removing from an empty <a class="link" href="../cppclass/sglpriorityqueue">SGLPriorityQueue</a> will crash.</p>
 <div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
 <h2 class="header" id="void_push_const_T_ref_">void <a class="link" href="#void_push_const_T_ref_">push</a>(const T& x);</h2>
 <p class="description">Inserts <b>x</b> into the <a class="link" href="../cppclass/sglpriorityqueue">SGLPriorityQueue</a>.</p>
@@ -294,7 +294,7 @@ window.addEventListener("hashchange", highlightSection);
 <div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
 <h2 class="header" id="nodiscard_const_T_ref_top_func_const_">[[nodiscard]] const T& <a class="link" href="#nodiscard_const_T_ref_top_func_const_">top</a>() const;</h2>
 <p class="description">Returns the first element of the <a class="link" href="../cppclass/sglpriorityqueue">SGLPriorityQueue</a>.</p>
-<p class="warning">Using this when the priority queue is empty results in <a class="link" href="../tutorials/undefinedbehaviour">undefined behaviour</a>.</p>
+<p class="warning">Using this when the priority queue is empty will crash.</p>
 <div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
 <p class="description"></p>
 

@@ -259,6 +259,7 @@ window.addEventListener("hashchange", highlightSection);
 <p class="description">children classes: <a class="link" href="sgrrendererwidget">SGRRendererWidget</a>, <a class="link" href="sgwbackground">SGWBackground</a>, <a class="link" href="sgwblankwidget">SGWBlankWidget</a>, <a class="link" href="sgwbutton">SGWButton</a>, <a class="link" href="sgwcolourpickerwidget">SGWColourPickerWidget</a>, <a class="link" href="sgwinput">SGWInput</a>, <a class="link" href="sgwlabel">SGWLabel</a>, <a class="link" href="sgwmultitouchreceiver">SGWMultiTouchReceiver</a>, <a class="link" href="sgwsingletouchreceiver">SGWSingleTouchReceiver</a></p>
 <div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
 <h2 class="header" id="">instance member functions</h2>
+<p class="description">&#9;void <a class="link" href="#void_deleteWidget_func_">deleteWidget</a>();</p>
 <p class="description">&#9;[[nodiscard]] <a class="link" href="sglarray">SGLArray</a>‹<a class="link" href="sgwwidget">SGWWidget</a>*› <a class="link" href="#nodiscard_SGLArray_lt_SGWWidget_ptr_gt_getChildren_func_const_">getChildren</a>() const;</p>
 <p class="description">&#9;[[nodiscard]] float <a class="link" href="#nodiscard_float_getH0_func_const_">getH0</a>() const;</p>
 <p class="description">&#9;[[nodiscard]] float <a class="link" href="#nodiscard_float_getH1_func_const_">getH1</a>() const;</p>
@@ -291,6 +292,10 @@ window.addEventListener("hashchange", highlightSection);
 <div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
 <h2 class="header" id="sg_implementationdetails">Implementation Details</h2>
 <p class="description">Stores information about the <a class="link" href="../cppclass/sgwwidget">SGWWidget</a></p>
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<h2 class="header" id="void_deleteWidget_func_">void <a class="link" href="#void_deleteWidget_func_">deleteWidget</a>();</h2>
+<p class="description">Deletes a <a class="link" href="../cppclass/sgwwidget">SGWWidget</a> safely.</p>
+<p class="warning">To avoid use after delete bugs, deleting a <a class="link" href="../cppclass/sgwwidget">SGWWidget</a> directly will cause a crash.</p>
 <div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
 <h2 class="header" id="nodiscard_SGLArray_lt_SGWWidget_ptr_gt_getChildren_func_const_">[[nodiscard]] <a class="link" href="sglarray">SGLArray</a>‹<a class="link" href="sgwwidget">SGWWidget</a>*› <a class="link" href="#nodiscard_SGLArray_lt_SGWWidget_ptr_gt_getChildren_func_const_">getChildren</a>() const;</h2>
 <p class="description">Returns the children of this <a class="link" href="../cppclass/sgwwidget">SGWWidget</a> as a <a class="link" href="../cppclass/sglarray">SGLArray</a> of <a class="link" href="../cppclass/sgwwidget">SGWWidget</a>.</p>
@@ -331,7 +336,7 @@ window.addEventListener("hashchange", highlightSection);
 <div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
 <h2 class="header" id="void_screenshot_void_ptr_SGRImage_ptr_const_">void <a class="link" href="#void_screenshot_void_ptr_SGRImage_ptr_const_">screenshot</a>(void (*callback)(<a class="link" href="sgrimage">SGRImage</a>*)) const;</h2>
 <p class="description">Requests a screenshot of the current <a class="link" href="../cppclass/sgwwidget">SGWWidget</a> and all of its children. <b>callback</b> which is a <a class="link" href="../tutorials/callback">callback function ⁽㈳㈴㈳㈮㈱㈨㈠㈫ ㈧㈤㈱㈤⁾</a> will be called with the <a class="link" href="../cppclass/sgrimage">SGRImage</a> produced as argument when the screenshot is taken.</p>
-<p class="warning"><b>callback</b> being nullptr is <a class="link" href="../tutorials/undefinedbehaviour">undefined behaviour</a>.</p>
+<p class="warning"><b>callback</b> being nullptr will crash.</p>
 <div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
 <h2 class="header" id="void_setH0_float_">void <a class="link" href="#void_setH0_float_">setH0</a>(float h0);</h2>
 <p class="description">Sets the 0 coordinate of the <a class="link" href="../tutorials/wdistance">w-distance ⁽㈳㈴㈳㈮㈱㈨㈠㈫ ㈧㈤㈱㈤⁾</a> controlling the height of this <a class="link" href="../cppclass/sgwwidget">SGWWidget</a> to <b>h0</b>.</p>

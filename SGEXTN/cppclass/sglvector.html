@@ -282,12 +282,12 @@ window.addEventListener("hashchange", highlightSection);
 <div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
 <h2 class="header" id="SGLVector_int_const_T_ref_"><a class="link" href="#SGLVector_int_const_T_ref_">SGLVector</a>(int count, const T& defaultValue);</h2>
 <p class="description">Creates a <a class="link" href="../cppclass/sglvector">SGLVector</a> of size <b>count</b> with every element set to <b>defaultValue</b>.</p>
-<p class="warning">Negative <b>count</b> is <a class="link" href="../tutorials/undefinedbehaviour">undefined behaviour</a>.</p>
+<p class="warning">Negative <b>count</b> will crash.</p>
 <div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
 <h2 class="header" id="SGLVector_int_"><a class="link" href="#SGLVector_int_">SGLVector</a>(int count);</h2>
 <p class="description">Creates a <a class="link" href="../cppclass/sglvector">SGLVector</a> of size <b>count</b> with every element default initialised.</p>
 <p class="warning">This will not compile if the data in the <a class="link" href="../cppclass/sglvector">SGLVector</a> do not have a default constructor (the one taking no arguments).</p>
-<p class="warning">Negative <b>count</b> is <a class="link" href="../tutorials/undefinedbehaviour">undefined behaviour</a>.</p>
+<p class="warning">Negative <b>count</b> will crash.</p>
 <div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
 <h2 class="header" id="SGLVector_func_"><a class="link" href="#SGLVector_func_">SGLVector</a>();</h2>
 <p class="description">Creates an empty <a class="link" href="../cppclass/sglvector">SGLVector</a>.</p>
@@ -295,22 +295,22 @@ window.addEventListener("hashchange", highlightSection);
 <h2 class="header" id="void_assign_int_const_T_ref_">void <a class="link" href="#void_assign_int_const_T_ref_">assign</a>(int count, const T& defaultValue);</h2>
 <p class="description">Assigns a <a class="link" href="../cppclass/sglvector">SGLVector</a>(<b>count</b>, <b>defaultValue</b>) to this <a class="link" href="../cppclass/sglvector">SGLVector</a>.</p>
 <p class="note">v.assign(<b>count</b>, <b>defaultValue</b>); is identical in functionality to v = <a class="link" href="../cppclass/sglvector">SGLVector</a>‹T›(<b>count</b>, <b>defaultValue</b>); Choosing one over the other is purely coding style.</p>
-<p class="warning">Negative <b>count</b> is <a class="link" href="../tutorials/undefinedbehaviour">undefined behaviour</a>.</p>
+<p class="warning">Negative <b>count</b> will crash.</p>
 <div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
 <h2 class="header" id="nodiscard_const_T_ref_at_int_const_">[[nodiscard]] const T& <a class="link" href="#nodiscard_const_T_ref_at_int_const_">at</a>(int i) const;</h2>
 <p class="description">Returns a constant reference to element <b>i</b> of the <a class="link" href="../cppclass/sglvector">SGLVector</a>.</p>
-<p class="warning">This crashes for out of bounds <b>i</b>.</p>
+<p class="warning">This will crash for out of bounds <b>i</b>.</p>
 <div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
 <h2 class="header" id="nodiscard_T_ref_at_int_">[[nodiscard]] T& <a class="link" href="#nodiscard_T_ref_at_int_">at</a>(int i);</h2>
 <p class="description">Returns a reference to element <b>i</b> of the <a class="link" href="../cppclass/sglvector">SGLVector</a>.</p>
 <p class="note">Since this returns a reference and not a copy, assigning to it directly (using it as a lvalue) would modify the <a class="link" href="../cppclass/sglvector">SGLVector</a>.</p>
-<p class="warning">This crashes for out of bounds <b>i</b>.</p>
+<p class="warning">This will crash for out of bounds <b>i</b>.</p>
 <div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
 <h2 class="header" id="nodiscard_const_T_ref_back_func_const_">[[nodiscard]] const T& <a class="link" href="#nodiscard_const_T_ref_back_func_const_">back</a>() const;</h2>
 <p class="description">Returns a constant reference to the last element of the <a class="link" href="../cppclass/sglvector">SGLVector</a>.</p>
 <p class="note">v.back() has the same effect as v.at(v.length() - 1)</p>
 <p class="note">Use <a class="link" href="../cppclass/sglvector#nodiscard_const_T_ref_at_int_const_">SGLVector::at</a><a class="link" href="../cppclass/sglvector#nodiscard_T_ref_at_int_">SGLVector::at</a> if the element needs to be modified.</p>
-<p class="warning">This crashes if the <a class="link" href="../cppclass/sglvector">SGLVector</a> is empty.</p>
+<p class="warning">This will crash if the <a class="link" href="../cppclass/sglvector">SGLVector</a> is empty.</p>
 <div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
 <h2 class="header" id="void_fill_const_T_ref_">void <a class="link" href="#void_fill_const_T_ref_">fill</a>(const T& defaultValue);</h2>
 <p class="description">Sets every element in the existing <a class="link" href="../cppclass/sglvector">SGLVector</a> to <b>defaultValue</b> without resizing the <a class="link" href="../cppclass/sglvector">SGLVector</a>.</p>
@@ -336,7 +336,7 @@ window.addEventListener("hashchange", highlightSection);
 <p class="description">Removes the last element of the <a class="link" href="../cppclass/sglvector">SGLVector</a>.</p>
 <p class="note">This does not return the removed element. Use <a class="link" href="../cppclass/sglvector#nodiscard_const_T_ref_back_func_const_">SGLVector::back</a> before removal to access the element.</p>
 <p class="note">This runs at true constant time complexity.</p>
-<p class="warning">Removing from empty <a class="link" href="../cppclass/sglvector">SGLVector</a> is <a class="link" href="../tutorials/undefinedbehaviour">undefined behaviour</a>.</p>
+<p class="warning">Removing from empty <a class="link" href="../cppclass/sglvector">SGLVector</a> will crash.</p>
 <div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
 <h2 class="header" id="void_pushBack_const_T_ref_">void <a class="link" href="#void_pushBack_const_T_ref_">pushBack</a>(const T& x);</h2>
 <p class="description">Appends <b>x</b> to the <a class="link" href="../cppclass/sglvector">SGLVector</a>.</p>

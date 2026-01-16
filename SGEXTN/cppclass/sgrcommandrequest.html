@@ -273,10 +273,12 @@ window.addEventListener("hashchange", highlightSection);
 <h2 class="header" id="void_addVertexBufferObject_SGRVertexBufferObject_ptr_int_const_">void <a class="link" href="#void_addVertexBufferObject_SGRVertexBufferObject_ptr_int_const_">addVertexBufferObject</a>(<a class="link" href="sgrvertexbufferobject">SGRVertexBufferObject</a> *vbo, int bufferOffsetInBytes) const;</h2>
 <p class="description">Adds the vertex buffer object <b>vbo</b> starting at <b>bufferOffsetInBytes</b> bytes into the buffer. Data before the <b>bufferOffsetInBytes</b> is ignored. Vertex buffer objects are added sequentially, so the first added vertex buffer object will have a binding point of 0, the second added vertex buffer object will have a binding point of 1, etc.</p>
 <p class="note"><a class="link" href="../tutorials/renderer">SG - RI ⁽㈳㈴㈳㈮㈱㈨㈠㈫ ㈧㈤㈱㈤⁾</a> permits binding multiple vertex buffer objects.</p>
+<p class="warning">Out of bounds offset will cause a crash.</p>
 <div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
 <h2 class="header" id="void_chooseElementBufferObject_SGRElementBufferObject_ptr_">void <a class="link" href="#void_chooseElementBufferObject_SGRElementBufferObject_ptr_">chooseElementBufferObject</a>(<a class="link" href="sgrelementbufferobject">SGRElementBufferObject</a>* ebo);</h2>
 <p class="description">Selects <b>ebo</b> to be used for the next draw command. If you want to only use the element buffer object starting at a certain index, set that in <a class="link" href="../cppclass/sgrcommandrequest#void_drawTriangles_int_int_const_">SGRCommandRequest::drawTriangles</a>.</p>
 <p class="note"><a class="link" href="../tutorials/renderer">SG - RI ⁽㈳㈴㈳㈮㈱㈨㈠㈫ ㈧㈤㈱㈤⁾</a> forces you to use a element buffer object even if it is not really needed.</p>
+<p class="note">Specify the offset into the element buffer object inside <a class="link" href="../cppclass/sgrcommandrequest#void_drawTriangles_int_int_const_">SGRCommandRequest::drawTriangles</a>.</p>
 <div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
 <h2 class="header" id="void_drawTriangles_int_int_const_">void <a class="link" href="#void_drawTriangles_int_int_const_">drawTriangles</a>(int numberOfTriangles, int startLocation) const;</h2>
 <p class="description">Draws <b>numberOfTriangles</b> triangles using indices found in the chosen element buffer object starting at <b>startLocation</b> bytes into the buffer.</p>
@@ -284,7 +286,8 @@ window.addEventListener("hashchange", highlightSection);
 <p class="warning">This will crash if <a class="link" href="../cppclass/sgrcommandrequest#void_finaliseForDraw_func_">SGRCommandRequest::finaliseForDraw</a> has not yet been called.</p>
 <div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
 <h2 class="header" id="void_finaliseForDraw_func_">void <a class="link" href="#void_finaliseForDraw_func_">finaliseForDraw</a>();</h2>
-<p class="description">Prepares the vertex buffer objects added using <a class="link" href="../cppclass/sgrcommandrequest#void_addVertexBufferObject_SGRVertexBufferObject_ptr_int_const_">SGRCommandRequest::addVertexBufferObject</a> amd the element buffer object selected using <a class="link" href="../cppclass/sgrcommandrequest#void_chooseElementBufferObject_SGRElementBufferObject_ptr_">SGRCommandRequest::chooseElementBufferObject</a> for drawing.</p>
+<p class="description">Prepares the vertex buffer objects added using <a class="link" href="../cppclass/sgrcommandrequest#void_addVertexBufferObject_SGRVertexBufferObject_ptr_int_const_">SGRCommandRequest::addVertexBufferObject</a> and the element buffer object selected using <a class="link" href="../cppclass/sgrcommandrequest#void_chooseElementBufferObject_SGRElementBufferObject_ptr_">SGRCommandRequest::chooseElementBufferObject</a> for drawing.</p>
+<p class="warning">Forgetting to bind vertex buffer objects and a element buffer object will crash.</p>
 <p class="warning">Adding more vertex buffer objects or changing the element buffer object after this is called is <a class="link" href="../tutorials/undefinedbehaviour">undefined behaviour</a>.</p>
 <div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
 <p class="description"></p>

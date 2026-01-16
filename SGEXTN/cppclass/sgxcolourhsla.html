@@ -267,6 +267,7 @@ window.addEventListener("hashchange", highlightSection);
 <h2 class="header" id="">instance member functions</h2>
 <p class="description">&#9;<a class="link" href="#SGXColourHSLA_SGXColourRGBA_">SGXColourHSLA</a>(<a class="link" href="sgxcolourrgba">SGXColourRGBA</a> x);</p>
 <p class="description">&#9;<a class="link" href="#SGXColourHSLA_float_float_float_float_">SGXColourHSLA</a>(float h, float s, float l, float a);</p>
+<p class="description">&#9;[[nodiscard]] <a class="link" href="sgxcolourrgba">SGXColourRGBA</a> <a class="link" href="#nodiscard_SGXColourRGBA_getColourWithContrast_float_const_">getColourWithContrast</a>(float c) const;</p>
 <p class="description">&#9;[[nodiscard]] int <a class="link" href="#nodiscard_int_hash_func_const_">hash</a>() const;</p>
 <p class="description">&#9;<a class="link" href="sgxcolourhsla">SGXColourHSLA</a>& <a class="link" href="#SGXColourHSLA_ref_invertHue_func_">invertHue</a>();</p>
 <p class="description">&#9;<a class="link" href="sgxcolourhsla">SGXColourHSLA</a>& <a class="link" href="#SGXColourHSLA_ref_invertLightness_func_">invertLightness</a>();</p>
@@ -313,6 +314,9 @@ window.addEventListener("hashchange", highlightSection);
 <h2 class="header" id="SGXColourHSLA_float_float_float_float_"><a class="link" href="#SGXColourHSLA_float_float_float_float_">SGXColourHSLA</a>(float h, float s, float l, float a);</h2>
 <p class="description">Creates a <a class="link" href="../cppclass/sgxcolourhsla">SGXColourHSLA</a> with hue <b>h</b>, saturation <b>s</b>, lightness <b>l</b>, and transparency <b>a</b>.</p>
 <p class="note">If any argument is out of bounds, the constructor corrects it automatically.</p>
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<h2 class="header" id="nodiscard_SGXColourRGBA_getColourWithContrast_float_const_">[[nodiscard]] <a class="link" href="sgxcolourrgba">SGXColourRGBA</a> <a class="link" href="#nodiscard_SGXColourRGBA_getColourWithContrast_float_const_">getColourWithContrast</a>(float c) const;</h2>
+<p class="description">Returns a <a class="link" href="../cppclass/sgxcolourrgba">SGXColourRGBA</a> with the same hue and saturation as this <a class="link" href="../cppclass/sgxcolourhsla">SGXColourHSLA</a> and its <a class="link" href="../cppclass/sgxcolourrgba#nodiscard_float_relativeContrast_func_const_">SGXColourRGBA::relativeContrast</a> being <b>c</b>.</p>
 <div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
 <h2 class="header" id="nodiscard_int_hash_func_const_">[[nodiscard]] int <a class="link" href="#nodiscard_int_hash_func_const_">hash</a>() const;</h2>
 <p class="description">Hash function defined for <a class="link" href="../cppclass/sgllesserthan">SGLLesserThan</a> and <a class="link" href="../cppclass/sglmorethan">SGLMoreThan</a>.</p>

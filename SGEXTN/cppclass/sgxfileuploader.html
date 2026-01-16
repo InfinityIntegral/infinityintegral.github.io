@@ -271,7 +271,7 @@ window.addEventListener("hashchange", highlightSection);
 <p class="description">Offers the user to upload a file. After the file is uploaded, the <a class="link" href="../tutorials/callback">callback function ⁽㈳㈴㈳㈮㈱㈨㈠㈫ ㈧㈤㈱㈤⁾</a> <b>attachedFunction</b> will be called with the argument being the file path.</p>
 <p class="note">If no file is chosen, the argument used to call <b>attachedFunction</b> will be an empty string. This must be handled appropriately.</p>
 <p class="note">The path is guaranteed to be in the application folder, the uploaded file is first copied into the application folder before <b>attachedFunction</b> is called. You should move the file to the correct location in <b>attachedFunction</b>.</p>
-<p class="warning"><b>attachedFunction</b> being nullptr is <a class="link" href="../tutorials/undefinedbehaviour">undefined behaviour</a>.</p>
+<p class="warning"><b>attachedFunction</b> being nullptr will crash.</p>
 <div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
 <p class="description"></p>
 

@@ -282,7 +282,7 @@ window.addEventListener("hashchange", highlightSection);
 <p class="description">Removes the top element of the <a class="link" href="../cppclass/sglstack">SGLStack</a>.</p>
 <p class="note">This does not return the removed element. To access the removed element, use <a class="link" href="../cppclass/sglstack#nodiscard_const_T_ref_top_func_const_">SGLStack::top</a> before removal.</p>
 <p class="note">This runs in truly constant time complexity.</p>
-<p class="warning">Removing from an empty <a class="link" href="../cppclass/sglstack">SGLStack</a> is <a class="link" href="../tutorials/undefinedbehaviour">undefined behaviour</a>.</p>
+<p class="warning">Removing from an empty <a class="link" href="../cppclass/sglstack">SGLStack</a> will crash.</p>
 <div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
 <h2 class="header" id="void_push_const_T_ref_">void <a class="link" href="#void_push_const_T_ref_">push</a>(const T& x);</h2>
 <p class="description">Appends <b>x</b> to the top of the <a class="link" href="../cppclass/sglstack">SGLStack</a>.</p>
@@ -294,7 +294,7 @@ window.addEventListener("hashchange", highlightSection);
 <div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
 <h2 class="header" id="nodiscard_const_T_ref_top_func_const_">[[nodiscard]] const T& <a class="link" href="#nodiscard_const_T_ref_top_func_const_">top</a>() const;</h2>
 <p class="description">Returns the topmost element of the <a class="link" href="../cppclass/sglstack">SGLStack</a>.</p>
-<p class="warning">Using this when the <a class="link" href="../cppclass/sglstack">SGLStack</a> is empty results in <a class="link" href="../tutorials/undefinedbehaviour">undefined behaviour</a>.</p>
+<p class="warning">Using this when the <a class="link" href="../cppclass/sglstack">SGLStack</a> is empty will crash.</p>
 <div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
 <p class="description"></p>
 

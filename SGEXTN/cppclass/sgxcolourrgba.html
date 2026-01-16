@@ -299,6 +299,7 @@ window.addEventListener("hashchange", highlightSection);
 <p class="description">&#9;[[nodiscard]] bool <a class="link" href="#nodiscard_bool_operator_lt_SGXColourRGBA_const_">operator‹</a>(<a class="link" href="sgxcolourrgba">SGXColourRGBA</a> x) const;</p>
 <p class="description">&#9;[[nodiscard]] bool <a class="link" href="#nodiscard_bool_operator_eq_SGXColourRGBA_const_">operator==</a>(<a class="link" href="sgxcolourrgba">SGXColourRGBA</a> x) const;</p>
 <p class="description">&#9;[[nodiscard]] bool <a class="link" href="#nodiscard_bool_operator_gt_SGXColourRGBA_const_">operator›</a>(<a class="link" href="sgxcolourrgba">SGXColourRGBA</a> x) const;</p>
+<p class="description">&#9;[[nodiscard]] float <a class="link" href="#nodiscard_float_relativeContrast_func_const_">relativeContrast</a>() const;</p>
 <p class="description">&#9;<a class="link" href="sgxcolourrgba">SGXColourRGBA</a>& <a class="link" href="#SGXColourRGBA_ref_setBlue_int_">setBlue</a>(int b);</p>
 <p class="description">&#9;<a class="link" href="sgxcolourrgba">SGXColourRGBA</a>& <a class="link" href="#SGXColourRGBA_ref_setBlueUsingFloat_float_">setBlueUsingFloat</a>(float b);</p>
 <p class="description">&#9;<a class="link" href="sgxcolourrgba">SGXColourRGBA</a>& <a class="link" href="#SGXColourRGBA_ref_setGreen_int_">setGreen</a>(int g);</p>
@@ -345,22 +346,22 @@ window.addEventListener("hashchange", highlightSection);
 <div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
 <h2 class="header" id="SGXColourRGBA_ref_applyTintNoGammaCorrectionSeparateTransparency_SGXColourRGBA_int_"><a class="link" href="sgxcolourrgba">SGXColourRGBA</a>& <a class="link" href="#SGXColourRGBA_ref_applyTintNoGammaCorrectionSeparateTransparency_SGXColourRGBA_int_">applyTintNoGammaCorrectionSeparateTransparency</a>(<a class="link" href="sgxcolourrgba">SGXColourRGBA</a> x, int a);</h2>
 <p class="description">Sets this <a class="link" href="../cppclass/sgxcolourrgba">SGXColourRGBA</a> to the resulting colour if this <a class="link" href="../cppclass/sgxcolourrgba">SGXColourRGBA</a> is viewed behind a screen with colour c, where c has equal RGB channels as <b>x</b> but a transparency of <b>a</b> between 0 and 255 inclusive and returns a reference to this <a class="link" href="../cppclass/sgxcolourrgba">SGXColourRGBA</a> to allow operation chaining.</p>
-<p class="note">The computation proceeds anyways if <b>a</b> is out of bounds, this is NOT <a class="link" href="../tutorials/undefinedbehaviour">undefined behaviour</a>. This can be useful for effects that remove a certain colour.</p>
+<p class="note">The computation proceeds anyways if <b>a</b> is out of bounds. This can be useful for effects that remove a certain colour.</p>
 <p class="note">This does not change the transparency of this <a class="link" href="../cppclass/sgxcolourrgba">SGXColourRGBA</a>.</p>
 <div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
 <h2 class="header" id="SGXColourRGBA_ref_applyTintNoGammaCorrectionSeparateTransparencyUsingFloat_SGXColourRGBA_float_"><a class="link" href="sgxcolourrgba">SGXColourRGBA</a>& <a class="link" href="#SGXColourRGBA_ref_applyTintNoGammaCorrectionSeparateTransparencyUsingFloat_SGXColourRGBA_float_">applyTintNoGammaCorrectionSeparateTransparencyUsingFloat</a>(<a class="link" href="sgxcolourrgba">SGXColourRGBA</a> x, float a);</h2>
 <p class="description">Sets this <a class="link" href="../cppclass/sgxcolourrgba">SGXColourRGBA</a> to the resulting colour if this <a class="link" href="../cppclass/sgxcolourrgba">SGXColourRGBA</a> is viewed behind a screen with colour c, where c has equal RGB channels as <b>x</b> but a transparency of <b>a</b> between 0 and 1 inclusive and returns a reference to this <a class="link" href="../cppclass/sgxcolourrgba">SGXColourRGBA</a> to allow operation chaining.</p>
-<p class="note">The computation proceeds anyways if <b>a</b> is out of bounds, this is NOT <a class="link" href="../tutorials/undefinedbehaviour">undefined behaviour</a>. This can be useful for effects that remove a certain colour.</p>
+<p class="note">The computation proceeds anyways if <b>a</b> is out of bounds. This can be useful for effects that remove a certain colour.</p>
 <p class="note">This does not change the transparency of this <a class="link" href="../cppclass/sgxcolourrgba">SGXColourRGBA</a>.</p>
 <div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
 <h2 class="header" id="SGXColourRGBA_ref_applyTintSeparateTransparency_SGXColourRGBA_int_"><a class="link" href="sgxcolourrgba">SGXColourRGBA</a>& <a class="link" href="#SGXColourRGBA_ref_applyTintSeparateTransparency_SGXColourRGBA_int_">applyTintSeparateTransparency</a>(<a class="link" href="sgxcolourrgba">SGXColourRGBA</a> x, int a);</h2>
 <p class="description">Sets this <a class="link" href="../cppclass/sgxcolourrgba">SGXColourRGBA</a> to the resulting colour if this <a class="link" href="../cppclass/sgxcolourrgba">SGXColourRGBA</a> is viewed behind a screen with colour c, where c has equal RGB channels as <b>x</b> but a transparency of <b>a</b> between 0 and 255 inclusive, with computation done in linear colour space and returns a reference to this <a class="link" href="../cppclass/sgxcolourrgba">SGXColourRGBA</a> to allow operation chaining.</p>
-<p class="note">The computation proceeds anyways if <b>a</b> is out of bounds, this is NOT <a class="link" href="../tutorials/undefinedbehaviour">undefined behaviour</a>. This can be useful for effects that remove a certain colour.</p>
+<p class="note">The computation proceeds anyways if <b>a</b> is out of bounds. This can be useful for effects that remove a certain colour.</p>
 <p class="note">This does not change the transparency of this <a class="link" href="../cppclass/sgxcolourrgba">SGXColourRGBA</a>.</p>
 <div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
 <h2 class="header" id="SGXColourRGBA_ref_applyTintSeparateTransparencyUsingFloat_SGXColourRGBA_float_"><a class="link" href="sgxcolourrgba">SGXColourRGBA</a>& <a class="link" href="#SGXColourRGBA_ref_applyTintSeparateTransparencyUsingFloat_SGXColourRGBA_float_">applyTintSeparateTransparencyUsingFloat</a>(<a class="link" href="sgxcolourrgba">SGXColourRGBA</a> x, float a);</h2>
 <p class="description">Sets this <a class="link" href="../cppclass/sgxcolourrgba">SGXColourRGBA</a> to the resulting colour if this <a class="link" href="../cppclass/sgxcolourrgba">SGXColourRGBA</a> is viewed behind a screen with colour c, where c has equal RGB channels as <b>x</b> but a transparency of <b>a</b> between 0 and 1 inclusive, with computation done in linear colour space and returns a reference to this <a class="link" href="../cppclass/sgxcolourrgba">SGXColourRGBA</a> to allow operation chaining.</p>
-<p class="note">The computation proceeds anyways if <b>a</b> is out of bounds, this is NOT <a class="link" href="../tutorials/undefinedbehaviour">undefined behaviour</a>. This can be useful for effects that remove a certain colour.</p>
+<p class="note">The computation proceeds anyways if <b>a</b> is out of bounds. This can be useful for effects that remove a certain colour.</p>
 <p class="note">This does not change the transparency of this <a class="link" href="../cppclass/sgxcolourrgba">SGXColourRGBA</a>.</p>
 <div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
 <h2 class="header" id="void_gammaCorrectBegin_float_ref_float_ref_float_ref_const_">void <a class="link" href="#void_gammaCorrectBegin_float_ref_float_ref_float_ref_const_">gammaCorrectBegin</a>(float& r, float& g, float& b) const;</h2>
@@ -369,6 +370,7 @@ window.addEventListener("hashchange", highlightSection);
 <div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
 <h2 class="header" id="void_gammaCorrectEnd_float_float_float_">void <a class="link" href="#void_gammaCorrectEnd_float_float_float_">gammaCorrectEnd</a>(float r, float g, float b);</h2>
 <p class="description">Converts the RGB values <b>r</b>, <b>g</b>, <b>b</b> in linear colour space back into the <a class="link" href="../cppclass/sgxcolourrgba">SGXColourRGBA</a> colour space and apply them to this <a class="link" href="../cppclass/sgxcolourrgba">SGXColourRGBA</a>.</p>
+<p class="note">If the any component is out of bounds, it is corrected automatically.</p>
 <div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
 <h2 class="header" id="nodiscard_int_getBlue_func_const_">[[nodiscard]] int <a class="link" href="#nodiscard_int_getBlue_func_const_">getBlue</a>() const;</h2>
 <p class="description">Returns the blue component of this <a class="link" href="../cppclass/sgxcolourrgba">SGXColourRGBA</a> as a int between 0 and 255 inclusive.</p>
@@ -417,12 +419,12 @@ window.addEventListener("hashchange", highlightSection);
 <div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
 <h2 class="header" id="nodiscard_SGXColourRGBA_linearInterpolate_SGXColourRGBA_float_const_">[[nodiscard]] <a class="link" href="sgxcolourrgba">SGXColourRGBA</a> <a class="link" href="#nodiscard_SGXColourRGBA_linearInterpolate_SGXColourRGBA_float_const_">linearInterpolate</a>(<a class="link" href="sgxcolourrgba">SGXColourRGBA</a> x, float f) const;</h2>
 <p class="description">Returns the resulting colour if <b>f</b> of this <a class="link" href="../cppclass/sgxcolourrgba">SGXColourRGBA</a> is mixed with (1 - <b>f</b>) of <b>x</b>, where <b>f</b> is between 0 and 1 inclusive.</p>
-<p class="note">The computation proceeds anyways if <b>f</b> is out of bounds, this is NOT <a class="link" href="../tutorials/undefinedbehaviour">undefined behaviour</a>. This can be useful for effects that remove a certain colour.</p>
+<p class="note">The computation proceeds anyways if <b>f</b> is out of bounds. This can be useful for effects that remove a certain colour.</p>
 <p class="note">The returned colour has the same transparency as this <a class="link" href="../cppclass/sgxcolourrgba">SGXColourRGBA</a>.</p>
 <div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
 <h2 class="header" id="nodiscard_SGXColourRGBA_linearInterpolateGammaCorrection_SGXColourRGBA_float_const_">[[nodiscard]] <a class="link" href="sgxcolourrgba">SGXColourRGBA</a> <a class="link" href="#nodiscard_SGXColourRGBA_linearInterpolateGammaCorrection_SGXColourRGBA_float_const_">linearInterpolateGammaCorrection</a>(<a class="link" href="sgxcolourrgba">SGXColourRGBA</a> x, float f) const;</h2>
 <p class="description">Returns the resulting colour if <b>f</b> of this <a class="link" href="../cppclass/sgxcolourrgba">SGXColourRGBA</a> is mixed with (1 - <b>f</b>) of <b>x</b>, where <b>f</b> is between 0 and 1 inclusive, computation done in linear colour space.</p>
-<p class="note">The computation proceeds anyways if <b>f</b> is out of bounds, this is NOT <a class="link" href="../tutorials/undefinedbehaviour">undefined behaviour</a>. This can be useful for effects that remove a certain colour.</p>
+<p class="note">The computation proceeds anyways if <b>f</b> is out of bounds. This can be useful for effects that remove a certain colour.</p>
 <p class="note">The returned colour has the same transparency as this <a class="link" href="../cppclass/sgxcolourrgba">SGXColourRGBA</a>.</p>
 <div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
 <h2 class="header" id="SGXColourRGBA_ref_linearTransformBlue_float_float_"><a class="link" href="sgxcolourrgba">SGXColourRGBA</a>& <a class="link" href="#SGXColourRGBA_ref_linearTransformBlue_float_float_">linearTransformBlue</a>(float m, float c);</h2>
@@ -464,6 +466,11 @@ window.addEventListener("hashchange", highlightSection);
 <div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
 <h2 class="header" id="nodiscard_bool_operator_gt_SGXColourRGBA_const_">[[nodiscard]] bool <a class="link" href="#nodiscard_bool_operator_gt_SGXColourRGBA_const_">operator›</a>(<a class="link" href="sgxcolourrgba">SGXColourRGBA</a> x) const;</h2>
 <p class="description">More than operator with <b>x</b> defined for <a class="link" href="../cppclass/sgllesserthan">SGLLesserThan</a> and <a class="link" href="../cppclass/sglmorethan">SGLMoreThan</a>.</p>
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<h2 class="header" id="nodiscard_float_relativeContrast_func_const_">[[nodiscard]] float <a class="link" href="#nodiscard_float_relativeContrast_func_const_">relativeContrast</a>() const;</h2>
+<p class="description">Returns the contrast value of this <a class="link" href="../cppclass/sgxcolourrgba">SGXColourRGBA</a>. Text and background in any UI element must have a contrast difference of at least 1 to be compatible with WCAG AA.</p>
+<p class="note">This is not the WCAG contrast ratio.</p>
+<p class="note">For WCAG AAA compatibility, a contrast difference of 1.3 is required</p>
 <div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
 <h2 class="header" id="SGXColourRGBA_ref_setBlue_int_"><a class="link" href="sgxcolourrgba">SGXColourRGBA</a>& <a class="link" href="#SGXColourRGBA_ref_setBlue_int_">setBlue</a>(int b);</h2>
 <p class="description">Sets the blue component of this <a class="link" href="../cppclass/sgxcolourrgba">SGXColourRGBA</a> to <b>b</b> and returns a reference to this <a class="link" href="../cppclass/sgxcolourrgba">SGXColourRGBA</a> to allow operation chaining.</p>

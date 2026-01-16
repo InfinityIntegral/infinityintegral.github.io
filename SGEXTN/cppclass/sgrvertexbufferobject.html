@@ -269,8 +269,8 @@ window.addEventListener("hashchange", highlightSection);
 <div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
 <h2 class="header" id="SGRVertexBufferObject_SGRBaseRenderer_ptr_int_"><a class="link" href="#SGRVertexBufferObject_SGRBaseRenderer_ptr_int_">SGRVertexBufferObject</a>(<a class="link" href="sgrbaserenderer">SGRBaseRenderer</a>* renderControl, int bufferSize);</h2>
 <p class="description">Creates a <a class="link" href="../cppclass/sgrvertexbufferobject">SGRVertexBufferObject</a> with a size of <b>bufferSize</b> bytes associated to the <a class="link" href="../tutorials/renderer">SG - RI ⁽㈳㈴㈳㈮㈱㈨㈠㈫ ㈧㈤㈱㈤⁾</a> renderer <b>renderControl</b>.</p>
-<p class="warning">Negative <b>bufferSize</b> is <a class="link" href="../tutorials/undefinedbehaviour">undefined behaviour</a>.</p>
-<p class="warning">Passing nullptr to <b>renderControl</b> is <a class="link" href="../tutorials/undefinedbehaviour">undefined behaviour</a>.</p>
+<p class="warning">Negative <b>bufferSize</b> will crash.</p>
+<p class="warning">Passing nullptr to <b>renderControl</b> will crash.</p>
 <div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
 <p class="description"></p>
 

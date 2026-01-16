@@ -300,6 +300,7 @@ window.addEventListener("hashchange", highlightSection);
 <p class="description">&#9;[[nodiscard]] int <a class="link" href="#nodiscard_int_getForegroundThemeColour_bool_ptr_const_">getForegroundThemeColour</a>(bool* isUsing) const;</p>
 <p class="description">&#9;[[nodiscard]] SGWHorizontalAlignment::Flag <a class="link" href="#nodiscard_SGWHorizontalAlignment_mc_Flag_getHorizontalAlignment_func_const_">getHorizontalAlignment</a>() const;</p>
 <p class="description">&#9;[[nodiscard]] bool <a class="link" href="#nodiscard_bool_getInvalid_func_const_">getInvalid</a>() const;</p>
+<p class="description">&#9;[[nodiscard]] <a class="link" href="sgxstring">SGXString</a> <a class="link" href="#nodiscard_SGXString_getPlaceholderText_func_const_">getPlaceholderText</a>() const;</p>
 <p class="description">&#9;[[nodiscard]] float <a class="link" href="#nodiscard_float_getTextAsFloat_bool_ptr_float_float_const_">getTextAsFloat</a>(bool* isValid, float minimum, float maximum) const;</p>
 <p class="description">&#9;[[nodiscard]] int <a class="link" href="#nodiscard_int_getTextAsInt_bool_ptr_int_int_const_">getTextAsInt</a>(bool* isValid, int minimum, int maximum) const;</p>
 <p class="description">&#9;[[nodiscard]] <a class="link" href="sgxstring">SGXString</a> <a class="link" href="#nodiscard_SGXString_getTextAsString_func_const_">getTextAsString</a>() const;</p>
@@ -329,6 +330,7 @@ window.addEventListener("hashchange", highlightSection);
 <p class="description">&#9;void <a class="link" href="#void_setForegroundThemeColour_int_">setForegroundThemeColour</a>(int themeColour);</p>
 <p class="description">&#9;void <a class="link" href="#void_setHorizontalAlignment_SGWHorizontalAlignment_mc_Flag_">setHorizontalAlignment</a>(SGWHorizontalAlignment::Flag alignment);</p>
 <p class="description">&#9;void <a class="link" href="#void_setInvalid_bool_">setInvalid</a>(bool invalid);</p>
+<p class="description">&#9;void <a class="link" href="#void_setPlaceholderText_const_SGXString_ref_">setPlaceholderText</a>(const <a class="link" href="sgxstring">SGXString</a>& s);</p>
 <p class="description">&#9;void <a class="link" href="#void_setTextFromFloat_float_">setTextFromFloat</a>(float x);</p>
 <p class="description">&#9;void <a class="link" href="#void_setTextFromInt_int_">setTextFromInt</a>(int x);</p>
 <p class="description">&#9;void <a class="link" href="#void_setTextFromString_const_SGXString_ref_">setTextFromString</a>(const <a class="link" href="sgxstring">SGXString</a>& s);</p>
@@ -479,6 +481,9 @@ window.addEventListener("hashchange", highlightSection);
 <h2 class="header" id="nodiscard_bool_getInvalid_func_const_">[[nodiscard]] bool <a class="link" href="#nodiscard_bool_getInvalid_func_const_">getInvalid</a>() const;</h2>
 <p class="description">Returns if the <a class="link" href="../cppclass/sgwinput">SGWInput</a> is currently set to invalid.</p>
 <div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<h2 class="header" id="nodiscard_SGXString_getPlaceholderText_func_const_">[[nodiscard]] <a class="link" href="sgxstring">SGXString</a> <a class="link" href="#nodiscard_SGXString_getPlaceholderText_func_const_">getPlaceholderText</a>() const;</h2>
+<p class="description">Returns the current placeholder text used by this <a class="link" href="../cppclass/sgwinput">SGWInput</a>.</p>
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
 <h2 class="header" id="nodiscard_float_getTextAsFloat_bool_ptr_float_float_const_">[[nodiscard]] float <a class="link" href="#nodiscard_float_getTextAsFloat_bool_ptr_float_float_const_">getTextAsFloat</a>(bool* isValid, float minimum, float maximum) const;</h2>
 <p class="description">Returns the text displayed in the <a class="link" href="../cppclass/sgwinput">SGWInput</a> as a number between <b>minimum</b> and <b>maximum</b> inclusive. If the text does not represent a number or if it is out of bounds, <b>isValid</b> is set to false and 0 is returned, otherwise <b>isValid</b> is set to true.</p>
 <p class="note">Pass nullptr to <b>isValid</b> if you are not interested if the text represents a number and the integer is in bounds.</p>
@@ -533,6 +538,7 @@ window.addEventListener("hashchange", highlightSection);
 <div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
 <h2 class="header" id="void_setFont_const_SGXString_ref_">void <a class="link" href="#void_setFont_const_SGXString_ref_">setFont</a>(const <a class="link" href="sgxstring">SGXString</a>& font);</h2>
 <p class="description">Sets the <a class="link" href="../cppclass/sgwinput">SGWInput</a> to use <b>font</b> to display text.</p>
+<p class="warning">If <b>font</b> is not a valid font, this is <a class="link" href="../tutorials/undefinedbehaviour">undefined behaviour</a>.</p>
 <div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
 <h2 class="header" id="void_setForegroundColour_SGXColourRGBA_">void <a class="link" href="#void_setForegroundColour_SGXColourRGBA_">setForegroundColour</a>(<a class="link" href="sgxcolourrgba">SGXColourRGBA</a> colour);</h2>
 <p class="description">Sets the <a class="link" href="../cppclass/sgxcolourrgba">SGXColourRGBA</a> of the foreground of this <a class="link" href="../cppclass/sgwinput">SGWInput</a> to <b>colour</b> and turns off <a class="link" href="../tutorials/themecolour">theme colour ⁽㈳㈴㈳㈮㈱㈨㈠㈫ ㈧㈤㈱㈤⁾</a> mode.</p>
@@ -569,6 +575,9 @@ window.addEventListener("hashchange", highlightSection);
 <div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
 <h2 class="header" id="void_setInvalid_bool_">void <a class="link" href="#void_setInvalid_bool_">setInvalid</a>(bool invalid);</h2>
 <p class="description">If <b>invalid</b> is true, set the <a class="link" href="../cppclass/sgwinput">SGWInput</a> to invalid, otherwise set the <a class="link" href="../cppclass/sgwinput">SGWInput</a> to not invalid.</p>
+<div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
+<h2 class="header" id="void_setPlaceholderText_const_SGXString_ref_">void <a class="link" href="#void_setPlaceholderText_const_SGXString_ref_">setPlaceholderText</a>(const <a class="link" href="sgxstring">SGXString</a>& s);</h2>
+<p class="description">Sets the placeholder text for the <a class="link" href="../cppclass/sgwinput">SGWInput</a> to <b>s</b>.</p>
 <div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
 <h2 class="header" id="void_setTextFromFloat_float_">void <a class="link" href="#void_setTextFromFloat_float_">setTextFromFloat</a>(float x);</h2>
 <p class="description">Sets the text currently displayed in the <a class="link" href="../cppclass/sgwinput">SGWInput</a> to the string representation of <b>x</b>.</p>

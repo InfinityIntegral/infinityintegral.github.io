@@ -285,8 +285,8 @@ window.addEventListener("hashchange", highlightSection);
 <p class="description">Creates and starts a <a class="link" href="../cppclass/sgxtimer">SGXTimer</a> running <b>attachedFunction</b> every <b>t</b> seconds.</p>
 <p class="note">Pass 0 to <b>t</b> to run <b>attachedFunction</b> on every frame, this may significantly increase power consumption of your application.</p>
 <p class="note">The timer is automatically started upon creation.</p>
-<p class="warning"><b>attachedFunction</b> being nullptr is <a class="link" href="../tutorials/undefinedbehaviour">undefined behaviour</a>.</p>
-<p class="warning"><b>t</b> being negative is <a class="link" href="../tutorials/undefinedbehaviour">undefined behaviour</a>.</p>
+<p class="warning"><b>attachedFunction</b> being nullptr will crash.</p>
+<p class="warning"><b>t</b> being negative will crash.</p>
 <p class="warning">Directly deleting a <a class="link" href="../cppclass/sgxtimer">SGXTimer</a> will crash as not preventing it would lead to a use after free bug.</p>
 <div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
 <h2 class="header" id="void_deleteTimer_func_">void <a class="link" href="#void_deleteTimer_func_">deleteTimer</a>();</h2>
@@ -305,8 +305,8 @@ window.addEventListener("hashchange", highlightSection);
 <p class="description">Runs <b>attachedFunction</b> after <b>t</b> seconds once without repeating it.</p>
 <p class="note">Pass 0 to <b>t</b> to run <b>attachedFunction</b> immediately after this frame.</p>
 <p class="note">The <a class="link" href="../cppclass/sgxtimer">SGXTimer</a> object controlling this is not exposed, so you cannot stop or restart this timer.</p>
-<p class="warning"><b>attachedFunction</b> being nullptr is <a class="link" href="../tutorials/undefinedbehaviour">undefined behaviour</a>.</p>
-<p class="warning"><b>t</b> being negative is <a class="link" href="../tutorials/undefinedbehaviour">undefined behaviour</a>.</p>
+<p class="warning"><b>attachedFunction</b> being nullptr will crash.</p>
+<p class="warning"><b>t</b> being negative will crash.</p>
 <div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
 <p class="description"></p>
 

@@ -297,7 +297,7 @@ window.addEventListener("hashchange", highlightSection);
 <p class="note">If no <b>resetFunction</b> is needed, pass nullptr to it.</p>
 <p class="note">This hides all other UI pages to ensure that keyboard focus (pressing tab) works as expected.</p>
 <p class="warning">Forgetting to return a valid <a class="link" href="../cppclass/sgwbackground">SGWBackground</a> in <b>initFunction</b> is <a class="link" href="../tutorials/undefinedbehaviour">undefined behaviour</a>.</p>
-<p class="warning">Passing nullptr to <b>initFunction</b> is <a class="link" href="../tutorials/undefinedbehaviour">undefined behaviour</a>.</p>
+<p class="warning">Passing nullptr to <b>initFunction</b> will crash.</p>
 <p class="warning">If <b>thisPointer</b> is not nullptr when the function is called, it is assumed that the UI page is already on so nothing is done. If the UI page was previously turned off using <a class="link" href="../cppclass/sgwbackground#static_void_disable_SGWBackground_ptr_ref_">SGWBackground::disable</a>, this is not a concern.</p>
 <div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
 <p class="description"></p>

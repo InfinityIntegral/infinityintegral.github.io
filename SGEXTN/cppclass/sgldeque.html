@@ -289,31 +289,31 @@ window.addEventListener("hashchange", highlightSection);
 <h2 class="header" id="SGLDeque_int_"><a class="link" href="#SGLDeque_int_">SGLDeque</a>(int count);</h2>
 <p class="description">Creates a <a class="link" href="../cppclass/sgldeque">SGLDeque</a> containing <b>count</b> elements which are default initialised.</p>
 <p class="warning">The type stored in the <a class="link" href="../cppclass/sgldeque">SGLDeque</a> must have a default constructor (the one taking no arguments) for this to compile.</p>
-<p class="warning">You must ensure that <b>count</b> is nonnegative. Negative <b>count</b> results in <a class="link" href="../tutorials/undefinedbehaviour">undefined behaviour</a>.</p>
+<p class="warning">You must ensure that <b>count</b> is nonnegative. Negative <b>count</b> will crash.</p>
 <div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
 <h2 class="header" id="SGLDeque_int_const_T_ref_"><a class="link" href="#SGLDeque_int_const_T_ref_">SGLDeque</a>(int count, const T& defaultValue);</h2>
 <p class="description">Creates a <a class="link" href="../cppclass/sgldeque">SGLDeque</a> containing <b>count</b> copies of <b>defaultValue</b>.</p>
-<p class="warning">You must ensure that <b>count</b> is nonnegative. Negative <b>count</b> results in <a class="link" href="../tutorials/undefinedbehaviour">undefined behaviour</a>.</p>
+<p class="warning">You must ensure that <b>count</b> is nonnegative. Negative <b>count</b> will crash.</p>
 <div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
 <h2 class="header" id="void_assign_int_const_T_ref_">void <a class="link" href="#void_assign_int_const_T_ref_">assign</a>(int count, const T& defaultValue);</h2>
 <p class="description">Resets the <a class="link" href="../cppclass/sgldeque">SGLDeque</a> to have <b>count</b> copies of <b>defaultValue</b>.</p>
 <p class="description">dq.assign(<b>count</b>, <b>defaultValue</b>); is functionally identical to dq = <a class="link" href="../cppclass/sgldeque">SGLDeque</a>‹T›(<b>count</b>, <b>defaultValue</b>);</p>
-<p class="warning">You must ensure that <b>count</b> is nonnegative. Negative <b>count</b> results in <a class="link" href="../tutorials/undefinedbehaviour">undefined behaviour</a>.</p>
+<p class="warning">You must ensure that <b>count</b> is nonnegative. Negative <b>count</b> will crash.</p>
 <div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
 <h2 class="header" id="nodiscard_const_T_ref_at_int_const_">[[nodiscard]] const T& <a class="link" href="#nodiscard_const_T_ref_at_int_const_">at</a>(int i) const;</h2>
 <p class="description">Returns a constant reference to element <b>i</b> of the <a class="link" href="../cppclass/sgldeque">SGLDeque</a>.</p>
-<p class="warning">This crashes for out of bounds <b>i</b>.</p>
+<p class="warning">This will crash for out of bounds <b>i</b>.</p>
 <div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
 <h2 class="header" id="nodiscard_T_ref_at_int_">[[nodiscard]] T& <a class="link" href="#nodiscard_T_ref_at_int_">at</a>(int i);</h2>
 <p class="description">Returns a reference to element <b>i</b> of the <a class="link" href="../cppclass/sgldeque">SGLDeque</a>.</p>
 <p class="note">Since this returns a reference and not a copy, assigning to it directly (using it as a lvalue) would modify the <a class="link" href="../cppclass/sgldeque">SGLDeque</a>.</p>
-<p class="warning">This crashes for out of bounds <b>i</b>.</p>
+<p class="warning">This will crash for out of bounds <b>i</b>.</p>
 <div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
 <h2 class="header" id="nodiscard_const_T_ref_back_func_const_">[[nodiscard]] const T& <a class="link" href="#nodiscard_const_T_ref_back_func_const_">back</a>() const;</h2>
 <p class="description">Returns a constant reference to the last element of <a class="link" href="../cppclass/sgldeque">SGLDeque</a>.</p>
 <p class="note">dq.back() has the same effect as dq.at(dq.length() - 1)</p>
 <p class="note">Use <a class="link" href="../cppclass/sgldeque#nodiscard_const_T_ref_at_int_const_">SGLDeque::at</a><a class="link" href="../cppclass/sgldeque#nodiscard_T_ref_at_int_">SGLDeque::at</a> if the element needs to be modified.</p>
-<p class="warning">If the <a class="link" href="../cppclass/sgldeque">SGLDeque</a> has a size of 0, accessing <a class="link" href="../cppclass/sgldeque#nodiscard_const_T_ref_back_func_const_">SGLDeque::back</a> is <a class="link" href="../tutorials/undefinedbehaviour">undefined behaviour</a>.</p>
+<p class="warning">If the <a class="link" href="../cppclass/sgldeque">SGLDeque</a> has a size of 0, this will crash.</p>
 <div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
 <h2 class="header" id="void_fill_const_T_ref_">void <a class="link" href="#void_fill_const_T_ref_">fill</a>(const T& defaultValue);</h2>
 <p class="description">Sets every element in the <a class="link" href="../cppclass/sgldeque">SGLDeque</a> to <b>defaultValue</b>. This does not resize the <a class="link" href="../cppclass/sgldeque">SGLDeque</a>.</p>
@@ -323,7 +323,7 @@ window.addEventListener("hashchange", highlightSection);
 <p class="description">Returns a constant reference to the first element of <a class="link" href="../cppclass/sgldeque">SGLDeque</a>.</p>
 <p class="note">dq.front() has the same effect as dq.at(0)</p>
 <p class="note">Use <a class="link" href="../cppclass/sgldeque#nodiscard_const_T_ref_at_int_const_">SGLDeque::at</a><a class="link" href="../cppclass/sgldeque#nodiscard_T_ref_at_int_">SGLDeque::at</a> if the element needs to be modified.</p>
-<p class="warning">If the <a class="link" href="../cppclass/sgldeque">SGLDeque</a> has a size of 0, accessing <a class="link" href="../cppclass/sgldeque#nodiscard_const_T_ref_front_func_const_">SGLDeque::front</a> is <a class="link" href="../tutorials/undefinedbehaviour">undefined behaviour</a>.</p>
+<p class="warning">If the <a class="link" href="../cppclass/sgldeque">SGLDeque</a> has a size of 0, this will crash.</p>
 <div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
 <h2 class="header" id="nodiscard_int_length_func_const_">[[nodiscard]] int <a class="link" href="#nodiscard_int_length_func_const_">length</a>() const;</h2>
 <p class="description">Returns the length of the <a class="link" href="../cppclass/sgldeque">SGLDeque</a>, which is the number of elements currently stored inside it.</p>
@@ -345,13 +345,13 @@ window.addEventListener("hashchange", highlightSection);
 <p class="description">Removes the last element of the <a class="link" href="../cppclass/sgldeque">SGLDeque</a>.</p>
 <p class="note">This runs in truly constant time.</p>
 <p class="note">This does not return the last element. If you need the last element, access it with <a class="link" href="../cppclass/sgldeque#nodiscard_const_T_ref_back_func_const_">SGLDeque::back</a> before running this.</p>
-<p class="warning">Running <a class="link" href="../cppclass/sgldeque#void_popBack_func_">SGLDeque::popBack</a> on an empty <a class="link" href="../cppclass/sgldeque">SGLDeque</a> is <a class="link" href="../tutorials/undefinedbehaviour">undefined behaviour</a>.</p>
+<p class="warning">Running <a class="link" href="../cppclass/sgldeque#void_popBack_func_">SGLDeque::popBack</a> on an empty <a class="link" href="../cppclass/sgldeque">SGLDeque</a> will crash.</p>
 <div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
 <h2 class="header" id="void_popFront_func_">void <a class="link" href="#void_popFront_func_">popFront</a>();</h2>
 <p class="description">Removes the first element of the <a class="link" href="../cppclass/sgldeque">SGLDeque</a>.</p>
 <p class="note">This runs in truly constant time.</p>
 <p class="note">This does not return the first element. If you need the first element, access it with <a class="link" href="../cppclass/sgldeque#nodiscard_const_T_ref_front_func_const_">SGLDeque::front</a> before running this.</p>
-<p class="warning">Running <a class="link" href="../cppclass/sgldeque#void_popFront_func_">SGLDeque::popFront</a> on an empty <a class="link" href="../cppclass/sgldeque">SGLDeque</a> is <a class="link" href="../tutorials/undefinedbehaviour">undefined behaviour</a>.</p>
+<p class="warning">Running <a class="link" href="../cppclass/sgldeque#void_popFront_func_">SGLDeque::popFront</a> on an empty <a class="link" href="../cppclass/sgldeque">SGLDeque</a> will crash.</p>
 <div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
 <h2 class="header" id="void_pushBack_const_T_ref_">void <a class="link" href="#void_pushBack_const_T_ref_">pushBack</a>(const T& x);</h2>
 <p class="description">Appends <b>x</b> at the end of the <a class="link" href="../cppclass/sgldeque">SGLDeque</a>.</p>

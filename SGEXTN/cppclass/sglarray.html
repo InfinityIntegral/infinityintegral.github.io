@@ -278,7 +278,7 @@ window.addEventListener("hashchange", highlightSection);
 <div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
 <h2 class="header" id="SGLArray_int_const_T_ref_"><a class="link" href="#SGLArray_int_const_T_ref_">SGLArray</a>(int count, const T& defaultValue);</h2>
 <p class="description">Creates a <a class="link" href="../cppclass/sglarray">SGLArray</a> of size <b>count</b>, with every element initialised to <b>defaultValue</b>.</p>
-<p class="warning">You must ensure that <b>count</b> is nonnegative. Negative <b>count</b> results in <a class="link" href="../tutorials/undefinedbehaviour">undefined behaviour</a>.</p>
+<p class="warning">You must ensure that <b>count</b> is nonnegative. Negative <b>count</b> will crash.</p>
 <div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
 <h2 class="header" id="SGLArray_Ts_"><a class="link" href="#SGLArray_Ts_">SGLArray</a>(Ts... data);</h2>
 <p class="description"><a class="link" href="../cppclass/sglarray">SGLArray</a> does not support initialisation using initialiser lists. This is the closest that you can get to using a initialiser list.</p>
@@ -290,21 +290,21 @@ window.addEventListener("hashchange", highlightSection);
 <h2 class="header" id="SGLArray_int_"><a class="link" href="#SGLArray_int_">SGLArray</a>(int count);</h2>
 <p class="description">Creates a <a class="link" href="../cppclass/sglarray">SGLArray</a> of size <b>count</b>, with every element default initialised.</p>
 <p class="warning">The type stored in the <a class="link" href="../cppclass/sglarray">SGLArray</a> must have a default constructor (the one taking no arguments) for this to compile.</p>
-<p class="warning">You must ensure that <b>count</b> is nonnegative. Negative <b>count</b> results in <a class="link" href="../tutorials/undefinedbehaviour">undefined behaviour</a>.</p>
+<p class="warning">You must ensure that <b>count</b> is nonnegative. Negative <b>count</b> will crash.</p>
 <div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
 <h2 class="header" id="void_assign_int_const_T_ref_">void <a class="link" href="#void_assign_int_const_T_ref_">assign</a>(int count, const T& defaultValue);</h2>
 <p class="description">Assigns a <a class="link" href="../cppclass/sglarray">SGLArray</a>(<b>count</b>, <b>defaultValue</b>) to this <a class="link" href="../cppclass/sglarray">SGLArray</a>.</p>
 <p class="note">arr.assign(<b>count</b>, <b>defaultValue</b>); is identical in functionality to arr = <a class="link" href="../cppclass/sglarray">SGLArray</a>‹T›(<b>count</b>, <b>defaultValue</b>); Choosing one over the other is purely coding style.</p>
-<p class="warning">You must ensure that <b>count</b> is nonnegative. Negative <b>count</b> results in <a class="link" href="../tutorials/undefinedbehaviour">undefined behaviour</a>.</p>
+<p class="warning">You must ensure that <b>count</b> is nonnegative. Negative <b>count</b> will crash.</p>
 <div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
 <h2 class="header" id="nodiscard_const_T_ref_at_int_const_">[[nodiscard]] const T& <a class="link" href="#nodiscard_const_T_ref_at_int_const_">at</a>(int i) const;</h2>
 <p class="description">Returns a constant reference to element <b>i</b> of the <a class="link" href="../cppclass/sglarray">SGLArray</a>.</p>
-<p class="warning">This crashes for out of bounds <b>i</b>.</p>
+<p class="warning">This will crash for out of bounds <b>i</b>.</p>
 <div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
 <h2 class="header" id="nodiscard_T_ref_at_int_">[[nodiscard]] T& <a class="link" href="#nodiscard_T_ref_at_int_">at</a>(int i);</h2>
 <p class="description">Returns a reference to element <b>i</b> of the <a class="link" href="../cppclass/sglarray">SGLArray</a>.</p>
 <p class="note">Since this returns a reference and not a copy, assigning to it directly (using it as a lvalue) would modify the <a class="link" href="../cppclass/sglarray">SGLArray</a>.</p>
-<p class="warning">This crashes for out of bounds <b>i</b>.</p>
+<p class="warning">This will crash for out of bounds <b>i</b>.</p>
 <div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
 <h2 class="header" id="void_fill_const_T_ref_">void <a class="link" href="#void_fill_const_T_ref_">fill</a>(const T& defaultValue);</h2>
 <p class="description">Sets every element in the existing <a class="link" href="../cppclass/sglarray">SGLArray</a> to <b>defaultValue</b> without resizing the <a class="link" href="../cppclass/sglarray">SGLArray</a>.</p>

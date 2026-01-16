@@ -274,7 +274,8 @@ window.addEventListener("hashchange", highlightSection);
 <p class="note">The <a class="link" href="../cppclass/sgrrendererwidget">SGRRendererWidget</a> owns the renderer and syncer, they do not need to be deleted manually.</p>
 <p class="note">Keep references to the <a class="link" href="../tutorials/renderer">SG - RI ⁽㈳㈴㈳㈮㈱㈨㈠㈫ ㈧㈤㈱㈤⁾</a> renderer and syncer elsewhere in your code since they cannot be accessed using public API provided by <a class="link" href="../cppclass/sgrrendererwidget">SGRRendererWidget</a>.</p>
 <p class="warning"><b>parent</b> being nullptr is <a class="link" href="../tutorials/undefinedbehaviour">undefined behaviour</a>.</p>
-<p class="warning"><b>renderControl</b> being nullptr is <a class="link" href="../tutorials/undefinedbehaviour">undefined behaviour</a>.</p>
+<p class="warning"><b>renderControl</b> being nullptr will crash.</p>
+<p class="warning">To avoid use after free bugs, deleting a <a class="link" href="../cppclass/sgwwidget">SGWWidget</a> directly will cause a crash. Use <a class="link" href="../cppclass/sgwwidget#void_deleteWidget_func_">SGWWidget::deleteWidget</a> to delete it safely.</p>
 <div style="width: 100%; height: 1.75rem; background-color: var(--c8);"></div>
 <h2 class="header" id="void_updateCustomRenderer_func_const_">void <a class="link" href="#void_updateCustomRenderer_func_const_">updateCustomRenderer</a>() const;</h2>
 <p class="description">Calls for the <a class="link" href="../cppclass/sgrrendererwidget">SGRRendererWidget</a> to be redrawn. The <a class="link" href="../cppclass/sgrrendererwidget">SGRRendererWidget</a> will not be redrawn until this is called due to Qt Quick's power usage optimisations.</p>
